@@ -1,0 +1,121 @@
+# AI Dungeon Master Configuration
+# Copy this file to config.yml and customize for your environment
+
+# AI Configuration
+ai:
+  # Primary AI provider (openai, anthropic, or both)
+  primary_provider: "openai"
+  
+  # OpenAI Settings
+  openai:
+    model: "gpt-4"
+    temperature: 0.7
+    max_tokens: 2000
+    
+  # Anthropic Settings  
+  anthropic:
+    model: "claude-3-sonnet-20240229"
+    temperature: 0.7
+    max_tokens: 2000
+    
+  # AI Behavior Settings
+  storytelling:
+    creativity_level: 0.8
+    response_length: "medium"  # short, medium, long
+    narrative_style: "descriptive"  # descriptive, action, dialogue
+    
+# Game Settings
+game:
+  # Default RPG system
+  default_system: "dnd5e"
+  
+  # Supported systems
+  supported_systems:
+    - "dnd5e"
+    - "pathfinder"
+    - "custom"
+    
+  # Campaign limits
+  max_players: 6
+  max_campaigns: 10
+  session_timeout: 3600  # seconds
+  
+  # Dice rolling
+  dice:
+    allow_custom: true
+    max_dice: 100
+    max_sides: 1000
+
+# Database Configuration
+database:
+  type: "sqlite"  # sqlite, postgresql, mysql
+  path: "data/ai_dm.db"  # for sqlite
+  # For other databases:
+  # host: "localhost"
+  # port: 5432
+  # name: "ai_dungeon_master"
+  # username: "dm_user"
+  # password: "password"
+
+# Web Server Configuration
+web:
+  host: "0.0.0.0"
+  port: 5000
+  debug: true
+  cors_origins: ["*"]
+  
+  # Static file settings
+  static_folder: "static"
+  template_folder: "templates"
+  
+  # Session settings
+  session_permanent: false
+  permanent_session_lifetime: 1800  # 30 minutes
+
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "logs/ai_dm.log"
+  max_file_size: "10MB"
+  backup_count: 5
+  
+  # Log formats
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  date_format: "%Y-%m-%d %H:%M:%S"
+
+# Security Settings
+security:
+  secret_key: "your-secret-key-here"
+  password_hashing: "bcrypt"
+  session_protection: "strong"
+  
+  # API rate limiting
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 60
+    
+# Feature Flags
+features:
+  voice_support: false
+  image_generation: false
+  advanced_ai: true
+  real_time_collaboration: true
+  character_portraits: false
+  
+# External Services (optional)
+external:
+  # Text-to-speech service
+  tts:
+    enabled: false
+    provider: "google"  # google, azure, aws
+    
+  # Image generation
+  image_gen:
+    enabled: false
+    provider: "openai"  # openai, stability
+    
+# Development Settings
+development:
+  auto_reload: true
+  show_debugger: true
+  profiling: false

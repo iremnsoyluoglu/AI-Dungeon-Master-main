@@ -1,0 +1,16 @@
+2025-07-03 13:54:34,716 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-03 13:54:34,726 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-03 13:54:34,731 - __main__ - INFO - Server starting on port 5000
+2025-07-03 13:54:34,731 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-03 13:54:34,813 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.45:5000
+2025-07-03 13:54:34,814 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-03 13:54:34,815 - werkzeug - INFO -  * Restarting with stat
+2025-07-03 13:54:37,659 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-03 13:54:37,660 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-03 13:54:37,660 - __main__ - INFO - Server starting on port 5000
+2025-07-03 13:54:37,661 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-03 13:54:37,678 - werkzeug - WARNING -  * Debugger is active!
+2025-07-03 13:54:37,714 - werkzeug - INFO -  * Debugger PIN: 137-254-979

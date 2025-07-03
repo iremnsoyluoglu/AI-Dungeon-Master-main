@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Dungeon Master</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background: #1a1a1a;
+        color: #fff;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .welcome {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .status {
+        background: #2a2a2a;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      .actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      button {
+        padding: 10px 20px;
+        background: #0066cc;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #0052a3;
+      }
+      #chat-area {
+        background: #222;
+        padding: 20px;
+        border-radius: 8px;
+        min-height: 200px;
+        margin-top: 30px;
+      }
+      #messages {
+        min-height: 120px;
+        margin-bottom: 10px;
+      }
+      #player-input {
+        width: 80%;
+        padding: 10px;
+        border-radius: 4px;
+        border: none;
+      }
+      #send-btn {
+        padding: 10px 20px;
+        background: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      #send-btn:hover {
+        background: #218838;
+      }
+      #setup-area {
+        background: #222;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 30px;
+      }
+      select,
+      input[type="number"] {
+        padding: 8px;
+        border-radius: 4px;
+        border: none;
+        margin: 0 10px 10px 0;
+      }
+    </style>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="welcome">
+        <h1>🧙‍♂️ AI Dungeon Master</h1>
+        <p>Your intelligent RPG companion</p>
+      </div>
+      <div class="status">
+        <h3>System Status</h3>
+        <p id="status">Initializing...</p>
+      </div>
+      <div id="setup-area">
+        <h3>Oyun Kurulumu</h3>
+        <label
+          >Oyuncu Sayısı:
+          <input
+            type="number"
+            id="player-count"
+            min="1"
+            max="6"
+            value="1" /></label
+        ><br />
+        <label>Campaign Seç:</label>
+        <select id="campaign-select">
+          <option value="zork">Zork</option>
+          <option value="dragon_quest">Dragon Quest</option>
+          <option value="lost_temple">Lost Temple</option>
+          <option value="dark_forest">Dark Forest</option>
+          <option value="space_odyssey">Space Odyssey</option>
+          <option value="pirate_cove">Pirate Cove</option>
+          <option value="ancient_ruins">Ancient Ruins</option>
+          <option value="vampire_castle">Vampire Castle</option>
+          <option value="cyber_city">Cyber City</option>
+          <option value="wizard_tower">Wizard Tower</option></select
+        ><br />
+        <label>Class Seç:</label>
+        <select id="class-select">
+          <option value="warrior">Warrior</option>
+          <option value="mage">Mage</option>
+          <option value="rogue">Rogue</option>
+          <option value="cleric">Cleric</option>
+          <option value="ranger">Ranger</option>
+          <option value="bard">Bard</option></select
+        ><br />
+        <button id="start-game-btn">Oyunu Başlat</button>
+      </div>
+      <div id="character-area" style="display: none">
+        <h3>Karakter Oluşturma</h3>
+        <div id="character-form">
+          <label>Karakter Adı: <input type="text" id="char-name" /></label
+          ><br />
+          <label>Sınıf Seç:</label>
+          <select id="char-class">
+            <option value="warrior">Warrior</option>
+            <option value="mage">Mage</option>
+            <option value="rogue">Rogue</option>
+            <option value="cleric">Cleric</option>
+            <option value="ranger">Ranger</option>
+            <option value="bard">Bard</option></select
+          ><br />
+          <button id="save-char-btn">Karakteri Kaydet</button>
+        </div>
+        <div id="char-progress"></div>
+      </div>
+      <div id="chat-area" style="display: none">
+        <div id="messages"></div>
+        <input
+          type="text"
+          id="player-input"
+          placeholder="Bir aksiyon yazın..."
+        />
+        <button id="send-btn">Gönder</button>
+      </div>
+    </div>
+    <script>
+      // SocketIO bağlantısı
+      const socket = io();
+      const messages = document.getElementById("messages");
+      const input = document.getElementById("player-input");
+      const sendBtn = document.getElementById("send-btn");
+      const setupArea = document.getElementById("setup-area");
+      const chatArea = document.getElementById("chat-area");
+      const startBtn = document.getElementById("start-game-btn");
+      let playerCount = 1;
+      let currentPlayer = 1;
+      let totalPlayers = 1;
+      let selectedCampaign = "";
+      let selectedClass = "";
+      let characters = [];
+      let charStep = 1;
+
+      startBtn.onclick = function () {
+        playerCount =
+          parseInt(document.getElementById("player-count").value) || 1;
+        totalPlayers = playerCount;
+        selectedCampaign = document.getElementById("campaign-select").value;
+        selectedClass = document.getElementById("class-select").value;
+        setupArea.style.display = "none";
+        document.getElementById("character-area").style.display = "block";
+        charStep = 1;
+        characters = [];
+        showCharForm();
+      };
+
+      function showCharForm() {
+        document.getElementById("char-name").value = "";
+        document.getElementById("char-class").value = "warrior";
+        document.getElementById(
+          "char-progress"
+        ).innerText = `Oyuncu ${charStep}/${totalPlayers} karakterini oluşturuyor`;
+      }
+
+      document.getElementById("save-char-btn").onclick = function () {
+        const name = document.getElementById("char-name").value.trim();
+        const charClass = document.getElementById("char-class").value;
+        if (!name) {
+          alert("Karakter adı girin!");
+          return;
+        }
+        characters.push({ name, class: charClass });
+        if (charStep < totalPlayers) {
+          charStep++;
+          showCharForm();
+        } else {
+          // Tüm karakterler oluşturuldu, backend'e gönder
+          fetch("/api/start-campaign", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              player_count: playerCount,
+              campaign: selectedCampaign,
+              characters: characters,
+            }),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              appendMessage("Sistem", data.message || "Oyun başlatıldı!");
+            });
+          document.getElementById("character-area").style.display = "none";
+          chatArea.style.display = "block";
+          appendMessage(
+            "Sistem",
+            `Oyun başlatıldı! Campaign: ${selectedCampaign}, Oyuncular: ${characters
+              .map((c) => c.name + " (" + c.class + ")")
+              .join(", ")}`
+          );
+        }
+      };
+
+      sendBtn.onclick = sendAction;
+      input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") sendAction();
+      });
+
+      function sendAction() {
+        const action = input.value.trim();
+        if (!action) return;
+        appendMessage(`Oyuncu ${currentPlayer}`, action);
+        socket.emit("player_action", {
+          action: action,
+          player_id: `player${currentPlayer}`,
+          campaign: selectedCampaign,
+          player_class: selectedClass,
+        });
+        input.value = "";
+        // Sıradaki oyuncuya geç
+        currentPlayer = (currentPlayer % totalPlayers) + 1;
+        input.placeholder = `Bir aksiyon yazın... (Oyuncu ${currentPlayer} sırada)`;
+      }
+
+      socket.on("dm_response", function (data) {
+        appendMessage("Dungeon Master", data.message);
+      });
+
+      function appendMessage(sender, text) {
+        const div = document.createElement("div");
+        div.innerHTML = `<strong>${sender}:</strong> ${text}`;
+        messages.appendChild(div);
+        messages.scrollTop = messages.scrollHeight;
+      }
+
+      // Check system status
+      fetch("/api/health")
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById(
+            "status"
+          ).textContent = `Status: ${data.status} | Version: ${data.version}`;
+        })
+        .catch((error) => {
+          document.getElementById("status").textContent =
+            "Status: Error connecting to server";
+        });
+    </script>
+  </body>
+</html>
