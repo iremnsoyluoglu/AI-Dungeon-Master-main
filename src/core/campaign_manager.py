@@ -24,6 +24,7 @@ class CampaignManager:
                     "id": "intro",
                     "title": "Krallığın Son Baharı",
                     "description": "Güneşin bile görünmeye çekindiği bir sabah... Gökyüzünde kara bulutlar dönüyor, kuzey dağlarından gelen duman krallığın üzerine bir kefen gibi iniyor. Beş büyük ejderha efendisi, yüz yıllık uykularından uyanıyor. Ve onların en büyüğü, en öfkelisi... Pyraxis... Kızıl Alevin Efendisi... yeniden gökyüzüne yükseliyor. Krallık düşerken, bir umut beliriyor: Sen ve senin gibi seçilmiş birkaç kahraman...",
+                    "background": "/static/images/background.jpg",
                     "choices": [
                         {
                             "id": "continue",
@@ -37,6 +38,7 @@ class CampaignManager:
                     "id": "burned_village",
                     "title": "Yanık Köy",
                     "description": "Alevlerle örtülmüş bir köy. Tahtadan yapılmış evler kül olmuş, hava yanık et ve is kokusuyla dolu. Çığlıklar hâlâ yankılanıyor. Binalar hâlâ çökerken, köylüler sokaklarda panik içinde koşuyor. Ejderha gitmiş... ama korku kalmış.",
+                    "background": "/static/images/background.jpg",
                     "choices": [
                         {
                             "id": "calm_villagers",
@@ -68,6 +70,7 @@ class CampaignManager:
                     "id": "forest_path",
                     "title": "Orman Yolu",
                     "description": "Yolun seni getirdiği orman, sessizliğin içinde bir uğultu taşıyor. Kuşlar susmuş, rüzgâr bile fısıldıyor gibi. Bu doğa değil... büyü. Belki antik, belki lanetli. Ya da seni bir seçim yapmaya zorluyor.",
+                    "background": "/static/images/background.jpg",
                     "choices": [
                         {
                             "id": "follow_sounds",
@@ -99,6 +102,7 @@ class CampaignManager:
                     "id": "new_ally",
                     "title": "Yeni Müttefik",
                     "description": "Cüce savaşçı Borin sana katıldı. Güçlü, cesur ve deneyimli bir dost.",
+                    "background": "/static/images/background.jpg",
                     "choices": [
                         {
                             "id": "continue_with_ally",
@@ -112,6 +116,7 @@ class CampaignManager:
                     "id": "early_fight",
                     "title": "Erken Karşılaşma: Pyraxis",
                     "description": "Dumanın kaynağına yaklaştın. Devasa kanatlarıyla Pyraxis seni bekliyor. Dövüş kaçınılmaz.",
+                    "background": "/static/images/background.jpg",
                     "choices": [
                         {
                             "id": "fight_early",
@@ -132,6 +137,7 @@ class CampaignManager:
                     "id": "orc_fight",
                     "title": "Ork Savaşı",
                     "description": "Göl Ormanı'nın Savaş Lideri Grug ile karşı karşıyasın! Kılıcını çek, dövüş başlıyor!",
+                    "background": "/static/images/background.jpg",
                     "choices": [
                         {
                             "id": "attack_ork",
@@ -152,6 +158,7 @@ class CampaignManager:
                     "id": "safe_route",
                     "title": "Güvenli Rota",
                     "description": "Zorlu bir geceyi atlattın. Hayattasın ancak yolun uzadı.",
+                    "background": "/static/images/background.jpg",
                     "choices": [
                         {
                             "id": "return_to_forest",
@@ -165,6 +172,7 @@ class CampaignManager:
                     "id": "boss_fight",
                     "title": "BOSS DÖVÜŞÜ: Pyraxis – Alevin Efendisi",
                     "description": "Kuzey Dağları'nın karla kaplı zirvesinde Pyraxis seni bekliyor. Gözleri alev, nefesi ölüm. Uçuyor, ateş nefesi ile saldırıyor!",
+                    "background": "/static/images/background.jpg",
                     "choices": [
                         {
                             "id": "attack_boss",
@@ -190,9 +198,57 @@ class CampaignManager:
                 {
                     "id": "escape",
                     "title": "Kaçış",
-                    "description": "Hayatta kaldın, ancak Pyraxis geri döndü. Savaş başka bir gün için ertelendi. Suçluluk duygusu seni bırakmıyor...",
-                    "choices": []
-                }
+                    "description": "Hayatta kaldın, ancak Pyraxis geri döndü. Savaş başka bir gün için ertelendi. Suçluluk duygusu seni bırakmıyor... Fakat yolun bitmedi! Önünde yeni bölgeler ve maceralar var.",
+                    "choices": [
+                        {"id": "go_lost_forest", "text": "Kayıp Orman'a Git", "next_scene": "lost_forest"},
+                        {"id": "go_ruined_village", "text": "Terkedilmiş Köy'e Git", "next_scene": "ruined_village"},
+                        {"id": "go_temple", "text": "Kutsal Tapınak'a Git", "next_scene": "sacred_temple"},
+                        {"id": "go_cave", "text": "Gizli Mağara'ya Git", "next_scene": "hidden_cave"}
+                    ]
+                },
+                # --- Yeni bölgeler ve dallanan akışlar ---
+                {
+                    "id": "lost_forest",
+                    "title": "Kayıp Orman",
+                    "description": "Sisli, büyülü bir orman. Orman ruhları, goblinler ve gizemli bir büyücüyle karşılaşabilirsin.",
+                    "background": "/static/images/forest.jpg",
+                    "choices": [
+                        {"id": "explore_forest", "text": "Ormanı Keşfet", "next_scene": "forest_encounter"},
+                        {"id": "return_escape", "text": "Kaçış Noktasına Dön", "next_scene": "escape"}
+                    ]
+                },
+                {
+                    "id": "ruined_village",
+                    "title": "Terkedilmiş Köy",
+                    "description": "Yıkık evler, hayatta kalanlar ve bir mini-boss ile karşılaşma şansı.",
+                    "background": "/static/images/village.jpg",
+                    "choices": [
+                        {"id": "search_village", "text": "Köyü Araştır", "next_scene": "village_encounter"},
+                        {"id": "return_escape", "text": "Kaçış Noktasına Dön", "next_scene": "escape"}
+                    ]
+                },
+                {
+                    "id": "sacred_temple",
+                    "title": "Kutsal Tapınak",
+                    "description": "Büyülü tuzaklar, rahipler ve kutsal bir eşya. Belki de bir yan görev.",
+                    "background": "/static/images/temple.jpg",
+                    "choices": [
+                        {"id": "explore_temple", "text": "Tapınağı Keşfet", "next_scene": "temple_encounter"},
+                        {"id": "return_escape", "text": "Kaçış Noktasına Dön", "next_scene": "escape"}
+                    ]
+                },
+                {
+                    "id": "hidden_cave",
+                    "title": "Gizli Mağara",
+                    "description": "Hazine, tuzaklar ve rogue tipi düşmanlar. Belki de bir anahtar bulabilirsin.",
+                    "background": "/static/images/cave.jpg",
+                    "choices": [
+                        {"id": "explore_cave", "text": "Mağarayı Keşfet", "next_scene": "cave_encounter"},
+                        {"id": "return_escape", "text": "Kaçış Noktasına Dön", "next_scene": "escape"}
+                    ]
+                },
+                # ... her bölge için encounter ve mini-boss sahneleri ...
+                # ... oyuncu istediği kadar keşif yapabilir, boss dövüşü sadece finalde açılır ...
             ],
             "boss": {
                 "name": "Kırmızı Ejderha Pyraxis",
@@ -261,7 +317,8 @@ class CampaignManager:
                             "nextSceneId": choice.get("next_scene")
                         }
                         for choice in first_scene.get("choices", [])
-                    ]
+                    ],
+                    "background": first_scene.get("background")
                 }
         
         # Diğer adımlar için scene'i bul
@@ -277,7 +334,8 @@ class CampaignManager:
                             "nextSceneId": choice.get("next_scene")
                         }
                         for choice in scene.get("choices", [])
-                    ]
+                    ],
+                    "background": scene.get("background")
                 }
         
         return None

@@ -202,131 +202,192 @@ campaign_flows = {
     },
     "dragon_lords": {
         "start": {
-            "description": "Yanık bir köyde uyanıyorsunuz. Köylüler panik halinde. Ne yapmak istersiniz?",
+            "description": "Caldrith şehrinde uyanıyorsun. Sınıfını seçtin, macera başlıyor! İlk hedefin: Bataklıklara ulaşmak.",
             "choices": [
-                {"id": "calm_villagers", "text": "Köylüleri sakinleştirip bilgi topla"},
-                {"id": "run_forest", "text": "Hemen yakındaki ormana kaç"},
-                {"id": "search_ruins", "text": "Köydeki enkaza dalıp hayatta kalan ara"},
-                {"id": "go_smoke", "text": "Köyün üzerindeki dumana doğru git"}
+                {"id": "swamp_entry", "text": "Kasvetli Bataklıklara git"}
             ]
         },
-        "calm_villagers": {
-            "description": "Köylüler ejderha saldırısından bahseder, 50 gold verir.",
+        # Bölge 1: Kasvetli Bataklıklar
+        "swamp_entry": {
+            "description": "Bataklıkta zehirli yaratıklar ve Eloria ile karşılaşıyorsun.",
             "choices": [
-                {"id": "forest_path", "text": "Orman yoluna devam et"}
+                {"id": "fight_swamp_beast", "text": "Yaratıkla savaş"},
+                {"id": "talk_eloria", "text": "Eloria ile konuş"}
             ]
         },
-        "run_forest": {
-            "description": "Ormanda gizli ejderha yuvası keşfedersiniz.",
+        "fight_swamp_beast": {
+            "description": "Zehirli yaratığı yendin! 10 XP kazandın. Eloria sana yardım teklif ediyor.",
             "choices": [
-                {"id": "forest_path", "text": "Orman yoluna devam et"}
+                {"id": "good_help_eloria", "text": "Yardım et (İyi)"},
+                {"id": "evil_ignore_eloria", "text": "Yok say (Kötü)"}
+            ],
+            "xp": 10
+        },
+        "talk_eloria": {
+            "description": "Eloria: 'Yardımına ihtiyacım var.' Ne yapacaksın?",
+            "choices": [
+                {"id": "good_help_eloria", "text": "Yardım et (İyi)"},
+                {"id": "evil_ignore_eloria", "text": "Yok say (Kötü)"}
             ]
         },
-        "search_ruins": {
-            "description": "Yaralı bir savaşçı bulursunuz (NPC ally).",
+        "good_help_eloria": {
+            "description": "Eloria özel bilgi verdi, HP bonusu ve İyileştirme İksiri aldın. Dağlara geçiyorsun.",
             "choices": [
-                {"id": "forest_path", "text": "Orman yoluna devam et"}
+                {"id": "mountain_entry", "text": "Gölge Dağlarına git"}
+            ],
+            "reward": {"item": {"name": "İyileştirme İksiri", "type": "potion", "heal": 30, "usable": True}, "buff": "hp_bonus"}
+        },
+        "evil_ignore_eloria": {
+            "description": "Eloria seni lanetledi, HP kaybettin. Dağlara geçiyorsun.",
+            "choices": [
+                {"id": "mountain_entry", "text": "Gölge Dağlarına git"}
+            ],
+            "penalty": "hp_loss"
+        },
+        # Bölge 2: Gölge Dağları
+        "mountain_entry": {
+            "description": "Dağlarda Brakk the Cruel ve bandit boss ile karşılaşıyorsun.",
+            "choices": [
+                {"id": "fight_bandit_boss", "text": "Bandit Boss ile savaş"},
+                {"id": "talk_brakk", "text": "Brakk ile konuş"}
             ]
         },
-        "go_smoke": {
-            "description": "Ejderha ile erken karşılaşma (zor savaş)",
+        "fight_bandit_boss": {
+            "description": "Bandit Boss'u yendin! 15 XP ve rare item kazandın.",
             "choices": [
-                {"id": "dragon_battle", "text": "Ejderha ile savaş"}
+                {"id": "vault_entry", "text": "Forgotten Vaults'a git"}
+            ],
+            "xp": 15,
+            "reward": "rare_item"
+        },
+        "talk_brakk": {
+            "description": "Brakk: 'Bana yardım et, sana dagger veririm.'",
+            "choices": [
+                {"id": "good_help_brakk", "text": "Yardım et (İyi)"},
+                {"id": "evil_betray_brakk", "text": "İhanet et (Kötü)"}
             ]
         },
-        "forest_path": {
-            "description": "Antik orman yolunda ilerlerken garip sesler duyarsınız.",
+        "good_help_brakk": {
+            "description": "Brakk sadık oldu, rare dagger verdi. Vaults'a geçiyorsun.",
             "choices": [
-                {"id": "follow_sounds", "text": "Sesleri takip et"},
-                {"id": "hide", "text": "Sessizce saklan"},
-                {"id": "challenge", "text": "Yüksek sesle meydan oku"},
-                {"id": "find_other_way", "text": "Geri dön ve başka yol ara"}
+                {"id": "vault_entry", "text": "Forgotten Vaults'a git"}
+            ],
+            "reward": "rare_dagger"
+        },
+        "evil_betray_brakk": {
+            "description": "Brakk pusu kurdu, can kaybettin. Vaults'a geçiyorsun.",
+            "choices": [
+                {"id": "vault_entry", "text": "Forgotten Vaults'a git"}
+            ],
+            "penalty": "hp_loss",
+            "evil_ally": True
+        },
+        # Bölge 3: Forgotten Vaults
+        "vault_entry": {
+            "description": "Vaults'ta Tech-Priest Maldrin ile karşılaşıyorsun. Antik canavarlar var.",
+            "choices": [
+                {"id": "fight_vault_monster", "text": "Canavarla savaş"},
+                {"id": "talk_maldrin", "text": "Maldrin ile konuş"}
             ]
         },
-        "follow_sounds": {
-            "description": "Orman sprite'larıyla karşılaşır, büyü öğrenebilirsiniz.",
+        "fight_vault_monster": {
+            "description": "Canavarı yendin! 20 XP ve skill açıldı.",
             "choices": [
-                {"id": "city_ruins", "text": "Terk edilmiş şehre git"}
+                {"id": "graveyard_entry", "text": "Stellaris Mezarlığı'na git"}
+            ],
+            "xp": 20,
+            "reward": "skill_unlock"
+        },
+        "talk_maldrin": {
+            "description": "Maldrin: 'Tech yeteneklerini açabilirim.'",
+            "choices": [
+                {"id": "good_ask_maldrin", "text": "Soru sor (İyi)"},
+                {"id": "evil_ignore_maldrin", "text": "Yok say (Kötü)"}
             ]
         },
-        "hide": {
-            "description": "Ejderha kültistlerini fark edersiniz, sürpriz saldırı avantajı.",
+        "good_ask_maldrin": {
+            "description": "Yeni skill açıldı! Maldrin sana Tech Relic verdi. Mezarlığa geçiyorsun.",
             "choices": [
-                {"id": "city_ruins", "text": "Terk edilmiş şehre git"}
+                {"id": "graveyard_entry", "text": "Stellaris Mezarlığı'na git"}
+            ],
+            "reward": {"item": {"name": "Tech Relic", "type": "artifact", "effect": "tech_buff", "usable": False}, "skill": "skill_unlock"}
+        },
+        "evil_ignore_maldrin": {
+            "description": "Maldrin seni lanetledi, XP kaybettin. Mezarlığa geçiyorsun.",
+            "choices": [
+                {"id": "graveyard_entry", "text": "Stellaris Mezarlığı'na git"}
+            ],
+            "penalty": "xp_loss"
+        },
+        # Bölge 4: Stellaris Mezarlığı
+        "graveyard_entry": {
+            "description": "Mezarlıkta kaybolmuş ruhlar ve Guard Captain Drex ile karşılaşıyorsun.",
+            "choices": [
+                {"id": "fight_ghosts", "text": "Ruhlarla savaş"},
+                {"id": "talk_drex", "text": "Drex ile konuş"}
             ]
         },
-        "challenge": {
-            "description": "Orc grubuyla savaş (HP: 60 her biri, 4 tane)",
+        "fight_ghosts": {
+            "description": "Ruhları yendin! 25 XP ve bonus gold kazandın.",
             "choices": [
-                {"id": "city_ruins", "text": "Terk edilmiş şehre git"}
+                {"id": "pyraxis_entry", "text": "Pyraxis'e git"}
+            ],
+            "xp": 25,
+            "reward": "bonus_gold"
+        },
+        "talk_drex": {
+            "description": "Drex: 'Şehri kurtar ya da beni öldür.'",
+            "choices": [
+                {"id": "good_help_drex", "text": "Yardım et (İyi)"},
+                {"id": "evil_kill_drex", "text": "Öldür (Kötü)"}
             ]
         },
-        "find_other_way": {
-            "description": "Güvenli ama daha uzun yol.",
+        "good_help_drex": {
+            "description": "Şehri kurtardın, XP ve gold kazandın. Drex sana Zafer Madalyası verdi. Pyraxis'e geçiyorsun.",
             "choices": [
-                {"id": "city_ruins", "text": "Terk edilmiş şehre git"}
-            ]
+                {"id": "pyraxis_entry", "text": "Pyraxis'e git"}
+            ],
+            "xp": 20,
+            "reward": {"item": {"name": "Zafer Madalyası", "type": "medal", "effect": "defense_up", "usable": False}, "gold": 100}
         },
-        "city_ruins": {
-            "description": "Başkentin harabeleri önünüzde. Üç farklı bölgeye gidebilirsiniz.",
+        "evil_kill_drex": {
+            "description": "Drex'i öldürdün, evil path açıldı. Pyraxis'e geçiyorsun.",
             "choices": [
-                {"id": "palace", "text": "Kral Sarayı'nın kalıntılarına git"},
-                {"id": "wizard_tower", "text": "Büyücü Kulesi'ni araştır"},
-                {"id": "sewers", "text": "Yeraltı Kanalizasyonu'na in"},
-                {"id": "market", "text": "Pazar Alanı'nda malzeme ara"}
-            ]
+                {"id": "pyraxis_entry", "text": "Pyraxis'e git"}
+            ],
+            "reward": "evil_path"
         },
-        "palace": {
-            "description": "Kral Aldric ile karşılaşır, görev alırsınız.",
+        # Bölge 5: Pyraxis
+        "pyraxis_entry": {
+            "description": "Pyraxis'in önündesin. Flame Oracle Vynn ile karşılaşıyorsun. Son seçim!",
             "choices": [
-                {"id": "dragon_battle", "text": "Ejderha ile savaş"}
-            ]
+                {"id": "talk_vynn", "text": "Vynn ile konuş"},
+                {"id": "final_battle", "text": "Ejderha ile savaş"}
+            ],
+            "background": "/static/images/pyraxisfam.jpg",
+            "evil_ally": True
         },
-        "wizard_tower": {
-            "description": "İlk ejderha mührü parçasını bulursunuz.",
+        "talk_vynn": {
+            "description": "Vynn: 'Geleceğin yolunu seç.' Skill cost düşer.",
             "choices": [
-                {"id": "dragon_battle", "text": "Ejderha ile savaş"}
-            ]
+                {"id": "final_battle", "text": "Ejderha ile savaş"}
+            ],
+            "reward": "skill_cost_reduction"
         },
-        "sewers": {
-            "description": "Dracolich'in minyonlarıyla savaş.",
+        "final_battle": {
+            "description": "Pyraxis ile final savaşı! Saldırı, savunma, skill veya ultimate kullanabilirsin. (Eğer kötü yolu seçtiysen Brakk yanında!)",
             "choices": [
-                {"id": "dragon_battle", "text": "Ejderha ile savaş"}
-            ]
+                {"id": "good_ending", "text": "İyi Son (Pyraxis'i kurtar)"},
+                {"id": "evil_ending", "text": "Kötü Son (Pyraxis'i yok et)"}
+            ],
+            "evil_ally": True
         },
-        "market": {
-            "description": "Ekipman ve iksir bulursunuz.",
-            "choices": [
-                {"id": "dragon_battle", "text": "Ejderha ile savaş"}
-            ]
-        },
-        "dragon_battle": {
-            "description": "Kırmızı Ejderha Pyraxis ile karşı karşıyasınız! (HP: 300, Attack: 120, Defense: 80, Fire Immunity) Savaş başlıyor! Fiziksel Saldırı, Büyü Kullan, Savunma veya Özel Yetenek seçebilirsiniz.",
-            "choices": [
-                {"id": "attack", "text": "Fiziksel Saldırı"},
-                {"id": "cast_spell", "text": "Büyü Kullan"},
-                {"id": "defend", "text": "Savunma"},
-                {"id": "special", "text": "Özel Yetenek"}
-            ]
-        },
-        "attack": {
-            "description": "Ejderhaya fiziksel saldırı yapıyorsunuz. Zar atılıyor...",
-            "dice": "attack",
+        "good_ending": {
+            "description": "Pyraxis'i kurtardın, kahraman oldun! Oyun bitti.",
             "choices": []
         },
-        "cast_spell": {
-            "description": "Büyü kullanıyorsunuz. Zar atılıyor...",
-            "dice": "magic",
-            "choices": []
-        },
-        "defend": {
-            "description": "Savunma pozisyonu alıyorsunuz. Zar atılıyor...",
-            "dice": "defense",
-            "choices": []
-        },
-        "special": {
-            "description": "Sınıfa özel yetenek kullanıyorsunuz. Zar atılıyor...",
-            "dice": "special",
+        "evil_ending": {
+            "description": "Pyraxis'i yok ettin, karanlık lord oldun! Oyun bitti.",
             "choices": []
         }
     }

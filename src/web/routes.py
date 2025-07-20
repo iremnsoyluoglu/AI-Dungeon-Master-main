@@ -335,6 +335,115 @@ def register_routes(app, game_engine, campaign_manager, ai_dm):
                 "error": "AI geçmişi temizlenirken hata oluştu"
             }), 500
     
+    @app.route('/api/game/battle', methods=['POST'])
+    def battle():
+        """Karakter ile düşman arasında savaş başlat, XP ve skill güncelle"""
+        try:
+            data = request.get_json()
+            player = data.get('player')  # dict: karakter
+            enemy_name = data.get('enemy_name')  # string: düşman adı
+            if not player or not enemy_name:
+                return jsonify({
+                    "success": False,
+                    "error": "Karakter ve düşman adı gerekli"
+                }), 400
+            enemy = game_engine.get_enemy(enemy_name)
+            if not enemy:
+                return jsonify({
+                    "success": False,
+                    "error": f"Düşman bulunamadı: {enemy_name}"
+                }), 404
+            result = game_engine.combat(player, enemy)
+            return jsonify({
+                "success": True,
+                "battle_result": result["result"],
+                "log": result["log"],
+                "player": result["player"]
+            })
+        except Exception as e:
+            logger.error(f"Error in battle: {e}")
+            return jsonify({
+                "success": False,
+                "error": "Savaş sırasında hata oluştu"
+            }), 500
+    
+    @app.route('/api/game/npc-interact', methods=['POST'])
+    def npc_interact():
+        """NPC ile ilişki kur, ödül/potion ver, alignment güncelle"""
+        data = request.get_json()
+        player = data.get('player')
+        npc = data.get('npc')  # ör: {"name": "Elder Varn", "type": "good"}
+        choice = data.get('choice')  # oyuncunun seçimi
+        # Good/Evil alignment güncelle
+        alignment_change = 0
+        item_reward = None
+        message = ""
+        if npc and npc.get('type') == 'good':
+            if choice == 'help' or choice == 'save':
+                alignment_change = 5
+                item_reward = {"name": "Potion of Healing", "type": "potion", "heal": 15, "usable": True}
+                message = f"{npc['name']} sana bir iyileştirme iksiri verdi!"
+            elif choice == 'betray' or choice == 'rob':
+                alignment_change = -5
+                message = f"{npc['name']} ile ilişkin bozuldu."
+            else:
+                message = f"{npc['name']} ile nötr bir etkileşim gerçekleşti."
+        elif npc and npc.get('type') == 'evil':
+            if player.get('good_evil', 0) < 0:
+                # Evil storyline: özel ödül
+                item_reward = {"name": "Shadow Elixir", "type": "potion", "heal": 30, "usable": True}
+                alignment_change = -5
+                message = f"{npc['name']} sana karanlık bir iksir verdi!"
+            else:
+                message = f"{npc['name']} seni küçümsedi."
+        else:
+            message = "NPC ile etkileşim gerçekleşti."
+        # Alignment güncelle
+        player['good_evil'] = player.get('good_evil', 0) + alignment_change
+        # Envanter güncelle
+        if item_reward:
+            if 'inventory' not in player:
+                player['inventory'] = []
+            player['inventory'].append(item_reward)
+        return jsonify({
+            "success": True,
+            "message": message,
+            "alignment": player['good_evil'],
+            "inventory": player.get('inventory', []),
+            "player": player
+        })
+    
+    @app.route('/api/game/use-item', methods=['POST'])
+    def use_item():
+        """Envanterdeki potion/eşya kullanımı"""
+        data = request.get_json()
+        item = data.get('item')
+        index = data.get('index')
+        # Karakteri session'dan veya request'ten al (örnek: tek oyunculu için basit)
+        # Burada örnek olarak session'daki ilk karakteri alıyoruz
+        session = getattr(game_engine, 'current_session', None)
+        if not session or not session.get('characters'):
+            return jsonify({"success": False, "error": "Oyun oturumu veya karakter bulunamadı"}), 400
+        character = session['characters'][0]
+        inventory = character.get('inventory', [])
+        if not inventory or index is None or index >= len(inventory):
+            return jsonify({"success": False, "error": "Geçersiz envanter veya indeks"}), 400
+        used_item = inventory.pop(index)
+        message = f"{used_item.get('name', str(used_item))} kullanıldı."
+        # Basit efekt: Potion ise HP artır
+        if used_item.get('type') == 'potion':
+            heal = used_item.get('heal', 10)
+            character['hp'] = character.get('hp', 20) + heal
+            message += f" HP +{heal}!"
+        # Diğer eşya türleri için buraya eklenebilir
+        character['inventory'] = inventory
+        return jsonify({
+            "success": True,
+            "message": message,
+            "inventory": inventory,
+            "character": character
+        })
+    
     @app.route('/api/health')
     def health_check():
         return jsonify({'status': 'healthy', 'version': '1.0.0'})
