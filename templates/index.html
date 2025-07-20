@@ -1,68 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Dungeon Master</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 40px; background: #1a1a1a; color: #fff; }
-        .container { max-width: 800px; margin: 0 auto; }
-        .welcome { text-align: center; margin-bottom: 40px; }
-        .status { background: #2a2a2a; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
-        .actions { display: flex; gap: 10px; margin-top: 20px; }
-        button { padding: 10px 20px; background: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer; }
-        button:hover { background: #0052a3; }
-    </style>
-</head>
-<body>
+    <link rel="stylesheet" href="/static/style.css" />
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+  </head>
+  <body>
     <div class="container">
-        <div class="welcome">
-            <h1>🧙‍♂️ AI Dungeon Master</h1>
-            <p>Your intelligent RPG companion</p>
+      <div class="welcome">
+        <h1>🧙‍♂️ AI Dungeon Master</h1>
+        <p>Your intelligent RPG companion</p>
+      </div>
+      <div class="status">
+        <h3>System Status</h3>
+        <p id="status">Initializing...</p>
+      </div>
+      <div id="setup-area">
+        <h3>Oyun Kurulumu</h3>
+        <label
+          >Oyuncu Sayısı:
+          <input
+            type="number"
+            id="player-count"
+            min="1"
+            max="6"
+            value="1" /></label
+        ><br />
+        <label>Campaign Seç:</label>
+        <select id="campaign-select">
+          <option value="">-- Kampanya Seçin --</option>
+          <option value="dragon_lords">
+            🐉 Ejderha Efendilerinin Dönüşü (Fantasy)
+          </option></select
+        ><br />
+        <button id="start-game-btn">Oyunu Başlat</button>
+      </div>
+      <div id="character-area" style="display: none">
+        <h3>Karakter Oluşturma</h3>
+        <div id="character-form">
+          <label>Karakter Adı: <input type="text" id="char-name" /></label
+          ><br />
+          <label>Sınıf Seç:</label>
+          <select id="char-class">
+            <!-- Fantasy Classes -->
+            <optgroup label="Fantasy Sınıfları">
+              <option value="warrior">⚔️ Warrior - Güçlü savaşçı</option>
+              <option value="mage">🔮 Mage - Güçlü büyücü</option>
+              <option value="rogue">🗡️ Rogue - Hızlı ve gizli</option>
+              <option value="priest">⛪ Priest - İyileştirici</option>
+            </optgroup>
+            <!-- Warhammer Classes -->
+            <optgroup label="Warhammer 40K Sınıfları">
+              <option value="space_marine">
+                🛡️ Space Marine - Süper asker
+              </option>
+              <option value="tech_priest">
+                ⚙️ Tech-Priest - Teknoloji uzmanı
+              </option>
+              <option value="inquisitor">🔍 Inquisitor - Araştırmacı</option>
+              <option value="imperial_guard">🎖️ Imperial Guard - Asker</option>
+            </optgroup></select
+          ><br />
+          <button id="save-char-btn">Karakteri Kaydet</button>
         </div>
-        
-        <div class="status">
-            <h3>System Status</h3>
-            <p id="status">Initializing...</p>
-        </div>
-        
-        <div class="actions">
-            <button onclick="startCampaign()">Start New Campaign</button>
-            <button onclick="loadCampaign()">Load Campaign</button>
-            <button onclick="rollDice()">Roll Dice</button>
-        </div>
-        
-        <div id="game-area" style="margin-top: 40px; min-height: 200px; background: #2a2a2a; padding: 20px; border-radius: 8px;">
-            <h3>Game Area</h3>
-            <p>Welcome! Start a campaign to begin your adventure.</p>
-        </div>
+        <div id="char-progress"></div>
+      </div>
+      <!-- Oyun seçenekleriyle ilerleme alanı -->
+      <div id="game-area" style="display: none">
+        <div id="scene-description"></div>
+        <div id="choice-buttons" style="margin-top: 20px"></div>
+      </div>
     </div>
-    
-    <script>
-        // Basic JavaScript for demo functionality
-        function startCampaign() {
-            document.getElementById('game-area').innerHTML = '<h3>New Campaign Started!</h3><p>The AI Dungeon Master is preparing your adventure...</p>';
-        }
-        
-        function loadCampaign() {
-            alert('Load campaign functionality will be implemented');
-        }
-        
-        function rollDice() {
-            const result = Math.floor(Math.random() * 20) + 1;
-            const gameArea = document.getElementById('game-area');
-            gameArea.innerHTML += `<p><strong>Dice Roll:</strong> d20 = ${result}</p>`;
-        }
-        
-        // Check system status
-        fetch('/api/health')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('status').textContent = `Status: ${data.status} | Version: ${data.version}`;
-            })
-            .catch(error => {
-                document.getElementById('status').textContent = 'Status: Error connecting to server';
-            });
-    </script>
-</body>
+    <script src="/static/script.js"></script>
+  </body>
 </html>

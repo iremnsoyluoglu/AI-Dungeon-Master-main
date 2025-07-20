@@ -3,7 +3,7 @@
 AI Dungeon Master - Main Application
 ===================================
 
-An intelligent AI-powered Fantasy Role-Playing Game Master that creates 
+An intelligent AI-powered Fantasy Role-Playing Game Master that creates pip install gensim transforme
 immersive, dynamic adventures using advanced language models.
 """
 

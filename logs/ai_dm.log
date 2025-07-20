@@ -1,0 +1,1315 @@
+2025-07-14 16:21:44,874 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:21:44,874 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:21:44,874 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:21:44,874 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:21:44,874 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:21:44,893 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:21:46,250 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:21:46,250 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:21:46,250 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:21:46,250 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:21:46,250 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:21:46,256 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:21:46,274 - werkzeug - INFO -  * Debugger PIN: 643-495-655
+2025-07-14 16:23:04,338 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:23:04,338 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:23:04,338 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:23:04,338 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:23:04,338 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:23:04,338 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:23:05,655 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:23:05,655 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:23:05,655 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:23:05,655 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:23:05,655 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:23:05,655 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:23:05,674 - werkzeug - INFO -  * Debugger PIN: 643-495-655
+2025-07-14 16:23:05,689 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\threading.py', reloading
+2025-07-14 16:23:05,689 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\threading.py', reloading
+2025-07-14 16:23:05,699 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\flask_socketio\\__init__.py', reloading
+2025-07-14 16:23:05,699 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\flask_socketio\\__init__.py', reloading
+2025-07-14 16:23:05,948 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:23:06,881 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:23:07,287 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:23:07,287 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:23:07,287 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:23:07,287 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:23:07,287 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:23:07,297 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:23:07,304 - werkzeug - INFO -  * Debugger PIN: 643-495-655
+2025-07-14 16:23:08,210 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:23:08,212 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:23:08,212 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:23:08,213 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:23:08,213 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:23:08,219 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:23:08,232 - werkzeug - INFO -  * Debugger PIN: 643-495-655
+2025-07-14 16:25:29,534 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:25:29,534 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:25:29,534 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:25:29,534 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:25:29,534 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:25:29,541 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:25:30,871 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:25:30,873 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:25:30,874 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:25:30,875 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:25:30,875 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:25:30,880 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:25:30,892 - werkzeug - INFO -  * Debugger PIN: 643-495-655
+2025-07-14 16:25:51,241 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:25:51,241 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:25:51,248 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:25:51,248 - __main__ - INFO - Server starting on port 5050
+2025-07-14 16:25:51,248 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:25:51,248 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:25:52,581 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:25:52,581 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:25:52,581 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:25:52,581 - __main__ - INFO - Server starting on port 5050
+2025-07-14 16:25:52,581 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:25:52,581 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:25:52,599 - werkzeug - INFO -  * Debugger PIN: 643-495-655
+2025-07-14 16:26:24,950 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\jinja2\\loaders.py', reloading
+2025-07-14 16:26:24,950 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\jinja2\\loaders.py', reloading
+2025-07-14 16:26:24,950 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\jinja2\\loaders.py', reloading
+2025-07-14 16:26:25,434 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:26:25,741 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:26:26,066 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:26:26,999 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:26:26,999 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:26:26,999 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:26:26,999 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:26:26,999 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:26:27,009 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:26:27,026 - werkzeug - INFO -  * Debugger PIN: 643-495-655
+2025-07-14 16:26:27,259 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:26:27,259 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:26:27,265 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:26:27,266 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:26:27,266 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:26:27,266 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:26:27,282 - werkzeug - INFO -  * Debugger PIN: 643-495-655
+2025-07-14 16:26:27,559 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:26:27,562 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:26:27,562 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:26:27,562 - __main__ - INFO - Server starting on port 5050
+2025-07-14 16:26:27,562 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:26:27,565 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:26:27,582 - werkzeug - INFO -  * Debugger PIN: 643-495-655
+2025-07-14 16:27:25,693 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:27:25,694 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:27:25,695 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:27:25,695 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:27:25,696 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:27:25,700 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:27:27,141 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:27:27,142 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:27:27,142 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:27:27,143 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:27:27,144 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:27:27,148 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:27:27,160 - werkzeug - INFO -  * Debugger PIN: 643-495-655
+2025-07-14 16:28:09,537 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:28:09,537 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:28:09,537 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:28:09,537 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:28:09,537 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:28:09,547 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:28:10,896 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:28:10,896 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:28:10,903 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:28:10,903 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:28:10,903 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:28:10,903 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:28:10,922 - werkzeug - INFO -  * Debugger PIN: 643-495-655
+2025-07-14 16:30:37,032 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:30:37,032 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:30:37,032 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:30:37,032 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:30:37,032 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:30:37,039 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:30:38,365 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:30:38,365 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:30:38,365 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:30:38,371 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:30:38,371 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:30:38,371 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:30:38,390 - werkzeug - INFO -  * Debugger PIN: 643-495-655
+2025-07-14 16:30:56,537 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\asyncio.py', reloading
+2025-07-14 16:30:56,537 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\backdoor.py', reloading
+2025-07-14 16:30:56,537 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\asyncio.py', reloading
+2025-07-14 16:30:56,537 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\asyncio.py', reloading
+2025-07-14 16:30:56,537 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\convenience.py', reloading
+2025-07-14 16:30:56,537 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\backdoor.py', reloading
+2025-07-14 16:30:56,537 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\corolocal.py', reloading
+2025-07-14 16:30:56,537 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\backdoor.py', reloading
+2025-07-14 16:30:56,537 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\convenience.py', reloading
+2025-07-14 16:30:56,537 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\coros.py', reloading
+2025-07-14 16:30:56,537 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\convenience.py', reloading
+2025-07-14 16:30:56,537 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\dagpool.py', reloading
+
+2025-07-14 16:30:56,537 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\corolocal.py', reloading
+2025-07-14 16:30:56,537 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\db_pool.py', reloading
+2025-07-14 16:30:56,547 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\coros.py', reloading
+2025-07-14 16:30:56,549 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\debug.py', reloading
+2025-07-14 16:30:56,549 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\dagpool.py', reloading
+2025-07-14 16:30:56,552 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\dagpool.py', reloading
+2025-07-14 16:30:56,552 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\event.py', reloading
+2025-07-14 16:30:56,552 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\db_pool.py', reloading
+2025-07-14 16:30:56,558 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\greenpool.py', reloading
+2025-07-14 16:30:56,559 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\debug.py', reloading
+2025-07-14 16:30:56,559 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\greenthread.py', reloading
+2025-07-14 16:30:56,560 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\event.py', reloading
+2025-07-14 16:30:56,560 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\lock.py', reloading
+2025-07-14 16:30:56,561 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\greenpool.py', reloading
+2025-07-14 16:30:56,561 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\greenthread.py', reloading
+2025-07-14 16:30:56,561 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\patcher.py', reloading
+2025-07-14 16:30:56,562 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\lock.py', reloading
+2025-07-14 16:30:56,562 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\pools.py', reloading
+2025-07-14 16:30:56,563 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\patcher.py', reloading
+2025-07-14 16:30:56,563 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\queue.py', reloading
+2025-07-14 16:30:56,565 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\pools.py', reloading
+2025-07-14 16:30:56,566 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\queue.py', reloading
+2025-07-14 16:30:56,566 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\semaphore.py', reloading
+2025-07-14 16:30:56,567 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\semaphore.py', reloading
+2025-07-14 16:30:56,567 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\timeout.py', reloading
+2025-07-14 16:30:56,568 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\timeout.py', reloading
+2025-07-14 16:30:56,568 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\tpool.py', reloading
+2025-07-14 16:30:56,568 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\tpool.py', reloading
+2025-07-14 16:30:56,569 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\websocket.py', reloading
+2025-07-14 16:30:56,570 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\wsgi.py', reloading
+2025-07-14 16:30:56,571 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\_version.py', reloading
+2025-07-14 16:30:56,571 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\_version.py', reloading
+2025-07-14 16:30:56,572 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\__init__.py', reloading
+2025-07-14 16:30:56,572 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\__init__.py', reloading
+2025-07-14 16:30:56,573 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\asynchat.py', reloading
+2025-07-14 16:30:56,573 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\asynchat.py', reloading
+2025-07-14 16:30:56,574 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\asyncore.py', reloading
+2025-07-14 16:30:56,574 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\asyncore.py', reloading
+2025-07-14 16:30:56,574 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\BaseHTTPServer.py', reloading
+2025-07-14 16:30:56,575 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\BaseHTTPServer.py', reloading
+2025-07-14 16:30:56,575 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\builtin.py', reloading
+2025-07-14 16:30:56,576 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\CGIHTTPServer.py', reloading
+2025-07-14 16:30:56,576 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\builtin.py', reloading
+2025-07-14 16:30:56,582 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\ftplib.py', reloading
+2025-07-14 16:30:56,584 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\CGIHTTPServer.py', reloading
+2025-07-14 16:30:56,584 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\httplib.py', reloading
+2025-07-14 16:30:56,585 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\ftplib.py', reloading
+2025-07-14 16:30:56,585 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\MySQLdb.py', reloading
+2025-07-14 16:30:56,587 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\httplib.py', reloading
+2025-07-14 16:30:56,587 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\os.py', reloading
+2025-07-14 16:30:56,589 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\profile.py', reloading
+2025-07-14 16:30:56,589 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\Queue.py', reloading
+2025-07-14 16:30:56,597 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\select.py', reloading
+2025-07-14 16:30:56,598 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\os.py', reloading
+2025-07-14 16:30:56,598 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\selectors.py', reloading
+2025-07-14 16:30:56,599 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\SimpleHTTPServer.py', reloading
+2025-07-14 16:30:56,599 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\profile.py', reloading
+2025-07-14 16:30:56,600 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\socket.py', reloading
+2025-07-14 16:30:56,601 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\SocketServer.py', reloading
+2025-07-14 16:30:56,601 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\Queue.py', reloading
+2025-07-14 16:30:56,602 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\ssl.py', reloading
+2025-07-14 16:30:56,603 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\select.py', reloading
+2025-07-14 16:30:56,603 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\subprocess.py', reloading
+2025-07-14 16:30:56,603 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\selectors.py', reloading
+2025-07-14 16:30:56,603 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\thread.py', reloading
+2025-07-14 16:30:56,603 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\SimpleHTTPServer.py', reloading
+2025-07-14 16:30:56,603 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\threading.py', reloading
+2025-07-14 16:30:56,603 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\socket.py', reloading
+2025-07-14 16:30:56,603 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\time.py', reloading
+2025-07-14 16:30:56,603 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\urllib2.py', reloading
+2025-07-14 16:30:56,603 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\SocketServer.py', reloading
+2025-07-14 16:30:56,613 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\zmq.py', reloading
+2025-07-14 16:30:56,614 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\_socket_nodns.py', reloading
+2025-07-14 16:30:56,615 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\ssl.py', reloading
+2025-07-14 16:30:56,615 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\__init__.py', reloading
+2025-07-14 16:30:56,617 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\http\\client.py', reloading
+2025-07-14 16:30:56,617 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\subprocess.py', reloading
+2025-07-14 16:30:56,617 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\http\\cookiejar.py', reloading
+2025-07-14 16:30:56,618 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\thread.py', reloading
+2025-07-14 16:30:56,618 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\http\\cookies.py', reloading
+2025-07-14 16:30:56,619 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\http\\server.py', reloading
+2025-07-14 16:30:56,619 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\threading.py', reloading
+2025-07-14 16:30:56,620 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\http\\__init__.py', reloading
+2025-07-14 16:30:56,623 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\time.py', reloading
+2025-07-14 16:30:56,623 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\OpenSSL\\crypto.py', reloading
+2025-07-14 16:30:56,623 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\OpenSSL\\SSL.py', reloading
+2025-07-14 16:30:56,630 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\OpenSSL\\tsafe.py', reloading
+2025-07-14 16:30:56,630 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\urllib2.py', reloading
+2025-07-14 16:30:56,630 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\OpenSSL\\version.py', reloading
+2025-07-14 16:30:56,631 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\zmq.py', reloading
+2025-07-14 16:30:56,631 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\OpenSSL\\__init__.py', reloading
+2025-07-14 16:30:56,632 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\_socket_nodns.py', reloading
+2025-07-14 16:30:56,633 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\__init__.py', reloading
+2025-07-14 16:30:56,634 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\http\\client.py', reloading
+2025-07-14 16:30:56,634 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\http\\cookiejar.py', reloading
+2025-07-14 16:30:56,635 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\urllib\\error.py', reloading
+2025-07-14 16:30:56,635 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\urllib\\parse.py', reloading
+2025-07-14 16:30:56,635 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\urllib\\request.py', reloading
+2025-07-14 16:30:56,635 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\http\\server.py', reloading
+ng
+2025-07-14 16:30:56,635 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\urllib\\__init__.py', reloading
+2025-07-14 16:30:56,635 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\http\\__init__.py', reloading
+2025-07-14 16:30:56,648 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\OpenSSL\\crypto.py', reloading
+2025-07-14 16:30:56,650 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\OpenSSL\\SSL.py', reloading
+2025-07-14 16:30:56,651 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\OpenSSL\\tsafe.py', reloading
+2025-07-14 16:30:56,651 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\OpenSSL\\version.py', reloading
+2025-07-14 16:30:56,651 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\OpenSSL\\__init__.py', reloading
+2025-07-14 16:30:56,651 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\urllib\\error.py', reloading
+2025-07-14 16:30:56,658 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\urllib\\parse.py', reloading
+2025-07-14 16:30:56,659 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\urllib\\request.py', reloading
+2025-07-14 16:30:56,659 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\urllib\\response.py', reloading
+2025-07-14 16:30:56,660 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\green\\urllib\\__init__.py', reloading
+2025-07-14 16:30:56,662 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\greenio\\base.py', reloading
+2025-07-14 16:30:56,662 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\greenio\\py3.py', reloading
+2025-07-14 16:30:56,664 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\greenio\\__init__.py', reloading
+2025-07-14 16:30:56,666 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\hubs\\asyncio.py', reloading
+2025-07-14 16:30:56,667 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\hubs\\epolls.py', reloading
+2025-07-14 16:30:56,669 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\greenio\\base.py', reloading
+2025-07-14 16:30:56,669 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\hubs\\hub.py', reloading
+2025-07-14 16:30:56,669 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\hubs\\kqueue.py', reloading
+2025-07-14 16:30:56,669 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\greenio\\py3.py', reloading
+2025-07-14 16:30:56,671 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\hubs\\poll.py', reloading
+2025-07-14 16:30:56,673 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\greenio\\__init__.py', reloading
+2025-07-14 16:30:56,675 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\hubs\\selects.py', reloading
+2025-07-14 16:30:56,675 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\hubs\\asyncio.py', reloading
+2025-07-14 16:30:56,675 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\hubs\\timer.py', reloading
+2025-07-14 16:30:56,675 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\hubs\\epolls.py', reloading
+2025-07-14 16:30:56,675 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\hubs\\__init__.py', reloading
+2025-07-14 16:30:56,675 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\hubs\\hub.py', reloading
+2025-07-14 16:30:56,679 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\hubs\\kqueue.py', reloading
+2025-07-14 16:30:56,680 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\hubs\\poll.py', reloading
+2025-07-14 16:30:56,682 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\hubs\\pyevent.py', reloading
+2025-07-14 16:30:56,683 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\support\\greendns.py', reloading
+2025-07-14 16:30:56,684 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\hubs\\timer.py', reloading
+2025-07-14 16:30:56,684 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\support\\greenlets.py', reloading
+2025-07-14 16:30:56,684 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\hubs\\__init__.py', reloading
+2025-07-14 16:30:56,685 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\support\\psycopg2_patcher.py', reloading
+2025-07-14 16:30:56,685 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\support\\pylib.py', reloading
+2025-07-14 16:30:56,686 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\support\\stacklesspypys.py', reloading
+2025-07-14 16:30:56,686 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\support\\stacklesss.py', reloading
+2025-07-14 16:30:56,687 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\support\\greendns.py', reloading
+2025-07-14 16:30:56,688 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\support\\__init__.py', reloading
+2025-07-14 16:30:56,689 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\support\\greenlets.py', reloading
+2025-07-14 16:30:56,689 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\support\\psycopg2_patcher.py', reloading
+2025-07-14 16:30:56,690 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\support\\pylib.py', reloading
+2025-07-14 16:30:56,691 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\support\\stacklesspypys.py', reloading
+2025-07-14 16:30:56,692 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\support\\stacklesss.py', reloading
+2025-07-14 16:30:56,692 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\api.py', reloading
+2025-07-14 16:30:56,692 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\support\\__init__.py', reloading
+2025-07-14 16:30:56,692 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\client.py', reloading
+2025-07-14 16:30:56,693 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\greenthread.py', reloading
+2025-07-14 16:30:56,694 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\http.py', reloading
+2025-07-14 16:30:56,695 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\log.py', reloading
+2025-07-14 16:30:56,695 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\api.py', reloading
+2025-07-14 16:30:56,695 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\patcher.py', reloading
+2025-07-14 16:30:56,697 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\wsgi.py', reloading
+2025-07-14 16:30:56,697 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\client.py', reloading
+2025-07-14 16:30:56,697 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\__init__.py', reloading
+2025-07-14 16:30:56,697 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\greenthread.py', reloading
+2025-07-14 16:30:56,698 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\http.py', reloading
+2025-07-14 16:30:56,698 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\log.py', reloading
+2025-07-14 16:30:56,699 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\_thrift\\__init__.py', reloading
+2025-07-14 16:30:56,699 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\patcher.py', reloading
+2025-07-14 16:30:56,700 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\_thrift\\zipkinCore\\constants.py', reloading
+2025-07-14 16:30:56,700 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\wsgi.py', reloading
+2025-07-14 16:30:56,700 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\_thrift\\zipkinCore\\ttypes.py', reloading
+2025-07-14 16:30:56,700 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\__init__.py', reloading
+2025-07-14 16:30:56,701 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\_thrift\\zipkinCore\\__init__.py', reloading
+2025-07-14 16:30:56,702 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\_thrift\\__init__.py', reloading
+2025-07-14 16:30:56,704 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\_thrift\\zipkinCore\\constants.py', reloading
+2025-07-14 16:30:56,705 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\_thrift\\zipkinCore\\ttypes.py', reloading
+2025-07-14 16:30:56,705 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\eventlet\\zipkin\\_thrift\\zipkinCore\\__init__.py', reloading
+2025-07-14 16:30:56,713 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\asyncio.py', reloading
+2025-07-14 16:30:56,714 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\backdoor.py', reloading
+2025-07-14 16:30:56,715 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\convenience.py', reloading
+2025-07-14 16:30:56,716 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\corolocal.py', reloading
+2025-07-14 16:30:56,717 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\coros.py', reloading
+2025-07-14 16:30:56,718 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\dagpool.py', reloading
+2025-07-14 16:30:56,719 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\db_pool.py', reloading
+2025-07-14 16:30:56,720 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\asyncio.py', reloading
+2025-07-14 16:30:56,720 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\debug.py', reloading
+2025-07-14 16:30:56,721 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\backdoor.py', reloading
+2025-07-14 16:30:56,721 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\event.py', reloading
+2025-07-14 16:30:56,721 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\convenience.py', reloading
+2025-07-14 16:30:56,722 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\asynchat.py', reloading
+2025-07-14 16:30:56,722 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\corolocal.py', reloading
+2025-07-14 16:30:56,723 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\asyncore.py', reloading
+2025-07-14 16:30:56,723 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\coros.py', reloading
+2025-07-14 16:30:56,724 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\BaseHTTPServer.py', reloading
+2025-07-14 16:30:56,724 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\dagpool.py', reloading
+2025-07-14 16:30:56,725 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\builtin.py', reloading
+2025-07-14 16:30:56,725 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\db_pool.py', reloading
+2025-07-14 16:30:56,726 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\CGIHTTPServer.py', reloading
+2025-07-14 16:30:56,726 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\debug.py', reloading
+2025-07-14 16:30:56,727 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\ftplib.py', reloading
+2025-07-14 16:30:56,728 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\event.py', reloading
+2025-07-14 16:30:56,729 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\http\\client.py', reloading
+2025-07-14 16:30:56,730 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\asynchat.py', reloading
+2025-07-14 16:30:56,730 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\http\\cookiejar.py', reloading
+2025-07-14 16:30:56,730 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\asyncore.py', reloading
+2025-07-14 16:30:56,731 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\BaseHTTPServer.py', reloading
+2025-07-14 16:30:56,732 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\builtin.py', reloading
+2025-07-14 16:30:56,732 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\http\\server.py', reloading
+2025-07-14 16:30:56,734 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\CGIHTTPServer.py', reloading
+2025-07-14 16:30:56,734 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\http\\__init__.py', reloading
+2025-07-14 16:30:56,735 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\ftplib.py', reloading
+2025-07-14 16:30:56,736 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\http\\client.py', reloading
+2025-07-14 16:30:56,737 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\httplib.py', reloading
+2025-07-14 16:30:56,737 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\http\\cookiejar.py', reloading
+2025-07-14 16:30:56,738 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\http\\cookies.py', reloading
+2025-07-14 16:30:56,739 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\http\\server.py', reloading
+2025-07-14 16:30:56,739 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\OpenSSL\\crypto.py', reloading
+2025-07-14 16:30:56,740 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\http\\__init__.py', reloading
+2025-07-14 16:30:56,740 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\OpenSSL\\SSL.py', reloading
+2025-07-14 16:30:56,741 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\OpenSSL\\tsafe.py', reloading
+2025-07-14 16:30:56,742 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\OpenSSL\\version.py', reloading
+2025-07-14 16:30:56,743 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\OpenSSL\\__init__.py', reloading
+2025-07-14 16:30:56,744 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\httplib.py', reloading
+2025-07-14 16:30:56,747 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\MySQLdb.py', reloading
+2025-07-14 16:30:56,748 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\OpenSSL\\crypto.py', reloading
+2025-07-14 16:30:56,749 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\os.py', reloading
+2025-07-14 16:30:56,749 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\OpenSSL\\SSL.py', reloading
+2025-07-14 16:30:56,749 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\profile.py', reloading
+2025-07-14 16:30:56,750 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\OpenSSL\\tsafe.py', reloading
+2025-07-14 16:30:56,751 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\Queue.py', reloading
+2025-07-14 16:30:56,751 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\OpenSSL\\version.py', reloading
+2025-07-14 16:30:56,752 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\select.py', reloading
+2025-07-14 16:30:56,752 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\OpenSSL\\__init__.py', reloading
+2025-07-14 16:30:56,753 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\selectors.py', reloading
+2025-07-14 16:30:56,754 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\SimpleHTTPServer.py', reloading
+2025-07-14 16:30:56,755 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\os.py', reloading
+2025-07-14 16:30:56,755 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\socket.py', reloading
+2025-07-14 16:30:56,756 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\profile.py', reloading
+2025-07-14 16:30:56,756 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\SocketServer.py', reloading
+2025-07-14 16:30:56,757 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\Queue.py', reloading
+2025-07-14 16:30:56,757 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\ssl.py', reloading
+2025-07-14 16:30:56,758 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\select.py', reloading
+2025-07-14 16:30:56,758 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\subprocess.py', reloading
+2025-07-14 16:30:56,759 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\selectors.py', reloading
+2025-07-14 16:30:56,759 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\thread.py', reloading
+2025-07-14 16:30:56,760 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\SimpleHTTPServer.py', reloading
+2025-07-14 16:30:56,760 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\threading.py', reloading
+2025-07-14 16:30:56,761 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\socket.py', reloading
+2025-07-14 16:30:56,762 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\time.py', reloading
+2025-07-14 16:30:56,762 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\SocketServer.py', reloading
+2025-07-14 16:30:56,763 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\urllib\\error.py', reloading
+2025-07-14 16:30:56,764 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\ssl.py', reloading
+2025-07-14 16:30:56,764 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\urllib\\parse.py', reloading
+2025-07-14 16:30:56,765 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\subprocess.py', reloading
+2025-07-14 16:30:56,765 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\urllib\\request.py', reloading
+2025-07-14 16:30:56,766 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\thread.py', reloading
+2025-07-14 16:30:56,766 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\threading.py', reloading
+2025-07-14 16:30:56,766 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\urllib\\response.py', reloading
+2025-07-14 16:30:56,767 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\time.py', reloading
+2025-07-14 16:30:56,767 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\urllib\\__init__.py', reloading
+2025-07-14 16:30:56,768 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\urllib\\error.py', reloading
+2025-07-14 16:30:56,769 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\urllib\\parse.py', reloading
+2025-07-14 16:30:56,770 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\urllib\\request.py', reloading
+2025-07-14 16:30:56,770 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\urllib2.py', reloading
+2025-07-14 16:30:56,771 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\urllib\\response.py', reloading
+2025-07-14 16:30:56,772 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\urllib\\__init__.py', reloading
+2025-07-14 16:30:56,772 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\zmq.py', reloading
+2025-07-14 16:30:56,773 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\_socket_nodns.py', reloading
+2025-07-14 16:30:56,774 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\__init__.py', reloading
+2025-07-14 16:30:56,775 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\urllib2.py', reloading
+2025-07-14 16:30:56,776 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\zmq.py', reloading
+2025-07-14 16:30:56,777 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\_socket_nodns.py', reloading
+2025-07-14 16:30:56,778 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\green\\__init__.py', reloading
+2025-07-14 16:30:56,784 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\greenio\\base.py', reloading
+2025-07-14 16:30:56,784 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\greenio\\py3.py', reloading
+2025-07-14 16:30:56,785 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\greenio\\__init__.py', reloading
+2025-07-14 16:30:56,787 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\greenpool.py', reloading
+2025-07-14 16:30:56,788 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\greenio\\base.py', reloading
+2025-07-14 16:30:56,788 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\greenthread.py', reloading
+2025-07-14 16:30:56,789 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\greenio\\py3.py', reloading
+2025-07-14 16:30:56,789 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\hubs\\asyncio.py', reloading
+2025-07-14 16:30:56,789 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\greenio\\__init__.py', reloading
+2025-07-14 16:30:56,790 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\hubs\\epolls.py', reloading
+2025-07-14 16:30:56,791 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\hubs\\hub.py', reloading
+2025-07-14 16:30:56,792 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\hubs\\kqueue.py', reloading
+2025-07-14 16:30:56,792 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\greenpool.py', reloading
+2025-07-14 16:30:56,792 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\hubs\\poll.py', reloading
+2025-07-14 16:30:56,793 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\greenthread.py', reloading
+2025-07-14 16:30:56,794 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\hubs\\pyevent.py', reloading
+2025-07-14 16:30:56,794 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\hubs\\asyncio.py', reloading
+2025-07-14 16:30:56,795 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\hubs\\selects.py', reloading
+2025-07-14 16:30:56,796 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\hubs\\epolls.py', reloading
+2025-07-14 16:30:56,797 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\hubs\\hub.py', reloading
+2025-07-14 16:30:56,797 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\hubs\\timer.py', reloading
+2025-07-14 16:30:56,797 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\hubs\\kqueue.py', reloading
+2025-07-14 16:30:56,797 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\hubs\\__init__.py', reloading
+2025-07-14 16:30:56,798 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\hubs\\poll.py', reloading
+2025-07-14 16:30:56,799 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\hubs\\pyevent.py', reloading
+2025-07-14 16:30:56,800 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\hubs\\selects.py', reloading
+2025-07-14 16:30:56,800 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\lock.py', reloading
+2025-07-14 16:30:56,801 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\hubs\\timer.py', reloading
+2025-07-14 16:30:56,801 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\patcher.py', reloading
+2025-07-14 16:30:56,801 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\hubs\\__init__.py', reloading
+2025-07-14 16:30:56,802 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\pools.py', reloading
+2025-07-14 16:30:56,803 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\queue.py', reloading
+2025-07-14 16:30:56,804 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\semaphore.py', reloading
+2025-07-14 16:30:56,805 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\support\\greendns.py', reloading
+2025-07-14 16:30:56,806 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\support\\greenlets.py', reloading
+2025-07-14 16:30:56,806 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\lock.py', reloading
+2025-07-14 16:30:56,806 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\support\\psycopg2_patcher.py', reloading
+2025-07-14 16:30:56,807 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\patcher.py', reloading
+2025-07-14 16:30:56,808 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\support\\pylib.py', reloading
+2025-07-14 16:30:56,808 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\pools.py', reloading
+2025-07-14 16:30:56,808 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\support\\stacklesspypys.py', reloading
+2025-07-14 16:30:56,809 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\queue.py', reloading
+2025-07-14 16:30:56,809 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\support\\stacklesss.py', reloading
+2025-07-14 16:30:56,810 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\semaphore.py', reloading
+2025-07-14 16:30:56,810 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\support\\__init__.py', reloading
+2025-07-14 16:30:56,811 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\support\\greendns.py', reloading
+2025-07-14 16:30:56,812 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\support\\greenlets.py', reloading
+2025-07-14 16:30:56,814 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\support\\psycopg2_patcher.py', reloading
+2025-07-14 16:30:56,814 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\support\\pylib.py', reloading
+2025-07-14 16:30:56,815 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\support\\stacklesspypys.py', reloading
+2025-07-14 16:30:56,815 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\timeout.py', reloading
+2025-07-14 16:30:56,816 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\support\\stacklesss.py', reloading
+2025-07-14 16:30:56,816 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\tpool.py', reloading
+2025-07-14 16:30:56,817 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\support\\__init__.py', reloading
+2025-07-14 16:30:56,817 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\websocket.py', reloading
+2025-07-14 16:30:56,818 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\wsgi.py', reloading
+2025-07-14 16:30:56,819 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\api.py', reloading
+2025-07-14 16:30:56,820 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\client.py', reloading
+2025-07-14 16:30:56,821 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\timeout.py', reloading
+2025-07-14 16:30:56,822 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\greenthread.py', reloading
+2025-07-14 16:30:56,822 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\tpool.py', reloading
+2025-07-14 16:30:56,823 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\http.py', reloading
+2025-07-14 16:30:56,824 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\wsgi.py', reloading
+2025-07-14 16:30:56,824 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\log.py', reloading
+2025-07-14 16:30:56,825 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\api.py', reloading
+2025-07-14 16:30:56,825 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\patcher.py', reloading
+2025-07-14 16:30:56,826 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\client.py', reloading
+2025-07-14 16:30:56,826 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\wsgi.py', reloading
+2025-07-14 16:30:56,828 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\greenthread.py', reloading
+2025-07-14 16:30:56,828 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\_thrift\\zipkinCore\\constants.py', reloading
+2025-07-14 16:30:56,829 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\http.py', reloading
+2025-07-14 16:30:56,830 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\log.py', reloading
+2025-07-14 16:30:56,830 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\_thrift\\zipkinCore\\ttypes.py', reloading
+2025-07-14 16:30:56,831 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\patcher.py', reloading
+2025-07-14 16:30:56,831 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\_thrift\\zipkinCore\\__init__.py', reloading
+2025-07-14 16:30:56,832 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\wsgi.py', reloading
+2025-07-14 16:30:56,833 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\_thrift\\__init__.py', reloading
+, reloading
+2025-07-14 16:30:56,834 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\_thrift\\zipkinCore\\ttypes.py', reloading
+2025-07-14 16:30:56,836 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\_thrift\\zipkinCore\\__init__.py', reloading
+2025-07-14 16:30:56,838 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\_thrift\\__init__.py', reloading
+2025-07-14 16:30:56,840 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\zipkin\\__init__.py', reloading
+2025-07-14 16:30:56,841 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\_version.py', reloading
+2025-07-14 16:30:56,842 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\__init__.py', reloading
+2025-07-14 16:30:56,844 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\_version.py', reloading
+2025-07-14 16:30:56,845 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\~ventlet\\__init__.py', reloading
+2025-07-14 16:30:56,877 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:30:57,351 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:30:57,716 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:30:58,386 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:30:58,397 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:30:58,398 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:30:58,398 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:30:58,398 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:30:58,433 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:30:58,453 - werkzeug - INFO -  * Debugger PIN: 137-254-979
+2025-07-14 16:30:58,871 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:30:58,875 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:30:58,876 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:30:58,876 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:30:58,876 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:30:58,906 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:30:58,921 - werkzeug - INFO -  * Debugger PIN: 137-254-979
+2025-07-14 16:30:59,235 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:30:59,247 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:30:59,249 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:30:59,249 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:30:59,249 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:30:59,276 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:30:59,289 - werkzeug - INFO -  * Debugger PIN: 137-254-979
+2025-07-14 16:33:58,899 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:33:58,909 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:33:58,909 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:33:58,909 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:33:58,909 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:33:59,816 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.45:5000
+2025-07-14 16:33:59,816 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-14 16:33:59,816 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:34:00,882 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:34:00,882 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:34:00,892 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:34:00,892 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:34:00,892 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:34:00,916 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:34:00,923 - werkzeug - INFO -  * Debugger PIN: 137-254-979
+2025-07-14 16:34:14,547 - werkzeug - INFO -  * Detected change in 'C:\\Users\\soylu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\engineio\\middleware.py', reloading
+2025-07-14 16:34:14,559 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 16:34:14] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-07-14 16:34:14,712 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 16:34:14] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-14 16:34:14,793 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 16:34:14] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-14 16:34:15,237 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:34:16,425 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:34:16,427 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:34:16,428 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:34:16,429 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:34:16,429 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:34:16,448 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:34:16,465 - werkzeug - INFO -  * Debugger PIN: 137-254-979
+2025-07-14 16:34:16,546 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 16:34:16] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=deDQ8FbPiufU3IIQC3jp HTTP/1.1" 200 -
+2025-07-14 16:34:16,570 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 16:34:16] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-14 16:35:31,094 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:35:31,097 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:35:31,098 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:35:31,099 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:35:31,099 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:35:31,975 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.45:5000
+2025-07-14 16:35:31,975 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-14 16:35:31,975 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:35:33,041 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:35:33,051 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:35:33,051 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:35:33,051 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:35:33,051 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:35:33,078 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:35:33,091 - werkzeug - INFO -  * Debugger PIN: 137-254-979
+2025-07-14 16:36:17,216 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 16:36:17] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-07-14 16:36:17,236 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 16:36:17] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-14 16:36:17,466 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 16:36:17] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-14 16:36:17,831 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 16:36:17] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=hVGRVmnfJof2I5fOGjYN HTTP/1.1" 200 -
+2025-07-14 16:37:30,449 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:37:30,449 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:37:30,449 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:37:30,449 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:37:30,449 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:37:31,356 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.45:5000
+2025-07-14 16:37:31,356 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-14 16:37:31,356 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:37:32,588 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:37:32,588 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:37:32,588 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:37:32,588 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:37:32,588 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:37:32,618 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:37:32,629 - werkzeug - INFO -  * Debugger PIN: 137-254-979
+2025-07-14 16:37:40,768 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 16:37:40] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-07-14 16:37:40,868 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 16:37:40] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-14 16:37:41,029 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 16:37:41] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-14 16:37:41,395 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 16:37:41] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=Uyvpy8Cs7wTpi0x1RmQv HTTP/1.1" 200 -
+2025-07-14 16:38:41,300 - werkzeug - INFO - 192.168.1.45 - - [14/Jul/2025 16:38:41] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-07-14 16:38:41,379 - werkzeug - INFO - 192.168.1.45 - - [14/Jul/2025 16:38:41] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-14 16:38:41,420 - werkzeug - INFO - 192.168.1.45 - - [14/Jul/2025 16:38:41] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-14 16:38:41,536 - werkzeug - INFO - 192.168.1.45 - - [14/Jul/2025 16:38:41] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-14 16:54:53,980 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:54:53,982 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:54:53,983 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:54:53,983 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:54:53,984 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:54:54,878 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.45:5000
+2025-07-14 16:54:54,878 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-14 16:54:54,879 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:54:55,983 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:54:55,986 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:54:55,987 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:54:55,987 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:54:55,987 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:54:56,012 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:54:56,025 - werkzeug - INFO -  * Debugger PIN: 137-254-979
+2025-07-14 16:57:27,300 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:57:27,302 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:57:27,303 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:57:27,303 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:57:27,303 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:57:28,202 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.45:5000
+2025-07-14 16:57:28,202 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-14 16:57:28,203 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-14 16:57:29,400 - __main__ - WARNING - Some modules not yet implemented: No module named 'core'
+2025-07-14 16:57:29,402 - __main__ - INFO - Starting AI Dungeon Master application...
+2025-07-14 16:57:29,403 - __main__ - WARNING - No AI API keys found in environment. Please configure your .env file.
+2025-07-14 16:57:29,403 - __main__ - INFO - Server starting on port 5000
+2025-07-14 16:57:29,404 - __main__ - INFO - Access the application at: http://localhost:5000
+2025-07-14 16:57:29,434 - werkzeug - WARNING -  * Debugger is active!
+2025-07-14 16:57:29,447 - werkzeug - INFO -  * Debugger PIN: 137-254-979
+2025-07-14 17:41:42,022 - __main__ - INFO - Server starting on port 5050
+2025-07-14 17:41:42,022 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-14 17:41:42,971 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.45:5050
+2025-07-14 17:41:42,971 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-14 17:41:54,563 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:41:54] "GET / HTTP/1.1" 200 -
+2025-07-14 17:41:54,598 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:41:54] "GET /api/health HTTP/1.1" 200 -
+2025-07-14 17:41:54,810 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:41:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-14 17:43:32,083 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:43:32] "GET / HTTP/1.1" 200 -
+2025-07-14 17:43:32,115 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:43:32] "GET /api/health HTTP/1.1" 200 -
+2025-07-14 17:43:35,105 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:43:35] "GET / HTTP/1.1" 200 -
+2025-07-14 17:43:35,416 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:43:35] "GET /api/health HTTP/1.1" 200 -
+2025-07-14 17:43:43,063 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:43:43] "GET / HTTP/1.1" 200 -
+2025-07-14 17:43:43,070 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:43:43] "GET /api/health HTTP/1.1" 200 -
+2025-07-14 17:43:43,695 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:43:43] "GET / HTTP/1.1" 200 -
+2025-07-14 17:43:44,001 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:43:44] "GET /api/health HTTP/1.1" 200 -
+2025-07-14 17:44:42,453 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:44:42] "GET / HTTP/1.1" 200 -
+2025-07-14 17:44:42,477 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:44:42] "GET /api/health HTTP/1.1" 200 -
+2025-07-14 17:44:42,704 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:44:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-14 17:44:44,252 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:44:44] "GET / HTTP/1.1" 200 -
+2025-07-14 17:44:44,276 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:44:44] "GET /api/health HTTP/1.1" 200 -
+2025-07-14 17:44:44,585 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:44:44] "GET / HTTP/1.1" 200 -
+2025-07-14 17:44:44,608 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:44:44] "GET /api/health HTTP/1.1" 200 -
+2025-07-14 17:44:44,775 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:44:44] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-14 17:44:44,917 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:44:44] "GET / HTTP/1.1" 200 -
+2025-07-14 17:44:44,943 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:44:44] "GET /api/health HTTP/1.1" 200 -
+2025-07-14 17:46:28,862 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:46:28] "GET / HTTP/1.1" 200 -
+2025-07-14 17:46:28,881 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:46:28] "GET /api/health HTTP/1.1" 200 -
+2025-07-14 17:46:29,602 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:46:29] "GET / HTTP/1.1" 200 -
+2025-07-14 17:46:29,910 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:46:29] "GET /api/health HTTP/1.1" 200 -
+2025-07-14 17:46:30,566 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:46:30] "GET / HTTP/1.1" 200 -
+2025-07-14 17:46:30,585 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2025 17:46:30] "GET /api/health HTTP/1.1" 200 -
+2025-07-14 17:47:27,783 - __main__ - INFO - Server starting on port 5050
+2025-07-14 17:47:27,783 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-14 17:47:28,709 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.45:5050
+2025-07-14 17:47:28,709 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 12:47:40,381 - __main__ - INFO - Server starting on port 5050
+2025-07-20 12:47:40,381 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 12:47:41,287 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 12:47:41,287 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 13:09:02,726 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 13:09:02] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 13:09:10,347 - core.campaign_manager - INFO - Loaded 11 campaigns
+2025-07-20 13:09:10,348 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 13:09:10,356 - web.routes - INFO - Web routes registered successfully
+2025-07-20 13:18:27,394 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 13:18:27] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 13:31:46,410 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 13:31:46] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 13:31:50,307 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 13:31:50] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 13:31:52,438 - core.campaign_manager - INFO - Loaded 11 campaigns
+2025-07-20 13:31:52,438 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 13:31:52,444 - web.routes - INFO - Web routes registered successfully
+2025-07-20 13:31:52,446 - __main__ - INFO - Server starting on port 5050
+2025-07-20 13:31:52,447 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 13:31:53,336 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 13:31:53,336 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 13:57:11,035 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 13:57:11] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 13:57:21,516 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 13:57:21] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 13:57:31,586 - core.campaign_manager - INFO - Loaded 11 campaigns
+2025-07-20 13:57:31,586 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 13:57:31,598 - web.routes - INFO - Web routes registered successfully
+2025-07-20 13:57:31,600 - __main__ - INFO - Server starting on port 5050
+2025-07-20 13:57:31,601 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 13:57:32,559 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 13:57:32,601 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 14:10:10,592 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:10:10] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 14:10:12,008 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:10:12] "GET / HTTP/1.1" 200 -
+2025-07-20 14:10:12,168 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:10:12] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-20 14:10:12,195 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:10:12] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-20 14:10:12,633 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:10:12] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 14:10:12,654 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:10:12] "GET /socket.io/?EIO=4&transport=polling&t=PWdXlDE HTTP/1.1" 200 -
+2025-07-20 14:10:12,744 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:10:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-20 14:10:12,892 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:10:12] "POST /socket.io/?EIO=4&transport=polling&t=PWdXlIp&sid=awRFhmUaEPDJfXjOAAAA HTTP/1.1" 200 -
+2025-07-20 14:10:12,969 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:10:12] "GET /socket.io/?EIO=4&transport=polling&t=PWdXlIt&sid=awRFhmUaEPDJfXjOAAAA HTTP/1.1" 200 -
+2025-07-20 14:10:13,012 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:10:13] "GET /socket.io/?EIO=4&transport=polling&t=PWdXlOF&sid=awRFhmUaEPDJfXjOAAAA HTTP/1.1" 200 -
+2025-07-20 14:10:29,464 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:10:29] "[33mPOST /api/game/session/start HTTP/1.1[0m" 404 -
+2025-07-20 14:10:35,042 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:10:35] "[33mPOST /api/game/session/start HTTP/1.1[0m" 404 -
+2025-07-20 14:10:35,823 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:10:35] "[33mPOST /api/game/session/start HTTP/1.1[0m" 404 -
+2025-07-20 14:10:35,991 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:10:35] "[33mPOST /api/game/session/start HTTP/1.1[0m" 404 -
+2025-07-20 14:10:44,208 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:10:44] "[33mPOST /api/game/session/start HTTP/1.1[0m" 404 -
+2025-07-20 14:10:45,149 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:10:45] "[33mPOST /api/game/session/start HTTP/1.1[0m" 404 -
+2025-07-20 14:10:45,305 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:10:45] "[33mPOST /api/game/session/start HTTP/1.1[0m" 404 -
+2025-07-20 14:10:45,414 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:10:45] "[33mPOST /api/game/session/start HTTP/1.1[0m" 404 -
+2025-07-20 14:10:45,475 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:10:45] "[33mPOST /api/game/session/start HTTP/1.1[0m" 404 -
+2025-07-20 14:11:31,462 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:11:31] "[33mGET /api/game/session/start HTTP/1.1[0m" 404 -
+2025-07-20 14:12:19,547 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:12:19] "[33mGET /api/game/session/start HTTP/1.1[0m" 404 -
+2025-07-20 14:12:26,123 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:12:26] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 14:12:32,233 - core.campaign_manager - INFO - Loaded 11 campaigns
+2025-07-20 14:12:32,234 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 14:12:32,247 - web.routes - INFO - Web routes registered successfully
+2025-07-20 14:12:32,247 - __main__ - INFO - Web routes registered successfully
+2025-07-20 14:13:21,511 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:13:21] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 14:13:23,594 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:13:23] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 14:13:25,639 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:13:25] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 14:13:27,674 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:13:27] "[33mPOST /api/game/roll-dice HTTP/1.1[0m" 404 -
+2025-07-20 14:13:29,135 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:13:29] "GET / HTTP/1.1" 200 -
+2025-07-20 14:13:29,202 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:13:29] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-20 14:13:29,401 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:13:29] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-20 14:13:29,785 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:13:29] "GET /socket.io/?EIO=4&transport=polling&t=PWdYVL3 HTTP/1.1" 200 -
+2025-07-20 14:13:29,785 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:13:29] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 14:13:29,982 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:13:29] "POST /socket.io/?EIO=4&transport=polling&t=PWdYVQz&sid=x-mwv2NQRfmlzmGoAAAC HTTP/1.1" 200 -
+2025-07-20 14:13:30,104 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:13:30] "GET /socket.io/?EIO=4&transport=polling&t=PWdYVR0&sid=x-mwv2NQRfmlzmGoAAAC HTTP/1.1" 200 -
+2025-07-20 14:13:30,112 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:13:30] "GET /socket.io/?EIO=4&transport=polling&t=PWdYVV-&sid=x-mwv2NQRfmlzmGoAAAC HTTP/1.1" 200 -
+2025-07-20 14:13:39,455 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:13:39] "[33mPOST /api/game/session/start HTTP/1.1[0m" 404 -
+2025-07-20 14:13:41,069 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:13:41] "[33mPOST /api/game/session/start HTTP/1.1[0m" 404 -
+2025-07-20 14:13:41,566 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:13:41] "[33mPOST /api/game/session/start HTTP/1.1[0m" 404 -
+2025-07-20 14:13:41,768 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:13:41] "[33mPOST /api/game/session/start HTTP/1.1[0m" 404 -
+2025-07-20 14:13:48,152 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:13:48] "GET /socket.io/?EIO=4&transport=websocket&sid=x-mwv2NQRfmlzmGoAAAC HTTP/1.1" 200 -
+2025-07-20 14:13:49,927 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:13:49] "GET /socket.io/?EIO=4&transport=websocket&sid=awRFhmUaEPDJfXjOAAAA HTTP/1.1" 200 -
+2025-07-20 14:51:01,832 - core.campaign_manager - INFO - Loaded 11 campaigns
+2025-07-20 14:51:01,833 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 14:51:01,841 - web.routes - INFO - Web routes registered successfully
+2025-07-20 14:51:01,841 - __main__ - INFO - Web routes registered successfully
+2025-07-20 14:51:01,843 - __main__ - INFO - Server starting on port 5050
+2025-07-20 14:51:01,844 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 14:51:02,750 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 14:51:02,751 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 14:51:08,281 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:51:08] "[33mPOST /api/game/session/start HTTP/1.1[0m" 404 -
+2025-07-20 14:51:15,169 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:51:15] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 14:51:17,629 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:51:17] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 14:51:53,574 - core.campaign_manager - INFO - Loaded 11 campaigns
+2025-07-20 14:51:53,575 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 14:51:53,581 - web.routes - INFO - Web routes registered successfully
+2025-07-20 14:51:53,581 - __main__ - INFO - Web routes registered successfully
+2025-07-20 14:51:53,582 - __main__ - INFO - Server starting on port 5050
+2025-07-20 14:51:53,582 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 14:51:55,447 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 14:51:55,448 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 14:51:58,058 - core.campaign_manager - INFO - Loaded 11 campaigns
+2025-07-20 14:51:58,059 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 14:51:58,066 - web.routes - INFO - Web routes registered successfully
+2025-07-20 14:51:58,066 - __main__ - INFO - Web routes registered successfully
+2025-07-20 14:51:58,068 - __main__ - INFO - Server starting on port 5050
+2025-07-20 14:51:58,069 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 14:52:06,960 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 14:52:06,960 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 14:54:24,619 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:24] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 14:54:25,859 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:25] "GET / HTTP/1.1" 200 -
+2025-07-20 14:54:26,026 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:26] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-20 14:54:26,131 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:26] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-20 14:54:26,456 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:26] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 14:54:26,457 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:26] "GET /socket.io/?EIO=4&transport=polling&t=PWdht7d HTTP/1.1" 200 -
+2025-07-20 14:54:26,723 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:26] "POST /socket.io/?EIO=4&transport=polling&t=PWdhtCS&sid=8NeKaWVJ_a9IhwGbAAAA HTTP/1.1" 200 -
+2025-07-20 14:54:26,771 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:26] "GET /socket.io/?EIO=4&transport=polling&t=PWdhtCT&sid=8NeKaWVJ_a9IhwGbAAAA HTTP/1.1" 200 -
+2025-07-20 14:54:26,777 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:26] "GET /socket.io/?EIO=4&transport=polling&t=PWdhtHN&sid=8NeKaWVJ_a9IhwGbAAAA HTTP/1.1" 200 -
+2025-07-20 14:54:34,382 - core.game_engine - INFO - New session started for campaign: cyber_city
+2025-07-20 14:54:34,383 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:34] "POST /api/game/session/start HTTP/1.1" 200 -
+2025-07-20 14:54:34,651 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:34] "GET /api/campaign/cyber_city/step/start HTTP/1.1" 200 -
+2025-07-20 14:54:39,025 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:39] "[33mGET /api/campaign/cyber_city/step/find_contact HTTP/1.1[0m" 404 -
+2025-07-20 14:54:41,877 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:41] "[33mGET /api/campaign/cyber_city/step/find_contact HTTP/1.1[0m" 404 -
+2025-07-20 14:54:43,212 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:43] "[33mGET /api/campaign/cyber_city/step/hack_system HTTP/1.1[0m" 404 -
+2025-07-20 14:54:44,249 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:44] "[33mGET /api/campaign/cyber_city/step/find_contact HTTP/1.1[0m" 404 -
+2025-07-20 14:54:44,514 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:44] "[33mGET /api/campaign/cyber_city/step/hack_system HTTP/1.1[0m" 404 -
+2025-07-20 14:54:44,813 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:44] "[33mGET /api/campaign/cyber_city/step/find_contact HTTP/1.1[0m" 404 -
+2025-07-20 14:54:45,404 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:45] "[33mGET /api/campaign/cyber_city/step/hack_system HTTP/1.1[0m" 404 -
+2025-07-20 14:54:45,671 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:45] "[33mGET /api/campaign/cyber_city/step/find_contact HTTP/1.1[0m" 404 -
+2025-07-20 14:54:46,282 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:46] "[33mGET /api/campaign/cyber_city/step/hack_system HTTP/1.1[0m" 404 -
+2025-07-20 14:54:46,548 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:46] "[33mGET /api/campaign/cyber_city/step/find_contact HTTP/1.1[0m" 404 -
+2025-07-20 14:54:46,719 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:46] "[33mGET /api/campaign/cyber_city/step/hack_system HTTP/1.1[0m" 404 -
+2025-07-20 14:54:46,973 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:46] "[33mGET /api/campaign/cyber_city/step/find_contact HTTP/1.1[0m" 404 -
+2025-07-20 14:54:47,377 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:47] "[33mGET /api/campaign/cyber_city/step/hack_system HTTP/1.1[0m" 404 -
+2025-07-20 14:54:48,084 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:48] "[33mGET /api/campaign/cyber_city/step/find_contact HTTP/1.1[0m" 404 -
+2025-07-20 14:54:49,814 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:49] "GET / HTTP/1.1" 200 -
+2025-07-20 14:54:49,819 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:49] "GET /socket.io/?EIO=4&transport=websocket&sid=8NeKaWVJ_a9IhwGbAAAA HTTP/1.1" 200 -
+2025-07-20 14:54:50,125 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-20 14:54:50,156 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:50] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-07-20 14:54:50,471 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:50] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 14:54:50,472 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:50] "GET /socket.io/?EIO=4&transport=polling&t=PWdhy-l HTTP/1.1" 200 -
+2025-07-20 14:54:50,735 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:50] "POST /socket.io/?EIO=4&transport=polling&t=PWdhz3h&sid=KC8Wd6vIP1awNzhLAAAC HTTP/1.1" 200 -
+2025-07-20 14:54:50,781 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:50] "GET /socket.io/?EIO=4&transport=polling&t=PWdhz3i&sid=KC8Wd6vIP1awNzhLAAAC HTTP/1.1" 200 -
+2025-07-20 14:54:50,787 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:54:50] "GET /socket.io/?EIO=4&transport=polling&t=PWdhz8Y&sid=KC8Wd6vIP1awNzhLAAAC HTTP/1.1" 200 -
+2025-07-20 14:55:25,197 - core.game_engine - INFO - New session started for campaign: dragon_quest
+2025-07-20 14:55:25,197 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:55:25] "POST /api/game/session/start HTTP/1.1" 200 -
+2025-07-20 14:55:27,495 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:55:27] "[31m[1mGET /api/game/session/start HTTP/1.1[0m" 405 -
+2025-07-20 14:55:45,774 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:55:45] "GET / HTTP/1.1" 200 -
+2025-07-20 14:55:46,788 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:55:46] "GET / HTTP/1.1" 200 -
+2025-07-20 14:55:51,491 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:55:51] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-20 14:55:51,538 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:55:51] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-20 14:55:59,360 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:55:59] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 14:56:01,406 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:01] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 14:56:03,496 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:03] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 14:56:05,567 - core.game_engine - INFO - Dice roll: d20+0 = 3
+2025-07-20 14:56:05,568 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:05] "POST /api/game/roll-dice HTTP/1.1" 200 -
+2025-07-20 14:56:06,937 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:06] "GET / HTTP/1.1" 200 -
+2025-07-20 14:56:06,965 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:06] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-20 14:56:07,207 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:07] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-20 14:56:07,523 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:07] "GET /socket.io/?EIO=4&transport=polling&t=PWdiFoi HTTP/1.1" 200 -
+2025-07-20 14:56:07,524 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:07] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 14:56:07,788 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:07] "POST /socket.io/?EIO=4&transport=polling&t=PWdiFtd&sid=qOrLBBwiJ4cXeoT6AAAE HTTP/1.1" 200 -
+2025-07-20 14:56:07,835 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:07] "GET /socket.io/?EIO=4&transport=polling&t=PWdiFtf&sid=qOrLBBwiJ4cXeoT6AAAE HTTP/1.1" 200 -
+2025-07-20 14:56:07,841 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:07] "GET /socket.io/?EIO=4&transport=polling&t=PWdiFyW&sid=qOrLBBwiJ4cXeoT6AAAE HTTP/1.1" 200 -
+2025-07-20 14:56:16,125 - core.game_engine - INFO - New session started for campaign: wizard_tower
+2025-07-20 14:56:16,126 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:16] "POST /api/game/session/start HTTP/1.1" 200 -
+2025-07-20 14:56:16,376 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:16] "GET /api/campaign/wizard_tower/step/start HTTP/1.1" 200 -
+2025-07-20 14:56:18,425 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:18] "[33mGET /api/campaign/wizard_tower/step/climb_tower HTTP/1.1[0m" 404 -
+2025-07-20 14:56:20,046 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:20] "[33mGET /api/campaign/wizard_tower/step/study_magic HTTP/1.1[0m" 404 -
+2025-07-20 14:56:20,379 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:20] "[33mGET /api/campaign/wizard_tower/step/climb_tower HTTP/1.1[0m" 404 -
+2025-07-20 14:56:21,106 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:21] "[33mGET /api/campaign/wizard_tower/step/study_magic HTTP/1.1[0m" 404 -
+2025-07-20 14:56:21,372 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:21] "[33mGET /api/campaign/wizard_tower/step/climb_tower HTTP/1.1[0m" 404 -
+2025-07-20 14:56:21,402 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:21] "[33mGET /api/campaign/wizard_tower/step/study_magic HTTP/1.1[0m" 404 -
+2025-07-20 14:56:21,652 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:21] "[33mGET /api/campaign/wizard_tower/step/climb_tower HTTP/1.1[0m" 404 -
+2025-07-20 14:56:22,758 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:22] "[33mGET /api/campaign/wizard_tower/step/study_magic HTTP/1.1[0m" 404 -
+2025-07-20 14:56:23,672 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:56:23] "[33mGET /api/campaign/wizard_tower/step/study_magic HTTP/1.1[0m" 404 -
+2025-07-20 14:57:48,536 - core.campaign_manager - INFO - Loaded 11 campaigns
+2025-07-20 14:57:48,536 - core.campaign_manager - INFO - Loaded 11 campaigns
+2025-07-20 14:57:48,537 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 14:57:48,537 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 14:57:48,545 - web.routes - INFO - Web routes registered successfully
+2025-07-20 14:57:48,545 - __main__ - INFO - Web routes registered successfully
+2025-07-20 14:57:48,545 - web.routes - INFO - Web routes registered successfully
+2025-07-20 14:57:48,545 - __main__ - INFO - Web routes registered successfully
+2025-07-20 14:57:48,546 - __main__ - INFO - Server starting on port 5050
+2025-07-20 14:57:48,546 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 14:57:48,546 - __main__ - INFO - Server starting on port 5050
+2025-07-20 14:57:48,546 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 14:58:00,495 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 14:58:00,495 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 14:58:00,496 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 14:58:00,508 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:00] "GET /socket.io/?EIO=4&transport=polling&t=PWdih88 HTTP/1.1" 200 -
+2025-07-20 14:58:00,508 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:00] "GET /socket.io/?EIO=4&transport=polling&t=PWdih88 HTTP/1.1" 200 -
+2025-07-20 14:58:00,539 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:00] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 14:58:00,757 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:00] "POST /socket.io/?EIO=4&transport=polling&t=PWdihS-&sid=qV65SsbqoP9MaONWAAAA HTTP/1.1" 200 -
+2025-07-20 14:58:00,821 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:00] "POST /socket.io/?EIO=4&transport=polling&t=PWdihS-&sid=EbLK8GXt2jtKM9y9AAAB HTTP/1.1" 200 -
+2025-07-20 14:58:00,823 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:00] "GET /socket.io/?EIO=4&transport=polling&t=PWdihT1&sid=qV65SsbqoP9MaONWAAAA HTTP/1.1" 200 -
+2025-07-20 14:58:00,824 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:00] "GET /socket.io/?EIO=4&transport=polling&t=PWdihT2&sid=EbLK8GXt2jtKM9y9AAAB HTTP/1.1" 200 -
+2025-07-20 14:58:00,854 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:00] "GET /socket.io/?EIO=4&transport=polling&t=PWdihXy&sid=EbLK8GXt2jtKM9y9AAAB HTTP/1.1" 200 -
+2025-07-20 14:58:02,577 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:02] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 14:58:04,627 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:04] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 14:58:06,667 - core.game_engine - INFO - Dice roll: d20+0 = 1
+2025-07-20 14:58:06,668 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:06] "POST /api/game/roll-dice HTTP/1.1" 200 -
+2025-07-20 14:58:08,039 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:08] "GET / HTTP/1.1" 200 -
+2025-07-20 14:58:08,113 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:08] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-20 14:58:08,303 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:08] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-20 14:58:08,616 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:08] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 14:58:08,617 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:08] "GET /socket.io/?EIO=4&transport=polling&t=PWdijMp HTTP/1.1" 200 -
+2025-07-20 14:58:08,886 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:08] "POST /socket.io/?EIO=4&transport=polling&t=PWdijRi&sid=j7Onz6s5ZUDLPXPOAAAE HTTP/1.1" 200 -
+2025-07-20 14:58:08,929 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:08] "GET /socket.io/?EIO=4&transport=polling&t=PWdijRj&sid=j7Onz6s5ZUDLPXPOAAAE HTTP/1.1" 200 -
+2025-07-20 14:58:08,934 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:08] "GET /socket.io/?EIO=4&transport=polling&t=PWdijWa&sid=j7Onz6s5ZUDLPXPOAAAE HTTP/1.1" 200 -
+2025-07-20 14:58:19,206 - core.game_engine - INFO - New session started for campaign: wizard_tower
+2025-07-20 14:58:19,206 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:19] "POST /api/game/session/start HTTP/1.1" 200 -
+2025-07-20 14:58:19,479 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:19] "GET /api/campaign/wizard_tower/step/start HTTP/1.1" 200 -
+2025-07-20 14:58:20,368 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:20] "[33mGET /api/campaign/wizard_tower/step/climb_tower HTTP/1.1[0m" 404 -
+2025-07-20 14:58:21,829 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:21] "[33mGET /api/campaign/wizard_tower/step/study_magic HTTP/1.1[0m" 404 -
+2025-07-20 14:58:22,075 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:22] "[33mGET /api/campaign/wizard_tower/step/climb_tower HTTP/1.1[0m" 404 -
+2025-07-20 14:58:22,469 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:22] "[33mGET /api/campaign/wizard_tower/step/study_magic HTTP/1.1[0m" 404 -
+2025-07-20 14:58:23,118 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:23] "[33mGET /api/campaign/wizard_tower/step/climb_tower HTTP/1.1[0m" 404 -
+2025-07-20 14:58:23,451 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:23] "[33mGET /api/campaign/wizard_tower/step/climb_tower HTTP/1.1[0m" 404 -
+2025-07-20 14:58:24,364 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 14:58:24] "[33mGET /api/campaign/wizard_tower/step/study_magic HTTP/1.1[0m" 404 -
+2025-07-20 15:00:12,209 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:00:12] "GET /socket.io/?EIO=4&transport=websocket&sid=j7Onz6s5ZUDLPXPOAAAE HTTP/1.1" 200 -
+2025-07-20 15:00:17,109 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:00:17] "GET /socket.io/?EIO=4&transport=websocket&sid=EbLK8GXt2jtKM9y9AAAB HTTP/1.1" 200 -
+2025-07-20 15:00:18,936 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:00:18] "GET /socket.io/?EIO=4&transport=websocket&sid=qV65SsbqoP9MaONWAAAA HTTP/1.1" 200 -
+2025-07-20 15:02:59,545 - core.campaign_manager - INFO - Loaded 3 detailed campaigns
+2025-07-20 15:02:59,545 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 15:02:59,550 - web.routes - INFO - Web routes registered successfully
+2025-07-20 15:02:59,551 - __main__ - INFO - Web routes registered successfully
+2025-07-20 15:02:59,551 - __main__ - INFO - Server starting on port 5050
+2025-07-20 15:02:59,551 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 15:03:03,424 - core.campaign_manager - INFO - Loaded 3 detailed campaigns
+2025-07-20 15:03:03,424 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 15:03:03,429 - web.routes - INFO - Web routes registered successfully
+2025-07-20 15:03:03,429 - __main__ - INFO - Web routes registered successfully
+2025-07-20 15:03:03,430 - __main__ - INFO - Server starting on port 5050
+2025-07-20 15:03:03,430 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 15:03:08,366 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 15:03:08,366 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 15:03:08,366 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 15:03:08,367 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 15:03:11,136 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:03:11] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 15:03:13,177 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:03:13] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 15:03:15,201 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:03:15] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 15:03:17,268 - core.game_engine - INFO - Dice roll: d20+0 = 16
+2025-07-20 15:03:17,269 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:03:17] "POST /api/game/roll-dice HTTP/1.1" 200 -
+2025-07-20 15:03:18,484 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:03:18] "GET / HTTP/1.1" 200 -
+2025-07-20 15:03:18,557 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:03:18] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-20 15:03:18,728 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:03:18] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-20 15:03:19,042 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:03:19] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 15:03:19,042 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:03:19] "GET /socket.io/?EIO=4&transport=polling&t=PWdjv9D HTTP/1.1" 200 -
+2025-07-20 15:03:19,308 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:03:19] "POST /socket.io/?EIO=4&transport=polling&t=PWdjvE9&sid=oD2HSg65Bq5NKjF1AAAA HTTP/1.1" 200 -
+2025-07-20 15:03:19,354 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:03:19] "GET /socket.io/?EIO=4&transport=polling&t=PWdjvEB&sid=oD2HSg65Bq5NKjF1AAAA HTTP/1.1" 200 -
+2025-07-20 15:09:24,625 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:09:24] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 15:09:27,063 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:09:27] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 15:09:29,284 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:09:29] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 15:09:29,303 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:09:29] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 15:09:36,233 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:09:36] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-20 15:09:36,251 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:09:36] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-20 15:18:49,209 - core.campaign_manager - INFO - Campaign manager initialized - no campaigns loaded
+2025-07-20 15:18:49,210 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 15:18:49,225 - web.routes - INFO - Web routes registered successfully
+2025-07-20 15:18:49,225 - __main__ - INFO - Web routes registered successfully
+2025-07-20 15:18:49,227 - __main__ - INFO - Server starting on port 5050
+2025-07-20 15:18:49,228 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 15:18:51,196 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 15:18:51,197 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 15:18:51,773 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:18:51] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 15:18:53,483 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:18:53] "GET /socket.io/?EIO=4&transport=polling&t=PWdnTHm HTTP/1.1" 200 -
+2025-07-20 15:18:53,747 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:18:53] "POST /socket.io/?EIO=4&transport=polling&t=PWdnTMm&sid=inLYOoK8YdyNzDC0AAAA HTTP/1.1" 200 -
+2025-07-20 15:18:53,792 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:18:53] "GET /socket.io/?EIO=4&transport=polling&t=PWdnTMq&sid=inLYOoK8YdyNzDC0AAAA HTTP/1.1" 200 -
+2025-07-20 15:18:53,803 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:18:53] "GET /socket.io/?EIO=4&transport=polling&t=PWdnTRa&sid=inLYOoK8YdyNzDC0AAAA HTTP/1.1" 200 -
+2025-07-20 15:18:53,823 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:18:53] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 15:18:55,878 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:18:55] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 15:18:57,933 - core.game_engine - INFO - Dice roll: d20+0 = 8
+2025-07-20 15:18:57,933 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:18:57] "POST /api/game/roll-dice HTTP/1.1" 200 -
+2025-07-20 15:18:59,295 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:18:59] "GET / HTTP/1.1" 200 -
+2025-07-20 15:18:59,471 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:18:59] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-20 15:18:59,556 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:18:59] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-20 15:18:59,992 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:18:59] "GET /socket.io/?EIO=4&transport=polling&t=PWdnUtT HTTP/1.1" 200 -
+2025-07-20 15:18:59,993 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:18:59] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 15:19:00,240 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:19:00] "POST /socket.io/?EIO=4&transport=polling&t=PWdnUyT&sid=MHOJKneiK15ngqlNAAAC HTTP/1.1" 200 -
+2025-07-20 15:19:00,303 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:19:00] "GET /socket.io/?EIO=4&transport=polling&t=PWdnUyV&sid=MHOJKneiK15ngqlNAAAC HTTP/1.1" 200 -
+2025-07-20 15:19:00,305 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:19:00] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 15:19:00,311 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:19:00] "GET /socket.io/?EIO=4&transport=polling&t=PWdnV1K&sid=MHOJKneiK15ngqlNAAAC HTTP/1.1" 200 -
+2025-07-20 15:19:15,630 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:19:15] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 15:19:17,894 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:19:17] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 15:19:53,024 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:19:53] "GET /socket.io/?EIO=4&transport=websocket&sid=inLYOoK8YdyNzDC0AAAA HTTP/1.1" 200 -
+2025-07-20 15:19:57,105 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:19:57] "GET /socket.io/?EIO=4&transport=websocket&sid=MHOJKneiK15ngqlNAAAC HTTP/1.1" 200 -
+2025-07-20 15:24:17,081 - core.campaign_manager - INFO - Campaign manager initialized - Ejderha Efendilerinin Dönüþü kampanyasý yüklendi
+2025-07-20 15:24:17,084 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 15:24:17,092 - web.routes - INFO - Web routes registered successfully
+2025-07-20 15:24:17,093 - __main__ - INFO - Web routes registered successfully
+2025-07-20 15:24:17,094 - __main__ - INFO - Server starting on port 5050
+2025-07-20 15:24:17,094 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 15:24:25,988 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 15:24:25,988 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 15:27:31,138 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:27:31] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 15:27:33,191 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:27:33] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 15:27:35,256 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:27:35] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 15:27:37,317 - core.game_engine - INFO - Dice roll: d20+0 = 19
+2025-07-20 15:27:37,318 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:27:37] "POST /api/game/roll-dice HTTP/1.1" 200 -
+2025-07-20 15:27:39,391 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:27:39] "GET / HTTP/1.1" 200 -
+2025-07-20 15:27:39,740 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:27:39] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-20 15:27:39,912 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:27:39] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-20 15:27:40,378 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:27:40] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 15:27:40,379 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:27:40] "GET /socket.io/?EIO=4&transport=polling&t=PWdpTwL HTTP/1.1" 200 -
+2025-07-20 15:27:40,626 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:27:40] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 15:27:40,707 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:27:40] "POST /socket.io/?EIO=4&transport=polling&t=PWdpT_h&sid=aorwcOi14Ryqz57TAAAA HTTP/1.1" 200 -
+2025-07-20 15:27:40,709 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:27:40] "GET /socket.io/?EIO=4&transport=polling&t=PWdpT_m&sid=aorwcOi14Ryqz57TAAAA HTTP/1.1" 200 -
+2025-07-20 15:27:40,726 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:27:40] "GET /socket.io/?EIO=4&transport=polling&t=PWdpU4n&sid=aorwcOi14Ryqz57TAAAA HTTP/1.1" 200 -
+2025-07-20 15:27:55,758 - core.game_engine - INFO - New session started for campaign: dragon_lords
+2025-07-20 15:27:55,760 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:27:55] "POST /api/game/session/start HTTP/1.1" 200 -
+2025-07-20 15:27:56,026 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:27:56] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-20 15:28:01,113 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:28:01] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:28:03,810 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:28:03] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:28:05,181 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:28:05] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:28:05,685 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:28:05] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:28:05,841 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:28:05] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:28:05,952 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:28:05] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:28:10,459 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:28:10] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 15:28:12,722 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:28:12] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 15:28:24,185 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:28:24] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-20 15:28:24,212 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:28:24] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-20 15:28:26,261 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:28:26] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:28:26,885 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:28:26] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:28:27,076 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:28:27] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:28:27,153 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:28:27] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:28:27,249 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:28:27] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:28:27,438 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:28:27] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:28:27,630 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:28:27] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:29:16,096 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:16] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:29:16,778 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:16] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:29:16,933 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:16] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:29:17,024 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:17] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:29:17,761 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:17] "GET / HTTP/1.1" 200 -
+2025-07-20 15:29:17,780 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:17] "GET /socket.io/?EIO=4&transport=websocket&sid=aorwcOi14Ryqz57TAAAA HTTP/1.1" 200 -
+2025-07-20 15:29:18,078 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:18] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-20 15:29:18,145 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:18] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-07-20 15:29:18,489 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:18] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 15:29:18,490 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:18] "GET /socket.io/?EIO=4&transport=polling&t=PWdprtG HTTP/1.1" 200 -
+2025-07-20 15:29:18,737 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:18] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 15:29:18,819 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:18] "POST /socket.io/?EIO=4&transport=polling&t=PWdpryc&sid=yu8MASkTljaj9nsWAAAC HTTP/1.1" 200 -
+2025-07-20 15:29:18,821 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:18] "GET /socket.io/?EIO=4&transport=polling&t=PWdprye&sid=yu8MASkTljaj9nsWAAAC HTTP/1.1" 200 -
+2025-07-20 15:29:26,903 - core.game_engine - INFO - New session started for campaign: dragon_lords
+2025-07-20 15:29:26,904 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:26] "POST /api/game/session/start HTTP/1.1" 200 -
+2025-07-20 15:29:27,233 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:27] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-20 15:29:28,222 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:28] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:29:29,119 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:29] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:29:29,290 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:29] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:29:30,329 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:30] "GET /socket.io/?EIO=4&transport=websocket&sid=yu8MASkTljaj9nsWAAAC HTTP/1.1" 200 -
+2025-07-20 15:29:32,644 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:32] "GET /api/campaign/dragon_lords/step/burned_village HTTP/1.1" 200 -
+2025-07-20 15:29:32,685 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:29:32] "GET /api/campaign/dragon_lords/step/burned_village HTTP/1.1" 200 -
+2025-07-20 15:37:09,600 - core.campaign_manager - INFO - Campaign manager initialized - Ejderha Efendilerinin Dönüþü kampanyasý yüklendi
+2025-07-20 15:37:09,600 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 15:37:09,611 - web.routes - INFO - Web routes registered successfully
+2025-07-20 15:37:09,611 - __main__ - INFO - Web routes registered successfully
+2025-07-20 15:37:09,613 - __main__ - INFO - Server starting on port 5050
+2025-07-20 15:37:09,613 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 15:37:11,508 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 15:37:11,508 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 15:37:12,724 - core.campaign_manager - INFO - Campaign manager initialized - Ejderha Efendilerinin Dönüþü kampanyasý yüklendi
+2025-07-20 15:37:12,725 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 15:37:12,733 - web.routes - INFO - Web routes registered successfully
+2025-07-20 15:37:12,733 - __main__ - INFO - Web routes registered successfully
+2025-07-20 15:37:12,734 - __main__ - INFO - Server starting on port 5050
+2025-07-20 15:37:12,735 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 15:37:14,823 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:14] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 15:37:16,886 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:16] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 15:37:18,952 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:18] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 15:37:21,032 - core.game_engine - INFO - Dice roll: d20+0 = 7
+2025-07-20 15:37:21,033 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:21] "POST /api/game/roll-dice HTTP/1.1" 200 -
+2025-07-20 15:37:21,618 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 15:37:21,619 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 15:37:22,818 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:22] "GET / HTTP/1.1" 200 -
+2025-07-20 15:37:23,189 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:23] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-20 15:37:23,224 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:23] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-20 15:37:23,736 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:23] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 15:37:23,737 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:23] "GET /socket.io/?EIO=4&transport=polling&t=PWdriLJ HTTP/1.1" 200 -
+2025-07-20 15:37:24,002 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:24] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 15:37:24,048 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:24] "POST /socket.io/?EIO=4&transport=polling&t=PWdriQX&sid=HGW-4ITcTRJRwSKzAAAA HTTP/1.1" 200 -
+2025-07-20 15:37:24,050 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:24] "GET /socket.io/?EIO=4&transport=polling&t=PWdriQZ&sid=HGW-4ITcTRJRwSKzAAAA HTTP/1.1" 200 -
+2025-07-20 15:37:24,063 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:24] "GET /socket.io/?EIO=4&transport=polling&t=PWdriVS&sid=HGW-4ITcTRJRwSKzAAAA HTTP/1.1" 200 -
+2025-07-20 15:37:34,530 - core.game_engine - INFO - New session started for campaign: dragon_lords
+2025-07-20 15:37:34,531 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:34] "POST /api/game/session/start HTTP/1.1" 200 -
+2025-07-20 15:37:34,795 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:34] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-20 15:37:36,800 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:36] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:37:37,925 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:37] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:37:38,167 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:38] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:37:38,199 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:38] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:37:38,371 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:38] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:37:38,559 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:38] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:37:38,733 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:38] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:37:38,937 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:38] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:37:39,429 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:39] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:37:40,060 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:40] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:37:40,214 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:40] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 15:37:45,014 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:45] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-20 15:37:47,253 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:37:47] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-20 15:38:04,395 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:38:04] "GET /api/campaign/dragon_lords/step/burned_village HTTP/1.1" 200 -
+2025-07-20 15:38:04,423 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:38:04] "GET /api/campaign/dragon_lords/step/burned_village HTTP/1.1" 200 -
+2025-07-20 15:47:51,839 - core.campaign_manager - INFO - Campaign manager initialized - Ejderha Efendilerinin Dönüþü kampanyasý yüklendi
+2025-07-20 15:47:51,841 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 15:47:51,852 - web.routes - INFO - Web routes registered successfully
+2025-07-20 15:47:51,852 - __main__ - INFO - Web routes registered successfully
+2025-07-20 15:47:51,853 - __main__ - INFO - Server starting on port 5050
+2025-07-20 15:47:51,853 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 15:47:53,791 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 15:47:53,792 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 15:47:54,013 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:47:54] "GET /socket.io/?EIO=4&transport=polling&t=PWdu5rp HTTP/1.1" 200 -
+2025-07-20 15:47:54,281 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:47:54] "POST /socket.io/?EIO=4&transport=polling&t=PWdu6IX&sid=d96pAdGi6MbPjKGMAAAA HTTP/1.1" 200 -
+2025-07-20 15:47:54,329 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:47:54] "GET /socket.io/?EIO=4&transport=polling&t=PWdu6Ib&sid=d96pAdGi6MbPjKGMAAAA HTTP/1.1" 200 -
+2025-07-20 15:47:54,335 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:47:54] "GET /socket.io/?EIO=4&transport=polling&t=PWdu6NT&sid=d96pAdGi6MbPjKGMAAAA HTTP/1.1" 200 -
+2025-07-20 15:49:01,870 - core.campaign_manager - INFO - Campaign manager initialized - Ejderha Efendilerinin Dönüþü kampanyasý yüklendi
+2025-07-20 15:49:01,870 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 15:49:01,880 - web.routes - INFO - Web routes registered successfully
+2025-07-20 15:49:01,880 - __main__ - INFO - Web routes registered successfully
+2025-07-20 15:49:01,881 - __main__ - INFO - Server starting on port 5050
+2025-07-20 15:49:01,882 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 15:49:05,504 - core.campaign_manager - INFO - Campaign manager initialized - Ejderha Efendilerinin Dönüþü kampanyasý yüklendi
+2025-07-20 15:49:05,505 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 15:49:05,515 - web.routes - INFO - Web routes registered successfully
+2025-07-20 15:49:05,515 - __main__ - INFO - Web routes registered successfully
+2025-07-20 15:49:05,516 - __main__ - INFO - Server starting on port 5050
+2025-07-20 15:49:05,516 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 15:49:10,720 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 15:49:10,721 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 15:49:10,721 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 15:49:12,438 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:12] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 15:49:14,521 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:14] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 15:49:15,478 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:15] "GET /socket.io/?EIO=4&transport=polling&t=PWduQ6V HTTP/1.1" 200 -
+2025-07-20 15:49:15,742 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:15] "POST /socket.io/?EIO=4&transport=polling&t=PWduQBO&sid=BvDbNI0dcQ3jqlNsAAAA HTTP/1.1" 200 -
+2025-07-20 15:49:15,790 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:15] "GET /socket.io/?EIO=4&transport=polling&t=PWduQBQ&sid=BvDbNI0dcQ3jqlNsAAAA HTTP/1.1" 200 -
+2025-07-20 15:49:15,798 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:15] "GET /socket.io/?EIO=4&transport=polling&t=PWduQGK&sid=BvDbNI0dcQ3jqlNsAAAA HTTP/1.1" 200 -
+2025-07-20 15:49:16,567 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:16] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 15:49:18,642 - core.game_engine - INFO - Dice roll: d20+0 = 17
+2025-07-20 15:49:18,643 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:18] "POST /api/game/roll-dice HTTP/1.1" 200 -
+2025-07-20 15:49:20,385 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:20] "GET / HTTP/1.1" 200 -
+2025-07-20 15:49:20,874 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:20] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-20 15:49:20,924 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:20] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-20 15:49:21,425 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:21] "GET /socket.io/?EIO=4&transport=polling&t=PWduRZA HTTP/1.1" 200 -
+2025-07-20 15:49:21,426 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:21] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 15:49:21,674 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:21] "POST /socket.io/?EIO=4&transport=polling&t=PWduReQ&sid=9Ys9LUnalbRGqI-pAAAC HTTP/1.1" 200 -
+2025-07-20 15:49:21,756 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:21] "GET /socket.io/?EIO=4&transport=polling&t=PWduReT&sid=9Ys9LUnalbRGqI-pAAAC HTTP/1.1" 200 -
+2025-07-20 15:49:21,759 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:21] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 15:49:36,046 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:36] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-20 15:49:38,282 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:38] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-20 15:49:49,335 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:49] "GET /api/campaign/dragon_lords/choice/continue HTTP/1.1" 200 -
+2025-07-20 15:49:49,366 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:49] "GET /api/campaign/dragon_lords/choice/continue HTTP/1.1" 200 -
+2025-07-20 15:49:53,927 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:49:53] "GET /api/campaign/dragon_lords/step/burned_village HTTP/1.1" 200 -
+2025-07-20 15:59:09,272 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:59:09] "GET /api/campaign/dragon_lords/step/burned_village HTTP/1.1" 200 -
+2025-07-20 15:59:11,887 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:59:11] "GET /api/campaign/dragon_lords/step/burned_village HTTP/1.1" 200 -
+2025-07-20 15:59:14,617 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:59:14] "GET /api/campaign/dragon_lords/boss HTTP/1.1" 200 -
+2025-07-20 15:59:14,705 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 15:59:14] "GET /api/campaign/dragon_lords/boss HTTP/1.1" 200 -
+2025-07-20 17:26:29,620 - core.campaign_manager - INFO - Campaign manager initialized - Ejderha Efendilerinin Dönüþü kampanyasý yüklendi
+2025-07-20 17:26:29,621 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 17:26:29,627 - web.routes - INFO - Web routes registered successfully
+2025-07-20 17:26:29,627 - __main__ - INFO - Web routes registered successfully
+2025-07-20 17:26:29,627 - __main__ - INFO - Server starting on port 5050
+2025-07-20 17:26:29,627 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 17:26:30,501 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 17:26:30,501 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 17:26:31,489 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:26:31] "GET /socket.io/?EIO=4&transport=polling&t=PWeEgw4 HTTP/1.1" 200 -
+2025-07-20 17:26:31,489 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:26:31] "GET /socket.io/?EIO=4&transport=polling&t=PWeEgw5 HTTP/1.1" 200 -
+2025-07-20 17:26:31,750 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:26:31] "POST /socket.io/?EIO=4&transport=polling&t=PWeEg_A&sid=HonmYGp7jzs7yXyBAAAA HTTP/1.1" 200 -
+2025-07-20 17:26:31,815 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:26:31] "POST /socket.io/?EIO=4&transport=polling&t=PWeEg_B&sid=p6f5gSYFJfokZ5wcAAAB HTTP/1.1" 200 -
+2025-07-20 17:26:31,815 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:26:31] "GET /socket.io/?EIO=4&transport=polling&t=PWeEg_M&sid=HonmYGp7jzs7yXyBAAAA HTTP/1.1" 200 -
+2025-07-20 17:26:31,816 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:26:31] "GET /socket.io/?EIO=4&transport=polling&t=PWeEg_L&sid=p6f5gSYFJfokZ5wcAAAB HTTP/1.1" 200 -
+2025-07-20 17:26:31,831 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:26:31] "GET /socket.io/?EIO=4&transport=polling&t=PWeEh4H&sid=p6f5gSYFJfokZ5wcAAAB HTTP/1.1" 200 -
+2025-07-20 17:26:32,140 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:26:32] "GET /socket.io/?EIO=4&transport=polling&t=PWeEh4H&sid=HonmYGp7jzs7yXyBAAAA HTTP/1.1" 200 -
+2025-07-20 17:26:32,141 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:26:32] "GET /socket.io/?EIO=4&transport=polling&t=PWeEh4R&sid=p6f5gSYFJfokZ5wcAAAB HTTP/1.1" 200 -
+2025-07-20 17:26:38,432 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:26:38] "[33mGET /api/health HTTP/1.1[0m" 404 -
+2025-07-20 17:27:24,304 - core.campaign_manager - INFO - Campaign manager initialized - Ejderha Efendilerinin Dönüþü kampanyasý yüklendi
+2025-07-20 17:27:24,305 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 17:27:24,312 - web.routes - INFO - Web routes registered successfully
+2025-07-20 17:27:24,313 - __main__ - INFO - Web routes registered successfully
+2025-07-20 17:27:24,313 - __main__ - INFO - Server starting on port 5050
+2025-07-20 17:27:24,313 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 17:27:26,110 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 17:27:26,110 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 17:27:26,462 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:27:26] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 17:27:28,553 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:27:28] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 17:27:30,490 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:27:30] "GET /socket.io/?EIO=4&transport=polling&t=PWeEvJy HTTP/1.1" 200 -
+2025-07-20 17:27:30,490 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:27:30] "GET /socket.io/?EIO=4&transport=polling&t=PWeEvJw HTTP/1.1" 200 -
+2025-07-20 17:27:30,755 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:27:30] "POST /socket.io/?EIO=4&transport=polling&t=PWeEvOz&sid=kpBxqiYBO8IwUc5hAAAA HTTP/1.1" 200 -
+2025-07-20 17:27:30,802 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:27:30] "POST /socket.io/?EIO=4&transport=polling&t=PWeEvOz&sid=-6iY08erqnxuV6aKAAAB HTTP/1.1" 200 -
+2025-07-20 17:27:30,803 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:27:30] "GET /socket.io/?EIO=4&transport=polling&t=PWeEvO_&sid=-6iY08erqnxuV6aKAAAB HTTP/1.1" 200 -
+2025-07-20 17:27:30,804 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:27:30] "GET /socket.io/?EIO=4&transport=polling&t=PWeEvP0&sid=kpBxqiYBO8IwUc5hAAAA HTTP/1.1" 200 -
+2025-07-20 17:27:30,819 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:27:30] "GET /socket.io/?EIO=4&transport=polling&t=PWeEvTz&sid=kpBxqiYBO8IwUc5hAAAA HTTP/1.1" 200 -
+2025-07-20 17:27:41,226 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:27:41] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 17:27:41,244 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:27:41] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 17:27:56,763 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:27:56] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-20 17:27:56,781 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:27:56] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-20 17:28:12,626 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:28:12] "GET /api/campaign/dragon_lords/choice/continue HTTP/1.1" 200 -
+2025-07-20 17:28:12,644 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:28:12] "GET /api/campaign/dragon_lords/choice/continue HTTP/1.1" 200 -
+2025-07-20 17:30:30,033 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:30:30] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 17:30:31,835 - core.campaign_manager - INFO - Campaign manager initialized - Ejderha Efendilerinin Dönüþü kampanyasý yüklendi
+2025-07-20 17:30:31,835 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 17:30:31,841 - web.routes - INFO - Web routes registered successfully
+2025-07-20 17:30:31,841 - __main__ - INFO - Web routes registered successfully
+2025-07-20 17:30:31,841 - __main__ - INFO - Server starting on port 5050
+2025-07-20 17:30:31,842 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 17:30:32,200 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:30:32] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 17:30:40,715 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 17:30:40,715 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 17:30:44,494 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:30:44] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 17:30:44,512 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:30:44] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 17:30:50,566 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:30:50] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-20 17:30:50,584 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:30:50] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-20 17:31:08,337 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:31:08] "GET /api/campaign/dragon_lords/choice/continue HTTP/1.1" 200 -
+2025-07-20 17:31:08,357 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:31:08] "GET /api/campaign/dragon_lords/choice/continue HTTP/1.1" 200 -
+2025-07-20 17:31:14,792 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:31:14] "GET /api/campaign/dragon_lords/step/burned_village HTTP/1.1" 200 -
+2025-07-20 17:32:04,798 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:32:04] "GET /api/campaign/dragon_lords/step/burned_village HTTP/1.1" 200 -
+2025-07-20 17:33:25,798 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:33:25] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 17:33:27,850 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:33:27] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 17:33:29,900 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:33:29] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 17:33:31,941 - core.game_engine - INFO - Dice roll: d20+0 = 16
+2025-07-20 17:33:31,942 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:33:31] "POST /api/game/roll-dice HTTP/1.1" 200 -
+2025-07-20 17:33:33,551 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:33:33] "[33mGET / HTTP/1.1[0m" 404 -
+2025-07-20 17:33:35,369 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:33:35] "[33mGET / HTTP/1.1[0m" 404 -
+2025-07-20 17:43:44,257 - core.campaign_manager - INFO - Campaign manager initialized - Ejderha Efendilerinin Dönüþü kampanyasý yüklendi
+2025-07-20 17:43:44,258 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 17:43:44,264 - web.routes - INFO - Web routes registered successfully
+2025-07-20 17:43:44,264 - __main__ - INFO - Web routes registered successfully
+2025-07-20 17:43:44,265 - __main__ - INFO - Server starting on port 5050
+2025-07-20 17:43:44,265 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 17:43:46,110 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 17:43:46,111 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 17:43:46,488 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:43:46] "GET /socket.io/?EIO=4&transport=polling&t=PWeIdbx HTTP/1.1" 200 -
+2025-07-20 17:43:46,488 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:43:46] "GET /socket.io/?EIO=4&transport=polling&t=PWeIdbx HTTP/1.1" 200 -
+2025-07-20 17:43:46,755 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:43:46] "POST /socket.io/?EIO=4&transport=polling&t=PWeIdg_&sid=Fgh41KMIHtTvraPHAAAB HTTP/1.1" 200 -
+2025-07-20 17:43:46,803 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:43:46] "POST /socket.io/?EIO=4&transport=polling&t=PWeIdg_&sid=CoNX9QTtggSItK4KAAAA HTTP/1.1" 200 -
+2025-07-20 17:43:46,803 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:43:46] "GET /socket.io/?EIO=4&transport=polling&t=PWeIdh1&sid=Fgh41KMIHtTvraPHAAAB HTTP/1.1" 200 -
+2025-07-20 17:43:46,805 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:43:46] "GET /socket.io/?EIO=4&transport=polling&t=PWeIdh4&sid=CoNX9QTtggSItK4KAAAA HTTP/1.1" 200 -
+2025-07-20 17:43:46,820 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:43:46] "GET /socket.io/?EIO=4&transport=polling&t=PWeIdlv&sid=CoNX9QTtggSItK4KAAAA HTTP/1.1" 200 -
+2025-07-20 17:44:13,385 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:13] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 17:44:15,437 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:15] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 17:44:17,463 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:17] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 17:44:19,497 - core.game_engine - INFO - Dice roll: d20+0 = 12
+2025-07-20 17:44:19,497 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:19] "POST /api/game/roll-dice HTTP/1.1" 200 -
+2025-07-20 17:44:20,876 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:20] "GET / HTTP/1.1" 200 -
+2025-07-20 17:44:21,091 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:21] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-20 17:44:21,174 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:21] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-20 17:44:21,561 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:21] "GET /socket.io/?EIO=4&transport=polling&t=PWeImA2 HTTP/1.1" 200 -
+2025-07-20 17:44:21,562 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:21] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 17:44:21,827 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:21] "POST /socket.io/?EIO=4&transport=polling&t=PWeImEz&sid=uyqEWVUfMhBnG2Q7AAAE HTTP/1.1" 200 -
+2025-07-20 17:44:21,874 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:21] "GET /socket.io/?EIO=4&transport=polling&t=PWeImE_&sid=uyqEWVUfMhBnG2Q7AAAE HTTP/1.1" 200 -
+2025-07-20 17:44:21,876 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:21] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 17:44:50,982 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:50] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 17:44:51,581 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:51] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 17:44:51,749 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:51] "[33mGET /api/campaign/dragon_lords/step/continue HTTP/1.1[0m" 404 -
+2025-07-20 17:44:52,619 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:52] "GET /socket.io/?EIO=4&transport=websocket&sid=CoNX9QTtggSItK4KAAAA HTTP/1.1" 200 -
+2025-07-20 17:44:54,499 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:54] "GET /socket.io/?EIO=4&transport=websocket&sid=Fgh41KMIHtTvraPHAAAB HTTP/1.1" 200 -
+2025-07-20 17:44:56,454 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:56] "GET / HTTP/1.1" 200 -
+2025-07-20 17:44:56,459 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:56] "GET /socket.io/?EIO=4&transport=websocket&sid=uyqEWVUfMhBnG2Q7AAAE HTTP/1.1" 200 -
+2025-07-20 17:44:56,757 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:56] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-20 17:44:56,790 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:56] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-07-20 17:44:57,101 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:57] "GET /socket.io/?EIO=4&transport=polling&t=PWeIurQ HTTP/1.1" 200 -
+2025-07-20 17:44:57,102 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:57] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 17:44:57,364 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:57] "POST /socket.io/?EIO=4&transport=polling&t=PWeIuwG&sid=MncrMoAxlMVNBCQAAAAG HTTP/1.1" 200 -
+2025-07-20 17:44:57,411 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:57] "GET /socket.io/?EIO=4&transport=polling&t=PWeIuwH&sid=MncrMoAxlMVNBCQAAAAG HTTP/1.1" 200 -
+2025-07-20 17:44:57,414 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:44:57] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 17:45:48,193 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:45:48] "GET /socket.io/?EIO=4&transport=websocket&sid=MncrMoAxlMVNBCQAAAAG HTTP/1.1" 200 -
+2025-07-20 17:48:47,396 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:48:47] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 17:48:49,459 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:48:49] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 17:48:51,513 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:48:51] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 17:48:53,563 - core.game_engine - INFO - Dice roll: d20+0 = 20
+2025-07-20 17:48:53,563 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:48:53] "POST /api/game/roll-dice HTTP/1.1" 200 -
+2025-07-20 17:48:54,889 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:48:54] "GET / HTTP/1.1" 200 -
+2025-07-20 17:48:54,919 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:48:54] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-20 17:48:55,170 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:48:55] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-20 17:49:03,162 - core.game_engine - INFO - New session started for campaign: dragon_lords
+2025-07-20 17:49:03,163 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:49:03] "POST /api/game/session/start HTTP/1.1" 200 -
+2025-07-20 17:49:03,431 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:49:03] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-20 17:49:07,293 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:49:07] "GET /api/campaign/dragon_lords/choice/continue HTTP/1.1" 200 -
+2025-07-20 17:49:07,609 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:49:07] "GET /api/campaign/dragon_lords/step/burned_village HTTP/1.1" 200 -
+2025-07-20 17:49:12,161 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:49:12] "GET /api/campaign/dragon_lords/choice/search_ruins HTTP/1.1" 200 -
+2025-07-20 17:49:12,468 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:49:12] "GET /api/campaign/dragon_lords/step/new_ally HTTP/1.1" 200 -
+2025-07-20 17:49:15,885 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:49:15] "GET /api/campaign/dragon_lords/choice/continue_with_ally HTTP/1.1" 200 -
+2025-07-20 17:49:16,206 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:49:16] "GET /api/campaign/dragon_lords/step/forest_path HTTP/1.1" 200 -
+2025-07-20 17:49:20,264 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:49:20] "GET /api/campaign/dragon_lords/choice/hide HTTP/1.1" 200 -
+2025-07-20 17:49:20,586 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:49:20] "GET /api/campaign/dragon_lords/step/boss_fight HTTP/1.1" 200 -
+2025-07-20 17:49:25,593 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:49:25] "GET /api/campaign/dragon_lords/choice/escape_boss HTTP/1.1" 200 -
+2025-07-20 17:49:25,920 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 17:49:25] "GET /api/campaign/dragon_lords/step/escape HTTP/1.1" 200 -

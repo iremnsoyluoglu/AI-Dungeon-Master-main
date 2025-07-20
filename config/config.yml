@@ -1,0 +1,125 @@
+# AI Dungeon Master Configuration
+# ================================
+
+# Server Configuration
+server:
+  host: "0.0.0.0"
+  port: 5050
+  debug: true
+  secret_key: "dev-secret-key-change-in-production"
+
+# AI Configuration
+ai:
+  default_model: "gpt-3.5-turbo"
+  max_tokens: 500
+  temperature: 0.8
+  timeout: 30
+  fallback_enabled: true
+
+# Game Configuration
+game:
+  default_campaign: "dragon_quest"
+  max_players: 6
+  session_timeout: 3600  # 1 hour
+  auto_save_interval: 300  # 5 minutes
+
+# Character Classes
+character_classes:
+  warrior:
+    name: "Warrior"
+    hp: 120
+    attack: 85
+    defense: 90
+    description: "Güçlü savaşçı"
+  
+  paladin:
+    name: "Paladin"
+    hp: 100
+    attack: 70
+    defense: 85
+    heal: 40
+    description: "Kutsal savaşçı"
+  
+  rogue:
+    name: "Rogue"
+    hp: 80
+    attack: 90
+    defense: 60
+    stealth: 95
+    description: "Gizli savaşçı"
+  
+  mage:
+    name: "Mage"
+    hp: 60
+    attack: 100
+    defense: 40
+    mana: 150
+    description: "Güçlü büyücü"
+  
+  priest:
+    name: "Priest"
+    hp: 70
+    attack: 50
+    defense: 70
+    heal: 80
+    description: "Şifa verici"
+  
+  druid:
+    name: "Druid"
+    hp: 85
+    attack: 65
+    defense: 65
+    nature: 90
+    description: "Doğa büyücüsü"
+  
+  hunter:
+    name: "Hunter"
+    hp: 90
+    attack: 80
+    defense: 70
+    range: 95
+    description: "Uzak mesafe savaşçısı"
+  
+  warlock:
+    name: "Warlock"
+    hp: 65
+    attack: 85
+    defense: 45
+    dark_magic: 100
+    description: "Karanlık büyücü"
+
+# Campaign Settings
+campaigns:
+  default_difficulty: "medium"
+  allow_custom_campaigns: true
+  max_campaign_length: 50  # steps
+
+# Database Configuration (for future use)
+database:
+  type: "sqlite"
+  path: "data/ai_dm.db"
+  backup_enabled: true
+  backup_interval: 86400  # 24 hours
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  file: "logs/ai_dm.log"
+  max_size: "10MB"
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Security Configuration
+security:
+  cors_enabled: true
+  cors_origins: ["*"]
+  rate_limit_enabled: false
+  max_requests_per_minute: 100
+
+# Features Configuration
+features:
+  voice_support: false
+  image_generation: false
+  multiplayer: true
+  save_load: true
+  export_campaign: true 
