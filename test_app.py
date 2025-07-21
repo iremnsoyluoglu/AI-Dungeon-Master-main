@@ -12,6 +12,7 @@ import webbrowser
 import subprocess
 import sys
 import os
+import traceback
 
 def test_api_endpoints():
     """API endpoint'lerini test et"""
@@ -160,4 +161,5 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("\n👋 Test sonlandırıldı")
     except Exception as e:
-        print(f"\n❌ Beklenmeyen hata: {e}") 
+        print(f"\n❌ Beklenmeyen hata: {e}")
+        traceback.print_exc() 

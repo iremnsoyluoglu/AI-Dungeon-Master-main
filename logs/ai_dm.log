@@ -1664,3 +1664,261 @@ ng
 2025-07-20 20:13:29,127 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:13:29] "GET /api/campaign/dragon_lords/step/forest_path HTTP/1.1" 200 -
 2025-07-20 20:13:31,631 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:13:31] "GET /api/campaign/dragon_lords/step/boss_fight HTTP/1.1" 200 -
 2025-07-20 20:13:33,538 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:13:33] "GET /api/campaign/dragon_lords/step/escape HTTP/1.1" 200 -
+2025-07-20 20:31:50,628 - core.campaign_manager - INFO - Campaign manager initialized - Ejderha Efendilerinin Dönüþü kampanyasý yüklendi
+2025-07-20 20:31:50,629 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-20 20:31:50,644 - web.routes - INFO - Web routes registered successfully
+2025-07-20 20:31:50,644 - __main__ - INFO - Web routes registered successfully
+2025-07-20 20:31:50,644 - __main__ - INFO - Server starting on port 5050
+2025-07-20 20:31:50,644 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-20 20:31:51,539 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-20 20:31:51,540 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-20 20:32:29,820 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:32:29] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 20:32:31,865 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:32:31] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 20:32:33,904 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:32:33] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-20 20:32:35,956 - core.game_engine - INFO - Dice roll: d20+0 = 13
+2025-07-20 20:32:35,957 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:32:35] "POST /api/game/roll-dice HTTP/1.1" 200 -
+2025-07-20 20:32:37,297 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:32:37] "GET / HTTP/1.1" 200 -
+2025-07-20 20:32:37,420 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:32:37] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-20 20:32:37,550 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:32:37] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-20 20:32:37,861 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:32:37] "GET /api/health HTTP/1.1" 200 -
+2025-07-20 20:32:41,597 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:32:41] "GET /static/images/background.jpg HTTP/1.1" 200 -
+2025-07-20 20:32:47,168 - core.game_engine - INFO - New session started for campaign: dragon_lords
+2025-07-20 20:32:47,169 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:32:47] "POST /api/game/session/start HTTP/1.1" 200 -
+2025-07-20 20:32:47,434 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:32:47] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-20 20:32:49,520 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:32:49] "GET /api/campaign/dragon_lords/step/burned_village HTTP/1.1" 200 -
+2025-07-20 20:32:52,687 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:32:52] "GET /api/campaign/dragon_lords/step/forest_path HTTP/1.1" 200 -
+2025-07-20 20:32:56,347 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:32:56] "GET /api/campaign/dragon_lords/step/boss_fight HTTP/1.1" 200 -
+2025-07-20 20:32:58,778 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:32:58] "GET /api/campaign/dragon_lords/step/escape HTTP/1.1" 200 -
+2025-07-20 20:33:03,473 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:33:03] "GET /api/campaign/dragon_lords/step/hidden_cave HTTP/1.1" 200 -
+2025-07-20 20:33:03,788 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:33:03] "[33mGET /static/images/cave.jpg HTTP/1.1[0m" 404 -
+2025-07-20 20:33:06,078 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:33:06] "[33mGET /api/campaign/dragon_lords/step/cave_encounter HTTP/1.1[0m" 404 -
+2025-07-20 20:33:08,844 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:33:08] "[33mGET /api/campaign/dragon_lords/step/cave_encounter HTTP/1.1[0m" 404 -
+2025-07-20 20:33:09,107 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:33:09] "[33mGET /api/campaign/dragon_lords/step/cave_encounter HTTP/1.1[0m" 404 -
+2025-07-20 20:33:09,183 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:33:09] "[33mGET /api/campaign/dragon_lords/step/cave_encounter HTTP/1.1[0m" 404 -
+2025-07-20 20:33:09,357 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:33:09] "[33mGET /api/campaign/dragon_lords/step/cave_encounter HTTP/1.1[0m" 404 -
+2025-07-20 20:33:10,233 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:33:10] "[33mGET /api/campaign/dragon_lords/step/cave_encounter HTTP/1.1[0m" 404 -
+2025-07-20 20:33:10,725 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:33:10] "[33mGET /api/campaign/dragon_lords/step/cave_encounter HTTP/1.1[0m" 404 -
+2025-07-20 20:33:10,898 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:33:10] "[33mGET /api/campaign/dragon_lords/step/cave_encounter HTTP/1.1[0m" 404 -
+2025-07-20 20:33:52,834 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:33:52] "[33mGET /api/campaign/dragon_lords/step/cave_encounter HTTP/1.1[0m" 404 -
+2025-07-20 20:33:54,548 - werkzeug - INFO - 127.0.0.1 - - [20/Jul/2025 20:33:54] "[33mGET /api/campaign/dragon_lords/step/cave_encounter HTTP/1.1[0m" 404 -
+2025-07-21 13:20:30,227 - core.campaign_manager - INFO - Campaign manager initialized - Ejderha Efendilerinin Dönüþü kampanyasý yüklendi
+2025-07-21 13:20:30,228 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-21 13:20:30,236 - web.routes - INFO - Web routes registered successfully
+2025-07-21 13:20:30,236 - __main__ - INFO - Web routes registered successfully
+2025-07-21 13:20:30,236 - __main__ - INFO - Server starting on port 5050
+2025-07-21 13:20:30,236 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-21 13:20:31,110 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-21 13:20:31,111 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-21 13:20:32,312 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:20:32] "GET /api/health HTTP/1.1" 200 -
+2025-07-21 13:20:34,388 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:20:34] "GET /api/health HTTP/1.1" 200 -
+2025-07-21 13:20:36,418 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:20:36] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-21 13:20:38,496 - core.game_engine - INFO - Dice roll: d20+0 = 9
+2025-07-21 13:20:38,496 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:20:38] "POST /api/game/roll-dice HTTP/1.1" 200 -
+2025-07-21 13:20:39,825 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:20:39] "GET / HTTP/1.1" 200 -
+2025-07-21 13:20:39,958 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:20:39] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-21 13:20:40,088 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:20:40] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-21 13:20:40,416 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:20:40] "GET /api/health HTTP/1.1" 200 -
+2025-07-21 13:20:44,225 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:20:44] "GET /static/images/background.jpg HTTP/1.1" 200 -
+2025-07-21 13:20:50,037 - core.game_engine - INFO - New session started for campaign: dragon_lords
+2025-07-21 13:20:50,037 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:20:50] "POST /api/game/session/start HTTP/1.1" 200 -
+2025-07-21 13:20:50,304 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:20:50] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-21 13:20:54,339 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:20:54] "GET /api/campaign/dragon_lords/step/burned_village HTTP/1.1" 200 -
+2025-07-21 13:20:57,217 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:20:57] "GET /api/campaign/dragon_lords/step/forest_path HTTP/1.1" 200 -
+2025-07-21 13:20:57,319 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:20:57] "GET /api/campaign/dragon_lords/step/forest_path HTTP/1.1" 200 -
+2025-07-21 13:21:01,364 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:21:01] "GET /api/campaign/dragon_lords/step/boss_fight HTTP/1.1" 200 -
+2025-07-21 13:21:04,199 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:21:04] "GET /api/campaign/dragon_lords/step/escape HTTP/1.1" 200 -
+2025-07-21 13:21:07,026 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:21:07] "GET /api/campaign/dragon_lords/step/hidden_cave HTTP/1.1" 200 -
+2025-07-21 13:21:07,351 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:21:07] "[33mGET /static/images/cave.jpg HTTP/1.1[0m" 404 -
+2025-07-21 13:21:09,047 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:21:09] "[33mGET /api/campaign/dragon_lords/step/cave_encounter HTTP/1.1[0m" 404 -
+2025-07-21 13:21:10,443 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:21:10] "GET /api/campaign/dragon_lords/step/escape HTTP/1.1" 200 -
+2025-07-21 13:21:12,754 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:21:12] "GET /api/campaign/dragon_lords/step/hidden_cave HTTP/1.1" 200 -
+2025-07-21 13:21:14,464 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:21:14] "[33mGET /api/campaign/dragon_lords/step/cave_encounter HTTP/1.1[0m" 404 -
+2025-07-21 13:21:14,729 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:21:14] "[33mGET /api/campaign/dragon_lords/step/cave_encounter HTTP/1.1[0m" 404 -
+2025-07-21 13:21:14,886 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:21:14] "[33mGET /api/campaign/dragon_lords/step/cave_encounter HTTP/1.1[0m" 404 -
+2025-07-21 13:21:15,340 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:21:15] "GET /api/campaign/dragon_lords/step/escape HTTP/1.1" 200 -
+2025-07-21 13:21:16,459 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:21:16] "GET /api/campaign/dragon_lords/step/ruined_village HTTP/1.1" 200 -
+2025-07-21 13:21:16,725 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:21:16] "[33mGET /static/images/village.jpg HTTP/1.1[0m" 404 -
+2025-07-21 13:21:17,174 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:21:17] "[33mGET /api/campaign/dragon_lords/step/village_encounter HTTP/1.1[0m" 404 -
+2025-07-21 13:21:18,827 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:21:18] "[33mGET /api/campaign/dragon_lords/step/village_encounter HTTP/1.1[0m" 404 -
+2025-07-21 13:21:18,984 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:21:18] "[33mGET /api/campaign/dragon_lords/step/village_encounter HTTP/1.1[0m" 404 -
+2025-07-21 13:21:19,079 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:21:19] "[33mGET /api/campaign/dragon_lords/step/village_encounter HTTP/1.1[0m" 404 -
+2025-07-21 13:21:19,156 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:21:19] "[33mGET /api/campaign/dragon_lords/step/village_encounter HTTP/1.1[0m" 404 -
+2025-07-21 13:21:20,012 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:21:20] "GET /api/campaign/dragon_lords/step/escape HTTP/1.1" 200 -
+2025-07-21 13:33:56,139 - core.campaign_manager - INFO - Campaign manager initialized - Ejderha Efendilerinin Dönüþü kampanyasý yüklendi
+2025-07-21 13:33:56,140 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-21 13:33:56,154 - web.routes - INFO - Web routes registered successfully
+2025-07-21 13:33:56,154 - __main__ - INFO - Web routes registered successfully
+2025-07-21 13:33:56,155 - __main__ - INFO - Server starting on port 5050
+2025-07-21 13:33:56,155 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-21 13:33:57,047 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-21 13:33:57,047 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-21 13:33:57,952 - core.campaign_manager - INFO - Campaign manager initialized - Ejderha Efendilerinin Dönüþü kampanyasý yüklendi
+2025-07-21 13:33:57,952 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-21 13:33:57,963 - web.routes - INFO - Web routes registered successfully
+2025-07-21 13:33:57,963 - __main__ - INFO - Web routes registered successfully
+2025-07-21 13:33:57,963 - __main__ - INFO - Server starting on port 5050
+2025-07-21 13:33:57,963 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-21 13:33:59,747 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:33:59] "GET /api/health HTTP/1.1" 200 -
+2025-07-21 13:33:59,764 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-21 13:33:59,765 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-21 13:34:01,773 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:01] "GET /api/health HTTP/1.1" 200 -
+2025-07-21 13:34:03,813 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:03] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-21 13:34:05,870 - core.game_engine - INFO - Dice roll: d20+0 = 15
+2025-07-21 13:34:05,871 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:05] "POST /api/game/roll-dice HTTP/1.1" 200 -
+2025-07-21 13:34:07,299 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:07] "GET / HTTP/1.1" 200 -
+2025-07-21 13:34:07,482 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:07] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-21 13:34:07,546 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:07] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-21 13:34:07,920 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:07] "GET /api/health HTTP/1.1" 200 -
+2025-07-21 13:34:11,579 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:11] "GET /static/images/background.jpg HTTP/1.1" 200 -
+2025-07-21 13:34:17,370 - core.game_engine - INFO - New session started for campaign: dragon_lords
+2025-07-21 13:34:17,371 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:17] "POST /api/game/session/start HTTP/1.1" 200 -
+2025-07-21 13:34:17,636 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:17] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-21 13:34:19,073 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:19] "GET /api/campaign/dragon_lords/step/burned_village HTTP/1.1" 200 -
+2025-07-21 13:34:22,345 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:22] "GET /api/campaign/dragon_lords/step/forest_path HTTP/1.1" 200 -
+2025-07-21 13:34:26,463 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:26] "GET /api/campaign/dragon_lords/step/boss_fight HTTP/1.1" 200 -
+2025-07-21 13:34:29,542 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:29] "GET /api/campaign/dragon_lords/step/victory HTTP/1.1" 200 -
+2025-07-21 13:34:36,367 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:36] "GET / HTTP/1.1" 200 -
+2025-07-21 13:34:36,674 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-21 13:34:36,706 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:36] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-07-21 13:34:37,019 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:37] "GET /api/health HTTP/1.1" 200 -
+2025-07-21 13:34:38,580 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:38] "[36mGET /static/images/background.jpg HTTP/1.1[0m" 304 -
+2025-07-21 13:34:43,002 - core.game_engine - INFO - New session started for campaign: dragon_lords
+2025-07-21 13:34:43,003 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:43] "POST /api/game/session/start HTTP/1.1" 200 -
+2025-07-21 13:34:43,251 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:43] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-21 13:34:43,315 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:43] "GET /static/images/background.jpg HTTP/1.1" 200 -
+2025-07-21 13:34:44,038 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:44] "GET /api/campaign/dragon_lords/step/burned_village HTTP/1.1" 200 -
+2025-07-21 13:34:46,239 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:46] "GET /api/campaign/dragon_lords/step/forest_path HTTP/1.1" 200 -
+2025-07-21 13:34:47,259 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:47] "GET /api/campaign/dragon_lords/step/boss_fight HTTP/1.1" 200 -
+2025-07-21 13:34:48,684 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:48] "GET /api/campaign/dragon_lords/step/escape HTTP/1.1" 200 -
+2025-07-21 13:34:49,803 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:49] "GET /api/campaign/dragon_lords/step/ruined_village HTTP/1.1" 200 -
+2025-07-21 13:34:50,136 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:50] "[33mGET /static/images/village.jpg HTTP/1.1[0m" 404 -
+2025-07-21 13:34:50,800 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:50] "GET /api/campaign/dragon_lords/step/village_encounter HTTP/1.1" 200 -
+2025-07-21 13:34:54,132 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:54] "GET /api/campaign/dragon_lords/step/ruined_village HTTP/1.1" 200 -
+2025-07-21 13:34:56,555 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:34:56] "GET /api/campaign/dragon_lords/step/village_encounter HTTP/1.1" 200 -
+2025-07-21 13:35:00,063 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:35:00] "GET /api/campaign/dragon_lords/step/ruined_village HTTP/1.1" 200 -
+2025-07-21 13:35:00,896 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:35:00] "GET /api/campaign/dragon_lords/step/village_encounter HTTP/1.1" 200 -
+2025-07-21 13:35:03,237 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:35:03] "GET /api/campaign/dragon_lords/step/ruined_village HTTP/1.1" 200 -
+2025-07-21 13:35:06,625 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:35:06] "GET /api/campaign/dragon_lords/step/village_encounter HTTP/1.1" 200 -
+2025-07-21 13:35:09,729 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:35:09] "GET /api/campaign/dragon_lords/step/ruined_village HTTP/1.1" 200 -
+2025-07-21 13:35:11,803 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:35:11] "GET /api/campaign/dragon_lords/step/village_encounter HTTP/1.1" 200 -
+2025-07-21 13:46:29,558 - core.campaign_manager - INFO - Campaign manager initialized - Ejderha Efendilerinin Dönüþü kampanyasý yüklendi
+2025-07-21 13:46:29,559 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-21 13:46:29,566 - web.routes - INFO - Web routes registered successfully
+2025-07-21 13:46:29,566 - __main__ - INFO - Web routes registered successfully
+2025-07-21 13:46:29,566 - __main__ - INFO - Server starting on port 5050
+2025-07-21 13:46:29,566 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-21 13:46:30,444 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-21 13:46:30,444 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-21 13:46:32,263 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:32] "GET /api/health HTTP/1.1" 200 -
+2025-07-21 13:46:34,330 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:34] "GET /api/health HTTP/1.1" 200 -
+2025-07-21 13:46:36,387 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:36] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-21 13:46:38,429 - core.game_engine - INFO - Dice roll: d20+0 = 15
+2025-07-21 13:46:38,429 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:38] "POST /api/game/roll-dice HTTP/1.1" 200 -
+2025-07-21 13:46:39,742 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:39] "GET / HTTP/1.1" 200 -
+2025-07-21 13:46:39,870 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:39] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-21 13:46:40,006 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:40] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-21 13:46:40,321 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:40] "GET /api/health HTTP/1.1" 200 -
+2025-07-21 13:46:41,868 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:41] "GET /api/health HTTP/1.1" 200 -
+2025-07-21 13:46:42,256 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:42] "GET /static/images/background.jpg HTTP/1.1" 200 -
+2025-07-21 13:46:43,925 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:43] "GET /api/health HTTP/1.1" 200 -
+2025-07-21 13:46:45,623 - core.game_engine - INFO - New session started for campaign: dragon_lords
+2025-07-21 13:46:45,623 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:45] "POST /api/game/session/start HTTP/1.1" 200 -
+2025-07-21 13:46:45,889 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:45] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-21 13:46:45,939 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:45] "GET /static/images/pyraxisfam.jpg HTTP/1.1" 200 -
+2025-07-21 13:46:45,968 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:45] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-21 13:46:48,021 - core.game_engine - INFO - Dice roll: d20+0 = 2
+2025-07-21 13:46:48,022 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:48] "POST /api/game/roll-dice HTTP/1.1" 200 -
+2025-07-21 13:46:48,861 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:48] "GET / HTTP/1.1" 200 -
+2025-07-21 13:46:49,173 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:49] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-21 13:46:49,204 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:49] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-21 13:46:49,546 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:49] "GET /api/health HTTP/1.1" 200 -
+2025-07-21 13:46:51,610 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:51] "GET /static/images/background.jpg HTTP/1.1" 200 -
+2025-07-21 13:46:59,936 - core.game_engine - INFO - New session started for campaign: dragon_lords
+2025-07-21 13:46:59,937 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:46:59] "POST /api/game/session/start HTTP/1.1" 200 -
+2025-07-21 13:47:00,188 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:00] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-21 13:47:00,251 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:00] "GET /static/images/pyraxisfam.jpg HTTP/1.1" 200 -
+2025-07-21 13:47:02,763 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:02] "GET /api/campaign/dragon_lords/step/burned_village HTTP/1.1" 200 -
+2025-07-21 13:47:06,534 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:06] "GET /api/campaign/dragon_lords/step/forest_path HTTP/1.1" 200 -
+2025-07-21 13:47:08,008 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:08] "GET /api/campaign/dragon_lords/step/orc_fight HTTP/1.1" 200 -
+2025-07-21 13:47:11,304 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:11] "GET /api/campaign/dragon_lords/step/final_pyraxis_prep HTTP/1.1" 200 -
+2025-07-21 13:47:16,428 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:16] "GET /api/campaign/dragon_lords/step/boss_fight HTTP/1.1" 200 -
+2025-07-21 13:47:19,233 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:19] "GET /api/campaign/dragon_lords/step/escape HTTP/1.1" 200 -
+2025-07-21 13:47:20,459 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:20] "GET /api/campaign/dragon_lords/step/sacred_temple HTTP/1.1" 200 -
+2025-07-21 13:47:20,774 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:20] "[33mGET /static/images/temple.jpg HTTP/1.1[0m" 404 -
+2025-07-21 13:47:21,652 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:21] "[33mGET /api/campaign/dragon_lords/step/temple_encounter HTTP/1.1[0m" 404 -
+2025-07-21 13:47:22,998 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:22] "[33mGET /api/campaign/dragon_lords/step/temple_encounter HTTP/1.1[0m" 404 -
+2025-07-21 13:47:23,232 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:23] "[33mGET /api/campaign/dragon_lords/step/temple_encounter HTTP/1.1[0m" 404 -
+2025-07-21 13:47:23,266 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:23] "[33mGET /api/campaign/dragon_lords/step/temple_encounter HTTP/1.1[0m" 404 -
+2025-07-21 13:47:23,735 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:23] "GET /api/campaign/dragon_lords/step/escape HTTP/1.1" 200 -
+2025-07-21 13:47:24,781 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:24] "GET /api/campaign/dragon_lords/step/ruined_village HTTP/1.1" 200 -
+2025-07-21 13:47:25,049 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:25] "[33mGET /static/images/village.jpg HTTP/1.1[0m" 404 -
+2025-07-21 13:47:25,558 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:25] "GET /api/campaign/dragon_lords/step/village_encounter HTTP/1.1" 200 -
+2025-07-21 13:47:26,894 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:26] "GET /api/campaign/dragon_lords/step/ruined_village HTTP/1.1" 200 -
+2025-07-21 13:47:28,885 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:28] "GET /api/campaign/dragon_lords/step/village_encounter HTTP/1.1" 200 -
+2025-07-21 13:47:30,903 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:30] "GET /api/campaign/dragon_lords/step/ruined_village HTTP/1.1" 200 -
+2025-07-21 13:47:31,866 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:31] "GET /api/campaign/dragon_lords/step/village_encounter HTTP/1.1" 200 -
+2025-07-21 13:47:33,207 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:33] "GET /api/campaign/dragon_lords/step/ruined_village HTTP/1.1" 200 -
+2025-07-21 13:47:34,046 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:34] "GET /api/campaign/dragon_lords/step/escape HTTP/1.1" 200 -
+2025-07-21 13:47:35,454 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:35] "GET /api/campaign/dragon_lords/step/hidden_cave HTTP/1.1" 200 -
+2025-07-21 13:47:35,705 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:35] "[33mGET /static/images/cave.jpg HTTP/1.1[0m" 404 -
+2025-07-21 13:47:37,149 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 13:47:37] "[33mGET /api/campaign/dragon_lords/step/cave_encounter HTTP/1.1[0m" 404 -
+2025-07-21 16:12:17,482 - core.campaign_manager - INFO - Campaign manager initialized - Ejderha Efendilerinin Dönüþü kampanyasý yüklendi
+2025-07-21 16:12:17,483 - ai.ai_dungeon_master - WARNING - OpenAI API key not found, using fallback responses
+2025-07-21 16:12:17,491 - web.routes - INFO - Web routes registered successfully
+2025-07-21 16:12:17,492 - __main__ - INFO - Web routes registered successfully
+2025-07-21 16:12:17,492 - __main__ - INFO - Server starting on port 5050
+2025-07-21 16:12:17,492 - __main__ - INFO - Access the application at: http://localhost:5050
+2025-07-21 16:12:18,460 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://192.168.1.103:5050
+2025-07-21 16:12:18,460 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-21 16:12:19,613 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:12:19] "GET /api/health HTTP/1.1" 200 -
+2025-07-21 16:12:21,670 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:12:21] "GET /api/health HTTP/1.1" 200 -
+2025-07-21 16:12:23,741 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:12:23] "GET /api/campaigns HTTP/1.1" 200 -
+2025-07-21 16:12:25,808 - core.game_engine - INFO - Dice roll: d20+0 = 9
+2025-07-21 16:12:25,808 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:12:25] "POST /api/game/roll-dice HTTP/1.1" 200 -
+2025-07-21 16:12:27,184 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:12:27] "GET / HTTP/1.1" 200 -
+2025-07-21 16:12:27,413 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:12:27] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-21 16:12:27,427 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:12:27] "GET /static/script.js HTTP/1.1" 200 -
+2025-07-21 16:12:28,005 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:12:28] "GET /api/health HTTP/1.1" 200 -
+2025-07-21 16:12:30,957 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:12:30] "GET /static/images/background.jpg HTTP/1.1" 200 -
+2025-07-21 16:12:37,241 - core.game_engine - INFO - New session started for campaign: dragon_lords
+2025-07-21 16:12:37,241 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:12:37] "POST /api/game/session/start HTTP/1.1" 200 -
+2025-07-21 16:12:37,487 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:12:37] "GET /api/campaign/dragon_lords/step/start HTTP/1.1" 200 -
+2025-07-21 16:12:37,553 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:12:37] "GET /static/images/pyraxisfam.jpg HTTP/1.1" 200 -
+2025-07-21 16:13:17,465 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:13:17] "GET /api/campaign/dragon_lords/step/burned_village HTTP/1.1" 200 -
+2025-07-21 16:13:17,796 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:13:17] "GET /static/images/background.jpg HTTP/1.1" 200 -
+2025-07-21 16:13:23,409 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:13:23] "GET /api/campaign/dragon_lords/step/forest_path HTTP/1.1" 200 -
+2025-07-21 16:13:27,769 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:13:27] "GET /api/campaign/dragon_lords/step/mountain_pass HTTP/1.1" 200 -
+2025-07-21 16:13:33,070 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:13:33] "GET /api/campaign/dragon_lords/step/ancient_ruins HTTP/1.1" 200 -
+2025-07-21 16:13:38,442 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:13:38] "GET /api/campaign/dragon_lords/step/orc_fight HTTP/1.1" 200 -
+2025-07-21 16:13:41,705 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:13:41] "GET /api/campaign/dragon_lords/step/final_pyraxis_prep HTTP/1.1" 200 -
+2025-07-21 16:13:49,255 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:13:49] "GET /api/campaign/dragon_lords/step/boss_fight HTTP/1.1" 200 -
+2025-07-21 16:16:34,907 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:16:34] "GET /api/campaign/dragon_lords/step/escape HTTP/1.1" 200 -
+2025-07-21 16:16:35,926 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:16:35] "GET /api/campaign/dragon_lords/step/sacred_temple HTTP/1.1" 200 -
+2025-07-21 16:16:36,245 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:16:36] "[33mGET /static/images/temple.jpg HTTP/1.1[0m" 404 -
+2025-07-21 16:16:36,890 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:16:36] "[33mGET /api/campaign/dragon_lords/step/temple_encounter HTTP/1.1[0m" 404 -
+2025-07-21 16:16:38,482 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:16:38] "[33mGET /api/campaign/dragon_lords/step/temple_encounter HTTP/1.1[0m" 404 -
+2025-07-21 16:16:38,737 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:16:38] "[33mGET /api/campaign/dragon_lords/step/temple_encounter HTTP/1.1[0m" 404 -
+2025-07-21 16:16:38,753 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:16:38] "[33mGET /api/campaign/dragon_lords/step/temple_encounter HTTP/1.1[0m" 404 -
+2025-07-21 16:16:38,925 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:16:38] "[33mGET /api/campaign/dragon_lords/step/temple_encounter HTTP/1.1[0m" 404 -
+2025-07-21 16:16:39,083 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:16:39] "[33mGET /api/campaign/dragon_lords/step/temple_encounter HTTP/1.1[0m" 404 -
+2025-07-21 16:16:39,255 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:16:39] "[33mGET /api/campaign/dragon_lords/step/temple_encounter HTTP/1.1[0m" 404 -
+2025-07-21 16:16:39,442 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:16:39] "[33mGET /api/campaign/dragon_lords/step/temple_encounter HTTP/1.1[0m" 404 -
+2025-07-21 16:16:39,630 - werkzeug - INFO - 127.0.0.1 - - [21/Jul/2025 16:16:39] "[33mGET /api/campaign/dragon_lords/step/temple_encounter HTTP/1.1[0m" 404 -

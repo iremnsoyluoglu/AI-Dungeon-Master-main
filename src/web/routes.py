@@ -121,21 +121,47 @@ def register_routes(app, game_engine, campaign_manager, ai_dm):
                 "error": "Adım yüklenirken hata oluştu"
             }), 500
 
-    @app.route('/api/campaign/<campaign_id>/choice/<choice_id>')
+    def _hide_moral_fields(player):
+        if not player:
+            return player
+        filtered = dict(player)
+        # Tüm gizli stat ve puanları çıkar
+        for key in ["good_evil", "reputation", "alignment", "relationships", "buffs", "debuffs"]:
+            if key in filtered:
+                del filtered[key]
+        return filtered
+
+    @app.route('/api/campaign/<campaign_id>/choice/<choice_id>', methods=['POST'])
     def get_choice_result(campaign_id, choice_id):
-        """Seçim sonucunu getir"""
+        """Çoklu oyuncu desteği: Her oyuncu kendi seçimini yapar, state'i güncellenir. Grup kararı gereken sahnelerde çoğunluk uygulanır."""
         try:
-            result = campaign_manager.get_choice_result(campaign_id, choice_id)
-            if result:
-                return jsonify({
-                    "success": True,
-                    "result": result
-                })
-            else:
-                return jsonify({
-                    "success": False,
-                    "error": "Seçim sonucu bulunamadı"
-                }), 404
+            data = request.get_json() or {}
+            players = data.get('players', [])  # Oyuncu listesi
+            group_decision = data.get('group_decision')  # Grup kararı (opsiyonel)
+            # Her oyuncu için ayrı ayrı seçim uygula
+            updated_players = []
+            for player in players:
+                result = campaign_manager.get_choice_result(campaign_id, choice_id)
+                # Effect uygula (her oyuncuya ayrı)
+                scenes = campaign_manager.get_campaign(campaign_id).get('scenes', [])
+                effect = None
+                for scene in scenes:
+                    for choice in scene.get('choices', []):
+                        if choice['id'] == choice_id:
+                            effect = choice.get('effect')
+                updated_player = player
+                if effect and player:
+                    updated_player = game_engine.apply_effects(player, effect)
+                updated_players.append(updated_player)
+            # Grup kararı gereken sahnede çoğunluğa göre karar uygula (örnek)
+            if group_decision:
+                # group_decision: {"choice_id": "...", "votes": {"player1": "A", "player2": "B", ...}}
+                # Çoğunluğa göre next_scene belirlenebilir
+                pass  # (Burada grup kararı işlenebilir)
+            return jsonify({
+                "success": True,
+                "players": updated_players
+            })
         except Exception as e:
             logger.error(f"Error getting choice result {choice_id} for campaign {campaign_id}: {e}")
             return jsonify({
@@ -367,6 +393,55 @@ def register_routes(app, game_engine, campaign_manager, ai_dm):
                 "error": "Savaş sırasında hata oluştu"
             }), 500
     
+    @app.route('/api/game/battle/turn', methods=['POST'])
+    def battle_turn():
+        """Tur bazlı dövüş: Her turda oyuncu bir skill seçer, sonuçlar ve yeni combat_state döner. Sonuç victory ise uygun sona yönlendir."""
+        try:
+            data = request.get_json() or {}
+            player = data.get('player')
+            enemy = data.get('enemy')
+            skill_name = data.get('skill_name')
+            combat_state = data.get('combat_state')
+            npc_ally = data.get('npc_ally')  # Yardımcı NPC (Brakk, Forest Fairy, None)
+            if not player or not enemy or not skill_name:
+                return jsonify({
+                    "success": False,
+                    "error": "player, enemy ve skill_name zorunlu."
+                }), 400
+            result = game_engine.combat_turn(player, enemy, skill_name, combat_state)
+            # Sona yönlendirme
+            ending_scene = None
+            if result["result"] == "victory":
+                # Pyraxis'e katılım ayrı endpointte, burada sadece savaş sonucu
+                if npc_ally == "Brakk":
+                    ending_scene = "victory_evil"
+                elif npc_ally == "Forest Fairy":
+                    ending_scene = "victory_good_fairy"
+                else:
+                    # Oyuncunun good_evil puanına bakarak nötr/kötü ayrımı
+                    ge = player.get('good_evil', 0)
+                    if ge < 0:
+                        ending_scene = "victory_evil"
+                    elif ge > 0:
+                        ending_scene = "victory_good_fairy"
+                    else:
+                        ending_scene = "victory_neutral"
+            elif result["result"] == "defeat":
+                ending_scene = "game_over"
+            return jsonify({
+                "success": True,
+                "result": result["result"],
+                "log": result["log"],
+                "combat_state": result["combat_state"],
+                "ending_scene": ending_scene
+            })
+        except Exception as e:
+            logger.error(f"Error in battle turn: {e}")
+            return jsonify({
+                "success": False,
+                "error": "Dövüş turu sırasında hata oluştu"
+            }), 500
+    
     @app.route('/api/game/npc-interact', methods=['POST'])
     def npc_interact():
         """NPC ile ilişki kur, ödül/potion ver, alignment güncelle"""
@@ -443,6 +518,44 @@ def register_routes(app, game_engine, campaign_manager, ai_dm):
             "inventory": inventory,
             "character": character
         })
+    
+    @app.route('/api/game/skill/unlock', methods=['POST'])
+    def unlock_skill():
+        """XP ile yeni skill açar."""
+        try:
+            data = request.get_json() or {}
+            player = data.get('player')
+            skill_name = data.get('skill_name')
+            if not player or not skill_name:
+                return jsonify({"success": False, "error": "player ve skill_name zorunlu."}), 400
+            ok = game_engine.unlock_skill(player, skill_name)
+            return jsonify({
+                "success": ok,
+                "player": player,
+                "message": "Skill açıldı." if ok else "Skill açılamadı. XP yetersiz veya zaten açık."
+            })
+        except Exception as e:
+            logger.error(f"Error unlocking skill: {e}")
+            return jsonify({"success": False, "error": "Skill açılırken hata oluştu"}), 500
+
+    @app.route('/api/game/skill/upgrade', methods=['POST'])
+    def upgrade_skill():
+        """XP ile skill seviyesini yükseltir."""
+        try:
+            data = request.get_json() or {}
+            player = data.get('player')
+            skill_name = data.get('skill_name')
+            if not player or not skill_name:
+                return jsonify({"success": False, "error": "player ve skill_name zorunlu."}), 400
+            ok = game_engine.upgrade_skill(player, skill_name)
+            return jsonify({
+                "success": ok,
+                "player": player,
+                "message": "Skill seviyesi yükseltildi." if ok else "Skill yükseltilemedi. XP yetersiz veya maksimum seviyede."
+            })
+        except Exception as e:
+            logger.error(f"Error upgrading skill: {e}")
+            return jsonify({"success": False, "error": "Skill yükseltilirken hata oluştu"}), 500
     
     @app.route('/api/health')
     def health_check():

@@ -222,17 +222,19 @@ button:disabled {
     min-width: auto;
     width: 100%;
   }
-  
-  select, input[type="number"], input[type="text"] {
+
+  select,
+  input[type="number"],
+  input[type="text"] {
     width: 100%;
     margin-bottom: 15px;
   }
-  
+
   button {
     width: 100%;
     margin: 5px 0;
   }
-  
+
   .character-stats {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -242,23 +244,25 @@ button:disabled {
   .container {
     padding: 5px;
   }
-  
+
   .welcome h1 {
     font-size: 1.5rem;
   }
-  
+
   .welcome p {
     font-size: 0.9rem;
   }
-  
-  #setup-area, #character-area, #game-area {
+
+  #setup-area,
+  #character-area,
+  #game-area {
     padding: 15px;
   }
-  
+
   .character-stats {
     grid-template-columns: 1fr;
   }
-  
+
   .campaign-grid {
     grid-template-columns: 1fr;
   }
@@ -414,19 +418,86 @@ button:disabled {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }
 
 @keyframes victory {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes defeat {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+#system-status-panel {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: auto;
+  width: 120px;
+  background: rgba(30, 30, 30, 0.8);
+  color: #fff;
+  font-size: 0.82em;
+  padding: 6px 4px 6px 6px;
+  border-radius: 0 10px 10px 0;
+  z-index: 100;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.18);
+  transition: width 0.2s, opacity 0.2s;
+  opacity: 0.95;
+}
+#system-status-panel h3 {
+  font-size: 1em;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+#system-status-panel ul {
+  padding-left: 14px;
+  margin: 0 0 6px 0;
+}
+#system-status-panel .status-bar {
+  height: 6px;
+  background: #444;
+  border-radius: 3px;
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+#system-status-panel .status-bar-inner {
+  height: 100%;
+  background: #4caf50;
+  border-radius: 3px;
+}
+@media (max-width: 600px) {
+  #system-status-panel {
+    width: 80px;
+    font-size: 0.7em;
+    padding: 3px 2px 3px 3px;
+  }
+  #system-status-panel h3 {
+    font-size: 0.9em;
+  }
 }
