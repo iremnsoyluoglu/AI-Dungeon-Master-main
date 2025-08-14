@@ -2598,9 +2598,5 @@ if __name__ == '__main__':
     print(f"🔧 Debug mode: {debug_mode}")
     print(f"🔧 Environment: {os.environ.get('FLASK_ENV', 'development')}")
     
-    try:
-        socketio.run(app, host='0.0.0.0', port=port, debug=debug_mode, allow_unsafe_werkzeug=True)
-    except Exception as e:
-        print(f"❌ Error starting server: {e}")
-        # Fallback to regular Flask
-        app.run(host='0.0.0.0', port=port, debug=debug_mode) 
+    # Simple Flask run for production
+    app.run(host='0.0.0.0', port=port, debug=debug_mode) 
