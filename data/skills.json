@@ -1,0 +1,271 @@
+{
+  "weapon_mastery": {
+    "id": "weapon_mastery",
+    "name": "Silah Ustalığı",
+    "type": "combat",
+    "description": "Silahları etkili kullanma becerisi",
+    "difficulty": "easy",
+    "max_level": 5,
+    "prerequisites": [],
+    "requirements": {
+      "level": 1,
+      "skill_points": 1
+    },
+    "effects": {
+      "attack_bonus": 2,
+      "critical_chance": 0.02
+    },
+    "progression": {
+      "xp_per_level": [
+        100,
+        200,
+        400,
+        800,
+        1600
+      ],
+      "bonus_per_level": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "battle_rage": {
+    "id": "battle_rage",
+    "name": "Savaş Öfkesi",
+    "type": "combat",
+    "description": "Savaş sırasında güçlü bir öfke durumu",
+    "difficulty": "medium",
+    "max_level": 3,
+    "prerequisites": [
+      "weapon_mastery"
+    ],
+    "requirements": {
+      "level": 3,
+      "skill_points": 2,
+      "strength": 14
+    },
+    "effects": {
+      "damage_bonus": 3,
+      "temporary_hp": 10
+    },
+    "progression": {
+      "xp_per_level": [
+        300,
+        600,
+        1200
+      ],
+      "bonus_per_level": [
+        3,
+        6,
+        10
+      ]
+    }
+  },
+  "stealth": {
+    "id": "stealth",
+    "name": "Gizlilik",
+    "type": "stealth",
+    "description": "Gizlice hareket etme ve gizlenme becerisi",
+    "difficulty": "easy",
+    "max_level": 5,
+    "prerequisites": [],
+    "requirements": {
+      "level": 1,
+      "skill_points": 1,
+      "dexterity": 12
+    },
+    "effects": {
+      "stealth_bonus": 2,
+      "sneak_attack_damage": 1.5
+    },
+    "progression": {
+      "xp_per_level": [
+        100,
+        200,
+        400,
+        800,
+        1600
+      ],
+      "bonus_per_level": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "persuasion": {
+    "id": "persuasion",
+    "name": "İkna",
+    "type": "social",
+    "description": "İnsanları ikna etme ve etkileme becerisi",
+    "difficulty": "medium",
+    "max_level": 5,
+    "prerequisites": [],
+    "requirements": {
+      "level": 1,
+      "skill_points": 1,
+      "charisma": 12
+    },
+    "effects": {
+      "persuasion_bonus": 2,
+      "discount_chance": 0.1
+    },
+    "progression": {
+      "xp_per_level": [
+        150,
+        300,
+        600,
+        1200,
+        2400
+      ],
+      "bonus_per_level": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  "fire_magic": {
+    "id": "fire_magic",
+    "name": "Ateş Büyüsü",
+    "type": "magic",
+    "description": "Ateş elementini kontrol etme becerisi",
+    "difficulty": "hard",
+    "max_level": 5,
+    "prerequisites": [],
+    "requirements": {
+      "level": 2,
+      "skill_points": 2,
+      "intelligence": 14,
+      "mana": 50
+    },
+    "effects": {
+      "fire_damage_bonus": 2,
+      "fire_resistance": 0.1
+    },
+    "progression": {
+      "xp_per_level": [
+        200,
+        400,
+        800,
+        1600,
+        3200
+      ],
+      "bonus_per_level": [
+        2,
+        4,
+        6,
+        8,
+        10
+      ]
+    }
+  },
+  "blacksmithing": {
+    "id": "blacksmithing",
+    "name": "Demircilik",
+    "type": "crafting",
+    "description": "Silah ve zırh yapma becerisi",
+    "difficulty": "medium",
+    "max_level": 5,
+    "prerequisites": [],
+    "requirements": {
+      "level": 1,
+      "skill_points": 1,
+      "strength": 12
+    },
+    "effects": {
+      "crafting_quality": 1.1,
+      "repair_efficiency": 1.2
+    },
+    "progression": {
+      "xp_per_level": [
+        150,
+        300,
+        600,
+        1200,
+        2400
+      ],
+      "bonus_per_level": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "survival": {
+    "id": "survival",
+    "name": "Hayatta Kalma",
+    "type": "exploration",
+    "description": "Vahşi doğada hayatta kalma becerisi",
+    "difficulty": "easy",
+    "max_level": 5,
+    "prerequisites": [],
+    "requirements": {
+      "level": 1,
+      "skill_points": 1
+    },
+    "effects": {
+      "healing_rate": 1.2,
+      "food_efficiency": 1.3
+    },
+    "progression": {
+      "xp_per_level": [
+        100,
+        200,
+        400,
+        800,
+        1600
+      ],
+      "bonus_per_level": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "lore": {
+    "id": "lore",
+    "name": "Bilgelik",
+    "type": "knowledge",
+    "description": "Antik bilgileri ve sırları anlama becerisi",
+    "difficulty": "hard",
+    "max_level": 5,
+    "prerequisites": [],
+    "requirements": {
+      "level": 1,
+      "skill_points": 1,
+      "intelligence": 12
+    },
+    "effects": {
+      "lore_bonus": 2,
+      "quest_reward_bonus": 0.1
+    },
+    "progression": {
+      "xp_per_level": [
+        200,
+        400,
+        800,
+        1600,
+        3200
+      ],
+      "bonus_per_level": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  }
+}

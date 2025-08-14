@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Dungeon Master - Intense Storytelling</title>
+    <link rel="stylesheet" href="static/mystical_style.css?v=3.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Game Screen -->
+    <div id="game-screen" class="game-screen">
+      <div class="game-layout-3panels">
+        <!-- LEFT PANEL: Theme & Character Selection -->
+        <div class="left-sidebar">
+          <div class="sidebar-header">
+            <h2><i class="fas fa-palette"></i> TEMA & KARAKTER</h2>
+          </div>
+
+          <!-- AI Story Creator Button -->
+          <div class="info-card">
+            <div class="card-header">
+              <i class="card-icon fas fa-magic"></i>
+              <span>AI HİKAYE OLUŞTURUCU</span>
+            </div>
+            <div class="card-content">
+              <button class="action-btn primary" onclick="openAIStoryCreator()">
+                <i class="fas fa-wand-magic-sparkles"></i> KENDİ HİKAYENİ
+                OLUŞTUR
+              </button>
+            </div>
+          </div>
+
+          <!-- Theme Selection -->
+          <div class="info-card">
+            <div class="card-header">
+              <i class="card-icon fas fa-dragon"></i>
+              <span>TEMA SEÇİMİ</span>
+            </div>
+            <div class="card-content">
+              <button
+                class="action-btn primary"
+                onclick="selectTheme('fantasy')"
+              >
+                <i class="fas fa-dragon"></i> FANTASY
+              </button>
+              <button
+                class="action-btn secondary"
+                onclick="selectTheme('warhammer')"
+              >
+                <i class="fas fa-skull"></i> WARHAMMER 40K
+              </button>
+              <button
+                class="action-btn secondary"
+                onclick="selectTheme('cyberpunk')"
+              >
+                <i class="fas fa-microchip"></i> CYBERPUNK
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Race & Class Selection -->
+          <div class="info-card">
+            <div class="card-header">
+              <i class="card-icon fas fa-user"></i>
+              <span>KARAKTER OLUŞTURMA</span>
+            </div>
+            <div class="card-content">
+              <div class="dynamic-selection">
+                <div class="selection-group">
+                  <label>IRK SEÇİMİ</label>
+                  <div class="dynamic-options" id="dynamic-races">
+                    <!-- Races will be loaded dynamically based on theme -->
+                  </div>
+                </div>
+                <div class="selection-group">
+                  <label>SINIF SEÇİMİ</label>
+                  <div class="dynamic-options" id="dynamic-classes">
+                    <!-- Classes will be loaded dynamically based on theme -->
+                  </div>
+                </div>
+              </div>
+              <button class="action-btn primary" onclick="createCharacter()">
+                <i class="fas fa-user-plus"></i> KARAKTER OLUŞTUR
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Character Stats (Left Panel) -->
+          <div class="info-card">
+            <div class="card-header">
+              <i class="card-icon fas fa-chart-bar"></i>
+              <span>KARAKTER İSTATİSTİKLERİ</span>
+            </div>
+            <div class="card-content">
+              <div class="attributes-display">
+                <div class="attribute-display-item">
+                  <i class="attr-icon fas fa-fist-raised"></i>
+                  <div class="attr-name">GÜÇ</div>
+                  <div class="attr-value" data-attribute="str">10</div>
+                </div>
+                <div class="attribute-display-item">
+                  <i class="attr-icon fas fa-running"></i>
+                  <div class="attr-name">ÇEVİKLİK</div>
+                  <div class="attr-value" data-attribute="dex">10</div>
+                </div>
+                <div class="attribute-display-item">
+                  <i class="attr-icon fas fa-brain"></i>
+                  <div class="attr-name">ZEKA</div>
+                  <div class="attr-value" data-attribute="int">10</div>
+                </div>
+                <div class="attribute-display-item">
+                  <i class="attr-icon fas fa-heart"></i>
+                  <div class="attr-name">DAYANIKLILIK</div>
+                  <div class="attr-value" data-attribute="con">10</div>
+                </div>
+                <div class="attribute-display-item">
+                  <i class="attr-icon fas fa-eye"></i>
+                  <div class="attr-name">BİLGELİK</div>
+                  <div class="attr-value" data-attribute="wis">10</div>
+                </div>
+                <div class="attribute-display-item">
+                  <i class="attr-icon fas fa-crown"></i>
+                  <div class="attr-name">KARİZMA</div>
+                  <div class="attr-value" data-attribute="cha">10</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CENTER PANEL: Intense Storytelling -->
+        <div class="main-content">
+          <div class="content-header">
+            <h2><i class="fas fa-book-open"></i> HİKAYE DENEYİMİ</h2>
+          </div>
+
+          <!-- Story Content Area -->
+          <div class="story-content">
+            <div class="story-text" id="story-text">
+              <h3>🎮 AI Dungeon Master'a Hoş Geldiniz!</h3>
+              <p>
+                Lütfen sol panelden bir tema seçin ve karakterinizi oluşturun.
+                Ardından bir senaryo seçerek maceraya başlayın.
+              </p>
+              <p>
+                Her seçiminiz hikayenizi şekillendirecek ve farklı sonlara yol
+                açacak.
+              </p>
+              <div class="ai-features-notice">
+                <i class="fas fa-robot"></i>
+                <span
+                  >AI Agent ve RAG sistemi aktif! Kendi hikayenizi oluşturabilir
+                  veya doküman yükleyebilirsiniz.</span
+                >
+              </div>
+            </div>
+
+            <!-- Story Choices -->
+            <div class="story-choices" id="story-choices">
+              <!-- Choices will be dynamically loaded here -->
+            </div>
+
+            <!-- Story Actions -->
+            <div class="story-actions">
+              <button
+                class="action-btn primary"
+                onclick="showScenarioSelection()"
+              >
+                <i class="fas fa-list"></i> SENARYO SEÇ
+              </button>
+              <button
+                class="action-btn secondary"
+                onclick="showCharacterCreation()"
+              >
+                <i class="fas fa-user-plus"></i> KARAKTER OLUŞTUR
+              </button>
+              <button
+                class="action-btn primary"
+                onclick="startScenario()"
+                id="start-scenario-btn"
+                style="display: none"
+              >
+                <i class="fas fa-play"></i> MACERAYA BAŞLA
+              </button>
+              <button
+                class="action-btn secondary"
+                onclick="openAIStoryCreator()"
+              >
+                <i class="fas fa-magic"></i> AI HİKAYE
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="content-card">
+            <div class="card-header">
+              <i class="card-icon fas fa-dice"></i>
+              <span>HIZLI AKSİYONLAR</span>
+            </div>
+            <div class="card-content">
+              <div class="quick-actions">
+                <button class="action-btn secondary" onclick="rollDice()">
+                  <i class="fas fa-dice-d20"></i> ZAR AT
+                </button>
+                <button class="action-btn secondary" onclick="checkInventory()">
+                  <i class="fas fa-backpack"></i> ENVANTER
+                </button>
+                <button class="action-btn secondary" onclick="saveGame()">
+                  <i class="fas fa-save"></i> KAYDET
+                </button>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT PANEL: Character Stats & Info -->
+        <div class="right-sidebar">
+          <div class="sidebar-header">
+            <h2><i class="fas fa-user-circle"></i> KARAKTER & BİLGİLER</h2>
+          </div>
+
+          <!-- Character Attributes -->
+          <div class="info-card">
+            <div class="card-header">
+              <i class="card-icon fas fa-chart-bar"></i>
+              <span>KARAKTER İSTATİSTİKLERİ</span>
+            </div>
+            <div class="card-content">
+              <div class="attributes-display">
+                <div class="attribute-display-item">
+                  <i class="attr-icon fas fa-fist-raised"></i>
+                  <div class="attr-name">GÜÇ</div>
+                  <div class="attr-value" data-attribute="str">10</div>
+                </div>
+                <div class="attribute-display-item">
+                  <i class="attr-icon fas fa-running"></i>
+                  <div class="attr-name">ÇEVİKLİK</div>
+                  <div class="attr-value" data-attribute="dex">10</div>
+                </div>
+                <div class="attribute-display-item">
+                  <i class="attr-icon fas fa-brain"></i>
+                  <div class="attr-name">ZEKA</div>
+                  <div class="attr-value" data-attribute="int">10</div>
+                </div>
+                <div class="attribute-display-item">
+                  <i class="attr-icon fas fa-heart"></i>
+                  <div class="attr-name">DAYANIKLILIK</div>
+                  <div class="attr-value" data-attribute="con">10</div>
+                </div>
+                <div class="attribute-display-item">
+                  <i class="attr-icon fas fa-eye"></i>
+                  <div class="attr-name">BİLGELİK</div>
+                  <div class="attr-value" data-attribute="wis">10</div>
+                </div>
+                <div class="attribute-display-item">
+                  <i class="attr-icon fas fa-crown"></i>
+                  <div class="attr-name">KARİZMA</div>
+                  <div class="attr-value" data-attribute="cha">10</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Character Identity -->
+          <div class="info-card">
+            <div class="card-header">
+              <i class="card-icon fas fa-id-card"></i>
+              <span>KARAKTER BİLGİLERİ</span>
+            </div>
+            <div class="card-content">
+              <div class="character-identity">
+                <div class="identity-item">
+                  <span class="identity-label">IRK</span>
+                  <span class="identity-value" id="selected-race"
+                    >Seçilmedi</span
+                  >
+                </div>
+                <div class="identity-item">
+                  <span class="identity-label">SINIF</span>
+                  <span class="identity-value" id="selected-class"
+                    >Seçilmedi</span
+                  >
+                </div>
+                <div class="identity-item">
+                  <span class="identity-label">SEVİYE</span>
+                  <span class="identity-value" id="character-level">1</span>
+                </div>
+                <div class="identity-item">
+                  <span class="identity-label">XP</span>
+                  <span class="identity-value" id="character-xp">0/100</span>
+                </div>
+                <div class="identity-item">
+                  <span class="identity-label">KARMA</span>
+                  <span class="identity-value" id="character-karma">0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Equipment System -->
+          <div class="info-card">
+            <div class="card-header">
+              <i class="card-icon fas fa-shield-alt"></i>
+              <span>EKİPMAN SİSTEMİ</span>
+            </div>
+            <div class="card-content">
+              <div class="equipment-grid">
+                <div class="equipment-slot">
+                  <i class="fas fa-sword"></i>
+                  <span>Ana Silah</span>
+                </div>
+                <div class="equipment-slot">
+                  <i class="fas fa-shield"></i>
+                  <span>Kalkan</span>
+                </div>
+                <div class="equipment-slot">
+                  <i class="fas fa-helmet"></i>
+                  <span>Kask</span>
+                </div>
+                <div class="equipment-slot">
+                  <i class="fas fa-tshirt"></i>
+                  <span>Zırh</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inventory Grid -->
+          <div class="info-card">
+            <div class="card-header">
+              <i class="card-icon fas fa-backpack"></i>
+              <span>ENVANTER GRİDİ</span>
+            </div>
+            <div class="card-content">
+              <div class="inventory-grid">
+                <div class="inventory-slot" onclick="checkInventory()">
+                  <i class="fas fa-plus"></i>
+                </div>
+                <div class="inventory-slot">
+                  <i class="fas fa-gem"></i>
+                </div>
+                <div class="inventory-slot">
+                  <i class="fas fa-scroll"></i>
+                </div>
+                <div class="inventory-slot">
+                  <i class="fas fa-potion"></i>
+                </div>
+                <div class="inventory-slot">
+                  <i class="fas fa-key"></i>
+                </div>
+                <div class="inventory-slot">
+                  <i class="fas fa-coins"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Game Status -->
+          <div class="info-card">
+            <div class="card-header">
+              <i class="card-icon fas fa-crosshairs"></i>
+              <span>OYUN DURUMU</span>
+            </div>
+            <div class="card-content">
+              <div class="game-status-info">
+                <div class="status-item">
+                  <i class="status-icon fas fa-crosshairs"></i>
+                  <span class="status-label">SALDIRI</span>
+                  <span class="status-value">+0</span>
+                </div>
+                <div class="status-item">
+                  <i class="status-icon fas fa-shield-alt"></i>
+                  <span class="status-label">SAVUNMA</span>
+                  <span class="status-value">+0</span>
+                </div>
+                <div class="status-item">
+                  <i class="status-icon fas fa-heart"></i>
+                  <span class="status-label">CAN</span>
+                  <span class="status-value">100/100</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Current Scenario Info -->
+          <div class="info-card">
+            <div class="card-header">
+              <i class="card-icon fas fa-globe"></i>
+              <span>SENARYO BİLGİLERİ</span>
+            </div>
+            <div class="card-content">
+              <div id="scenario-info">
+                <p>Henüz senaryo seçilmedi.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event Log -->
+          <div class="info-card">
+            <div class="card-header">
+              <i class="card-icon fas fa-scroll"></i>
+              <span>OLAY GEÇMİŞİ</span>
+            </div>
+            <div class="card-content">
+              <div class="event-log" id="event-log">
+                <div class="event-log-item">🎮 Oyun başlatıldı...</div>
+                <div class="event-log-item"></div>
+                <div class="event-log-item"></div>
+                <div class="event-log-item"></div>
+                <div class="event-log-item"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="scenario-modal" class="modal" style="display: none">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2><i class="fas fa-list"></i> Senaryo Seçimi</h2>
+          <button class="modal-close" onclick="closeModal('scenario-modal')">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="scenario-categories">
+            <button class="theme-btn active" onclick="selectTheme('fantasy')">
+              Fantasy
+            </button>
+            <button class="theme-btn" onclick="selectTheme('warhammer')">
+              Warhammer 40K
+            </button>
+            <button class="theme-btn" onclick="selectTheme('cyberpunk')">
+              Cyberpunk
+            </button>
+          </div>
+          <div class="scenario-list" id="scenario-list">
+            <!-- Scenarios will be loaded here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="character-modal" class="modal" style="display: none">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2><i class="fas fa-user-plus"></i> Karakter Oluşturma</h2>
+          <button class="modal-close" onclick="closeModal('character-modal')">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="character-creation">
+            <div class="creation-section">
+              <h3><i class="fas fa-running"></i> Irk Seçimi</h3>
+              <div class="race-selection" id="race-selection">
+                <!-- Races will be loaded here -->
+              </div>
+            </div>
+            <div class="creation-section">
+              <h3><i class="fas fa-sword"></i> Sınıf Seçimi</h3>
+              <div class="class-selection" id="class-selection">
+                <!-- Classes will be loaded here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Story Creator Modal -->
+    <div id="ai-story-modal" class="modal" style="display: none">
+      <div class="modal-content large-modal">
+        <div class="modal-header">
+          <h2><i class="fas fa-magic"></i> AI Hikaye Oluşturucu</h2>
+          <button class="modal-close" onclick="closeModal('ai-story-modal')">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="ai-story-creator">
+            <div class="creator-section">
+              <h3><i class="fas fa-cog"></i> Hikaye Parametreleri</h3>
+              <div class="parameter-grid">
+                <div class="parameter-item">
+                  <label>Tema:</label>
+                  <select id="story-theme">
+                    <option value="fantasy">Fantasy</option>
+                    <option value="warhammer">Warhammer 40K</option>
+                    <option value="cyberpunk">Cyberpunk</option>
+                  </select>
+                </div>
+                <div class="parameter-item">
+                  <label>Zorluk:</label>
+                  <select id="story-difficulty">
+                    <option value="easy">Kolay</option>
+                    <option value="medium">Orta</option>
+                    <option value="hard">Zor</option>
+                  </select>
+                </div>
+                <div class="parameter-item">
+                  <label>Oyuncu Seviyesi:</label>
+                  <input
+                    type="number"
+                    id="story-level"
+                    value="1"
+                    min="1"
+                    max="20"
+                  />
+                </div>
+                <div class="parameter-item">
+                  <label>Hikaye Uzunluğu:</label>
+                  <select id="story-length">
+                    <option value="short">Kısa</option>
+                    <option value="medium">Orta</option>
+                    <option value="long">Uzun</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="creator-section">
+              <h3><i class="fas fa-edit"></i> Özel İstekler</h3>
+              <textarea
+                id="story-requests"
+                placeholder="Hikayenizde görmek istediğiniz özel elementler, karakterler, mekanlar vb. yazın..."
+              ></textarea>
+            </div>
+            <div class="creator-actions">
+              <button class="action-btn primary" onclick="generateAIStory()">
+                <i class="fas fa-magic"></i> HİKAYE OLUŞTUR
+              </button>
+              <button class="action-btn secondary" onclick="previewAIStory()">
+                <i class="fas fa-eye"></i> ÖNİZLEME
+              </button>
+            </div>
+            <div
+              class="generated-story"
+              id="generated-story"
+              style="display: none"
+            >
+              <h4>Oluşturulan Hikaye:</h4>
+              <div class="story-content" id="ai-story-content"></div>
+              <div class="story-actions">
+                <button class="action-btn primary" onclick="startAIStory()">
+                  <i class="fas fa-play"></i> HİKAYEYİ BAŞLAT
+                </button>
+                <button class="action-btn secondary" onclick="editAIStory()">
+                  <i class="fas fa-edit"></i> DÜZENLE
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Story Alerts -->
+    <div id="betrayal-alert" class="betrayal-alert" style="display: none">
+      <div class="betrayal-icon">⚔️</div>
+      <div class="betrayal-text">BİR İHANET GERÇEKLEŞTİ!</div>
+    </div>
+
+    <div id="plot-twist-alert" class="plot-twist-alert" style="display: none">
+      <div class="plot-twist-icon">🌀</div>
+      <div class="plot-twist-text">PLOT TWIST!</div>
+    </div>
+
+    <div id="dice-roll-alert" class="dice-roll-alert" style="display: none">
+      <div class="dice-roll-icon">🎲</div>
+      <div class="dice-roll-text">ZAR ATILIYOR...</div>
+    </div>
+
+    <script src="static/script.js"></script>
+  </body>
+</html>

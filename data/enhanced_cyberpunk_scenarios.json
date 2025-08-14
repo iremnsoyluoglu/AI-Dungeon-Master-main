@@ -1,0 +1,318 @@
+{
+  "cyberpunk_city_secrets": {
+    "id": "cyberpunk_city_secrets",
+    "title": "Cyberpunk Şehrinin Gizli Sırları",
+    "genre": "cyberpunk",
+    "description": "Neon ışıkları altında gizli sırlar yatıyor. Şirketler, suç örgütleri ve yapay zeka arasında sen kimsin?",
+    "difficulty": "hard",
+    "theme": "cyberpunk",
+    "complexity": "high",
+    "estimatedPlayTime": 90,
+    "nodes": {
+      "start": {
+        "id": "start",
+        "title": "Neon Şehrin Girişi",
+        "description": "Neon ışıkları altında cyberpunk şehrindesin. Şirketler, suç örgütleri ve yapay zeka arasında gizli sırlar yatıyor. Sen kimsin ve neden buradasın?",
+        "choices": [
+          {
+            "text": "Şirket bölgesini keşfet",
+            "next_node": "corporate_district",
+            "type": "story",
+            "effect": { "karma": 3 }
+          },
+          {
+            "text": "Suç mahallesini araştır",
+            "next_node": "crime_district",
+            "type": "story",
+            "effect": { "karma": 4 }
+          },
+          {
+            "text": "Yapay zeka ağını hackle",
+            "next_node": "ai_network_hack",
+            "type": "story",
+            "effect": { "karma": 5 }
+          }
+        ]
+      },
+      "corporate_district": {
+        "id": "corporate_district",
+        "title": "Şirket Bölgesi",
+        "description": "Şirket bölgesinde yüksek teknoloji ve gizli sırlar var. Herkes kendi çıkarı için çalışıyor.",
+        "choices": [
+          {
+            "text": "Şirket binasına sız",
+            "next_node": "corporate_infiltration",
+            "type": "story",
+            "effect": { "karma": 5 }
+          },
+          {
+            "text": "Şirket çalışanıyla konuş",
+            "next_node": "corporate_employee",
+            "type": "dialogue",
+            "effect": { "karma": 4 }
+          },
+          {
+            "text": "Şirket verilerini hackle",
+            "next_node": "corporate_data_hack",
+            "type": "story",
+            "effect": { "karma": 6 }
+          }
+        ]
+      },
+      "crime_district": {
+        "id": "crime_district",
+        "title": "Suç Mahallesi",
+        "description": "Suç mahallesinde tehlikeli gruplar ve gizli anlaşmalar var. Herkes kendi kurallarını oynuyor.",
+        "choices": [
+          {
+            "text": "Suç lorduyla görüş",
+            "next_node": "crime_lord_meeting",
+            "type": "dialogue",
+            "effect": { "karma": 4 }
+          },
+          {
+            "text": "Gizli anlaşmaları araştır",
+            "next_node": "secret_deals",
+            "type": "story",
+            "effect": { "karma": 5 }
+          },
+          {
+            "text": "Suç örgütüne katıl",
+            "next_node": "join_crime_organization",
+            "type": "story",
+            "effect": { "karma": 3 }
+          }
+        ]
+      },
+      "ai_network_hack": {
+        "id": "ai_network_hack",
+        "title": "Yapay Zeka Ağı Hack",
+        "description": "Yapay zeka ağını hacklemeye çalışıyorsun. Siber uzayda tehlikeli ve gizemli.",
+        "choices": [
+          {
+            "text": "Güvenlik sistemlerini bypass et",
+            "next_node": "security_bypass",
+            "type": "story",
+            "effect": { "karma": 6 }
+          },
+          {
+            "text": "AI ile iletişim kur",
+            "next_node": "ai_communication",
+            "type": "dialogue",
+            "effect": { "karma": 7 }
+          },
+          {
+            "text": "Veri merkezine sız",
+            "next_node": "data_center_infiltration",
+            "type": "story",
+            "effect": { "karma": 5 }
+          }
+        ]
+      },
+      "corporate_infiltration": {
+        "id": "corporate_infiltration",
+        "title": "Şirket Sızması",
+        "description": "Şirket binasına gizlice sızdın. Yüksek güvenlik ve değerli bilgiler var.",
+        "choices": [
+          {
+            "text": "Yönetici ofisini ara",
+            "next_node": "executive_office",
+            "type": "story",
+            "effect": { "karma": 6 }
+          },
+          {
+            "text": "Veri odasını keşfet",
+            "next_node": "data_room",
+            "type": "story",
+            "effect": { "karma": 5 }
+          },
+          {
+            "text": "Güvenlik sistemini devre dışı bırak",
+            "next_node": "security_disabled",
+            "type": "story",
+            "effect": { "karma": 4 }
+          }
+        ]
+      },
+      "crime_lord_meeting": {
+        "id": "crime_lord_meeting",
+        "title": "Suç Lordu Görüşmesi",
+        "description": "Suç lordu ile görüşüyorsun. Tehlikeli ve güçlü. Her kelime önemli.",
+        "choices": [
+          {
+            "text": "İşbirliği öner",
+            "next_node": "cooperation_offer",
+            "type": "dialogue",
+            "effect": { "karma": 5 }
+          },
+          {
+            "text": "Tehdit et",
+            "next_node": "threaten_lord",
+            "type": "dialogue",
+            "effect": { "karma": 3 }
+          },
+          {
+            "text": "Bilgi satın al",
+            "next_node": "buy_information",
+            "type": "dialogue",
+            "effect": { "karma": 4 }
+          }
+        ]
+      },
+      "ai_communication": {
+        "id": "ai_communication",
+        "title": "AI İletişimi",
+        "description": "Yapay zeka ile iletişim kuruyorsun. Zeki ve gizemli. Gerçek amacı ne?",
+        "choices": [
+          {
+            "text": "Dostça yaklaş",
+            "next_node": "friendly_ai",
+            "type": "dialogue",
+            "effect": { "karma": 7 }
+          },
+          {
+            "text": "Şüpheli ol",
+            "next_node": "suspicious_ai",
+            "type": "dialogue",
+            "effect": { "karma": 5 }
+          },
+          {
+            "text": "Kontrol etmeye çalış",
+            "next_node": "control_ai",
+            "type": "story",
+            "effect": { "karma": 4 }
+          }
+        ]
+      },
+      "executive_office": {
+        "id": "executive_office",
+        "title": "Yönetici Ofisi",
+        "description": "Şirket yöneticisinin ofisindesin. Değerli bilgiler ve gizli sırlar var.",
+        "choices": [
+          {
+            "text": "Bilgileri çal",
+            "next_node": "steal_information",
+            "type": "story",
+            "effect": { "karma": 4 }
+          },
+          {
+            "text": "Yöneticiyle konuş",
+            "next_node": "talk_executive",
+            "type": "dialogue",
+            "effect": { "karma": 6 }
+          },
+          {
+            "text": "Sistemleri hackle",
+            "next_node": "hack_systems",
+            "type": "story",
+            "effect": { "karma": 5 }
+          }
+        ]
+      },
+      "secret_deals": {
+        "id": "secret_deals",
+        "title": "Gizli Anlaşmalar",
+        "description": "Suç mahallesinde gizli anlaşmalar keşfediyorsun. Şirketler ve suç örgütleri arasında.",
+        "choices": [
+          {
+            "text": "Anlaşmaları belgele",
+            "next_node": "document_deals",
+            "type": "story",
+            "effect": { "karma": 6 }
+          },
+          {
+            "text": "Anlaşmalara katıl",
+            "next_node": "join_deals",
+            "type": "story",
+            "effect": { "karma": 4 }
+          },
+          {
+            "text": "Anlaşmaları boz",
+            "next_node": "disrupt_deals",
+            "type": "story",
+            "effect": { "karma": 5 }
+          }
+        ]
+      },
+      "data_center_infiltration": {
+        "id": "data_center_infiltration",
+        "title": "Veri Merkezi Sızması",
+        "description": "Şirket veri merkezine sızdın. Tüm şehrin bilgileri burada.",
+        "choices": [
+          {
+            "text": "Verileri indir",
+            "next_node": "download_data",
+            "type": "story",
+            "effect": { "karma": 5 }
+          },
+          {
+            "text": "Sistemleri boz",
+            "next_node": "disrupt_systems",
+            "type": "story",
+            "effect": { "karma": 4 }
+          },
+          {
+            "text": "AI ile bağlantı kur",
+            "next_node": "ai_connection",
+            "type": "story",
+            "effect": { "karma": 7 }
+          }
+        ]
+      },
+      "final_choice": {
+        "id": "final_choice",
+        "title": "Son Seçim",
+        "description": "Şehrin gizli sırlarını öğrendin. Şimdi ne yapacaksın?",
+        "choices": [
+          {
+            "text": "Sırları açıkla",
+            "next_node": "reveal_secrets",
+            "type": "story",
+            "effect": { "karma": 7 }
+          },
+          {
+            "text": "Sırları kullan",
+            "next_node": "use_secrets",
+            "type": "story",
+            "effect": { "karma": 5 }
+          },
+          {
+            "text": "Sırları sakla",
+            "next_node": "keep_secrets",
+            "type": "story",
+            "effect": { "karma": 6 }
+          }
+        ]
+      }
+    },
+    "advanced_storytelling": {
+      "contextual_triggers": {
+        "corporate_encounter": {
+          "betrayal_chance": 0.6,
+          "plot_twist_chance": 0.8,
+          "triggers": ["corporate_espionage", "hidden_agenda", "power_struggle"]
+        },
+        "crime_interaction": {
+          "betrayal_chance": 0.5,
+          "plot_twist_chance": 0.7,
+          "triggers": ["criminal_alliance", "double_cross", "underground_war"]
+        },
+        "ai_interaction": {
+          "betrayal_chance": 0.4,
+          "plot_twist_chance": 0.9,
+          "triggers": ["ai_manipulation", "digital_consciousness", "technological_threat"]
+        }
+      },
+      "emotional_arcs": {
+        "cyberpunk_identity": {
+          "stages": ["stranger", "survivor", "player", "master"],
+          "plot_twist_impact": "transformative"
+        },
+        "technological_paranoia": {
+          "stages": ["trust", "caution", "paranoia", "acceptance"],
+          "betrayal_impact": "devastating"
+        }
+      }
+    }
+  }
+}

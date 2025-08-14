@@ -1,0 +1,199 @@
+{
+  "merchant_1": {
+    "npc_id": "merchant_1",
+    "npc_name": "Merchant John",
+    "relationship_level": 10,
+    "trust_level": 100,
+    "last_interaction": "2025-08-13T01:08:17.720363",
+    "interaction_history": [
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-02T17:34:39.888905",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-02T17:36:10.746637",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-02T17:38:11.353842",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-02T17:50:52.809265",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-02T17:51:45.370960",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-04T11:24:51.200306",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-04T11:39:02.296612",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-04T11:47:46.173787",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-04T11:59:18.680605",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-05T12:56:31.250994",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-05T12:59:45.798643",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-05T13:04:14.525506",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-05T13:10:57.612136",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-05T13:11:49.679665",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-05T13:18:25.531597",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-05T13:20:38.121603",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-05T13:25:13.064813",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-05T13:53:10.438688",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-13T01:02:55.792143",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-13T01:07:55.013640",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-13T01:08:17.720363",
+        "relationship_change": 1,
+        "trust_change": 10
+      }
+    ],
+    "special_events": [
+      "trusted_friend"
+    ]
+  },
+  "test_npc": {
+    "npc_id": "test_npc",
+    "npc_name": "NPC_test_npc",
+    "relationship_level": 4,
+    "trust_level": 90,
+    "last_interaction": "2025-08-13T01:49:48.740226",
+    "interaction_history": [
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-13T01:11:03.001638",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-13T01:12:06.309858",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-13T01:12:30.355313",
+        "relationship_change": 1,
+        "trust_change": 10
+      },
+      {
+        "action_id": "help_npc",
+        "karma_value": 5,
+        "timestamp": "2025-08-13T01:49:48.740226",
+        "relationship_change": 1,
+        "trust_change": 10
+      }
+    ],
+    "special_events": []
+  }
+}

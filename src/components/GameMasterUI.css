@@ -1,0 +1,1357 @@
+.game-master-ui {
+  display: flex;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #ffffff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.game-content {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  gap: 0;
+}
+
+.left-panel {
+  width: 25%;
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%);
+  border-right: 2px solid #60a5fa;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: auto;
+}
+
+.center-panel {
+  width: 50%;
+  background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #4b5563 100%);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: auto;
+}
+
+.right-panel {
+  width: 25%;
+  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #a855f7 100%);
+  border-left: 2px solid #c084fc;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: auto;
+}
+
+.left-panel h3,
+.center-panel h3,
+.right-panel h3 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Karakter Başlığı */
+.character-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  border: 1px solid #60a5fa;
+}
+
+.character-avatar {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.character-header h3 {
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.character-class {
+  color: #ffd700;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+.character-level {
+  color: #e0e7ff;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.character-faction {
+  color: #e0e7ff;
+  font-size: 0.9rem;
+}
+
+/* Temel İstatistikler */
+.basic-stats {
+  margin-bottom: 1.5rem;
+}
+
+.basic-stats h4 {
+  color: #ffd700;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.stat-bar {
+  margin-bottom: 0.75rem;
+}
+
+.stat-bar span {
+  display: block;
+  color: #e0e7ff;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #60a5fa;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.hp-fill {
+  width: 100%;
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+.mana-fill {
+  width: 100%;
+  background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+}
+
+.exp-fill {
+  width: 0%;
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+}
+
+/* Özellikler */
+.attributes-section {
+  margin-bottom: 1.5rem;
+}
+
+.attributes-section h4 {
+  color: #ffd700;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.attribute-item {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #60a5fa;
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+/* Hikaye Bölümü */
+.narrative-display {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid #6b7280;
+  border-radius: 8px;
+  padding: 1.5rem;
+  min-height: 150px;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #e0e0e0;
+  font-size: 1rem;
+}
+
+/* Aksiyon Butonları */
+.action-buttons {
+  margin-bottom: 1rem;
+}
+
+.action-buttons h4 {
+  color: #ffd700;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.action-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 12px 20px;
+  margin: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 180px;
+  justify-content: center;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.action-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.action-btn.combat {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+}
+
+.action-btn.combat:hover {
+  background: linear-gradient(135deg, #ff5252 0%, #d32f2f 100%);
+}
+
+.action-btn.combat:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.action-btn.combat:hover:before {
+  left: 100%;
+}
+
+.action-btn.combat.target_weak_points {
+  background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+  border-color: #ff8c00;
+}
+
+.action-btn.combat.hack_systems {
+  background: linear-gradient(135deg, #00bcd4 0%, #009688 100%);
+  border-color: #009688;
+}
+
+.action-btn.combat.power_attack {
+  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+  border-color: #d32f2f;
+}
+
+.action-btn.combat.defensive_stance {
+  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+  border-color: #1976d2;
+}
+
+.action-btn.combat.agile_escape {
+  background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+  border-color: #388e3c;
+}
+
+.action-btn.combat.high_ground {
+  background: linear-gradient(135deg, #8bc34a 0%, #689f38 100%);
+  border-color: #689f38;
+}
+
+.action-btn.combat.forest_stealth {
+  background: linear-gradient(135deg, #795548 0%, #5d4037 100%);
+  border-color: #5d4037;
+}
+
+.action-btn.combat.vehicle_cover {
+  background: linear-gradient(135deg, #607d8b 0%, #455a64 100%);
+  border-color: #455a64;
+}
+
+.action-btn.combat.neon_distraction {
+  background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
+  border-color: #c2185b;
+}
+
+.action-btn.combat.imperial_position {
+  background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);
+  border-color: #7b1fa2;
+}
+
+.action-btn.combat.exploit_ork_tech {
+  background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+  border-color: #f57c00;
+}
+
+.action-btn.explore {
+  background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+}
+
+.action-btn.explore:hover {
+  background: linear-gradient(135deg, #44a08d 0%, #4ecdc4 100%);
+}
+
+.action-btn.social {
+  background: linear-gradient(135deg, #a8e6cf 0%, #7fcdcd 100%);
+}
+
+.action-btn.social:hover {
+  background: linear-gradient(135deg, #7fcdcd 0%, #a8e6cf 100%);
+}
+
+.action-btn.magic {
+  background: linear-gradient(
+    135deg,
+    #b8cbb8 0%,
+    #b8cbb8 0%,
+    #b465da 0%,
+    #cf6cc9 33%,
+    #ee609c 66%,
+    #ee609c 100%
+  );
+}
+
+.action-btn.magic:hover {
+  background: linear-gradient(
+    135deg,
+    #ee609c 0%,
+    #cf6cc9 33%,
+    #b465da 66%,
+    #b8cbb8 100%
+  );
+}
+
+.action-btn.stealth {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.action-btn.stealth:hover {
+  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+}
+
+.action-btn.investigate {
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+}
+
+.action-btn.investigate:hover {
+  background: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
+}
+
+.action-btn.hack {
+  background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+}
+
+.action-btn.hack:hover {
+  background: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
+}
+
+.action-btn.leadership {
+  background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+}
+
+.action-btn.leadership:hover {
+  background: linear-gradient(135deg, #19547b 0%, #ffd89b 100%);
+}
+
+.action-btn.defense {
+  background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+}
+
+.action-btn.defense:hover {
+  background: linear-gradient(135deg, #fef9d7 0%, #d299c2 100%);
+}
+
+.action-icon {
+  font-size: 16px;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* Story progression indicators */
+.story-milestone {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 8px 0;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.story-milestone.unlocked {
+  background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(78, 205, 196, 0.4);
+  }
+  100% {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Contextual information display */
+.context-info {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 8px 0;
+  border-left: 4px solid #667eea;
+}
+
+.context-info h4 {
+  margin: 0 0 8px 0;
+  color: #667eea;
+}
+
+.context-info p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+/* Oyun Durumu */
+.game-status {
+  margin-bottom: 1rem;
+}
+
+.game-status h4 {
+  color: #ffd700;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.status-info {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.status-info div {
+  color: #e0e0e0;
+  font-size: 0.9rem;
+}
+
+/* Hızlı Aksiyonlar */
+.quick-actions {
+  margin-bottom: 1rem;
+}
+
+.quick-actions h4 {
+  color: #ffd700;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.quick-action-btn {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.quick-action-btn.fight {
+  background: #ef4444;
+}
+
+.quick-action-btn.talk {
+  background: #3b82f6;
+}
+
+.quick-action-btn.examine {
+  background: #f59e0b;
+}
+
+.quick-action-btn.flee {
+  background: #8b5cf6;
+}
+
+.quick-action-btn.inventory {
+  background: #f97316;
+}
+
+.quick-action-btn.magic {
+  background: #7c3aed;
+}
+
+.quick-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Metin Girişi */
+.text-input-section {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.custom-action-input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #6b7280;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+.custom-action-input::placeholder {
+  color: #9ca3af;
+}
+
+.send-btn {
+  padding: 0.5rem 1rem;
+  background: #fbbf24;
+  color: #1f2937;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+}
+
+.send-btn:hover {
+  background: #f59e0b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+}
+
+/* Sağ Panel Stilleri */
+.equipment-section,
+.quick-info-section {
+  margin-bottom: 1.5rem;
+}
+
+.equipment-section h4,
+.quick-info-section h4 {
+  color: #fbbf24;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  text-shadow: 0 0 5px rgba(251, 191, 36, 0.5);
+}
+
+.equipment-item,
+.info-item {
+  background: rgba(168, 85, 247, 0.2);
+  border: 1px solid #a855f7;
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+/* Skill Tree Overlay Styles */
+.skill-tree-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-tree-header {
+  display: flex;
+  justify-content: flex-start;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid #fbbf24;
+}
+
+.close-skill-tree-btn {
+  background: linear-gradient(45deg, #3b82f6, #1d4ed8);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-skill-tree-btn:hover {
+  background: linear-gradient(45deg, #1d4ed8, #3b82f6);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .game-content {
+    flex-direction: column;
+  }
+
+  .left-panel,
+  .center-panel,
+  .right-panel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .game-content {
+    padding: 1rem;
+  }
+
+  .action-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Combat-specific styles */
+.combat-section {
+  background: linear-gradient(135deg, #2c1810 0%, #4a1a1a 100%);
+  border: 2px solid #8b0000;
+  border-radius: 12px;
+  margin: 20px 0;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(139, 0, 0, 0.3);
+}
+
+.combat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.combat-header h3 {
+  color: #ff6b6b;
+  margin: 0;
+  font-size: 1.5em;
+  text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+
+.combat-status {
+  display: flex;
+  align-items: center;
+}
+
+.combat-indicator {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.combat-narrative {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.combat-text {
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+.combat-highlight {
+  color: #ff6b6b !important;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+}
+
+/* Contextual action styles */
+.action-btn.combat {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  border: 2px solid #8b0000;
+  position: relative;
+  overflow: hidden;
+}
+
+.action-btn.combat:hover {
+  background: linear-gradient(135deg, #ff5252 0%, #d32f2f 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+.action-btn.combat:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.action-btn.combat:hover:before {
+  left: 100%;
+}
+
+.action-btn.combat.target_weak_points {
+  background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+  border-color: #ff8c00;
+}
+
+.action-btn.combat.hack_systems {
+  background: linear-gradient(135deg, #00bcd4 0%, #009688 100%);
+  border-color: #009688;
+}
+
+.action-btn.combat.power_attack {
+  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+  border-color: #d32f2f;
+}
+
+.action-btn.combat.defensive_stance {
+  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+  border-color: #1976d2;
+}
+
+.action-btn.combat.agile_escape {
+  background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+  border-color: #388e3c;
+}
+
+.action-btn.combat.high_ground {
+  background: linear-gradient(135deg, #8bc34a 0%, #689f38 100%);
+  border-color: #689f38;
+}
+
+.action-btn.combat.forest_stealth {
+  background: linear-gradient(135deg, #795548 0%, #5d4037 100%);
+  border-color: #5d4037;
+}
+
+.action-btn.combat.vehicle_cover {
+  background: linear-gradient(135deg, #607d8b 0%, #455a64 100%);
+  border-color: #455a64;
+}
+
+.action-btn.combat.neon_distraction {
+  background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
+  border-color: #c2185b;
+}
+
+.action-btn.combat.imperial_position {
+  background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);
+  border-color: #7b1fa2;
+}
+
+.action-btn.combat.exploit_ork_tech {
+  background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+  border-color: #f57c00;
+}
+
+/* Dice and skill info styles */
+.dice-info {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  margin-left: 8px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.skill-info {
+  background: rgba(0, 255, 255, 0.3);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  margin-left: 4px;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Enhanced action grid */
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.action-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 15px 20px;
+  margin: 0;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 60px;
+  position: relative;
+}
+
+.action-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.action-btn:active {
+  transform: translateY(-1px);
+}
+
+.action-btn .action-icon {
+  font-size: 20px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.action-btn .action-content {
+  flex: 1;
+  text-align: left;
+}
+
+/* Narrative section enhancements */
+.narrative-section {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 1px solid #4a5568;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.narrative-header h3 {
+  color: #e2e8f0;
+  margin: 0 0 15px 0;
+  font-size: 1.3em;
+  border-bottom: 2px solid #4a5568;
+  padding-bottom: 8px;
+}
+
+.narrative-content {
+  color: #e2e8f0;
+  line-height: 1.6;
+}
+
+.narrative-text p {
+  margin: 8px 0;
+  padding: 8px 0;
+  border-left: 3px solid #4a5568;
+  padding-left: 15px;
+}
+
+.narrative-placeholder {
+  color: #a0aec0;
+  font-style: italic;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* Enhanced game controls */
+.game-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #4a5568;
+}
+
+.start-game-btn {
+  background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.start-game-btn:hover {
+  background: linear-gradient(135deg, #388e3c 0%, #2e7d32 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+}
+
+.control-btn {
+  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+}
+
+.control-btn:hover {
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(33, 150, 243, 0.4);
+}
+
+/* Error message styling */
+.error-message {
+  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+  border-left: 4px solid #b71c1c;
+}
+
+.error-message p {
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Game history enhancements */
+.game-history {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 1px solid #4a5568;
+  border-radius: 12px;
+  padding: 20px;
+  height: 100%;
+}
+
+.game-history h4 {
+  color: #e2e8f0;
+  margin: 0 0 15px 0;
+  border-bottom: 2px solid #4a5568;
+  padding-bottom: 8px;
+}
+
+.history-content {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.history-item {
+  background: rgba(74, 85, 104, 0.3);
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-left: 3px solid #4a5568;
+}
+
+.history-time {
+  color: #a0aec0;
+  font-size: 0.8em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.history-text {
+  color: #e2e8f0;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.no-history {
+  color: #a0aec0;
+  text-align: center;
+  font-style: italic;
+  padding: 20px;
+}
+
+/* Character Stats Bar */
+.character-stats-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #e0e7ff;
+  min-width: 80px;
+}
+
+.exp-bar,
+.hp-bar,
+.mana-bar {
+  flex: 1;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.exp-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+  transition: width 0.3s ease;
+}
+
+.hp-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+  transition: width 0.3s ease;
+}
+
+.mana-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+  transition: width 0.3s ease;
+}
+
+/* Combat System */
+.combat-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.skill-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  border-radius: 6px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.skill-btn:hover:not(.disabled) {
+  background: rgba(59, 130, 246, 0.4);
+  border-color: rgba(59, 130, 246, 0.8);
+  transform: translateY(-2px);
+}
+
+.skill-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.skill-icon {
+  font-size: 1.2rem;
+  min-width: 20px;
+}
+
+.skill-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.skill-name {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.skill-description {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+.skill-cost {
+  font-size: 0.8rem;
+  color: #fbbf24;
+  font-weight: bold;
+}
+
+.basic-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Combat Section */
+.combat-section {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.enemy-stats {
+  margin-bottom: 1rem;
+}
+
+.enemy-hp-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.enemy-hp-fill {
+  flex: 1;
+  height: 12px;
+  background: linear-gradient(90deg, #dc2626, #b91c1c);
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+.combat-log {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  padding: 0.75rem;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.log-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.log-entry {
+  font-size: 0.85rem;
+  color: #e0e7ff;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Attributes Panel */
+.attributes-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 800px;
+  max-height: 80vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border: 2px solid #60a5fa;
+  border-radius: 12px;
+  padding: 2rem;
+  color: #ffffff;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.attributes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.attributes-header h2 {
+  margin: 0;
+  color: #60a5fa;
+}
+
+.close-btn {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background: rgba(239, 68, 68, 0.4);
+}
+
+.character-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.attributes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.attribute-item {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.attribute-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.attribute-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.attribute-name {
+  font-weight: bold;
+  color: #60a5fa;
+}
+
+.attribute-value {
+  background: rgba(96, 165, 250, 0.2);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.attribute-description {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  margin-bottom: 1rem;
+}
+
+.attribute-btn {
+  width: 100%;
+  background: rgba(96, 165, 250, 0.2);
+  border: 1px solid rgba(96, 165, 250, 0.5);
+  color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.attribute-btn:hover:not(:disabled) {
+  background: rgba(96, 165, 250, 0.4);
+  border-color: rgba(96, 165, 250, 0.8);
+}
+
+.attribute-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Game Controls Update */
+.game-control-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.control-btn {
+  background: rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.control-btn:hover {
+  background: rgba(59, 130, 246, 0.4);
+  border-color: rgba(59, 130, 246, 0.8);
+  transform: translateY(-1px);
+}

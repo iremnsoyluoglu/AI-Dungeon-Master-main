@@ -1,0 +1,434 @@
+{
+  "story_continuity_system": {
+    "master_story_arc": {
+      "id": "master_story_arc",
+      "title": "The Great War of Realms",
+      "description": "A continuous epic story spanning across all realms - Forest, Dungeon, City, and Space. Your choices in each scenario affect the next, creating a truly connected narrative experience.",
+      "total_chapters": 4,
+      "estimated_total_playtime": 360,
+      "story_progression": {
+        "chapter_1": {
+          "scenario": "forest_scenario",
+          "title": "Chapter 1: The Awakening",
+          "description": "Your journey begins in the mystical forest where ancient powers awaken.",
+          "prerequisites": [],
+          "unlocks": ["dungeon_scenario"],
+          "story_state": {
+            "world_state": "peaceful",
+            "threat_level": "low",
+            "faction_relations": "neutral",
+            "ancient_powers": "dormant"
+          }
+        },
+        "chapter_2": {
+          "scenario": "dungeon_scenario",
+          "title": "Chapter 2: The Descent",
+          "description": "Ancient secrets buried deep in the dungeon reveal the true nature of the conflict.",
+          "prerequisites": ["forest_scenario_completed"],
+          "unlocks": ["city_scenario"],
+          "story_state": {
+            "world_state": "unstable",
+            "threat_level": "medium",
+            "faction_relations": "tension",
+            "ancient_powers": "awakening"
+          }
+        },
+        "chapter_3": {
+          "scenario": "city_scenario",
+          "title": "Chapter 3: The Conspiracy",
+          "description": "Political intrigue in the city reveals the true scope of the ancient conflict.",
+          "prerequisites": ["dungeon_scenario_completed"],
+          "unlocks": ["space_scenario"],
+          "story_state": {
+            "world_state": "chaos",
+            "threat_level": "high",
+            "faction_relations": "war",
+            "ancient_powers": "active"
+          }
+        },
+        "chapter_4": {
+          "scenario": "space_scenario",
+          "title": "Chapter 4: The Final Battle",
+          "description": "The ultimate confrontation in space determines the fate of all realms.",
+          "prerequisites": ["city_scenario_completed"],
+          "unlocks": ["epilogue"],
+          "story_state": {
+            "world_state": "apocalyptic",
+            "threat_level": "critical",
+            "faction_relations": "total_war",
+            "ancient_powers": "unleashed"
+          }
+        }
+      }
+    },
+    "persistent_character_progression": {
+      "character_state_tracking": {
+        "faction_alignment": {
+          "space_marine": {
+            "imperial_loyalty": 0,
+            "chapter_glory": 0,
+            "honor_points": 0
+          },
+          "imperial_guard": {
+            "survival_instinct": 0,
+            "comrade_bonds": 0,
+            "regimental_pride": 0
+          },
+          "psyker": {
+            "psychic_power": 0,
+            "warp_resistance": 0,
+            "sanctioned_status": 0
+          },
+          "ork_nob": {
+            "waaagh_energy": 0,
+            "brutal_strength": 0,
+            "mob_leadership": 0
+          },
+          "eldar_farseer": {
+            "ancient_wisdom": 0,
+            "prophetic_vision": 0,
+            "spirit_connection": 0
+          },
+          "chaos_sorcerer": {
+            "dark_corruption": 0,
+            "chaos_power": 0,
+            "daemon_pacts": 0
+          }
+        },
+        "global_stats": {
+          "total_karma": 0,
+          "total_xp": 0,
+          "scenarios_completed": 0,
+          "choices_made": [],
+          "relationships": {},
+          "inventory": [],
+          "unlocked_skills": [],
+          "story_flags": []
+        }
+      },
+      "skill_progression_tree": {
+        "combat_skills": {
+          "basic_combat": {
+            "prerequisites": [],
+            "unlocks": ["advanced_combat", "weapon_mastery"]
+          },
+          "advanced_combat": {
+            "prerequisites": ["basic_combat"],
+            "unlocks": ["elite_combat", "tactical_mastery"]
+          },
+          "weapon_mastery": {
+            "prerequisites": ["basic_combat"],
+            "unlocks": ["legendary_weapon", "weapon_specialization"]
+          }
+        },
+        "faction_skills": {
+          "space_marine_skills": {
+            "bolter_mastery": {
+              "prerequisites": [],
+              "unlocks": ["storm_bolter", "terminator_armor"]
+            },
+            "power_armor": {
+              "prerequisites": [],
+              "unlocks": ["terminator_armor", "chapter_tactics"]
+            }
+          },
+          "imperial_guard_skills": {
+            "lasgun_training": {
+              "prerequisites": [],
+              "unlocks": ["trench_warfare", "commissar_leadership"]
+            },
+            "survival_expert": {
+              "prerequisites": [],
+              "unlocks": ["urban_survival", "underground_tactics"]
+            }
+          },
+          "psyker_skills": {
+            "warp_manipulation": {
+              "prerequisites": [],
+              "unlocks": ["mind_control", "psychic_barrier"]
+            },
+            "psychic_power": {
+              "prerequisites": [],
+              "unlocks": ["ancient_psychic", "sanctioned_mastery"]
+            }
+          },
+          "ork_skills": {
+            "waaagh_energy": {
+              "prerequisites": [],
+              "unlocks": ["brutal_conquest", "mob_leadership"]
+            },
+            "choppa_mastery": {
+              "prerequisites": [],
+              "unlocks": ["brutal_strength", "tough_as_nails"]
+            }
+          },
+          "eldar_skills": {
+            "foresight": {
+              "prerequisites": [],
+              "unlocks": ["ancient_wisdom", "prophetic_vision"]
+            },
+            "rune_reading": {
+              "prerequisites": [],
+              "unlocks": ["spirit_guidance", "farseer_vision"]
+            }
+          },
+          "chaos_skills": {
+            "chaos_magic": {
+              "prerequisites": [],
+              "unlocks": ["warp_corruption", "daemon_summoning"]
+            },
+            "dark_corruption": {
+              "prerequisites": [],
+              "unlocks": ["chaos_ascension", "daemon_pacts"]
+            }
+          }
+        }
+      }
+    },
+    "story_state_tracking": {
+      "world_events": {
+        "ancient_powers_awakening": {
+          "forest_chapter": "dormant",
+          "dungeon_chapter": "stirring",
+          "city_chapter": "awakening",
+          "space_chapter": "unleashed"
+        },
+        "faction_conflicts": {
+          "forest_chapter": "peaceful",
+          "dungeon_chapter": "tension",
+          "city_chapter": "open_conflict",
+          "space_chapter": "total_war"
+        },
+        "environmental_changes": {
+          "forest_chapter": "natural",
+          "dungeon_chapter": "corrupted",
+          "city_chapter": "chaotic",
+          "space_chapter": "apocalyptic"
+        }
+      },
+      "character_relationships": {
+        "allies": [],
+        "enemies": [],
+        "neutral_parties": [],
+        "faction_standing": {
+          "imperium": 0,
+          "orks": 0,
+          "eldar": 0,
+          "chaos": 0
+        }
+      },
+      "story_flags": {
+        "ancient_knowledge_discovered": false,
+        "dark_powers_contacted": false,
+        "imperial_loyalty_proven": false,
+        "psychic_awakening": false,
+        "waaagh_energy_unleashed": false,
+        "prophetic_vision_received": false,
+        "chaos_corruption_begun": false
+      }
+    },
+    "scenario_transitions": {
+      "forest_to_dungeon": {
+        "trigger_conditions": {
+          "forest_completed": true,
+          "ancient_knowledge_gained": true,
+          "faction_choice_made": true
+        },
+        "transition_story": {
+          "space_marine": "The ancient knowledge from the forest leads you to discover a hidden dungeon entrance. Imperial duty calls you to investigate.",
+          "imperial_guard": "Surviving the forest has taught you valuable lessons. Now you must descend into the dungeon to protect your comrades.",
+          "psyker": "The forest's psychic energy has awakened your powers. The dungeon calls with even stronger warp energies.",
+          "ork_nob": "The forest was just the beginning! The dungeon promises even greater battles and Waaagh! energy.",
+          "eldar_farseer": "The forest's ancient spirits have shown you visions. The dungeon holds even older secrets.",
+          "chaos_sorcerer": "The forest's dark energies have strengthened your connection to chaos. The dungeon offers even greater corruption."
+        },
+        "carry_over_effects": {
+          "skills": ["forest_knowledge", "survival_instinct"],
+          "items": ["ancient_artifact", "forest_essence"],
+          "relationships": ["forest_allies", "forest_enemies"],
+          "story_flags": ["ancient_powers_awakening"]
+        }
+      },
+      "dungeon_to_city": {
+        "trigger_conditions": {
+          "dungeon_completed": true,
+          "ancient_secrets_discovered": true,
+          "faction_conflict_escalated": true
+        },
+        "transition_story": {
+          "space_marine": "The dungeon's secrets reveal a conspiracy in the city. Imperial authority must be restored.",
+          "imperial_guard": "The dungeon's dangers have prepared you for urban warfare. The city needs your protection.",
+          "psyker": "The dungeon's ancient powers have amplified your abilities. The city's psychic energy calls to you.",
+          "ork_nob": "The dungeon's battles have made you stronger! The city offers even more conquest opportunities.",
+          "eldar_farseer": "The dungeon's ancient wisdom has expanded your vision. The city holds the key to prophecy.",
+          "chaos_sorcerer": "The dungeon's corruption has spread. The city offers even greater opportunities for chaos."
+        },
+        "carry_over_effects": {
+          "skills": ["underground_tactics", "ancient_knowledge"],
+          "items": ["dungeon_artifacts", "corrupted_essence"],
+          "relationships": ["dungeon_allies", "dungeon_enemies"],
+          "story_flags": ["ancient_powers_awakening", "faction_conflicts_escalating"]
+        }
+      },
+      "city_to_space": {
+        "trigger_conditions": {
+          "city_completed": true,
+          "conspiracy_revealed": true,
+          "final_conflict_imminent": true
+        },
+        "transition_story": {
+          "space_marine": "The city's conspiracy leads to a space conflict. The Imperium's fate hangs in the balance.",
+          "imperial_guard": "The city's survival has prepared you for space warfare. Humanity's future depends on you.",
+          "psyker": "The city's psychic energy has reached its peak. Space offers unlimited psychic potential.",
+          "ork_nob": "The city's conquest was glorious! Space offers the ultimate Waaagh! opportunity.",
+          "eldar_farseer": "The city's prophecy has revealed the final truth. Space holds the ultimate destiny.",
+          "chaos_sorcerer": "The city's corruption has reached its limit. Space offers unlimited chaos power."
+        },
+        "carry_over_effects": {
+          "skills": ["urban_tactics", "political_knowledge"],
+          "items": ["city_artifacts", "political_secrets"],
+          "relationships": ["city_allies", "city_enemies"],
+          "story_flags": ["ancient_powers_unleashed", "final_conflict_beginning"]
+        }
+      }
+    },
+    "epic_ending_system": {
+      "faction_specific_endings": {
+        "space_marine_epic": {
+          "title": "Imperial Triumph",
+          "description": "Through all four realms, you have proven your loyalty to the Imperium. You become a legendary Chapter Master.",
+          "requirements": {
+            "faction": "space_marine",
+            "imperial_loyalty": 100,
+            "all_scenarios_completed": true,
+            "honor_maintained": true
+          },
+          "rewards": {
+            "title": "Legendary Chapter Master",
+            "skills": ["imperial_glory", "chapter_mastery"],
+            "items": ["legendary_power_armor", "chapter_banner"],
+            "story_flags": ["imperial_legend_created"]
+          }
+        },
+        "imperial_guard_epic": {
+          "title": "Hero of Humanity",
+          "description": "You have survived and protected humanity through all trials. You become a legendary Commissar.",
+          "requirements": {
+            "faction": "imperial_guard",
+            "survival_instinct": 100,
+            "all_scenarios_completed": true,
+            "comrades_protected": true
+          },
+          "rewards": {
+            "title": "Legendary Commissar",
+            "skills": ["heroic_survival", "comrade_mastery"],
+            "items": ["legendary_lasgun", "hero_medal"],
+            "story_flags": ["humanity_hero_created"]
+          }
+        },
+        "psyker_epic": {
+          "title": "Master of the Warp",
+          "description": "You have mastered psychic powers across all realms. You become a legendary Sanctioned Psyker.",
+          "requirements": {
+            "faction": "psyker",
+            "psychic_power": 100,
+            "all_scenarios_completed": true,
+            "warp_controlled": true
+          },
+          "rewards": {
+            "title": "Legendary Sanctioned Psyker",
+            "skills": ["warp_mastery", "psychic_ascension"],
+            "items": ["legendary_psychic_staff", "warp_essence"],
+            "story_flags": ["psychic_legend_created"]
+          }
+        },
+        "ork_nob_epic": {
+          "title": "Waaagh! Legend",
+          "description": "You have led the greatest Waaagh! across all realms. You become a legendary Warlord.",
+          "requirements": {
+            "faction": "ork_nob",
+            "waaagh_energy": 100,
+            "all_scenarios_completed": true,
+            "conquest_achieved": true
+          },
+          "rewards": {
+            "title": "Legendary Warlord",
+            "skills": ["waaagh_mastery", "conquest_legend"],
+            "items": ["legendary_choppa", "warlord_banner"],
+            "story_flags": ["ork_legend_created"]
+          }
+        },
+        "eldar_farseer_epic": {
+          "title": "Prophetic Master",
+          "description": "You have mastered ancient wisdom and prophecy across all realms. You become a legendary Farseer.",
+          "requirements": {
+            "faction": "eldar_farseer",
+            "ancient_wisdom": 100,
+            "all_scenarios_completed": true,
+            "prophecy_fulfilled": true
+          },
+          "rewards": {
+            "title": "Legendary Farseer",
+            "skills": ["prophetic_mastery", "ancient_ascension"],
+            "items": ["legendary_spirit_stone", "prophetic_vision"],
+            "story_flags": ["eldar_legend_created"]
+          }
+        },
+        "chaos_sorcerer_epic": {
+          "title": "Master of Chaos",
+          "description": "You have embraced chaos across all realms. You become a legendary Chaos Lord.",
+          "requirements": {
+            "faction": "chaos_sorcerer",
+            "dark_corruption": 100,
+            "all_scenarios_completed": true,
+            "chaos_embraced": true
+          },
+          "rewards": {
+            "title": "Legendary Chaos Lord",
+            "skills": ["chaos_mastery", "corruption_legend"],
+            "items": ["legendary_chaos_staff", "daemon_blade"],
+            "story_flags": ["chaos_legend_created"]
+          }
+        }
+      },
+      "true_ending": {
+        "title": "The Ultimate Choice",
+        "description": "After completing all four realms, you face the ultimate choice that will determine the fate of all existence.",
+        "requirements": {
+          "all_scenarios_completed": true,
+          "all_factions_experienced": true,
+          "ultimate_wisdom_gained": true
+        },
+        "choices": {
+          "unite_all_factions": {
+            "title": "Unity",
+            "description": "Use your wisdom to unite all factions against the ancient threat.",
+            "consequences": {
+              "world_state": "unified_peace",
+              "faction_relations": "allied",
+              "ancient_powers": "controlled"
+            }
+          },
+          "embrace_ancient_powers": {
+            "title": "Ascension",
+            "description": "Embrace the ancient powers and transcend mortal existence.",
+            "consequences": {
+              "world_state": "transcended",
+              "faction_relations": "irrelevant",
+              "ancient_powers": "mastered"
+            }
+          },
+          "maintain_balance": {
+            "title": "Balance",
+            "description": "Maintain the delicate balance between all forces.",
+            "consequences": {
+              "world_state": "balanced",
+              "faction_relations": "equilibrium",
+              "ancient_powers": "contained"
+            }
+          }
+        }
+      }
+    }
+  }
+}

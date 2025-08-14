@@ -1,0 +1,118 @@
+{
+  "1": {
+    "level": 1,
+    "experience_required": 0,
+    "skill_points_gained": 0,
+    "stat_bonuses": {},
+    "unlocks": []
+  },
+  "2": {
+    "level": 2,
+    "experience_required": 100,
+    "skill_points_gained": 2,
+    "stat_bonuses": {
+      "hp": 10,
+      "attack": 2
+    },
+    "unlocks": [
+      "basic_skills"
+    ]
+  },
+  "3": {
+    "level": 3,
+    "experience_required": 250,
+    "skill_points_gained": 2,
+    "stat_bonuses": {
+      "hp": 15,
+      "defense": 2
+    },
+    "unlocks": [
+      "combat_skills"
+    ]
+  },
+  "4": {
+    "level": 4,
+    "experience_required": 450,
+    "skill_points_gained": 3,
+    "stat_bonuses": {
+      "hp": 20,
+      "attack": 3
+    },
+    "unlocks": [
+      "magic_skills"
+    ]
+  },
+  "5": {
+    "level": 5,
+    "experience_required": 700,
+    "skill_points_gained": 3,
+    "stat_bonuses": {
+      "hp": 25,
+      "defense": 3
+    },
+    "unlocks": [
+      "advanced_skills"
+    ]
+  },
+  "6": {
+    "level": 6,
+    "experience_required": 1000,
+    "skill_points_gained": 4,
+    "stat_bonuses": {
+      "hp": 30,
+      "attack": 4
+    },
+    "unlocks": [
+      "ultimate_skills"
+    ]
+  },
+  "7": {
+    "level": 7,
+    "experience_required": 1350,
+    "skill_points_gained": 4,
+    "stat_bonuses": {
+      "hp": 35,
+      "defense": 4
+    },
+    "unlocks": [
+      "specialization"
+    ]
+  },
+  "8": {
+    "level": 8,
+    "experience_required": 1750,
+    "skill_points_gained": 5,
+    "stat_bonuses": {
+      "hp": 40,
+      "attack": 5
+    },
+    "unlocks": [
+      "mastery"
+    ]
+  },
+  "9": {
+    "level": 9,
+    "experience_required": 2200,
+    "skill_points_gained": 5,
+    "stat_bonuses": {
+      "hp": 45,
+      "defense": 5
+    },
+    "unlocks": [
+      "legendary_skills"
+    ]
+  },
+  "10": {
+    "level": 10,
+    "experience_required": 2700,
+    "skill_points_gained": 6,
+    "stat_bonuses": {
+      "hp": 50,
+      "attack": 6,
+      "defense": 6
+    },
+    "unlocks": [
+      "epic_skills"
+    ]
+  }
+}

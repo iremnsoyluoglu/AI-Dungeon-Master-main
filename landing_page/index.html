@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Dungeon Master - Interactive Storytelling Platform</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-dragon"></i>
+          <span>AI Dungeon Master</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#demo">Demo</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-background">
+        <div class="hero-particles"></div>
+      </div>
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="gradient-text">AI Dungeon Master</span>
+        </h1>
+        <p class="hero-subtitle">
+          Experience immersive storytelling with AI-powered adventures
+        </p>
+        <div class="hero-buttons">
+          <a href="#demo" class="btn btn-primary">
+            <i class="fas fa-play"></i>
+            Try Demo
+          </a>
+          <a
+            href="https://github.com/your-username/ai-dungeon-master"
+            class="btn btn-secondary"
+          >
+            <i class="fab fa-github"></i>
+            View Code
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Scenarios</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">4</span>
+            <span class="stat-label">AI Agents</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">3</span>
+            <span class="stat-label">Themes</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">&lt;2s</span>
+            <span class="stat-label">Response</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <div class="container">
+        <h2 class="section-title">🚀 Key Features</h2>
+        <p class="section-subtitle">
+          Discover the power of AI-driven storytelling
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3>AI Agents</h3>
+            <p>
+              Advanced AI agents for dynamic content generation, character
+              management, and game state tracking.
+            </p>
+            <ul class="feature-list">
+              <li>Story Generation Agent</li>
+              <li>Character Management Agent</li>
+              <li>Game State Agent</li>
+              <li>Content Curator Agent</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <h3>RAG System</h3>
+            <p>
+              Document analysis and knowledge retrieval using advanced vector
+              embeddings and semantic search.
+            </p>
+            <ul class="feature-list">
+              <li>PDF/TXT Document Processing</li>
+              <li>Intelligent Text Chunking</li>
+              <li>Vector Embeddings</li>
+              <li>Context-Aware Answers</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-gamepad"></i>
+            </div>
+            <h3>Interactive Game</h3>
+            <p>
+              Immersive storytelling with choices, consequences, and multiple
+              branching narratives.
+            </p>
+            <ul class="feature-list">
+              <li>Multi-Theme Support</li>
+              <li>Dynamic Character Creation</li>
+              <li>Contextual Events</li>
+              <li>Multiple Endings</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Analytics</h3>
+            <p>
+              Comprehensive analytics and performance monitoring for game
+              optimization.
+            </p>
+            <ul class="feature-list">
+              <li>User Activity Tracking</li>
+              <li>Performance Metrics</li>
+              <li>Content Quality Analysis</li>
+              <li>Real-time Monitoring</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+      <div class="container">
+        <h2 class="section-title">🎮 Live Demo</h2>
+        <p class="section-subtitle">
+          Experience the AI Dungeon Master in action
+        </p>
+
+        <div class="demo-container">
+          <div class="demo-frame">
+            <iframe
+              src="https://your-streamlit-app.streamlit.app"
+              width="100%"
+              height="600"
+              frameborder="0"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+
+          <div class="demo-info">
+            <h3>Interactive Features</h3>
+            <ul class="demo-features">
+              <li>
+                <i class="fas fa-check"></i> Theme Selection (Fantasy, Warhammer
+                40K, Cyberpunk)
+              </li>
+              <li>
+                <i class="fas fa-check"></i> Character Creation with Stats
+              </li>
+              <li>
+                <i class="fas fa-check"></i> AI-Powered Scenario Generation
+              </li>
+              <li><i class="fas fa-check"></i> Document Upload and Analysis</li>
+              <li>
+                <i class="fas fa-check"></i> Real-time AI Agent Interactions
+              </li>
+              <li><i class="fas fa-check"></i> Analytics Dashboard</li>
+            </ul>
+
+            <div class="demo-buttons">
+              <a
+                href="https://your-streamlit-app.streamlit.app"
+                class="btn btn-primary"
+                target="_blank"
+              >
+                <i class="fas fa-external-link-alt"></i>
+                Open Full Demo
+              </a>
+              <a
+                href="https://github.com/your-username/ai-dungeon-master"
+                class="btn btn-secondary"
+                target="_blank"
+              >
+                <i class="fab fa-github"></i>
+                View Source
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="tech-stack">
+      <div class="container">
+        <h2 class="section-title">🛠️ Technology Stack</h2>
+        <p class="section-subtitle">
+          Built with modern technologies for optimal performance
+        </p>
+
+        <div class="tech-grid">
+          <div class="tech-category">
+            <h3>Backend</h3>
+            <div class="tech-items">
+              <span class="tech-item">Python 3.9+</span>
+              <span class="tech-item">Flask</span>
+              <span class="tech-item">LangChain</span>
+              <span class="tech-item">OpenAI</span>
+              <span class="tech-item">ChromaDB</span>
+            </div>
+          </div>
+
+          <div class="tech-category">
+            <h3>Frontend</h3>
+            <div class="tech-items">
+              <span class="tech-item">HTML5/CSS3</span>
+              <span class="tech-item">JavaScript</span>
+              <span class="tech-item">Streamlit</span>
+              <span class="tech-item">Plotly</span>
+            </div>
+          </div>
+
+          <div class="tech-category">
+            <h3>AI & ML</h3>
+            <div class="tech-items">
+              <span class="tech-item">RAG System</span>
+              <span class="tech-item">Fine-tuning</span>
+              <span class="tech-item">Vector Embeddings</span>
+              <span class="tech-item">Agent Architecture</span>
+            </div>
+          </div>
+
+          <div class="tech-category">
+            <h3>Deployment</h3>
+            <div class="tech-items">
+              <span class="tech-item">Streamlit Cloud</span>
+              <span class="tech-item">GitHub Pages</span>
+              <span class="tech-item">Docker</span>
+              <span class="tech-item">CI/CD</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">📖 About the Project</h2>
+        <p class="section-subtitle">
+          A comprehensive AI-powered storytelling platform
+        </p>
+
+        <div class="about-content">
+          <div class="about-text">
+            <h3>Project Overview</h3>
+            <p>
+              AI Dungeon Master is an advanced interactive storytelling platform
+              that combines cutting-edge AI technology with immersive gaming
+              experiences. The system features multiple AI agents working
+              together to create dynamic, engaging narratives across different
+              themes and genres.
+            </p>
+
+            <h3>Key Achievements</h3>
+            <ul class="achievements-list">
+              <li>✅ 50+ AI-generated scenarios across 3 themes</li>
+              <li>✅ 4 specialized AI agents for different tasks</li>
+              <li>✅ RAG system for document analysis</li>
+              <li>✅ Real-time content validation and curation</li>
+              <li>✅ Responsive design for all devices</li>
+              <li>✅ Comprehensive analytics and monitoring</li>
+            </ul>
+
+            <h3>Development Process</h3>
+            <div class="process-timeline">
+              <div class="process-step">
+                <span class="step-number">1</span>
+                <span class="step-text"
+                  >Basic game interface and mechanics</span
+                >
+              </div>
+              <div class="process-step">
+                <span class="step-number">2</span>
+                <span class="step-text">Advanced storytelling features</span>
+              </div>
+              <div class="process-step">
+                <span class="step-number">3</span>
+                <span class="step-text">Visual design and user experience</span>
+              </div>
+              <div class="process-step">
+                <span class="step-number">4</span>
+                <span class="step-text">Agent architecture and automation</span>
+              </div>
+              <div class="process-step">
+                <span class="step-number">5</span>
+                <span class="step-text"
+                  >RAG and fine-tuning implementation</span
+                >
+              </div>
+              <div class="process-step">
+                <span class="step-number">6</span>
+                <span class="step-text">Publishing and deployment</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-image">
+            <div class="image-placeholder">
+              <i class="fas fa-dragon"></i>
+              <p>AI Dungeon Master</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">📞 Get in Touch</h2>
+        <p class="section-subtitle">
+          Have questions or feedback? We'd love to hear from you!
+        </p>
+
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <p>contact@aidungeonmaster.com</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <i class="fab fa-github"></i>
+              <div>
+                <h4>GitHub</h4>
+                <p>github.com/your-username</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <i class="fab fa-linkedin"></i>
+              <div>
+                <h4>LinkedIn</h4>
+                <p>linkedin.com/in/your-profile</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Your Message"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i>
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>AI Dungeon Master</h4>
+            <p>Interactive storytelling with AI-powered adventures</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#demo">Demo</a></li>
+              <li><a href="#about">About</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">API Reference</a></li>
+              <li><a href="#">Tutorials</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">License</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2024 AI Dungeon Master. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

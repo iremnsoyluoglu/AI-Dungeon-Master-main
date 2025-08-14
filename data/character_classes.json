@@ -1,0 +1,437 @@
+{
+  "warrior": {
+    "id": "warrior",
+    "name": "Savaşçı",
+    "description": "Güçlü ve dayanıklı savaşçı",
+    "base_hp": 120,
+    "base_attack": 85,
+    "base_defense": 90,
+    "base_special": 0,
+    "special_abilities": [
+      "Kalkan Kullanımı",
+      "Zırh Uzmanlığı",
+      "Shield Wall",
+      "Sword Strike"
+    ],
+    "starting_equipment": ["Kılıç", "Kalkan", "Zırh"],
+    "base_stats": {
+      "strength": 16,
+      "dexterity": 12,
+      "constitution": 15,
+      "intelligence": 10,
+      "wisdom": 8,
+      "charisma": 12
+    },
+    "theme": "fantasy",
+    "role": "tank"
+  },
+  "mage": {
+    "id": "mage",
+    "name": "Büyücü",
+    "description": "Güçlü büyüler kullanan büyücü",
+    "base_hp": 60,
+    "base_attack": 100,
+    "base_defense": 40,
+    "base_special": 150,
+    "special_abilities": ["Ateş Topu", "Buz Duvarı", "Fireball", "Ice Bolt"],
+    "starting_equipment": ["Asa", "Büyü Kitabı", "Mana İksiri"],
+    "base_stats": {
+      "strength": 8,
+      "dexterity": 10,
+      "constitution": 12,
+      "intelligence": 16,
+      "wisdom": 14,
+      "charisma": 12
+    },
+    "theme": "fantasy",
+    "role": "damage_dealer"
+  },
+  "rogue": {
+    "id": "rogue",
+    "name": "Hırsız",
+    "description": "Hızlı ve gizli hareket eden hırsız",
+    "base_hp": 80,
+    "base_attack": 90,
+    "base_defense": 60,
+    "base_special": 95,
+    "special_abilities": ["Gizlenme", "Kritik Vuruş", "Stealth", "Backstab"],
+    "starting_equipment": ["Hançer", "Gizli Ceket", "Kilit Açma Takımı"],
+    "base_stats": {
+      "strength": 12,
+      "dexterity": 16,
+      "constitution": 10,
+      "intelligence": 14,
+      "wisdom": 12,
+      "charisma": 14
+    },
+    "theme": "fantasy",
+    "role": "damage_dealer"
+  },
+  "priest": {
+    "id": "priest",
+    "name": "Rahip",
+    "description": "İyileştirici, yüksek heal ve savunma",
+    "base_hp": 70,
+    "base_attack": 50,
+    "base_defense": 70,
+    "base_special": 80,
+    "special_abilities": ["İyileştirme", "Kutsama", "Heal", "Bless"],
+    "starting_equipment": ["Kutsal Asa", "İyileştirme İksiri", "Kutsal Kitap"],
+    "base_stats": {
+      "strength": 10,
+      "dexterity": 8,
+      "constitution": 14,
+      "intelligence": 12,
+      "wisdom": 16,
+      "charisma": 14
+    },
+    "theme": "fantasy",
+    "role": "support"
+  },
+  "paladin": {
+    "id": "paladin",
+    "name": "Paladin",
+    "description": "Kutsal savaşçı, tank ve healer karışımı",
+    "base_hp": 100,
+    "base_attack": 70,
+    "base_defense": 85,
+    "base_special": 40,
+    "special_abilities": [
+      "Kutsal Kalkan",
+      "İyileştirme Dokunuşu",
+      "Divine Smite",
+      "Lay on Hands"
+    ],
+    "starting_equipment": ["Kutsal Kılıç", "Kutsal Kalkan", "Kutsal Zırh"],
+    "base_stats": {
+      "strength": 14,
+      "dexterity": 10,
+      "constitution": 14,
+      "intelligence": 10,
+      "wisdom": 14,
+      "charisma": 16
+    },
+    "theme": "fantasy",
+    "role": "tank"
+  },
+  "druid": {
+    "id": "druid",
+    "name": "Druid",
+    "description": "Doğa büyücüsü, şekil değiştirme uzmanı",
+    "base_hp": 85,
+    "base_attack": 65,
+    "base_defense": 65,
+    "base_special": 90,
+    "special_abilities": [
+      "Şekil Değiştirme",
+      "Doğa Büyüleri",
+      "Wild Shape",
+      "Nature's Wrath"
+    ],
+    "starting_equipment": ["Doğa Asası", "Druid Kitabı", "Doğa Tılsımı"],
+    "base_stats": {
+      "strength": 12,
+      "dexterity": 12,
+      "constitution": 12,
+      "intelligence": 12,
+      "wisdom": 16,
+      "charisma": 10
+    },
+    "theme": "fantasy",
+    "role": "support"
+  },
+  "hunter": {
+    "id": "hunter",
+    "name": "Avcı",
+    "description": "Uzak mesafe savaşçısı, hayvan arkadaşları",
+    "base_hp": 90,
+    "base_attack": 80,
+    "base_defense": 70,
+    "base_special": 95,
+    "special_abilities": [
+      "Çoklu Ok",
+      "Keskin Nişan",
+      "Beast Companion",
+      "Precise Shot"
+    ],
+    "starting_equipment": ["Yay", "Ok", "Deri Zırh"],
+    "base_stats": {
+      "strength": 12,
+      "dexterity": 16,
+      "constitution": 12,
+      "intelligence": 10,
+      "wisdom": 14,
+      "charisma": 10
+    },
+    "theme": "fantasy",
+    "role": "balanced"
+  },
+  "warlock": {
+    "id": "warlock",
+    "name": "Warlock",
+    "description": "Karanlık büyücü, demon paktları",
+    "base_hp": 65,
+    "base_attack": 85,
+    "base_defense": 45,
+    "base_special": 100,
+    "special_abilities": [
+      "Karanlık Büyü",
+      "Demon Çağırma",
+      "Dark Magic",
+      "Demon Pact"
+    ],
+    "starting_equipment": ["Karanlık Asa", "Demon Kitabı", "Karanlık Tılsım"],
+    "base_stats": {
+      "strength": 8,
+      "dexterity": 10,
+      "constitution": 10,
+      "intelligence": 16,
+      "wisdom": 12,
+      "charisma": 16
+    },
+    "theme": "fantasy",
+    "role": "damage_dealer"
+  },
+  "space_marine": {
+    "id": "space_marine",
+    "name": "Space Marine",
+    "description": "Süper asker, yüksek HP ve savunma",
+    "base_hp": 150,
+    "base_attack": 95,
+    "base_defense": 100,
+    "base_special": 120,
+    "special_abilities": [
+      "Bolter Fire",
+      "Power Armor",
+      "Chainsword Strike",
+      "Tactical Advance"
+    ],
+    "starting_equipment": ["Bolter", "Power Armor", "Chainsword"],
+    "base_stats": {
+      "strength": 18,
+      "dexterity": 14,
+      "constitution": 16,
+      "intelligence": 12,
+      "wisdom": 10,
+      "charisma": 12
+    },
+    "theme": "warhammer40k",
+    "role": "tank"
+  },
+  "tech_priest": {
+    "id": "tech_priest",
+    "name": "Tech-Priest",
+    "description": "Teknoloji uzmanı, yüksek tech ve savunma",
+    "base_hp": 90,
+    "base_attack": 60,
+    "base_defense": 80,
+    "base_special": 100,
+    "special_abilities": [
+      "Repair",
+      "Tech Scan",
+      "Machine Spirit",
+      "Techno-ritual"
+    ],
+    "starting_equipment": ["Tech Staff", "Servo Skull", "Tech Armor"],
+    "base_stats": {
+      "strength": 12,
+      "dexterity": 10,
+      "constitution": 14,
+      "intelligence": 16,
+      "wisdom": 12,
+      "charisma": 10
+    },
+    "theme": "warhammer40k",
+    "role": "support"
+  },
+  "inquisitor": {
+    "id": "inquisitor",
+    "name": "Inquisitor",
+    "description": "Araştırmacı, dengeli istatistikler",
+    "base_hp": 100,
+    "base_attack": 85,
+    "base_defense": 75,
+    "base_special": 95,
+    "special_abilities": [
+      "Purge",
+      "Investigate",
+      "Interrogation",
+      "Divine Authority"
+    ],
+    "starting_equipment": [
+      "Inquisitor Staff",
+      "Inquisitor Armor",
+      "Holy Relic"
+    ],
+    "base_stats": {
+      "strength": 14,
+      "dexterity": 12,
+      "constitution": 12,
+      "intelligence": 14,
+      "wisdom": 16,
+      "charisma": 16
+    },
+    "theme": "warhammer40k",
+    "role": "balanced"
+  },
+  "imperial_guard": {
+    "id": "imperial_guard",
+    "name": "Imperial Guard",
+    "description": "Asker, takım çalışması odaklı",
+    "base_hp": 80,
+    "base_attack": 70,
+    "base_defense": 60,
+    "base_special": 90,
+    "special_abilities": [
+      "Teamwork",
+      "Suppression",
+      "Cover Fire",
+      "Tactical Formation"
+    ],
+    "starting_equipment": ["Lasgun", "Flak Armor", "Grenades"],
+    "base_stats": {
+      "strength": 14,
+      "dexterity": 12,
+      "constitution": 12,
+      "intelligence": 10,
+      "wisdom": 12,
+      "charisma": 12
+    },
+    "theme": "warhammer40k",
+    "role": "balanced"
+  },
+  "netrunner": {
+    "id": "netrunner",
+    "name": "Netrunner",
+    "description": "Siber uzay hacker'ı",
+    "base_hp": 60,
+    "base_attack": 40,
+    "base_defense": 30,
+    "base_special": 150,
+    "special_abilities": [
+      "Hack",
+      "Siber Saldırı",
+      "Digital Override",
+      "Neural Link"
+    ],
+    "starting_equipment": ["Cyberdeck", "Neural Interface", "Hack Tools"],
+    "base_stats": {
+      "strength": 8,
+      "dexterity": 12,
+      "constitution": 10,
+      "intelligence": 18,
+      "wisdom": 14,
+      "charisma": 12
+    },
+    "theme": "cyberpunk",
+    "role": "damage_dealer"
+  },
+  "street_samurai": {
+    "id": "street_samurai",
+    "name": "Street Samurai",
+    "description": "Siber implantlı savaşçı",
+    "base_hp": 120,
+    "base_attack": 90,
+    "base_defense": 80,
+    "base_special": 70,
+    "special_abilities": [
+      "Siber İmplantlar",
+      "Hızlı Tepki",
+      "Combat Implants",
+      "Reflex Boost"
+    ],
+    "starting_equipment": ["Cyber Arms", "Combat Implants", "Smart Weapons"],
+    "base_stats": {
+      "strength": 16,
+      "dexterity": 18,
+      "constitution": 14,
+      "intelligence": 10,
+      "wisdom": 8,
+      "charisma": 10
+    },
+    "theme": "cyberpunk",
+    "role": "tank"
+  },
+  "corporate_agent": {
+    "id": "corporate_agent",
+    "name": "Corporate Agent",
+    "description": "Şirket ajanı, sosyal manipülatör",
+    "base_hp": 80,
+    "base_attack": 60,
+    "base_defense": 70,
+    "base_special": 100,
+    "special_abilities": [
+      "Sosyal Manipülasyon",
+      "Şirket Bağlantıları",
+      "Corporate Influence",
+      "Social Engineering"
+    ],
+    "starting_equipment": ["Business Suit", "Corporate ID", "Social Implants"],
+    "base_stats": {
+      "strength": 10,
+      "dexterity": 12,
+      "constitution": 12,
+      "intelligence": 14,
+      "wisdom": 12,
+      "charisma": 18
+    },
+    "theme": "cyberpunk",
+    "role": "support"
+  },
+  "fixer": {
+    "id": "fixer",
+    "name": "Fixer",
+    "description": "Yeraltı ağı uzmanı",
+    "base_hp": 90,
+    "base_attack": 70,
+    "base_defense": 60,
+    "base_special": 110,
+    "special_abilities": [
+      "Yeraltı Bağlantıları",
+      "Bilgi Toplama",
+      "Underground Network",
+      "Information Broker"
+    ],
+    "starting_equipment": [
+      "Commlink",
+      "Underground Gear",
+      "Information Database"
+    ],
+    "base_stats": {
+      "strength": 12,
+      "dexterity": 14,
+      "constitution": 12,
+      "intelligence": 14,
+      "wisdom": 12,
+      "charisma": 16
+    },
+    "theme": "cyberpunk",
+    "role": "balanced"
+  },
+  "solo": {
+    "id": "solo",
+    "name": "Solo",
+    "description": "Bağımsız savaşçı",
+    "base_hp": 110,
+    "base_attack": 95,
+    "base_defense": 75,
+    "base_special": 80,
+    "special_abilities": [
+      "Savaş Uzmanlığı",
+      "Taktiksel Düşünce",
+      "Combat Expertise",
+      "Tactical Thinking"
+    ],
+    "starting_equipment": ["Combat Armor", "Heavy Weapons", "Tactical Gear"],
+    "base_stats": {
+      "strength": 16,
+      "dexterity": 16,
+      "constitution": 14,
+      "intelligence": 12,
+      "wisdom": 10,
+      "charisma": 10
+    },
+    "theme": "cyberpunk",
+    "role": "damage_dealer"
+  }
+}

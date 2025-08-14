@@ -1,0 +1,90 @@
+[
+  {
+    "id": "dragon_hunters_path",
+    "title": "Ejderha Avcısının Yolu",
+    "genre": "fantasy",
+    "description": "Kızıl ejderha köyleri yakıyor. Sen ejderha avcısısın. Bu tehlikeli görevde ejderhayı durdurmak için her şeyi riske atacaksın.",
+    "difficulty": "hard",
+    "theme": "fantasy",
+    "estimatedPlayTime": 120,
+    "complexity": "high",
+    "is_favorite": false
+  },
+  {
+    "id": "magical_forest_mysteries",
+    "title": "Büyülü Ormanın Gizemleri",
+    "genre": "fantasy",
+    "description": "Büyülü ormanda kaybolan insanlar ve gizemli olaylar. Ormanın derinliklerinde ne olduğunu keşfet.",
+    "difficulty": "hard",
+    "theme": "fantasy",
+    "estimatedPlayTime": 90,
+    "complexity": "high",
+    "is_favorite": false
+  },
+  {
+    "id": "dragon_hunt_red_flame",
+    "title": "Ejderha Avı: Kızıl Alev",
+    "genre": "fantasy",
+    "description": "Kızıl alev ejderhası şehri tehdit ediyor. Bu efsanevi yaratığı durdurmak için tehlikeli bir yolculuğa çık.",
+    "difficulty": "hard",
+    "theme": "fantasy",
+    "estimatedPlayTime": 150,
+    "complexity": "high",
+    "is_favorite": false
+  },
+  {
+    "id": "ancient_ruins_secret",
+    "title": "Antik Harabelerin Sırrı",
+    "genre": "fantasy",
+    "description": "Antik harabelerde gizli bir sır yatıyor. Bu sırrı keşfetmek için tehlikeli tuzakları aşman gerekiyor.",
+    "difficulty": "hard",
+    "theme": "fantasy",
+    "estimatedPlayTime": 100,
+    "complexity": "high",
+    "is_favorite": false
+  },
+  {
+    "id": "crystal_cave_curse",
+    "title": "Kristal Mağarasının Laneti",
+    "genre": "fantasy",
+    "description": "Kristal mağarasında lanetli bir güç uyuyor. Bu laneti kaldırmak için mağaranın derinliklerine in.",
+    "difficulty": "medium",
+    "theme": "fantasy",
+    "estimatedPlayTime": 75,
+    "complexity": "medium",
+    "is_favorite": false
+  },
+  {
+    "id": "hive_city_defense",
+    "title": "Hive Şehrinin Savunması",
+    "genre": "warhammer",
+    "description": "Hive şehri dış tehditler altında. Şehri savunmak ve düşmanları püskürtmek için savaş.",
+    "difficulty": "hard",
+    "theme": "warhammer40k",
+    "estimatedPlayTime": 120,
+    "complexity": "high",
+    "is_favorite": false
+  },
+  {
+    "id": "ork_invasion_final_defense",
+    "title": "Ork İstilası: Son Savunma",
+    "genre": "warhammer",
+    "description": "Ork istilası başladı. Son savunma hattında dur ve dünyayı kurtar.",
+    "difficulty": "hard",
+    "theme": "warhammer40k",
+    "estimatedPlayTime": 180,
+    "complexity": "high",
+    "is_favorite": false
+  },
+  {
+    "id": "cyberpunk_city_secrets",
+    "title": "Cyberpunk Şehrinin Gizli Sırları",
+    "genre": "cyberpunk",
+    "description": "Cyberpunk şehrinde gizli sırlar ve komplolar var. Bu sırları ortaya çıkar ve gerçeği öğren.",
+    "difficulty": "hard",
+    "theme": "cyberpunk",
+    "estimatedPlayTime": 110,
+    "complexity": "high",
+    "is_favorite": false
+  }
+]

@@ -1,0 +1,667 @@
+{
+  "1375612f-679e-4896-bf93-aaa1d45a8035": {
+    "id": "1375612f-679e-4896-bf93-aaa1d45a8035",
+    "user_id": "user_123",
+    "scenario_id": "test_scenario",
+    "character_data": {
+      "name": "TestHero",
+      "character_class": "warrior",
+      "character_race": "human",
+      "health": 120,
+      "inventory": [
+        "Sword",
+        "Shield"
+      ],
+      "level": 1
+    },
+    "game_state": {
+      "health": 100,
+      "karma": 10
+    },
+    "created_at": "2025-07-30T01:21:38.730949",
+    "last_updated": "2025-07-30T01:21:38.751249",
+    "is_active": true
+  },
+  "114d7132-7e90-48d7-bede-52ff38a1b177": {
+    "id": "114d7132-7e90-48d7-bede-52ff38a1b177",
+    "user_id": "user_123",
+    "scenario_id": "test_scenario",
+    "character_data": {
+      "name": "TestHero",
+      "character_class": "warrior",
+      "character_race": "human",
+      "health": 120,
+      "inventory": [
+        "Sword",
+        "Shield"
+      ],
+      "level": 1
+    },
+    "game_state": {
+      "health": 100,
+      "karma": 10
+    },
+    "created_at": "2025-07-30T01:22:51.701686",
+    "last_updated": "2025-07-30T01:22:51.709083",
+    "is_active": true
+  },
+  "eeccd679-0a70-4ee5-9469-5a5224cff1c2": {
+    "id": "eeccd679-0a70-4ee5-9469-5a5224cff1c2",
+    "user_id": "user_123",
+    "scenario_id": "test_scenario",
+    "character_data": {
+      "name": "TestHero",
+      "character_class": "warrior",
+      "character_race": "human",
+      "health": 120,
+      "inventory": [
+        "Sword",
+        "Shield"
+      ],
+      "level": 1
+    },
+    "game_state": {
+      "health": 100,
+      "karma": 10
+    },
+    "created_at": "2025-07-30T01:25:49.291164",
+    "last_updated": "2025-07-30T01:25:49.299235",
+    "is_active": true
+  },
+  "3852299e-cfe2-4545-b04b-a631feed5376": {
+    "id": "3852299e-cfe2-4545-b04b-a631feed5376",
+    "user_id": "user_123",
+    "scenario_id": "test_scenario",
+    "character_data": {
+      "name": "TestHero",
+      "character_class": "warrior",
+      "character_race": "human",
+      "health": 120,
+      "inventory": [
+        "Sword",
+        "Shield"
+      ],
+      "level": 1
+    },
+    "game_state": {
+      "health": 100,
+      "karma": 10
+    },
+    "created_at": "2025-07-30T14:00:41.231842",
+    "last_updated": "2025-07-30T14:00:41.233830",
+    "is_active": true
+  },
+  "10622ac5-b8fa-43c6-8f52-5dfea4e9939f": {
+    "id": "10622ac5-b8fa-43c6-8f52-5dfea4e9939f",
+    "user_id": "test_user",
+    "scenario_id": "test_scenario",
+    "character_data": {
+      "name": "TestPlayer",
+      "character_class": "warrior",
+      "character_race": "human",
+      "health": 100,
+      "inventory": [
+        "Sword",
+        "Shield"
+      ],
+      "level": 1
+    },
+    "game_state": {
+      "current_scene": "start",
+      "health": 100,
+      "inventory": [
+        "Sword",
+        "Shield"
+      ],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": []
+    },
+    "created_at": "2025-07-30T14:33:22.518432",
+    "last_updated": "2025-07-30T14:33:22.518432",
+    "is_active": true
+  },
+  "b5514f1e-8dc1-48bb-bafe-2e01fa59513e": {
+    "id": "b5514f1e-8dc1-48bb-bafe-2e01fa59513e",
+    "user_id": "test_user",
+    "scenario_id": "test_scenario",
+    "character_data": {
+      "name": "AutoTestPlayer",
+      "character_class": "mage",
+      "character_race": "elf",
+      "health": 80,
+      "inventory": [
+        "Staff",
+        "Potion"
+      ],
+      "level": 2
+    },
+    "game_state": {
+      "current_scene": "start",
+      "health": 80,
+      "inventory": [
+        "Staff",
+        "Potion"
+      ],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": []
+    },
+    "created_at": "2025-07-30T14:33:22.526761",
+    "last_updated": "2025-07-30T14:33:22.526761",
+    "is_active": true
+  },
+  "fc1646f3-f2ad-46b5-ba6a-43b3abe33d53": {
+    "id": "fc1646f3-f2ad-46b5-ba6a-43b3abe33d53",
+    "user_id": "test_user",
+    "scenario_id": "test_scenario",
+    "character_data": {
+      "name": "PersistenceTest",
+      "character_class": "warrior",
+      "character_race": "human",
+      "health": 100,
+      "inventory": [
+        "Sword",
+        "Shield"
+      ],
+      "level": 1
+    },
+    "game_state": {
+      "current_scene": "start",
+      "health": 100,
+      "inventory": [
+        "Sword",
+        "Shield"
+      ],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": []
+    },
+    "created_at": "2025-07-30T14:33:22.540723",
+    "last_updated": "2025-07-30T14:33:22.540723",
+    "is_active": true
+  },
+  "6abf60ef-dcb4-4b3a-b970-83e2c25a2bf4": {
+    "id": "6abf60ef-dcb4-4b3a-b970-83e2c25a2bf4",
+    "user_id": "user_123",
+    "scenario_id": "test_scenario",
+    "character_data": {
+      "name": "TestHero",
+      "character_class": "warrior",
+      "character_race": "human",
+      "health": 120,
+      "inventory": [
+        "Sword",
+        "Shield"
+      ],
+      "level": 1
+    },
+    "game_state": {
+      "health": 100,
+      "karma": 10
+    },
+    "created_at": "2025-07-30T15:01:11.224157",
+    "last_updated": "2025-07-30T15:01:11.228146",
+    "is_active": true
+  },
+  "fd517170-f970-4e55-b1f8-50684d56aa70": {
+    "id": "fd517170-f970-4e55-b1f8-50684d56aa70",
+    "user_id": "test_user",
+    "scenario_id": "dragon_lords",
+    "character_data": {
+      "name": "Test Hero",
+      "level": 1,
+      "health": 100,
+      "max_health": 100,
+      "attack": 10,
+      "defense": 5
+    },
+    "game_state": {
+      "current_scene": "start",
+      "health": 100,
+      "inventory": [],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": []
+    },
+    "created_at": "2025-08-02T17:34:39.904055",
+    "last_updated": "2025-08-02T17:34:39.904055",
+    "is_active": true
+  },
+  "0f2b3212-cef5-4421-b3fb-3115e83b4a7c": {
+    "id": "0f2b3212-cef5-4421-b3fb-3115e83b4a7c",
+    "user_id": "test_user",
+    "scenario_id": "dragon_lords",
+    "character_data": {
+      "name": "Test Hero",
+      "level": 1,
+      "health": 100,
+      "max_health": 100,
+      "attack": 10,
+      "defense": 5
+    },
+    "game_state": {
+      "current_scene": "village_square",
+      "health": 100,
+      "inventory": [],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": [
+        "village_square"
+      ]
+    },
+    "created_at": "2025-08-02T17:36:10.761266",
+    "last_updated": "2025-08-02T17:36:10.763135",
+    "is_active": true
+  },
+  "4eb02a46-ae3a-4ddc-80b8-ee33d7420dc2": {
+    "id": "4eb02a46-ae3a-4ddc-80b8-ee33d7420dc2",
+    "user_id": "test_user",
+    "scenario_id": "dragon_lords",
+    "character_data": {
+      "name": "Test Hero",
+      "level": 1,
+      "health": 100,
+      "max_health": 100,
+      "attack": 10,
+      "defense": 5
+    },
+    "game_state": {
+      "current_scene": "village_square",
+      "health": 100,
+      "inventory": [],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": [
+        "village_square"
+      ]
+    },
+    "created_at": "2025-08-02T17:38:11.370994",
+    "last_updated": "2025-08-02T17:38:11.370994",
+    "is_active": true
+  },
+  "31ec489f-aa36-4168-9d93-ff5993c43868": {
+    "id": "31ec489f-aa36-4168-9d93-ff5993c43868",
+    "user_id": "test_user",
+    "scenario_id": "dragon_lords",
+    "character_data": {
+      "name": "Test Hero",
+      "level": 1,
+      "health": 100,
+      "max_health": 100,
+      "attack": 10,
+      "defense": 5
+    },
+    "game_state": {
+      "current_scene": "village_square",
+      "health": 100,
+      "inventory": [],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": [
+        "village_square"
+      ]
+    },
+    "created_at": "2025-08-04T11:24:51.235067",
+    "last_updated": "2025-08-04T11:24:51.240332",
+    "is_active": true
+  },
+  "24c04744-bff1-4a3f-9ba1-6b92c29f4e58": {
+    "id": "24c04744-bff1-4a3f-9ba1-6b92c29f4e58",
+    "user_id": "test_user",
+    "scenario_id": "dragon_lords",
+    "character_data": {
+      "name": "Test Hero",
+      "level": 1,
+      "health": 100,
+      "max_health": 100,
+      "attack": 10,
+      "defense": 5
+    },
+    "game_state": {
+      "current_scene": "village_square",
+      "health": 100,
+      "inventory": [],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": [
+        "village_square"
+      ]
+    },
+    "created_at": "2025-08-04T11:39:02.361546",
+    "last_updated": "2025-08-04T11:39:02.364454",
+    "is_active": true
+  },
+  "2a67a8cf-0dd3-43ca-9edb-583a25dcfd1b": {
+    "id": "2a67a8cf-0dd3-43ca-9edb-583a25dcfd1b",
+    "user_id": "test_user",
+    "scenario_id": "dragon_lords",
+    "character_data": {
+      "name": "Test Hero",
+      "level": 1,
+      "health": 100,
+      "max_health": 100,
+      "attack": 10,
+      "defense": 5
+    },
+    "game_state": {
+      "current_scene": "village_square",
+      "health": 100,
+      "inventory": [],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": [
+        "village_square"
+      ]
+    },
+    "created_at": "2025-08-04T11:47:46.199087",
+    "last_updated": "2025-08-04T11:47:46.207156",
+    "is_active": true
+  },
+  "36257a64-69ec-4c9f-afaf-9861f48c33f8": {
+    "id": "36257a64-69ec-4c9f-afaf-9861f48c33f8",
+    "user_id": "test_user",
+    "scenario_id": "dragon_lords",
+    "character_data": {
+      "name": "Test Hero",
+      "level": 1,
+      "health": 100,
+      "max_health": 100,
+      "attack": 10,
+      "defense": 5
+    },
+    "game_state": {
+      "current_scene": "village_square",
+      "health": 100,
+      "inventory": [],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": [
+        "village_square"
+      ]
+    },
+    "created_at": "2025-08-04T11:59:18.788127",
+    "last_updated": "2025-08-04T11:59:18.802622",
+    "is_active": true
+  },
+  "2a3f25bb-a0e2-4422-835f-848c1e37cd5c": {
+    "id": "2a3f25bb-a0e2-4422-835f-848c1e37cd5c",
+    "user_id": "test_user",
+    "scenario_id": "dragon_lords",
+    "character_data": {
+      "name": "Test Hero",
+      "level": 1,
+      "health": 100,
+      "max_health": 100,
+      "attack": 10,
+      "defense": 5
+    },
+    "game_state": {
+      "current_scene": "village_square",
+      "health": 100,
+      "inventory": [],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": [
+        "village_square"
+      ]
+    },
+    "created_at": "2025-08-05T12:56:31.284361",
+    "last_updated": "2025-08-05T12:56:31.292831",
+    "is_active": true
+  },
+  "e990be10-6aea-4744-8874-9a872a1a6fcb": {
+    "id": "e990be10-6aea-4744-8874-9a872a1a6fcb",
+    "user_id": "test_user",
+    "scenario_id": "dragon_lords",
+    "character_data": {
+      "name": "Test Hero",
+      "level": 1,
+      "health": 100,
+      "max_health": 100,
+      "attack": 10,
+      "defense": 5
+    },
+    "game_state": {
+      "current_scene": "village_square",
+      "health": 100,
+      "inventory": [],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": [
+        "village_square"
+      ]
+    },
+    "created_at": "2025-08-05T13:04:14.557022",
+    "last_updated": "2025-08-05T13:04:14.561396",
+    "is_active": true
+  },
+  "4725f073-01d3-41a3-b940-1ef0ac9ef776": {
+    "id": "4725f073-01d3-41a3-b940-1ef0ac9ef776",
+    "user_id": "test_user",
+    "scenario_id": "dragon_lords",
+    "character_data": {
+      "name": "Test Hero",
+      "level": 1,
+      "health": 100,
+      "max_health": 100,
+      "attack": 10,
+      "defense": 5
+    },
+    "game_state": {
+      "current_scene": "village_square",
+      "health": 100,
+      "inventory": [],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": [
+        "village_square"
+      ]
+    },
+    "created_at": "2025-08-05T13:10:57.639042",
+    "last_updated": "2025-08-05T13:10:57.645494",
+    "is_active": true
+  },
+  "1965c26b-daeb-4ce6-b323-e9e7cd146129": {
+    "id": "1965c26b-daeb-4ce6-b323-e9e7cd146129",
+    "user_id": "test_user",
+    "scenario_id": "dragon_lords",
+    "character_data": {
+      "name": "Test Hero",
+      "level": 1,
+      "health": 100,
+      "max_health": 100,
+      "attack": 10,
+      "defense": 5
+    },
+    "game_state": {
+      "current_scene": "village_square",
+      "health": 100,
+      "inventory": [],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": [
+        "village_square"
+      ]
+    },
+    "created_at": "2025-08-05T13:18:25.566026",
+    "last_updated": "2025-08-05T13:18:25.572923",
+    "is_active": true
+  },
+  "48c3b11c-1e8c-459e-8e07-cecbecaf0739": {
+    "id": "48c3b11c-1e8c-459e-8e07-cecbecaf0739",
+    "user_id": "test_user",
+    "scenario_id": "dragon_lords",
+    "character_data": {
+      "name": "Test Hero",
+      "level": 1,
+      "health": 100,
+      "max_health": 100,
+      "attack": 10,
+      "defense": 5
+    },
+    "game_state": {
+      "current_scene": "village_square",
+      "health": 100,
+      "inventory": [],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": [
+        "village_square"
+      ]
+    },
+    "created_at": "2025-08-05T13:20:38.154126",
+    "last_updated": "2025-08-05T13:20:38.159194",
+    "is_active": true
+  },
+  "18a9c737-3952-43b5-8e10-ad55faa408d6": {
+    "id": "18a9c737-3952-43b5-8e10-ad55faa408d6",
+    "user_id": "test_user",
+    "scenario_id": "dragon_lords",
+    "character_data": {
+      "name": "Test Hero",
+      "level": 1,
+      "health": 100,
+      "max_health": 100,
+      "attack": 10,
+      "defense": 5
+    },
+    "game_state": {
+      "current_scene": "village_square",
+      "health": 100,
+      "inventory": [],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": [
+        "village_square"
+      ]
+    },
+    "created_at": "2025-08-05T13:25:13.086998",
+    "last_updated": "2025-08-05T13:25:13.091179",
+    "is_active": true
+  },
+  "090944f8-b218-4ff2-8661-fc4b1818f24f": {
+    "id": "090944f8-b218-4ff2-8661-fc4b1818f24f",
+    "user_id": "test_user",
+    "scenario_id": "dragon_lords",
+    "character_data": {
+      "name": "Test Hero",
+      "level": 1,
+      "health": 100,
+      "max_health": 100,
+      "attack": 10,
+      "defense": 5
+    },
+    "game_state": {
+      "current_scene": "village_square",
+      "health": 100,
+      "inventory": [],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": [
+        "village_square"
+      ]
+    },
+    "created_at": "2025-08-05T13:53:10.477122",
+    "last_updated": "2025-08-05T13:53:10.487676",
+    "is_active": true
+  },
+  "a3d2b3c4-fc97-4ea8-902b-485be65da41d": {
+    "id": "a3d2b3c4-fc97-4ea8-902b-485be65da41d",
+    "user_id": "test_user",
+    "scenario_id": "dragon_lords",
+    "character_data": {
+      "name": "Test Hero",
+      "level": 1,
+      "health": 100,
+      "max_health": 100,
+      "attack": 10,
+      "defense": 5
+    },
+    "game_state": {
+      "current_scene": "village_square",
+      "health": 100,
+      "inventory": [],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": [
+        "village_square"
+      ]
+    },
+    "created_at": "2025-08-13T01:02:55.849879",
+    "last_updated": "2025-08-13T01:02:55.855963",
+    "is_active": true
+  },
+  "2787016f-16cc-4f2d-a1e3-82bb9f263841": {
+    "id": "2787016f-16cc-4f2d-a1e3-82bb9f263841",
+    "user_id": "test_user",
+    "scenario_id": "dragon_lords",
+    "character_data": {
+      "name": "Test Hero",
+      "level": 1,
+      "health": 100,
+      "max_health": 100,
+      "attack": 10,
+      "defense": 5
+    },
+    "game_state": {
+      "current_scene": "village_square",
+      "health": 100,
+      "inventory": [],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": [
+        "village_square"
+      ]
+    },
+    "created_at": "2025-08-13T01:07:55.047039",
+    "last_updated": "2025-08-13T01:07:55.053911",
+    "is_active": true
+  },
+  "d8003ba0-8824-4520-92f9-b5324c4ac5c6": {
+    "id": "d8003ba0-8824-4520-92f9-b5324c4ac5c6",
+    "user_id": "test_user",
+    "scenario_id": "dragon_lords",
+    "character_data": {
+      "name": "Test Hero",
+      "level": 1,
+      "health": 100,
+      "max_health": 100,
+      "attack": 10,
+      "defense": 5
+    },
+    "game_state": {
+      "current_scene": "village_square",
+      "health": 100,
+      "inventory": [],
+      "quests": [],
+      "karma": 0,
+      "choices": [],
+      "completed_scenes": [
+        "village_square"
+      ]
+    },
+    "created_at": "2025-08-13T01:08:17.750683",
+    "last_updated": "2025-08-13T01:08:17.754904",
+    "is_active": true
+  }
+}

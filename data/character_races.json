@@ -1,0 +1,50 @@
+{
+  "human": {
+    "id": "human",
+    "name": "İnsan",
+    "description": "Dengeli ve uyumlu insan",
+    "hp_bonus": 0,
+    "attack_bonus": 0,
+    "defense_bonus": 0,
+    "special_traits": [
+      "Uyumluluk",
+      "Çok Yönlülük"
+    ]
+  },
+  "elf": {
+    "id": "elf",
+    "name": "Elf",
+    "description": "Zarif ve büyüye yatkın elf",
+    "hp_bonus": -10,
+    "attack_bonus": 2,
+    "defense_bonus": 1,
+    "special_traits": [
+      "Büyü Uzmanlığı",
+      "Doğa Bağlantısı"
+    ]
+  },
+  "dwarf": {
+    "id": "dwarf",
+    "name": "Cüce",
+    "description": "Güçlü ve dayanıklı cüce",
+    "hp_bonus": 20,
+    "attack_bonus": 1,
+    "defense_bonus": 3,
+    "special_traits": [
+      "Zırh Uzmanlığı",
+      "Madencilik"
+    ]
+  },
+  "orc": {
+    "id": "orc",
+    "name": "Ork",
+    "description": "Vahşi ve güçlü ork",
+    "hp_bonus": 15,
+    "attack_bonus": 3,
+    "defense_bonus": 0,
+    "special_traits": [
+      "Vahşi Güç",
+      "Dayanıklılık"
+    ]
+  }
+}

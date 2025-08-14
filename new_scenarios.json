@@ -1,0 +1,894 @@
+{
+  "scenario_fantasy_forest_mystery": {
+    "id": "scenario_fantasy_forest_mystery",
+    "title": "Büyülü Ormanın Gizemleri",
+    "genre": "fantasy",
+    "description": "Büyülü bir ormanda kaybolmuş bir köy var. Köylüler kaybolmuş ve ağaçlar konuşuyor. Bu gizemi çözebilir misin?",
+    "difficulty": "medium",
+    "created_at": "2025-07-29T20:00:00.000000",
+    "created_by": "test_user",
+    "theme": "fantasy",
+    "complexity": "high",
+    "estimatedPlayTime": 45,
+    "backgroundImages": {
+      "start": "fantasy_forest.jpg",
+      "village": "fantasy_village.jpg",
+      "ancient_tree": "fantasy_ancient_tree.jpg",
+      "spirit_encounter": "fantasy_spirit.jpg",
+      "final_battle": "fantasy_battle.jpg"
+    },
+    "plotTwists": [
+      "Köylüler ağaçlara dönüşmüş",
+      "Rehber aslında kötü ruh",
+      "Orman tanrısı uyanıyor",
+      "Antik lanet var"
+    ],
+    "betrayals": [
+      "Güvenilir rehber ihanet ediyor",
+      "Köylüler düşman",
+      "Ağaçlar canlı"
+    ],
+    "randomEvents": [
+      "Meteor yağmuru",
+      "Zaman fırtınası",
+      "Eski tanrı uyanması",
+      "Sihir dalgalanması"
+    ],
+    "multipleEndings": {
+      "victory": {
+        "id": "victory_ending",
+        "title": "Zafer",
+        "description": "Köylüleri kurtardın ve ormanı iyileştirdin.",
+        "requirements": {
+          "karma": 50,
+          "choices": ["help_others", "solve_mystery", "show_mercy"]
+        },
+        "consequences": {
+          "karma_change": 25,
+          "item_rewards": ["Forest Blessing", "Ancient Staff", "Village Favor"]
+        },
+        "backgroundImage": "fantasy_victory.jpg",
+        "cinematic_description": "Orman yeniden canlandı ve köylüler kurtuldu.",
+        "epilogue": "Sen artık ormanın koruyucususun."
+      },
+      "tragic": {
+        "id": "tragic_ending",
+        "title": "Trajik Zafer",
+        "description": "Köylüleri kurtardın ama orman yok oldu.",
+        "requirements": {
+          "karma": 30,
+          "choices": ["sacrifice_forest", "ignore_warnings"]
+        },
+        "consequences": {
+          "karma_change": -10,
+          "relationship_changes": { "forest": "destroyed" }
+        },
+        "backgroundImage": "fantasy_tragic.jpg",
+        "cinematic_description": "Zafer kazandın ama orman yok oldu.",
+        "epilogue": "Zafer acı bir tat bıraktı."
+      }
+    },
+    "nodes": {
+      "start": {
+        "id": "start",
+        "title": "Kayıp Köy",
+        "description": "Büyülü ormanda kayıp bir köy buldun. Köylüler yok ve ağaçlar konuşuyor.",
+        "backgroundImage": "fantasy_village.jpg",
+        "choices": [
+          {
+            "text": "Köyü araştır",
+            "next_node": "investigate_village",
+            "diceRoll": {
+              "type": "d20",
+              "target": 12,
+              "skill": "Investigation"
+            },
+            "effect": { "karma": 5, "xp_gain": 20 }
+          },
+          {
+            "text": "Ağaçlarla konuş",
+            "next_node": "talk_to_trees",
+            "diceRoll": { "type": "d20", "target": 14, "skill": "Nature" },
+            "effect": { "karma": 3, "xp_gain": 15 }
+          },
+          {
+            "text": "Rehber ara",
+            "next_node": "find_guide",
+            "diceRoll": { "type": "d20", "target": 10, "skill": "Perception" },
+            "effect": { "karma": 0, "xp_gain": 10 }
+          }
+        ],
+        "requirements": null,
+        "consequences": null,
+        "npcs": [],
+        "enemies": [],
+        "items": ["Harita", "Su", "Basit Silah"],
+        "combat": false,
+        "ending": false,
+        "plotTwist": false,
+        "betrayal": false,
+        "randomEvent": false
+      },
+      "investigate_village": {
+        "id": "investigate_village",
+        "title": "Köy Araştırması",
+        "description": "Köyde garip izler buldun. Bir günlük buldun ve köylülerin ağaçlara dönüştüğünü yazıyor.",
+        "backgroundImage": "fantasy_village_investigation.jpg",
+        "choices": [
+          {
+            "text": "Günlüğü oku",
+            "next_node": "read_diary",
+            "diceRoll": {
+              "type": "d20",
+              "target": 12,
+              "skill": "Investigation"
+            },
+            "effect": { "karma": 5, "xp_gain": 25 }
+          },
+          {
+            "text": "Rehber ara",
+            "next_node": "find_guide",
+            "diceRoll": { "type": "d20", "target": 10, "skill": "Perception" },
+            "effect": { "karma": 0, "xp_gain": 15 }
+          }
+        ],
+        "requirements": null,
+        "consequences": null,
+        "npcs": [],
+        "enemies": [],
+        "items": ["Günlük", "Köy Haritası"],
+        "combat": false,
+        "ending": false,
+        "plotTwist": false,
+        "betrayal": false,
+        "randomEvent": false
+      },
+      "find_guide": {
+        "id": "find_guide",
+        "title": "Rehber Buluşması",
+        "description": "Bir rehber buldun. Ama onun gözlerinde garip bir ışık var. Seni köye götürmek istiyor.",
+        "backgroundImage": "fantasy_guide.jpg",
+        "choices": [
+          {
+            "text": "Rehberle git",
+            "next_node": "follow_guide",
+            "effect": { "karma": 0, "xp_gain": 10 }
+          },
+          {
+            "text": "Rehberi şüpheli bul",
+            "next_node": "suspect_guide",
+            "diceRoll": { "type": "d20", "target": 14, "skill": "Insight" },
+            "effect": { "karma": 5, "xp_gain": 20 }
+          },
+          {
+            "text": "Rehberle savaş",
+            "next_node": "fight_guide",
+            "diceRoll": { "type": "d20", "target": 16, "skill": "Combat" },
+            "effect": { "karma": 10, "xp_gain": 50 },
+            "combat": true,
+            "skill_usage": {
+              "warrior": ["Shield Wall", "Sword Strike"],
+              "mage": ["Fireball", "Ice Bolt"],
+              "rogue": ["Stealth", "Backstab"],
+              "priest": ["Heal", "Bless"],
+              "paladin": ["Kutsal Kalkan", "İyileştirme Dokunuşu"],
+              "druid": ["Doğa Büyüleri", "Şekil Değiştirme"],
+              "hunter": ["Çoklu Ok", "Keskin Nişan"],
+              "warlock": ["Karanlık Büyü", "Demon Çağırma"]
+            }
+          }
+        ],
+        "requirements": null,
+        "consequences": null,
+        "npcs": [
+          {
+            "name": "Orman Rehberi",
+            "type": "Guide",
+            "personality": "Deceptive",
+            "motivation": "Control forest",
+            "relationship": "enemy",
+            "betrayal": true
+          }
+        ],
+        "items": [],
+        "enemies": [
+          {
+            "name": "Orman Rehberi",
+            "type": "Spirit",
+            "hp": 60,
+            "attack": 14,
+            "defense": 12,
+            "specialAbilities": ["Nature Control", "Shape Shift"],
+            "statusEffects": ["Forest Bond"]
+          }
+        ],
+        "combat": false,
+        "ending": false,
+        "plotTwist": true,
+        "betrayal": true,
+        "randomEvent": false
+      },
+      "fight_guide": {
+        "id": "fight_guide",
+        "title": "Rehberle Savaş",
+        "description": "Rehber gerçek yüzünü gösterdi! O bir kötü ruh ve köylüleri ağaçlara dönüştürmüş.",
+        "backgroundImage": "fantasy_spirit_battle.jpg",
+        "choices": [
+          {
+            "text": "Güçlü saldırı",
+            "next_node": "attack_guide",
+            "diceRoll": { "type": "d20", "target": 16, "skill": "Combat" },
+            "effect": { "damage": 30, "xp_gain": 40 },
+            "combat": true,
+            "skill_usage": {
+              "warrior": ["Shield Wall", "Sword Strike"],
+              "mage": ["Fireball", "Ice Bolt"],
+              "rogue": ["Stealth", "Backstab"],
+              "priest": ["Heal", "Bless"],
+              "paladin": ["Kutsal Kalkan", "İyileştirme Dokunuşu"],
+              "druid": ["Doğa Büyüleri", "Şekil Değiştirme"],
+              "hunter": ["Çoklu Ok", "Keskin Nişan"],
+              "warlock": ["Karanlık Büyü", "Demon Çağırma"]
+            }
+          },
+          {
+            "text": "Savunma yap",
+            "next_node": "defend_against_guide",
+            "diceRoll": { "type": "d20", "target": 14, "skill": "Defense" },
+            "effect": { "defense": true, "xp_gain": 20 },
+            "combat": true,
+            "skill_usage": {
+              "warrior": ["Shield Wall", "Sword Strike"],
+              "mage": ["Fireball", "Ice Bolt"],
+              "rogue": ["Stealth", "Backstab"],
+              "priest": ["Heal", "Bless"],
+              "paladin": ["Kutsal Kalkan", "İyileştirme Dokunuşu"],
+              "druid": ["Doğa Büyüleri", "Şekil Değiştirme"],
+              "hunter": ["Çoklu Ok", "Keskin Nişan"],
+              "warlock": ["Karanlık Büyü", "Demon Çağırma"]
+            }
+          }
+        ],
+        "requirements": null,
+        "consequences": null,
+        "npcs": [],
+        "items": [],
+        "enemies": [
+          {
+            "name": "Kötü Ruh",
+            "type": "Spirit",
+            "hp": 80,
+            "attack": 16,
+            "defense": 14,
+            "specialAbilities": [
+              "Nature Control",
+              "Shape Shift",
+              "Mind Control"
+            ],
+            "statusEffects": ["Forest Bond", "Spirit Form"]
+          }
+        ],
+        "combat": true,
+        "ending": false,
+        "plotTwist": true,
+        "betrayal": true,
+        "randomEvent": false
+      },
+      "attack_guide": {
+        "id": "attack_guide",
+        "title": "Rehbere Saldırı",
+        "description": "Rehbere saldırdın! Ama o çok güçlü. Köylüleri kurtarmak için onu yenmelisin.",
+        "backgroundImage": "fantasy_spirit_attack.jpg",
+        "choices": [
+          {
+            "text": "Köylüleri kurtar",
+            "next_node": "free_villager_spirits",
+            "diceRoll": { "type": "d20", "target": 18, "skill": "Magic" },
+            "effect": { "karma": 20, "xp_gain": 60 }
+          },
+          {
+            "text": "Rehberi affet",
+            "next_node": "forgive_guide",
+            "diceRoll": { "type": "d20", "target": 16, "skill": "Persuasion" },
+            "effect": { "karma": 15, "xp_gain": 40 }
+          }
+        ],
+        "requirements": null,
+        "consequences": null,
+        "npcs": [],
+        "items": [],
+        "enemies": [
+          {
+            "name": "Kötü Ruh",
+            "type": "Spirit",
+            "hp": 40,
+            "attack": 14,
+            "defense": 12,
+            "specialAbilities": ["Nature Control", "Shape Shift"],
+            "statusEffects": ["Weakened"]
+          }
+        ],
+        "combat": true,
+        "ending": false,
+        "plotTwist": false,
+        "betrayal": false,
+        "randomEvent": false
+      },
+      "free_villager_spirits": {
+        "id": "free_villager_spirits",
+        "title": "Köylüleri Kurtar",
+        "description": "Köylülerin ruhlarını ağaçlardan kurtardın! Ama bu çok tehlikeli bir işlem.",
+        "backgroundImage": "fantasy_spirit_freeing.jpg",
+        "choices": [
+          {
+            "text": "Riski göze al",
+            "next_node": "risk_tree_rescue",
+            "diceRoll": { "type": "d20", "target": 18, "skill": "Magic" },
+            "effect": { "karma": 25, "xp_gain": 70 }
+          },
+          {
+            "text": "Güvenli yöntem ara",
+            "next_node": "safe_rescue_method",
+            "diceRoll": {
+              "type": "d20",
+              "target": 16,
+              "skill": "Investigation"
+            },
+            "effect": { "karma": 15, "xp_gain": 50 }
+          }
+        ],
+        "requirements": null,
+        "consequences": null,
+        "npcs": [],
+        "items": [],
+        "enemies": [],
+        "combat": false,
+        "ending": false,
+        "plotTwist": true,
+        "betrayal": false,
+        "randomEvent": false
+      },
+      "risk_tree_rescue": {
+        "id": "risk_tree_rescue",
+        "title": "Tehlikeli Kurtarma",
+        "description": "Riski göze aldın! Köylüleri kurtarmaya başladın. Ama orman tanrısı uyanıyor...",
+        "backgroundImage": "fantasy_forest_god.jpg",
+        "choices": [
+          {
+            "text": "Herkesi kurtar",
+            "next_node": "save_both_miracle",
+            "diceRoll": { "type": "d20", "target": 20, "skill": "Heroism" },
+            "effect": { "karma": 40, "xp_gain": 100 }
+          },
+          {
+            "text": "Kendini feda et",
+            "next_node": "sacrifice_for_villagers",
+            "effect": { "karma": 50, "xp_gain": 80 }
+          }
+        ],
+        "requirements": null,
+        "consequences": null,
+        "npcs": [],
+        "items": [],
+        "enemies": [],
+        "combat": false,
+        "ending": false,
+        "plotTwist": true,
+        "betrayal": false,
+        "randomEvent": true
+      },
+      "save_both_miracle": {
+        "id": "save_both_miracle",
+        "title": "Mucize",
+        "description": "İnanılmaz! Hem köylüleri hem de ormanı kurtardın! Orman tanrısı seni ödüllendiriyor.",
+        "backgroundImage": "fantasy_miracle.jpg",
+        "choices": [
+          {
+            "text": "Ödülü kabul et",
+            "next_node": "accept_forest_reward",
+            "effect": { "karma": 45, "xp_gain": 120 }
+          },
+          {
+            "text": "Köylülerle kal",
+            "next_node": "stay_with_villagers",
+            "effect": { "karma": 40, "xp_gain": 100 }
+          }
+        ],
+        "requirements": null,
+        "consequences": null,
+        "npcs": [
+          {
+            "name": "Orman Tanrısı",
+            "type": "Deity",
+            "personality": "Grateful",
+            "motivation": "Reward hero",
+            "relationship": "ally"
+          }
+        ],
+        "items": ["Forest Blessing", "Ancient Staff", "Village Favor"],
+        "enemies": [],
+        "combat": false,
+        "ending": true,
+        "plotTwist": false,
+        "betrayal": false,
+        "randomEvent": false
+      }
+    },
+    "characters": [
+      {
+        "id": "npc_0",
+        "name": "Orman Rehberi",
+        "type": "Spirit",
+        "personality": "Deceptive",
+        "motivation": "Control forest",
+        "relationship": "enemy",
+        "betrayal": true
+      },
+      {
+        "id": "npc_1",
+        "name": "Orman Tanrısı",
+        "type": "Deity",
+        "personality": "Wise",
+        "motivation": "Protect forest",
+        "relationship": "ally"
+      }
+    ],
+    "world_info": {
+      "location": "Büyülü Orman",
+      "theme": "Fantasy",
+      "atmosphere": "Mystical forest with ancient magic",
+      "time_period": "Medieval fantasy",
+      "magic_level": "High",
+      "technology_level": "Low"
+    },
+    "is_active": true,
+    "totalBranches": 35,
+    "complexity": "high"
+  },
+  "scenario_warhammer_ork_invasion": {
+    "id": "scenario_warhammer_ork_invasion",
+    "title": "Ork İstilası: Son Savunma",
+    "genre": "warhammer40k",
+    "description": "Ork warband'ı şehri kuşatmış. Sen son savunma hattının komutanısın. Şehri kurtarabilir misin?",
+    "difficulty": "hard",
+    "created_at": "2025-07-29T20:30:00.000000",
+    "created_by": "test_user",
+    "theme": "warhammer40k",
+    "complexity": "high",
+    "estimatedPlayTime": 55,
+    "backgroundImages": {
+      "start": "warhammer_city.jpg",
+      "defense_line": "warhammer_defense.jpg",
+      "ork_attack": "warhammer_ork_attack.jpg",
+      "warboss": "warhammer_warboss.jpg",
+      "victory": "warhammer_victory.jpg"
+    },
+    "plotTwists": [
+      "Komutan Titus hain",
+      "Orklar içeriden geliyor",
+      "Warboss çok akıllı",
+      "Eski teknoloji keşfi"
+    ],
+    "betrayals": [
+      "Güvenilir subay ihanet ediyor",
+      "Komutan yanlış karar veriyor",
+      "Siviller düşman tarafında"
+    ],
+    "randomEvents": [
+      "Meteor yağmuru",
+      "Zaman fırtınası",
+      "Eski tanrı uyanması",
+      "Teknoloji çökmesi"
+    ],
+    "multipleEndings": {
+      "victory": {
+        "id": "victory_ending",
+        "title": "Zafer",
+        "description": "Orkları püskürttün ve şehri kurtardın. İmparator seni ödüllendiriyor.",
+        "requirements": {
+          "karma": 50,
+          "choices": ["fight_bravely", "help_others", "make_sacrifices"]
+        },
+        "consequences": {
+          "karma_change": 25,
+          "item_rewards": ["Legendary Weapon", "Hero's Medal", "Imperial Favor"]
+        },
+        "backgroundImage": "warhammer40k_victory.jpg",
+        "cinematic_description": "İmparator'un ışığı altında zaferin tadını çıkarıyorsun.",
+        "epilogue": "Sen artık İmparatorluk'un kahramanısın."
+      },
+      "tragic": {
+        "id": "tragic_ending",
+        "title": "Trajik Zafer",
+        "description": "Orkları püskürttün ama büyük bir bedel ödedin.",
+        "requirements": {
+          "karma": 30,
+          "choices": ["sacrifice_others", "ignore_warnings"]
+        },
+        "consequences": {
+          "karma_change": -10,
+          "relationship_changes": { "survivors": "grateful_but_sad" }
+        },
+        "backgroundImage": "warhammer40k_tragic.jpg",
+        "cinematic_description": "Zafer kazandın ama yüzünde acı var.",
+        "epilogue": "Zafer acı bir tat bıraktı."
+      }
+    },
+    "nodes": {
+      "start": {
+        "id": "start",
+        "title": "Son Savunma Hattı",
+        "description": "Ork warband'ı şehri kuşatmış. Sen son savunma hattının komutanısın. Titus seni arıyor.",
+        "backgroundImage": "warhammer_defense_line.jpg",
+        "choices": [
+          {
+            "text": "Titus'la konuş",
+            "next_node": "talk_to_titus",
+            "effect": { "karma": 5, "xp_gain": 20 }
+          },
+          {
+            "text": "Savunma planını incele",
+            "next_node": "examine_defense_plan",
+            "diceRoll": { "type": "d20", "target": 14, "skill": "Strategy" },
+            "effect": { "karma": 3, "xp_gain": 25 }
+          },
+          {
+            "text": "Askerleri kontrol et",
+            "next_node": "check_soldiers",
+            "diceRoll": { "type": "d20", "target": 12, "skill": "Leadership" },
+            "effect": { "karma": 0, "xp_gain": 15 }
+          }
+        ],
+        "requirements": null,
+        "consequences": null,
+        "npcs": [
+          {
+            "name": "Komutan Titus",
+            "type": "Officer",
+            "personality": "Suspicious",
+            "motivation": "Unknown",
+            "relationship": "neutral",
+            "betrayal": true
+          }
+        ],
+        "items": ["Laser Rifle", "Combat Armor", "Med Kit"],
+        "enemies": null,
+        "combat": false,
+        "ending": false,
+        "plotTwist": false,
+        "betrayal": false,
+        "randomEvent": false
+      },
+      "talk_to_titus": {
+        "id": "talk_to_titus",
+        "title": "Titus'un Planı",
+        "description": "Titus: 'Orkları içeri alalım, sonra tünelleri patlatıp hepsini gömelim.' Bu plan korkunç!",
+        "backgroundImage": "warhammer_betrayal.jpg",
+        "choices": [
+          {
+            "text": "Bu planı reddet",
+            "next_node": "reject_titus_plan",
+            "effect": { "karma": 15, "xp_gain": 30 }
+          },
+          {
+            "text": "Titus'u şüpheli bul",
+            "next_node": "suspect_titus",
+            "diceRoll": { "type": "d20", "target": 16, "skill": "Insight" },
+            "effect": { "karma": 10, "xp_gain": 25 }
+          },
+          {
+            "text": "Savunma planını duyur",
+            "next_node": "hear_defense_plan",
+            "diceRoll": { "type": "d20", "target": 14, "skill": "Leadership" },
+            "effect": { "karma": 5, "xp_gain": 20 }
+          }
+        ],
+        "requirements": null,
+        "consequences": null,
+        "npcs": [
+          {
+            "name": "Komutan Titus",
+            "type": "Officer",
+            "personality": "Deceptive",
+            "motivation": "Power",
+            "relationship": "enemy",
+            "betrayal": true
+          }
+        ],
+        "items": [],
+        "enemies": null,
+        "combat": false,
+        "ending": false,
+        "plotTwist": true,
+        "betrayal": true,
+        "randomEvent": false
+      },
+      "suspect_titus": {
+        "id": "suspect_titus",
+        "title": "Titus'un İhaneti",
+        "description": "Titus'u şüpheli buldun. Araştırmaya başladın. Titus'un odasında garip belgeler buldun - Orklarla gizli anlaşma!",
+        "backgroundImage": "warhammer_betrayal.jpg",
+        "choices": [
+          {
+            "text": "Titus'u tutukla",
+            "next_node": "catch_traitor",
+            "diceRoll": {
+              "type": "d20",
+              "target": 16,
+              "skill": "Intimidation"
+            },
+            "effect": { "karma": 15, "xp_gain": 40 }
+          },
+          {
+            "text": "Gizli operasyon yap",
+            "next_node": "secret_operation",
+            "diceRoll": { "type": "d20", "target": 18, "skill": "Stealth" },
+            "effect": { "karma": 5, "xp_gain": 30 }
+          }
+        ],
+        "requirements": null,
+        "consequences": null,
+        "npcs": [],
+        "items": [],
+        "enemies": [
+          {
+            "name": "Komutan Titus",
+            "type": "Traitor",
+            "hp": 70,
+            "attack": 16,
+            "defense": 14,
+            "specialAbilities": ["Deception", "Stealth", "Ork Communication"],
+            "statusEffects": ["Poisoned", "Confused"]
+          }
+        ],
+        "combat": true,
+        "ending": false,
+        "plotTwist": true,
+        "betrayal": true,
+        "randomEvent": false
+      },
+      "catch_traitor": {
+        "id": "catch_traitor",
+        "title": "Haini Yakala",
+        "description": "Titus'u yakaladın! Ama o çok güçlü. Onu sorguya çekmelisin.",
+        "backgroundImage": "warhammer_interrogation.jpg",
+        "choices": [
+          {
+            "text": "Sorguya çek",
+            "next_node": "interrogate_traitor",
+            "diceRoll": {
+              "type": "d20",
+              "target": 16,
+              "skill": "Intimidation"
+            },
+            "effect": { "karma": 10, "xp_gain": 35 }
+          },
+          {
+            "text": "Savunma planını değiştir",
+            "next_node": "modify_defense_plan",
+            "diceRoll": { "type": "d20", "target": 14, "skill": "Strategy" },
+            "effect": { "karma": 15, "xp_gain": 45 }
+          }
+        ],
+        "requirements": null,
+        "consequences": null,
+        "npcs": [
+          {
+            "name": "Komutan Titus",
+            "type": "Traitor",
+            "personality": "Deceptive",
+            "motivation": "Power",
+            "relationship": "enemy",
+            "betrayal": true
+          }
+        ],
+        "items": [],
+        "enemies": [],
+        "combat": false,
+        "ending": false,
+        "plotTwist": false,
+        "betrayal": true,
+        "randomEvent": false
+      },
+      "modify_defense_plan": {
+        "id": "modify_defense_plan",
+        "title": "Savunma Planını Değiştir",
+        "description": "Savunma planını değiştirdin. Orkları tuzağa düşürecek bir plan hazırladın.",
+        "backgroundImage": "warhammer_strategy.jpg",
+        "choices": [
+          {
+            "text": "Tuzak hazırla",
+            "next_node": "prepare_trap",
+            "diceRoll": { "type": "d20", "target": 16, "skill": "Strategy" },
+            "effect": { "karma": 20, "xp_gain": 50 }
+          },
+          {
+            "text": "Orklarla savaş",
+            "next_node": "fight_orks",
+            "diceRoll": { "type": "d20", "target": 18, "skill": "Combat" },
+            "effect": { "karma": 10, "xp_gain": 60 },
+            "combat": true,
+            "skill_usage": {
+              "space_marine": ["Bolter Fire", "Chainsword Strike"],
+              "tech_priest": ["Mechadendrite Attack", "Blessed Weapon"],
+              "inquisitor": ["Psyker Powers", "Holy Bolt"],
+              "imperial_guard": ["Lasgun Volley", "Bayonet Charge"]
+            }
+          }
+        ],
+        "requirements": null,
+        "consequences": null,
+        "npcs": [],
+        "items": [],
+        "enemies": [
+          {
+            "name": "Ork Boyz",
+            "type": "Orks",
+            "hp": 50,
+            "attack": 12,
+            "defense": 8,
+            "specialAbilities": ["Waaagh!", "Choppa"],
+            "statusEffects": ["Enraged"]
+          }
+        ],
+        "combat": false,
+        "ending": false,
+        "plotTwist": false,
+        "betrayal": false,
+        "randomEvent": false
+      },
+      "fight_orks": {
+        "id": "fight_orks",
+        "title": "Orklarla Savaş",
+        "description": "Orklarla savaşa girdin! Warboss Gorgutz geliyor ve çok güçlü.",
+        "backgroundImage": "warhammer_ork_battle.jpg",
+        "choices": [
+          {
+            "text": "Warboss'a saldır",
+            "next_node": "attack_warboss",
+            "diceRoll": { "type": "d20", "target": 18, "skill": "Combat" },
+            "effect": { "damage": 40, "xp_gain": 80 },
+            "combat": true,
+            "skill_usage": {
+              "space_marine": ["Bolter Fire", "Chainsword Strike"],
+              "tech_priest": ["Mechadendrite Attack", "Blessed Weapon"],
+              "inquisitor": ["Psyker Powers", "Holy Bolt"],
+              "imperial_guard": ["Lasgun Volley", "Bayonet Charge"]
+            }
+          },
+          {
+            "text": "Warboss'u ikna et",
+            "next_node": "persuade_warboss",
+            "diceRoll": { "type": "d20", "target": 20, "skill": "Persuasion" },
+            "effect": { "karma": 25, "xp_gain": 70 }
+          }
+        ],
+        "requirements": null,
+        "consequences": null,
+        "npcs": [],
+        "items": [],
+        "enemies": [
+          {
+            "name": "Warboss Gorgutz",
+            "type": "Boss",
+            "hp": 120,
+            "attack": 20,
+            "defense": 16,
+            "specialAbilities": ["Waaagh!", "Power Klaw", "Mega Armor"],
+            "statusEffects": ["Enraged", "Boss"]
+          }
+        ],
+        "combat": true,
+        "ending": false,
+        "plotTwist": false,
+        "betrayal": false,
+        "randomEvent": false
+      },
+      "attack_warboss": {
+        "id": "attack_warboss",
+        "title": "Warboss'a Saldırı",
+        "description": "Warboss Gorgutz'a saldırdın! Ama o çok güçlü. Son bir hamle yapmalısın.",
+        "backgroundImage": "warhammer_warboss_battle.jpg",
+        "choices": [
+          {
+            "text": "Son saldırı",
+            "next_node": "final_attack",
+            "diceRoll": { "type": "d20", "target": 20, "skill": "Combat" },
+            "effect": { "damage": 60, "xp_gain": 100 },
+            "combat": true,
+            "skill_usage": {
+              "space_marine": ["Bolter Fire", "Chainsword Strike"],
+              "tech_priest": ["Mechadendrite Attack", "Blessed Weapon"],
+              "inquisitor": ["Psyker Powers", "Holy Bolt"],
+              "imperial_guard": ["Lasgun Volley", "Bayonet Charge"]
+            }
+          },
+          {
+            "text": "Barış teklifi yap",
+            "next_node": "make_peace_treaty",
+            "diceRoll": { "type": "d20", "target": 18, "skill": "Diplomacy" },
+            "effect": { "karma": 20, "xp_gain": 80 }
+          }
+        ],
+        "requirements": null,
+        "consequences": null,
+        "npcs": [],
+        "items": [],
+        "enemies": [
+          {
+            "name": "Warboss Gorgutz",
+            "type": "Boss",
+            "hp": 60,
+            "attack": 18,
+            "defense": 14,
+            "specialAbilities": ["Waaagh!", "Power Klaw"],
+            "statusEffects": ["Wounded", "Enraged"]
+          }
+        ],
+        "combat": true,
+        "ending": false,
+        "plotTwist": false,
+        "betrayal": false,
+        "randomEvent": false
+      },
+      "final_attack": {
+        "id": "final_attack",
+        "title": "Son Saldırı",
+        "description": "Son saldırını yaptın! Warboss Gorgutz'u yendin! Orklar kaçıyor ve şehir kurtuldu.",
+        "backgroundImage": "warhammer_victory.jpg",
+        "choices": [
+          {
+            "text": "Zaferi kutla",
+            "next_node": "celebrate_victory",
+            "effect": { "karma": 30, "xp_gain": 120 }
+          },
+          {
+            "text": "Yaralılara yardım et",
+            "next_node": "help_wounded",
+            "effect": { "karma": 25, "xp_gain": 100 }
+          }
+        ],
+        "requirements": null,
+        "consequences": null,
+        "npcs": [],
+        "items": ["Legendary Weapon", "Hero's Medal", "Imperial Favor"],
+        "enemies": [],
+        "combat": false,
+        "ending": true,
+        "plotTwist": false,
+        "betrayal": false,
+        "randomEvent": false
+      }
+    },
+    "characters": [
+      {
+        "id": "npc_0",
+        "name": "Komutan Titus",
+        "type": "Officer",
+        "personality": "Deceptive",
+        "motivation": "Power",
+        "relationship": "enemy",
+        "betrayal": true
+      },
+      {
+        "id": "npc_1",
+        "name": "Warboss Gorgutz",
+        "type": "Ork Boss",
+        "personality": "Aggressive",
+        "motivation": "Conquer",
+        "relationship": "enemy"
+      }
+    ],
+    "world_info": {
+      "location": "Imperial City",
+      "theme": "Warhammer 40K",
+      "atmosphere": "Grimdark sci-fi with ork invasion",
+      "time_period": "41st Millennium",
+      "magic_level": "High (Warp)",
+      "technology_level": "High"
+    },
+    "is_active": true,
+    "totalBranches": 30,
+    "complexity": "high"
+  }
+}

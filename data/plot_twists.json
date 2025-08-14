@@ -1,0 +1,321 @@
+{
+  "twist_1": {
+    "id": "twist_1",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "Environment Suspicion",
+    "description": "Something about your surroundings seems wrong",
+    "impact": "minor",
+    "consequences": [
+      "Exploration",
+      "Puzzle elements",
+      "Atmosphere change"
+    ],
+    "triggered_at": "2025-07-30T14:37:31.037376"
+  },
+  "twist_2": {
+    "id": "twist_2",
+    "session_id": "test_session",
+    "type": "major",
+    "title": "Manual Major",
+    "description": "Test betrayal",
+    "impact": "manual",
+    "consequences": [
+      "Custom consequences"
+    ],
+    "triggered_at": "2025-07-30T14:37:31.111073",
+    "manual": true
+  },
+  "twist_3": {
+    "id": "twist_3",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "Environment Suspicion",
+    "description": "Something about your surroundings seems wrong",
+    "impact": "minor",
+    "consequences": [
+      "Exploration",
+      "Puzzle elements",
+      "Atmosphere change"
+    ],
+    "triggered_at": "2025-07-30T15:01:53.717903"
+  },
+  "twist_4": {
+    "id": "twist_4",
+    "session_id": "test_session",
+    "type": "major",
+    "title": "Manual Major",
+    "description": "Test betrayal",
+    "impact": "manual",
+    "consequences": [
+      "Custom consequences"
+    ],
+    "triggered_at": "2025-07-30T15:01:53.736764",
+    "manual": true
+  },
+  "twist_5": {
+    "id": "twist_5",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "Environment Suspicion",
+    "description": "Something about your surroundings seems wrong",
+    "impact": "minor",
+    "consequences": [
+      "Exploration",
+      "Puzzle elements",
+      "Atmosphere change"
+    ],
+    "triggered_at": "2025-08-02T17:34:39.902287"
+  },
+  "twist_6": {
+    "id": "twist_6",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "NPC Suspicion",
+    "description": "An NPC seems to be hiding something from you",
+    "impact": "minor",
+    "consequences": [
+      "Dialogue options",
+      "Investigation quest",
+      "Trust issues"
+    ],
+    "triggered_at": "2025-08-02T17:36:10.755279"
+  },
+  "twist_7": {
+    "id": "twist_7",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "NPC Suspicion",
+    "description": "An NPC seems to be hiding something from you",
+    "impact": "minor",
+    "consequences": [
+      "Dialogue options",
+      "Investigation quest",
+      "Trust issues"
+    ],
+    "triggered_at": "2025-08-02T17:38:11.370994"
+  },
+  "twist_8": {
+    "id": "twist_8",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "NPC Suspicion",
+    "description": "An NPC seems to be hiding something from you",
+    "impact": "minor",
+    "consequences": [
+      "Dialogue options",
+      "Investigation quest",
+      "Trust issues"
+    ],
+    "triggered_at": "2025-08-04T11:24:51.227693"
+  },
+  "twist_9": {
+    "id": "twist_9",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "NPC Suspicion",
+    "description": "An NPC seems to be hiding something from you",
+    "impact": "minor",
+    "consequences": [
+      "Dialogue options",
+      "Investigation quest",
+      "Trust issues"
+    ],
+    "triggered_at": "2025-08-04T11:39:02.347668"
+  },
+  "twist_10": {
+    "id": "twist_10",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "NPC Suspicion",
+    "description": "An NPC seems to be hiding something from you",
+    "impact": "minor",
+    "consequences": [
+      "Dialogue options",
+      "Investigation quest",
+      "Trust issues"
+    ],
+    "triggered_at": "2025-08-04T11:47:46.192080"
+  },
+  "twist_11": {
+    "id": "twist_11",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "Environment Suspicion",
+    "description": "Something about your surroundings seems wrong",
+    "impact": "minor",
+    "consequences": [
+      "Exploration",
+      "Puzzle elements",
+      "Atmosphere change"
+    ],
+    "triggered_at": "2025-08-04T11:59:18.757216"
+  },
+  "twist_12": {
+    "id": "twist_12",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "Environment Suspicion",
+    "description": "Something about your surroundings seems wrong",
+    "impact": "minor",
+    "consequences": [
+      "Exploration",
+      "Puzzle elements",
+      "Atmosphere change"
+    ],
+    "triggered_at": "2025-08-05T12:56:31.274010"
+  },
+  "twist_13": {
+    "id": "twist_13",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "Environment Suspicion",
+    "description": "Something about your surroundings seems wrong",
+    "impact": "minor",
+    "consequences": [
+      "Exploration",
+      "Puzzle elements",
+      "Atmosphere change"
+    ],
+    "triggered_at": "2025-08-05T13:04:14.548736"
+  },
+  "twist_14": {
+    "id": "twist_14",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "NPC Suspicion",
+    "description": "An NPC seems to be hiding something from you",
+    "impact": "minor",
+    "consequences": [
+      "Dialogue options",
+      "Investigation quest",
+      "Trust issues"
+    ],
+    "triggered_at": "2025-08-05T13:10:57.630180"
+  },
+  "twist_15": {
+    "id": "twist_15",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "NPC Suspicion",
+    "description": "An NPC seems to be hiding something from you",
+    "impact": "minor",
+    "consequences": [
+      "Dialogue options",
+      "Investigation quest",
+      "Trust issues"
+    ],
+    "triggered_at": "2025-08-05T13:13:19.936629"
+  },
+  "twist_16": {
+    "id": "twist_16",
+    "session_id": "test_session",
+    "type": "major",
+    "title": "Manual Major",
+    "description": "Test betrayal",
+    "impact": "manual",
+    "consequences": [
+      "Custom consequences"
+    ],
+    "triggered_at": "2025-08-05T13:13:19.959236",
+    "manual": true
+  },
+  "twist_17": {
+    "id": "twist_17",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "NPC Suspicion",
+    "description": "An NPC seems to be hiding something from you",
+    "impact": "minor",
+    "consequences": [
+      "Dialogue options",
+      "Investigation quest",
+      "Trust issues"
+    ],
+    "triggered_at": "2025-08-05T13:18:25.553174"
+  },
+  "twist_18": {
+    "id": "twist_18",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "NPC Suspicion",
+    "description": "An NPC seems to be hiding something from you",
+    "impact": "minor",
+    "consequences": [
+      "Dialogue options",
+      "Investigation quest",
+      "Trust issues"
+    ],
+    "triggered_at": "2025-08-05T13:20:38.142999"
+  },
+  "twist_19": {
+    "id": "twist_19",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "NPC Suspicion",
+    "description": "An NPC seems to be hiding something from you",
+    "impact": "minor",
+    "consequences": [
+      "Dialogue options",
+      "Investigation quest",
+      "Trust issues"
+    ],
+    "triggered_at": "2025-08-05T13:25:13.080622"
+  },
+  "twist_20": {
+    "id": "twist_20",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "NPC Suspicion",
+    "description": "An NPC seems to be hiding something from you",
+    "impact": "minor",
+    "consequences": [
+      "Dialogue options",
+      "Investigation quest",
+      "Trust issues"
+    ],
+    "triggered_at": "2025-08-05T13:53:10.465818"
+  },
+  "twist_21": {
+    "id": "twist_21",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "NPC Suspicion",
+    "description": "An NPC seems to be hiding something from you",
+    "impact": "minor",
+    "consequences": [
+      "Dialogue options",
+      "Investigation quest",
+      "Trust issues"
+    ],
+    "triggered_at": "2025-08-13T01:02:55.839467"
+  },
+  "twist_22": {
+    "id": "twist_22",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "Environment Suspicion",
+    "description": "Something about your surroundings seems wrong",
+    "impact": "minor",
+    "consequences": [
+      "Exploration",
+      "Puzzle elements",
+      "Atmosphere change"
+    ],
+    "triggered_at": "2025-08-13T01:07:55.038243"
+  },
+  "twist_23": {
+    "id": "twist_23",
+    "session_id": "test_session",
+    "type": "suspicion",
+    "title": "Environment Suspicion",
+    "description": "Something about your surroundings seems wrong",
+    "impact": "minor",
+    "consequences": [
+      "Exploration",
+      "Puzzle elements",
+      "Atmosphere change"
+    ],
+    "triggered_at": "2025-08-13T01:08:17.741147"
+  }
+}

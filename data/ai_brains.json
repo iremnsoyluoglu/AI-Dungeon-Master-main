@@ -1,0 +1,608 @@
+{
+  "brain_7f22f49c9f1ac919": {
+    "id": "brain_7f22f49c9f1ac919",
+    "character_id": "test_char_1",
+    "character_name": "Gandalf",
+    "personality": {
+      "id": "personality_brain_7f22f49c9f1ac919",
+      "name": "Gandalf's Personality",
+      "traits": [
+        "Thoughtful",
+        "Patient",
+        "Knowledgeable",
+        "Calm",
+        "Insightful"
+      ],
+      "motivations": [
+        "Share wisdom",
+        "Learn more",
+        "Guide others",
+        "Maintain balance"
+      ],
+      "fears": [
+        "Ignorance",
+        "Chaos",
+        "Loss of knowledge",
+        "Misunderstanding"
+      ],
+      "desires": [
+        "Knowledge",
+        "Understanding",
+        "Peace",
+        "Growth"
+      ],
+      "speech_pattern": "Thoughtful and measured",
+      "decision_style": "Considered and balanced",
+      "relationship_approach": "Mentoring and guiding"
+    },
+    "memories": [
+      {
+        "id": "memory_0",
+        "event_type": "interaction",
+        "description": "Bir goblin ile kar\u015f\u0131la\u015ft\u0131n\u0131z - Konu\u015f",
+        "timestamp": "2025-07-29T18:38:20.054568",
+        "importance": 4,
+        "emotional_impact": 5,
+        "related_characters": [
+          "goblin_1"
+        ]
+      }
+    ],
+    "relationships": {
+      "goblin_1": -1
+    },
+    "current_mood": "neutral",
+    "decision_history": [
+      {
+        "timestamp": "2025-07-29T18:38:20.054568",
+        "situation": {
+          "type": "interaction",
+          "description": "Bir goblin ile kar\u015f\u0131la\u015ft\u0131n\u0131z",
+          "other_characters": [
+            "goblin_1"
+          ],
+          "choices": [
+            {
+              "text": "Sald\u0131r",
+              "action": "attack"
+            },
+            {
+              "text": "Konu\u015f",
+              "action": "talk"
+            },
+            {
+              "text": "Ka\u00e7",
+              "action": "flee"
+            }
+          ]
+        },
+        "thought": "Gandalf durumu de\u011ferlendiriyor...",
+        "decision": {
+          "action": "talk",
+          "choice_text": "Konu\u015f",
+          "reason": "D\u00fc\u015f\u00fcnceli yakla\u015f\u0131m"
+        }
+      }
+    ],
+    "created_at": "2025-07-29T18:38:20.052613",
+    "last_updated": "2025-07-29T18:38:20.054568"
+  },
+  "brain_c08467daf75a548e": {
+    "id": "brain_c08467daf75a548e",
+    "character_id": "test_char_friendly",
+    "character_name": "Test_Friendly",
+    "personality": {
+      "id": "personality_brain_c08467daf75a548e",
+      "name": "Test_Friendly's Personality",
+      "traits": [
+        "Kind",
+        "Generous",
+        "Trusting",
+        "Optimistic",
+        "Helpful"
+      ],
+      "motivations": [
+        "Help others",
+        "Make friends",
+        "Create harmony",
+        "Learn new things"
+      ],
+      "fears": [
+        "Losing friends",
+        "Conflict",
+        "Being alone",
+        "Disappointing others"
+      ],
+      "desires": [
+        "Friendship",
+        "Peace",
+        "Knowledge",
+        "Adventure"
+      ],
+      "speech_pattern": "Warm and welcoming",
+      "decision_style": "Collaborative",
+      "relationship_approach": "Open and trusting"
+    },
+    "memories": [],
+    "relationships": {},
+    "current_mood": "neutral",
+    "decision_history": [],
+    "created_at": "2025-07-29T18:38:20.058558",
+    "last_updated": "2025-07-29T18:38:20.058558"
+  },
+  "brain_3ea9d3a203b545b9": {
+    "id": "brain_3ea9d3a203b545b9",
+    "character_id": "test_char_suspicious",
+    "character_name": "Test_Suspicious",
+    "personality": {
+      "id": "personality_brain_3ea9d3a203b545b9",
+      "name": "Test_Suspicious's Personality",
+      "traits": [
+        "Cautious",
+        "Mistrustful",
+        "Analytical",
+        "Defensive",
+        "Secretive"
+      ],
+      "motivations": [
+        "Protect self",
+        "Gather information",
+        "Avoid danger",
+        "Maintain control"
+      ],
+      "fears": [
+        "Betrayal",
+        "Loss of control",
+        "Unknown threats",
+        "Being manipulated"
+      ],
+      "desires": [
+        "Safety",
+        "Information",
+        "Control",
+        "Independence"
+      ],
+      "speech_pattern": "Guarded and careful",
+      "decision_style": "Risk-averse",
+      "relationship_approach": "Slow to trust"
+    },
+    "memories": [],
+    "relationships": {},
+    "current_mood": "neutral",
+    "decision_history": [],
+    "created_at": "2025-07-29T18:38:20.060553",
+    "last_updated": "2025-07-29T18:38:20.060553"
+  },
+  "brain_71b3fd4a5ecc739d": {
+    "id": "brain_71b3fd4a5ecc739d",
+    "character_id": "test_char_aggressive",
+    "character_name": "Test_Aggressive",
+    "personality": {
+      "id": "personality_brain_71b3fd4a5ecc739d",
+      "name": "Test_Aggressive's Personality",
+      "traits": [
+        "Bold",
+        "Confrontational",
+        "Dominant",
+        "Impatient",
+        "Direct"
+      ],
+      "motivations": [
+        "Gain power",
+        "Prove strength",
+        "Control others",
+        "Achieve goals"
+      ],
+      "fears": [
+        "Weakness",
+        "Loss of status",
+        "Being controlled",
+        "Failure"
+      ],
+      "desires": [
+        "Power",
+        "Respect",
+        "Victory",
+        "Control"
+      ],
+      "speech_pattern": "Direct and forceful",
+      "decision_style": "Decisive and quick",
+      "relationship_approach": "Dominant and demanding"
+    },
+    "memories": [],
+    "relationships": {},
+    "current_mood": "neutral",
+    "decision_history": [],
+    "created_at": "2025-07-29T18:38:20.061550",
+    "last_updated": "2025-07-29T18:38:20.061550"
+  },
+  "brain_29732c07f6501986": {
+    "id": "brain_29732c07f6501986",
+    "character_id": "test_char_wise",
+    "character_name": "Test_Wise",
+    "personality": {
+      "id": "personality_brain_29732c07f6501986",
+      "name": "Test_Wise's Personality",
+      "traits": [
+        "Thoughtful",
+        "Patient",
+        "Knowledgeable",
+        "Calm",
+        "Insightful"
+      ],
+      "motivations": [
+        "Share wisdom",
+        "Learn more",
+        "Guide others",
+        "Maintain balance"
+      ],
+      "fears": [
+        "Ignorance",
+        "Chaos",
+        "Loss of knowledge",
+        "Misunderstanding"
+      ],
+      "desires": [
+        "Knowledge",
+        "Understanding",
+        "Peace",
+        "Growth"
+      ],
+      "speech_pattern": "Thoughtful and measured",
+      "decision_style": "Considered and balanced",
+      "relationship_approach": "Mentoring and guiding"
+    },
+    "memories": [],
+    "relationships": {},
+    "current_mood": "neutral",
+    "decision_history": [],
+    "created_at": "2025-07-29T18:38:20.062548",
+    "last_updated": "2025-07-29T18:38:20.062548"
+  },
+  "brain_799ae32d63ecfb3b": {
+    "id": "brain_799ae32d63ecfb3b",
+    "character_id": "test_char_greedy",
+    "character_name": "Test_Greedy",
+    "personality": {
+      "id": "personality_brain_799ae32d63ecfb3b",
+      "name": "Test_Greedy's Personality",
+      "traits": [
+        "Selfish",
+        "Materialistic",
+        "Opportunistic",
+        "Calculating",
+        "Ambitious"
+      ],
+      "motivations": [
+        "Gain wealth",
+        "Acquire possessions",
+        "Increase status",
+        "Maximize profit"
+      ],
+      "fears": [
+        "Poverty",
+        "Loss of wealth",
+        "Being cheated",
+        "Missing opportunities"
+      ],
+      "desires": [
+        "Money",
+        "Valuable items",
+        "Status",
+        "Power"
+      ],
+      "speech_pattern": "Persuasive and self-interested",
+      "decision_style": "Profit-focused",
+      "relationship_approach": "Transactional"
+    },
+    "memories": [],
+    "relationships": {},
+    "current_mood": "neutral",
+    "decision_history": [],
+    "created_at": "2025-07-29T18:38:20.064542",
+    "last_updated": "2025-07-29T18:38:20.064542"
+  },
+  "brain_45b0ff5e0be1bfdd": {
+    "id": "brain_45b0ff5e0be1bfdd",
+    "character_id": "test_char_1",
+    "character_name": "Gandalf",
+    "personality": {
+      "id": "personality_brain_45b0ff5e0be1bfdd",
+      "name": "Gandalf's Personality",
+      "traits": [
+        "Thoughtful",
+        "Patient",
+        "Knowledgeable",
+        "Calm",
+        "Insightful"
+      ],
+      "motivations": [
+        "Share wisdom",
+        "Learn more",
+        "Guide others",
+        "Maintain balance"
+      ],
+      "fears": [
+        "Ignorance",
+        "Chaos",
+        "Loss of knowledge",
+        "Misunderstanding"
+      ],
+      "desires": [
+        "Knowledge",
+        "Understanding",
+        "Peace",
+        "Growth"
+      ],
+      "speech_pattern": "Thoughtful and measured",
+      "decision_style": "Considered and balanced",
+      "relationship_approach": "Mentoring and guiding"
+    },
+    "memories": [
+      {
+        "id": "memory_0",
+        "event_type": "interaction",
+        "description": "Bir goblin ile kar\u015f\u0131la\u015ft\u0131n\u0131z - Konu\u015f",
+        "timestamp": "2025-07-29T18:38:38.820133",
+        "importance": 7,
+        "emotional_impact": -2,
+        "related_characters": [
+          "goblin_1"
+        ]
+      }
+    ],
+    "relationships": {
+      "goblin_1": 0
+    },
+    "current_mood": "neutral",
+    "decision_history": [
+      {
+        "timestamp": "2025-07-29T18:38:38.820133",
+        "situation": {
+          "type": "interaction",
+          "description": "Bir goblin ile kar\u015f\u0131la\u015ft\u0131n\u0131z",
+          "other_characters": [
+            "goblin_1"
+          ],
+          "choices": [
+            {
+              "text": "Sald\u0131r",
+              "action": "attack"
+            },
+            {
+              "text": "Konu\u015f",
+              "action": "talk"
+            },
+            {
+              "text": "Ka\u00e7",
+              "action": "flee"
+            }
+          ]
+        },
+        "thought": "Gandalf durumu de\u011ferlendiriyor...",
+        "decision": {
+          "action": "talk",
+          "choice_text": "Konu\u015f",
+          "reason": "D\u00fc\u015f\u00fcnceli yakla\u015f\u0131m"
+        }
+      }
+    ],
+    "created_at": "2025-07-29T18:38:38.816960",
+    "last_updated": "2025-07-29T18:38:38.820133"
+  },
+  "brain_dffa3da18837d4f1": {
+    "id": "brain_dffa3da18837d4f1",
+    "character_id": "test_char_friendly",
+    "character_name": "Test_Friendly",
+    "personality": {
+      "id": "personality_brain_dffa3da18837d4f1",
+      "name": "Test_Friendly's Personality",
+      "traits": [
+        "Kind",
+        "Generous",
+        "Trusting",
+        "Optimistic",
+        "Helpful"
+      ],
+      "motivations": [
+        "Help others",
+        "Make friends",
+        "Create harmony",
+        "Learn new things"
+      ],
+      "fears": [
+        "Losing friends",
+        "Conflict",
+        "Being alone",
+        "Disappointing others"
+      ],
+      "desires": [
+        "Friendship",
+        "Peace",
+        "Knowledge",
+        "Adventure"
+      ],
+      "speech_pattern": "Warm and welcoming",
+      "decision_style": "Collaborative",
+      "relationship_approach": "Open and trusting"
+    },
+    "memories": [],
+    "relationships": {},
+    "current_mood": "neutral",
+    "decision_history": [],
+    "created_at": "2025-07-29T18:38:38.822627",
+    "last_updated": "2025-07-29T18:38:38.822627"
+  },
+  "brain_ff8b5c52a4a38c7a": {
+    "id": "brain_ff8b5c52a4a38c7a",
+    "character_id": "test_char_suspicious",
+    "character_name": "Test_Suspicious",
+    "personality": {
+      "id": "personality_brain_ff8b5c52a4a38c7a",
+      "name": "Test_Suspicious's Personality",
+      "traits": [
+        "Cautious",
+        "Mistrustful",
+        "Analytical",
+        "Defensive",
+        "Secretive"
+      ],
+      "motivations": [
+        "Protect self",
+        "Gather information",
+        "Avoid danger",
+        "Maintain control"
+      ],
+      "fears": [
+        "Betrayal",
+        "Loss of control",
+        "Unknown threats",
+        "Being manipulated"
+      ],
+      "desires": [
+        "Safety",
+        "Information",
+        "Control",
+        "Independence"
+      ],
+      "speech_pattern": "Guarded and careful",
+      "decision_style": "Risk-averse",
+      "relationship_approach": "Slow to trust"
+    },
+    "memories": [],
+    "relationships": {},
+    "current_mood": "neutral",
+    "decision_history": [],
+    "created_at": "2025-07-29T18:38:38.826188",
+    "last_updated": "2025-07-29T18:38:38.826188"
+  },
+  "brain_8d40e7aaaf977c51": {
+    "id": "brain_8d40e7aaaf977c51",
+    "character_id": "test_char_aggressive",
+    "character_name": "Test_Aggressive",
+    "personality": {
+      "id": "personality_brain_8d40e7aaaf977c51",
+      "name": "Test_Aggressive's Personality",
+      "traits": [
+        "Bold",
+        "Confrontational",
+        "Dominant",
+        "Impatient",
+        "Direct"
+      ],
+      "motivations": [
+        "Gain power",
+        "Prove strength",
+        "Control others",
+        "Achieve goals"
+      ],
+      "fears": [
+        "Weakness",
+        "Loss of status",
+        "Being controlled",
+        "Failure"
+      ],
+      "desires": [
+        "Power",
+        "Respect",
+        "Victory",
+        "Control"
+      ],
+      "speech_pattern": "Direct and forceful",
+      "decision_style": "Decisive and quick",
+      "relationship_approach": "Dominant and demanding"
+    },
+    "memories": [],
+    "relationships": {},
+    "current_mood": "neutral",
+    "decision_history": [],
+    "created_at": "2025-07-29T18:38:38.829179",
+    "last_updated": "2025-07-29T18:38:38.829179"
+  },
+  "brain_ce17b54c40531dd7": {
+    "id": "brain_ce17b54c40531dd7",
+    "character_id": "test_char_wise",
+    "character_name": "Test_Wise",
+    "personality": {
+      "id": "personality_brain_ce17b54c40531dd7",
+      "name": "Test_Wise's Personality",
+      "traits": [
+        "Thoughtful",
+        "Patient",
+        "Knowledgeable",
+        "Calm",
+        "Insightful"
+      ],
+      "motivations": [
+        "Share wisdom",
+        "Learn more",
+        "Guide others",
+        "Maintain balance"
+      ],
+      "fears": [
+        "Ignorance",
+        "Chaos",
+        "Loss of knowledge",
+        "Misunderstanding"
+      ],
+      "desires": [
+        "Knowledge",
+        "Understanding",
+        "Peace",
+        "Growth"
+      ],
+      "speech_pattern": "Thoughtful and measured",
+      "decision_style": "Considered and balanced",
+      "relationship_approach": "Mentoring and guiding"
+    },
+    "memories": [],
+    "relationships": {},
+    "current_mood": "neutral",
+    "decision_history": [],
+    "created_at": "2025-07-29T18:38:38.831176",
+    "last_updated": "2025-07-29T18:38:38.831176"
+  },
+  "brain_e06ed618fcceb21b": {
+    "id": "brain_e06ed618fcceb21b",
+    "character_id": "test_char_greedy",
+    "character_name": "Test_Greedy",
+    "personality": {
+      "id": "personality_brain_e06ed618fcceb21b",
+      "name": "Test_Greedy's Personality",
+      "traits": [
+        "Selfish",
+        "Materialistic",
+        "Opportunistic",
+        "Calculating",
+        "Ambitious"
+      ],
+      "motivations": [
+        "Gain wealth",
+        "Acquire possessions",
+        "Increase status",
+        "Maximize profit"
+      ],
+      "fears": [
+        "Poverty",
+        "Loss of wealth",
+        "Being cheated",
+        "Missing opportunities"
+      ],
+      "desires": [
+        "Money",
+        "Valuable items",
+        "Status",
+        "Power"
+      ],
+      "speech_pattern": "Persuasive and self-interested",
+      "decision_style": "Profit-focused",
+      "relationship_approach": "Transactional"
+    },
+    "memories": [],
+    "relationships": {},
+    "current_mood": "neutral",
+    "decision_history": [],
+    "created_at": "2025-07-29T18:38:38.834169",
+    "last_updated": "2025-07-29T18:38:38.834169"
+  }
+}

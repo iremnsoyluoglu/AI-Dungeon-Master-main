@@ -1,0 +1,162 @@
+{
+  "decision_1": {
+    "id": "decision_1",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "bad",
+    "timestamp": "2025-07-30T14:37:31.001043",
+    "betrayal_potential": 30
+  },
+  "decision_2": {
+    "id": "decision_2",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "bad",
+    "timestamp": "2025-07-30T15:01:53.717903",
+    "betrayal_potential": 30
+  },
+  "decision_3": {
+    "id": "decision_3",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "evil",
+    "timestamp": "2025-08-02T17:34:39.900289",
+    "betrayal_potential": 50
+  },
+  "decision_4": {
+    "id": "decision_4",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "evil",
+    "timestamp": "2025-08-02T17:36:10.746637",
+    "betrayal_potential": 50
+  },
+  "decision_5": {
+    "id": "decision_5",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "evil",
+    "timestamp": "2025-08-02T17:38:11.370994",
+    "betrayal_potential": 50
+  },
+  "decision_6": {
+    "id": "decision_6",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "evil",
+    "timestamp": "2025-08-04T11:24:51.219672",
+    "betrayal_potential": 50
+  },
+  "decision_7": {
+    "id": "decision_7",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "evil",
+    "timestamp": "2025-08-04T11:39:02.340001",
+    "betrayal_potential": 50
+  },
+  "decision_8": {
+    "id": "decision_8",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "evil",
+    "timestamp": "2025-08-04T11:47:46.188048",
+    "betrayal_potential": 50
+  },
+  "decision_9": {
+    "id": "decision_9",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "evil",
+    "timestamp": "2025-08-04T11:59:18.742620",
+    "betrayal_potential": 50
+  },
+  "decision_10": {
+    "id": "decision_10",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "evil",
+    "timestamp": "2025-08-05T12:56:31.269186",
+    "betrayal_potential": 50
+  },
+  "decision_11": {
+    "id": "decision_11",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "evil",
+    "timestamp": "2025-08-05T13:04:14.542373",
+    "betrayal_potential": 50
+  },
+  "decision_12": {
+    "id": "decision_12",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "evil",
+    "timestamp": "2025-08-05T13:10:57.626069",
+    "betrayal_potential": 50
+  },
+  "decision_13": {
+    "id": "decision_13",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "bad",
+    "timestamp": "2025-08-05T13:13:19.930990",
+    "betrayal_potential": 30
+  },
+  "decision_14": {
+    "id": "decision_14",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "evil",
+    "timestamp": "2025-08-05T13:18:25.547729",
+    "betrayal_potential": 50
+  },
+  "decision_15": {
+    "id": "decision_15",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "evil",
+    "timestamp": "2025-08-05T13:20:38.136675",
+    "betrayal_potential": 50
+  },
+  "decision_16": {
+    "id": "decision_16",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "evil",
+    "timestamp": "2025-08-05T13:25:13.075921",
+    "betrayal_potential": 50
+  },
+  "decision_17": {
+    "id": "decision_17",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "evil",
+    "timestamp": "2025-08-05T13:53:10.459667",
+    "betrayal_potential": 50
+  },
+  "decision_18": {
+    "id": "decision_18",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "evil",
+    "timestamp": "2025-08-13T01:02:55.835412",
+    "betrayal_potential": 50
+  },
+  "decision_19": {
+    "id": "decision_19",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "evil",
+    "timestamp": "2025-08-13T01:07:55.035074",
+    "betrayal_potential": 50
+  },
+  "decision_20": {
+    "id": "decision_20",
+    "session_id": "test_session",
+    "decision": "kill_innocent",
+    "moral_alignment": "evil",
+    "timestamp": "2025-08-13T01:08:17.738795",
+    "betrayal_potential": 50
+  }
+}

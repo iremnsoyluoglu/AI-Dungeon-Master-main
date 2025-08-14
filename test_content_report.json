@@ -1,0 +1,19 @@
+{
+  "report_id": "report_20250809_161243",
+  "generated_at": "2025-08-09T16:12:43.573127",
+  "metrics": {
+    "scenarios_reviewed": 1,
+    "characters_curated": 0,
+    "content_approved": 11,
+    "content_rejected": 0
+  },
+  "summary": {
+    "total_content_reviewed": 11,
+    "approval_rate": 1.0,
+    "quality_score": 0.0
+  },
+  "recommendations": [
+    "Increase content review frequency"
+  ],
+  "curated_content": {}
+}

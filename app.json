@@ -1,0 +1,17 @@
+{
+  "name": "ai-dungeon-master",
+  "description": "AI-Powered Interactive Storytelling Game - YOUR EXACT DESIGN",
+  "repository": "https://github.com/your-username/ai-dungeon-master",
+  "keywords": [
+    "ai",
+    "gaming",
+    "storytelling",
+    "rpg"
+  ],
+  "env": {
+    "FLASK_ENV": {
+      "description": "Flask environment",
+      "value": "production"
+    }
+  }
+}

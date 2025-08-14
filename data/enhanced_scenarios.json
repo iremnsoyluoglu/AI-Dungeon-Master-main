@@ -1,0 +1,1274 @@
+{
+  "enhanced_scenarios": {
+    "dragon_hunters_path": {
+      "id": "dragon_hunters_path",
+      "title": "Ejderha Avcısının Yolu",
+      "genre": "fantasy",
+      "description": "Kızıl ejderha köyleri yakıyor. Sen ejderha avcısısın. Bu tehlikeli görevde ejderhayı durdurmak için her şeyi riske atacaksın.",
+      "difficulty": "hard",
+      "theme": "fantasy",
+      "complexity": "high",
+      "estimatedPlayTime": 90,
+      "faction_specific_content": {
+        "human": {
+          "special_nodes": [
+            "human_adaptability",
+            "versatile_skills",
+            "survival_instinct"
+          ],
+          "skill_unlocks": [
+            "Adaptive Combat",
+            "Versatile Skills",
+            "Survival Instinct"
+          ],
+          "ending_modifiers": [
+            "human_perseverance",
+            "adaptive_victory",
+            "survival_ending"
+          ]
+        },
+        "elf": {
+          "special_nodes": [
+            "elven_magic",
+            "forest_connection",
+            "ancient_wisdom"
+          ],
+          "skill_unlocks": [
+            "Elven Magic",
+            "Forest Connection",
+            "Ancient Wisdom"
+          ],
+          "ending_modifiers": [
+            "elven_mastery",
+            "magical_victory",
+            "forest_harmony"
+          ]
+        },
+        "dwarf": {
+          "special_nodes": [
+            "dwarven_craftsmanship",
+            "mountain_strength",
+            "stone_knowledge"
+          ],
+          "skill_unlocks": [
+            "Dwarven Craftsmanship",
+            "Mountain Strength",
+            "Stone Knowledge"
+          ],
+          "ending_modifiers": [
+            "dwarven_glory",
+            "craftsmanship_victory",
+            "mountain_pride"
+          ]
+        },
+        "orc": {
+          "special_nodes": ["orc_brutality", "battle_rage", "tribal_strength"],
+          "skill_unlocks": ["Orc Brutality", "Battle Rage", "Tribal Strength"],
+          "ending_modifiers": [
+            "orc_dominance",
+            "brutal_victory",
+            "tribal_glory"
+          ]
+        },
+        "halfling": {
+          "special_nodes": [
+            "halfling_luck",
+            "stealth_skills",
+            "community_spirit"
+          ],
+          "skill_unlocks": [
+            "Halfling Luck",
+            "Stealth Skills",
+            "Community Spirit"
+          ],
+          "ending_modifiers": [
+            "lucky_victory",
+            "stealth_mastery",
+            "community_harmony"
+          ]
+        }
+      },
+      "advanced_storytelling": {
+        "contextual_triggers": {
+          "dragon_encounter": {
+            "betrayal_chance": 0.4,
+            "plot_twist_chance": 0.6,
+            "triggers": ["dragon_lair", "dragon_weakness", "ancient_pact"]
+          },
+          "village_interaction": {
+            "betrayal_chance": 0.3,
+            "plot_twist_chance": 0.5,
+            "triggers": ["village_secret", "hidden_motive", "ancient_grudge"]
+          }
+        },
+        "emotional_arcs": {
+          "hero_journey": {
+            "stages": [
+              "call_to_adventure",
+              "crossing_threshold",
+              "ordeal",
+              "return"
+            ],
+            "current_stage": 0,
+            "progress": 0.0,
+            "impact": "transformative"
+          },
+          "moral_choice": {
+            "stages": ["innocence", "doubt", "decision", "consequence"],
+            "current_stage": 0,
+            "progress": 0.0,
+            "impact": "enlightening"
+          }
+        }
+      },
+      "nodes": {
+        "start": {
+          "id": "start",
+          "title": "Köyün Yanışı",
+          "description": "Güneş batarken köyün üzerinde kızıl bir gölge beliriyor. Kızıl ejderha gökyüzünde uçuyor ve alevler saçarak köyü yakıyor. Sen ejderha avcısısın ve bu tehlikeli görevde her şeyi riske atacaksın.",
+          "choices": [
+            {
+              "text": "Hemen ejderhayı takip et",
+              "next_node": "track_dragon",
+              "diceRoll": { "type": "d20", "target": 15, "skill": "Tracking" },
+              "effect": { "karma": 5 }
+            },
+            {
+              "text": "Köylülerden bilgi topla",
+              "next_node": "gather_information",
+              "diceRoll": {
+                "type": "d20",
+                "target": 12,
+                "skill": "Investigation"
+              },
+              "effect": { "karma": 3 }
+            },
+            {
+              "text": "Av ekipmanını hazırla",
+              "next_node": "prepare_equipment",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Survival" },
+              "effect": { "karma": 2 }
+            }
+          ]
+        },
+        "track_dragon": {
+          "id": "track_dragon",
+          "title": "Ejderha İzini Takip",
+          "description": "Ejderhanın izini takip ediyorsun. Yerdeki yanık izler ve havadaki kükürt kokusu seni dağlara doğru yönlendiriyor. Ancak yolda bir mağara görüyorsun.",
+          "choices": [
+            {
+              "text": "Mağarayı araştır",
+              "next_node": "explore_cave",
+              "diceRoll": {
+                "type": "d20",
+                "target": 14,
+                "skill": "Investigation"
+              },
+              "effect": { "karma": 4 }
+            },
+            {
+              "text": "Dağlara devam et",
+              "next_node": "mountain_path",
+              "diceRoll": { "type": "d20", "target": 13, "skill": "Survival" },
+              "effect": { "karma": 3 }
+            }
+          ]
+        },
+        "gather_information": {
+          "id": "gather_information",
+          "title": "Köylülerden Bilgi",
+          "description": "Köylülerle konuşuyorsun. Ejderhanın son zamanlarda daha agresif olduğunu ve dağlardaki eski tapınakta bir şey olduğunu öğreniyorsun.",
+          "choices": [
+            {
+              "text": "Eski tapınağı araştır",
+              "next_node": "ancient_temple",
+              "diceRoll": {
+                "type": "d20",
+                "target": 16,
+                "skill": "Investigation"
+              },
+              "effect": { "karma": 6 }
+            },
+            {
+              "text": "Ejderhanın izini takip et",
+              "next_node": "track_dragon",
+              "diceRoll": { "type": "d20", "target": 15, "skill": "Tracking" },
+              "effect": { "karma": 5 }
+            }
+          ]
+        },
+        "prepare_equipment": {
+          "id": "prepare_equipment",
+          "title": "Ekipman Hazırlığı",
+          "description": "Av ekipmanını hazırlıyorsun. Özel oklar, büyülü iksirler ve ejderha zırhı alıyorsun. Hazır olduğunda yola çıkıyorsun.",
+          "choices": [
+            {
+              "text": "Köylülerden bilgi al",
+              "next_node": "gather_information",
+              "diceRoll": {
+                "type": "d20",
+                "target": 12,
+                "skill": "Investigation"
+              },
+              "effect": { "karma": 3 }
+            },
+            {
+              "text": "Doğrudan ejderhayı ara",
+              "next_node": "track_dragon",
+              "diceRoll": { "type": "d20", "target": 15, "skill": "Tracking" },
+              "effect": { "karma": 5 }
+            }
+          ]
+        },
+        "explore_cave": {
+          "id": "explore_cave",
+          "title": "Gizli Mağara",
+          "description": "Mağarada eski bir harita buluyorsun. Harita ejderhanın gerçek yuvasını gösteriyor - dağların derinliklerindeki volkanik bir krater.",
+          "choices": [
+            {
+              "text": "Haritayı kullanarak yuvaya git",
+              "next_node": "dragon_lair",
+              "diceRoll": {
+                "type": "d20",
+                "target": 12,
+                "skill": "Navigation"
+              },
+              "effect": { "karma": 6 }
+            },
+            {
+              "text": "Eski tapınağı araştır",
+              "next_node": "ancient_temple",
+              "diceRoll": {
+                "type": "d20",
+                "target": 16,
+                "skill": "Investigation"
+              },
+              "effect": { "karma": 4 }
+            }
+          ]
+        },
+        "mountain_path": {
+          "id": "mountain_path",
+          "title": "Dağ Yolu",
+          "description": "Dağlarda ilerlerken bir çobanla karşılaşıyorsun. Ejderhanın kışın yaklaşmasıyla daha agresif olduğunu ve bir hazine için savaştığını söylüyor.",
+          "choices": [
+            {
+              "text": "Hazine hakkında sor",
+              "next_node": "treasure_info",
+              "diceRoll": {
+                "type": "d20",
+                "target": 14,
+                "skill": "Persuasion"
+              },
+              "effect": { "karma": 4 }
+            },
+            {
+              "text": "Doğrudan yuvaya git",
+              "next_node": "dragon_lair",
+              "diceRoll": { "type": "d20", "target": 16, "skill": "Survival" },
+              "effect": { "karma": 5 }
+            }
+          ]
+        },
+        "ancient_temple": {
+          "id": "ancient_temple",
+          "title": "Eski Tapınak",
+          "description": "Tapınakta eski bir yazıt buluyorsun. Ejderhanın aslında tapınağın bekçisi olduğunu ve köylülerin tapınağı yağmaladığını öğreniyorsun.",
+          "choices": [
+            {
+              "text": "Ejderhayla anlaşmaya çalış",
+              "next_node": "negotiate_dragon",
+              "diceRoll": {
+                "type": "d20",
+                "target": 18,
+                "skill": "Persuasion"
+              },
+              "effect": { "karma": 8 }
+            },
+            {
+              "text": "Tapınağı onar",
+              "next_node": "repair_temple",
+              "diceRoll": { "type": "d20", "target": 15, "skill": "Crafting" },
+              "effect": { "karma": 7 }
+            }
+          ]
+        },
+        "treasure_info": {
+          "id": "treasure_info",
+          "title": "Hazine Bilgisi",
+          "description": "Çoban sana ejderhanın koruduğu hazinenin aslında eski bir büyü kitabı olduğunu söylüyor. Bu kitap köyü koruyan büyüyü içeriyor.",
+          "choices": [
+            {
+              "text": "Kitabı geri al",
+              "next_node": "dragon_lair",
+              "diceRoll": { "type": "d20", "target": 16, "skill": "Survival" },
+              "effect": { "karma": 6 }
+            },
+            {
+              "text": "Köylülerle konuş",
+              "next_node": "village_meeting",
+              "diceRoll": {
+                "type": "d20",
+                "target": 13,
+                "skill": "Persuasion"
+              },
+              "effect": { "karma": 5 }
+            }
+          ]
+        },
+        "dragon_lair": {
+          "id": "dragon_lair",
+          "title": "Ejderha Yuvası",
+          "description": "Volkanik kraterde ejderhayı buluyorsun. Devasa yaratık seni görüyor ve tehditkar bir şekilde yaklaşıyor. Ancak gözlerinde bir üzüntü var.",
+          "choices": [
+            {
+              "text": "Savaş",
+              "next_node": "dragon_battle",
+              "diceRoll": { "type": "d20", "target": 18, "skill": "Combat" },
+              "effect": { "karma": 2 }
+            },
+            {
+              "text": "Konuşmaya çalış",
+              "next_node": "dragon_talk",
+              "diceRoll": {
+                "type": "d20",
+                "target": 16,
+                "skill": "Persuasion"
+              },
+              "effect": { "karma": 6 }
+            }
+          ]
+        },
+        "negotiate_dragon": {
+          "id": "negotiate_dragon",
+          "title": "Ejderhayla Anlaşma",
+          "description": "Ejderhaya tapınağın durumunu anlatıyorsun. Yaratık anlıyor ve köylülerin tapınağı onarması karşılığında barış yapmayı kabul ediyor.",
+          "choices": [
+            {
+              "text": "Anlaşmayı kabul et",
+              "next_node": "peace_ending",
+              "diceRoll": { "type": "d20", "target": 12, "skill": "Diplomacy" },
+              "effect": { "karma": 10 }
+            }
+          ]
+        },
+        "repair_temple": {
+          "id": "repair_temple",
+          "title": "Tapınağı Onar",
+          "description": "Tapınağı onarıyorsun. Köylüler de yardım ediyor. Tapınak eski haline dönüyor ve ejderha barışçıl bir şekilde geri dönüyor.",
+          "choices": [
+            {
+              "text": "Görevi tamamla",
+              "next_node": "restoration_ending",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Any" },
+              "effect": { "karma": 9 }
+            }
+          ]
+        },
+        "village_meeting": {
+          "id": "village_meeting",
+          "title": "Köy Toplantısı",
+          "description": "Köylülerle toplanıyorsun. Hazine hakkında konuşuyorsun ve köylüler kitabı geri almak için sana yardım etmeye karar veriyor.",
+          "choices": [
+            {
+              "text": "Birlikte ejderhaya git",
+              "next_node": "dragon_lair",
+              "diceRoll": {
+                "type": "d20",
+                "target": 14,
+                "skill": "Leadership"
+              },
+              "effect": { "karma": 7 }
+            }
+          ]
+        },
+        "dragon_battle": {
+          "id": "dragon_battle",
+          "title": "Ejderha Savaşı",
+          "description": "Ejderhayla savaşıyorsun. Zorlu bir mücadele sonrası ejderhayı yendiğinde, yaratığın son nefesinde neden saldırdığını anlıyorsun.",
+          "choices": [
+            {
+              "text": "Hikayeyi öğren",
+              "next_node": "tragic_ending",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Any" },
+              "effect": { "karma": 3 }
+            }
+          ]
+        },
+        "dragon_talk": {
+          "id": "dragon_talk",
+          "title": "Ejderhayla Konuşma",
+          "description": "Ejderhaya neden saldırdığını soruyorsun. Yaratık sana tapınağın yağmalandığını ve köylülerin kutsal kitabı çaldığını anlatıyor.",
+          "choices": [
+            {
+              "text": "Kitabı geri ver",
+              "next_node": "redemption_ending",
+              "diceRoll": {
+                "type": "d20",
+                "target": 14,
+                "skill": "Persuasion"
+              },
+              "effect": { "karma": 8 }
+            },
+            {
+              "text": "Köylüleri uyar",
+              "next_node": "warning_ending",
+              "diceRoll": {
+                "type": "d20",
+                "target": 12,
+                "skill": "Leadership"
+              },
+              "effect": { "karma": 6 }
+            }
+          ]
+        },
+        "peace_ending": {
+          "id": "peace_ending",
+          "title": "Barış Sonu",
+          "description": "Ejderha ve köylüler arasında barış sağlandı. Tapınak onarıldı ve ejderha köyü korumaya devam ediyor. Sen kahraman oldun!",
+          "choices": [
+            {
+              "text": "Görevi tamamla",
+              "next_node": "end",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Any" },
+              "effect": { "karma": 10 }
+            }
+          ]
+        },
+        "restoration_ending": {
+          "id": "restoration_ending",
+          "title": "Onarım Sonu",
+          "description": "Tapınak tamamen onarıldı. Ejderha mutlu ve köylüler güvende. Sen hem fiziksel hem de manevi bir zafer kazandın.",
+          "choices": [
+            {
+              "text": "Görevi tamamla",
+              "next_node": "end",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Any" },
+              "effect": { "karma": 9 }
+            }
+          ]
+        },
+        "tragic_ending": {
+          "id": "tragic_ending",
+          "title": "Trajik Son",
+          "description": "Ejderhanın ölümünden sonra gerçeği öğrendin. Yaratık aslında köyü koruyordu. Şimdi köy savunmasız kaldı.",
+          "choices": [
+            {
+              "text": "Görevi tamamla",
+              "next_node": "end",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Any" },
+              "effect": { "karma": 2 }
+            }
+          ]
+        },
+        "redemption_ending": {
+          "id": "redemption_ending",
+          "title": "Kurtuluş Sonu",
+          "description": "Kitabı geri verdin ve ejderha köylüleri affetti. Barış sağlandı ve sen hem ejderhanın hem de köylülerin saygısını kazandın.",
+          "choices": [
+            {
+              "text": "Görevi tamamla",
+              "next_node": "end",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Any" },
+              "effect": { "karma": 8 }
+            }
+          ]
+        },
+        "warning_ending": {
+          "id": "warning_ending",
+          "title": "Uyarı Sonu",
+          "description": "Köylüleri uyardın ve kitabı geri vermelerini sağladın. Ejderha barış yaptı ama köylüler artık daha dikkatli.",
+          "choices": [
+            {
+              "text": "Görevi tamamla",
+              "next_node": "end",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Any" },
+              "effect": { "karma": 6 }
+            }
+          ]
+        },
+        "end": {
+          "id": "end",
+          "title": "Görev Tamamlandı",
+          "description": "Ejderha avı tamamlandı. Köy artık güvende ve sen bir kahraman oldun. Yeni maceralar seni bekliyor!",
+          "choices": [
+            {
+              "text": "Ana menüye dön",
+              "next_node": "menu",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Any" },
+              "effect": { "karma": 0 }
+            }
+          ]
+        }
+      }
+    },
+    "magical_forest_mysteries": {
+      "id": "magical_forest_mysteries",
+      "title": "Büyülü Ormanın Gizemleri",
+      "genre": "fantasy",
+      "description": "Büyülü yaratıklarla dolu gizemli orman. Ağaçlar konuşuyor ve her adımda yeni sırlar keşfediyorsun.",
+      "difficulty": "hard",
+      "theme": "fantasy",
+      "complexity": "high",
+      "estimatedPlayTime": 75,
+      "faction_specific_content": {
+        "elf": {
+          "special_nodes": [
+            "forest_connection",
+            "elven_magic",
+            "nature_harmony"
+          ],
+          "skill_unlocks": [
+            "Forest Connection",
+            "Elven Magic",
+            "Nature Harmony"
+          ],
+          "ending_modifiers": [
+            "forest_mastery",
+            "elven_victory",
+            "nature_balance"
+          ]
+        },
+        "dwarf": {
+          "special_nodes": [
+            "stone_knowledge",
+            "underground_sense",
+            "craftsmanship"
+          ],
+          "skill_unlocks": [
+            "Stone Knowledge",
+            "Underground Sense",
+            "Craftsmanship"
+          ],
+          "ending_modifiers": [
+            "underground_victory",
+            "stone_mastery",
+            "craft_glory"
+          ]
+        },
+        "human": {
+          "special_nodes": [
+            "adaptability",
+            "versatile_skills",
+            "survival_instinct"
+          ],
+          "skill_unlocks": [
+            "Adaptability",
+            "Versatile Skills",
+            "Survival Instinct"
+          ],
+          "ending_modifiers": [
+            "human_perseverance",
+            "adaptive_victory",
+            "survival_ending"
+          ]
+        }
+      },
+      "advanced_storytelling": {
+        "contextual_triggers": {
+          "forest_exploration": {
+            "betrayal_chance": 0.3,
+            "plot_twist_chance": 0.5,
+            "triggers": ["ancient_tree", "hidden_path", "magical_creature"]
+          },
+          "magical_encounter": {
+            "betrayal_chance": 0.4,
+            "plot_twist_chance": 0.6,
+            "triggers": ["fairy_trick", "magical_illusion", "ancient_spirit"]
+          }
+        },
+        "emotional_arcs": {
+          "nature_connection": {
+            "stages": ["stranger", "visitor", "friend", "guardian"],
+            "betrayal_impact": "devastating"
+          },
+          "magical_understanding": {
+            "stages": ["ignorant", "curious", "learning", "master"],
+            "plot_twist_impact": "transformative"
+          }
+        }
+      },
+      "nodes": {
+        "start": {
+          "id": "start",
+          "title": "Büyülü Ormanın Girişi",
+          "description": "Büyülü ormanın eşiğindesin. Ağaçlar konuşuyor ve yaratıklar her yerde. Köylüler ormanda kaybolan insanlar hakkında endişeli. Bu gizemli dünyada ne sırlar keşfedeceksin?",
+          "choices": [
+            {
+              "text": "Kayıp insanları ara",
+              "next_node": "search_missing",
+              "diceRoll": {
+                "type": "d20",
+                "target": 14,
+                "skill": "Investigation"
+              },
+              "effect": { "karma": 4 }
+            },
+            {
+              "text": "Konuşan ağaçlarla iletişim kur",
+              "next_node": "talk_to_trees",
+              "diceRoll": { "type": "d20", "target": 16, "skill": "Nature" },
+              "effect": { "karma": 5 }
+            },
+            {
+              "text": "Ormanın derinliklerine git",
+              "next_node": "deep_forest",
+              "diceRoll": { "type": "d20", "target": 15, "skill": "Survival" },
+              "effect": { "karma": 3 }
+            }
+          ]
+        },
+        "search_missing": {
+          "id": "search_missing",
+          "title": "Kayıp İnsanları Ara",
+          "description": "Kayıp insanların izini arıyorsun. Yerdeki ayak izleri ve terk edilmiş eşyalar seni ormanın derinliklerine yönlendiriyor.",
+          "choices": [
+            {
+              "text": "İzleri takip et",
+              "next_node": "follow_tracks",
+              "diceRoll": { "type": "d20", "target": 13, "skill": "Tracking" },
+              "effect": { "karma": 4 }
+            },
+            {
+              "text": "Ağaçlardan bilgi al",
+              "next_node": "talk_to_trees",
+              "diceRoll": { "type": "d20", "target": 16, "skill": "Nature" },
+              "effect": { "karma": 5 }
+            }
+          ]
+        },
+        "talk_to_trees": {
+          "id": "talk_to_trees",
+          "title": "Konuşan Ağaçlarla İletişim",
+          "description": "Antik ağaçlar seninle konuşuyor. Kayıp insanların ormanın merkezindeki eski tapınağa gittiğini ve orada bir büyücü olduğunu söylüyorlar.",
+          "choices": [
+            {
+              "text": "Tapınağı araştır",
+              "next_node": "ancient_temple",
+              "diceRoll": {
+                "type": "d20",
+                "target": 16,
+                "skill": "Investigation"
+              },
+              "effect": { "karma": 6 }
+            },
+            {
+              "text": "Büyücü hakkında sor",
+              "next_node": "wizard_info",
+              "diceRoll": {
+                "type": "d20",
+                "target": 14,
+                "skill": "Investigation"
+              },
+              "effect": { "karma": 4 }
+            }
+          ]
+        },
+        "deep_forest": {
+          "id": "deep_forest",
+          "title": "Ormanın Derinlikleri",
+          "description": "Ormanın derinliklerinde ilerlerken gizemli sesler duyuyorsun. Ağaçlar arasında eski bir tapınak görüyorsun.",
+          "choices": [
+            {
+              "text": "Tapınağa git",
+              "next_node": "ancient_temple",
+              "diceRoll": { "type": "d20", "target": 15, "skill": "Survival" },
+              "effect": { "karma": 5 }
+            },
+            {
+              "text": "Sesleri araştır",
+              "next_node": "mysterious_sounds",
+              "diceRoll": {
+                "type": "d20",
+                "target": 14,
+                "skill": "Investigation"
+              },
+              "effect": { "karma": 4 }
+            }
+          ]
+        },
+        "follow_tracks": {
+          "id": "follow_tracks",
+          "title": "İzleri Takip Et",
+          "description": "Ayak izlerini takip ediyorsun. İzler seni ormanın merkezindeki eski tapınağa götürüyor. Tapınakta ışık görüyorsun.",
+          "choices": [
+            {
+              "text": "Tapınağa gir",
+              "next_node": "ancient_temple",
+              "diceRoll": { "type": "d20", "target": 16, "skill": "Stealth" },
+              "effect": { "karma": 5 }
+            },
+            {
+              "text": "Önce gözlemle",
+              "next_node": "observe_temple",
+              "diceRoll": {
+                "type": "d20",
+                "target": 14,
+                "skill": "Investigation"
+              },
+              "effect": { "karma": 4 }
+            }
+          ]
+        },
+        "wizard_info": {
+          "id": "wizard_info",
+          "title": "Büyücü Bilgisi",
+          "description": "Ağaçlar büyücü hakkında bilgi veriyor. Büyücünün ormanı koruyan eski bir güç olduğunu ve insanları eğitmek için çağırdığını öğreniyorsun.",
+          "choices": [
+            {
+              "text": "Tapınağa git",
+              "next_node": "ancient_temple",
+              "diceRoll": {
+                "type": "d20",
+                "target": 16,
+                "skill": "Investigation"
+              },
+              "effect": { "karma": 6 }
+            },
+            {
+              "text": "Köylüleri uyar",
+              "next_node": "warn_villagers",
+              "diceRoll": {
+                "type": "d20",
+                "target": 12,
+                "skill": "Persuasion"
+              },
+              "effect": { "karma": 4 }
+            }
+          ]
+        },
+        "mysterious_sounds": {
+          "id": "mysterious_sounds",
+          "title": "Gizemli Sesler",
+          "description": "Sesleri araştırıyorsun. Kayıp insanların tapınakta büyücüyle birlikte olduğunu ve ormanın sırlarını öğrendiklerini görüyorsun.",
+          "choices": [
+            {
+              "text": "Tapınağa gir",
+              "next_node": "ancient_temple",
+              "diceRoll": { "type": "d20", "target": 15, "skill": "Stealth" },
+              "effect": { "karma": 5 }
+            },
+            {
+              "text": "Köylülere haber ver",
+              "next_node": "return_to_village",
+              "diceRoll": { "type": "d20", "target": 12, "skill": "Survival" },
+              "effect": { "karma": 3 }
+            }
+          ]
+        },
+        "observe_temple": {
+          "id": "observe_temple",
+          "title": "Tapınağı Gözlemle",
+          "description": "Tapınağı gözlemliyorsun. İçeride kayıp insanların büyücüyle birlikte olduğunu ve ormanın sırlarını öğrendiklerini görüyorsun.",
+          "choices": [
+            {
+              "text": "İçeri gir",
+              "next_node": "ancient_temple",
+              "diceRoll": { "type": "d20", "target": 16, "skill": "Stealth" },
+              "effect": { "karma": 5 }
+            },
+            {
+              "text": "Köylülere haber ver",
+              "next_node": "return_to_village",
+              "diceRoll": { "type": "d20", "target": 12, "skill": "Survival" },
+              "effect": { "karma": 3 }
+            }
+          ]
+        },
+        "ancient_temple": {
+          "id": "ancient_temple",
+          "title": "Eski Tapınak",
+          "description": "Tapınağa giriyorsun. İçeride yaşlı bir büyücü ve kayıp insanları görüyorsun. Büyücü ormanın sırlarını öğretiyor ve insanları koruyor.",
+          "choices": [
+            {
+              "text": "Büyücüyle konuş",
+              "next_node": "talk_to_wizard",
+              "diceRoll": {
+                "type": "d20",
+                "target": 14,
+                "skill": "Persuasion"
+              },
+              "effect": { "karma": 6 }
+            },
+            {
+              "text": "İnsanları kurtar",
+              "next_node": "rescue_people",
+              "diceRoll": { "type": "d20", "target": 16, "skill": "Combat" },
+              "effect": { "karma": 2 }
+            }
+          ]
+        },
+        "warn_villagers": {
+          "id": "warn_villagers",
+          "title": "Köylüleri Uyar",
+          "description": "Köylülere büyücü hakkında bilgi veriyorsun. Köylüler endişeleniyor ve seni tapınağa gönderiyor.",
+          "choices": [
+            {
+              "text": "Tapınağa git",
+              "next_node": "ancient_temple",
+              "diceRoll": {
+                "type": "d20",
+                "target": 16,
+                "skill": "Investigation"
+              },
+              "effect": { "karma": 6 }
+            }
+          ]
+        },
+        "return_to_village": {
+          "id": "return_to_village",
+          "title": "Köye Dön",
+          "description": "Köye dönüyorsun ve insanların güvende olduğunu söylüyorsun. Köylüler rahatlıyor ama hala endişeli.",
+          "choices": [
+            {
+              "text": "Tapınağa geri git",
+              "next_node": "ancient_temple",
+              "diceRoll": {
+                "type": "d20",
+                "target": 16,
+                "skill": "Investigation"
+              },
+              "effect": { "karma": 6 }
+            },
+            {
+              "text": "Görevi tamamla",
+              "next_node": "partial_ending",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Any" },
+              "effect": { "karma": 4 }
+            }
+          ]
+        },
+        "talk_to_wizard": {
+          "id": "talk_to_wizard",
+          "title": "Büyücüyle Konuşma",
+          "description": "Büyücüyle konuşuyorsun. Yaratık ormanı koruyan eski bir güç olduğunu ve insanlara ormanın sırlarını öğrettiğini anlatıyor.",
+          "choices": [
+            {
+              "text": "Öğrenmeye katıl",
+              "next_node": "learn_magic",
+              "diceRoll": { "type": "d20", "target": 14, "skill": "Magic" },
+              "effect": { "karma": 8 }
+            },
+            {
+              "text": "İnsanları serbest bırak",
+              "next_node": "free_people",
+              "diceRoll": {
+                "type": "d20",
+                "target": 16,
+                "skill": "Persuasion"
+              },
+              "effect": { "karma": 6 }
+            }
+          ]
+        },
+        "rescue_people": {
+          "id": "rescue_people",
+          "title": "İnsanları Kurtar",
+          "description": "İnsanları kurtarmaya çalışıyorsun ama büyücü engel oluyor. Savaş başlıyor.",
+          "choices": [
+            {
+              "text": "Savaşmaya devam et",
+              "next_node": "wizard_battle",
+              "diceRoll": { "type": "d20", "target": 18, "skill": "Combat" },
+              "effect": { "karma": 2 }
+            },
+            {
+              "text": "Barış yapmaya çalış",
+              "next_node": "make_peace",
+              "diceRoll": {
+                "type": "d20",
+                "target": 16,
+                "skill": "Persuasion"
+              },
+              "effect": { "karma": 6 }
+            }
+          ]
+        },
+        "learn_magic": {
+          "id": "learn_magic",
+          "title": "Büyüyü Öğren",
+          "description": "Büyücüden ormanın sırlarını öğreniyorsun. Artık ormanla iletişim kurabiliyor ve büyü kullanabiliyorsun.",
+          "choices": [
+            {
+              "text": "Görevi tamamla",
+              "next_node": "magic_ending",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Any" },
+              "effect": { "karma": 9 }
+            }
+          ]
+        },
+        "free_people": {
+          "id": "free_people",
+          "title": "İnsanları Serbest Bırak",
+          "description": "Büyücüden insanları serbest bırakmasını istiyorsun. Büyücü kabul ediyor ve insanlar köye dönüyor.",
+          "choices": [
+            {
+              "text": "Görevi tamamla",
+              "next_node": "freedom_ending",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Any" },
+              "effect": { "karma": 7 }
+            }
+          ]
+        },
+        "wizard_battle": {
+          "id": "wizard_battle",
+          "title": "Büyücü Savaşı",
+          "description": "Büyücüyle savaşıyorsun. Zorlu bir mücadele sonrası büyücüyü yendiğinde, yaratığın aslında ormanı koruduğunu anlıyorsun.",
+          "choices": [
+            {
+              "text": "Görevi tamamla",
+              "next_node": "tragic_ending",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Any" },
+              "effect": { "karma": 3 }
+            }
+          ]
+        },
+        "make_peace": {
+          "id": "make_peace",
+          "title": "Barış Yap",
+          "description": "Büyücüyle barış yapıyorsun. Büyücü ormanın sırlarını açıklıyor ve insanları serbest bırakıyor.",
+          "choices": [
+            {
+              "text": "Görevi tamamla",
+              "next_node": "peace_ending",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Any" },
+              "effect": { "karma": 8 }
+            }
+          ]
+        },
+        "partial_ending": {
+          "id": "partial_ending",
+          "title": "Kısmi Başarı",
+          "description": "İnsanların güvende olduğunu öğrendin ama tam çözüm bulamadın. Orman hala gizemli.",
+          "choices": [
+            {
+              "text": "Görevi tamamla",
+              "next_node": "end",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Any" },
+              "effect": { "karma": 4 }
+            }
+          ]
+        },
+        "magic_ending": {
+          "id": "magic_ending",
+          "title": "Büyü Sonu",
+          "description": "Ormanın sırlarını öğrendin ve büyücü oldun. Artık ormanla iletişim kurabiliyor ve doğayı koruyabiliyorsun.",
+          "choices": [
+            {
+              "text": "Görevi tamamla",
+              "next_node": "end",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Any" },
+              "effect": { "karma": 9 }
+            }
+          ]
+        },
+        "freedom_ending": {
+          "id": "freedom_ending",
+          "title": "Özgürlük Sonu",
+          "description": "İnsanları kurtardın ve büyücüyle anlaştın. Orman ve insanlar arasında barış sağlandı.",
+          "choices": [
+            {
+              "text": "Görevi tamamla",
+              "next_node": "end",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Any" },
+              "effect": { "karma": 7 }
+            }
+          ]
+        },
+        "tragic_ending": {
+          "id": "tragic_ending",
+          "title": "Trajik Son",
+          "description": "Büyücüyü öldürdün ama sonra gerçeği öğrendin. Yaratık aslında ormanı koruyordu. Şimdi orman savunmasız.",
+          "choices": [
+            {
+              "text": "Görevi tamamla",
+              "next_node": "end",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Any" },
+              "effect": { "karma": 2 }
+            }
+          ]
+        },
+        "peace_ending": {
+          "id": "peace_ending",
+          "title": "Barış Sonu",
+          "description": "Büyücüyle barış yaptın ve ormanın sırlarını öğrendin. İnsanlar ve orman arasında uyum sağlandı.",
+          "choices": [
+            {
+              "text": "Görevi tamamla",
+              "next_node": "end",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Any" },
+              "effect": { "karma": 8 }
+            }
+          ]
+        },
+        "end": {
+          "id": "end",
+          "title": "Görev Tamamlandı",
+          "description": "Büyülü ormanın gizemleri çözüldü. Orman artık güvende ve sen bir kahraman oldun. Yeni maceralar seni bekliyor!",
+          "choices": [
+            {
+              "text": "Ana menüye dön",
+              "next_node": "menu",
+              "diceRoll": { "type": "d20", "target": 10, "skill": "Any" },
+              "effect": { "karma": 0 }
+            }
+          ]
+        }
+      }
+    },
+    "hive_city_defense": {
+      "id": "hive_city_defense",
+      "title": "Hive Şehrinin Savunması",
+      "genre": "warhammer",
+      "description": "Hive şehrini düşman istilasından koruma görevi. İmperium'un son kalesi olarak savaşacaksın.",
+      "difficulty": "hard",
+      "theme": "warhammer",
+      "complexity": "high",
+      "estimatedPlayTime": 90,
+      "faction_specific_content": {
+        "space_marine": {
+          "special_nodes": ["imperial_duty", "chapter_tactics", "honor_choice"],
+          "skill_unlocks": [
+            "Bolter Mastery",
+            "Power Armor",
+            "Tactical Awareness"
+          ],
+          "ending_modifiers": [
+            "imperial_victory",
+            "honor_sacrifice",
+            "chapter_glory"
+          ]
+        },
+        "imperial_guard": {
+          "special_nodes": [
+            "survival_instinct",
+            "comradeship",
+            "regimental_pride"
+          ],
+          "skill_unlocks": [
+            "Lasgun Training",
+            "Trench Warfare",
+            "Commissar Leadership"
+          ],
+          "ending_modifiers": [
+            "survival_ending",
+            "comrade_sacrifice",
+            "regimental_honor"
+          ]
+        },
+        "psyker": {
+          "special_nodes": [
+            "warp_encounter",
+            "psychic_power",
+            "sanctioned_psyker"
+          ],
+          "skill_unlocks": [
+            "Warp Manipulation",
+            "Mind Control",
+            "Psychic Barrier"
+          ],
+          "ending_modifiers": [
+            "psychic_ascension",
+            "warp_corruption",
+            "sanctioned_ending"
+          ]
+        }
+      },
+      "advanced_storytelling": {
+        "contextual_triggers": {
+          "combat_situation": {
+            "betrayal_chance": 0.5,
+            "plot_twist_chance": 0.3,
+            "triggers": ["ally_weakness", "enemy_revelation", "weapon_failure"]
+          },
+          "defense_planning": {
+            "betrayal_chance": 0.4,
+            "plot_twist_chance": 0.6,
+            "triggers": [
+              "tactical_error",
+              "enemy_infiltration",
+              "resource_shortage"
+            ]
+          }
+        },
+        "emotional_arcs": {
+          "imperial_loyalty": {
+            "stages": ["doubt", "duty", "devotion", "sacrifice"],
+            "betrayal_impact": "devastating"
+          },
+          "combat_experience": {
+            "stages": ["recruit", "veteran", "hero", "legend"],
+            "plot_twist_impact": "transformative"
+          }
+        }
+      },
+      "nodes": {
+        "start": {
+          "id": "start",
+          "title": "Hive Şehrinin Savunması",
+          "description": "Hive şehri düşman istilası altında. İmperium'un son kalesi olarak savaşacaksın. Her karar şehrin kaderini belirleyecek.",
+          "backgroundImage": "hive_city.jpg",
+          "choices": [
+            {
+              "text": "Savunma pozisyonlarını kontrol et",
+              "next_node": "check_defenses",
+              "diceRoll": { "type": "d20", "target": 14, "skill": "Tactics" },
+              "effect": { "karma": 3 },
+              "hidden_consequence": "defense_assessment"
+            },
+            {
+              "text": "Düşman güçlerini keşfet",
+              "next_node": "scout_enemy",
+              "diceRoll": {
+                "type": "d20",
+                "target": 16,
+                "skill": "Reconnaissance"
+              },
+              "effect": { "karma": 5 },
+              "hidden_consequence": "enemy_intel"
+            },
+            {
+              "text": "Sivilleri güvenli bölgeye taşı",
+              "next_node": "evacuate_civilians",
+              "diceRoll": {
+                "type": "d20",
+                "target": 12,
+                "skill": "Leadership"
+              },
+              "effect": { "karma": 7 },
+              "hidden_consequence": "civilian_safety"
+            }
+          ],
+          "contextual_events": {
+            "combat_situation": {
+              "betrayal_chance": 0.5,
+              "plot_twist_chance": 0.3,
+              "random_event_chance": 0.4
+            }
+          }
+        }
+      }
+    },
+    "cyberpunk_city_secrets": {
+      "id": "cyberpunk_city_secrets",
+      "title": "Cyberpunk Şehrinin Gizli Sırları",
+      "genre": "cyberpunk",
+      "description": "Cyberpunk şehrinin gizli sırlarını keşfet. Teknoloji ve insanlık arasındaki sınır bulanıklaşıyor.",
+      "difficulty": "hard",
+      "theme": "cyberpunk",
+      "complexity": "high",
+      "estimatedPlayTime": 80,
+      "faction_specific_content": {
+        "netrunner": {
+          "special_nodes": ["cyber_deck", "matrix_access", "digital_mastery"],
+          "skill_unlocks": ["Cyber Deck", "Matrix Access", "Digital Mastery"],
+          "ending_modifiers": [
+            "digital_victory",
+            "matrix_ascension",
+            "cyber_mastery"
+          ]
+        },
+        "street_samurai": {
+          "special_nodes": ["combat_implants", "street_combat", "honor_code"],
+          "skill_unlocks": ["Combat Implants", "Street Combat", "Honor Code"],
+          "ending_modifiers": ["combat_victory", "honor_ending", "street_glory"]
+        },
+        "corporate": {
+          "special_nodes": [
+            "corporate_access",
+            "business_skills",
+            "political_influence"
+          ],
+          "skill_unlocks": [
+            "Corporate Access",
+            "Business Skills",
+            "Political Influence"
+          ],
+          "ending_modifiers": [
+            "corporate_victory",
+            "political_ending",
+            "business_success"
+          ]
+        }
+      },
+      "advanced_storytelling": {
+        "contextual_triggers": {
+          "digital_infiltration": {
+            "betrayal_chance": 0.4,
+            "plot_twist_chance": 0.6,
+            "triggers": [
+              "ai_manipulation",
+              "digital_trap",
+              "corporate_espionage"
+            ]
+          },
+          "street_conflict": {
+            "betrayal_chance": 0.5,
+            "plot_twist_chance": 0.4,
+            "triggers": [
+              "gang_betrayal",
+              "weapon_failure",
+              "unexpected_alliance"
+            ]
+          }
+        },
+        "emotional_arcs": {
+          "humanity_loss": {
+            "stages": ["human", "enhanced", "cyber", "transhuman"],
+            "betrayal_impact": "devastating"
+          },
+          "digital_awakening": {
+            "stages": ["ignorant", "aware", "connected", "transcendent"],
+            "plot_twist_impact": "transformative"
+          }
+        }
+      },
+      "nodes": {
+        "start": {
+          "id": "start",
+          "title": "Cyberpunk Şehrinin Girişi",
+          "description": "Neon ışıkları altında cyberpunk şehrinin gizli sırlarını keşfetmeye başlıyorsun. Teknoloji ve insanlık arasındaki sınır bulanıklaşıyor.",
+          "backgroundImage": "cyberpunk_city.jpg",
+          "choices": [
+            {
+              "text": "Siberuzaya bağlan",
+              "next_node": "connect_to_matrix",
+              "diceRoll": {
+                "type": "d20",
+                "target": 16,
+                "skill": "Cybernetics"
+              },
+              "effect": { "karma": 5 },
+              "hidden_consequence": "digital_access"
+            },
+            {
+              "text": "Sokak savaşçısı olarak savaş",
+              "next_node": "street_combat",
+              "diceRoll": { "type": "d20", "target": 14, "skill": "Combat" },
+              "effect": { "karma": 3 },
+              "hidden_consequence": "combat_experience"
+            },
+            {
+              "text": "Şirket sırlarını araştır",
+              "next_node": "corporate_investigation",
+              "diceRoll": {
+                "type": "d20",
+                "target": 18,
+                "skill": "Investigation"
+              },
+              "effect": { "karma": 7 },
+              "hidden_consequence": "corporate_secrets"
+            }
+          ],
+          "contextual_events": {
+            "digital_infiltration": {
+              "betrayal_chance": 0.4,
+              "plot_twist_chance": 0.6,
+              "random_event_chance": 0.3
+            }
+          }
+        }
+      }
+    }
+  }
+}

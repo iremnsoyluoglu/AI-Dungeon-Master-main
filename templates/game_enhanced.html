@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Dungeon Master - Dashboard</title>
+    <link rel="stylesheet" href="/static/enhanced_style.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <!-- Sol Panel -->
+      <div class="left-panel">
+        <h3>🧙‍♂️ Temalar & Karakterler</h3>
+        <div class="theme-tabs">
+          <div class="theme-tab active" onclick="switchTheme('fantasy')">
+            Fantasy
+          </div>
+          <div class="theme-tab" onclick="switchTheme('warhammer')">
+            Warhammer 40K
+          </div>
+          <div class="theme-tab" onclick="switchTheme('cyberpunk')">
+            Cyberpunk
+          </div>
+        </div>
+
+        <!-- Character Name Input -->
+        <div class="character-name-section">
+          <h4>👤 Karakter Adı</h4>
+          <div class="name-input-container">
+            <input
+              type="text"
+              id="character-name-input"
+              placeholder="Karakter adınızı girin..."
+              maxlength="20"
+              oninput="updateCharacterName(this.value)"
+            />
+          </div>
+        </div>
+
+        <div id="fantasy-content" class="theme-content">
+          <div class="race-class-list">
+            <h4>🏹 Irklar</h4>
+            <div class="list-items">
+              <div class="list-item" onclick="selectRace(this, 'elf')">Elf</div>
+              <div class="list-item" onclick="selectRace(this, 'human')">
+                İnsan
+              </div>
+              <div class="list-item" onclick="selectRace(this, 'dwarf')">
+                Cüce
+              </div>
+              <div class="list-item" onclick="selectRace(this, 'orc')">Ork</div>
+            </div>
+          </div>
+          <div class="race-class-list">
+            <h4>🗡️ Sınıflar</h4>
+            <div class="list-items">
+              <div class="list-item" onclick="selectClass(this, 'warrior')">
+                Savaşçı
+              </div>
+              <div class="list-item" onclick="selectClass(this, 'mage')">
+                Büyücü
+              </div>
+              <div class="list-item" onclick="selectClass(this, 'rogue')">
+                Hırsız
+              </div>
+              <div class="list-item" onclick="selectClass(this, 'cleric')">
+                Rahip
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="warhammer-content" class="theme-content" style="display: none">
+          <div class="race-class-list">
+            <h4>👥 Irklar</h4>
+            <div class="list-items">
+              <div class="list-item" onclick="selectRace(this, 'imperial')">
+                İmparatorluk
+              </div>
+              <div class="list-item" onclick="selectRace(this, 'spacemarine')">
+                Space Marine
+              </div>
+              <div class="list-item" onclick="selectRace(this, 'ork40k')">
+                Ork
+              </div>
+              <div class="list-item" onclick="selectRace(this, 'eldar')">
+                Eldar
+              </div>
+            </div>
+          </div>
+          <div class="race-class-list">
+            <h4>🛡️ Sınıflar</h4>
+            <div class="list-items">
+              <div class="list-item" onclick="selectClass(this, 'commissar')">
+                Komiser
+              </div>
+              <div class="list-item" onclick="selectClass(this, 'techpriest')">
+                Tech-Priest
+              </div>
+              <div class="list-item" onclick="selectClass(this, 'psyker')">
+                Psyker
+              </div>
+              <div class="list-item" onclick="selectClass(this, 'guardsman')">
+                Guardsman
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="cyberpunk-content" class="theme-content" style="display: none">
+          <div class="race-class-list">
+            <h4>🔮 Irklar</h4>
+            <div class="list-items">
+              <div class="list-item" onclick="selectRace(this, 'human-cyborg')">
+                İnsan
+              </div>
+              <div class="list-item" onclick="selectRace(this, 'android')">
+                Android
+              </div>
+              <div class="list-item" onclick="selectRace(this, 'mutant')">
+                Mutant
+              </div>
+              <div class="list-item" onclick="selectClass(this, 'ai')">
+                Yapay Zeka
+              </div>
+            </div>
+          </div>
+          <div class="race-class-list">
+            <h4>⚡ Sınıflar</h4>
+            <div class="list-items">
+              <div class="list-item" onclick="selectClass(this, 'netrunner')">
+                Netrunner
+              </div>
+              <div class="list-item" onclick="selectClass(this, 'solo')">
+                Solo
+              </div>
+              <div class="list-item" onclick="selectClass(this, 'techie')">
+                Techie
+              </div>
+              <div class="list-item" onclick="selectClass(this, 'corpo')">
+                Corpo
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-section">
+          <h4>📊 Özellikler</h4>
+          <div class="stat-row">
+            <span>Güç</span>
+            <span class="stat-value" id="str-stat">15</span>
+          </div>
+          <div class="stat-row">
+            <span>Çeviklik</span>
+            <span class="stat-value" id="dex-stat">12</span>
+          </div>
+          <div class="stat-row">
+            <span>Zeka</span>
+            <span class="stat-value" id="int-stat">14</span>
+          </div>
+          <div class="stat-row">
+            <span>Dayanıklılık</span>
+            <span class="stat-value" id="con-stat">16</span>
+          </div>
+          <div class="stat-row">
+            <span>Bilgelik</span>
+            <span class="stat-value" id="wis-stat">13</span>
+          </div>
+          <div class="stat-row">
+            <span>Karizma</span>
+            <span class="stat-value" id="cha-stat">11</span>
+          </div>
+        </div>
+
+        <!-- AI/RAG Sistem Entegrasyonu - Sol Panel Altında -->
+        <div class="ai-system-section">
+          <h4>🤖 AI Destekli Senaryo Oluşturucu</h4>
+
+          <!-- Dosya Yükleme -->
+          <div class="file-upload-section">
+            <h5>📁 Dosya Yükle</h5>
+            <div class="upload-area" id="upload-area">
+              <input
+                type="file"
+                id="file-input"
+                accept=".pdf,.txt"
+                style="display: none"
+              />
+              <button
+                class="upload-btn"
+                onclick="document.getElementById('file-input').click()"
+              >
+                Dosya Seç
+              </button>
+              <span id="file-status">PDF/TXT dosyası seçin</span>
+            </div>
+          </div>
+
+          <!-- AI Senaryo Üretici -->
+          <div class="ai-scenario-generator">
+            <h5>🧙‍♂️ AI Senaryo Üretici</h5>
+            <div class="generator-controls">
+              <div class="control-group">
+                <label>Tema:</label>
+                <select id="ai-theme">
+                  <option value="fantasy">Fantasy</option>
+                  <option value="warhammer">Warhammer 40K</option>
+                  <option value="cyberpunk">Cyberpunk</option>
+                </select>
+              </div>
+              <div class="control-group">
+                <label>Zorluk:</label>
+                <select id="ai-difficulty">
+                  <option value="easy">Kolay</option>
+                  <option value="medium">Orta</option>
+                  <option value="hard">Zor</option>
+                </select>
+              </div>
+              <div class="control-group">
+                <label>Seviye:</label>
+                <input type="number" id="ai-level" min="1" max="20" value="5" />
+              </div>
+              <button class="generate-btn" onclick="generateAIScenario()">
+                🧙‍♂️ Senaryo Üret
+              </button>
+            </div>
+          </div>
+
+          <!-- Yüklenen Dosyalar -->
+          <div class="uploaded-files">
+            <h5>📂 Yüklenen Dosyalar</h5>
+            <div id="files-list" class="files-list">
+              <!-- Yüklenen dosyalar burada görünecek -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orta Panel -->
+      <div class="center-panel">
+        <!-- Senaryo Seçimi -->
+        <div class="scenario-selection" id="scenario-selection">
+          <h2>📚 Mevcut Senaryolar</h2>
+
+          <!-- Fantasy Senaryoları -->
+          <div class="scenario-category" id="fantasy-scenarios">
+            <h3>🐉 FANTASY SENARYOLARI</h3>
+            <div class="scenario-grid">
+              <div
+                class="scenario-card"
+                onclick="selectScenario('living_dragon_hunt')"
+              >
+                <div class="scenario-header">
+                  <h4>🐉 Yaşayan Ejderha Avı</h4>
+                  <span class="difficulty hard">Hard</span>
+                </div>
+                <p>
+                  Köyü tehdit eden yaşayan bir ejderha var. Onu durdurmak için
+                  bir grup kahraman toplanıyor. Bu sadece bir görev değil, bu
+                  SENİN HİKAYEN. Her seçim seni değiştirecek, her karar dünyayı
+                  değiştirecek.
+                </p>
+              </div>
+              <div
+                class="scenario-card"
+                onclick="selectScenario('dragon_hunters_path')"
+              >
+                <div class="scenario-header">
+                  <h4>Ejderha Avcısının Yolu</h4>
+                  <span class="difficulty hard">Hard</span>
+                </div>
+                <p>
+                  Kızıl ejderha köyleri yakıyor. Sen ejderha avcısısın. Bu
+                  tehlikeli görevde ejderhayı durdurmak için her şeyi riske
+                  atacaksın.
+                </p>
+              </div>
+              <div
+                class="scenario-card"
+                onclick="selectScenario('magical_forest_mysteries')"
+              >
+                <div class="scenario-header">
+                  <h4>Büyülü Ormanın Gizemleri</h4>
+                  <span class="difficulty hard">Hard</span>
+                </div>
+                <p>
+                  Büyük bir ormanda gözlerini açıyorsun. Ağaçlar konuşuyor,
+                  yaratıklar her yerde. Sen kimsin ve neden buradası?
+                </p>
+              </div>
+              <div
+                class="scenario-card"
+                onclick="selectScenario('dragon_hunt_red_flame')"
+              >
+                <div class="scenario-header">
+                  <h4>Ejderha Avı: Kızıl Alev</h4>
+                  <span class="difficulty hard">Hard</span>
+                </div>
+                <p>
+                  Kızıl ejderha köyleri yakıyor. Sen ejderha avcısısın. Bu
+                  tehlikeli görevde ejderhayı durdurmak için her şeyi riske
+                  atacaksın.
+                </p>
+              </div>
+              <div
+                class="scenario-card"
+                onclick="selectScenario('ancient_ruins_secret')"
+              >
+                <div class="scenario-header">
+                  <h4>Antik Harabelerin Sırrı</h4>
+                  <span class="difficulty hard">Hard</span>
+                </div>
+                <p>
+                  Antik harabelerde gizli bir sır keşfettin. Bu sır seni
+                  tehlikeli bir maceraya sürükleyecek.
+                </p>
+              </div>
+              <div
+                class="scenario-card"
+                onclick="selectScenario('crystal_cave_curse')"
+              >
+                <div class="scenario-header">
+                  <h4>Kristal Mağarasının Laneti</h4>
+                  <span class="difficulty medium">Medium</span>
+                </div>
+                <p>
+                  Kristal mağarasında lanetli bir güç var. Bu laneti kaldırmak
+                  için mağaraya girmen gerekiyor.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Warhammer Senaryoları -->
+          <div
+            class="scenario-category"
+            id="warhammer-scenarios"
+            style="display: none"
+          >
+            <h3>🚀 WARHAMMER 40K SENARYOLARI</h3>
+            <div class="scenario-grid">
+              <div
+                class="scenario-card"
+                onclick="selectScenario('warhammer_imperial_crisis')"
+              >
+                <div class="scenario-header">
+                  <h4>💀 İmperial Kriz</h4>
+                  <span class="difficulty hard">Hard</span>
+                </div>
+                <p>
+                  İmperium'un bir dünyasında sapkınlık yayılıyor. İnquisitor
+                  olarak görev yapıyorsunuz. Bu sadece bir savaş değil, bu SENİN
+                  DÜNYAN. Her seçim seni değiştirecek, her karar dünyayı
+                  değiştirecek.
+                </p>
+              </div>
+              <div
+                class="scenario-card"
+                onclick="selectScenario('hive_city_defense')"
+              >
+                <div class="scenario-header">
+                  <h4>Hive Şehrinin Savunması</h4>
+                  <span class="difficulty hard">Hard</span>
+                </div>
+                <p>
+                  Hive şehri saldırı altında. Sen Space Marine'sin ve şehri
+                  savunmak zorundasın.
+                </p>
+              </div>
+              <div
+                class="scenario-card"
+                onclick="selectScenario('ork_invasion_final_defense')"
+              >
+                <div class="scenario-header">
+                  <h4>Ork İstilası: Son Savunma</h4>
+                  <span class="difficulty hard">Hard</span>
+                </div>
+                <p>
+                  Ork istilası başladı. Son savunma hattında durmak zorundasın.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cyberpunk Senaryoları -->
+          <div
+            class="scenario-category"
+            id="cyberpunk-scenarios"
+            style="display: none"
+          >
+            <h3>🤖 CYBERPUNK SENARYOLARI</h3>
+            <div class="scenario-grid">
+              <div
+                class="scenario-card"
+                onclick="selectScenario('cyberpunk_hive_city')"
+              >
+                <div class="scenario-header">
+                  <h4>🤖 Hive City Kriz</h4>
+                  <span class="difficulty hard">Hard</span>
+                </div>
+                <p>
+                  Cyberpunk şehrinde gizli sırlar var. Bu sırları keşfetmek için
+                  tehlikeli bir yolculuğa çıkacaksın.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NPC Interaction Panel -->
+        <div class="npc-interaction-panel" id="npc-interaction-panel">
+          <h2>👥 NPCs & Quests</h2>
+          <div class="npc-grid" id="npc-grid">
+            <!-- NPCs will be dynamically loaded here -->
+          </div>
+        </div>
+
+        <!-- Aktif Oyun Alanı -->
+        <div class="active-game" id="active-game" style="display: none">
+          <div class="game-header">
+            <h2 id="current-scenario-title">Senaryo Başlığı</h2>
+            <div class="game-controls">
+              <button class="control-btn" onclick="saveGame()">
+                💾 Kaydet
+              </button>
+              <button class="control-btn" onclick="loadGame()">📁 Yükle</button>
+              <button class="control-btn" onclick="resetGame()">
+                🔄 Sıfırla
+              </button>
+            </div>
+          </div>
+
+          <div class="game-content">
+            <div class="story-text" id="story-text">
+              <!-- Hikaye metni burada görünecek -->
+            </div>
+
+            <div class="choices-section" id="choices-section">
+              <h3>⚡ Seçeneklerin</h3>
+              <div class="choices-grid" id="choices-grid">
+                <!-- Seçenekler burada görünecek -->
+              </div>
+            </div>
+
+            <!-- Combat Section - LİFE İTSELF Battle Implementation -->
+            <div
+              class="combat-section"
+              id="combat-section"
+              style="display: none"
+            >
+              <!-- Combat UI will be dynamically generated here -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sağ Panel -->
+      <div class="right-panel">
+        <h3>👤 Karakter Paneli</h3>
+        <div class="character-info">
+          <div class="character-name" id="char-name">Aelindra</div>
+          <div class="character-details" id="char-race-class">
+            Elf Savaşçısı
+          </div>
+        </div>
+
+        <div class="level-info">
+          <div class="level-row">
+            <span>Level:</span>
+            <span class="level-value" id="char-level">1</span>
+          </div>
+          <div class="level-row">
+            <span>XP:</span>
+            <span class="level-value" id="char-xp">0/100</span>
+          </div>
+          <div class="level-row">
+            <span>HP:</span>
+            <span class="level-value" id="char-hp">100/100</span>
+          </div>
+          <div class="level-row">
+            <span>Mana:</span>
+            <span class="level-value" id="char-mana">50/50</span>
+          </div>
+        </div>
+
+        <!-- Quest Panel - NEW -->
+        <div class="quest-panel" id="quest-panel">
+          <h4>📋 Quests</h4>
+          <p>No active quests</p>
+        </div>
+
+        <!-- Story State Panel - NEW -->
+        <div
+          class="story-state-panel"
+          id="story-state-panel"
+          style="display: none"
+        >
+          <h4><i class="fas fa-book-open"></i> Hikaye Durumu</h4>
+
+          <!-- Moral Alignment Bar -->
+          <div class="moral-alignment-container">
+            <label>Ahlaki Denge:</label>
+            <div class="moral-alignment-bar">
+              <div class="moral-alignment-indicator" id="moral-indicator"></div>
+            </div>
+            <span id="moral-value">0</span>
+          </div>
+
+          <!-- Trust Level Bar -->
+          <div class="trust-level-container">
+            <label>Güven Seviyesi:</label>
+            <div class="trust-level-bar">
+              <div class="trust-level-indicator" id="trust-indicator"></div>
+            </div>
+            <span id="trust-value">0</span>
+          </div>
+
+          <!-- Story Progress Indicators -->
+          <div class="story-progress-indicators">
+            <div class="progress-item">
+              <div class="progress-label">Güç</div>
+              <div class="progress-value" id="power-value">0</div>
+              <div class="progress-bar">
+                <div
+                  class="progress-fill"
+                  id="power-fill"
+                  style="width: 0%"
+                ></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-label">Bilgi</div>
+              <div class="progress-value" id="knowledge-value">0</div>
+              <div class="progress-bar">
+                <div
+                  class="progress-fill"
+                  id="knowledge-fill"
+                  style="width: 0%"
+                ></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-label">Etki</div>
+              <div class="progress-value" id="influence-value">0</div>
+              <div class="progress-bar">
+                <div
+                  class="progress-fill"
+                  id="influence-fill"
+                  style="width: 0%"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Faction Standing -->
+          <div class="faction-standing-section">
+            <h5>Faksiyon İlişkileri:</h5>
+            <div class="faction-standing-grid" id="faction-standing-grid">
+              <!-- Faction items will be populated dynamically -->
+            </div>
+          </div>
+
+          <!-- Story Branch Info -->
+          <div class="story-branch-info">
+            <h5>Hikaye Dalı:</h5>
+            <div id="current-branch">Ana Dal</div>
+            <div id="visited-nodes">Ziyaret Edilen: 0</div>
+            <div id="unlocked-paths">Açılan Yollar: 0</div>
+          </div>
+        </div>
+
+        <!-- Skill Points Display -->
+        <div class="skill-points-section" id="skill-points-display">
+          <div class="skill-points-info">
+            <span>Skill Points: 0</span>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-box-name">Güç</div>
+            <div class="stat-box-value" id="char-str">15</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-name">Çeviklik</div>
+            <div class="stat-box-value" id="char-dex">18</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-name">Zeka</div>
+            <div class="stat-box-value" id="char-int">16</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-name">Dayanıklılık</div>
+            <div class="stat-box-value" id="char-con">14</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-name">Bilgelik</div>
+            <div class="stat-box-value" id="char-wis">13</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-name">Karizma</div>
+            <div class="stat-box-value" id="char-cha">17</div>
+          </div>
+        </div>
+
+        <div class="equipment-section">
+          <div class="equipment-title">🛡️ Ekipmanlar</div>
+          <div class="equipment-slot">
+            <span class="slot-name">Silah:</span>
+            <span class="slot-item" id="weapon-slot">Steel Sword</span>
+          </div>
+          <div class="equipment-slot">
+            <span class="slot-name">Zırh:</span>
+            <span class="slot-item" id="armor-slot">Leather Armor</span>
+          </div>
+          <div class="equipment-slot">
+            <span class="slot-name">Kalkan:</span>
+            <span class="slot-item" id="shield-slot">-</span>
+          </div>
+          <div class="equipment-slot">
+            <span class="slot-name">Eldiven:</span>
+            <span class="slot-item" id="gloves-slot">Magic Ring</span>
+          </div>
+          <div class="equipment-slot">
+            <span class="slot-name">Ayakkabı:</span>
+            <span class="slot-item" id="boots-slot">-</span>
+          </div>
+        </div>
+
+        <div class="inventory-section">
+          <div class="inventory-title">🎒 Envanter</div>
+          <div class="inventory-grid" id="inventory-grid">
+            <div class="inventory-slot filled">⚔️</div>
+            <div class="inventory-slot filled">🧪</div>
+            <div class="inventory-slot filled">🍞</div>
+            <div class="inventory-slot filled">💰</div>
+            <div class="inventory-slot">+</div>
+            <div class="inventory-slot">+</div>
+            <div class="inventory-slot">+</div>
+            <div class="inventory-slot">+</div>
+            <div class="inventory-slot">+</div>
+          </div>
+        </div>
+
+        <div class="npc-section">
+          <div class="npc-title">👥 NPC'ler</div>
+          <div class="npc-container" id="npc-container">
+            <!-- NPC'ler buraya dinamik olarak eklenecek -->
+          </div>
+        </div>
+
+        <div class="game-stats-section">
+          <div class="game-stats-title">📊 Oyun İstatistikleri</div>
+          <div class="game-stats-grid">
+            <div class="stat-item">
+              <span class="stat-label">Karma:</span>
+              <span class="stat-value" id="player-karma">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Seviye:</span>
+              <span class="stat-value" id="player-level">1</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">İtibar:</span>
+              <span class="stat-value" id="player-reputation">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Basit test - JavaScript çalışıyor mu?
+      console.log("=== GAME ENHANCED HTML LOADED ===");
+      console.log("JavaScript is working!");
+
+      // DOM elementlerini kontrol et
+      window.addEventListener("DOMContentLoaded", function () {
+        console.log("DOM loaded, checking elements...");
+
+        const elements = [
+          "scenario-selection",
+          "active-game",
+          "current-scenario-title",
+          "story-text",
+          "choices-grid",
+        ];
+
+        elements.forEach((id) => {
+          const element = document.getElementById(id);
+          if (element) {
+            console.log(`✅ ${id}: Found`);
+          } else {
+            console.log(`❌ ${id}: Not found`);
+          }
+        });
+      });
+
+      // Test fonksiyonu
+      function testScenarioSelection() {
+        console.log("Test scenario selection called");
+        const scenarioSelection = document.getElementById("scenario-selection");
+        const activeGame = document.getElementById("active-game");
+
+        if (scenarioSelection && activeGame) {
+          scenarioSelection.style.display = "none";
+          activeGame.style.display = "block";
+          console.log("✅ Display changed successfully");
+          return true;
+        } else {
+          console.error("❌ DOM elements not found");
+          return false;
+        }
+      }
+    </script>
+    <script src="/static/enhanced_script.js"></script>
+  </body>
+</html>

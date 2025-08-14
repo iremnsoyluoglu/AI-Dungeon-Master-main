@@ -1,0 +1,80 @@
+{
+  "83735771-6f43-4d32-ad8b-56afb567537e": {
+    "id": "83735771-6f43-4d32-ad8b-56afb567537e",
+    "name": "Test Warrior",
+    "user_id": "test_user",
+    "character_class": "warrior",
+    "character_race": "human",
+    "level": 1,
+    "experience": 0,
+    "health": 120,
+    "max_health": 120,
+    "attack": 85,
+    "defense": 90,
+    "inventory": [
+      "Kılıç",
+      "Kalkan",
+      "Zırh"
+    ],
+    "skills": [
+      "Kalkan Kullanımı",
+      "Zırh Uzmanlığı",
+      "Shield Wall",
+      "Sword Strike"
+    ],
+    "created_at": "2025-08-13T01:02:55.628780",
+    "last_updated": "2025-08-13T01:02:55.628780"
+  },
+  "abdb02f6-1495-4c41-ae09-1a2d9014822a": {
+    "id": "abdb02f6-1495-4c41-ae09-1a2d9014822a",
+    "name": "Test Warrior",
+    "user_id": "test_user",
+    "character_class": "warrior",
+    "character_race": "human",
+    "level": 1,
+    "experience": 0,
+    "health": 120,
+    "max_health": 120,
+    "attack": 85,
+    "defense": 90,
+    "inventory": [
+      "Kılıç",
+      "Kalkan",
+      "Zırh"
+    ],
+    "skills": [
+      "Kalkan Kullanımı",
+      "Zırh Uzmanlığı",
+      "Shield Wall",
+      "Sword Strike"
+    ],
+    "created_at": "2025-08-13T01:07:54.946478",
+    "last_updated": "2025-08-13T01:07:54.946478"
+  },
+  "7094e2a2-5e3f-4089-b926-cdb2a99a94f9": {
+    "id": "7094e2a2-5e3f-4089-b926-cdb2a99a94f9",
+    "name": "Test Warrior",
+    "user_id": "test_user",
+    "character_class": "warrior",
+    "character_race": "human",
+    "level": 1,
+    "experience": 0,
+    "health": 120,
+    "max_health": 120,
+    "attack": 85,
+    "defense": 90,
+    "inventory": [
+      "Kılıç",
+      "Kalkan",
+      "Zırh"
+    ],
+    "skills": [
+      "Kalkan Kullanımı",
+      "Zırh Uzmanlığı",
+      "Shield Wall",
+      "Sword Strike"
+    ],
+    "created_at": "2025-08-13T01:08:17.662039",
+    "last_updated": "2025-08-13T01:08:17.662039"
+  }
+}

@@ -1,0 +1,637 @@
+{
+  "hive_city_defense": {
+    "id": "hive_city_defense",
+    "title": "Hive Şehrinin Savunması",
+    "genre": "warhammer",
+    "description": "Hive şehrini düşman istilasından koruma görevi. İmperium'un son kalesi olarak savaşacaksın.",
+    "difficulty": "hard",
+    "theme": "warhammer",
+    "complexity": "high",
+    "estimatedPlayTime": 90,
+    "faction_specific_content": {
+      "space_marine": {
+        "special_nodes": ["imperial_duty", "chapter_tactics", "honor_choice"],
+        "skill_unlocks": [
+          "Bolter Mastery",
+          "Power Armor",
+          "Tactical Awareness"
+        ],
+        "ending_modifiers": [
+          "imperial_victory",
+          "honor_sacrifice",
+          "chapter_glory"
+        ]
+      },
+      "imperial_guard": {
+        "special_nodes": [
+          "survival_instinct",
+          "comradeship",
+          "regimental_pride"
+        ],
+        "skill_unlocks": [
+          "Lasgun Training",
+          "Trench Warfare",
+          "Commissar Leadership"
+        ],
+        "ending_modifiers": [
+          "survival_ending",
+          "comrade_sacrifice",
+          "regimental_honor"
+        ]
+      },
+      "psyker": {
+        "special_nodes": [
+          "warp_encounter",
+          "psychic_power",
+          "sanctioned_psyker"
+        ],
+        "skill_unlocks": [
+          "Warp Manipulation",
+          "Mind Control",
+          "Psychic Barrier"
+        ],
+        "ending_modifiers": [
+          "psychic_ascension",
+          "warp_corruption",
+          "sanctioned_ending"
+        ]
+      }
+    },
+    "advanced_storytelling": {
+      "contextual_triggers": {
+        "combat_situation": {
+          "betrayal_chance": 0.5,
+          "plot_twist_chance": 0.3,
+          "triggers": ["ally_weakness", "enemy_revelation", "weapon_failure"]
+        },
+        "defense_planning": {
+          "betrayal_chance": 0.4,
+          "plot_twist_chance": 0.6,
+          "triggers": [
+            "tactical_error",
+            "enemy_infiltration",
+            "resource_shortage"
+          ]
+        }
+      },
+      "emotional_arcs": {
+        "imperial_loyalty": {
+          "stages": ["doubt", "duty", "devotion", "sacrifice"],
+          "betrayal_impact": "devastating"
+        },
+        "combat_experience": {
+          "stages": ["recruit", "veteran", "hero", "legend"],
+          "plot_twist_impact": "transformative"
+        }
+      }
+    },
+    "nodes": {
+      "start": {
+        "id": "start",
+        "title": "Hive Şehrinin Tehdidi",
+        "description": "Hive şehrinin üst seviyelerinde alarmlar çalıyor. Kaos kültleri ve xenos tehditleri şehri kuşatıyor. Sen şehrin savunucususun. İmperium'un son kalesi olarak savaşacaksın.",
+        "backgroundImage": "hive_city.jpg",
+        "choices": [
+          {
+            "text": "Üst seviyeleri savun",
+            "next_node": "upper_levels_defense",
+            "diceRoll": { "type": "d20", "target": 14, "skill": "Tactics" },
+            "effect": { "karma": 5, "skill_gain": "Tactics +2" },
+            "consequence": "Üst seviyelerde savaş pozisyonu alıyorsun.",
+            "faction_bonus": {
+              "space_marine": {
+                "dice_bonus": 3,
+                "skill_gain": "Chapter Tactics +1"
+              },
+              "imperial_guard": {
+                "dice_bonus": 2,
+                "skill_gain": "Regimental Tactics +1"
+              }
+            }
+          },
+          {
+            "text": "Alt seviyeleri araştır",
+            "next_node": "lower_levels_investigation",
+            "diceRoll": {
+              "type": "d20",
+              "target": 16,
+              "skill": "Investigation"
+            },
+            "effect": { "karma": 4, "skill_gain": "Investigation +2" },
+            "consequence": "Alt seviyelerde düşman aktivitesi araştırıyorsun.",
+            "faction_bonus": {
+              "psyker": {
+                "dice_bonus": 3,
+                "skill_gain": "Psychic Detection +1"
+              },
+              "rogue": { "dice_bonus": 2, "skill_gain": "Stealth +1" }
+            }
+          },
+          {
+            "text": "Komutanla görüş",
+            "next_node": "commander_meeting",
+            "diceRoll": { "type": "d20", "target": 12, "skill": "Leadership" },
+            "effect": { "karma": 6, "skill_gain": "Leadership +2" },
+            "consequence": "Komutanla strateji görüşmesi yapıyorsun.",
+            "faction_bonus": {
+              "space_marine": {
+                "dice_bonus": 2,
+                "skill_gain": "Imperial Duty +1"
+              },
+              "imperial_guard": {
+                "dice_bonus": 1,
+                "skill_gain": "Military Protocol +1"
+              }
+            }
+          }
+        ],
+        "contextual_events": {
+          "combat_situation": {
+            "betrayal_chance": 0.5,
+            "plot_twist_chance": 0.3,
+            "random_event_chance": 0.4
+          }
+        }
+      },
+      "upper_levels_defense": {
+        "id": "upper_levels_defense",
+        "title": "Üst Seviyeler Savunması",
+        "description": "Üst seviyelerde kaos kültleri ile savaşıyorsun. Şehrin aristokratları tehdit altında. Kaos büyüsü havayı kirletiyor.",
+        "choices": [
+          {
+            "text": "Doğrudan saldırı",
+            "next_node": "direct_assault",
+            "diceRoll": { "type": "d20", "target": 16, "skill": "Combat" },
+            "effect": { "karma": 4, "skill_gain": "Combat +2" },
+            "consequence": "Kaos kültlerine doğrudan saldırıyorsun.",
+            "faction_bonus": {
+              "space_marine": {
+                "dice_bonus": 3,
+                "consequence": "Space Marine gücüyle saldırıyorsun."
+              }
+            }
+          },
+          {
+            "text": "Taktiksel yaklaşım",
+            "next_node": "tactical_approach",
+            "diceRoll": { "type": "d20", "target": 18, "skill": "Tactics" },
+            "effect": { "karma": 6, "skill_gain": "Tactics +3" },
+            "consequence": "Taktiksel olarak pozisyon alıyorsun.",
+            "faction_bonus": {
+              "imperial_guard": {
+                "dice_bonus": 2,
+                "consequence": "Regimental taktikleri kullanıyorsun."
+              }
+            }
+          }
+        ]
+      },
+      "direct_assault": {
+        "id": "direct_assault",
+        "title": "Doğrudan Saldırı",
+        "description": "Kaos kültlerine doğrudan saldırıyorsun. Kaos büyüsü ve ateş çevrede. Düşman güçlü ama sen daha güçlüsün.",
+        "choices": [
+          {
+            "text": "Kaos liderini hedefle",
+            "next_node": "target_chaos_leader",
+            "diceRoll": { "type": "d20", "target": 18, "skill": "Combat" },
+            "effect": { "karma": 5, "skill_gain": "Combat +3" },
+            "consequence": "Kaos liderini hedefliyorsun.",
+            "plot_twist": "Kaos lideri aslında bir Inquisitor!"
+          },
+          {
+            "text": "Kült üyelerini dağıt",
+            "next_node": "disperse_cultists",
+            "diceRoll": {
+              "type": "d20",
+              "target": 14,
+              "skill": "Intimidation"
+            },
+            "effect": { "karma": 4, "skill_gain": "Intimidation +2" },
+            "consequence": "Kült üyelerini dağıtıyorsun."
+          }
+        ]
+      },
+      "target_chaos_leader": {
+        "id": "target_chaos_leader",
+        "title": "Kaos Liderini Hedefleme",
+        "description": "Kaos liderini hedefliyorsun ama bir şey fark ediyorsun. Bu kişi bir Inquisitor! 'Dur! Ben Inquisitor Kain!' diyor.",
+        "choices": [
+          {
+            "text": "Inquisitor'u dinle",
+            "next_node": "listen_inquisitor",
+            "diceRoll": { "type": "d20", "target": 16, "skill": "Persuasion" },
+            "effect": { "karma": 6, "skill_gain": "Persuasion +2" },
+            "consequence": "Inquisitor'u dinliyorsun.",
+            "ending_path": "inquisitor_alliance"
+          },
+          {
+            "text": "Şüpheli bul ve saldır",
+            "next_node": "attack_inquisitor",
+            "diceRoll": { "type": "d20", "target": 18, "skill": "Combat" },
+            "effect": { "karma": 3, "skill_gain": "Combat +3" },
+            "consequence": "Inquisitor'a saldırıyorsun.",
+            "ending_path": "tragic_mistake"
+          }
+        ]
+      },
+      "listen_inquisitor": {
+        "id": "listen_inquisitor",
+        "title": "Inquisitor'u Dinleme",
+        "description": "Inquisitor Kain sana gerçeği anlatıyor: 'Kaos kültleri şehrin içinde. Gerçek düşman yukarıda değil, aşağıda.'",
+        "choices": [
+          {
+            "text": "Inquisitor ile işbirliği yap",
+            "next_node": "cooperate_inquisitor",
+            "diceRoll": { "type": "d20", "target": 16, "skill": "Diplomacy" },
+            "effect": { "karma": 7, "skill_gain": "Diplomacy +3" },
+            "consequence": "Inquisitor ile işbirliği yapıyorsun.",
+            "ending_path": "inquisitor_victory"
+          },
+          {
+            "text": "Kendi planını uygula",
+            "next_node": "own_plan",
+            "diceRoll": { "type": "d20", "target": 14, "skill": "Tactics" },
+            "effect": { "karma": 4, "skill_gain": "Tactics +2" },
+            "consequence": "Kendi planını uyguluyorsun."
+          }
+        ]
+      },
+      "cooperate_inquisitor": {
+        "id": "cooperate_inquisitor",
+        "title": "Inquisitor İşbirliği",
+        "description": "Inquisitor ile birlikte alt seviyelere iniyorsun. Gerçek kaos kültü burada gizlenmiş.",
+        "choices": [
+          {
+            "text": "Kült liderini bul",
+            "next_node": "find_cult_leader",
+            "diceRoll": {
+              "type": "d20",
+              "target": 18,
+              "skill": "Investigation"
+            },
+            "effect": { "karma": 6, "skill_gain": "Investigation +3" },
+            "consequence": "Kült liderini buluyorsun.",
+            "ending_path": "cult_victory"
+          },
+          {
+            "text": "Kült üyelerini yakala",
+            "next_node": "capture_cultists",
+            "diceRoll": { "type": "d20", "target": 16, "skill": "Combat" },
+            "effect": { "karma": 5, "skill_gain": "Combat +2" },
+            "consequence": "Kült üyelerini yakalıyorsun."
+          }
+        ]
+      },
+      "find_cult_leader": {
+        "id": "find_cult_leader",
+        "title": "Kült Liderini Bulma",
+        "description": "Kült liderini buldun! Şehrin valisi kaos kültünün lideriymiş. 'İmperium zayıf! Kaos güçlü!' diyor.",
+        "choices": [
+          {
+            "text": "Valiyi tutukla",
+            "next_node": "arrest_governor",
+            "diceRoll": { "type": "d20", "target": 18, "skill": "Combat" },
+            "effect": { "karma": 6, "skill_gain": "Combat +3" },
+            "consequence": "Valiyi tutukluyorsun.",
+            "ending_path": "imperial_victory"
+          },
+          {
+            "text": "Valiyi öldür",
+            "next_node": "kill_governor",
+            "diceRoll": { "type": "d20", "target": 20, "skill": "Combat" },
+            "effect": { "karma": 4, "skill_gain": "Combat +4" },
+            "consequence": "Valiyi öldürüyorsun.",
+            "ending_path": "brutal_victory"
+          }
+        ]
+      }
+    },
+    "endings": {
+      "imperial_victory": {
+        "title": "İmperium Zaferi",
+        "description": "Kaos kültünü yendin ve şehri kurtardın! İmperium seni kahraman olarak görüyor.",
+        "rewards": [
+          "Imperial Hero title",
+          "Defense Mastery skill",
+          "Chapter Honor"
+        ],
+        "faction_specific": {
+          "space_marine": "Chapter Glory bonus",
+          "imperial_guard": "Regimental Honor bonus",
+          "psyker": "Sanctioned Success bonus"
+        }
+      },
+      "inquisitor_victory": {
+        "title": "Inquisitor Zaferi",
+        "description": "Inquisitor ile birlikte gerçek düşmanı yendin. İmperium'un güvenliği sağlandı.",
+        "rewards": [
+          "Inquisitor Ally title",
+          "Investigation Master skill",
+          "Imperial Trust"
+        ],
+        "faction_specific": {
+          "space_marine": "Imperial Duty bonus",
+          "psyker": "Psychic Ascension bonus"
+        }
+      },
+      "tragic_mistake": {
+        "title": "Trajik Hata",
+        "description": "Inquisitor'u öldürdün ama gerçek düşmanı kaçırdın. İmperium seni arıyor.",
+        "rewards": [
+          "Wanted Criminal title",
+          "Combat Mastery skill",
+          "Bitter Regret"
+        ],
+        "faction_specific": {
+          "space_marine": "Chapter Shame penalty",
+          "imperial_guard": "Military Court penalty"
+        }
+      },
+      "brutal_victory": {
+        "title": "Vahşi Zafer",
+        "description": "Valiyi öldürdün ve kültü yendin. Zafer kazandın ama bedeli ağır oldu.",
+        "rewards": [
+          "Brutal Hero title",
+          "Combat Mastery skill",
+          "Bloody Victory"
+        ],
+        "faction_specific": {
+          "space_marine": "Chapter Respect bonus",
+          "imperial_guard": "Regimental Fear bonus"
+        }
+      }
+    }
+  },
+  "ork_invasion_final_defense": {
+    "id": "ork_invasion_final_defense",
+    "title": "Ork İstilası: Son Savunma",
+    "genre": "warhammer",
+    "description": "Ork istilasına karşı son savunma. Warlord ile karşı karşıya geleceksin.",
+    "difficulty": "hard",
+    "theme": "warhammer",
+    "complexity": "high",
+    "estimatedPlayTime": 85,
+    "faction_specific_content": {
+      "space_marine": {
+        "special_nodes": ["imperial_duty", "chapter_tactics", "honor_choice"],
+        "skill_unlocks": [
+          "Bolter Mastery",
+          "Power Armor",
+          "Tactical Awareness"
+        ],
+        "ending_modifiers": [
+          "imperial_victory",
+          "honor_sacrifice",
+          "chapter_glory"
+        ]
+      },
+      "imperial_guard": {
+        "special_nodes": [
+          "survival_instinct",
+          "comradeship",
+          "regimental_pride"
+        ],
+        "skill_unlocks": [
+          "Lasgun Training",
+          "Trench Warfare",
+          "Commissar Leadership"
+        ],
+        "ending_modifiers": [
+          "survival_ending",
+          "comrade_sacrifice",
+          "regimental_honor"
+        ]
+      },
+      "ork": {
+        "special_nodes": ["ork_brutality", "waaagh_spirit", "tribal_strength"],
+        "skill_unlocks": ["Ork Brutality", "Waaagh Spirit", "Tribal Strength"],
+        "ending_modifiers": ["ork_dominance", "brutal_victory", "tribal_glory"]
+      }
+    },
+    "advanced_storytelling": {
+      "contextual_triggers": {
+        "ork_encounter": {
+          "betrayal_chance": 0.3,
+          "plot_twist_chance": 0.4,
+          "triggers": ["ork_trickery", "unexpected_alliance", "waaagh_energy"]
+        },
+        "defense_battle": {
+          "betrayal_chance": 0.4,
+          "plot_twist_chance": 0.5,
+          "triggers": [
+            "ally_betrayal",
+            "weapon_malfunction",
+            "reinforcement_arrival"
+          ]
+        }
+      },
+      "emotional_arcs": {
+        "battle_rage": {
+          "stages": ["calm", "excited", "furious", "berserk"],
+          "betrayal_impact": "devastating"
+        },
+        "survival_instinct": {
+          "stages": ["confident", "cautious", "desperate", "determined"],
+          "plot_twist_impact": "transformative"
+        }
+      }
+    },
+    "nodes": {
+      "start": {
+        "id": "start",
+        "title": "Ork İstilası Başlıyor",
+        "description": "Ork istilası başlıyor! Yeşil dalga şehre yaklaşıyor. Warlord'un gürültüsü uzaktan duyuluyor. Son savunma hattındasın.",
+        "backgroundImage": "ork_invasion.jpg",
+        "choices": [
+          {
+            "text": "Sınır savunması kur",
+            "next_node": "border_defense",
+            "diceRoll": { "type": "d20", "target": 14, "skill": "Tactics" },
+            "effect": { "karma": 4, "skill_gain": "Tactics +2" },
+            "consequence": "Sınırda savunma hattı kuruyorsun.",
+            "faction_bonus": {
+              "imperial_guard": {
+                "dice_bonus": 3,
+                "skill_gain": "Trench Warfare +1"
+              },
+              "space_marine": {
+                "dice_bonus": 2,
+                "skill_gain": "Chapter Tactics +1"
+              }
+            }
+          },
+          {
+            "text": "Ork liderini avla",
+            "next_node": "hunt_warlord",
+            "diceRoll": { "type": "d20", "target": 16, "skill": "Tracking" },
+            "effect": { "karma": 5, "skill_gain": "Tracking +2" },
+            "consequence": "Warlord'u avlamaya çıkıyorsun.",
+            "faction_bonus": {
+              "space_marine": {
+                "dice_bonus": 3,
+                "skill_gain": "Honor Duty +1"
+              },
+              "ork": { "dice_bonus": 2, "skill_gain": "Ork Instinct +1" }
+            }
+          },
+          {
+            "text": "Sivilleri tahliye et",
+            "next_node": "evacuate_civilians",
+            "diceRoll": { "type": "d20", "target": 12, "skill": "Leadership" },
+            "effect": { "karma": 6, "skill_gain": "Leadership +2" },
+            "consequence": "Sivilleri güvenli bölgeye taşıyorsun.",
+            "faction_bonus": {
+              "imperial_guard": {
+                "dice_bonus": 2,
+                "skill_gain": "Civilian Protection +1"
+              },
+              "human": { "dice_bonus": 1, "skill_gain": "Empathy +1" }
+            }
+          }
+        ],
+        "contextual_events": {
+          "ork_encounter": {
+            "betrayal_chance": 0.3,
+            "plot_twist_chance": 0.4,
+            "random_event_chance": 0.5
+          }
+        }
+      },
+      "hunt_warlord": {
+        "id": "hunt_warlord",
+        "title": "Warlord Avı",
+        "description": "Warlord'u avlamaya çıkıyorsun. Ork izleri her yerde. Waaagh enerjisi havayı dolduruyor.",
+        "choices": [
+          {
+            "text": "Warlord'un kampına sız",
+            "next_node": "infiltrate_camp",
+            "diceRoll": { "type": "d20", "target": 16, "skill": "Stealth" },
+            "effect": { "karma": 5, "skill_gain": "Stealth +2" },
+            "consequence": "Warlord'un kampına sızıyorsun.",
+            "plot_twist": "Warlord aslında bir Space Marine!"
+          },
+          {
+            "text": "Açık savaş başlat",
+            "next_node": "open_battle",
+            "diceRoll": { "type": "d20", "target": 18, "skill": "Combat" },
+            "effect": { "karma": 4, "skill_gain": "Combat +3" },
+            "consequence": "Açık savaş başlatıyorsun."
+          }
+        ]
+      },
+      "infiltrate_camp": {
+        "id": "infiltrate_camp",
+        "title": "Kampa Sızma",
+        "description": "Warlord'un kampına sızdın. Ama bir şey fark ediyorsun - bu Warlord bir Space Marine! 'Ben Chapter Master Kain!' diyor.",
+        "choices": [
+          {
+            "text": "Chapter Master'ı dinle",
+            "next_node": "listen_chapter_master",
+            "diceRoll": { "type": "d20", "target": 16, "skill": "Persuasion" },
+            "effect": { "karma": 6, "skill_gain": "Persuasion +2" },
+            "consequence": "Chapter Master'ı dinliyorsun.",
+            "ending_path": "chapter_alliance"
+          },
+          {
+            "text": "Hala şüpheli bul",
+            "next_node": "still_suspicious",
+            "diceRoll": {
+              "type": "d20",
+              "target": 14,
+              "skill": "Investigation"
+            },
+            "effect": { "karma": 3, "skill_gain": "Investigation +2" },
+            "consequence": "Hala şüpheli buluyorsun."
+          }
+        ]
+      },
+      "listen_chapter_master": {
+        "id": "listen_chapter_master",
+        "title": "Chapter Master'ı Dinleme",
+        "description": "Chapter Master Kain sana gerçeği anlatıyor: 'Gerçek ork Warlord şehrin içinde. Ben onu takip ediyorum.'",
+        "choices": [
+          {
+            "text": "Chapter Master ile işbirliği yap",
+            "next_node": "cooperate_chapter_master",
+            "diceRoll": { "type": "d20", "target": 16, "skill": "Diplomacy" },
+            "effect": { "karma": 7, "skill_gain": "Diplomacy +3" },
+            "consequence": "Chapter Master ile işbirliği yapıyorsun.",
+            "ending_path": "chapter_victory"
+          },
+          {
+            "text": "Kendi yolunu seç",
+            "next_node": "choose_own_path",
+            "diceRoll": { "type": "d20", "target": 14, "skill": "Tactics" },
+            "effect": { "karma": 4, "skill_gain": "Tactics +2" },
+            "consequence": "Kendi yolunu seçiyorsun."
+          }
+        ]
+      },
+      "cooperate_chapter_master": {
+        "id": "cooperate_chapter_master",
+        "title": "Chapter Master İşbirliği",
+        "description": "Chapter Master ile birlikte gerçek Warlord'u arıyorsun. Şehrin derinliklerinde gizlenmiş.",
+        "choices": [
+          {
+            "text": "Warlord'u bul ve savaş",
+            "next_node": "find_and_fight_warlord",
+            "diceRoll": { "type": "d20", "target": 18, "skill": "Combat" },
+            "effect": { "karma": 6, "skill_gain": "Combat +3" },
+            "consequence": "Warlord'u bulup savaşıyorsun.",
+            "ending_path": "warlord_victory"
+          },
+          {
+            "text": "Warlord'u tuzağa düşür",
+            "next_node": "trap_warlord",
+            "diceRoll": { "type": "d20", "target": 16, "skill": "Tactics" },
+            "effect": { "karma": 5, "skill_gain": "Tactics +3" },
+            "consequence": "Warlord'u tuzağa düşürüyorsun."
+          }
+        ]
+      }
+    },
+    "endings": {
+      "chapter_victory": {
+        "title": "Chapter Zaferi",
+        "description": "Chapter Master ile birlikte gerçek Warlord'u yendin. İmperium'un güvenliği sağlandı.",
+        "rewards": [
+          "Chapter Ally title",
+          "Tactical Mastery skill",
+          "Chapter Honor"
+        ],
+        "faction_specific": {
+          "space_marine": "Chapter Glory bonus",
+          "imperial_guard": "Regimental Honor bonus"
+        }
+      },
+      "warlord_victory": {
+        "title": "Warlord Zaferi",
+        "description": "Warlord'u yendin ve ork istilasını durdurdun. Şehir kurtuldu.",
+        "rewards": [
+          "Warlord Slayer title",
+          "Combat Mastery skill",
+          "Imperial Hero"
+        ],
+        "faction_specific": {
+          "space_marine": "Chapter Respect bonus",
+          "imperial_guard": "Regimental Glory bonus",
+          "ork": "Ork Dominance bonus"
+        }
+      },
+      "chapter_alliance": {
+        "title": "Chapter İttifakı",
+        "description": "Chapter Master ile ittifak kurdun. Birlikte daha güçlüsünüz.",
+        "rewards": [
+          "Chapter Brother title",
+          "Alliance Mastery skill",
+          "Chapter Trust"
+        ],
+        "faction_specific": {
+          "space_marine": "Chapter Brotherhood bonus",
+          "imperial_guard": "Military Alliance bonus"
+        }
+      }
+    }
+  }
+}

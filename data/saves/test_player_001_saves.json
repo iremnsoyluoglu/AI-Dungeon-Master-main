@@ -1,0 +1,26 @@
+[
+  {
+    "id": "save_1754387099",
+    "name": "Test Oyunu",
+    "playerId": "test_player_001",
+    "timestamp": "2025-08-05T12:44:59.730127",
+    "gameData": {
+      "currentScene": 1,
+      "playerHP": 100,
+      "inventory": [
+        "Kılıç",
+        "Zırh",
+        "İksir"
+      ],
+      "progress": {
+        "completedScenes": [
+          0
+        ],
+        "choices": [
+          "explore"
+        ],
+        "karma": 10
+      }
+    }
+  }
+]

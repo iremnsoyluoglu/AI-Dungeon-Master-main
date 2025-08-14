@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Dungeon Master - Multiplayer</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #000;
+        color: white;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .multiplayer-container {
+        display: grid;
+        grid-template-columns: 300px 1fr 300px;
+        height: 100vh;
+        gap: 2px;
+        background: #000;
+      }
+
+      .left-panel {
+        background: linear-gradient(180deg, #1a237e 0%, #283593 100%);
+        padding: 15px;
+        overflow-y: auto;
+        border: 1px solid #ffd700;
+      }
+
+      .center-panel {
+        background: linear-gradient(180deg, #1b5e20 0%, #2e7d32 100%);
+        padding: 15px;
+        overflow-y: auto;
+        border: 1px solid #ffd700;
+      }
+
+      .right-panel {
+        background: linear-gradient(180deg, #4a148c 0%, #6a1b9a 100%);
+        padding: 15px;
+        overflow-y: auto;
+        border: 1px solid #ffd700;
+      }
+
+      .panel-title {
+        color: #ffd700;
+        font-size: 18px;
+        margin-bottom: 15px;
+        text-align: center;
+        border-bottom: 2px solid #ffd700;
+        padding-bottom: 10px;
+      }
+
+      .room-info {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid #ffd700;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 20px;
+      }
+
+      .room-code {
+        font-size: 24px;
+        font-weight: bold;
+        color: #ffd700;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .player-list {
+        margin-top: 20px;
+      }
+
+      .player-item {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 215, 0, 0.3);
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .player-name {
+        color: #fff;
+        font-weight: bold;
+      }
+
+      .player-status {
+        color: #4caf50;
+        font-size: 12px;
+      }
+
+      .game-content {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid #ffd700;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .scenario-title {
+        color: #ffd700;
+        font-size: 24px;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .scenario-description {
+        color: #ccc;
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .choices-grid {
+        display: grid;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .choice-btn {
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 215, 0, 0.3);
+        border-radius: 8px;
+        padding: 15px;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .choice-btn:hover {
+        background: rgba(255, 215, 0, 0.2);
+        border-color: #ffd700;
+        transform: translateY(-2px);
+      }
+
+      .choice-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .chat-section {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid #ffd700;
+        border-radius: 8px;
+        padding: 15px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .chat-messages {
+        flex: 1;
+        overflow-y: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+
+      .chat-message {
+        margin-bottom: 8px;
+        padding: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+      }
+
+      .chat-input {
+        display: flex;
+        gap: 10px;
+      }
+
+      .chat-input input {
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #ffd700;
+        border-radius: 5px;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+      }
+
+      .chat-input button {
+        padding: 8px 15px;
+        background: #ffd700;
+        color: #000;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .status-message {
+        background: rgba(76, 175, 80, 0.3);
+        color: #4caf50;
+        border: 1px solid rgba(76, 175, 80, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .status-message.error {
+        background: rgba(244, 67, 54, 0.3);
+        color: #f44336;
+        border-color: rgba(244, 67, 54, 0.5);
+      }
+
+      .game-controls {
+        margin-top: 20px;
+      }
+
+      .control-btn {
+        background: #ffd700;
+        color: #000;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+
+      .control-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="multiplayer-container">
+      <!-- Left Panel - Room Info & Players -->
+      <div class="left-panel">
+        <h2 class="panel-title">🎮 Oda Bilgileri</h2>
+
+        <div class="room-info">
+          <div class="room-code" id="roomCode">ROOM_ABC123</div>
+          <div style="text-align: center; color: #ccc; margin-bottom: 15px">
+            Bu kodu diğer oyuncularla paylaşın
+          </div>
+          <div style="color: #4caf50; text-align: center">
+            Oyuncular: <span id="playerCount">1</span>/4
+          </div>
+        </div>
+
+        <div class="player-list">
+          <h3 style="color: #ffd700; margin-bottom: 10px">👥 Oyuncular</h3>
+          <div id="playersList">
+            <!-- Players will be populated here -->
+          </div>
+        </div>
+
+        <div class="game-controls">
+          <button
+            class="control-btn"
+            id="startGameBtn"
+            onclick="startMultiplayerGame()"
+          >
+            🚀 Oyunu Başlat
+          </button>
+          <button class="control-btn" onclick="leaveRoom()">
+            🚪 Odadan Çık
+          </button>
+        </div>
+      </div>
+
+      <!-- Center Panel - Game Content -->
+      <div class="center-panel">
+        <h2 class="panel-title">📖 Hikaye</h2>
+
+        <div
+          id="statusMessage"
+          class="status-message"
+          style="display: none"
+        ></div>
+
+        <div class="game-content" id="gameContent">
+          <div class="scenario-title" id="scenarioTitle">Oda bekleniyor...</div>
+          <div class="scenario-description" id="scenarioDescription">
+            Diğer oyuncuların katılmasını bekleyin.
+          </div>
+          <div class="choices-grid" id="choicesGrid">
+            <!-- Choices will be populated here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel - Chat -->
+      <div class="right-panel">
+        <h2 class="panel-title">💬 Sohbet</h2>
+
+        <div class="chat-section">
+          <div class="chat-messages" id="chatMessages">
+            <!-- Chat messages will appear here -->
+          </div>
+          <div class="chat-input">
+            <input
+              type="text"
+              id="chatInput"
+              placeholder="Mesajınızı yazın..."
+              maxlength="100"
+            />
+            <button onclick="sendChatMessage()">Gönder</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script>
+      // Global variables
+      let socket;
+      let roomId;
+      let playerName;
+      let playerId;
+      let isCreator = false;
+      let gameStarted = false;
+
+      // Initialize multiplayer
+      function initializeMultiplayer() {
+        // Get room info from URL or localStorage
+        const urlParams = new URLSearchParams(window.location.search);
+        roomId =
+          urlParams.get("room") || localStorage.getItem("multiplayer_room_id");
+        isCreator = localStorage.getItem("multiplayer_creator") === "true";
+
+        if (!roomId) {
+          showStatus("Oda bilgisi bulunamadı!", "error");
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 2000);
+          return;
+        }
+
+        // Generate player info
+        playerName = "Oyuncu_" + Math.floor(Math.random() * 1000);
+        playerId = "player_" + Math.random().toString(36).substr(2, 9);
+
+        // Update UI
+        document.getElementById("roomCode").textContent = roomId;
+
+        // Connect to WebSocket
+        connectToRoom();
+      }
+
+      // Connect to WebSocket room
+      function connectToRoom() {
+        socket = io();
+
+        socket.on("connect", () => {
+          console.log("Connected to server");
+          joinRoom();
+        });
+
+        socket.on("room_joined", (data) => {
+          console.log("Joined room:", data);
+          showStatus("Odaya katıldınız!", "success");
+          updatePlayerList(data.players || []);
+        });
+
+        socket.on("player_joined", (data) => {
+          console.log("Player joined:", data);
+          showStatus(`${data.player_name} oyuna katıldı!`, "success");
+          updatePlayerList(data.players || []);
+        });
+
+        socket.on("player_left", (data) => {
+          console.log("Player left:", data);
+          showStatus(`${data.player_name} oyundan ayrıldı`, "error");
+          updatePlayerList(data.players || []);
+        });
+
+        socket.on("game_started", (data) => {
+          console.log("Game started:", data);
+          gameStarted = true;
+          showStatus("Oyun başladı!", "success");
+          updateGameContent(data.scenario);
+        });
+
+        socket.on("story_update", (data) => {
+          console.log("Story updated:", data);
+          updateGameContent(data.scenario);
+        });
+
+        socket.on("chat_message", (data) => {
+          addChatMessage(data.player_name, data.message);
+        });
+
+        socket.on("disconnect", () => {
+          showStatus("Sunucu bağlantısı kesildi!", "error");
+        });
+      }
+
+      // Join the room
+      function joinRoom() {
+        socket.emit("join_room", {
+          room_id: roomId,
+          player_id: playerId,
+          player_name: playerName,
+        });
+      }
+
+      // Update player list
+      function updatePlayerList(players) {
+        const playersList = document.getElementById("playersList");
+        const playerCount = document.getElementById("playerCount");
+
+        playersList.innerHTML = "";
+        playerCount.textContent = players.length;
+
+        players.forEach((player) => {
+          const playerItem = document.createElement("div");
+          playerItem.className = "player-item";
+          playerItem.innerHTML = `
+                    <span class="player-name">${player.name}</span>
+                    <span class="player-status">${player.status}</span>
+                `;
+          playersList.appendChild(playerItem);
+        });
+      }
+
+      // Update game content
+      function updateGameContent(scenario) {
+        if (!scenario) return;
+
+        const titleElement = document.getElementById("scenarioTitle");
+        const descElement = document.getElementById("scenarioDescription");
+        const choicesGrid = document.getElementById("choicesGrid");
+
+        if (titleElement) titleElement.textContent = scenario.title || "Hikaye";
+        if (descElement) descElement.textContent = scenario.description || "";
+
+        // Update choices
+        choicesGrid.innerHTML = "";
+        if (scenario.choices && scenario.choices.length > 0) {
+          scenario.choices.forEach((choice) => {
+            const choiceBtn = document.createElement("div");
+            choiceBtn.className = "choice-btn";
+            choiceBtn.textContent = choice.text;
+            choiceBtn.onclick = () => makeChoice(choice.id);
+            choicesGrid.appendChild(choiceBtn);
+          });
+        }
+      }
+
+      // Make a choice
+      function makeChoice(choiceId) {
+        if (!gameStarted) return;
+
+        socket.emit("make_choice", {
+          room_id: roomId,
+          player_id: playerId,
+          choice_id: choiceId,
+        });
+      }
+
+      // Start multiplayer game
+      function startMultiplayerGame() {
+        if (!isCreator) {
+          showStatus("Sadece oda sahibi oyunu başlatabilir!", "error");
+          return;
+        }
+
+        socket.emit("start_game", {
+          room_id: roomId,
+        });
+      }
+
+      // Send chat message
+      function sendChatMessage() {
+        const input = document.getElementById("chatInput");
+        const message = input.value.trim();
+
+        if (message) {
+          socket.emit("chat_message", {
+            room_id: roomId,
+            player_id: playerId,
+            player_name: playerName,
+            message: message,
+          });
+          input.value = "";
+        }
+      }
+
+      // Add chat message
+      function addChatMessage(playerName, message) {
+        const chatMessages = document.getElementById("chatMessages");
+        const messageDiv = document.createElement("div");
+        messageDiv.className = "chat-message";
+        messageDiv.innerHTML = `<strong>${playerName}:</strong> ${message}`;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      // Leave room
+      function leaveRoom() {
+        if (socket) {
+          socket.emit("leave_room", {
+            room_id: roomId,
+            player_id: playerId,
+          });
+        }
+        window.location.href = "/";
+      }
+
+      // Show status message
+      function showStatus(message, type = "success") {
+        const statusElement = document.getElementById("statusMessage");
+        statusElement.textContent = message;
+        statusElement.className = `status-message ${type}`;
+        statusElement.style.display = "block";
+
+        setTimeout(() => {
+          statusElement.style.display = "none";
+        }, 5000);
+      }
+
+      // Handle Enter key in chat
+      document
+        .getElementById("chatInput")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            sendChatMessage();
+          }
+        });
+
+      // Initialize when page loads
+      window.addEventListener("load", initializeMultiplayer);
+    </script>
+  </body>
+</html>

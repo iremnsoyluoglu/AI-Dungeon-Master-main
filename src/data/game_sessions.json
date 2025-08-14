@@ -1,0 +1,23 @@
+{
+  "session_20250729_002431_4046": {
+    "session_id": "session_20250729_002431_4046",
+    "scenario_id": "pyraxis_legend",
+    "players": [
+      {
+        "character_name": "Aragorn",
+        "character_class": "warrior",
+        "hp": 100,
+        "level": 1
+      }
+    ],
+    "start_time": "2025-07-29T00:24:31.180946",
+    "status": "active",
+    "narrative_history": [
+      {
+        "timestamp": "2025-07-29T00:24:31.180946",
+        "narrative": "🔥 🔥 Pyraxis Efsanesi - Epik Macera Başlıyor!\n\nKuzey Dağları'nın karla kaplı zirvelerinden gelen duman, krallığın son günlerini işaret ediyor. \nKızıl Alevin Efendisi Pyraxis, yüzyıllar sonra uyanmış ve krallığı tehdit ediyor.\n\nGökyüzü kızıl alevlerle yanıyor, dağlar titriyor. Krallık korku içinde, \nama bir umut var: Sen ve senin gibi seçilmiş birkaç kahraman...\n\nBu, Ejderha Avcısı olma yolculuğunun başlangıcı. Pyraxis ile yüzleşmek için hazır mısın?\n\nAragorn (warrior), bu tehlikeli yolculuğa tek başına çıkmış.\n\nKuzey Dağları önündesiniz. Bu yerin sırları sizi bekliyor ve her adımınızda yeni tehlikelerle karşılaşabilirsiniz.",
+        "type": "opening"
+      }
+    ]
+  }
+}

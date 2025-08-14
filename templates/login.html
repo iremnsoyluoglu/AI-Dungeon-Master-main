@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Dungeon Master</title>
+    <style>
+        :root {
+            --primary-bg: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+            --card-bg: rgba(26, 26, 26, 0.8);
+            --glass-bg: rgba(26, 26, 26, 0.6);
+            --accent-gold: #FFD700;
+            --accent-gold-glow: rgba(255, 215, 0, 0.3);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.8);
+            --text-muted: rgba(255, 255, 255, 0.6);
+            --border-radius: 12px;
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-glow: 0 0 20px var(--accent-gold-glow);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--primary-bg);
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Atmospheric background effects */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 255, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .login-container {
+            position: relative;
+            z-index: 10;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius);
+            border: 2px solid var(--accent-gold);
+            box-shadow: var(--shadow-soft), var(--shadow-glow);
+            padding: 40px;
+            width: 420px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .login-container:hover {
+            box-shadow: var(--shadow-soft), 0 0 30px var(--accent-gold-glow);
+            transform: translateY(-2px);
+        }
+
+        .game-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: var(--accent-gold);
+            text-shadow: 0 0 20px var(--accent-gold-glow);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .game-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px var(--accent-gold-glow);
+        }
+
+        .game-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        .tab-container {
+            display: flex;
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .tab {
+            flex: 1;
+            padding: 12px 16px;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .tab:hover::before {
+            left: 100%;
+        }
+
+        .tab.active {
+            background: var(--accent-gold);
+            color: #000;
+            box-shadow: 0 0 15px var(--accent-gold-glow);
+        }
+
+        .tab:hover:not(.active) {
+            color: var(--accent-gold);
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            text-align: left;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.4);
+            color: var(--text-primary);
+            font-size: 16px;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 20px var(--accent-gold-glow);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .form-group input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 18px;
+            transition: var(--transition);
+            padding: 4px;
+            border-radius: 4px;
+        }
+
+        .password-toggle:hover {
+            color: var(--accent-gold);
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--accent-gold);
+            border: none;
+            border-radius: 8px;
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: var(--transition);
+        }
+
+        .login-btn:hover::before {
+            left: 100%;
+        }
+
+        .login-btn:hover {
+            background: #FFC107;
+            box-shadow: 0 0 25px var(--accent-gold-glow);
+            transform: translateY(-2px);
+        }
+
+        .multiplayer-btn {
+            width: 100%;
+            padding: 14px;
+            background: transparent;
+            border: 2px solid var(--accent-gold);
+            border-radius: 8px;
+            color: var(--accent-gold);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .multiplayer-btn:hover {
+            background: var(--accent-gold);
+            color: #000;
+            box-shadow: 0 0 20px var(--accent-gold-glow);
+            transform: translateY(-2px);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .guest-form {
+            text-align: center;
+        }
+
+        .guest-message {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .status {
+            padding: 12px 16px;
+            margin: 16px 0;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+            backdrop-filter: blur(10px);
+            border: 1px solid;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .status.success {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+            border-color: rgba(76, 175, 80, 0.5);
+            box-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .status.error {
+            background: rgba(244, 67, 54, 0.2);
+            color: #f44336;
+            border-color: rgba(244, 67, 54, 0.5);
+            box-shadow: 0 0 15px rgba(244, 67, 54, 0.3);
+        }
+
+        .loading {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--accent-gold);
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .login-container {
+                width: 90%;
+                padding: 30px 20px;
+            }
+
+            .game-title {
+                font-size: 28px;
+            }
+
+            .tab {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+        }
+
+        /* Particle effects for atmosphere */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float-particle 6s infinite linear;
+        }
+
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle effects -->
+    <div class="particles" id="particles"></div>
+
+    <div class="login-container">
+        <div class="game-icon">🎮</div>
+        <h1 class="game-title">AI DUNGEON<br>MASTER</h1>
+        <p class="game-subtitle">Fantastik Dünyalara Açılan Kapı</p>
+        
+        <div class="tab-container">
+            <button class="tab active" onclick="switchTab('login')">GİRİŞ</button>
+            <button class="tab" onclick="switchTab('register')">KAYIT</button>
+            <button class="tab" onclick="switchTab('guest')">MİSAFİR</button>
+            <button class="tab" onclick="switchTab('multiplayer')">MULTIPLAYER</button>
+        </div>
+
+        <!-- Status Messages -->
+        <div id="status" class="status"></div>
+
+        <!-- Login Tab -->
+        <div id="login" class="tab-content active">
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Kullanıcı Adı</label>
+                    <input type="text" id="loginUsername" placeholder="Kullanıcı adınızı girin" required>
+                </div>
+                <div class="form-group">
+                    <label>Şifre</label>
+                    <div class="password-container">
+                        <input type="password" id="loginPassword" placeholder="Şifrenizi girin" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">👁️</button>
+                    </div>
+                </div>
+                <button type="submit" class="login-btn" id="loginBtn">
+                    <span class="loading" style="display: none"></span>
+                    GİRİŞ YAP
+                </button>
+            </form>
+        </div>
+
+        <!-- Register Tab -->
+        <div id="register" class="tab-content">
+            <form id="registerForm">
+                <div class="form-group">
+                    <label>Kullanıcı Adı</label>
+                    <input type="text" id="registerUsername" placeholder="Kullanıcı adınızı girin" required>
+                </div>
+                <div class="form-group">
+                    <label>E-posta</label>
+                    <input type="email" id="registerEmail" placeholder="E-posta adresinizi girin" required>
+                </div>
+                <div class="form-group">
+                    <label>Şifre</label>
+                    <div class="password-container">
+                        <input type="password" id="registerPassword" placeholder="Şifrenizi girin" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('registerPassword')">👁️</button>
+                    </div>
+                </div>
+                <button type="submit" class="login-btn" id="registerBtn">
+                    <span class="loading" style="display: none"></span>
+                    KAYIT OL
+                </button>
+            </form>
+        </div>
+
+        <!-- Guest Tab -->
+        <div id="guest" class="tab-content">
+            <div class="guest-form">
+                <p class="guest-message">Misafir olarak hızlıca oyuna başlayın!</p>
+                <button type="button" class="login-btn" id="guestBtn" onclick="guestLogin()">
+                    <span class="loading" style="display: none"></span>
+                    MİSAFİR OLARAK BAŞLA
+                </button>
+            </div>
+        </div>
+
+        <!-- Multiplayer Tab -->
+        <div id="multiplayer" class="tab-content">
+            <form id="multiplayerForm">
+                <div class="form-group">
+                    <label>Oda Kodu</label>
+                    <input type="text" id="roomCode" placeholder="Oda kodunu girin">
+                </div>
+                <button type="submit" class="login-btn" id="joinRoomBtn">
+                    <span class="loading" style="display: none"></span>
+                    ODAYA KATIL
+                </button>
+                <button type="button" class="multiplayer-btn" id="createRoomBtn" onclick="createRoom()">
+                    <span class="loading" style="display: none"></span>
+                    YENİ ODA OLUŞTUR
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Particle system
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 20;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles
+        createParticles();
+
+        function switchTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        function togglePassword(inputId) {
+            const passwordInput = document.getElementById(inputId);
+            const toggleBtn = passwordInput.nextElementSibling;
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleBtn.textContent = '🙈';
+            } else {
+                passwordInput.type = 'password';
+                toggleBtn.textContent = '👁️';
+            }
+        }
+
+        function showStatus(message, type = 'success') {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = `status ${type}`;
+            status.style.display = 'block';
+
+            setTimeout(() => {
+                status.style.display = 'none';
+            }, 5000);
+        }
+
+        function showLoading(buttonId) {
+            const button = document.getElementById(buttonId);
+            const loading = button.querySelector('.loading');
+            const text = button.textContent
+                .replace('GİRİŞ YAP', '')
+                .replace('KAYIT OL', '')
+                .replace('MİSAFİR OLARAK BAŞLA', '')
+                .replace('ODAYA KATIL', '')
+                .replace('YENİ ODA OLUŞTUR', '');
+            button.textContent = '';
+            button.appendChild(loading);
+            loading.style.display = 'inline-block';
+            button.appendChild(document.createTextNode(text));
+        }
+
+        function hideLoading(buttonId) {
+            const button = document.getElementById(buttonId);
+            const loading = button.querySelector('.loading');
+            const text = button.textContent
+                .replace('GİRİŞ YAP', '')
+                .replace('KAYIT OL', '')
+                .replace('MİSAFİR OLARAK BAŞLA', '')
+                .replace('ODAYA KATIL', '')
+                .replace('YENİ ODA OLUŞTUR', '');
+            button.textContent = text;
+            loading.style.display = 'none';
+        }
+
+        // Login Form Handler
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            if (!username || !password) {
+                showStatus('Lütfen tüm alanları doldurun', 'error');
+                return;
+            }
+
+            showLoading('loginBtn');
+
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        password: password,
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showStatus('Giriş başarılı! Yönlendiriliyorsunuz...', 'success');
+                    setTimeout(() => {
+                        window.location.href = '/enhanced';
+                    }, 1500);
+                } else {
+                    showStatus(data.message || 'Giriş başarısız', 'error');
+                }
+            } catch (error) {
+                showStatus('Bağlantı hatası', 'error');
+            } finally {
+                hideLoading('loginBtn');
+            }
+        });
+
+        // Register Form Handler
+        document.getElementById('registerForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const username = document.getElementById('registerUsername').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+
+            if (!username || !email || !password) {
+                showStatus('Lütfen tüm alanları doldurun', 'error');
+                return;
+            }
+
+            showLoading('registerBtn');
+
+            try {
+                const response = await fetch('/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        email: email,
+                        password: password,
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showStatus('Kayıt başarılı! Giriş yapabilirsiniz.', 'success');
+                    switchTab('login');
+                } else {
+                    showStatus(data.message || 'Kayıt başarısız', 'error');
+                }
+            } catch (error) {
+                showStatus('Bağlantı hatası', 'error');
+            } finally {
+                hideLoading('registerBtn');
+            }
+        });
+
+        // Guest Login Handler
+        async function guestLogin() {
+            showLoading('guestBtn');
+
+            try {
+                const response = await fetch('/api/auth/guest', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        guest_name: 'Misafir_' + Math.floor(Math.random() * 1000),
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showStatus('Misafir girişi başarılı! Yönlendiriliyorsunuz...', 'success');
+                    setTimeout(() => {
+                        window.location.href = '/enhanced';
+                    }, 1500);
+                } else {
+                    showStatus(data.message || 'Misafir girişi başarısız', 'error');
+                }
+            } catch (error) {
+                showStatus('Bağlantı hatası', 'error');
+            } finally {
+                hideLoading('guestBtn');
+            }
+        }
+
+        // Multiplayer Form Handler
+        document.getElementById('multiplayerForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const roomCode = document.getElementById('roomCode').value.trim();
+
+            if (!roomCode) {
+                showStatus('Lütfen oda kodunu girin', 'error');
+                return;
+            }
+
+            showLoading('joinRoomBtn');
+
+            try {
+                const response = await fetch('/api/multiplayer/join_room', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        room_id: roomCode,
+                        player_name: 'Oyuncu_' + Math.floor(Math.random() * 1000),
+                        player_id: 'player_' + Math.random().toString(36).substr(2, 9),
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showStatus('Odaya katılım başarılı! Yönlendiriliyorsunuz...', 'success');
+
+                    // Store room info in localStorage
+                    localStorage.setItem('multiplayer_room_id', roomCode);
+                    localStorage.setItem('multiplayer_creator', 'false');
+
+                    setTimeout(() => {
+                        window.location.href = '/multiplayer?room=' + roomCode;
+                    }, 1500);
+                } else {
+                    showStatus(data.message || 'Odaya katılım başarısız', 'error');
+                }
+            } catch (error) {
+                console.error('Join room error:', error);
+                showStatus('Bağlantı hatası', 'error');
+            } finally {
+                hideLoading('joinRoomBtn');
+            }
+        });
+
+        // Create Room Handler
+        async function createRoom() {
+            showLoading('createRoomBtn');
+
+            try {
+                // Generate a unique room ID
+                const roomId = 'ROOM_' + Math.random().toString(36).substr(2, 9).toUpperCase();
+                const roomName = 'Oda_' + Math.floor(Math.random() * 1000);
+
+                const response = await fetch('/api/multiplayer/create_room', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        room_name: roomName,
+                        room_id: roomId,
+                        scenario_id: 'fantasy_forest',
+                        max_players: 4,
+                        creator_username: 'Oyuncu_' + Math.floor(Math.random() * 1000),
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showStatus(`Oda oluşturuldu! Oda Kodu: ${roomId}`, 'success');
+
+                    // Store room info in localStorage for the game
+                    localStorage.setItem('multiplayer_room_id', roomId);
+                    localStorage.setItem('multiplayer_room_name', roomName);
+                    localStorage.setItem('multiplayer_creator', 'true');
+
+                    setTimeout(() => {
+                        window.location.href = '/multiplayer?room=' + roomId;
+                    }, 2000);
+                } else {
+                    showStatus(data.message || 'Oda oluşturma başarısız', 'error');
+                }
+            } catch (error) {
+                console.error('Create room error:', error);
+                showStatus('Bağlantı hatası', 'error');
+            } finally {
+                hideLoading('createRoomBtn');
+            }
+        }
+    </script>
+</body>
+</html>

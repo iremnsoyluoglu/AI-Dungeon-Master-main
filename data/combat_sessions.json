@@ -1,0 +1,301 @@
+{
+  "combat_afc8850485bdaac9": {
+    "id": "combat_afc8850485bdaac9",
+    "entities": {
+      "player": {
+        "id": "player",
+        "name": "Test Warrior",
+        "health": 100,
+        "max_health": 100,
+        "armor_class": 15,
+        "attack_bonus": 5,
+        "damage_die": "1d8",
+        "initiative": 18,
+        "is_player": true,
+        "is_alive": true,
+        "status_effects": [],
+        "action_type": "attack"
+      },
+      "enemy_0": {
+        "id": "enemy_0",
+        "name": "Ork Warrior",
+        "health": 77,
+        "max_health": 80,
+        "armor_class": 12,
+        "attack_bonus": 3,
+        "damage_die": "1d6",
+        "initiative": 5,
+        "is_player": false,
+        "is_alive": true,
+        "status_effects": [],
+        "action_type": "attack"
+      }
+    },
+    "turn_order": [
+      "player",
+      "enemy_0"
+    ],
+    "current_turn": 1,
+    "round": 1,
+    "state": "initiative",
+    "log": [
+      "Test Warrior Ork Warrior'a 3 hasar verdi!"
+    ]
+  },
+  "combat_5475358b7b77e76b": {
+    "id": "combat_5475358b7b77e76b",
+    "entities": {
+      "player": {
+        "id": "player",
+        "name": "Test Warrior",
+        "health": 100,
+        "max_health": 100,
+        "armor_class": 15,
+        "attack_bonus": 5,
+        "damage_die": "1d8",
+        "initiative": 9,
+        "is_player": true,
+        "is_alive": true,
+        "status_effects": [],
+        "action_type": "attack"
+      },
+      "enemy_0": {
+        "id": "enemy_0",
+        "name": "Ork Warrior",
+        "health": 80,
+        "max_health": 80,
+        "armor_class": 12,
+        "attack_bonus": 3,
+        "damage_die": "1d6",
+        "initiative": 17,
+        "is_player": false,
+        "is_alive": true,
+        "status_effects": [],
+        "action_type": "attack"
+      }
+    },
+    "turn_order": [
+      "enemy_0",
+      "player"
+    ],
+    "current_turn": 1,
+    "round": 1,
+    "state": "initiative",
+    "log": [
+      "Ork Warrior Ork Warrior'\u0131 \u0131skalad\u0131!"
+    ]
+  },
+  "combat_303ef80054081b68": {
+    "id": "combat_303ef80054081b68",
+    "entities": {
+      "player": {
+        "id": "player",
+        "name": "Test Warrior",
+        "health": 100,
+        "max_health": 100,
+        "armor_class": 15,
+        "attack_bonus": 5,
+        "damage_die": "1d8",
+        "initiative": 11,
+        "is_player": true,
+        "is_alive": true,
+        "status_effects": [],
+        "action_type": "attack"
+      },
+      "enemy_0": {
+        "id": "enemy_0",
+        "name": "Ork Warrior",
+        "health": 76,
+        "max_health": 80,
+        "armor_class": 12,
+        "attack_bonus": 3,
+        "damage_die": "1d6",
+        "initiative": 3,
+        "is_player": false,
+        "is_alive": true,
+        "status_effects": [],
+        "action_type": "attack"
+      }
+    },
+    "turn_order": [
+      "player",
+      "enemy_0"
+    ],
+    "current_turn": 1,
+    "round": 1,
+    "state": "initiative",
+    "log": [
+      "Test Warrior Ork Warrior'a 4 hasar verdi!"
+    ]
+  },
+  "combat_c985ee56a7a21ba7": {
+    "id": "combat_c985ee56a7a21ba7",
+    "entities": {
+      "player": {
+        "id": "player",
+        "name": "Test Warrior",
+        "health": 100,
+        "max_health": 100,
+        "armor_class": 15,
+        "attack_bonus": 5,
+        "damage_die": "1d8",
+        "initiative": 21,
+        "is_player": true,
+        "is_alive": true,
+        "status_effects": [],
+        "action_type": "attack"
+      },
+      "enemy_0": {
+        "id": "enemy_0",
+        "name": "Ork Warrior",
+        "health": 73,
+        "max_health": 80,
+        "armor_class": 12,
+        "attack_bonus": 3,
+        "damage_die": "1d6",
+        "initiative": 5,
+        "is_player": false,
+        "is_alive": true,
+        "status_effects": [],
+        "action_type": "attack"
+      }
+    },
+    "turn_order": [
+      "player",
+      "enemy_0"
+    ],
+    "current_turn": 1,
+    "round": 1,
+    "state": "initiative",
+    "log": [
+      "Test Warrior Ork Warrior'a 7 hasar verdi!"
+    ]
+  },
+  "combat_08e8cf8b144e8485": {
+    "id": "combat_08e8cf8b144e8485",
+    "entities": {
+      "player": {
+        "id": "player",
+        "name": "Test Warrior",
+        "health": 100,
+        "max_health": 100,
+        "armor_class": 15,
+        "attack_bonus": 5,
+        "damage_die": "1d8",
+        "initiative": 19,
+        "is_player": true,
+        "is_alive": true,
+        "status_effects": [],
+        "action_type": "attack"
+      },
+      "enemy_0": {
+        "id": "enemy_0",
+        "name": "Ork Warrior",
+        "health": 80,
+        "max_health": 80,
+        "armor_class": 12,
+        "attack_bonus": 3,
+        "damage_die": "1d6",
+        "initiative": 17,
+        "is_player": false,
+        "is_alive": true,
+        "status_effects": [],
+        "action_type": "attack"
+      }
+    },
+    "turn_order": [
+      "player",
+      "enemy_0"
+    ],
+    "current_turn": 1,
+    "round": 1,
+    "state": "initiative",
+    "log": [
+      "Test Warrior Ork Warrior'\u0131 \u0131skalad\u0131!"
+    ]
+  },
+  "combat_6dcb304333e7990a": {
+    "id": "combat_6dcb304333e7990a",
+    "entities": {
+      "player": {
+        "id": "player",
+        "name": "Test Warrior",
+        "health": 100,
+        "max_health": 100,
+        "armor_class": 15,
+        "attack_bonus": 5,
+        "damage_die": "1d8",
+        "initiative": 10,
+        "is_player": true,
+        "is_alive": true,
+        "status_effects": [],
+        "action_type": "attack"
+      },
+      "enemy_0": {
+        "id": "enemy_0",
+        "name": "Ork Warrior",
+        "health": 76,
+        "max_health": 80,
+        "armor_class": 12,
+        "attack_bonus": 3,
+        "damage_die": "1d6",
+        "initiative": 13,
+        "is_player": false,
+        "is_alive": true,
+        "status_effects": [],
+        "action_type": "attack"
+      }
+    },
+    "turn_order": [
+      "enemy_0",
+      "player"
+    ],
+    "current_turn": 1,
+    "round": 1,
+    "state": "initiative",
+    "log": [
+      "Ork Warrior Ork Warrior'a 4 hasar verdi!"
+    ]
+  },
+  "combat_0024db095876b248": {
+    "id": "combat_0024db095876b248",
+    "entities": {
+      "player": {
+        "id": "player",
+        "name": "Test Warrior",
+        "health": 100,
+        "max_health": 100,
+        "armor_class": 15,
+        "attack_bonus": 5,
+        "damage_die": "1d8",
+        "initiative": 11,
+        "is_player": true,
+        "is_alive": true,
+        "status_effects": []
+      },
+      "enemy_0": {
+        "id": "enemy_0",
+        "name": "Ork Warrior",
+        "health": 74,
+        "max_health": 80,
+        "armor_class": 12,
+        "attack_bonus": 3,
+        "damage_die": "1d6",
+        "initiative": 13,
+        "is_player": false,
+        "is_alive": true,
+        "status_effects": []
+      }
+    },
+    "turn_order": [
+      "enemy_0",
+      "player"
+    ],
+    "current_turn": 1,
+    "round": 1,
+    "state": "initiative",
+    "log": [
+      "Ork Warrior Ork Warrior'a 6 hasar verdi!"
+    ]
+  }
+}

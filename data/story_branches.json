@@ -1,0 +1,91 @@
+{
+  "branch_1": {
+    "id": "branch_1",
+    "session_id": "test_session",
+    "title": "New Branch",
+    "description": "A test adventure for branching system",
+    "choices": [],
+    "requirements": {
+      "min_level": 1,
+      "required_skills": [
+        "basic_combat"
+      ]
+    },
+    "consequences": [],
+    "created_at": "2025-07-30T01:28:47.631250",
+    "status": "active"
+  },
+  "branch_2": {
+    "id": "branch_2",
+    "session_id": "test_session",
+    "title": "New Branch",
+    "description": "A test adventure for branching system",
+    "choices": [],
+    "requirements": {
+      "min_level": 1,
+      "required_skills": [
+        "basic_combat"
+      ]
+    },
+    "consequences": [],
+    "created_at": "2025-07-30T14:32:49.814043",
+    "status": "active"
+  },
+  "branch_3": {
+    "id": "branch_3",
+    "session_id": "test_session",
+    "title": "Test Branch",
+    "description": "Test story branch",
+    "choices": [
+      "Choice 1",
+      "Choice 2"
+    ],
+    "requirements": {},
+    "consequences": [
+      "Good",
+      "Bad"
+    ],
+    "created_at": "2025-07-30T14:38:36.074395",
+    "status": "active"
+  },
+  "branch_4": {
+    "id": "branch_4",
+    "session_id": "test_session",
+    "title": "Test Branch",
+    "description": "Test story branch",
+    "choices": [
+      "Choice 1",
+      "Choice 2"
+    ],
+    "requirements": {},
+    "consequences": [
+      "Good",
+      "Bad"
+    ],
+    "created_at": "2025-07-30T14:39:28.148778",
+    "status": "active"
+  },
+  "Choice 1": {
+    "session_id": "test_session",
+    "choice_id": "Choice 1",
+    "choice_text": "Choice 1",
+    "timestamp": "2025-08-05T13:13:30.441398"
+  },
+  "branch_6": {
+    "id": "branch_6",
+    "session_id": "test_session",
+    "title": "Test Branch",
+    "description": "Test story branch",
+    "choices": [
+      "Choice 1",
+      "Choice 2"
+    ],
+    "requirements": {},
+    "consequences": [
+      "Good",
+      "Bad"
+    ],
+    "created_at": "2025-08-05T13:13:30.433884",
+    "status": "active"
+  }
+}

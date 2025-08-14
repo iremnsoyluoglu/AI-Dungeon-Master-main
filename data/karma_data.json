@@ -1,0 +1,128 @@
+{
+  "kill_innocent": {
+    "action_id": "kill_innocent",
+    "action_name": "Kill Innocent",
+    "karma_value": -20,
+    "description": "Killing innocent people",
+    "category": "combat"
+  },
+  "spare_enemy": {
+    "action_id": "spare_enemy",
+    "action_name": "Spare Enemy",
+    "karma_value": 10,
+    "description": "Showing mercy to enemies",
+    "category": "combat"
+  },
+  "defend_weak": {
+    "action_id": "defend_weak",
+    "action_name": "Defend Weak",
+    "karma_value": 15,
+    "description": "Protecting the weak",
+    "category": "combat"
+  },
+  "attack_unprovoked": {
+    "action_id": "attack_unprovoked",
+    "action_name": "Attack Unprovoked",
+    "karma_value": -15,
+    "description": "Attacking without reason",
+    "category": "combat"
+  },
+  "help_npc": {
+    "action_id": "help_npc",
+    "action_name": "Help NPC",
+    "karma_value": 5,
+    "description": "Helping NPCs",
+    "category": "social"
+  },
+  "ignore_help_request": {
+    "action_id": "ignore_help_request",
+    "action_name": "Ignore Help Request",
+    "karma_value": -5,
+    "description": "Ignoring those in need",
+    "category": "social"
+  },
+  "give_charity": {
+    "action_id": "give_charity",
+    "action_name": "Give Charity",
+    "karma_value": 8,
+    "description": "Giving to the poor",
+    "category": "social"
+  },
+  "steal_from_poor": {
+    "action_id": "steal_from_poor",
+    "action_name": "Steal from Poor",
+    "karma_value": -12,
+    "description": "Stealing from the poor",
+    "category": "social"
+  },
+  "tell_truth": {
+    "action_id": "tell_truth",
+    "action_name": "Tell Truth",
+    "karma_value": 3,
+    "description": "Being honest",
+    "category": "social"
+  },
+  "lie_to_npc": {
+    "action_id": "lie_to_npc",
+    "action_name": "Lie to NPC",
+    "karma_value": -3,
+    "description": "Lying to NPCs",
+    "category": "social"
+  },
+  "respect_graves": {
+    "action_id": "respect_graves",
+    "action_name": "Respect Graves",
+    "karma_value": 5,
+    "description": "Respecting burial sites",
+    "category": "exploration"
+  },
+  "loot_graves": {
+    "action_id": "loot_graves",
+    "action_name": "Loot Graves",
+    "karma_value": -10,
+    "description": "Desecrating graves",
+    "category": "exploration"
+  },
+  "preserve_artifacts": {
+    "action_id": "preserve_artifacts",
+    "action_name": "Preserve Artifacts",
+    "karma_value": 7,
+    "description": "Preserving historical artifacts",
+    "category": "exploration"
+  },
+  "destroy_artifacts": {
+    "action_id": "destroy_artifacts",
+    "action_name": "Destroy Artifacts",
+    "karma_value": -8,
+    "description": "Destroying historical artifacts",
+    "category": "exploration"
+  },
+  "complete_quest": {
+    "action_id": "complete_quest",
+    "action_name": "Complete Quest",
+    "karma_value": 10,
+    "description": "Completing quests",
+    "category": "quest"
+  },
+  "abandon_quest": {
+    "action_id": "abandon_quest",
+    "action_name": "Abandon Quest",
+    "karma_value": -5,
+    "description": "Abandoning quests",
+    "category": "quest"
+  },
+  "help_quest_giver": {
+    "action_id": "help_quest_giver",
+    "action_name": "Help Quest Giver",
+    "karma_value": 8,
+    "description": "Helping quest givers",
+    "category": "quest"
+  },
+  "betray_quest_giver": {
+    "action_id": "betray_quest_giver",
+    "action_name": "Betray Quest Giver",
+    "karma_value": -15,
+    "description": "Betraying quest givers",
+    "category": "quest"
+  }
+}

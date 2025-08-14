@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Dungeon Master - Dashboard</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(
+          135deg,
+          #1a1a2e 0%,
+          #16213e 50%,
+          #0f3460 100%
+        );
+        color: white;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .dashboard {
+        display: grid;
+        grid-template-columns: 280px 1fr 320px;
+        height: 100vh;
+        gap: 2px;
+        background: #000;
+      }
+
+      /* Sol Panel - Mavi ton */
+      .left-panel {
+        background: linear-gradient(180deg, #1a237e 0%, #283593 100%);
+        padding: 15px;
+        overflow-y: auto;
+        border: 1px solid rgba(255, 215, 0, 0.3);
+      }
+
+      .left-panel h3 {
+        color: #FFD700;
+        font-size: 16px;
+        margin-bottom: 15px;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 8px;
+        border-radius: 5px;
+        text-align: center;
+      }
+
+      .theme-tabs {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 20px;
+      }
+
+      .theme-tab {
+        padding: 8px 12px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 215, 0, 0.3);
+        border-radius: 4px;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .theme-tab.active {
+        background: #FFD700;
+        color: #000;
+        font-weight: bold;
+      }
+
+      .theme-tab:hover:not(.active) {
+        background: rgba(255, 215, 0, 0.2);
+      }
+
+      .character-creation {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid rgba(255, 215, 0, 0.3);
+      }
+
+      .character-creation h4 {
+        color: #FFD700;
+        font-size: 14px;
+        margin-bottom: 8px;
+        text-align: center;
+      }
+
+      .input-group {
+        margin-bottom: 8px;
+      }
+
+      .input-group label {
+        display: block;
+        font-size: 12px;
+        margin-bottom: 3px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 3px;
+        color: white;
+        font-size: 12px;
+      }
+
+      .race-class-list {
+        margin-bottom: 15px;
+      }
+
+      .race-class-list h4 {
+        color: #FFD700;
+        font-size: 14px;
+        margin-bottom: 8px;
+        padding: 5px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+      }
+
+      .list-items {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .list-item {
+        padding: 6px 10px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 13px;
+      }
+
+      .list-item:hover {
+        background: rgba(255, 215, 0, 0.2);
+        border-color: #FFD700;
+      }
+
+      .list-item.selected {
+        background: rgba(255, 215, 0, 0.3);
+        border-color: #FFD700;
+        color: #FFD700;
+      }
+
+      .create-character-btn {
+        width: 100%;
+        padding: 8px;
+        background: #4CAF50;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      .create-character-btn:hover {
+        background: #45a049;
+      }
+
+      /* Orta Panel - Koyu mavi */
+      .center-panel {
+        background: linear-gradient(180deg, #263238 0%, #37474f 100%);
+        padding: 15px;
+        overflow-y: auto;
+        border: 1px solid rgba(255, 215, 0, 0.3);
+      }
+
+      .scenarios-selection h3 {
+        color: #ffd700;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .scenario-item {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 12px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .scenario-item:hover {
+        background: rgba(255, 215, 0, 0.1);
+        border-color: #FFD700;
+      }
+
+      .scenario-title {
+        color: #FFD700;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .scenario-desc {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 8px;
+      }
+
+      .scenario-meta {
+        display: flex;
+        gap: 8px;
+      }
+
+      .difficulty, .genre {
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: 11px;
+        font-weight: bold;
+      }
+
+      .difficulty {
+        background: #FF9800;
+        color: #000;
+      }
+
+      .genre {
+        background: #9C27B0;
+        color: white;
+      }
+
+      /* Sağ Panel - Mor ton */
+      .right-panel {
+        background: linear-gradient(180deg, #4a148c 0%, #6a1b9a 100%);
+        padding: 15px;
+        overflow-y: auto;
+        border: 1px solid rgba(255, 215, 0, 0.3);
+      }
+
+      .right-panel h3 {
+        color: #ffd700;
+        font-size: 16px;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .character-info {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        border: 1px solid rgba(255, 215, 0, 0.3);
+        text-align: center;
+      }
+
+      .character-name {
+        color: #ffd700;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .character-details {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 12px;
+      }
+
+      .level-info {
+        background: rgba(0, 0, 0, 0.4);
+        padding: 8px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        border: 1px solid rgba(255, 215, 0, 0.3);
+      }
+
+      .level-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4px;
+        font-size: 13px;
+      }
+
+      .level-value {
+        color: #ffd700;
+        font-weight: bold;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+        margin-bottom: 15px;
+      }
+
+      .stat-box {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 8px;
+        border-radius: 5px;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .stat-box-name {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 3px;
+      }
+
+      .stat-box-value {
+        color: #ffd700;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .equipment-section {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        border: 1px solid rgba(255, 215, 0, 0.3);
+      }
+
+      .equipment-title {
+        color: #ffd700;
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 8px;
+      }
+
+      .equipment-slot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px 8px;
+        margin-bottom: 4px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 3px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 12px;
+      }
+
+      .equipment-slot:hover {
+        background: rgba(255, 215, 0, 0.2);
+        border-color: #ffd700;
+      }
+
+      .slot-name {
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: bold;
+      }
+
+      .slot-item {
+        color: #4CAF50;
+        font-weight: bold;
+      }
+
+      .slot-lore {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 10px;
+        font-style: italic;
+      }
+
+      .inventory-section {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        border: 1px solid rgba(255, 215, 0, 0.3);
+      }
+
+      .inventory-title {
+        color: #ffd700;
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 8px;
+      }
+
+      .inventory-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4px;
+      }
+
+      .inventory-slot {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+        padding: 8px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 16px;
+        min-height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .inventory-slot:hover {
+        background: rgba(255, 215, 0, 0.2);
+        border-color: #ffd700;
+      }
+
+      .inventory-slot.filled {
+        background: rgba(76, 175, 80, 0.2);
+        border-color: #4CAF50;
+      }
+
+      .character-actions {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        border: 1px solid rgba(255, 215, 0, 0.3);
+      }
+
+      .action-title {
+        color: #ffd700;
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 8px;
+      }
+
+      .action-btn {
+        width: 100%;
+        padding: 6px 8px;
+        margin-bottom: 4px;
+        background: rgba(255, 152, 0, 0.2);
+        border: 1px solid #FF9800;
+        border-radius: 3px;
+        color: #FF9800;
+        cursor: pointer;
+        font-size: 12px;
+        transition: all 0.3s ease;
+      }
+
+      .action-btn:hover {
+        background: rgba(255, 152, 0, 0.3);
+      }
+
+      .lore-section {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid rgba(255, 215, 0, 0.3);
+      }
+
+      .lore-title {
+        color: #ffd700;
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 8px;
+      }
+
+      .lore-content {
+        font-size: 11px;
+      }
+
+      .lore-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 3px;
+        padding: 2px 0;
+      }
+
+      .lore-category {
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: bold;
+      }
+
+      .lore-text {
+        color: rgba(255, 255, 255, 0.8);
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard">
+      <!-- Sol Panel -->
+      <div class="left-panel">
+        <h3>🎭 AI Dungeon Master</h3>
+        
+        <!-- Theme Selection -->
+        <div class="theme-tabs">
+          <div class="theme-tab active" onclick="switchTheme('fantasy', event)">Fantasy</div>
+          <div class="theme-tab" onclick="switchTheme('warhammer', event)">Warhammer 40K</div>
+          <div class="theme-tab" onclick="switchTheme('cyberpunk', event)">Cyberpunk</div>
+        </div>
+        
+        <!-- Character Creation -->
+        <div class="character-creation">
+          <h4>🎭 Karakter Oluştur</h4>
+          <div class="input-group">
+            <label>İsim:</label>
+            <input type="text" id="character-name-input" value="Yeni Kahraman">
+          </div>
+          
+          <div class="race-class-list">
+            <h4>🏃 Irk:</h4>
+            <div class="list-items">
+              <div class="list-item selected" onclick="selectRace('human', 'fantasy')">👤 İnsan</div>
+              <div class="list-item" onclick="selectRace('elf', 'fantasy')">🧝 Elf</div>
+              <div class="list-item" onclick="selectRace('dwarf', 'fantasy')">🧙 Cüce</div>
+              <div class="list-item" onclick="selectRace('orc', 'fantasy')">👹 Ork</div>
+              <div class="list-item" onclick="selectRace('halfling', 'fantasy')">🧒 Halfling</div>
+            </div>
+          </div>
+          
+          <div class="race-class-list">
+            <h4>⚔️ Sınıf:</h4>
+            <div class="list-items">
+              <div class="list-item selected" onclick="selectClass('warrior', 'fantasy')">⚔️ Savaşçı</div>
+              <div class="list-item" onclick="selectClass('mage', 'fantasy')">🔮 Büyücü</div>
+              <div class="list-item" onclick="selectClass('rogue', 'fantasy')">🗡️ Hırsız</div>
+            </div>
+          </div>
+          
+          <button class="create-character-btn" onclick="createCharacter()">🎭 Karakteri Oluştur</button>
+        </div>
+      </div>
+
+      <!-- Orta Panel -->
+      <div class="center-panel">
+        <div class="scenarios-selection">
+          <h3>📜 Senaryolar</h3>
+          <button onclick="loadScenarios()" style="
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            font-weight: bold;
+          ">🔄 Senaryoları Yeniden Yükle</button>
+          <button onclick="testEverything()" style="
+            background: #ff9800;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            font-weight: bold;
+            margin-left: 10px;
+          ">🧪 Test Et</button>
+
+          <div id="scenarios-container">
+            <div class="scenario-item" onclick="selectScenario({id: 'dragon_hunters_path', title: 'Ejderha Avcısının Yolu', description: 'Kızıl ejderha köyleri yakıyor. Sen ejderha avcısısın.', difficulty: 'hard', theme: 'fantasy'})">
+              <div class="scenario-title">🐉 Ejderha Avcısının Yolu</div>
+              <div class="scenario-desc">Kızıl ejderha köyleri yakıyor. Sen ejderha avcısısın.</div>
+              <div class="scenario-meta">
+                <span class="difficulty">hard</span>
+                <span class="genre">fantasy</span>
+              </div>
+            </div>
+            <div class="scenario-item" onclick="selectScenario({id: 'magical_forest_mysteries', title: 'Büyülü Ormanın Gizemleri', description: 'Büyülü yaratıklarla dolu gizemli orman.', difficulty: 'hard', theme: 'fantasy'})">
+              <div class="scenario-title">🌳 Büyülü Ormanın Gizemleri</div>
+              <div class="scenario-desc">Büyülü yaratıklarla dolu gizemli orman.</div>
+              <div class="scenario-meta">
+                <span class="difficulty">hard</span>
+                <span class="genre">fantasy</span>
+              </div>
+            </div>
+            <div class="scenario-item" onclick="selectScenario({id: 'hive_city_defense', title: 'Hive Şehrinin Savunması', description: 'Devasa hive şehrini dış tehditlerden koruma görevi.', difficulty: 'hard', theme: 'warhammer'})">
+              <div class="scenario-title">🏰 Hive Şehrinin Savunması</div>
+              <div class="scenario-desc">Devasa hive şehrini dış tehditlerden koruma görevi.</div>
+              <div class="scenario-meta">
+                <span class="difficulty">hard</span>
+                <span class="genre">warhammer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sağ Panel -->
+      <div class="right-panel">
+        <h3>⚔️ Karakter</h3>
+        
+        <!-- Character Info Section -->
+        <div class="character-info">
+          <div class="character-name" id="character-name">Aelindra</div>
+          <div class="character-details" id="character-class">Elf Savaşçısı</div>
+          <div class="character-lore" id="character-lore">
+            <span class="lore-title">📖 Hikaye:</span>
+            <span class="lore-text">Antik ormanın son elf savaşçısı, ejderha avcısı geleneğinin son temsilcisi.</span>
+          </div>
+        </div>
+        
+        <!-- Level & XP Section -->
+        <div class="level-info">
+          <div class="level-row">
+            <span>Level:</span>
+            <span class="level-value" id="char-level">1</span>
+          </div>
+          <div class="level-row">
+            <span>XP:</span>
+            <span class="level-value" id="char-xp">0/100</span>
+          </div>
+          <div class="level-row">
+            <span>Sonraki Level:</span>
+            <span class="level-value" id="next-level">100 XP</span>
+          </div>
+          <div class="level-row">
+            <span>Karma:</span>
+            <span class="level-value" id="char-karma">0</span>
+          </div>
+        </div>
+        
+        <!-- Stats Grid Section -->
+        <div class="stats-grid" id="stats-grid">
+          <div class="stat-box">
+            <div class="stat-box-name">Güç</div>
+            <div class="stat-box-value" id="strength-display">15</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-name">Çeviklik</div>
+            <div class="stat-box-value" id="dexterity-display">18</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-name">Zeka</div>
+            <div class="stat-box-value" id="intelligence-display">16</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-name">Dayanıklılık</div>
+            <div class="stat-box-value" id="constitution-display">14</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-name">Bilgelik</div>
+            <div class="stat-box-value" id="wisdom-display">13</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-name">Karizma</div>
+            <div class="stat-box-value" id="charisma-display">17</div>
+          </div>
+        </div>
+        
+        <!-- Equipment Section -->
+        <div class="equipment-section">
+          <div class="equipment-title">🛡️ Ekipmanlar</div>
+          <div class="equipment-slot" onclick="changeEquipment('weapon')">
+            <span class="slot-name">Silah:</span>
+            <span class="slot-item" id="weapon-slot">Steel Sword</span>
+            <span class="slot-lore">Antik elf ustası tarafından dövülmüş</span>
+          </div>
+          <div class="equipment-slot" onclick="changeEquipment('armor')">
+            <span class="slot-name">Zırh:</span>
+            <span class="slot-item" id="armor-slot">Leather Armor</span>
+            <span class="slot-lore">Ejderha derisinden yapılmış</span>
+          </div>
+          <div class="equipment-slot" onclick="changeEquipment('shield')">
+            <span class="slot-name">Kalkan:</span>
+            <span class="slot-item" id="shield-slot">-</span>
+            <span class="slot-lore">Boş slot</span>
+          </div>
+          <div class="equipment-slot" onclick="changeEquipment('gloves')">
+            <span class="slot-name">Eldiven:</span>
+            <span class="slot-item" id="gloves-slot">Magic Ring</span>
+            <span class="slot-lore">Büyülü güçler içeriyor</span>
+          </div>
+          <div class="equipment-slot" onclick="changeEquipment('boots')">
+            <span class="slot-name">Ayakkabı:</span>
+            <span class="slot-item" id="boots-slot">-</span>
+            <span class="slot-lore">Boş slot</span>
+          </div>
+        </div>
+        
+        <!-- Inventory Section -->
+        <div class="inventory-section">
+          <div class="inventory-title">🎒 Envanter</div>
+          <div class="inventory-grid" id="inventory-grid">
+            <div class="inventory-slot filled" onclick="useItem(this)" title="Elf Kılıcı - Antik büyü ile güçlendirilmiş">⚔️</div>
+            <div class="inventory-slot filled" onclick="useItem(this)" title="Can İksiri - Yaraları iyileştirir">🧪</div>
+            <div class="inventory-slot filled" onclick="useItem(this)" title="Elf Ekmeği - Enerji verir">🍞</div>
+            <div class="inventory-slot filled" onclick="useItem(this)" title="Altın - 50 altın">💰</div>
+            <div class="inventory-slot" onclick="addRandomItem(this)" title="Yeni öğe ekle">+</div>
+            <div class="inventory-slot" onclick="addRandomItem(this)" title="Yeni öğe ekle">+</div>
+            <div class="inventory-slot" onclick="addRandomItem(this)" title="Yeni öğe ekle">+</div>
+            <div class="inventory-slot" onclick="addRandomItem(this)" title="Yeni öğe ekle">+</div>
+            <div class="inventory-slot" onclick="addRandomItem(this)" title="Yeni öğe ekle">+</div>
+          </div>
+        </div>
+        
+        <!-- Character Actions Section -->
+        <div class="character-actions">
+          <div class="action-title">⚡ Aksiyonlar</div>
+          <button class="action-btn" onclick="performAction('rest')" title="Can ve mana yeniler">🛏️ Dinlen</button>
+          <button class="action-btn" onclick="performAction('train')" title="Güç ve beceri artırır">⚔️ Antrenman</button>
+          <button class="action-btn" onclick="performAction('craft')" title="Yeni ekipman üretir">🔧 Üret</button>
+          <button class="action-btn" onclick="performAction('trade')" title="Altın kazanır">💰 Ticaret</button>
+        </div>
+        
+        <!-- Lore Information Section -->
+        <div class="lore-section">
+          <div class="lore-title">📚 Dünya Bilgisi</div>
+          <div class="lore-content" id="lore-content">
+            <div class="lore-item">
+              <span class="lore-category">🌍 Bölge:</span>
+              <span class="lore-text">Antik Orman - Ejderhaların son sığınağı</span>
+            </div>
+            <div class="lore-item">
+              <span class="lore-category">⚔️ Tehdit:</span>
+              <span class="lore-text">Kızıl Ejderha - Köyleri yakıp yıkıyor</span>
+            </div>
+            <div class="lore-item">
+              <span class="lore-category">🏰 Yerleşim:</span>
+              <span class="lore-text">Elf Köyü - Son güvenli sığınak</span>
+            </div>
+            <div class="lore-item">
+              <span class="lore-category">🎯 Görev:</span>
+              <span class="lore-text">Ejderhayı durdur ve köyü kurtar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Simple working JavaScript
+      console.log("🚀 JAVASCRIPT LOADED!");
+      
+      // Global variables
+      let currentTheme = 'fantasy';
+      let scenarios = [];
+      
+      // Simple test function
+      function testEverything() {
+        console.log("🧪 Test function called!");
+        alert("✅ JavaScript çalışıyor!");
+        
+        // Test right panel
+        const rightPanel = document.querySelector('.right-panel');
+        if (rightPanel) {
+          console.log("✅ Right panel found!");
+          rightPanel.style.border = "2px solid red";
+        } else {
+          console.log("❌ Right panel not found!");
+        }
+      }
+      
+      // Simple theme switching
+      function switchTheme(theme, event) {
+        console.log("🎨 Theme switched to:", theme);
+        currentTheme = theme;
+        
+        // Update active tab
+        document.querySelectorAll('.theme-tab').forEach(tab => {
+          tab.classList.remove('active');
+        });
+        if (event && event.target) {
+          event.target.classList.add('active');
+        }
+        
+        alert(`Tema değiştirildi: ${theme}`);
+      }
+      
+      // Simple equipment change
+      function changeEquipment(slotType) {
+        console.log("🛡️ Equipment changed:", slotType);
+        const slotElement = document.getElementById(slotType + '-slot');
+        if (slotElement) {
+          const items = ['Steel Sword', 'Magic Bow', 'Fire Axe', 'Ice Staff', 'Thunder Hammer'];
+          const currentItem = slotElement.textContent;
+          const currentIndex = items.indexOf(currentItem);
+          const nextIndex = (currentIndex + 1) % items.length;
+          slotElement.textContent = items[nextIndex];
+          alert(`Ekipman değiştirildi: ${items[nextIndex]}`);
+        }
+      }
+      
+      // Simple action
+      function performAction(action) {
+        console.log("⚡ Action performed:", action);
+        const messages = {
+          'rest': '🛏️ Dinlendin ve canını yeniledin!',
+          'train': '⚔️ Antrenman yaptın ve güçlendin!',
+          'craft': '🔧 Yeni ekipman ürettin!',
+          'trade': '💰 Ticaret yaptın ve altın kazandın!'
+        };
+        alert(messages[action] || 'Aksiyon gerçekleştirildi!');
+      }
+      
+      // Simple item use
+      function useItem(itemElement) {
+        console.log("🎒 Item used:", itemElement.textContent);
+        alert(`Öğe kullanıldı: ${itemElement.textContent}`);
+        itemElement.textContent = '+';
+        itemElement.classList.remove('filled');
+      }
+      
+      // Simple add item
+      function addRandomItem(itemElement) {
+        console.log("🎒 Adding random item");
+        const items = ['⚔️', '🛡️', '🧪', '🍖', '💎', '📜', '🗝️', '🏹'];
+        const randomItem = items[Math.floor(Math.random() * items.length)];
+        itemElement.textContent = randomItem;
+        itemElement.classList.add('filled');
+        alert(`Yeni öğe eklendi: ${randomItem}`);
+      }
+      
+      // Simple scenario selection
+      function selectScenario(scenario) {
+        console.log("🎯 Scenario selected:", scenario.title);
+        alert(`Senaryo seçildi: ${scenario.title}`);
+      }
+      
+      // Simple load scenarios
+      function loadScenarios() {
+        console.log("🔄 Loading scenarios...");
+        alert("Senaryolar yükleniyor...");
+      }
+      
+      // Simple character functions
+      function selectRace(race, theme) {
+        console.log("🏃 Race selected:", race, "for theme:", theme);
+        alert(`Irk seçildi: ${race}`);
+      }
+      
+      function selectClass(className, theme) {
+        console.log("⚔️ Class selected:", className, "for theme:", theme);
+        alert(`Sınıf seçildi: ${className}`);
+      }
+      
+      function createCharacter() {
+        console.log("🎭 Creating character...");
+        alert("Karakter oluşturuldu!");
+      }
+      
+      // Initialize when page loads
+      document.addEventListener("DOMContentLoaded", function() {
+        console.log("🎮 Page loaded!");
+        console.log("🔍 Right panel exists:", document.querySelector('.right-panel') ? 'Yes' : 'No');
+        console.log("🔍 Equipment slots:", document.querySelectorAll('.equipment-slot').length);
+        console.log("🔍 Action buttons:", document.querySelectorAll('.action-btn').length);
+      });
+    </script>
+  </body>
+</html>
