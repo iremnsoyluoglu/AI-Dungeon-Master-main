@@ -2573,7 +2573,7 @@ body {
 }
 
 .upload-btn {
-  background: linear-gradient(45deg, #4CAF50, #45a049);
+  background: linear-gradient(45deg, #4caf50, #45a049);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -2584,7 +2584,7 @@ body {
 }
 
 .upload-btn:hover {
-  background: linear-gradient(45deg, #45a049, #4CAF50);
+  background: linear-gradient(45deg, #45a049, #4caf50);
   transform: translateY(-1px);
 }
 
@@ -2696,8 +2696,12 @@ body {
 
 /* AI Generated Scenario Card */
 .scenario-card.ai-generated {
-  border: 2px solid #4CAF50;
-  background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
+  border: 2px solid #4caf50;
+  background: linear-gradient(
+    135deg,
+    rgba(76, 175, 80, 0.1) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
 }
 
 .ai-info {
@@ -2709,6 +2713,291 @@ body {
 }
 
 .ai-info small {
-  color: #4CAF50;
+  color: #4caf50;
   font-style: italic;
+}
+
+/* NPC Dialog Panel Styles */
+.npc-dialog-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 800px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border: 2px solid #4a90e2;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  color: #ffffff;
+  font-family: "Cinzel", serif;
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  background: linear-gradient(90deg, #4a90e2 0%, #357abd 100%);
+  border-radius: 13px 13px 0 0;
+  border-bottom: 2px solid #2c5aa0;
+}
+
+.dialog-header h3 {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.close-dialog-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: all 0.3s ease;
+}
+
+.close-dialog-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.dialog-content {
+  padding: 25px;
+  display: flex;
+  gap: 20px;
+  min-height: 300px;
+}
+
+.npc-portrait {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
+  border: 3px solid #4a90e2;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.dialog-text {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+}
+
+.dialog-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.dialog-choice-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dialog-choice-btn:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.quest-info {
+  padding: 20px 25px;
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 2px solid #4a90e2;
+  border-radius: 0 0 13px 13px;
+}
+
+.quest-info h4 {
+  margin: 0 0 15px 0;
+  color: #4a90e2;
+  font-size: 1.3em;
+}
+
+#quest-details {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.quest-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.accept-quest-btn,
+.decline-quest-btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.accept-quest-btn {
+  background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+  color: white;
+}
+
+.accept-quest-btn:hover {
+  background: linear-gradient(135deg, #45a049 0%, #4caf50 100%);
+  transform: scale(1.05);
+}
+
+.decline-quest-btn {
+  background: linear-gradient(135deg, #f44336 0%, #da190b 100%);
+  color: white;
+}
+
+.decline-quest-btn:hover {
+  background: linear-gradient(135deg, #da190b 0%, #f44336 100%);
+  transform: scale(1.05);
+}
+
+/* Enhanced NPC Grid Styles */
+.npc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.npc-card {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 2px solid #4a90e2;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.npc-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.npc-card:hover::before {
+  left: 100%;
+}
+
+.npc-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  border-color: #5ba0f2;
+}
+
+.npc-card h4 {
+  color: #4a90e2;
+  margin: 0 0 10px 0;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.npc-card p {
+  margin: 5px 0;
+  color: #cccccc;
+  font-size: 0.9em;
+}
+
+.npc-card button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.npc-card button:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transform: scale(1.05);
+}
+
+/* Quest Panel Enhancement */
+.quest-panel {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 2px solid #4a90e2;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.quest-panel h4 {
+  color: #4a90e2;
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+}
+
+.active-quest {
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid #4caf50;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.quest-title {
+  font-weight: bold;
+  color: #4caf50;
+  margin-bottom: 5px;
+}
+
+.quest-description {
+  color: #cccccc;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+.quest-reward {
+  color: #ffd700;
+  font-size: 0.8em;
+  font-weight: bold;
 }

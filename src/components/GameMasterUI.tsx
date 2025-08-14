@@ -2280,43 +2280,101 @@ export const GameMasterUI: React.FC<GameMasterUIProps> = ({
   }, []);
 
   const startGame = async () => {
+    if (!scenario) {
+      setError("Senaryo seçilmedi!");
+      return;
+    }
+
     setIsLoading(true);
+    setError(null);
+
     try {
-      // Oyuncu karakterleri oluştur
-      const gamePlayers = [
-        { name: "Savaşçı", class: "warrior", hp: 120, level: 1 },
-        { name: "Büyücü", class: "mage", hp: 60, level: 1 },
-        { name: "Hırsız", class: "rogue", hp: 80, level: 1 },
-      ];
-      setPlayers(gamePlayers);
-      setSelectedPlayer(gamePlayers[0]);
+      console.log("Starting game with scenario:", scenario);
 
-      // Check if scenario has predefined story branch
+      // Validate scenario has proper content
+      if (!scenario.title || !scenario.description) {
+        throw new Error("Senaryo eksik bilgi içeriyor!");
+      }
+
+      // Check if scenario has proper story content
       const storyBranch =
-        STORY_BRANCHES[scenario?.id as keyof typeof STORY_BRANCHES];
+        STORY_BRANCHES[scenario.id as keyof typeof STORY_BRANCHES];
+      const hasPredefinedStory =
+        storyBranch && Object.keys(storyBranch).length > 0;
 
-      if (storyBranch && storyBranch.start) {
-        // Use predefined story
-        const startNode = storyBranch.start;
+      if (!hasPredefinedStory) {
+        console.warn(
+          "Senaryo için önceden tanımlanmış hikaye yok, dinamik içerik kullanılacak"
+        );
+      }
+
+      // Generate initial story content
+      const startNode = storyBranch?.start;
+
+      if (startNode && startNode.narrative && startNode.narrative.trim()) {
+        // Use predefined start
         setCurrentNarrative(startNode.narrative);
-        setAvailableActions(startNode.actions);
+        setAvailableActions(startNode.actions || []);
         setCurrentStoryNode("start");
       } else {
-        // Generate dynamic story based on scenario
+        // Generate dynamic start
         const dynamicStory = generateDynamicStoryStart(scenario);
         setCurrentNarrative(dynamicStory.narrative);
         setAvailableActions(dynamicStory.actions);
         setCurrentStoryNode("dynamic_start");
       }
 
+      // Initialize game state
       setGameState("playing");
-      setGameHistory((prev) => [
-        ...prev,
-        `🎮 ${scenario?.title || "Unknown Scenario"} oyunu başladı!`,
+      setGameHistory([
+        `🎮 ${scenario.title} oyunu başladı!`,
+        `📖 ${scenario.description}`,
       ]);
+
+      // Add scenario to action history
+      setActionHistory([
+        {
+          id: "game_start",
+          description: `${scenario.title} oyununu başlattı`,
+          type: "game_start",
+        },
+      ]);
+
+      console.log("Game started successfully");
     } catch (error) {
-      console.error("Error starting game:", error);
+      console.error("Game start error:", error);
       setError(`Oyun başlatılırken hata oluştu: ${error}`);
+
+      // Provide fallback content on error
+      const fallbackNarrative = `🎮 ${
+        scenario?.title || "Bilinmeyen Senaryo"
+      } oyunu başlıyor! Macera seni bekliyor.`;
+      setCurrentNarrative(fallbackNarrative);
+
+      const fallbackActions = [
+        {
+          id: "explore_world",
+          description: "Dünyayı keşfet - gizemleri ara",
+          type: "explore",
+        },
+        {
+          id: "meet_npcs",
+          description: "NPC'lerle tanış - müttefikler bul",
+          type: "social",
+        },
+        {
+          id: "prepare_adventure",
+          description: "Macera için hazırlan - güçlü ol",
+          type: "preparation",
+        },
+        {
+          id: "investigate_surroundings",
+          description: "Çevreyi araştır - ipuçları bul",
+          type: "investigate",
+        },
+      ];
+      setAvailableActions(fallbackActions);
+      setGameState("playing");
     } finally {
       setIsLoading(false);
     }
@@ -2410,24 +2468,28 @@ export const GameMasterUI: React.FC<GameMasterUIProps> = ({
         STORY_BRANCHES[scenario?.id as keyof typeof STORY_BRANCHES];
       const nextNode = storyBranch?.[action.id as keyof typeof storyBranch];
 
-      if (nextNode) {
+      if (nextNode && nextNode.narrative && nextNode.narrative.trim()) {
         // Use predefined story progression
         setCurrentNarrative(nextNode.narrative);
-        setAvailableActions(nextNode.actions);
+        setAvailableActions(nextNode.actions || []);
         setCurrentStoryNode(action.id);
       } else {
-        // Generate dynamic response based on action type and scenario theme
-        const dynamicNarrative = generateDynamicNarrative(
+        // Generate rich dynamic response based on action type and scenario theme
+        const dynamicNarrative = generateRichDynamicNarrative(
           action,
-          scenario?.theme || "fantasy"
+          scenario?.theme || "fantasy",
+          scenario?.title || "Macera"
         );
+
         setCurrentNarrative((prev) => `${prev}\n\n${dynamicNarrative}`);
 
-        // Generate new actions based on the current action and scenario
-        const newActions = generateDynamicActions(
+        // Generate rich new actions based on the current action and scenario
+        const newActions = generateRichDynamicActions(
           action,
-          scenario?.theme || "fantasy"
+          scenario?.theme || "fantasy",
+          scenario?.title || "Macera"
         );
+
         setAvailableActions(newActions);
 
         // Update story node for tracking
@@ -2442,33 +2504,355 @@ export const GameMasterUI: React.FC<GameMasterUIProps> = ({
     } catch (error) {
       console.error("Action execution error:", error);
       setError(`Aksiyon çalıştırılırken hata oluştu: ${error}`);
+
+      // Provide rich fallback content on error
+      const errorNarrative = generateRichErrorFallbackNarrative(
+        action,
+        scenario
+      );
+      setCurrentNarrative((prev) => `${prev}\n\n${errorNarrative}`);
+
+      const errorActions = generateRichErrorFallbackActions(action, scenario);
+      setAvailableActions(errorActions);
     } finally {
       setIsLoading(false);
     }
   };
 
-  const generateDynamicNarrative = (
+  // Rich dynamic narrative generator - NEVER returns empty content
+  const generateRichDynamicNarrative = (
     action: any,
-    scenarioType: string
+    scenarioType: string,
+    scenarioTitle: string
   ): string => {
     const actionType = action.type || "default";
-    const actionDescription = action.description || "";
+    const actionDescription =
+      action.description || action.text || "bilinmeyen aksiyon";
 
-    const narratives: { [key: string]: string } = {
-      rescue:
-        "Cesurca hayat kurtarma görevine devam ediyorsun. Her an önemli, her saniye değerli.",
-      investigate:
-        "Detaylı araştırma yapıyorsun. İpuçları seni daha derinlere götürüyor.",
-      social: "İnsanlarla iletişim kuruyorsun. Bilgi ve güven kazanıyorsun.",
-      combat:
-        "Savaş hazırlığı yapıyorsun. Düşmanla yüzleşmeye hazırlanıyorsun.",
-      stealth: "Gizlice hareket ediyorsun. Gölgeler senin dostun.",
-      tactics: "Stratejik düşünüyorsun. Her hamle planlanmış.",
-      leadership: "Liderlik gösteriyorsun. İnsanları organize ediyorsun.",
-      default: `${actionDescription} aksiyonunu gerçekleştiriyorsun. Yeni bir yol açılıyor.`,
+    const richNarratives: { [key: string]: string } = {
+      rescue: `Cesurca hayat kurtarma görevine devam ediyorsun. Her an önemli, her saniye değerli. Çevrende yardıma ihtiyacı olan insanlar var ve sen onların umudu olabilirsin. ${scenarioTitle} macerasında her kararın sonuçları var ve sen doğru seçimleri yapmaya çalışıyorsun.`,
+      investigate: `Detaylı araştırma yapıyorsun. İpuçları seni daha derinlere götürüyor. Her köşe, her iz yeni bir sır açıyor. Dikkatli ol, çünkü gerçek her zaman beklenmedik yerlerde gizlenir. ${scenarioTitle} dünyasında her detay önemli ve sen bu gizemleri çözmeye kararlısın.`,
+      social: `İnsanlarla iletişim kuruyorsun. Bilgi ve güven kazanıyorsun. Her konuşma yeni kapılar açıyor ve her insan kendi hikayesini taşıyor. Dinlemek bazen en güçlü silahtır. ${scenarioTitle} evreninde müttefikler bulmak ve düşmanları anlamak kritik önem taşıyor.`,
+      combat: `Savaş hazırlığı yapıyorsun. Düşmanla yüzleşmeye hazırlanıyorsun. Adrenalin damarlarında akıyor ve her kasın gerilmiş durumda. Zafer için hazır olmalısın. ${scenarioTitle} dünyasında savaş kaçınılmaz ve sen bu zorluğa karşı hazırlanıyorsun.`,
+      stealth: `Gizlice hareket ediyorsun. Gölgeler senin dostun. Sessizlik altın değerinde ve her adımın planlanmış olması gerekiyor. Görünmeden gitmek bazen en iyi stratejidir. ${scenarioTitle} macerasında bazen en büyük kahramanlık görünmeden yapılan işlerdir.`,
+      tactics: `Stratejik düşünüyorsun. Her hamle planlanmış ve her hareketin bir amacı var. Zeka bazen kılıçtan daha keskin olabilir. Doğru zamanda doğru hamleyi yapmak önemli. ${scenarioTitle} dünyasında zeka ve strateji bazen güçten daha değerlidir.`,
+      leadership: `Liderlik gösteriyorsun. İnsanları organize ediyorsun. Sorumluluk omuzlarında ağır ama güven veriyorsun. İnsanlar sana bakıyor ve sen onların umudusun. ${scenarioTitle} evreninde gerçek liderler sadece güçlü değil, aynı zamanda bilge olanlardır.`,
+      explore: `Çevreni keşfediyorsun. Her yeni yer yeni fırsatlar sunuyor. Merak seni ileriye götürüyor ve her köşe yeni bir macera vaat ediyor. Dünya seni bekliyor. ${scenarioTitle} dünyasında her keşif yeni bir hikaye anlatıyor ve sen bu hikayelerin bir parçası oluyorsun.`,
+      magic: `Büyü güçlerini kullanıyorsun. Enerji damarlarında akıyor ve gerçeklik senin etrafında bükülüyor. Sihir tehlikeli ama güçlü bir araç. ${scenarioTitle} evreninde büyü hem bir lütuf hem de bir lanet olabilir.`,
+      technology: `Teknolojiyi kullanıyorsun. Makineler senin kontrolünde ve her cihaz yeni bir fırsat. Gelecek şimdi ve sen onun bir parçasısın. ${scenarioTitle} dünyasında teknoloji hem kurtarıcı hem de yok edici olabilir.`,
+      default: `${actionDescription} aksiyonunu gerçekleştiriyorsun. Yeni bir yol açılıyor ve macera devam ediyor. Her adım seni daha da ileriye götürüyor. ${scenarioTitle} dünyasında her hareketin bir anlamı var ve sen bu anlamı keşfetmeye devam ediyorsun.`,
     };
 
-    return narratives[actionType] || narratives.default;
+    const narrative = richNarratives[actionType] || richNarratives.default;
+
+    // Ensure we NEVER return empty content
+    if (!narrative || narrative.trim() === "") {
+      return `Macera devam ediyor! ${scenarioTitle} dünyasında yeni fırsatlar seni bekliyor ve her an yeni bir keşif yapabilirsin. Senin hikayen devam ediyor ve her seçimin sonuçları var.`;
+    }
+
+    return narrative;
+  };
+
+  // Rich dynamic actions generator - NEVER returns empty arrays
+  const generateRichDynamicActions = (
+    previousAction: any,
+    scenarioType: string,
+    scenarioTitle: string
+  ): any[] => {
+    const actionType = previousAction.type || "default";
+
+    const richActionTemplates: { [key: string]: any[] } = {
+      rescue: [
+        {
+          id: "continue_search",
+          description: "Aramaya devam et - her hayat değerli",
+          type: "investigate",
+        },
+        {
+          id: "help_others",
+          description: "Diğer kurbanlara yardım et - birlikte güçlüyüz",
+          type: "rescue",
+        },
+        {
+          id: "assess_damage",
+          description: "Hasarı değerlendir - durumu anla",
+          type: "investigate",
+        },
+        {
+          id: "coordinate_rescue",
+          description: "Kurtarma operasyonunu koordine et - liderlik göster",
+          type: "leadership",
+        },
+      ],
+      investigate: [
+        {
+          id: "follow_clues",
+          description: "İpuçlarını takip et - gizem derinleşiyor",
+          type: "investigate",
+        },
+        {
+          id: "ask_questions",
+          description: "Daha fazla soru sor - bilgi güçtür",
+          type: "social",
+        },
+        {
+          id: "examine_evidence",
+          description: "Kanıtları incele - detaylar önemli",
+          type: "investigate",
+        },
+        {
+          id: "search_area",
+          description: "Bölgeyi ara - hiçbir şeyi kaçırma",
+          type: "explore",
+        },
+      ],
+      social: [
+        {
+          id: "build_relationships",
+          description: "İlişkiler kur - güven inşa et",
+          type: "social",
+        },
+        {
+          id: "gather_information",
+          description: "Bilgi topla - her konuşma değerli",
+          type: "investigate",
+        },
+        {
+          id: "negotiate",
+          description: "Müzakere et - diplomatik ol",
+          type: "social",
+        },
+        {
+          id: "inspire_others",
+          description: "Başkalarını ilham et - liderlik göster",
+          type: "leadership",
+        },
+      ],
+      combat: [
+        {
+          id: "prepare_weapons",
+          description: "Silahları hazırla - savaşa hazırlan",
+          type: "combat",
+        },
+        {
+          id: "study_enemy",
+          description: "Düşmanı incele - zayıf noktalarını bul",
+          type: "investigate",
+        },
+        {
+          id: "plan_strategy",
+          description: "Strateji planla - zeka kullan",
+          type: "tactics",
+        },
+        {
+          id: "rally_allies",
+          description: "Müttefikleri topla - birlikte savaş",
+          type: "leadership",
+        },
+      ],
+      stealth: [
+        {
+          id: "move_silently",
+          description: "Sessizce hareket et - gölgelerde kal",
+          type: "stealth",
+        },
+        {
+          id: "observe_enemies",
+          description: "Düşmanları gözle - bilgi topla",
+          type: "investigate",
+        },
+        {
+          id: "find_alternate_route",
+          description: "Alternatif yol bul - yaratıcı ol",
+          type: "explore",
+        },
+        {
+          id: "create_diversion",
+          description: "Dikkat dağıtıcı yarat - stratejik düşün",
+          type: "tactics",
+        },
+      ],
+      tactics: [
+        {
+          id: "analyze_situation",
+          description: "Durumu analiz et - tüm faktörleri değerlendir",
+          type: "investigate",
+        },
+        {
+          id: "formulate_plan",
+          description: "Plan oluştur - detaylı strateji geliştir",
+          type: "tactics",
+        },
+        {
+          id: "coordinate_team",
+          description: "Ekibi koordine et - birlikte çalış",
+          type: "leadership",
+        },
+        {
+          id: "prepare_resources",
+          description: "Kaynakları hazırla - her şeyi planla",
+          type: "preparation",
+        },
+      ],
+      leadership: [
+        {
+          id: "motivate_team",
+          description: "Ekibi motive et - ilham ver",
+          type: "leadership",
+        },
+        {
+          id: "assign_roles",
+          description: "Rolleri ata - herkesin gücünü kullan",
+          type: "leadership",
+        },
+        {
+          id: "maintain_morale",
+          description: "Moral yüksek tut - umut ver",
+          type: "social",
+        },
+        {
+          id: "make_decisions",
+          description: "Kararlar ver - liderlik yap",
+          type: "leadership",
+        },
+      ],
+      explore: [
+        {
+          id: "venture_deeper",
+          description: "Daha derine git - sınırları zorla",
+          type: "explore",
+        },
+        {
+          id: "map_area",
+          description: "Bölgeyi haritalandır - bilgi topla",
+          type: "investigate",
+        },
+        {
+          id: "discover_secrets",
+          description: "Sırları keşfet - gizemleri çöz",
+          type: "investigate",
+        },
+        {
+          id: "gather_resources",
+          description: "Kaynakları topla - hazırlık yap",
+          type: "gathering",
+        },
+      ],
+      magic: [
+        {
+          id: "cast_spell",
+          description: "Büyü yap - gücünü kullan",
+          type: "magic",
+        },
+        {
+          id: "study_magic",
+          description: "Büyüyü çalış - bilgi edin",
+          type: "investigate",
+        },
+        {
+          id: "channel_energy",
+          description: "Enerjiyi yönlendir - kontrol et",
+          type: "magic",
+        },
+        {
+          id: "create_artifact",
+          description: "Artefakt yarat - yaratıcı ol",
+          type: "magic",
+        },
+      ],
+      technology: [
+        {
+          id: "hack_system",
+          description: "Sistemi hack et - teknolojiyi kullan",
+          type: "technology",
+        },
+        {
+          id: "repair_device",
+          description: "Cihazı tamir et - becerilerini göster",
+          type: "technology",
+        },
+        {
+          id: "upgrade_equipment",
+          description: "Ekipmanı geliştir - ilerleme kaydet",
+          type: "technology",
+        },
+        {
+          id: "analyze_data",
+          description: "Veriyi analiz et - bilgi çıkar",
+          type: "investigate",
+        },
+      ],
+      default: [
+        {
+          id: "continue_adventure",
+          description: "Macereye devam et - hikaye devam ediyor",
+          type: "explore",
+        },
+        {
+          id: "investigate_surroundings",
+          description: "Çevreyi araştır - yeni fırsatlar bul",
+          type: "investigate",
+        },
+        {
+          id: "interact_with_npcs",
+          description: "NPC'lerle etkileşim kur - bağlantılar kur",
+          type: "social",
+        },
+        {
+          id: "prepare_for_combat",
+          description: "Savaşa hazırlan - güçlü ol",
+          type: "combat",
+        },
+      ],
+    };
+
+    const actions =
+      richActionTemplates[actionType] || richActionTemplates.default;
+
+    // Ensure we NEVER return empty arrays
+    if (!actions || actions.length === 0) {
+      return richActionTemplates.default;
+    }
+
+    return actions;
+  };
+
+  // Rich error fallback narrative generator
+  const generateRichErrorFallbackNarrative = (
+    action: any,
+    scenario: any
+  ): string => {
+    const scenarioTitle = scenario?.title || "Macera";
+    return `Bir anlık kesinti yaşandı, ama ${scenarioTitle} devam ediyor! Çevreni incelemeye devam et ve yeni fırsatları keşfet. Her zorluk yeni bir fırsat sunar ve sen bu fırsatları değerlendirmeye hazırsın.`;
+  };
+
+  // Rich error fallback actions generator
+  const generateRichErrorFallbackActions = (
+    action: any,
+    scenario: any
+  ): any[] => {
+    return [
+      {
+        id: "recover_and_continue",
+        description: "Toparlan ve devam et - güçlü kal",
+        type: "recovery",
+      },
+      {
+        id: "assess_situation",
+        description: "Durumu değerlendir - stratejik düşün",
+        type: "investigate",
+      },
+      {
+        id: "seek_help",
+        description: "Yardım ara - müttefik bul",
+        type: "social",
+      },
+      {
+        id: "adapt_strategy",
+        description: "Stratejiyi uyarla - esnek ol",
+        type: "tactics",
+      },
+    ];
   };
 
   const generateDynamicActions = (
@@ -2494,6 +2878,11 @@ export const GameMasterUI: React.FC<GameMasterUIProps> = ({
           description: "Hasarı değerlendir",
           type: "investigate",
         },
+        {
+          id: "coordinate_rescue",
+          description: "Kurtarma operasyonunu koordine et",
+          type: "leadership",
+        },
       ],
       investigate: [
         {
@@ -2507,31 +2896,124 @@ export const GameMasterUI: React.FC<GameMasterUIProps> = ({
           type: "social",
         },
         {
-          id: "examine_closely",
-          description: "Daha detaylı incele",
+          id: "examine_evidence",
+          description: "Kanıtları incele",
           type: "investigate",
+        },
+        {
+          id: "search_area",
+          description: "Bölgeyi ara",
+          type: "explore",
         },
       ],
       social: [
-        { id: "build_trust", description: "Güven oluştur", type: "social" },
-        { id: "gather_info", description: "Bilgi topla", type: "investigate" },
         {
-          id: "organize_help",
-          description: "Yardım organize et",
+          id: "build_relationships",
+          description: "İlişkiler kur",
+          type: "social",
+        },
+        {
+          id: "gather_information",
+          description: "Bilgi topla",
+          type: "investigate",
+        },
+        {
+          id: "negotiate",
+          description: "Müzakere et",
+          type: "social",
+        },
+        {
+          id: "inspire_others",
+          description: "Başkalarını ilham et",
           type: "leadership",
         },
       ],
       combat: [
         {
-          id: "prepare_attack",
-          description: "Saldırıya hazırlan",
+          id: "prepare_weapons",
+          description: "Silahları hazırla",
           type: "combat",
         },
-        { id: "find_cover", description: "Sığınak ara", type: "tactics" },
         {
-          id: "assess_enemy",
-          description: "Düşmanı değerlendir",
+          id: "study_enemy",
+          description: "Düşmanı incele",
           type: "investigate",
+        },
+        {
+          id: "plan_strategy",
+          description: "Strateji planla",
+          type: "tactics",
+        },
+        {
+          id: "rally_allies",
+          description: "Müttefikleri topla",
+          type: "leadership",
+        },
+      ],
+      stealth: [
+        {
+          id: "move_silently",
+          description: "Sessizce hareket et",
+          type: "stealth",
+        },
+        {
+          id: "observe_enemies",
+          description: "Düşmanları gözle",
+          type: "investigate",
+        },
+        {
+          id: "find_alternate_route",
+          description: "Alternatif yol bul",
+          type: "explore",
+        },
+        {
+          id: "create_diversion",
+          description: "Dikkat dağıtıcı yarat",
+          type: "tactics",
+        },
+      ],
+      tactics: [
+        {
+          id: "analyze_situation",
+          description: "Durumu analiz et",
+          type: "investigate",
+        },
+        {
+          id: "formulate_plan",
+          description: "Plan oluştur",
+          type: "tactics",
+        },
+        {
+          id: "coordinate_team",
+          description: "Ekibi koordine et",
+          type: "leadership",
+        },
+        {
+          id: "prepare_resources",
+          description: "Kaynakları hazırla",
+          type: "preparation",
+        },
+      ],
+      leadership: [
+        {
+          id: "motivate_team",
+          description: "Ekibi motive et",
+          type: "leadership",
+        },
+        {
+          id: "assign_roles",
+          description: "Rolleri ata",
+          type: "leadership",
+        },
+        {
+          id: "maintain_morale",
+          description: "Moral yüksek tut",
+          type: "social",
+        },
+        {
+          id: "make_decisions",
+          description: "Kararlar ver",
+          type: "leadership",
         },
       ],
       explore: [
@@ -2546,15 +3028,52 @@ export const GameMasterUI: React.FC<GameMasterUIProps> = ({
           type: "investigate",
         },
         {
-          id: "find_resources",
-          description: "Kaynak ara",
+          id: "discover_secrets",
+          description: "Sırları keşfet",
           type: "investigate",
+        },
+        {
+          id: "gather_resources",
+          description: "Kaynakları topla",
+          type: "gathering",
+        },
+      ],
+      magic: [
+        {
+          id: "cast_spell",
+          description: "Büyü yap",
+          type: "magic",
+        },
+        {
+          id: "study_magic",
+          description: "Büyüyü çalış",
+          type: "investigate",
+        },
+        {
+          id: "channel_energy",
+          description: "Enerjiyi yönlendir",
+          type: "magic",
+        },
+        {
+          id: "create_artifact",
+          description: "Artefakt yarat",
+          type: "magic",
         },
       ],
       technology: [
         {
-          id: "hack_deeper",
-          description: "Daha derin hack et",
+          id: "hack_system",
+          description: "Sistemi hack et",
+          type: "technology",
+        },
+        {
+          id: "repair_device",
+          description: "Cihazı tamir et",
+          type: "technology",
+        },
+        {
+          id: "upgrade_equipment",
+          description: "Ekipmanı geliştir",
           type: "technology",
         },
         {
@@ -2562,94 +3081,36 @@ export const GameMasterUI: React.FC<GameMasterUIProps> = ({
           description: "Veriyi analiz et",
           type: "investigate",
         },
-        {
-          id: "upgrade_systems",
-          description: "Sistemleri geliştir",
-          type: "technology",
-        },
-      ],
-      stealth: [
-        {
-          id: "move_silently",
-          description: "Sessizce hareket et",
-          type: "stealth",
-        },
-        { id: "find_shadows", description: "Gölgeleri bul", type: "stealth" },
-        {
-          id: "create_distraction",
-          description: "Dikkat dağıt",
-          type: "tactics",
-        },
-      ],
-      leadership: [
-        {
-          id: "command_troops",
-          description: "Birliklere komuta et",
-          type: "leadership",
-        },
-        { id: "make_plan", description: "Plan yap", type: "tactics" },
-        {
-          id: "inspire_others",
-          description: "Diğerlerini motive et",
-          type: "social",
-        },
-      ],
-      tactics: [
-        {
-          id: "analyze_situation",
-          description: "Durumu analiz et",
-          type: "investigate",
-        },
-        { id: "find_advantage", description: "Avantaj ara", type: "tactics" },
-        { id: "execute_plan", description: "Planı uygula", type: "combat" },
-      ],
-      magic: [
-        { id: "cast_spell", description: "Büyü yap", type: "magic" },
-        {
-          id: "study_magic",
-          description: "Büyüyü incele",
-          type: "investigate",
-        },
-        { id: "gather_mana", description: "Mana topla", type: "magic" },
-      ],
-      preparation: [
-        {
-          id: "gather_supplies",
-          description: "Malzeme topla",
-          type: "investigate",
-        },
-        {
-          id: "train_skills",
-          description: "Yetenekleri geliştir",
-          type: "preparation",
-        },
-        { id: "make_allies", description: "Müttefik bul", type: "social" },
       ],
       default: [
-        { id: "continue", description: "Devam et", type: "default" },
-        { id: "explore", description: "Keşfet", type: "investigate" },
-        { id: "interact", description: "Etkileşim kur", type: "social" },
+        {
+          id: "continue_adventure",
+          description: "Macereye devam et",
+          type: "explore",
+        },
+        {
+          id: "investigate_surroundings",
+          description: "Çevreyi araştır",
+          type: "investigate",
+        },
+        {
+          id: "interact_with_npcs",
+          description: "NPC'lerle etkileşim kur",
+          type: "social",
+        },
+        {
+          id: "prepare_for_combat",
+          description: "Savaşa hazırlan",
+          type: "combat",
+        },
       ],
     };
 
-    // Get base actions for the action type
-    let actions = actionTemplates[actionType] || actionTemplates.default;
+    const actions = actionTemplates[actionType] || actionTemplates.default;
 
-    // Add theme-specific variations based on scenario type
-    if (scenarioType === "warhammer40k") {
-      actions = actions.map((action) => ({
-        ...action,
-        description: action.description
-          .replace("Birlikler", "Imperial Guard")
-          .replace("Düşman", "Ork"),
-      }));
-    } else if (scenarioType === "cyberpunk") {
-      actions = actions.map((action) => ({
-        ...action,
-        description: action.description
-          .replace("Büyü", "Hack")
-          .replace("Mana", "RAM"),
-      }));
+    // Ensure we never return empty arrays
+    if (!actions || actions.length === 0) {
+      return actionTemplates.default;
     }
 
     return actions;
@@ -2906,15 +3367,89 @@ export const GameMasterUI: React.FC<GameMasterUIProps> = ({
   useEffect(() => {
     const loadScenarios = async () => {
       try {
+        setIsLoading(true);
+        setError(null);
+
+        // Load scenarios from the database
         const response = await fetch("/api/scenarios");
-        if (response.ok) {
-          const data = await response.json();
-          if (data.success && data.scenarios) {
-            setAvailableScenarios(data.scenarios);
-          }
+        if (!response.ok) {
+          throw new Error("Senaryolar yüklenemedi");
+        }
+
+        const data = await response.json();
+
+        // Validate and filter scenarios to ensure they have proper content
+        const validScenarios = data.filter((scenario: any) => {
+          return (
+            scenario &&
+            scenario.id &&
+            scenario.title &&
+            scenario.title.trim() !== "" &&
+            scenario.description &&
+            scenario.description.trim() !== "" &&
+            scenario.theme &&
+            scenario.difficulty
+          );
+        });
+
+        if (validScenarios.length === 0) {
+          throw new Error("Geçerli senaryo bulunamadı");
+        }
+
+        setAvailableScenarios(validScenarios);
+        console.log(`Loaded ${validScenarios.length} valid scenarios`);
+
+        // Log any invalid scenarios for debugging
+        const invalidScenarios = data.filter((scenario: any) => {
+          return !(
+            scenario &&
+            scenario.id &&
+            scenario.title &&
+            scenario.title.trim() !== "" &&
+            scenario.description &&
+            scenario.description.trim() !== "" &&
+            scenario.theme &&
+            scenario.difficulty
+          );
+        });
+
+        if (invalidScenarios.length > 0) {
+          console.warn(
+            `Found ${invalidScenarios.length} invalid scenarios:`,
+            invalidScenarios
+          );
         }
       } catch (error) {
-        console.error("Senaryolar yüklenirken hata:", error);
+        console.error("Error loading scenarios:", error);
+        setError(`Senaryolar yüklenirken hata oluştu: ${error}`);
+
+        // Provide fallback scenarios
+        const fallbackScenarios = [
+          {
+            id: "fallback_fantasy",
+            title: "Fantastik Macera",
+            description:
+              "Klasik bir fantastik macera. Ejderhalar, büyü ve kahramanlık seni bekliyor.",
+            theme: "fantasy",
+            difficulty: "medium",
+            complexity: "medium",
+            estimatedPlayTime: 60,
+          },
+          {
+            id: "fallback_warhammer",
+            title: "Warhammer 40K Görevi",
+            description:
+              "İmparatorluk için savaş zamanı. Zafer veya ölüm - başka seçenek yok.",
+            theme: "warhammer40k",
+            difficulty: "hard",
+            complexity: "high",
+            estimatedPlayTime: 90,
+          },
+        ];
+
+        setAvailableScenarios(fallbackScenarios);
+      } finally {
+        setIsLoading(false);
       }
     };
     loadScenarios();
@@ -3190,6 +3725,123 @@ export const GameMasterUI: React.FC<GameMasterUIProps> = ({
     ));
   };
 
+  // Fallback narrative generator for when dynamic generation fails
+  const generateFallbackNarrative = (action: any, scenario: any): string => {
+    const actionType = action.type || "default";
+    const scenarioTheme = scenario?.theme || "fantasy";
+
+    const fallbackNarratives: { [key: string]: string } = {
+      rescue: "Cesurca devam ediyorsun. Her adımda yeni bir keşif yapıyorsun.",
+      investigate:
+        "Dikkatli bir şekilde çevreni inceliyorsun. İpuçları seni bekliyor.",
+      social:
+        "İnsanlarla etkileşim kuruyorsun. Her konuşma yeni kapılar açıyor.",
+      combat: "Savaş hazırlığı yapıyorsun. Güçlü ve hazır olmalısın.",
+      stealth: "Gizlice hareket ediyorsun. Sessizlik senin dostun.",
+      tactics: "Stratejik düşünüyorsun. Her hamle önemli.",
+      leadership: "Liderlik gösteriyorsun. İnsanlar sana güveniyor.",
+      default: "Macera devam ediyor. Yeni fırsatlar seni bekliyor.",
+    };
+
+    return fallbackNarratives[actionType] || fallbackNarratives.default;
+  };
+
+  // Fallback actions generator
+  const generateFallbackActions = (action: any, scenario: any): any[] => {
+    return [
+      {
+        id: "continue_adventure",
+        description: "Macereye devam et",
+        type: "explore",
+      },
+      {
+        id: "investigate_surroundings",
+        description: "Çevreyi araştır",
+        type: "investigate",
+      },
+      {
+        id: "interact_with_npcs",
+        description: "NPC'lerle etkileşim kur",
+        type: "social",
+      },
+      {
+        id: "prepare_for_combat",
+        description: "Savaşa hazırlan",
+        type: "combat",
+      },
+    ];
+  };
+
+  // Error fallback narrative generator
+  const generateErrorFallbackNarrative = (
+    action: any,
+    scenario: any
+  ): string => {
+    return "Bir anlık kesinti yaşandı, ama macera devam ediyor. Çevreni incelemeye devam et ve yeni fırsatları keşfet.";
+  };
+
+  // Error fallback actions generator
+  const generateErrorFallbackActions = (action: any, scenario: any): any[] => {
+    return [
+      {
+        id: "recover_and_continue",
+        description: "Toparlan ve devam et",
+        type: "recovery",
+      },
+      {
+        id: "assess_situation",
+        description: "Durumu değerlendir",
+        type: "investigate",
+      },
+    ];
+  };
+
+  // Render fallback actions when no valid actions are available
+  const renderFallbackActions = () => {
+    const fallbackActions = [
+      {
+        id: "continue_adventure",
+        description: "Macereye devam et",
+        type: "explore",
+      },
+      {
+        id: "investigate_surroundings",
+        description: "Çevreyi araştır",
+        type: "investigate",
+      },
+      {
+        id: "interact_with_npcs",
+        description: "NPC'lerle etkileşim kur",
+        type: "social",
+      },
+      {
+        id: "prepare_for_combat",
+        description: "Savaşa hazırlan",
+        type: "combat",
+      },
+    ];
+
+    return fallbackActions.map((action, index) => (
+      <button
+        key={`fallback-${index}`}
+        className="action-btn"
+        onClick={() => executeAction(action)}
+        disabled={isLoading}
+      >
+        <span className="action-icon">
+          {action.type === "explore" && "🗺️"}
+          {action.type === "investigate" && "🔍"}
+          {action.type === "social" && "💬"}
+          {action.type === "combat" && "⚔️"}
+          {!["explore", "investigate", "social", "combat"].includes(
+            action.type
+          ) && "⚡"}
+        </span>
+        {action.description}
+      </button>
+    ));
+  };
+
   if (gameState === "skill_tree") {
     return (
       <SkillTreeUI
@@ -3321,16 +3973,20 @@ export const GameMasterUI: React.FC<GameMasterUIProps> = ({
             <div className="narrative-section">
               <h4>📜 Hikaye:</h4>
               <div className="narrative-content">
-                {currentNarrative ? (
+                {currentNarrative && currentNarrative.trim() ? (
                   <div className="narrative-text">
                     {currentNarrative.split("\n").map((line, index) => (
-                      <p key={index}>{line}</p>
+                      <p key={index}>{line || "..."}</p>
                     ))}
                   </div>
                 ) : (
-                  <p className="no-narrative">
-                    Hikaye henüz başlamadı. Oyunu başlatmak için butona tıkla!
-                  </p>
+                  <div className="narrative-text">
+                    <p className="no-narrative">
+                      {gameState === "setup"
+                        ? "Hikaye henüz başlamadı. Oyunu başlatmak için butona tıkla!"
+                        : "Hikaye devam ediyor... Yeni bir aksiyon seç ve macereye devam et!"}
+                    </p>
+                  </div>
                 )}
               </div>
             </div>
@@ -3384,7 +4040,9 @@ export const GameMasterUI: React.FC<GameMasterUIProps> = ({
                     (action: any) => action.type === "combat" || action.context
                   ))
                   ? renderCombatActions()
-                  : renderContextualActions()}
+                  : availableActions && availableActions.length > 0
+                  ? renderContextualActions()
+                  : renderFallbackActions()}
               </div>
             </div>
 

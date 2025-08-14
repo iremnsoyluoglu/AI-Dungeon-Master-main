@@ -1,586 +1,80 @@
 <!DOCTYPE html>
 <html lang="tr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Dungeon Master - Advanced Storytelling</title>
-    <link rel="stylesheet" href="static/mystical_style.css?v=1.0" />
-  </head>
-  <body>
-    <!-- AUTHENTICATION SCREEN -->
-    <div id="auth-screen" class="auth-screen">
-      <div class="auth-container">
-        <div class="auth-header">
-          <div class="auth-icon">🎮</div>
-          <h1 class="auth-title">AI DUNGEON MASTER</h1>
-          <p class="auth-subtitle">Fantastik Dünyalara Açılan Kapı</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Dungeon Master - Deployed!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .status {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #90EE90;
+        }
+        .features {
+            text-align: left;
+            margin-top: 2rem;
+        }
+        .features h3 {
+            margin-bottom: 1rem;
+        }
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+        .features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .features li:before {
+            content: "✨ ";
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 AI Dungeon Master</h1>
+        <div class="status">✅ Başarıyla Deploy Edildi!</div>
+        
+        <div class="features">
+            <h3>🚀 Özellikler:</h3>
+            <ul>
+                <li>AI Destekli Hikaye Üretimi</li>
+                <li>Karakter Sistemi</li>
+                <li>Çoklu Tema (Fantasy, Warhammer 40K, Cyberpunk)</li>
+                <li>İnteraktif Oyun Deneyimi</li>
+                <li>Dinamik Senaryo Sistemi</li>
+            </ul>
         </div>
-
-        <div class="auth-tabs">
-          <button
-            class="tab-btn active"
-            id="login-tab-btn"
-            onclick="showAuthTab('login', event)"
-          >
-            GİRİŞ
-          </button>
-          <button
-            class="tab-btn"
-            id="register-tab-btn"
-            onclick="showAuthTab('register', event)"
-          >
-            KAYIT
-          </button>
-          <button
-            class="tab-btn"
-            id="guest-tab-btn"
-            onclick="showAuthTab('guest', event)"
-          >
-            MİSAFİR
-          </button>
-          <button
-            class="tab-btn"
-            id="multiplayer-tab-btn"
-            onclick="showAuthTab('multiplayer', event)"
-          >
-            MULTİPLAYER
-          </button>
+        
+        <div style="margin-top: 2rem;">
+            <p>🎯 Railway üzerinde başarıyla çalışıyor!</p>
+            <p>🔗 API Endpoint: <code>/api/health</code></p>
         </div>
-
-        <!-- Login Tab -->
-        <div class="auth-tab active" id="login-tab">
-          <div class="form-group">
-            <label>Kullanıcı Adı</label>
-            <div class="input-container">
-              <div class="input-icon">👤</div>
-              <input
-                type="text"
-                id="login-username"
-                placeholder="Kullanıcı adını girin"
-              />
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Şifre</label>
-            <div class="input-container">
-              <div class="input-icon">🔒</div>
-              <input
-                type="password"
-                id="login-password"
-                placeholder="Şifrenizi girin"
-              />
-              <div class="input-icon right">👁️</div>
-            </div>
-          </div>
-          <button class="btn-primary" id="login-button" onclick="loginUser()">
-            GİRİŞ YAP
-          </button>
-        </div>
-
-        <!-- Register Tab -->
-        <div class="auth-tab" id="register-tab">
-          <div class="form-group">
-            <label>Kullanıcı Adı</label>
-            <div class="input-container">
-              <div class="input-icon">👤</div>
-              <input
-                type="text"
-                id="register-username"
-                placeholder="Kullanıcı adını girin"
-              />
-            </div>
-          </div>
-          <div class="form-group">
-            <label>E-posta</label>
-            <div class="input-container">
-              <div class="input-icon">📧</div>
-              <input
-                type="email"
-                id="register-email"
-                placeholder="E-posta adresinizi girin"
-              />
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Şifre</label>
-            <div class="input-container">
-              <div class="input-icon">🔒</div>
-              <input
-                type="password"
-                id="register-password"
-                placeholder="Şifrenizi girin"
-              />
-            </div>
-          </div>
-          <button
-            class="btn-primary"
-            id="register-button"
-            onclick="registerUser()"
-          >
-            KAYIT OL
-          </button>
-        </div>
-
-        <!-- Guest Tab -->
-        <div class="auth-tab" id="guest-tab">
-          <div class="guest-info">
-            <p>Misafir olarak oyna ve hızlıca maceraya başla!</p>
-          </div>
-          <button class="btn-primary" id="guest-button" onclick="guestLogin()">
-            MİSAFİR OLARAK OYNA
-          </button>
-        </div>
-
-        <!-- Multiplayer Tab -->
-        <div class="auth-tab" id="multiplayer-tab">
-          <div class="multiplayer-info">
-            <p>Arkadaşlarınla birlikte oyna ve ortak maceralar yaşa!</p>
-          </div>
-          <button
-            class="btn-primary"
-            id="multiplayer-button"
-            onclick="multiplayerLogin()"
-          >
-            MULTİPLAYER OYNA
-          </button>
-        </div>
-      </div>
     </div>
-
-    <!-- GAME SCREEN -->
-    <div id="game-screen" class="game-screen">
-      <div class="game-layout-3panels">
-        <!-- LEFT SIDEBAR - CHARACTER INFO -->
-        <div class="left-sidebar">
-          <div class="sidebar-header">
-            <div class="header-icon">👤</div>
-            <h2>KARAKTER</h2>
-          </div>
-
-          <!-- Character Identity Card -->
-          <div class="info-card character-identity">
-            <div class="card-header">
-              <div class="card-icon">🆔</div>
-              <span>KİMLİK</span>
-            </div>
-            <div class="card-content">
-              <div class="identity-item">
-                <span class="identity-label">İsim:</span>
-                <span class="identity-value" id="char-name">Bilinmiyor</span>
-              </div>
-              <div class="identity-item">
-                <span class="identity-label">Irk:</span>
-                <span class="identity-value" id="char-race">Bilinmiyor</span>
-              </div>
-              <div class="identity-item">
-                <span class="identity-label">Sınıf:</span>
-                <span class="identity-value" id="char-class">Bilinmiyor</span>
-              </div>
-              <div class="identity-item">
-                <span class="identity-label">Seviye:</span>
-                <span class="identity-value" id="char-level">1</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Character Stats Card -->
-          <div class="info-card character-stats">
-            <div class="card-header">
-              <div class="card-icon">📊</div>
-              <span>İSTATİSTİKLER</span>
-            </div>
-            <div class="card-content">
-              <div class="stat-bar">
-                <div class="stat-label">
-                  <span>Can</span>
-                  <span id="hp-text">100/100</span>
-                </div>
-                <div class="stat-container">
-                  <div
-                    class="stat-fill health"
-                    id="hp-fill"
-                    style="width: 100%"
-                  ></div>
-                  <div class="stat-text" id="hp-percent">100%</div>
-                </div>
-              </div>
-              <div class="stat-bar">
-                <div class="stat-label">
-                  <span>Mana</span>
-                  <span id="mana-text">50/50</span>
-                </div>
-                <div class="stat-container">
-                  <div
-                    class="stat-fill mana"
-                    id="mana-fill"
-                    style="width: 100%"
-                  ></div>
-                  <div class="stat-text" id="mana-percent">100%</div>
-                </div>
-              </div>
-              <div class="stat-bar">
-                <div class="stat-label">
-                  <span>Deneyim</span>
-                  <span id="exp-text">0/100</span>
-                </div>
-                <div class="stat-container">
-                  <div
-                    class="stat-fill experience"
-                    id="exp-fill"
-                    style="width: 0%"
-                  ></div>
-                  <div class="stat-text" id="exp-percent">0%</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Character Attributes Card -->
-          <div class="info-card character-attributes">
-            <div class="card-header">
-              <div class="card-icon">⚔️</div>
-              <span>ÖZELLİKLER</span>
-            </div>
-            <div class="card-content">
-              <div class="attribute-display-item">
-                <div class="attr-icon">💪</div>
-                <div class="attr-name">Güç</div>
-                <div class="attr-value" id="str-value">10</div>
-              </div>
-              <div class="attribute-display-item">
-                <div class="attr-icon">🛡️</div>
-                <div class="attr-name">Dayanıklılık</div>
-                <div class="attr-value" id="tough-value">10</div>
-              </div>
-              <div class="attribute-display-item">
-                <div class="attr-icon">🎯</div>
-                <div class="attr-name">Hüner</div>
-                <div class="attr-value" id="dex-value">10</div>
-              </div>
-              <div class="attribute-display-item">
-                <div class="attr-icon">🧠</div>
-                <div class="attr-name">Zeka</div>
-                <div class="attr-value" id="int-value">10</div>
-              </div>
-              <div class="attribute-display-item">
-                <div class="attr-icon">🔮</div>
-                <div class="attr-name">İrade</div>
-                <div class="attr-value" id="will-value">10</div>
-              </div>
-              <div class="attribute-display-item">
-                <div class="attr-icon">🌟</div>
-                <div class="attr-name">Karizma</div>
-                <div class="attr-value" id="cha-value">10</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Quick Actions Card -->
-          <div class="info-card quick-actions">
-            <div class="card-header">
-              <div class="card-icon">⚡</div>
-              <span>HIZLI AKSİYONLAR</span>
-            </div>
-            <div class="card-content">
-              <button class="action-btn primary" onclick="rollDice()">
-                🎲 Zar At
-              </button>
-              <button class="action-btn secondary" onclick="saveGame()">
-                💾 Kaydet
-              </button>
-              <button class="action-btn secondary" onclick="loadGame()">
-                📂 Yükle
-              </button>
-              <button class="action-btn secondary" onclick="showInventory()">
-                🎒 Envanter
-              </button>
-              <button class="action-btn secondary" onclick="showSkills()">
-                ⚔️ Yetenekler
-              </button>
-              <button class="action-btn secondary" onclick="showMap()">
-                🗺️ Harita
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- MAIN CONTENT AREA - STORY CONTENT -->
-        <div class="main-content">
-          <div class="content-header">
-            <div class="header-icon">📖</div>
-            <h2>HİKAYE</h2>
-          </div>
-
-          <!-- Story Content Card -->
-          <div class="content-card story-content" id="story-content">
-            <div class="story-text" id="story-text">
-              Büyülü bir ormanda gözlerini açtın. Ağaçlar konuşuyor, yaratıklar
-              her yerde. Sen kimsin ve neden buradasın?
-            </div>
-
-            <!-- Contextual Event Indicators -->
-            <div id="contextual-events" style="display: none">
-              <div class="random-event-indicator" id="event-indicator">
-                <span id="event-text">Beklenmedik Olay!</span>
-              </div>
-            </div>
-
-            <!-- Choices Grid -->
-            <div class="choices-grid" id="choices-grid">
-              <button
-                class="choice-btn primary"
-                onclick="makeChoice('explore_forest')"
-              >
-                Ormanı keşfet
-              </button>
-              <button
-                class="choice-btn secondary"
-                onclick="makeChoice('seek_help')"
-              >
-                Yardım ara
-              </button>
-              <button
-                class="choice-btn secondary"
-                onclick="makeChoice('check_inventory')"
-              >
-                Eşyalarını kontrol et
-              </button>
-            </div>
-          </div>
-
-          <!-- Combat Section Card (Hidden by default) -->
-          <div
-            id="combat-section"
-            class="content-card combat-section"
-            style="display: none"
-          >
-            <div class="combat-stats">
-              <div class="player-stats">
-                <h3>Sen</h3>
-                <div class="hp-bar">
-                  <div
-                    class="hp-fill"
-                    id="player-hp-fill"
-                    style="width: 100%"
-                  ></div>
-                </div>
-                <p id="player-hp-text">Can: 100/100</p>
-              </div>
-              <div class="enemy-stats">
-                <h3>Düşman</h3>
-                <div class="hp-bar">
-                  <div
-                    class="hp-fill"
-                    id="enemy-hp-fill"
-                    style="width: 100%"
-                  ></div>
-                </div>
-                <p id="enemy-hp-text">Can: 100/100</p>
-              </div>
-            </div>
-
-            <div class="combat-log" id="combat-log">
-              <p>Savaş başladı!</p>
-            </div>
-
-            <div class="combat-actions" id="combat-actions">
-              <button
-                class="choice-btn primary"
-                onclick="combatAction('attack')"
-              >
-                Saldır
-              </button>
-              <button
-                class="choice-btn secondary"
-                onclick="combatAction('defend')"
-              >
-                Savun
-              </button>
-              <button
-                class="choice-btn secondary"
-                onclick="combatAction('special')"
-              >
-                Özel Yetenek
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- RIGHT SIDEBAR - GAME INFO -->
-        <div class="right-sidebar">
-          <div class="sidebar-header">
-            <div class="header-icon">🎮</div>
-            <h2>OYUN</h2>
-          </div>
-
-          <!-- Game Status Card -->
-          <div class="info-card game-status">
-            <div class="card-header">
-              <div class="card-icon">📈</div>
-              <span>OYUN DURUMU</span>
-            </div>
-            <div class="card-content">
-              <div class="status-item">
-                <div class="status-icon">⏰</div>
-                <div class="status-label">Oyun Süresi</div>
-                <div class="status-value" id="game-time">00:00</div>
-              </div>
-              <div class="status-item">
-                <div class="status-icon">📍</div>
-                <div class="status-label">Konum</div>
-                <div class="status-value" id="current-location">Bilinmiyor</div>
-              </div>
-              <div class="status-item">
-                <div class="status-icon">🎯</div>
-                <div class="status-label">Hedef</div>
-                <div class="status-value" id="current-objective">Hedef yok</div>
-              </div>
-              <div class="status-item">
-                <div class="status-icon">💰</div>
-                <div class="status-label">Altın</div>
-                <div class="status-value" id="gold-amount">0</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Equipment Card -->
-          <div class="info-card equipment">
-            <div class="card-header">
-              <div class="card-icon">⚔️</div>
-              <span>EŞYALAR</span>
-            </div>
-            <div class="card-content">
-              <div class="equipment-item">
-                <div class="equipment-icon">🗡️</div>
-                <div class="equipment-name">Kılıç</div>
-                <div class="equipment-type">Silah</div>
-              </div>
-              <div class="equipment-item">
-                <div class="equipment-icon">🛡️</div>
-                <div class="equipment-name">Kalkan</div>
-                <div class="equipment-type">Zırh</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Inventory Card -->
-          <div class="info-card inventory">
-            <div class="card-header">
-              <div class="card-icon">🎒</div>
-              <span>ENVANTER</span>
-            </div>
-            <div class="card-content">
-              <div class="inventory-item">
-                <div class="inventory-icon">🧪</div>
-                <div class="inventory-name">Can İksiri</div>
-                <div class="inventory-type">İksir</div>
-                <div class="item-count">x3</div>
-              </div>
-              <div class="inventory-item">
-                <div class="inventory-icon">📜</div>
-                <div class="inventory-name">Büyü Tomarı</div>
-                <div class="inventory-type">Eşya</div>
-                <div class="item-count">x1</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Event Log Card -->
-          <div class="info-card event-log">
-            <div class="card-header">
-              <div class="card-icon">📝</div>
-              <span>OLAY KAYDI</span>
-            </div>
-            <div class="card-content">
-              <div class="event-log-item">
-                <span>Oyun başladı</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ADVANCED STORYTELLING ALERTS -->
-    <div id="betrayal-alert" class="betrayal-alert" style="display: none">
-      <div class="betrayal-icon">💔</div>
-      <span id="betrayal-text">İhanet!</span>
-    </div>
-
-    <div id="plot-twist-alert" class="plot-twist-alert" style="display: none">
-      <div class="plot-twist-icon">✨</div>
-      <span id="plot-twist-text">Plot Twist!</span>
-    </div>
-
-    <!-- SCENARIO SELECTION MODAL -->
-    <div id="scenario-modal" class="modal" style="display: none">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>Senaryo Seç</h2>
-          <button class="modal-close" onclick="closeScenarioModal()">×</button>
-        </div>
-        <div class="modal-body">
-          <div class="scenario-categories">
-            <button class="theme-btn active" onclick="filterScenarios('all')">
-              Tümü
-            </button>
-            <button class="theme-btn" onclick="filterScenarios('fantasy')">
-              Fantastik
-            </button>
-            <button class="theme-btn" onclick="filterScenarios('cyberpunk')">
-              Cyberpunk
-            </button>
-            <button class="theme-btn" onclick="filterScenarios('scifi')">
-              Bilim Kurgu
-            </button>
-          </div>
-          <div class="scenario-list" id="scenario-list">
-            <!-- Scenarios will be loaded here -->
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CHARACTER CREATION MODAL -->
-    <div id="character-modal" class="modal" style="display: none">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>Karakter Oluştur</h2>
-          <button class="modal-close" onclick="closeCharacterModal()">×</button>
-        </div>
-        <div class="modal-body">
-          <div class="character-creation">
-            <div class="creation-section">
-              <h3>Karakter Adı</h3>
-              <input
-                type="text"
-                id="char-name-input"
-                placeholder="Karakter adını girin"
-              />
-            </div>
-
-            <div class="creation-section">
-              <h3>Irk Seçimi</h3>
-              <div class="race-selection" id="race-selection">
-                <!-- Races will be loaded here -->
-              </div>
-            </div>
-
-            <div class="creation-section">
-              <h3>Sınıf Seçimi</h3>
-              <div class="class-selection" id="class-selection">
-                <!-- Classes will be loaded here -->
-              </div>
-            </div>
-
-            <button class="btn-primary" onclick="createCharacter()">
-              Karakteri Oluştur
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script src="static/script.js"></script>
-  </body>
+</body>
 </html>

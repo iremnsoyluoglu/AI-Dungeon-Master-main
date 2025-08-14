@@ -32,7 +32,7 @@
               id="character-name-input"
               placeholder="Karakter adınızı girin..."
               maxlength="20"
-              oninput="updateCharacterName(this.value)"
+              oninput="window.updateCharacterName(this.value)"
             />
           </div>
         </div>
@@ -87,16 +87,25 @@
           <div class="race-class-list">
             <h4>👥 Irklar</h4>
             <div class="list-items">
-              <div class="list-item" onclick="selectRace(this, 'imperial')">
+              <div
+                class="list-item"
+                onclick="window.selectRace(this, 'imperial')"
+              >
                 İmparatorluk
               </div>
-              <div class="list-item" onclick="selectRace(this, 'spacemarine')">
+              <div
+                class="list-item"
+                onclick="window.selectRace(this, 'spacemarine')"
+              >
                 Space Marine
               </div>
-              <div class="list-item" onclick="selectRace(this, 'ork40k')">
+              <div
+                class="list-item"
+                onclick="window.selectRace(this, 'ork40k')"
+              >
                 Ork
               </div>
-              <div class="list-item" onclick="selectRace(this, 'eldar')">
+              <div class="list-item" onclick="window.selectRace(this, 'eldar')">
                 Eldar
               </div>
             </div>
@@ -104,16 +113,28 @@
           <div class="race-class-list">
             <h4>🛡️ Sınıflar</h4>
             <div class="list-items">
-              <div class="list-item" onclick="selectClass(this, 'commissar')">
+              <div
+                class="list-item"
+                onclick="window.selectClass(this, 'commissar')"
+              >
                 Komiser
               </div>
-              <div class="list-item" onclick="selectClass(this, 'techpriest')">
+              <div
+                class="list-item"
+                onclick="window.selectClass(this, 'techpriest')"
+              >
                 Tech-Priest
               </div>
-              <div class="list-item" onclick="selectClass(this, 'psyker')">
+              <div
+                class="list-item"
+                onclick="window.selectClass(this, 'psyker')"
+              >
                 Psyker
               </div>
-              <div class="list-item" onclick="selectClass(this, 'guardsman')">
+              <div
+                class="list-item"
+                onclick="window.selectClass(this, 'guardsman')"
+              >
                 Guardsman
               </div>
             </div>
@@ -124,16 +145,25 @@
           <div class="race-class-list">
             <h4>🔮 Irklar</h4>
             <div class="list-items">
-              <div class="list-item" onclick="selectRace(this, 'human-cyborg')">
+              <div
+                class="list-item"
+                onclick="window.selectRace(this, 'human-cyborg')"
+              >
                 İnsan
               </div>
-              <div class="list-item" onclick="selectRace(this, 'android')">
+              <div
+                class="list-item"
+                onclick="window.selectRace(this, 'android')"
+              >
                 Android
               </div>
-              <div class="list-item" onclick="selectRace(this, 'mutant')">
+              <div
+                class="list-item"
+                onclick="window.selectRace(this, 'mutant')"
+              >
                 Mutant
               </div>
-              <div class="list-item" onclick="selectClass(this, 'ai')">
+              <div class="list-item" onclick="window.selectClass(this, 'ai')">
                 Yapay Zeka
               </div>
             </div>
@@ -141,16 +171,25 @@
           <div class="race-class-list">
             <h4>⚡ Sınıflar</h4>
             <div class="list-items">
-              <div class="list-item" onclick="selectClass(this, 'netrunner')">
+              <div
+                class="list-item"
+                onclick="window.selectClass(this, 'netrunner')"
+              >
                 Netrunner
               </div>
-              <div class="list-item" onclick="selectClass(this, 'solo')">
+              <div class="list-item" onclick="window.selectClass(this, 'solo')">
                 Solo
               </div>
-              <div class="list-item" onclick="selectClass(this, 'techie')">
+              <div
+                class="list-item"
+                onclick="window.selectClass(this, 'techie')"
+              >
                 Techie
               </div>
-              <div class="list-item" onclick="selectClass(this, 'corpo')">
+              <div
+                class="list-item"
+                onclick="window.selectClass(this, 'corpo')"
+              >
                 Corpo
               </div>
             </div>
@@ -326,6 +365,18 @@
               </div>
             </div>
           </div>
+
+          <!-- AI Üretilen Senaryolar -->
+          <div
+            class="scenario-category"
+            id="ai-generated-scenarios"
+            style="display: none"
+          >
+            <h3>🧙‍♂️ AI ÜRETİLEN SENARYOLAR</h3>
+            <div class="scenario-grid" id="ai-scenarios-grid">
+              <!-- AI üretilen senaryolar burada dinamik olarak eklenecek -->
+            </div>
+          </div>
         </div>
 
         <!-- NPC Interaction Panel -->
@@ -333,6 +384,45 @@
           <h2>👥 NPCs & Quests</h2>
           <div class="npc-grid" id="npc-grid">
             <!-- NPCs will be dynamically loaded here -->
+          </div>
+        </div>
+
+        <!-- NPC Dialog Panel - NEW -->
+        <div
+          class="npc-dialog-panel"
+          id="npc-dialog-panel"
+          style="display: none"
+        >
+          <div class="dialog-header">
+            <h3 id="dialog-npc-name">NPC Adı</h3>
+            <button class="close-dialog-btn" onclick="closeNPCDialog()">
+              ✕
+            </button>
+          </div>
+          <div class="dialog-content">
+            <div class="npc-portrait" id="npc-portrait">
+              <!-- NPC portrait will be displayed here -->
+            </div>
+            <div class="dialog-text" id="dialog-text">
+              <!-- NPC dialogue will appear here -->
+            </div>
+            <div class="dialog-choices" id="dialog-choices">
+              <!-- Dialog choices will appear here -->
+            </div>
+          </div>
+          <div class="quest-info" id="quest-info" style="display: none">
+            <h4>📋 Görev Bilgisi</h4>
+            <div id="quest-details">
+              <!-- Quest details will appear here -->
+            </div>
+            <div class="quest-actions">
+              <button class="accept-quest-btn" onclick="acceptQuest()">
+                ✅ Görevi Kabul Et
+              </button>
+              <button class="decline-quest-btn" onclick="declineQuest()">
+                ❌ Görevi Reddet
+              </button>
+            </div>
           </div>
         </div>
 
@@ -634,6 +724,8 @@
         }
       }
     </script>
+    <script src="/static/global_functions.js"></script>
     <script src="/static/enhanced_script.js"></script>
+    <script src="/static/missing_nodes.js"></script>
   </body>
 </html>
