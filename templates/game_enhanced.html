@@ -12,13 +12,13 @@
       <div class="left-panel">
         <h3>🧙‍♂️ Temalar & Karakterler</h3>
         <div class="theme-tabs">
-          <div class="theme-tab active" onclick="switchTheme('fantasy')">
+          <div class="theme-tab active" onclick="window.switchTheme('fantasy')">
             Fantasy
           </div>
-          <div class="theme-tab" onclick="switchTheme('warhammer')">
+          <div class="theme-tab" onclick="window.switchTheme('warhammer')">
             Warhammer 40K
           </div>
-          <div class="theme-tab" onclick="switchTheme('cyberpunk')">
+          <div class="theme-tab" onclick="window.switchTheme('cyberpunk')">
             Cyberpunk
           </div>
         </div>
@@ -41,29 +41,42 @@
           <div class="race-class-list">
             <h4>🏹 Irklar</h4>
             <div class="list-items">
-              <div class="list-item" onclick="selectRace(this, 'elf')">Elf</div>
-              <div class="list-item" onclick="selectRace(this, 'human')">
+              <div class="list-item" onclick="window.selectRace(this, 'elf')">
+                Elf
+              </div>
+              <div class="list-item" onclick="window.selectRace(this, 'human')">
                 İnsan
               </div>
-              <div class="list-item" onclick="selectRace(this, 'dwarf')">
+              <div class="list-item" onclick="window.selectRace(this, 'dwarf')">
                 Cüce
               </div>
-              <div class="list-item" onclick="selectRace(this, 'orc')">Ork</div>
+              <div class="list-item" onclick="window.selectRace(this, 'orc')">
+                Ork
+              </div>
             </div>
           </div>
           <div class="race-class-list">
             <h4>🗡️ Sınıflar</h4>
             <div class="list-items">
-              <div class="list-item" onclick="selectClass(this, 'warrior')">
+              <div
+                class="list-item"
+                onclick="window.selectClass(this, 'warrior')"
+              >
                 Savaşçı
               </div>
-              <div class="list-item" onclick="selectClass(this, 'mage')">
+              <div class="list-item" onclick="window.selectClass(this, 'mage')">
                 Büyücü
               </div>
-              <div class="list-item" onclick="selectClass(this, 'rogue')">
+              <div
+                class="list-item"
+                onclick="window.selectClass(this, 'rogue')"
+              >
                 Hırsız
               </div>
-              <div class="list-item" onclick="selectClass(this, 'cleric')">
+              <div
+                class="list-item"
+                onclick="window.selectClass(this, 'cleric')"
+              >
                 Rahip
               </div>
             </div>
@@ -248,7 +261,7 @@
             <div class="scenario-grid">
               <div
                 class="scenario-card"
-                onclick="selectScenario('living_dragon_hunt')"
+                onclick="window.selectScenario('living_dragon_hunt')"
               >
                 <div class="scenario-header">
                   <h4>🐉 Yaşayan Ejderha Avı</h4>
@@ -259,73 +272,6 @@
                   bir grup kahraman toplanıyor. Bu sadece bir görev değil, bu
                   SENİN HİKAYEN. Her seçim seni değiştirecek, her karar dünyayı
                   değiştirecek.
-                </p>
-              </div>
-              <div
-                class="scenario-card"
-                onclick="selectScenario('dragon_hunters_path')"
-              >
-                <div class="scenario-header">
-                  <h4>Ejderha Avcısının Yolu</h4>
-                  <span class="difficulty hard">Hard</span>
-                </div>
-                <p>
-                  Kızıl ejderha köyleri yakıyor. Sen ejderha avcısısın. Bu
-                  tehlikeli görevde ejderhayı durdurmak için her şeyi riske
-                  atacaksın.
-                </p>
-              </div>
-              <div
-                class="scenario-card"
-                onclick="selectScenario('magical_forest_mysteries')"
-              >
-                <div class="scenario-header">
-                  <h4>Büyülü Ormanın Gizemleri</h4>
-                  <span class="difficulty hard">Hard</span>
-                </div>
-                <p>
-                  Büyük bir ormanda gözlerini açıyorsun. Ağaçlar konuşuyor,
-                  yaratıklar her yerde. Sen kimsin ve neden buradası?
-                </p>
-              </div>
-              <div
-                class="scenario-card"
-                onclick="selectScenario('dragon_hunt_red_flame')"
-              >
-                <div class="scenario-header">
-                  <h4>Ejderha Avı: Kızıl Alev</h4>
-                  <span class="difficulty hard">Hard</span>
-                </div>
-                <p>
-                  Kızıl ejderha köyleri yakıyor. Sen ejderha avcısısın. Bu
-                  tehlikeli görevde ejderhayı durdurmak için her şeyi riske
-                  atacaksın.
-                </p>
-              </div>
-              <div
-                class="scenario-card"
-                onclick="selectScenario('ancient_ruins_secret')"
-              >
-                <div class="scenario-header">
-                  <h4>Antik Harabelerin Sırrı</h4>
-                  <span class="difficulty hard">Hard</span>
-                </div>
-                <p>
-                  Antik harabelerde gizli bir sır keşfettin. Bu sır seni
-                  tehlikeli bir maceraya sürükleyecek.
-                </p>
-              </div>
-              <div
-                class="scenario-card"
-                onclick="selectScenario('crystal_cave_curse')"
-              >
-                <div class="scenario-header">
-                  <h4>Kristal Mağarasının Laneti</h4>
-                  <span class="difficulty medium">Medium</span>
-                </div>
-                <p>
-                  Kristal mağarasında lanetli bir güç var. Bu laneti kaldırmak
-                  için mağaraya girmen gerekiyor.
                 </p>
               </div>
             </div>
@@ -341,7 +287,7 @@
             <div class="scenario-grid">
               <div
                 class="scenario-card"
-                onclick="selectScenario('warhammer_imperial_crisis')"
+                onclick="window.selectScenario('warhammer_imperial_crisis')"
               >
                 <div class="scenario-header">
                   <h4>💀 İmperial Kriz</h4>
@@ -352,31 +298,6 @@
                   olarak görev yapıyorsunuz. Bu sadece bir savaş değil, bu SENİN
                   DÜNYAN. Her seçim seni değiştirecek, her karar dünyayı
                   değiştirecek.
-                </p>
-              </div>
-              <div
-                class="scenario-card"
-                onclick="selectScenario('hive_city_defense')"
-              >
-                <div class="scenario-header">
-                  <h4>Hive Şehrinin Savunması</h4>
-                  <span class="difficulty hard">Hard</span>
-                </div>
-                <p>
-                  Hive şehri saldırı altında. Sen Space Marine'sin ve şehri
-                  savunmak zorundasın.
-                </p>
-              </div>
-              <div
-                class="scenario-card"
-                onclick="selectScenario('ork_invasion_final_defense')"
-              >
-                <div class="scenario-header">
-                  <h4>Ork İstilası: Son Savunma</h4>
-                  <span class="difficulty hard">Hard</span>
-                </div>
-                <p>
-                  Ork istilası başladı. Son savunma hattında durmak zorundasın.
                 </p>
               </div>
             </div>
@@ -392,7 +313,7 @@
             <div class="scenario-grid">
               <div
                 class="scenario-card"
-                onclick="selectScenario('cyberpunk_hive_city')"
+                onclick="window.selectScenario('cyberpunk_hive_city')"
               >
                 <div class="scenario-header">
                   <h4>🤖 Hive City Kriz</h4>
