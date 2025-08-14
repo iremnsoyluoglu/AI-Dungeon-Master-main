@@ -54,6 +54,12 @@ window.switchTheme = function (theme) {
     themeScenarios.style.display = "block";
   }
 
+  // Show AI generated scenarios for all themes
+  const aiScenarios = document.getElementById("ai-generated-scenarios");
+  if (aiScenarios) {
+    aiScenarios.style.display = "block";
+  }
+
   if (npcSystem && npcSystem.initializeNPCs) {
     npcSystem.initializeNPCs(theme);
   }

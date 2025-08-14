@@ -1917,3 +1917,219 @@ if (window.scenarios && window.scenarios.cyberpunk_hive_city) {
 }
 
 console.log("✅ All missing nodes have been added to scenarios");
+
+// EKSİK NODE'LAR - ENHANCED_SCRIPT.JS'DEN REFERANS ALINANLAR
+
+// FANTASY EKSİK NODE'LAR - ENHANCED_SCRIPT.JS'DEN
+scenarios.living_dragon_hunt.story.continue = {
+  title: "Devam Etme",
+  text: `Yoluna devam ediyorsun. Ejderhanın izlerini takip ediyorsun.
+  
+  "Ejderha buradan geçmiş," diyorsun. "Ve yakın zamanda."
+  
+  İzler seni dağlara doğru götürüyor.`,
+  choices: [
+    { text: "İzleri takip et", nextNode: "track_dragon" },
+    { text: "Gözetle", nextNode: "spy_on_dragon" },
+    { text: "Geri dön", nextNode: "return_to_village" },
+  ],
+};
+
+scenarios.living_dragon_hunt.story.investigate = {
+  title: "Araştırma",
+  text: `Çevreyi araştırıyorsun. Ejderhanın izlerini ve işaretlerini arıyorsun.
+  
+  "Burada bir şeyler var," diyorsun. "Dikkatli olmalıyım."
+  
+  Garip izler ve işaretler buluyorsun.`,
+  choices: [
+    { text: "İzleri takip et", nextNode: "track_dragon" },
+    { text: "Daha fazla araştır", nextNode: "investigate_more" },
+    { text: "Geri dön", nextNode: "return_to_village" },
+  ],
+};
+
+scenarios.living_dragon_hunt.story.fight = {
+  title: "Savaş",
+  text: `Savaşa hazırlanıyorsun. Ejderhaya karşı silahlarını hazırlıyorsun.
+  
+  "Savaş zamanı," diyorsun. "Köyü koruyacağım."
+  
+  Savaş zorlu olacak ama sen hazırsın.`,
+  choices: [
+    { text: "Saldır", nextNode: "attack_dragon" },
+    { text: "Savun", nextNode: "defend_position" },
+    { text: "Strateji yap", nextNode: "plan_strategy" },
+  ],
+};
+
+scenarios.living_dragon_hunt.story.flee = {
+  title: "Kaçma",
+  text: `Tehlikeden kaçıyorsun. Ejderha çok güçlü ve sen hazır değilsin.
+  
+  "Şimdi değil," diyorsun. "Daha sonra geleceğim."
+  
+  Güvenli bir yere kaçıyorsun.`,
+  choices: [
+    { text: "Geri dön", nextNode: "return_to_village" },
+    { text: "Yardım ara", nextNode: "seek_help" },
+    { text: "Plan yap", nextNode: "make_plan" },
+  ],
+};
+
+scenarios.living_dragon_hunt.story.investigate_more = {
+  title: "Daha Fazla Araştırma",
+  text: `Daha detaylı araştırma yapıyorsun. Ejderhanın geçmişi hakkında bilgi arıyorsun.
+  
+  "Bu ejderha neden burada?" diye düşünüyorsun.
+  
+  Eski yazılar ve işaretler buluyorsun.`,
+  choices: [
+    { text: "Yazıları oku", nextNode: "read_writings" },
+    { text: "İzleri takip et", nextNode: "track_dragon" },
+    { text: "Geri dön", nextNode: "return_to_village" },
+  ],
+};
+
+scenarios.living_dragon_hunt.story.defend_position = {
+  title: "Pozisyon Savunma",
+  text: `Savunma pozisyonu alıyorsun. Ejderhaya karşı güçlü bir savunma hazırlıyorsun.
+  
+  "Burada duracağım," diyorsun. "Ve savaşacağım."
+  
+  Savunma pozisyonun hazır.`,
+  choices: [
+    { text: "Saldır", nextNode: "attack_dragon" },
+    { text: "Bekle", nextNode: "wait_for_dragon" },
+    { text: "Geri çekil", nextNode: "retreat_from_battle" },
+  ],
+};
+
+scenarios.living_dragon_hunt.story.read_writings = {
+  title: "Yazıları Okuma",
+  text: `Eski yazıları okuyorsun. Ejderhanın geçmişi hakkında bilgi öğreniyorsun.
+  
+  "Bu ejderha yüzyıllardır burada yaşıyor," diyorsun. "Ve köylüler onu rahatsız etmiş."
+  
+  Gerçeği öğrendin.`,
+  choices: [
+    { text: "Barış teklif et", nextNode: "offer_peace" },
+    { text: "Köylüleri uyar", nextNode: "warn_villagers" },
+    { text: "Ejderhayla konuş", nextNode: "talk_to_dragon" },
+  ],
+};
+
+// WARHAMMER EKSİK NODE'LAR - ENHANCED_SCRIPT.JS'DEN
+scenarios.warhammer_imperial_crisis.story.village_pledge = {
+  title: "Köy Sözü",
+  text: `Köylülere söz veriyorsun. Chaos tehdidini durduracağına söz veriyorsun.
+  
+  "Köyünüzü koruyacağım," diyorsun. "Chaos'a karşı savaşacağım."
+  
+  Köylüler sana güveniyor ve umut veriyorsun.`,
+  choices: [
+    { text: "Chaos'u ara", nextNode: "search_chaos_cult" },
+    { text: "Köyü koru", nextNode: "protect_village_warhammer" },
+    { text: "Yardım çağır", nextNode: "call_for_help" },
+  ],
+};
+
+scenarios.warhammer_imperial_crisis.story.gather_info = {
+  title: "Bilgi Toplama",
+  text: `Chaos kültü hakkında bilgi topluyorsun. Köylülerden bilgi alıyorsun.
+  
+  "Chaos kültü hakkında ne biliyorsunuz?" diye soruyorsun.
+  
+  Köylüler korku içinde bilgi veriyorlar.`,
+  choices: [
+    { text: "Tapınağa git", nextNode: "search_chaos_cult" },
+    { text: "Daha fazla bilgi al", nextNode: "get_more_info" },
+    { text: "Köyü koru", nextNode: "protect_village_warhammer" },
+  ],
+};
+
+scenarios.warhammer_imperial_crisis.story.negotiate_reward = {
+  title: "Ödül Pazarlığı",
+  text: `Köylülerle ödül konusunda pazarlık yapıyorsun. Chaos'u durdurursan ne alacağını konuşuyorsun.
+  
+  "Chaos'u durdurursam ne alacağım?" diye soruyorsun.
+  
+  Köylüler sana değerli eşyalar vaat ediyorlar.`,
+  choices: [
+    { text: "Kabul et", nextNode: "accept_reward" },
+    { text: "Daha fazla iste", nextNode: "demand_more" },
+    { text: "Ücretsiz yap", nextNode: "do_for_free" },
+  ],
+};
+
+scenarios.warhammer_imperial_crisis.story.get_more_info = {
+  title: "Daha Fazla Bilgi Alma",
+  text: `Daha detaylı bilgi alıyorsun. Chaos kültünün tam olarak ne yaptığını öğreniyorsun.
+  
+  "Chaos kültü ne yapıyor?" diye soruyorsun.
+  
+  Köylüler korku içinde anlatıyorlar.`,
+  choices: [
+    { text: "Tapınağa git", nextNode: "search_chaos_cult" },
+    { text: "Köyü koru", nextNode: "protect_village_warhammer" },
+    { text: "Yardım çağır", nextNode: "call_for_help" },
+  ],
+};
+
+scenarios.warhammer_imperial_crisis.story.accept_reward = {
+  title: "Ödülü Kabul Etme",
+  text: `Ödülü kabul ediyorsun. Chaos'u durdurursan değerli eşyalar alacaksın.
+  
+  "Anlaştık," diyorsun. "Chaos'u durduracağım."
+  
+  Şimdi Chaos'u durdurmak için hazırsın.`,
+  choices: [
+    { text: "Chaos'u ara", nextNode: "search_chaos_cult" },
+    { text: "Köyü koru", nextNode: "protect_village_warhammer" },
+    { text: "Yardım çağır", nextNode: "call_for_help" },
+  ],
+};
+
+scenarios.warhammer_imperial_crisis.story.demand_more = {
+  title: "Daha Fazla İsteme",
+  text: `Daha fazla ödül istiyorsun. Chaos'u durdurmak için daha değerli şeyler istiyorsun.
+  
+  "Bu yeterli değil," diyorsun. "Daha fazlasını istiyorum."
+  
+  Köylüler düşünüyor ve daha fazla vaat ediyorlar.`,
+  choices: [
+    { text: "Kabul et", nextNode: "accept_reward" },
+    { text: "Ücretsiz yap", nextNode: "do_for_free" },
+    { text: "Reddet", nextNode: "reject_mission" },
+  ],
+};
+
+scenarios.warhammer_imperial_crisis.story.do_for_free = {
+  title: "Ücretsiz Yapma",
+  text: `Ücretsiz olarak Chaos'u durduracağına söz veriyorsun. Para için değil, iyilik için yapacaksın.
+  
+  "Para için değil," diyorsun. "İyilik için yapacağım."
+  
+  Köylüler çok mutlu ve sana güveniyorlar.`,
+  choices: [
+    { text: "Chaos'u ara", nextNode: "search_chaos_cult" },
+    { text: "Köyü koru", nextNode: "protect_village_warhammer" },
+    { text: "Yardım çağır", nextNode: "call_for_help" },
+  ],
+};
+
+scenarios.warhammer_imperial_crisis.story.reject_mission = {
+  title: "Görevi Reddetme",
+  text: `Görevi reddediyorsun. Chaos'u durdurmak istemiyorsun.
+  
+  "Bu benim işim değil," diyorsun. "Başka biri yapsın."
+  
+  Köylüler üzgün ama seni zorlayamıyorlar.`,
+  choices: [
+    { text: "Geri dön", nextNode: "return_to_village" },
+    { text: "Yeni macera", nextNode: "new_adventure" },
+    { text: "Dinlen", nextNode: "rest_peacefully" },
+  ],
+};
+
+console.log("✅ Enhanced script'ten eksik node'lar eklendi!");
