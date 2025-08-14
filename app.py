@@ -2590,7 +2590,8 @@ def register():
         return jsonify({'success': False, 'error': str(e)})
 
 if __name__ == '__main__':
-    print("🎲 AI Dungeon Master başlatılıyor...")
-    print("🌐 http://localhost:5002 adresinde erişilebilir")
+    port = int(os.environ.get('PORT', 5002))
+    print(f"🎲 AI Dungeon Master başlatılıyor...")
+    print(f"🌐 http://localhost:{port} adresinde erişilebilir")
     print("🔗 WebSocket desteği aktif")
-    socketio.run(app, host='0.0.0.0', port=5002, debug=True) 
+    socketio.run(app, host='0.0.0.0', port=port, debug=False) 

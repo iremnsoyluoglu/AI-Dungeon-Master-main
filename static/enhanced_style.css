@@ -3001,3 +3001,158 @@ body {
   font-size: 0.8em;
   font-weight: bold;
 }
+
+/* File Upload System Styles */
+.file-upload-section {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 2px solid #4a90e2;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  border: 2px dashed #4a90e2;
+  border-radius: 8px;
+  background: rgba(74, 144, 226, 0.1);
+  transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+  border-color: #5ba0f2;
+  background: rgba(74, 144, 226, 0.15);
+}
+
+.upload-btn {
+  background: linear-gradient(45deg, #4caf50, #45a049);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.upload-btn:hover {
+  background: linear-gradient(45deg, #45a049, #4caf50);
+  transform: translateY(-1px);
+}
+
+#file-status {
+  color: #cccccc;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.uploaded-files {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 2px solid #4a90e2;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.files-list {
+  max-height: 200px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.file-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.file-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.file-info {
+  flex: 1;
+}
+
+.file-name {
+  font-weight: bold;
+  color: #4a90e2;
+  margin-bottom: 5px;
+}
+
+.file-details {
+  display: flex;
+  gap: 15px;
+  font-size: 0.8em;
+  color: #aaa;
+}
+
+.file-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.file-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8em;
+  transition: all 0.3s ease;
+}
+
+.file-btn:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transform: scale(1.05);
+}
+
+.file-btn.delete {
+  background: linear-gradient(135deg, #f44336 0%, #da190b 100%);
+}
+
+.file-btn.delete:hover {
+  background: linear-gradient(135deg, #da190b 0%, #f44336 100%);
+}
+
+/* AI Generated Scenario Card */
+.scenario-card.ai-generated {
+  border: 2px solid #4caf50;
+  background: linear-gradient(
+    135deg,
+    rgba(76, 175, 80, 0.1) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+.scenario-card.file-generated {
+  border: 2px solid #ff9800;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 152, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+.ai-info {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ai-info small {
+  color: #4caf50;
+  font-style: italic;
+}

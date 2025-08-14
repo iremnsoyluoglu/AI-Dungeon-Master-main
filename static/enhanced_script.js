@@ -1200,6 +1200,2055 @@ Lydia sana güvenle bakıyor: "Sen bizi kurtaracaksın, değil mi?"`,
           { text: "Geri dön", nextNode: "return_to_scene" },
         ],
       },
+
+      // EKSİK NODE'LAR - TAMAMLAMA
+      investigate_temple: {
+        title: "Eski Tapınağı Araştırma",
+        text: `Köyün kuzeyindeki eski tapınağa gidiyorsun. Tapınak harap durumda ama içeriden garip ışıklar geliyor.
+
+İçeri girdiğinde, tapınağın ortasında büyük bir altar görüyorsun. Üzerinde ejderha kanı ve garip semboller var. Duvarlarda ejderha resimleri asılı.
+
+Aniden, bir ses duyuyorsun: "Kim orada?"
+
+Şifacı, tapınağın arkasından çıkıyor. Yüzünde delilik ifadesi var: "Sen... sen ejderha avcısısın! Neden buradasın?"
+
+"Bu tapınakta ne yapıyorsun?" diye soruyorsun.
+
+Şifacı gülüyor: "Güç... ejderha gücü! Ben 100 yıl önce ejderha avcısıydım. Ejderhayı öldürdüm ama gücünü alamadım. Şimdi kolyeyi buldum ve güç benim olacak!"`,
+        choices: [
+          { text: "Şifacıyla savaş", nextNode: "fight_healer" },
+          { text: "Kolyeyi geri iste", nextNode: "demand_necklace" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Büyüyü boz", nextNode: "break_spell" },
+          { text: "Kaç ve yardım getir", nextNode: "get_help" },
+        ],
+      },
+
+      talk_to_dragon: {
+        title: "Ejderhayla Konuşma",
+        text: `Ejderha'ya yaklaşıyorsun. Kılıcını indiriyorsun ve konuşmaya çalışıyorsun.
+
+"Ben seni öldürmedim. Hafızamı kaybettim ama bunu hatırlamıyorum."
+
+Ejderha gülüyor: "Sen beni öldürdün ama ben ölmedim. Sadece uykuya daldım. Şimdi uyandım ve kolyemi arıyorum."
+
+"Kolye? Hangi kolye?" diye soruyorsun.
+
+"Boynundaki kolye! O benim aile yadigârım. 100 yıl önce sen onu çaldın ve beni uykuya daldırdın."
+
+Lydia şaşkın: "Bu kolye ejderhaya mı ait?"
+
+Kolyen üzerindeki semboller parlamaya başlıyor. Hafızanın bir kısmı geri geliyor.`,
+        choices: [
+          { text: "Kolyeyi geri ver", nextNode: "return_necklace" },
+          { text: "Gerçeği öğren", nextNode: "learn_truth" },
+          { text: "Kolyeyi tut", nextNode: "keep_necklace" },
+          { text: "Ejderhayla anlaş", nextNode: "negotiate_dragon" },
+          { text: "Savaş", nextNode: "fight_dragon" },
+        ],
+      },
+
+      return_necklace: {
+        title: "Kolyeyi Geri Verme",
+        text: `Kolyeyi ejderhaya geri veriyorsun. Ejderha mutlu oluyor ve kolyeyi boynuna takıyor.
+
+"Teşekkür ederim, dostum. Kolyem geri geldi."
+
+Aniden, kolyenin gücü ejderhayı sarmalıyor ve ejderha'nın yaraları iyileşiyor. Ejderha daha güçlü ve sağlıklı görünüyor.
+
+"Şimdi gerçeği öğrenmeliyiz," diyor ejderha. "Şifacı neden beni uyandırdı?"
+
+Lydia: "Babam... babam ne yapıyor?"
+
+"Şifacı kolyenin gücünü kullanarak 100 yıl yaşadı. Şimdi tekrar güç kazanmaya çalışıyor."
+
+Ejderha: "O zaman onu durdurmamız gerekiyor. Ama önce senin hafızanı geri getirmeliyiz."`,
+        choices: [
+          { text: "Hafızayı geri getir", nextNode: "restore_memory" },
+          { text: "Şifacıyı durdur", nextNode: "stop_healer" },
+          { text: "Köyü kurtar", nextNode: "save_village" },
+          { text: "Yeni plan yap", nextNode: "make_new_plan" },
+          { text: "Ejderhayla birlikte git", nextNode: "go_with_dragon" },
+        ],
+      },
+
+      keep_necklace: {
+        title: "Kolyeyi Tutma",
+        text: `Kolyeyi tutmaya karar veriyorsun. Ejderha öfkeyle bağırıyor: "Kolyemi geri ver! O benim!"
+
+"Hayır! Bu kolye benim gücüm! Sen onu hak etmiyorsun!"
+
+Kolyenin gücü seni sarmalıyor ve daha güçlü hissediyorsun. Ama aynı zamanda kolyenin etkisi altında kalıyorsun.
+
+Lydia korkuyla bakıyor: "Ne yapıyorsun? Bu yanlış!"
+
+"Hayır! Bu doğru! Ben güçlü olacağım!"
+
+Ejderha: "Sen de şifacı gibi oldun! Kolyenin gücü seni de etkiliyor!"
+
+Kolyenin gücü seni değiştirmeye başlıyor. Hafızan bulanıklaşıyor ve gerçeklik algın değişiyor.`,
+        choices: [
+          { text: "Gücü kullan", nextNode: "use_power" },
+          { text: "Ejderhayla savaş", nextNode: "fight_dragon_again" },
+          { text: "Köyü ele geçir", nextNode: "take_over_village" },
+          { text: "Kolyeyi bırak", nextNode: "drop_necklace" },
+          { text: "Kontrolü kaybet", nextNode: "lose_control" },
+        ],
+      },
+
+      negotiate_dragon: {
+        title: "Ejderhayla Anlaşma",
+        text: `Ejderha ile anlaşmaya çalışıyorsun: "Savaşmak yerine anlaşalım. Ne istiyorsun?"
+
+Ejderha düşünüyor: "Ben sadece kolyemi istiyorum. Ama şifacı da onu istiyor."
+
+"O zaman birlikte çalışalım. Şifacıyı durduralım ve kolyeyi sana geri verelim."
+
+Lydia: "Babamı durdurabiliriz! O artık babam değil!"
+
+Ejderha: "Tamam, anlaştık. Birlikte şifacıyı durduralım."
+
+Şimdi üçünüz birlikte şifacıyı durdurmak için bir plan yapıyorsunuz. Ejderha, Lydia ve sen - garip bir ittifak.`,
+        choices: [
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Şifacıya saldır", nextNode: "attack_healer" },
+          { text: "Kolyeyi çal", nextNode: "steal_necklace" },
+          { text: "Şifacıyı ikna et", nextNode: "convince_healer" },
+          { text: "Köyü uyar", nextNode: "warn_village" },
+        ],
+      },
+
+      // DAHA FAZLA EKSİK NODE'LAR
+      protect_lydia: {
+        title: "Lydia'yı Koruma",
+        text: `Lydia'yı korumak için şifacıya karşı duruyorsun. "Lydia'ya dokunma!"
+
+Şifacı gülüyor: "Kızım mı? O benim kızım! Ona zarar vermem!"
+
+"Sen artık onun babası değilsin! Kolyenin gücü seni değiştirdi!"
+
+Lydia cesurca yaklaşıyor: "Baba! Lütfen dur! Bu sen değilsin!"
+
+Şifacı'nın yüzündeki ifade değişiyor. Kolyenin etkisi azalıyor ve normal haline dönmeye başlıyor.
+
+"Lydia? Kızım? Ben ne yapıyorum?"`,
+        choices: [
+          { text: "Şifacıyı affet", nextNode: "forgive_healer" },
+          { text: "Kolyeyi al", nextNode: "take_necklace" },
+          { text: "Gerçeği açıkla", nextNode: "explain_truth" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Köyü kurtar", nextNode: "save_village" },
+        ],
+      },
+
+      escape_healer: {
+        title: "Şifacıdan Kaçma",
+        text: `Şifacıdan kaçıyorsun. Şifacı kolyenin gücüyle size saldırmaya çalışıyor ama sen Lydia ile birlikte kaçıyorsunuz.
+
+"Bu çok tehlikeli!" diye bağırıyor Lydia.
+
+Köye geri döndüğünüzde, köylüleri topluyorsunuz ve durumu anlatıyorsunuz.
+
+"Şifacı delirmiş! Kolyeyi çalmış ve ejderha gücü kazanmaya çalışıyor!"
+
+Köy reisi Aldric: "Bu çok tehlikeli! Köylüleri güvenli yerlere taşımalıyız!"
+
+Şimdi bir plan yapmalısınız. Şifacıyı durdurmak ve kolyeyi geri almak gerekiyor.`,
+        choices: [
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Köylüleri tahliye et", nextNode: "evacuate_villagers" },
+          { text: "Yardım ara", nextNode: "seek_help" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Gizli yol ara", nextNode: "find_secret_path" },
+        ],
+      },
+
+      attack_healer: {
+        title: "Şifacıya Saldırma",
+        text: `Şifacıya saldırıyorsun. Kılıcınla şifacıya doğru koşuyorsun ama şifacı kolyenin gücüyle büyü kalkanı kullanıyor.
+
+"Sen beni durduramazsın! Ben çok güçlüyüm!"
+
+Büyüler odada uçuşuyor. Lydia korkuyla izliyor.
+
+Aniden, pencereden ejderha'nın başı görünüyor. Ejderha, şifacıyı görünce öfkeyle bağırıyor: "Sen! Sen beni uykuya daldıran hırsız!"
+
+Şifacı şaşkın: "Ejderha? Nasıl hala yaşıyorsun?"
+
+"Ben ölmedim! Sen sadece beni uykuya daldırdın ve kolyemi çaldın!"
+
+Şimdi üçlü bir savaş başlıyor. Sen, ejderha ve şifacı.`,
+        choices: [
+          { text: "Ejderhayla birlikte savaş", nextNode: "fight_with_dragon" },
+          { text: "Lydia'yı kurtar", nextNode: "save_lydia_from_father" },
+          { text: "Şifacıyı durdur", nextNode: "stop_healer" },
+          { text: "Büyüyü boz", nextNode: "break_healer_spell" },
+          { text: "Kaos yarat", nextNode: "create_chaos" },
+        ],
+      },
+
+      steal_necklace: {
+        title: "Kolyeyi Çalma",
+        text: `Şifacıdan kolyeyi çalmaya çalışıyorsun. Gizlice yaklaşıyorsun ve kolyeyi almaya çalışıyorsun.
+
+Ama şifacı seni fark ediyor: "Ne yapıyorsun? Kolyeyi mi çalmaya çalışıyorsun?"
+
+"Bu kolye senin değil! Ejderhaya ait!"
+
+Şifacı kolyeyi sıkıca tutuyor: "Hayır! Bu benim gücüm! Geri vermem!"
+
+Lydia: "Baba! Lütfen kolyeyi bırak!"
+
+Şifacı'nın yüzündeki ifade değişiyor. Kolyenin etkisi azalıyor ve normal haline dönmeye başlıyor.
+
+"Ne... ne yapıyorum? Ben ne yapıyorum?"`,
+        choices: [
+          { text: "Kolyeyi al", nextNode: "take_necklace" },
+          { text: "Şifacıyı affet", nextNode: "forgive_healer" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Köyü kurtar", nextNode: "save_village" },
+          { text: "Gerçeği açıkla", nextNode: "explain_truth" },
+        ],
+      },
+
+      warn_dragon: {
+        title: "Ejderhayı Uyarma",
+        text: `Ejderhayı uyarmak için kolyenin gücünü kullanıyorsun. Kolye parlamaya başlıyor ve ejderha'nın sesini duyuyorsun.
+
+"Kolye! Kolyemin sesi! Neredesin?"
+
+"Ejderha! Şifacı seni uyandırdı ve kolyeyi çaldı! Dikkatli ol!"
+
+Ejderha öfkeyle bağırıyor: "Şifacı mı? Hangi şifacı?"
+
+"Lydia'nın babası! O 100 yıl önce de şifacıydı ve kolyeyi çaldı!"
+
+Ejderha: "O zaman onu durdurmamız gerekiyor! Nerede?"
+
+"Eski tapınakta! Hemen gel!"
+
+Ejderha tapınağa doğru geliyor. Şifacı için kötü olacak.`,
+        choices: [
+          { text: "Tapınağa git", nextNode: "go_to_temple" },
+          { text: "Köylüleri uyar", nextNode: "warn_villagers" },
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Lydia'yı koru", nextNode: "protect_lydia" },
+          { text: "Bekle", nextNode: "wait_for_dragon" },
+        ],
+      },
+
+      warn_villagers: {
+        title: "Köylüleri Uyarma",
+        text: `Köye geri dönüyorsun ve köylüleri uyarıyorsun.
+
+"Köylüler! Şifacı 100 yıl önce ejderha avcısıydı!"
+
+Köy reisi Aldric: "Ne? Şifacı mı? Bu imkansız!"
+
+"Evet! Şifacı kolyeyi çaldı ve ejderha gücü kazanmaya çalışıyor!"
+
+Genç çiftçi Tom: "Ne yapacağız? Köyü tahliye mi edelim?"
+
+"Hayır! Köyü savunmalıyız! Köylüleri silahlandırmalıyız!"
+
+Köylüler korku içinde ama seninle birlikte savaşmaya hazır olduklarını söylüyorlar.`,
+        choices: [
+          { text: "Köylüleri silahlandır", nextNode: "arm_villagers" },
+          { text: "Tuzaklar kur", nextNode: "set_traps" },
+          { text: "Güvenli yerler hazırla", nextNode: "prepare_safe_places" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Plan yap", nextNode: "make_plan" },
+        ],
+      },
+
+      plan_attack: {
+        title: "Saldırı Planı",
+        text: `Şifacıya saldırmak için bir plan yapıyorsun. Lydia ile birlikte düşünüyorsunuz.
+
+"Şifacı kolyenin gücünü kullanıyor. Onu durdurmamız gerekiyor."
+
+Lydia: "Babamı durdurabilirim! O artık babam değil!"
+
+"Evet, sen onu durdurabilirsin. Ben de kolyeyi almaya çalışacağım."
+
+"Peki ya ejderha? Onu da çağıralım mı?"
+
+"Evet, ejderha da yardım edebilir. Üçümüz birlikte şifacıyı durdurabiliriz."
+
+Şimdi planı uygulamaya koyuyorsunuz. Lydia şifacıyı oyalayacak, sen kolyeyi alacaksın ve ejderha da güç verecek.`,
+        choices: [
+          { text: "Planı uygula", nextNode: "execute_plan" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Köylüleri topla", nextNode: "gather_villagers" },
+          { text: "Tuzak kur", nextNode: "set_trap" },
+          { text: "Geri dön", nextNode: "return_to_scene" },
+        ],
+      },
+
+      arm_villagers: {
+        title: "Köylüleri Silahlandırma",
+        text: `Köylüleri silahlandırıyorsun. Eski silahları çıkarıyorsunuz ve herkese bir silah veriyorsun.
+
+"Herkes silah alsın! Köyümüzü koruyacağız!"
+
+Genç çiftçi Tom: "Ben savaşabilirim! Köyümü koruyacağım!"
+
+Yaşlı çiftçi: "Ben de savaşabilirim! Köyüm için ölürüm!"
+
+Köy reisi Aldric: "Hepimiz birlikte savaşacağız! Ejderha Avcısı bizi yönlendirecek!"
+
+Köylüler silahlanıyor ve hazırlanıyor. Şimdi şifacıya karşı savaşmaya hazırlar.
+
+"Şimdi şifacıya saldıralım!" diye bağırıyorsun.`,
+        choices: [
+          { text: "Şifacıya saldır", nextNode: "attack_healer" },
+          { text: "Tuzaklar kur", nextNode: "set_traps" },
+          { text: "Güvenli yerler hazırla", nextNode: "prepare_safe_places" },
+          { text: "Ejderhayı beklet", nextNode: "wait_for_dragon" },
+          { text: "Plan yap", nextNode: "make_plan" },
+        ],
+      },
+
+      set_traps: {
+        title: "Tuzaklar Kurma",
+        text: `Köyün etrafına tuzaklar kuruyorsun. Şifacı gelirse yakalayabilirsiniz.
+
+"Bu tuzaklar şifacıyı yakalayacak!"
+
+Genç çiftçi Tom: "Ben de tuzak kurmayı biliyorum!"
+
+Köylülerle birlikte çeşitli tuzaklar kuruyorsunuz: ağ tuzakları, çukur tuzakları, ip tuzakları.
+
+"Şimdi şifacı gelirse yakalayabiliriz!"
+
+Lydia: "Babam çok akıllıdır. Bu tuzakları fark edebilir."
+
+"O zaman daha karmaşık tuzaklar kuralım!"
+
+Tuzaklar hazır. Şimdi şifacıyı bekliyorsunuz.`,
+        choices: [
+          { text: "Şifacıyı bekle", nextNode: "wait_for_healer" },
+          { text: "Köylüleri silahlandır", nextNode: "arm_villagers" },
+          { text: "Güvenli yerler hazırla", nextNode: "prepare_safe_places" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Plan yap", nextNode: "make_plan" },
+        ],
+      },
+
+      prepare_safe_places: {
+        title: "Güvenli Yerler Hazırlama",
+        text: `Köyde güvenli yerler hazırlıyorsun. Kadınları ve çocukları güvenli yerlere taşıyorsunuz.
+
+"Kadınlar ve çocuklar burada güvende olacak!"
+
+Köy reisi Aldric: "Evet, bu yerler güvenli. Şifacı buraya gelemez."
+
+Lydia: "Ben de burada kalayım mı?"
+
+"Hayır, sen benimle gel. Babayı durdurmamız gerekiyor."
+
+Güvenli yerler hazır. Şimdi savaşmaya hazırsınız.
+
+"Şimdi şifacıya karşı savaşalım!"`,
+        choices: [
+          { text: "Şifacıya saldır", nextNode: "attack_healer" },
+          { text: "Köylüleri silahlandır", nextNode: "arm_villagers" },
+          { text: "Tuzaklar kur", nextNode: "set_traps" },
+          { text: "Ejderhayı beklet", nextNode: "wait_for_dragon" },
+          { text: "Plan yap", nextNode: "make_plan" },
+        ],
+      },
+
+      wait_for_dragon: {
+        title: "Ejderhayı Bekleme",
+        text: `Ejderhayı bekliyorsun. Kolyenin gücünü kullanarak ejderhayı çağırdın.
+
+"Ejderha gelmeli. Kolyenin sesini duydu."
+
+Lydia: "Ejderha gerçekten gelecek mi?"
+
+"Evet, gelecek. Kolye onun aile yadigârı."
+
+Aniden, uzaktan ejderha'nın sesini duyuyorsun: "Kolye! Kolyemin sesi!"
+
+Ejderha geliyor! Büyük ve güçlü görünüyor.
+
+"Ejderha geldi!" diye bağırıyorsun.
+
+Şimdi ejderha ile birlikte şifacıya karşı savaşabilirsiniz.`,
+        choices: [
+          { text: "Ejderhayla konuş", nextNode: "talk_to_dragon" },
+          { text: "Şifacıya saldır", nextNode: "attack_healer" },
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Köylüleri topla", nextNode: "gather_villagers" },
+          { text: "Bekle", nextNode: "wait_for_healer" },
+        ],
+      },
+
+      // DAHA FAZLA EKSİK NODE'LAR - HIZLI TAMAMLAMA
+      fight_with_dragon: {
+        title: "Ejderhayla Birlikte Savaşma",
+        text: `Ejderha ile birlikte şifacıya saldırıyorsunuz. Ejderha ateş püskürtüyor, sen de kılıcınla saldırıyorsun.
+
+"Birlikte savaşalım!" diye bağırıyorsun.
+
+Şifacı kolyenin gücüyle büyü kalkanı kullanıyor ama ejderha'nın ateşi kalkanı zayıflatıyor.
+
+"Seni durduramazsınız!" diye bağırıyor şifacı.
+
+Lydia: "Baba! Lütfen dur!"
+
+Şifacı'nın yüzündeki ifade değişiyor. Kolyenin etkisi azalıyor.`,
+        choices: [
+          { text: "Şifacıyı durdur", nextNode: "stop_healer" },
+          { text: "Kolyeyi al", nextNode: "take_necklace" },
+          { text: "Lydia'yı kurtar", nextNode: "save_lydia_from_father" },
+          { text: "Büyüyü boz", nextNode: "break_healer_spell" },
+          { text: "Kaos yarat", nextNode: "create_chaos" },
+        ],
+      },
+
+      save_lydia_from_father: {
+        title: "Lydia'yı Babasından Kurtarma",
+        text: `Lydia'yı babasından kurtarmaya çalışıyorsun. Şifacı kolyenin gücüyle Lydia'yı kontrol etmeye çalışıyor.
+
+"Lydia! Kızım! Bana gel!"
+
+Lydia korkuyla bakıyor: "Baba! Sen değilsin!"
+
+"Hayır! Sen artık babam değilsin!" diye bağırıyor Lydia.
+
+Sen Lydia'yı koruyorsun ve şifacıya karşı duruyorsun.`,
+        choices: [
+          { text: "Şifacıyı durdur", nextNode: "stop_healer" },
+          { text: "Kolyeyi al", nextNode: "take_necklace" },
+          { text: "Lydia'yı kaçır", nextNode: "escape_with_lydia" },
+          { text: "Şifacıyı ikna et", nextNode: "convince_healer" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+        ],
+      },
+
+      stop_healer: {
+        title: "Şifacıyı Durdurma",
+        text: `Şifacıyı durdurmaya çalışıyorsun. Kılıcınla şifacıya saldırıyorsun ama şifacı kolyenin gücüyle kendini koruyor.
+
+"Sen beni durduramazsın!"
+
+Lydia: "Baba! Lütfen dur!"
+
+Şifacı'nın yüzündeki ifade değişiyor. Kolyenin etkisi azalıyor ve normal haline dönmeye başlıyor.
+
+"Ne... ne yapıyorum?"`,
+        choices: [
+          { text: "Şifacıyı affet", nextNode: "forgive_healer" },
+          { text: "Kolyeyi al", nextNode: "take_necklace" },
+          { text: "Gerçeği açıkla", nextNode: "explain_truth" },
+          { text: "Köyü kurtar", nextNode: "save_village" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+        ],
+      },
+
+      break_healer_spell: {
+        title: "Şifacının Büyüsünü Bozma",
+        text: `Şifacının büyüsünü bozmaya çalışıyorsun. Kılıcındaki runeleri kullanarak büyüyü bozmaya çalışıyorsun.
+
+"Büyüyü bozacağım!"
+
+Kılıcındaki runeler parlamaya başlıyor ve şifacının büyüsünü zayıflatıyor.
+
+Şifacı: "Ne yapıyorsun? Büyümü bozuyorsun!"
+
+"Evet! Seni normal haline döndüreceğim!"
+
+Büyü bozuluyor ve şifacı normal haline dönüyor.`,
+        choices: [
+          { text: "Şifacıyı affet", nextNode: "forgive_healer" },
+          { text: "Kolyeyi al", nextNode: "take_necklace" },
+          { text: "Gerçeği açıkla", nextNode: "explain_truth" },
+          { text: "Köyü kurtar", nextNode: "save_village" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+        ],
+      },
+
+      create_chaos: {
+        title: "Kaos Yaratma",
+        text: `Kaos yaratmaya karar veriyorsun. Kolyenin gücünü kullanarak büyü yapıyorsun ve odada kaos yaratıyorsun.
+
+"Kaos yaratacağım!"
+
+Büyüler odada uçuşuyor ve şifacı kontrolü kaybediyor.
+
+Şifacı: "Ne yapıyorsun? Kontrolü kaybediyorum!"
+
+"Evet! Şimdi kolyeyi alabilirim!"
+
+Kaos sırasında kolyeyi almaya çalışıyorsun.`,
+        choices: [
+          { text: "Kolyeyi al", nextNode: "take_necklace" },
+          { text: "Şifacıyı durdur", nextNode: "stop_healer" },
+          { text: "Lydia'yı kurtar", nextNode: "save_lydia_from_father" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Kaç", nextNode: "escape_chaos" },
+        ],
+      },
+
+      force_necklace: {
+        title: "Kolyeyi Zorla Alma",
+        text: `Kolyeyi zorla almaya çalışıyorsun. Şifacıya saldırıyorsun ve kolyeyi almaya çalışıyorsun.
+
+"Kolyeyi vereceksin!"
+
+Şifacı: "Hayır! Bu benim gücüm!"
+
+Sen kolyeyi zorla alıyorsun. Şifacı direniyor ama sen daha güçlüsün.
+
+"Verdin!"
+
+Kolyeyi alıyorsun ve şifacı güçsüz kalıyor.`,
+        choices: [
+          { text: "Ejderhaya ver", nextNode: "return_necklace" },
+          { text: "Kolyeyi tut", nextNode: "keep_necklace" },
+          { text: "Şifacıyı affet", nextNode: "forgive_healer" },
+          { text: "Köyü kurtar", nextNode: "save_village" },
+          { text: "Gerçeği öğren", nextNode: "learn_truth" },
+        ],
+      },
+
+      escape_situation: {
+        title: "Durumdan Kaçma",
+        text: `Durumdan kaçmaya karar veriyorsun. Lydia ile birlikte kaçıyorsunuz.
+
+"Bu çok tehlikeli! Kaçalım!"
+
+Lydia: "Evet! Kaçalım!"
+
+Şifacıdan ve ejderhadan kaçıyorsunuz. Köye geri dönüyorsunuz.
+
+"Şimdi ne yapacağız?" diye soruyor Lydia.
+
+"Plan yapmalıyız. Şifacıyı durdurmamız gerekiyor."`,
+        choices: [
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Köylüleri uyar", nextNode: "warn_villagers" },
+          { text: "Yardım ara", nextNode: "seek_help" },
+          { text: "Geri dön", nextNode: "return_to_fight" },
+          { text: "Gizli yol ara", nextNode: "find_secret_path" },
+        ],
+      },
+
+      attack_with_villagers: {
+        title: "Köylülerle Saldırma",
+        text: `Köylülerle birlikte şifacıya saldırıyorsunuz. Tüm köy şifacıya karşı savaşıyor.
+
+"Köylüler! Birlikte savaşalım!"
+
+Köy reisi Aldric: "Evet! Köyümüzü koruyacağız!"
+
+Genç çiftçi Tom: "Şifacıyı durduracağız!"
+
+Köylüler silahlarıyla şifacıya saldırıyor. Şifacı kolyenin gücüyle kendini korumaya çalışıyor.`,
+        choices: [
+          { text: "Şifacıyı durdur", nextNode: "stop_healer" },
+          { text: "Kolyeyi al", nextNode: "take_necklace" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Şifacıyı ikna et", nextNode: "convince_healer" },
+          { text: "Köyü tahliye et", nextNode: "evacuate_village" },
+        ],
+      },
+
+      set_trap: {
+        title: "Tuzak Kurma",
+        text: `Şifacı için tuzak kuruyorsun. Kolyenin gücünü kullanarak büyülü tuzak kuruyorsun.
+
+"Bu tuzak şifacıyı yakalayacak!"
+
+Tuzak hazır. Şifacı gelirse yakalanacak.
+
+Lydia: "Babam çok akıllıdır. Bu tuzağı fark edebilir."
+
+"O zaman daha karmaşık tuzak kuralım!"`,
+        choices: [
+          { text: "Şifacıyı bekle", nextNode: "wait_for_healer" },
+          { text: "Köylüleri silahlandır", nextNode: "arm_villagers" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Şifacıyı ikna et", nextNode: "convince_healer" },
+          { text: "Köyü tahliye et", nextNode: "evacuate_village" },
+        ],
+      },
+
+      evacuate_village: {
+        title: "Köyü Tahliye Etme",
+        text: `Köyü tahliye etmeye karar veriyorsun. Köylüleri güvenli yerlere taşıyorsunuz.
+
+"Köylüler! Köyü tahliye edelim!"
+
+Köy reisi Aldric: "Evet! Güvenli yerlere gidelim!"
+
+Köylüler eşyalarını topluyor ve güvenli yerlere gidiyorlar.
+
+"Şimdi güvende olacağız!"`,
+        choices: [
+          { text: "Şifacıyı durdur", nextNode: "stop_healer" },
+          { text: "Kolyeyi al", nextNode: "take_necklace" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Yardım ara", nextNode: "seek_help" },
+        ],
+      },
+
+      stop_fight: {
+        title: "Savaşı Durdurma",
+        text: `Savaşı durdurmaya çalışıyorsun. "Durun! Savaşmayın!"
+
+Ejderha ve şifacı duruyor.
+
+"Ne yapıyorsun?" diye soruyor ejderha.
+
+"Barış yapalım! Savaşmak yerine konuşalım!"
+
+Şifacı: "Barış mı? Ben kolyeyi istiyorum!"
+
+Ejderha: "Ben de kolyeyi istiyorum!"
+
+"O zaman birlikte çözüm bulalım!"`,
+        choices: [
+          { text: "Gerçeği öğren", nextNode: "learn_truth" },
+          { text: "Kolyeyi paylaş", nextNode: "share_necklace" },
+          { text: "Hakem ol", nextNode: "arbitrate" },
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Kaç", nextNode: "escape_fight" },
+        ],
+      },
+
+      use_necklace_power: {
+        title: "Kolyenin Gücünü Kullanma",
+        text: `Kolyenin gücünü kullanmaya karar veriyorsun. Kolye parlamaya başlıyor ve güç veriyor.
+
+"Kolyenin gücünü kullanacağım!"
+
+Kolyenin gücü seni sarmalıyor ve daha güçlü hissediyorsun.
+
+"Şimdi çok güçlüyüm!"
+
+Ama kolyenin etkisi altında kalıyorsun. Hafızan bulanıklaşıyor.`,
+        choices: [
+          { text: "Gücü kullan", nextNode: "use_power" },
+          { text: "Kolyeyi bırak", nextNode: "drop_necklace" },
+          { text: "Kontrolü kaybet", nextNode: "lose_control" },
+          { text: "Ejderhayla savaş", nextNode: "fight_dragon_again" },
+          { text: "Köyü ele geçir", nextNode: "take_over_village" },
+        ],
+      },
+
+      final_attack: {
+        title: "Son Saldırı",
+        text: `Son saldırını yapıyorsun. Tüm gücünle şifacıya saldırıyorsun.
+
+"Bu son saldırı!"
+
+Kılıcınla şifacıya saldırıyorsun. Şifacı kolyenin gücüyle kendini korumaya çalışıyor.
+
+"Sen beni durduramazsın!"
+
+Ama sen daha güçlüsün. Son saldırınla şifacıyı durduruyorsun.`,
+        choices: [
+          { text: "Şifacıyı durdur", nextNode: "stop_healer" },
+          { text: "Kolyeyi al", nextNode: "take_necklace" },
+          { text: "Ejderhaya ver", nextNode: "return_necklace" },
+          { text: "Köyü kurtar", nextNode: "save_village" },
+          { text: "Gerçeği öğren", nextNode: "learn_truth" },
+        ],
+      },
+
+      restore_memory: {
+        title: "Hafızayı Geri Getirme",
+        text: `Hafızanı geri getirmeye çalışıyorsun. Kolyenin gücünü kullanarak hafızanı geri getirmeye çalışıyorsun.
+
+"Hafızamı geri getireceğim!"
+
+Kolye parlamaya başlıyor ve hafızanın bir kısmı geri geliyor.
+
+100 yıl önceki olayları hatırlamaya başlıyorsun. Ejderhayı öldürdüğünü, kolyeyi çaldığını hatırlıyorsun.
+
+"Evet! Hatırlıyorum! Ben ejderhayı öldürdüm ama o ölmedi!"`,
+        choices: [
+          { text: "Gerçeği öğren", nextNode: "learn_truth" },
+          { text: "Ejderhayla konuş", nextNode: "talk_to_dragon" },
+          { text: "Köye dön", nextNode: "return_to_village" },
+          { text: "Yeni yol ara", nextNode: "find_new_path" },
+          { text: "Şifacıyı durdur", nextNode: "stop_healer" },
+        ],
+      },
+
+      return_to_village: {
+        title: "Köye Dönme",
+        text: `Köye geri dönüyorsun. Köylüler seni karşılıyor.
+
+"Ejderha Avcısı geri döndü!"
+
+Köy reisi Aldric: "Ne oldu? Şifacıyı durdurdun mu?"
+
+"Evet! Şifacıyı durdurdum ama daha yapılacak çok şey var."
+
+Köylüler mutlu oluyor. Köy güvende.`,
+        choices: [
+          { text: "Köyü kurtar", nextNode: "save_village" },
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Gerçeği öğren", nextNode: "learn_truth" },
+          { text: "Yeni macera", nextNode: "new_adventure" },
+        ],
+      },
+
+      find_new_path: {
+        title: "Yeni Yol Arama",
+        text: `Yeni bir yol arıyorsun. Şifacıyı durdurmak için farklı bir yol bulmaya çalışıyorsun.
+
+"Farklı bir yol bulmalıyım!"
+
+Lydia: "Belki de babamı ikna edebiliriz?"
+
+"Evet! Belki de ikna edebiliriz!"
+
+Yeni bir plan yapıyorsun. Şifacıyı ikna etmeye çalışacaksın.`,
+        choices: [
+          { text: "Şifacıyı ikna et", nextNode: "convince_healer" },
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Köylüleri topla", nextNode: "gather_villagers" },
+          { text: "Gizli yol ara", nextNode: "find_secret_path" },
+        ],
+      },
+
+      confront_healer: {
+        title: "Şifacıyı Yüzleştirme",
+        text: `Şifacıyı yüzleştiriyorsun. Gerçeği söylüyorsun.
+
+"Sen 100 yıl önce ejderha avcısıydın! Ejderhayı öldürdün ama gücünü alamadın!"
+
+Şifacı şaşkın: "Ne? Ben mi?"
+
+"Evet! Sen kolyeyi çaldın ve 100 yıl yaşadın!"
+
+Şifacı'nın yüzündeki ifade değişiyor. Hafızası geri geliyor.
+
+"Evet... evet hatırlıyorum! Ben ejderha avcısıydım!"`,
+        choices: [
+          { text: "Kolyeyi geri al", nextNode: "reclaim_necklace" },
+          { text: "Köyü uyar", nextNode: "warn_village" },
+          { text: "Yeni plan yap", nextNode: "make_new_plan" },
+          { text: "Geçmişi hatırla", nextNode: "remember_past" },
+          { text: "Şifacıyı affet", nextNode: "forgive_healer" },
+        ],
+      },
+
+      reclaim_necklace: {
+        title: "Kolyeyi Geri Alma",
+        text: `Kolyeyi geri alıyorsun. Şifacıdan kolyeyi alıyorsun.
+
+"Kolyeyi geri alacağım!"
+
+Şifacı: "Al! Ben artık istemiyorum!"
+
+Kolyeyi alıyorsun. Şifacı normal haline dönüyor.
+
+"Teşekkür ederim! Ben artık normalim!"
+
+Şimdi kolyeyi ejderhaya geri verebilirsin.`,
+        choices: [
+          { text: "Ejderhaya ver", nextNode: "return_necklace" },
+          { text: "Kolyeyi tut", nextNode: "keep_necklace" },
+          { text: "Köyü kurtar", nextNode: "save_village" },
+          { text: "Gerçeği öğren", nextNode: "learn_truth" },
+          { text: "Yeni plan yap", nextNode: "make_new_plan" },
+        ],
+      },
+
+      warn_village: {
+        title: "Köyü Uyarma",
+        text: `Köyü uyarıyorsun. Köylülere durumu anlatıyorsun.
+
+"Köylüler! Şifacı 100 yıl önce ejderha avcısıydı!"
+
+Köy reisi Aldric: "Ne? Bu imkansız!"
+
+"Evet! O kolyeyi çaldı ve 100 yıl yaşadı!"
+
+Köylüler şaşkın oluyor. Bu çok büyük bir sır.
+
+"Şimdi ne yapacağız?"`,
+        choices: [
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Köylüleri silahlandır", nextNode: "arm_villagers" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Şifacıyı durdur", nextNode: "stop_healer" },
+          { text: "Köyü tahliye et", nextNode: "evacuate_village" },
+        ],
+      },
+
+      make_new_plan: {
+        title: "Yeni Plan Yapma",
+        text: `Yeni bir plan yapıyorsun. Durumu değerlendiriyorsun.
+
+"Yeni bir plan yapmalıyım!"
+
+Lydia: "Babamı durdurabiliriz!"
+
+"Evet! Şifacıyı durdurmamız gerekiyor!"
+
+Ejderha: "Ben de yardım edebilirim!"
+
+Üçünüz birlikte yeni bir plan yapıyorsunuz.`,
+        choices: [
+          { text: "Planı uygula", nextNode: "execute_plan" },
+          { text: "Şifacıya saldır", nextNode: "attack_healer" },
+          { text: "Kolyeyi çal", nextNode: "steal_necklace" },
+          { text: "Şifacıyı ikna et", nextNode: "convince_healer" },
+          { text: "Köyü uyar", nextNode: "warn_village" },
+        ],
+      },
+
+      remember_past: {
+        title: "Geçmişi Hatırlama",
+        text: `Geçmişi hatırlamaya çalışıyorsun. Kolyenin gücünü kullanarak geçmişi hatırlamaya çalışıyorsun.
+
+"Geçmişi hatırlayacağım!"
+
+Kolye parlamaya başlıyor ve geçmişi hatırlamaya başlıyorsun.
+
+100 yıl önceki olayları hatırlıyorsun. Ejderhayı öldürdüğünü, kolyeyi çaldığını hatırlıyorsun.
+
+"Evet! Hatırlıyorum! Ben ejderha avcısıydım!"`,
+        choices: [
+          { text: "Gerçeği öğren", nextNode: "learn_truth" },
+          { text: "Ejderhayla konuş", nextNode: "talk_to_dragon" },
+          { text: "Şifacıyı durdur", nextNode: "stop_healer" },
+          { text: "Köyü kurtar", nextNode: "save_village" },
+          { text: "Yeni plan yap", nextNode: "make_new_plan" },
+        ],
+      },
+
+      explain_truth: {
+        title: "Gerçeği Açıklama",
+        text: `Gerçeği açıklıyorsun. Şifacıya ve Lydia'ya gerçeği söylüyorsun.
+
+"Gerçeği söyleyeceğim! 100 yıl önce ben ejderha avcısıydım!"
+
+Şifacı: "Sen mi? Sen ejderha avcısı mıydın?"
+
+"Evet! Ben ejderhayı öldürdüm ama o ölmedi! Sadece uykuya daldı!"
+
+Lydia: "Bu çok karmaşık!"
+
+"Evet! Şimdi ejderha uyandı ve kolyesini arıyor!"`,
+        choices: [
+          { text: "Kolyeyi al", nextNode: "take_necklace" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Köyü kurtar", nextNode: "save_village" },
+          { text: "Şifacıyı affet", nextNode: "forgive_healer" },
+          { text: "Plan yap", nextNode: "make_plan" },
+        ],
+      },
+
+      make_plan: {
+        title: "Plan Yapma",
+        text: `Plan yapıyorsun. Durumu değerlendiriyorsun.
+
+"Plan yapmalıyım!"
+
+Lydia: "Babamı durdurabiliriz!"
+
+"Evet! Şifacıyı durdurmamız gerekiyor!"
+
+Ejderha: "Ben de yardım edebilirim!"
+
+Üçünüz birlikte plan yapıyorsunuz.`,
+        choices: [
+          { text: "Planı uygula", nextNode: "execute_plan" },
+          { text: "Şifacıya saldır", nextNode: "attack_healer" },
+          { text: "Kolyeyi çal", nextNode: "steal_necklace" },
+          { text: "Şifacıyı ikna et", nextNode: "convince_healer" },
+          { text: "Köyü uyar", nextNode: "warn_village" },
+        ],
+      },
+
+      evacuate_villagers: {
+        title: "Köylüleri Tahliye Etme",
+        text: `Köylüleri tahliye ediyorsun. Köylüleri güvenli yerlere taşıyorsunuz.
+
+"Köylüler! Güvenli yerlere gidelim!"
+
+Köy reisi Aldric: "Evet! Güvenli yerlere gidelim!"
+
+Köylüler eşyalarını topluyor ve güvenli yerlere gidiyorlar.
+
+"Şimdi güvende olacağız!"`,
+        choices: [
+          { text: "Şifacıyı durdur", nextNode: "stop_healer" },
+          { text: "Kolyeyi al", nextNode: "take_necklace" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Yardım ara", nextNode: "seek_help" },
+        ],
+      },
+
+      seek_help: {
+        title: "Yardım Arama",
+        text: `Yardım arıyorsun. Başka köylerden yardım istemeye gidiyorsun.
+
+"Yardım istemeliyim!"
+
+Yakındaki köye gidiyorsun ve durumu anlatıyorsun.
+
+"Şifacı delirmiş! Yardım istiyorum!"
+
+Köy reisi: "Yardım edeceğiz! Savaşçılarımızı göndereceğiz!"
+
+Yardım geliyor. Şimdi şifacıyı durdurabilirsiniz.`,
+        choices: [
+          { text: "Şifacıya saldır", nextNode: "attack_healer" },
+          { text: "Kolyeyi al", nextNode: "take_necklace" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Köyü kurtar", nextNode: "save_village" },
+        ],
+      },
+
+      return_to_fight: {
+        title: "Savaşa Geri Dönme",
+        text: `Savaşa geri dönüyorsun. Şifacı ve ejderha hala savaşıyor.
+
+"Geri döndüm!"
+
+Şifacı: "Sen geri döndün!"
+
+Ejderha: "Evet! Şimdi birlikte savaşabiliriz!"
+
+Şimdi üçünüz birlikte şifacıyı durdurmaya çalışıyorsunuz.`,
+        choices: [
+          { text: "Şifacıyı durdur", nextNode: "stop_healer" },
+          { text: "Kolyeyi al", nextNode: "take_necklace" },
+          { text: "Ejderhayla savaş", nextNode: "fight_with_dragon" },
+          { text: "Lydia'yı kurtar", nextNode: "save_lydia_from_father" },
+          { text: "Büyüyü boz", nextNode: "break_healer_spell" },
+        ],
+      },
+
+      find_secret_path: {
+        title: "Gizli Yol Arama",
+        text: `Gizli yol arıyorsun. Şifacıyı durdurmak için gizli bir yol bulmaya çalışıyorsun.
+
+"Gizli bir yol bulmalıyım!"
+
+Lydia: "Belki de eski tapınakta gizli bir yol vardır?"
+
+"Evet! Belki de vardır!"
+
+Eski tapınağı araştırıyorsun ve gizli bir yol buluyorsun.`,
+        choices: [
+          { text: "Gizli yolu kullan", nextNode: "use_secret_path" },
+          { text: "Şifacıya saldır", nextNode: "attack_healer" },
+          { text: "Kolyeyi çal", nextNode: "steal_necklace" },
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+        ],
+      },
+
+      promise_to_save: {
+        title: "Kurtarma Sözü Verme",
+        text: `Lydia'ya kurtarma sözü veriyorsun.
+
+"Evet, seni kurtaracağım! Babayı da kurtaracağım!"
+
+Lydia mutlu oluyor: "Teşekkür ederim! Sen bizi kurtaracaksın!"
+
+"Evet! Şifacıyı durduracağım ve kolyeyi geri alacağım!"
+
+Şimdi sözünü tutmak için şifacıyı durdurmaya çalışacaksın.`,
+        choices: [
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Gerçeği araştır", nextNode: "investigate_truth" },
+          { text: "Köylüleri uyar", nextNode: "warn_villagers" },
+          { text: "Geri dön", nextNode: "return_to_scene" },
+          { text: "Şifacıya saldır", nextNode: "attack_healer" },
+        ],
+      },
+
+      investigate_truth: {
+        title: "Gerçeği Araştırma",
+        text: `Gerçeği araştırıyorsun. Şifacının geçmişini araştırmaya çalışıyorsun.
+
+"Gerçeği araştıracağım!"
+
+Eski kayıtları araştırıyorsun ve şifacının 100 yıl önce ejderha avcısı olduğunu öğreniyorsun.
+
+"Evet! Şifacı 100 yıl önce ejderha avcısıydı!"
+
+Şimdi gerçeği biliyorsun. Şifacıyı durdurmak için bu bilgiyi kullanabilirsin.`,
+        choices: [
+          { text: "Şifacıyı yüzleştir", nextNode: "confront_healer" },
+          { text: "Köylüleri uyar", nextNode: "warn_villagers" },
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Kolyeyi al", nextNode: "take_necklace" },
+        ],
+      },
+
+      warn_villagers: {
+        title: "Köylüleri Uyarma",
+        text: `Köylüleri uyarıyorsun. Köylülere gerçeği söylüyorsun.
+
+"Köylüler! Şifacı 100 yıl önce ejderha avcısıydı!"
+
+Köy reisi Aldric: "Ne? Bu imkansız!"
+
+"Evet! O kolyeyi çaldı ve 100 yıl yaşadı!"
+
+Köylüler şaşkın oluyor. Bu çok büyük bir sır.
+
+"Şimdi ne yapacağız?"`,
+        choices: [
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Köylüleri silahlandır", nextNode: "arm_villagers" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Şifacıyı durdur", nextNode: "stop_healer" },
+          { text: "Köyü tahliye et", nextNode: "evacuate_village" },
+        ],
+      },
+
+      return_to_scene: {
+        title: "Sahneye Geri Dönme",
+        text: `Sahneye geri dönüyorsun. Şifacı ve ejderha hala orada.
+
+"Geri döndüm!"
+
+Şifacı: "Sen geri döndün!"
+
+Ejderha: "Evet! Şimdi birlikte savaşabiliriz!"
+
+Şimdi üçünüz birlikte şifacıyı durdurmaya çalışıyorsunuz.`,
+        choices: [
+          { text: "Şifacıyı durdur", nextNode: "stop_healer" },
+          { text: "Kolyeyi al", nextNode: "take_necklace" },
+          { text: "Ejderhayla savaş", nextNode: "fight_with_dragon" },
+          { text: "Lydia'yı kurtar", nextNode: "save_lydia_from_father" },
+          { text: "Büyüyü boz", nextNode: "break_healer_spell" },
+        ],
+      },
+
+      // SON EKSİK NODE'LAR - TAMAMLAMA
+      escape_with_lydia: {
+        title: "Lydia ile Kaçma",
+        text: `Lydia ile birlikte kaçıyorsunuz. Şifacıdan uzaklaşıyorsunuz.
+
+"Kaçalım! Bu çok tehlikeli!"
+
+Lydia: "Evet! Kaçalım!"
+
+Güvenli bir yere kaçıyorsunuz. Şimdi plan yapabilirsiniz.`,
+        choices: [
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Köylüleri uyar", nextNode: "warn_villagers" },
+          { text: "Yardım ara", nextNode: "seek_help" },
+          { text: "Geri dön", nextNode: "return_to_fight" },
+          { text: "Gizli yol ara", nextNode: "find_secret_path" },
+        ],
+      },
+
+      escape_chaos: {
+        title: "Kaostan Kaçma",
+        text: `Kaostan kaçıyorsun. Büyüler odada uçuşuyor ve sen kaçıyorsun.
+
+"Bu çok tehlikeli! Kaçmalıyım!"
+
+Kaostan uzaklaşıyorsun ve güvenli bir yere gidiyorsun.`,
+        choices: [
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Köylüleri uyar", nextNode: "warn_villagers" },
+          { text: "Yardım ara", nextNode: "seek_help" },
+          { text: "Geri dön", nextNode: "return_to_fight" },
+          { text: "Gizli yol ara", nextNode: "find_secret_path" },
+        ],
+      },
+
+      wait_for_healer: {
+        title: "Şifacıyı Bekleme",
+        text: `Şifacıyı bekliyorsun. Tuzak kurulmuş ve şifacıyı bekliyorsun.
+
+"Şifacı gelmeli. Tuzak hazır."
+
+Lydia: "Babam çok akıllıdır. Bu tuzağı fark edebilir."
+
+"O zaman daha dikkatli olmalıyız."
+
+Şifacıyı bekliyorsun.`,
+        choices: [
+          { text: "Şifacıya saldır", nextNode: "attack_healer" },
+          { text: "Kolyeyi çal", nextNode: "steal_necklace" },
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Köyü uyar", nextNode: "warn_village" },
+        ],
+      },
+
+      share_necklace: {
+        title: "Kolyeyi Paylaşma",
+        text: `Kolyeyi paylaşmaya karar veriyorsun. Ejderha ve şifacı arasında hakem oluyorsun.
+
+"Kolyeyi paylaşalım!"
+
+Ejderha: "Paylaşmak mı? Bu benim aile yadigârım!"
+
+Şifacı: "Ben de güç istiyorum!"
+
+"O zaman birlikte kullanabiliriz!"
+
+Üçünüz kolyeyi paylaşmaya karar veriyorsunuz.`,
+        choices: [
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Kolyeyi böl", nextNode: "split_necklace" },
+          { text: "Sırayla kullan", nextNode: "take_turns" },
+          { text: "Yeni çözüm ara", nextNode: "find_solution" },
+          { text: "Barış yap", nextNode: "make_peace" },
+        ],
+      },
+
+      arbitrate: {
+        title: "Hakem Olma",
+        text: `Hakem olmaya karar veriyorsun. Ejderha ve şifacı arasında hakemlik yapıyorsun.
+
+"Ben hakem olacağım!"
+
+Ejderha: "Sen mi? Sen kimsin?"
+
+"Ben 100 yıl önce ejderha avcısıydım!"
+
+Şifacı: "Sen mi? Ben de ejderha avcısıydım!"
+
+"O zaman birlikte çözüm bulalım!"
+
+Üçünüz birlikte çözüm arıyorsunuz.`,
+        choices: [
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Kolyeyi paylaş", nextNode: "share_necklace" },
+          { text: "Barış yap", nextNode: "make_peace" },
+          { text: "Yeni çözüm ara", nextNode: "find_solution" },
+          { text: "Savaş", nextNode: "fight_again" },
+        ],
+      },
+
+      escape_fight: {
+        title: "Savaştan Kaçma",
+        text: `Savaştan kaçıyorsun. Ejderha ve şifacı savaşıyor ve sen kaçıyorsun.
+
+"Bu çok tehlikeli! Kaçmalıyım!"
+
+Savaştan uzaklaşıyorsun ve güvenli bir yere gidiyorsun.`,
+        choices: [
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Köylüleri uyar", nextNode: "warn_villagers" },
+          { text: "Yardım ara", nextNode: "seek_help" },
+          { text: "Geri dön", nextNode: "return_to_fight" },
+          { text: "Gizli yol ara", nextNode: "find_secret_path" },
+        ],
+      },
+
+      use_power: {
+        title: "Gücü Kullanma",
+        text: `Kolyenin gücünü kullanıyorsun. Kolye parlamaya başlıyor ve güç veriyor.
+
+"Gücü kullanacağım!"
+
+Kolyenin gücü seni sarmalıyor ve çok güçlü hissediyorsun.
+
+"Şimdi çok güçlüyüm!"
+
+Ama kolyenin etkisi altında kalıyorsun. Hafızan bulanıklaşıyor.`,
+        choices: [
+          { text: "Şifacıya saldır", nextNode: "attack_healer" },
+          { text: "Ejderhayla savaş", nextNode: "fight_dragon_again" },
+          { text: "Köyü ele geçir", nextNode: "take_over_village" },
+          { text: "Kolyeyi bırak", nextNode: "drop_necklace" },
+          { text: "Kontrolü kaybet", nextNode: "lose_control" },
+        ],
+      },
+
+      drop_necklace: {
+        title: "Kolyeyi Bırakma",
+        text: `Kolyeyi bırakıyorsun. Kolyenin etkisinden kurtulmaya çalışıyorsun.
+
+"Kolyeyi bırakacağım!"
+
+Kolyeyi yere bırakıyorsun ve etkisinden kurtuluyorsun.
+
+"Artık özgürüm!"
+
+Hafızan geri geliyor ve normal haline dönüyorsun.`,
+        choices: [
+          { text: "Ejderhaya ver", nextNode: "return_necklace" },
+          { text: "Şifacıya ver", nextNode: "give_to_healer" },
+          { text: "Köyü kurtar", nextNode: "save_village" },
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Gerçeği öğren", nextNode: "learn_truth" },
+        ],
+      },
+
+      lose_control: {
+        title: "Kontrolü Kaybetme",
+        text: `Kolyenin etkisi altında kontrolü kaybediyorsun. Kolye seni kontrol etmeye başlıyor.
+
+"Kontrolü kaybediyorum!"
+
+Kolyenin gücü seni ele geçiriyor ve sen artık kendin değilsin.
+
+"Ben... ben kimim?"
+
+Kolye seni kontrol ediyor ve ne yapacağını bilmiyorsun.`,
+        choices: [
+          { text: "Kolyeyi bırak", nextNode: "drop_necklace" },
+          { text: "Savaş", nextNode: "fight_controlled" },
+          { text: "Kaç", nextNode: "escape_controlled" },
+          { text: "Yardım iste", nextNode: "ask_for_help" },
+          { text: "Kontrolü geri al", nextNode: "regain_control" },
+        ],
+      },
+
+      fight_dragon_again: {
+        title: "Ejderhayla Tekrar Savaşma",
+        text: `Ejderhayla tekrar savaşıyorsun. Kolyenin gücüyle ejderhaya saldırıyorsun.
+
+"Ejderhayla savaşacağım!"
+
+Ejderha: "Sen de kolyenin etkisi altındasın!"
+
+"Hayır! Ben güçlüyüm!"
+
+Kolyenin gücüyle ejderhaya saldırıyorsun.`,
+        choices: [
+          { text: "Ejderhayı öldür", nextNode: "kill_dragon" },
+          { text: "Kolyeyi bırak", nextNode: "drop_necklace" },
+          { text: "Kontrolü geri al", nextNode: "regain_control" },
+          { text: "Kaç", nextNode: "escape_fight" },
+          { text: "Yardım iste", nextNode: "ask_for_help" },
+        ],
+      },
+
+      take_over_village: {
+        title: "Köyü Ele Geçirme",
+        text: `Kolyenin gücüyle köyü ele geçirmeye çalışıyorsun. Kolye seni kontrol ediyor.
+
+"Köyü ele geçireceğim!"
+
+Köylüler korkuyla bakıyor: "Ne yapıyorsun?"
+
+"Ben artık köyün efendisiyim!"
+
+Kolyenin etkisi altında köyü ele geçirmeye çalışıyorsun.`,
+        choices: [
+          { text: "Köyü yönet", nextNode: "rule_village" },
+          { text: "Kolyeyi bırak", nextNode: "drop_necklace" },
+          { text: "Kontrolü geri al", nextNode: "regain_control" },
+          { text: "Köylüleri korkut", nextNode: "scare_villagers" },
+          { text: "Yardım iste", nextNode: "ask_for_help" },
+        ],
+      },
+
+      execute_plan: {
+        title: "Planı Uygulama",
+        text: `Planı uyguluyorsun. Lydia, ejderha ve sen birlikte şifacıyı durdurmaya çalışıyorsunuz.
+
+"Planı uygulayalım!"
+
+Lydia şifacıyı oyalıyor, sen kolyeyi almaya çalışıyorsun, ejderha da güç veriyor.
+
+"Birlikte çalışalım!"
+
+Plan başarılı oluyor ve şifacıyı durduruyorsunuz.`,
+        choices: [
+          { text: "Şifacıyı durdur", nextNode: "stop_healer" },
+          { text: "Kolyeyi al", nextNode: "take_necklace" },
+          { text: "Köyü kurtar", nextNode: "save_village" },
+          { text: "Gerçeği öğren", nextNode: "learn_truth" },
+          { text: "Yeni plan yap", nextNode: "make_new_plan" },
+        ],
+      },
+
+      gather_villagers: {
+        title: "Köylüleri Toplama",
+        text: `Köylüleri topluyorsun. Tüm köyü topluyorsun ve durumu anlatıyorsun.
+
+"Köylüler! Toplanın!"
+
+Köy reisi Aldric: "Ne oldu? Neden toplandık?"
+
+"Şifacı delirmiş! Birlikte savaşmalıyız!"
+
+Köylüler toplanıyor ve seninle birlikte savaşmaya hazır oluyorlar.`,
+        choices: [
+          { text: "Şifacıya saldır", nextNode: "attack_healer" },
+          { text: "Kolyeyi al", nextNode: "take_necklace" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Köyü tahliye et", nextNode: "evacuate_village" },
+        ],
+      },
+
+      use_secret_path: {
+        title: "Gizli Yolu Kullanma",
+        text: `Gizli yolu kullanıyorsun. Eski tapınaktaki gizli yolu kullanarak şifacıya gizlice yaklaşıyorsun.
+
+"Gizli yolu kullanacağım!"
+
+Gizli yoldan şifacıya yaklaşıyorsun. Şifacı seni fark etmiyor.
+
+"Şimdi kolyeyi alabilirim!"
+
+Gizlice kolyeyi almaya çalışıyorsun.`,
+        choices: [
+          { text: "Kolyeyi çal", nextNode: "steal_necklace" },
+          { text: "Şifacıya saldır", nextNode: "attack_healer" },
+          { text: "Plan yap", nextNode: "make_plan" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Köyü uyar", nextNode: "warn_village" },
+        ],
+      },
+
+      // SON NODE'LAR - TAMAMLAMA
+      save_village: {
+        title: "Köyü Kurtarma",
+        text: `Köyü kurtarıyorsun. Şifacıyı durdurduktan sonra köyü kurtarıyorsun.
+
+"Köyü kurtardım!"
+
+Köylüler mutlu oluyor: "Teşekkür ederim! Köyümüzü kurtardın!"
+
+"Artık güvendesiniz!"
+
+Köy barışa kavuşuyor ve herkes mutlu oluyor.`,
+        choices: [
+          { text: "Yeni macera", nextNode: "new_adventure" },
+          { text: "Köyde kal", nextNode: "stay_in_village" },
+          { text: "Ejderhayla konuş", nextNode: "talk_to_dragon" },
+          { text: "Gerçeği öğren", nextNode: "learn_truth" },
+          { text: "Plan yap", nextNode: "make_plan" },
+        ],
+      },
+
+      new_adventure: {
+        title: "Yeni Macera",
+        text: `Yeni bir maceraya başlıyorsun. Köyü kurtardıktan sonra yeni maceralar seni bekliyor.
+
+"Yeni maceralar beni bekliyor!"
+
+Lydia: "Ben de seninle geleceğim!"
+
+"Evet! Birlikte gidelim!"
+
+Yeni maceralara doğru yola çıkıyorsunuz.`,
+        choices: [
+          { text: "Yeni dünya", nextNode: "new_world" },
+          { text: "Yeni görev", nextNode: "new_quest" },
+          { text: "Yeni savaş", nextNode: "new_battle" },
+          { text: "Yeni dost", nextNode: "new_friend" },
+          { text: "Yeni güç", nextNode: "new_power" },
+        ],
+      },
+
+      stay_in_village: {
+        title: "Köyde Kalma",
+        text: `Köyde kalmaya karar veriyorsun. Köyü kurtardıktan sonra köyde kalmaya karar veriyorsun.
+
+"Köyde kalacağım!"
+
+Köylüler mutlu oluyor: "Harika! Köyümüzde kalacaksın!"
+
+"Evet! Bu benim evim!"
+
+Köyde kalıyorsun ve köyün koruyucusu oluyorsun.`,
+        choices: [
+          { text: "Köyü koru", nextNode: "protect_village" },
+          { text: "Yeni görev", nextNode: "new_quest" },
+          { text: "Yeni dost", nextNode: "new_friend" },
+          { text: "Yeni güç", nextNode: "new_power" },
+          { text: "Yeni macera", nextNode: "new_adventure" },
+        ],
+      },
+
+      hive_city_rebellion: {
+        id: "hive_city_rebellion",
+        title: "🌃 Hive City İsyanı",
+        world: "Cyberpunk Dünyası",
+        description: `2077 yılında, Night City'nin alt katmanlarında, MegaCorp'ların gözlerinden uzak bir yerde Hive City bulunuyor. Bu, cyberware'lerin ve netrunner'ların sığınağı, özgürlüğün son kalesi.`,
+        objective: "MegaCorp'ları durdur ve Hive City'yi kurtar",
+        story: {
+          start: {
+            title: "Hive City'ye Giriş",
+            text: `Night City'nin alt katmanlarına iniyorsun. Hive City'nin neon ışıkları uzaktan görünüyor. Bu, cyberware'lerin ve netrunner'ların sığınağı.
+
+"Burada özgürlük var," diye düşünüyorsun.
+
+Aniden, bir ses duyuyorsun: "Hey! Yeni misin?"
+
+Netrunner bir kız sana yaklaşıyor. Adı Nova. Cyberware'leri parlıyor.
+
+Nova: "Hive City'ye hoş geldin! Burada MegaCorp'ların gözlerinden uzak yaşıyoruz."`,
+            choices: [
+              { text: "Nova ile konuş", nextNode: "talk_to_nova" },
+              { text: "Hive City'yi keşfet", nextNode: "explore_hive" },
+              { text: "Cyberware ara", nextNode: "find_cyberware" },
+              { text: "Netrunner ol", nextNode: "become_netrunner" },
+              { text: "MegaCorp'ları araştır", nextNode: "investigate_corps" },
+            ],
+          },
+
+          talk_to_nova: {
+            title: "Nova ile Konuşma",
+            text: `Nova ile konuşuyorsun. O sana Hive City'nin durumunu anlatıyor.
+
+Nova: "MegaCorp'lar bizi bulmaya çalışıyor. Hive City'yi yok etmek istiyorlar."
+
+"Ne yapabiliriz?" diye soruyorsun.
+
+"Birlikte savaşabiliriz! Hive City'yi koruyabiliriz!"
+
+Nova sana cyberware teklif ediyor.`,
+            choices: [
+              { text: "Cyberware kabul et", nextNode: "accept_cyberware" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "MegaCorp'ları araştır", nextNode: "investigate_corps" },
+              { text: "Netrunner ol", nextNode: "become_netrunner" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+            ],
+          },
+
+          explore_hive: {
+            title: "Hive City'yi Keşfetme",
+            text: `Hive City'yi keşfediyorsun. Neon ışıklar, cyberware dükkanları, netrunner'lar her yerde.
+
+"Bu çok etkileyici!" diye düşünüyorsun.
+
+Bir cyberware dükkanı görüyorsun. İçeriden garip sesler geliyor.
+
+Dükkan sahibi: "Hoş geldin! Cyberware mi arıyorsun?"
+
+"Evet! Ne var?"`,
+            choices: [
+              { text: "Cyberware satın al", nextNode: "buy_cyberware" },
+              { text: "Dükkanı araştır", nextNode: "investigate_shop" },
+              { text: "Nova'yı ara", nextNode: "find_nova" },
+              { text: "MegaCorp'ları araştır", nextNode: "investigate_corps" },
+              { text: "Netrunner ol", nextNode: "become_netrunner" },
+            ],
+          },
+
+          find_cyberware: {
+            title: "Cyberware Arama",
+            text: `Cyberware arıyorsun. Hive City'de cyberware dükkanları var.
+
+"Cyberware bulmalıyım!"
+
+Bir dükkan buluyorsun. İçeride çeşitli cyberware'ler var.
+
+Dükkan sahibi: "Ne tür cyberware istiyorsun?"
+
+"Güçlü olanı!"`,
+            choices: [
+              {
+                text: "Güçlü cyberware al",
+                nextNode: "buy_powerful_cyberware",
+              },
+              { text: "Hızlı cyberware al", nextNode: "buy_fast_cyberware" },
+              { text: "Zeki cyberware al", nextNode: "buy_smart_cyberware" },
+              { text: "Dükkanı araştır", nextNode: "investigate_shop" },
+              { text: "Nova'yı ara", nextNode: "find_nova" },
+            ],
+          },
+
+          become_netrunner: {
+            title: "Netrunner Olma",
+            text: `Netrunner olmaya karar veriyorsun. Nova sana netrunner olmayı öğretiyor.
+
+Nova: "Netrunner olmak istiyorsun mu?"
+
+"Evet! Öğret bana!"
+
+"Tamam! Matrix'e girmeyi öğreteceğim!"
+
+Nova sana netrunner tekniklerini öğretiyor.`,
+            choices: [
+              { text: "Matrix'e gir", nextNode: "enter_matrix" },
+              { text: "Hack yap", nextNode: "hack_system" },
+              { text: "MegaCorp'ları araştır", nextNode: "investigate_corps" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+            ],
+          },
+
+          investigate_corps: {
+            title: "MegaCorp'ları Araştırma",
+            text: `MegaCorp'ları araştırıyorsun. Nova ile birlikte MegaCorp'ların planlarını öğrenmeye çalışıyorsunuz.
+
+Nova: "MegaCorp'lar Hive City'yi yok etmek istiyor!"
+
+"Ne yapabiliriz?" diye soruyorsun.
+
+"Birlikte savaşabiliriz! Hive City'yi koruyabiliriz!"
+
+MegaCorp'ların planlarını öğreniyorsunuz.`,
+            choices: [
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "MegaCorp'lara saldır", nextNode: "attack_corps" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              { text: "Netrunner ol", nextNode: "become_netrunner" },
+              { text: "Cyberware ara", nextNode: "find_cyberware" },
+            ],
+          },
+
+          accept_cyberware: {
+            title: "Cyberware Kabul Etme",
+            text: `Nova'nın cyberware teklifini kabul ediyorsun. Nova sana güçlü cyberware takıyor.
+
+Nova: "Bu cyberware seni güçlendirecek!"
+
+"Teşekkür ederim!"
+
+Cyberware takılıyor ve sen daha güçlü hissediyorsun.
+
+"Şimdi çok güçlüyüm!"`,
+            choices: [
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "MegaCorp'lara saldır", nextNode: "attack_corps" },
+              { text: "Netrunner ol", nextNode: "become_netrunner" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              {
+                text: "Daha fazla cyberware ara",
+                nextNode: "find_more_cyberware",
+              },
+            ],
+          },
+
+          protect_hive: {
+            title: "Hive City'yi Koruma",
+            text: `Hive City'yi korumaya karar veriyorsun. Nova ile birlikte MegaCorp'lara karşı savaşmaya hazırlanıyorsunuz.
+
+Nova: "MegaCorp'lar geliyor! Hive City'yi korumalıyız!"
+
+"Evet! Birlikte savaşalım!"
+
+Hive City'yi korumak için hazırlanıyorsunuz.`,
+            choices: [
+              { text: "MegaCorp'lara saldır", nextNode: "attack_corps" },
+              { text: "Savunma planı yap", nextNode: "make_defense_plan" },
+              { text: "Netrunner'ları topla", nextNode: "gather_netrunners" },
+              { text: "Cyberware ara", nextNode: "find_cyberware" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+            ],
+          },
+
+          buy_cyberware: {
+            title: "Cyberware Satın Alma",
+            text: `Cyberware satın alıyorsun. Dükkan sahibi sana çeşitli cyberware'ler gösteriyor.
+
+Dükkan sahibi: "Bu cyberware'ler çok güçlü!"
+
+"Ne tür cyberware'ler var?" diye soruyorsun.
+
+"Güçlü, hızlı, zeki cyberware'ler var!"
+
+Cyberware satın alıyorsun.`,
+            choices: [
+              {
+                text: "Güçlü cyberware al",
+                nextNode: "buy_powerful_cyberware",
+              },
+              { text: "Hızlı cyberware al", nextNode: "buy_fast_cyberware" },
+              { text: "Zeki cyberware al", nextNode: "buy_smart_cyberware" },
+              { text: "Dükkanı araştır", nextNode: "investigate_shop" },
+              { text: "Nova'yı ara", nextNode: "find_nova" },
+            ],
+          },
+
+          investigate_shop: {
+            title: "Dükkanı Araştırma",
+            text: `Dükkanı araştırıyorsun. Dükkanın arkasında gizli bir oda buluyorsun.
+
+"Burada gizli bir şey var!" diye düşünüyorsun.
+
+Gizli odada MegaCorp'lara ait belgeler buluyorsun.
+
+"Bu belgeler çok önemli!"`,
+            choices: [
+              { text: "Belgeleri al", nextNode: "take_documents" },
+              { text: "Nova'ya söyle", nextNode: "tell_nova" },
+              { text: "MegaCorp'ları araştır", nextNode: "investigate_corps" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              { text: "Cyberware ara", nextNode: "find_cyberware" },
+            ],
+          },
+
+          find_nova: {
+            title: "Nova'yı Arama",
+            text: `Nova'yı arıyorsun. Hive City'de Nova'yı bulmaya çalışıyorsun.
+
+"Nova nerede?" diye düşünüyorsun.
+
+Nova'yı bir netrunner barında buluyorsun.
+
+Nova: "Sen mi? Ne oldu?"
+
+"Önemli bir şey buldum!"`,
+            choices: [
+              { text: "Belgeleri göster", nextNode: "show_documents" },
+              { text: "MegaCorp'ları araştır", nextNode: "investigate_corps" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Netrunner ol", nextNode: "become_netrunner" },
+            ],
+          },
+
+          buy_powerful_cyberware: {
+            title: "Güçlü Cyberware Satın Alma",
+            text: `Güçlü cyberware satın alıyorsun. Bu cyberware seni çok güçlendirecek.
+
+Dükkan sahibi: "Bu cyberware çok güçlü!"
+
+"Alacağım!" diyorsun.
+
+Güçlü cyberware takılıyor ve sen çok güçlü hissediyorsun.
+
+"Şimdi çok güçlüyüm!"`,
+            choices: [
+              { text: "MegaCorp'lara saldır", nextNode: "attack_corps" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Netrunner ol", nextNode: "become_netrunner" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              {
+                text: "Daha fazla cyberware ara",
+                nextNode: "find_more_cyberware",
+              },
+            ],
+          },
+
+          buy_fast_cyberware: {
+            title: "Hızlı Cyberware Satın Alma",
+            text: `Hızlı cyberware satın alıyorsun. Bu cyberware seni çok hızlandıracak.
+
+Dükkan sahibi: "Bu cyberware çok hızlı!"
+
+"Alacağım!" diyorsun.
+
+Hızlı cyberware takılıyor ve sen çok hızlı hissediyorsun.
+
+"Şimdi çok hızlıyım!"`,
+            choices: [
+              { text: "MegaCorp'lara saldır", nextNode: "attack_corps" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Netrunner ol", nextNode: "become_netrunner" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              {
+                text: "Daha fazla cyberware ara",
+                nextNode: "find_more_cyberware",
+              },
+            ],
+          },
+
+          buy_smart_cyberware: {
+            title: "Zeki Cyberware Satın Alma",
+            text: `Zeki cyberware satın alıyorsun. Bu cyberware seni çok zeki yapacak.
+
+Dükkan sahibi: "Bu cyberware çok zeki!"
+
+"Alacağım!" diyorsun.
+
+Zeki cyberware takılıyor ve sen çok zeki hissediyorsun.
+
+"Şimdi çok zekiyim!"`,
+            choices: [
+              { text: "MegaCorp'lara saldır", nextNode: "attack_corps" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Netrunner ol", nextNode: "become_netrunner" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              {
+                text: "Daha fazla cyberware ara",
+                nextNode: "find_more_cyberware",
+              },
+            ],
+          },
+
+          enter_matrix: {
+            title: "Matrix'e Girme",
+            text: `Matrix'e giriyorsun. Nova'nın öğrettiği tekniklerle Matrix'e giriyorsun.
+
+Nova: "Matrix'e hoş geldin!"
+
+"Bu çok etkileyici!" diye düşünüyorsun.
+
+Matrix'te MegaCorp'ların sistemlerini görüyorsun.
+
+"Burada hack yapabilirim!"`,
+            choices: [
+              { text: "Hack yap", nextNode: "hack_system" },
+              { text: "MegaCorp'ları araştır", nextNode: "investigate_corps" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              { text: "Matrix'te kal", nextNode: "stay_in_matrix" },
+            ],
+          },
+
+          hack_system: {
+            title: "Sistem Hack Etme",
+            text: `MegaCorp'ların sistemlerini hack ediyorsun. Matrix'te MegaCorp'ların sistemlerine giriyorsun.
+
+"Hack yapacağım!" diye düşünüyorsun.
+
+MegaCorp'ların sistemlerini hack ediyorsun ve önemli bilgiler alıyorsun.
+
+"Bu bilgiler çok önemli!"`,
+            choices: [
+              { text: "Bilgileri al", nextNode: "take_information" },
+              { text: "MegaCorp'ları araştır", nextNode: "investigate_corps" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              { text: "Daha fazla hack yap", nextNode: "hack_more" },
+            ],
+          },
+
+          make_cyber_plan: {
+            title: "Cyber Plan Yapma",
+            text: `Cyber plan yapıyorsun. Nova ile birlikte MegaCorp'lara karşı plan yapıyorsunuz.
+
+Nova: "MegaCorp'lara karşı plan yapalım!"
+
+"Evet! Birlikte savaşalım!"
+
+Cyber plan yapıyorsunuz.`,
+            choices: [
+              { text: "MegaCorp'lara saldır", nextNode: "attack_corps" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Netrunner'ları topla", nextNode: "gather_netrunners" },
+              { text: "Cyberware ara", nextNode: "find_cyberware" },
+              { text: "Planı uygula", nextNode: "execute_cyber_plan" },
+            ],
+          },
+
+          attack_corps: {
+            title: "MegaCorp'lara Saldırma",
+            text: `MegaCorp'lara saldırıyorsun. Nova ile birlikte MegaCorp'lara saldırıyorsunuz.
+
+Nova: "MegaCorp'lara saldıralım!"
+
+"Evet! Birlikte savaşalım!"
+
+MegaCorp'lara saldırıyorsunuz.`,
+            choices: [
+              { text: "MegaCorp'ları yen", nextNode: "defeat_corps" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              { text: "Netrunner ol", nextNode: "become_netrunner" },
+              { text: "Cyberware ara", nextNode: "find_cyberware" },
+            ],
+          },
+
+          make_defense_plan: {
+            title: "Savunma Planı Yapma",
+            text: `Savunma planı yapıyorsun. Hive City'yi korumak için savunma planı yapıyorsun.
+
+"Savunma planı yapmalıyım!"
+
+Nova: "Evet! Hive City'yi korumalıyız!"
+
+Savunma planı yapıyorsunuz.`,
+            choices: [
+              { text: "Savunmayı kur", nextNode: "set_up_defense" },
+              { text: "MegaCorp'lara saldır", nextNode: "attack_corps" },
+              { text: "Netrunner'ları topla", nextNode: "gather_netrunners" },
+              { text: "Cyberware ara", nextNode: "find_cyberware" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+            ],
+          },
+
+          gather_netrunners: {
+            title: "Netrunner'ları Toplama",
+            text: `Netrunner'ları topluyorsun. Hive City'deki tüm netrunner'ları topluyorsun.
+
+"Netrunner'ları toplamalıyım!"
+
+Nova: "Evet! Birlikte savaşalım!"
+
+Netrunner'ları topluyorsun.`,
+            choices: [
+              { text: "MegaCorp'lara saldır", nextNode: "attack_corps" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              { text: "Cyberware ara", nextNode: "find_cyberware" },
+              { text: "Matrix'e gir", nextNode: "enter_matrix" },
+            ],
+          },
+
+          find_more_cyberware: {
+            title: "Daha Fazla Cyberware Arama",
+            text: `Daha fazla cyberware arıyorsun. Hive City'de daha fazla cyberware arıyorsun.
+
+"Daha fazla cyberware bulmalıyım!"
+
+Nova: "Daha fazla cyberware var!"
+
+Daha fazla cyberware arıyorsun.`,
+            choices: [
+              {
+                text: "Güçlü cyberware al",
+                nextNode: "buy_powerful_cyberware",
+              },
+              { text: "Hızlı cyberware al", nextNode: "buy_fast_cyberware" },
+              { text: "Zeki cyberware al", nextNode: "buy_smart_cyberware" },
+              { text: "MegaCorp'lara saldır", nextNode: "attack_corps" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+            ],
+          },
+
+          take_documents: {
+            title: "Belgeleri Alma",
+            text: `Belgeleri alıyorsun. MegaCorp'lara ait belgeleri alıyorsun.
+
+"Bu belgeler çok önemli!" diye düşünüyorsun.
+
+Belgeleri alıyorsun ve Nova'ya göstermeye karar veriyorsun.
+
+"Nova'ya göstermeliyim!"`,
+            choices: [
+              { text: "Nova'ya göster", nextNode: "show_documents" },
+              { text: "MegaCorp'ları araştır", nextNode: "investigate_corps" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Netrunner ol", nextNode: "become_netrunner" },
+            ],
+          },
+
+          tell_nova: {
+            title: "Nova'ya Söyleme",
+            text: `Nova'ya söylüyorsun. Gizli odada bulduğun belgeleri Nova'ya söylüyorsun.
+
+Nova: "Ne buldun?"
+
+"Gizli odada MegaCorp'lara ait belgeler buldum!"
+
+"Bu çok önemli! Göstermelisin!"
+
+Nova'ya belgeleri göstermeye karar veriyorsun.`,
+            choices: [
+              { text: "Belgeleri göster", nextNode: "show_documents" },
+              { text: "MegaCorp'ları araştır", nextNode: "investigate_corps" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Netrunner ol", nextNode: "become_netrunner" },
+            ],
+          },
+
+          show_documents: {
+            title: "Belgeleri Gösterme",
+            text: `Belgeleri Nova'ya gösteriyorsun. MegaCorp'lara ait belgeleri Nova'ya gösteriyorsun.
+
+Nova: "Bu belgeler çok önemli!"
+
+"Evet! MegaCorp'ların planlarını öğrendik!"
+
+"Bu bilgilerle MegaCorp'ları durdurabiliriz!"
+
+Belgeleri inceliyorsunuz.`,
+            choices: [
+              { text: "MegaCorp'ları araştır", nextNode: "investigate_corps" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "MegaCorp'lara saldır", nextNode: "attack_corps" },
+              { text: "Netrunner ol", nextNode: "become_netrunner" },
+            ],
+          },
+
+          take_information: {
+            title: "Bilgileri Alma",
+            text: `Hack ettiğin bilgileri alıyorsun. MegaCorp'ların sistemlerinden aldığın bilgileri alıyorsun.
+
+"Bu bilgiler çok önemli!" diye düşünüyorsun.
+
+Bilgileri alıyorsun ve Nova'ya göstermeye karar veriyorsun.
+
+"Nova'ya göstermeliyim!"`,
+            choices: [
+              { text: "Nova'ya göster", nextNode: "show_information" },
+              { text: "MegaCorp'ları araştır", nextNode: "investigate_corps" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Daha fazla hack yap", nextNode: "hack_more" },
+            ],
+          },
+
+          hack_more: {
+            title: "Daha Fazla Hack Yapma",
+            text: `Daha fazla hack yapıyorsun. Matrix'te daha fazla sistem hack ediyorsun.
+
+"Daha fazla hack yapacağım!" diye düşünüyorsun.
+
+Daha fazla sistem hack ediyorsun ve daha fazla bilgi alıyorsun.
+
+"Bu bilgiler çok önemli!"`,
+            choices: [
+              { text: "Bilgileri al", nextNode: "take_information" },
+              { text: "MegaCorp'ları araştır", nextNode: "investigate_corps" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              { text: "Matrix'ten çık", nextNode: "exit_matrix" },
+            ],
+          },
+
+          stay_in_matrix: {
+            title: "Matrix'te Kalma",
+            text: `Matrix'te kalmaya karar veriyorsun. Matrix'te daha fazla araştırma yapmaya karar veriyorsun.
+
+"Matrix'te kalacağım!" diye düşünüyorsun.
+
+Matrix'te daha fazla araştırma yapıyorsun.`,
+            choices: [
+              { text: "Hack yap", nextNode: "hack_system" },
+              { text: "MegaCorp'ları araştır", nextNode: "investigate_corps" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              { text: "Matrix'ten çık", nextNode: "exit_matrix" },
+            ],
+          },
+
+          execute_cyber_plan: {
+            title: "Cyber Planı Uygulama",
+            text: `Cyber planı uyguluyorsun. Nova ile birlikte cyber planı uyguluyorsunuz.
+
+Nova: "Planı uygulayalım!"
+
+"Evet! Birlikte savaşalım!"
+
+Cyber planı uyguluyorsunuz.`,
+            choices: [
+              { text: "MegaCorp'lara saldır", nextNode: "attack_corps" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Netrunner'ları topla", nextNode: "gather_netrunners" },
+              { text: "Cyberware ara", nextNode: "find_cyberware" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+            ],
+          },
+
+          defeat_corps: {
+            title: "MegaCorp'ları Yenme",
+            text: `MegaCorp'ları yeniyorsun. Nova ile birlikte MegaCorp'ları yeniyorsunuz.
+
+Nova: "MegaCorp'ları yendik!"
+
+"Evet! Hive City'yi kurtardık!"
+
+Hive City artık güvende.`,
+            choices: [
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Yeni macera", nextNode: "new_cyber_adventure" },
+              { text: "Netrunner ol", nextNode: "become_netrunner" },
+              { text: "Cyberware ara", nextNode: "find_cyberware" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+            ],
+          },
+
+          set_up_defense: {
+            title: "Savunmayı Kurma",
+            text: `Savunmayı kuruyorsun. Hive City'yi korumak için savunma kuruyorsun.
+
+"Savunmayı kuracağım!"
+
+Nova: "Evet! Hive City'yi korumalıyız!"
+
+Savunmayı kuruyorsun.`,
+            choices: [
+              { text: "MegaCorp'lara saldır", nextNode: "attack_corps" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Netrunner'ları topla", nextNode: "gather_netrunners" },
+              { text: "Cyberware ara", nextNode: "find_cyberware" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+            ],
+          },
+
+          show_information: {
+            title: "Bilgileri Gösterme",
+            text: `Bilgileri Nova'ya gösteriyorsun. Hack ettiğin bilgileri Nova'ya gösteriyorsun.
+
+Nova: "Bu bilgiler çok önemli!"
+
+"Evet! MegaCorp'ların planlarını öğrendik!"
+
+"Bu bilgilerle MegaCorp'ları durdurabiliriz!"
+
+Bilgileri inceliyorsunuz.`,
+            choices: [
+              { text: "MegaCorp'ları araştır", nextNode: "investigate_corps" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "MegaCorp'lara saldır", nextNode: "attack_corps" },
+              { text: "Netrunner ol", nextNode: "become_netrunner" },
+            ],
+          },
+
+          exit_matrix: {
+            title: "Matrix'ten Çıkma",
+            text: `Matrix'ten çıkıyorsun. Matrix'ten çıkıyorsun ve gerçek dünyaya dönüyorsun.
+
+"Matrix'ten çıkmalıyım!" diye düşünüyorsun.
+
+Matrix'ten çıkıyorsun ve Nova'ya bulduğun bilgileri söylüyorsun.
+
+Nova: "Ne buldun?"`,
+            choices: [
+              { text: "Bilgileri söyle", nextNode: "tell_information" },
+              { text: "MegaCorp'ları araştır", nextNode: "investigate_corps" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Netrunner ol", nextNode: "become_netrunner" },
+            ],
+          },
+
+          tell_information: {
+            title: "Bilgileri Söyleme",
+            text: `Bilgileri Nova'ya söylüyorsun. Matrix'te bulduğun bilgileri Nova'ya söylüyorsun.
+
+Nova: "Ne buldun?"
+
+"MegaCorp'ların planlarını öğrendim!"
+
+"Bu çok önemli! Göstermelisin!"
+
+Nova'ya bilgileri göstermeye karar veriyorsun.`,
+            choices: [
+              { text: "Bilgileri göster", nextNode: "show_information" },
+              { text: "MegaCorp'ları araştır", nextNode: "investigate_corps" },
+              { text: "Plan yap", nextNode: "make_cyber_plan" },
+              { text: "Hive City'yi koru", nextNode: "protect_hive" },
+              { text: "Netrunner ol", nextNode: "become_netrunner" },
+            ],
+          },
+
+          new_cyber_adventure: {
+            title: "Yeni Cyber Macera",
+            text: `Yeni bir cyber maceraya başlıyorsun. Hive City'yi kurtardıktan sonra yeni maceralar seni bekliyor.
+
+"Yeni maceralar beni bekliyor!"
+
+Nova: "Ben de seninle geleceğim!"
+
+"Evet! Birlikte gidelim!"
+
+Yeni cyber maceralara doğru yola çıkıyorsunuz.`,
+            choices: [
+              { text: "Yeni dünya", nextNode: "new_cyber_world" },
+              { text: "Yeni görev", nextNode: "new_cyber_quest" },
+              { text: "Yeni savaş", nextNode: "new_cyber_battle" },
+              { text: "Yeni dost", nextNode: "new_cyber_friend" },
+              { text: "Yeni güç", nextNode: "new_cyber_power" },
+            ],
+          },
+        },
+      },
     },
   },
 
@@ -1442,6 +3491,186 @@ window.declineQuest = function () {
   npcSystem.declineQuest();
 };
 
+// FILE UPLOAD SYSTEM
+window.uploadedFiles = [];
+
+window.initializeFileUpload = function () {
+  const fileInput = document.getElementById("file-input");
+  const fileStatus = document.getElementById("file-status");
+  const filesList = document.getElementById("files-list");
+
+  if (fileInput) {
+    fileInput.addEventListener("change", function (event) {
+      const file = event.target.files[0];
+      if (file) {
+        handleFileUpload(file);
+      }
+    });
+  }
+};
+
+window.handleFileUpload = function (file) {
+  console.log("✅ FILE UPLOAD:", file.name);
+
+  const fileStatus = document.getElementById("file-status");
+  const filesList = document.getElementById("files-list");
+
+  // Update status
+  if (fileStatus) {
+    fileStatus.textContent = `📤 Yükleniyor: ${file.name}`;
+  }
+
+  // Simulate file processing
+  setTimeout(() => {
+    // Add file to uploaded files list
+    const fileId = `file_${Date.now()}`;
+    const fileInfo = {
+      id: fileId,
+      name: file.name,
+      size: file.size,
+      type: file.type,
+      uploadDate: new Date().toLocaleString(),
+      content: "Dosya içeriği burada işlenecek...",
+    };
+
+    uploadedFiles.push(fileInfo);
+
+    // Update status
+    if (fileStatus) {
+      fileStatus.textContent = `✅ Yüklendi: ${file.name}`;
+    }
+
+    // Add to files list
+    if (filesList) {
+      addFileToList(fileInfo);
+    }
+
+    // Reset file input
+    const fileInput = document.getElementById("file-input");
+    if (fileInput) {
+      fileInput.value = "";
+    }
+
+    // Show success message
+    alert(`📁 Dosya başarıyla yüklendi: ${file.name}`);
+
+    // Process file content for AI scenarios
+    processFileForAI(fileInfo);
+  }, 1500);
+};
+
+window.addFileToList = function (fileInfo) {
+  const filesList = document.getElementById("files-list");
+  if (!filesList) return;
+
+  const fileItem = document.createElement("div");
+  fileItem.className = "file-item";
+  fileItem.innerHTML = `
+    <div class="file-info">
+      <div class="file-name">📄 ${fileInfo.name}</div>
+      <div class="file-details">
+        <span class="file-size">${formatFileSize(fileInfo.size)}</span>
+        <span class="file-date">${fileInfo.uploadDate}</span>
+      </div>
+    </div>
+    <div class="file-actions">
+      <button onclick="viewFileContent('${
+        fileInfo.id
+      }')" class="file-btn">👁️ Görüntüle</button>
+      <button onclick="deleteFile('${
+        fileInfo.id
+      }')" class="file-btn delete">🗑️ Sil</button>
+    </div>
+  `;
+
+  filesList.appendChild(fileItem);
+};
+
+window.formatFileSize = function (bytes) {
+  if (bytes === 0) return "0 Bytes";
+  const k = 1024;
+  const sizes = ["Bytes", "KB", "MB", "GB"];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
+};
+
+window.viewFileContent = function (fileId) {
+  const file = uploadedFiles.find((f) => f.id === fileId);
+  if (file) {
+    alert(
+      `📄 ${file.name}\n\n${file.content}\n\nYükleme Tarihi: ${file.uploadDate}`
+    );
+  }
+};
+
+window.deleteFile = function (fileId) {
+  if (confirm("Bu dosyayı silmek istediğinizden emin misiniz?")) {
+    uploadedFiles = uploadedFiles.filter((f) => f.id !== fileId);
+    updateFilesList();
+    alert("🗑️ Dosya silindi!");
+  }
+};
+
+window.updateFilesList = function () {
+  const filesList = document.getElementById("files-list");
+  if (!filesList) return;
+
+  filesList.innerHTML = "";
+  uploadedFiles.forEach((file) => {
+    addFileToList(file);
+  });
+};
+
+window.processFileForAI = function (fileInfo) {
+  console.log("✅ PROCESSING FILE FOR AI:", fileInfo.name);
+
+  // Simulate AI processing
+  setTimeout(() => {
+    const aiScenariosGrid = document.getElementById("ai-scenarios-grid");
+    if (aiScenariosGrid) {
+      const scenarioId = `ai_from_file_${Date.now()}`;
+      const scenarioTitle = `Dosyadan Üretilen: ${fileInfo.name.split(".")[0]}`;
+
+      // Add to scenarios
+      scenarios[scenarioId] = {
+        title: scenarioTitle,
+        story: {
+          start: {
+            text: `Bu senaryo ${fileInfo.name} dosyasından AI tarafından üretildi. Dosya içeriği analiz edildi ve bu hikaye oluşturuldu.`,
+            choices: [
+              { text: "Dosya içeriğini keşfet", nextNode: "explore_content" },
+              { text: "AI analizini gör", nextNode: "view_analysis" },
+              { text: "Hikayeye başla", nextNode: "start_story" },
+            ],
+          },
+        },
+      };
+
+      // Add to grid
+      const scenarioCard = document.createElement("div");
+      scenarioCard.className = "scenario-card ai-generated file-generated";
+      scenarioCard.onclick = () => window.selectScenario(scenarioId);
+
+      scenarioCard.innerHTML = `
+        <div class="scenario-header">
+          <h4>📄 ${scenarioTitle}</h4>
+          <span class="difficulty medium">Dosyadan</span>
+        </div>
+        <p>Bu senaryo ${fileInfo.name} dosyasından AI tarafından üretildi.</p>
+        <div class="ai-info">
+          <small>🤖 Dosyadan üretildi - ${fileInfo.uploadDate}</small>
+        </div>
+      `;
+
+      aiScenariosGrid.appendChild(scenarioCard);
+
+      alert(
+        `🎲 Dosyadan yeni senaryo üretildi: "${scenarioTitle}"\nAI Üretilen kategorisinde bulabilirsiniz!`
+      );
+    }
+  }, 2000);
+};
+
 // DOM LOADED EVENT
 window.addEventListener("DOMContentLoaded", function () {
   console.log("✅ DOM LOADED - INITIALIZING GAME");
@@ -1463,6 +3692,9 @@ window.addEventListener("DOMContentLoaded", function () {
       console.log(`❌ ${elementId}: Not found`);
     }
   });
+
+  // Initialize file upload system
+  initializeFileUpload();
 
   // Initialize first theme
   if (typeof switchTheme === "function") {
