@@ -16,10 +16,15 @@ CORS(app)
 
 # Multiplayer modüllerini import et
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
-from multiplayer.session_manager import MultiplayerSessionManager, SessionStatus
+# Multiplayer modülü kaldırıldı - Railway uyumluluğu için
 
 # Multiplayer session manager
 session_manager = MultiplayerSessionManager()
+
+# Health check endpoint
+@app.route('/api/health')
+def health_check():
+    return jsonify({"status": "healthy", "message": "AI Dungeon Master is running!"})
 
 # Warhammer ve Fantasy karakter sınıfları
 CHARACTER_CLASSES = [
