@@ -1,9 +1,10 @@
 services:
   - type: web
-    name: ai-dungeon-master
+    name: ai-dungeon-master-game
     env: python
+    rootDir: .
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn --worker-class eventlet -w 1 app:app --bind 0.0.0.0:$PORT
+    startCommand: gunicorn --worker-class sync -w 1 app:app --bind 0.0.0.0:$PORT
     envVars:
       - key: FLASK_ENV
         value: production
