@@ -2591,7 +2591,9 @@ def register():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5002))
+    debug_mode = os.environ.get('FLASK_ENV') != 'production'
     print(f"🎲 AI Dungeon Master başlatılıyor...")
     print(f"🌐 http://localhost:{port} adresinde erişilebilir")
     print("🔗 WebSocket desteği aktif")
-    socketio.run(app, host='0.0.0.0', port=port, debug=False) 
+    print(f"🔧 Debug mode: {debug_mode}")
+    socketio.run(app, host='0.0.0.0', port=port, debug=debug_mode) 
