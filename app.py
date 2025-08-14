@@ -2593,7 +2593,14 @@ if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5002))
     debug_mode = os.environ.get('FLASK_ENV') != 'production'
     print(f"🎲 AI Dungeon Master başlatılıyor...")
-    print(f"🌐 http://localhost:{port} adresinde erişilebilir")
+    print(f"🌐 Port: {port}")
     print("🔗 WebSocket desteği aktif")
     print(f"🔧 Debug mode: {debug_mode}")
-    socketio.run(app, host='0.0.0.0', port=port, debug=debug_mode) 
+    print(f"🔧 Environment: {os.environ.get('FLASK_ENV', 'development')}")
+    
+    try:
+        socketio.run(app, host='0.0.0.0', port=port, debug=debug_mode, allow_unsafe_werkzeug=True)
+    except Exception as e:
+        print(f"❌ Error starting server: {e}")
+        # Fallback to regular Flask
+        app.run(host='0.0.0.0', port=port, debug=debug_mode) 
