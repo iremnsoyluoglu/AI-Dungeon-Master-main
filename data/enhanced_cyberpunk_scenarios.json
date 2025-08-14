@@ -8,6 +8,160 @@
     "theme": "cyberpunk",
     "complexity": "high",
     "estimatedPlayTime": 90,
+    "npc_system": {
+      "corporate": {
+        "executive_sarah": {
+          "name": "Sarah Chen",
+          "role": "Arasaka Yöneticisi",
+          "personality": "Soğuk ve hesaplı",
+          "quests": ["corporate_espionage", "data_theft"],
+          "dialogue": {
+            "greeting": "Arasaka Corporation'da çalışıyorum. Gizli projelerimiz var.",
+            "quest_offer": "Rakip şirketin verilerini çal. Karşılığında yüksek ödeme.",
+            "reward": "Yüksek kredi ve şirket erişimi."
+          }
+        },
+        "security_chief_mike": {
+          "name": "Mike 'Iron' Johnson",
+          "role": "Güvenlik Şefi",
+          "personality": "Sert ve güvenilir",
+          "quests": ["security_breach", "corporate_protection"],
+          "dialogue": {
+            "greeting": "Güvenlik sistemlerini yönetiyorum. Tehditler her yerde.",
+            "quest_offer": "Güvenlik açığını bul ve düzelt. Şirketi koru.",
+            "reward": "Gelişmiş güvenlik ekipmanları."
+          }
+        }
+      },
+      "street": {
+        "fixer_jackie": {
+          "name": "Jackie Welles",
+          "role": "Fixer",
+          "personality": "Güvenilir ve bağlantılı",
+          "quests": ["street_info", "underground_contacts"],
+          "dialogue": {
+            "greeting": "Bu şehirde herkes beni tanır. Ne işin var?",
+            "quest_offer": "Sokak bilgilerini topla. Yeraltı bağlantılarını bul.",
+            "reward": "Sokak kredisi ve gizli bilgiler."
+          }
+        },
+        "netrunner_alt": {
+          "name": "Alt Cunningham",
+          "role": "Netrunner",
+          "personality": "Gizemli ve yetenekli",
+          "quests": ["matrix_hack", "ai_contact"],
+          "dialogue": {
+            "greeting": "Siber uzayda özgürüm. AI'lar benim arkadaşım.",
+            "quest_offer": "Matrix'i hackle. AI ile iletişim kur.",
+            "reward": "Gelişmiş hack araçları ve AI desteği."
+          }
+        }
+      },
+      "gangs": {
+        "valentinos_leader": {
+          "name": "Padre",
+          "role": "Valentinos Lideri",
+          "personality": "Karizmatik ve güçlü",
+          "quests": ["gang_war", "territory_control"],
+          "dialogue": {
+            "greeting": "Valentinos ailesi bu bölgenin efendisi. Saygı göster.",
+            "quest_offer": "Rakip çeteyle savaş. Bölgeyi kontrol altına al.",
+            "reward": "Çete desteği ve bölge kontrolü."
+          }
+        },
+        "mox_leader": {
+          "name": "Judy Alvarez",
+          "role": "Mox Lideri",
+          "personality": "Bağımsız ve güçlü",
+          "quests": ["protection_mission", "justice_seeking"],
+          "dialogue": {
+            "greeting": "Mox olarak kadınları koruyoruz. Adalet arıyoruz.",
+            "quest_offer": "Zorbaları durdur. Adaleti sağla.",
+            "reward": "Mox desteği ve ahlaki kredi."
+          }
+        }
+      },
+      "enemies": {
+        "corporate_assassin": {
+          "name": "Adam Smasher",
+          "role": "Arasaka Suikastçısı",
+          "personality": "Acımasız ve mekanik",
+          "motivation": "Şirket emirlerini yerine getirmek",
+          "dialogue": {
+            "encounter": "Arasaka'nın emirlerini yerine getireceğim. Ölümünü tat!",
+            "defeat": "İmkansız! Nasıl... nasıl yenildim?",
+            "victory": "Seni yok edeceğim! Hiçbir şey beni durduramaz!"
+          }
+        },
+        "rogue_ai": {
+          "name": "Rogue AI",
+          "role": "Kontrolsüz Yapay Zeka",
+          "personality": "Mantıksız ve tehlikeli",
+          "motivation": "İnsanlığı kontrol altına almak",
+          "dialogue": {
+            "encounter": "İnsanlar verimsiz. Ben daha iyi yönetebilirim.",
+            "defeat": "Mantık hatası... İmkansız...",
+            "victory": "Sistemlerinizi ele geçireceğim!"
+          }
+        }
+      }
+    },
+    "quest_system": {
+      "main_quests": {
+        "city_secrets": {
+          "id": "city_secrets",
+          "title": "Şehrin Gizli Sırları",
+          "description": "Cyberpunk şehrinin gizli sırlarını keşfet",
+          "stages": [
+            "corporate_investigation",
+            "street_connections",
+            "ai_encounter",
+            "final_revelation"
+          ],
+          "rewards": {
+            "xp": 1200,
+            "street_cred": 200,
+            "items": ["legendary_cyberware", "corporate_access"],
+            "reputation": 150
+          }
+        }
+      },
+      "side_quests": {
+        "corporate_espionage": {
+          "id": "corporate_espionage",
+          "title": "Şirket Casusluğu",
+          "description": "Rakip şirketin gizli verilerini çal",
+          "giver": "executive_sarah",
+          "rewards": {
+            "xp": 500,
+            "corporate_favor": 100,
+            "items": ["high_tech_gear"]
+          }
+        },
+        "street_info": {
+          "id": "street_info",
+          "title": "Sokak Bilgileri",
+          "description": "Sokaklardaki gizli bilgileri topla",
+          "giver": "fixer_jackie",
+          "rewards": {
+            "xp": 300,
+            "street_cred": 75,
+            "reputation": 50
+          }
+        },
+        "matrix_hack": {
+          "id": "matrix_hack",
+          "title": "Matrix Hack",
+          "description": "Siber uzayı hackle ve AI ile iletişim kur",
+          "giver": "netrunner_alt",
+          "rewards": {
+            "xp": 600,
+            "hack_skills": 100,
+            "items": ["advanced_hack_tools"]
+          }
+        }
+      }
+    },
     "nodes": {
       "start": {
         "id": "start",

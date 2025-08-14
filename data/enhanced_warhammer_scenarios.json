@@ -8,6 +8,147 @@
     "theme": "warhammer",
     "complexity": "high",
     "estimatedPlayTime": 90,
+    "npc_system": {
+      "imperial_forces": {
+        "commissar_yarrick": {
+          "name": "Commissar Yarrick",
+          "role": "İmperial Komiser",
+          "personality": "Sert ve disiplinli",
+          "quests": ["defense_coordination", "morale_boost"],
+          "dialogue": {
+            "greeting": "Savunma pozisyonlarına geç, asker! Kaos tehdidi gerçek.",
+            "quest_offer": "Üst seviyelerdeki askerlerin moralini yükselt. Disiplin sağla.",
+            "reward": "İmperial onur ve taktik eğitimi."
+          }
+        },
+        "tech_priest_magos": {
+          "name": "Magos Delta-7",
+          "role": "Tech-Priest",
+          "personality": "Mekanik ve mantıklı",
+          "quests": ["defense_systems", "weapon_maintenance"],
+          "dialogue": {
+            "greeting": "Savunma sistemleri %67.3 verimlilikte. Optimizasyon gerekli.",
+            "quest_offer": "Savunma sistemlerini tamir et. Silahları kontrol et.",
+            "reward": "Gelişmiş silah modifikasyonları."
+          }
+        },
+        "sergeant_storm": {
+          "name": "Sergeant Storm",
+          "role": "Veteran Asker",
+          "personality": "Deneyimli ve güvenilir",
+          "quests": ["patrol_duty", "training_recruits"],
+          "dialogue": {
+            "greeting": "Bu savaşta 15 yıldır görev yapıyorum. Kaos'u durdururuz.",
+            "quest_offer": "Yeni askerleri eğit. Devriye görevlerini organize et.",
+            "reward": "Taktik deneyimi ve asker saygısı."
+          }
+        }
+      },
+      "allies": {
+        "inquisitor_karras": {
+          "name": "Inquisitor Karras",
+          "role": "Ordo Hereticus",
+          "personality": "Gizemli ve kararlı",
+          "quests": ["cult_investigation", "heretic_hunt"],
+          "dialogue": {
+            "greeting": "Kaos kültlerinin izini sürüyorum. Sapkınlık her yerde.",
+            "quest_offer": "Kült liderini bul. Gizli toplantıları araştır.",
+            "reward": "İnquisitor desteği ve özel bilgiler."
+          }
+        },
+        "space_marine_captain": {
+          "name": "Captain Titus",
+          "role": "Space Marine",
+          "personality": "Asil ve güçlü",
+          "quests": ["elite_assault", "chapter_support"],
+          "dialogue": {
+            "greeting": "Astartes olarak görevimiz İmperium'u korumak. Birlikte savaşacağız.",
+            "quest_offer": "Elite saldırı birimine katıl. Kaos liderini hedef al.",
+            "reward": "Space Marine eğitimi ve güçlü ekipmanlar."
+          }
+        }
+      },
+      "enemies": {
+        "chaos_lord_kharn": {
+          "name": "Kharn the Betrayer",
+          "role": "Kaos Lordu",
+          "personality": "Vahşi ve yıkıcı",
+          "motivation": "İmperium'u yok etmek",
+          "dialogue": {
+            "encounter": "İmperium'un köleleri! Kaos'un gücünü görün!",
+            "defeat": "Bu... bu imkansız! Khorne beni terk etti mi?",
+            "victory": "Kan ve savaş! Khorne'a kurban edin!"
+          }
+        },
+        "ork_warlord_gruk": {
+          "name": "Warlord Gruk",
+          "role": "Ork Warlord",
+          "personality": "Vahşi ve güçlü",
+          "motivation": "Savaş ve ganimet",
+          "dialogue": {
+            "encounter": "WAAAGH! İnsanlar ölsün! Gruk en güçlü!",
+            "defeat": "Gruk... Gruk yenildi? İmkansız!",
+            "victory": "WAAAGH! Daha fazla savaş! Daha fazla ganimet!"
+          }
+        }
+      }
+    },
+    "quest_system": {
+      "main_quests": {
+        "hive_defense": {
+          "id": "hive_defense",
+          "title": "Hive Savunması",
+          "description": "Hive şehrini düşman istilasından koru",
+          "stages": [
+            "defense_preparation",
+            "enemy_repulsion",
+            "counter_attack",
+            "final_victory"
+          ],
+          "rewards": {
+            "xp": 1500,
+            "imperial_favor": 100,
+            "items": ["power_armor", "plasma_weapon"],
+            "reputation": 200
+          }
+        }
+      },
+      "side_quests": {
+        "defense_coordination": {
+          "id": "defense_coordination",
+          "title": "Savunma Koordinasyonu",
+          "description": "Savunma pozisyonlarını organize et",
+          "giver": "commissar_yarrick",
+          "rewards": {
+            "xp": 400,
+            "imperial_favor": 50,
+            "reputation": 75
+          }
+        },
+        "cult_investigation": {
+          "id": "cult_investigation",
+          "title": "Kült Araştırması",
+          "description": "Kaos kültlerini araştır ve liderlerini bul",
+          "giver": "inquisitor_karras",
+          "rewards": {
+            "xp": 600,
+            "inquisitor_favor": 100,
+            "items": ["psyker_weapon"]
+          }
+        },
+        "elite_assault": {
+          "id": "elite_assault",
+          "title": "Elite Saldırı",
+          "description": "Space Marine birimiyle düşmana saldır",
+          "giver": "captain_titus",
+          "rewards": {
+            "xp": 800,
+            "chapter_favor": 150,
+            "items": ["space_marine_equipment"]
+          }
+        }
+      }
+    },
     "faction_specific_content": {
       "space_marine": {
         "special_nodes": ["imperial_duty", "chapter_tactics", "honor_choice"],

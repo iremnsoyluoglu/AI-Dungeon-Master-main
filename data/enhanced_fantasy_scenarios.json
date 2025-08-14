@@ -1,799 +1,438 @@
 {
-  "dragon_hunters_path": {
-    "id": "dragon_hunters_path",
-    "title": "Ejderha Avcısının Yolu",
+  "living_dragon_hunt": {
+    "id": "living_dragon_hunt",
+    "title": "🐉 Yaşayan Ejderha Avı",
     "genre": "fantasy",
-    "description": "Kızıl ejderha köyleri yakıyor. Sen ejderha avcısısın. Bu tehlikeli görevde ejderhayı durdurmak için her şeyi riske atacaksın.",
+    "description": "Köyü tehdit eden yaşayan bir ejderha var. Onu durdurmak için bir grup kahraman toplanıyor. Bu sadece bir görev değil, bu SENİN HİKAYEN. Her seçim seni değiştirecek, her karar dünyayı değiştirecek.",
     "difficulty": "hard",
     "theme": "fantasy",
     "complexity": "high",
-    "estimatedPlayTime": 90,
-    "faction_specific_content": {
-      "human": {
-        "special_nodes": [
-          "human_adaptability",
-          "versatile_skills",
-          "survival_instinct"
-        ],
-        "skill_unlocks": [
-          "Adaptive Combat",
-          "Versatile Skills",
-          "Survival Instinct"
-        ],
-        "ending_modifiers": [
-          "human_perseverance",
-          "adaptive_victory",
-          "survival_ending"
-        ]
-      },
-      "elf": {
-        "special_nodes": ["elven_magic", "forest_connection", "ancient_wisdom"],
-        "skill_unlocks": ["Elven Magic", "Forest Connection", "Ancient Wisdom"],
-        "ending_modifiers": [
-          "elven_mastery",
-          "magical_victory",
-          "forest_harmony"
-        ]
-      },
-      "dwarf": {
-        "special_nodes": [
-          "dwarven_craftsmanship",
-          "mountain_strength",
-          "stone_knowledge"
-        ],
-        "skill_unlocks": [
-          "Dwarven Craftsmanship",
-          "Mountain Strength",
-          "Stone Knowledge"
-        ],
-        "ending_modifiers": [
-          "dwarven_glory",
-          "craftsmanship_victory",
-          "mountain_pride"
-        ]
-      },
-      "orc": {
-        "special_nodes": ["orc_brutality", "battle_rage", "tribal_strength"],
-        "skill_unlocks": ["Orc Brutality", "Battle Rage", "Tribal Strength"],
-        "ending_modifiers": ["orc_dominance", "brutal_victory", "tribal_glory"]
-      },
-      "halfling": {
-        "special_nodes": [
-          "halfling_luck",
-          "stealth_skills",
-          "community_spirit"
-        ],
-        "skill_unlocks": [
-          "Halfling Luck",
-          "Stealth Skills",
-          "Community Spirit"
-        ],
-        "ending_modifiers": [
-          "lucky_victory",
-          "stealth_mastery",
-          "community_harmony"
-        ]
-      }
-    },
-    "advanced_storytelling": {
-      "contextual_triggers": {
-        "dragon_encounter": {
-          "betrayal_chance": 0.4,
-          "plot_twist_chance": 0.6,
-          "triggers": ["dragon_lair", "dragon_weakness", "ancient_pact"]
+    "estimatedPlayTime": 120,
+    "npc_system": {
+      "villagers": {
+        "elder_thorin": {
+          "name": "Elder Thorin",
+          "role": "Köy Lideri",
+          "personality": "Bilge ve deneyimli",
+          "quests": ["village_defense", "dragon_knowledge"],
+          "dialogue": {
+            "greeting": "Hoş geldin, kahraman. Köyümüz kızıl ejderha tarafından tehdit ediliyor. Yardımına ihtiyacımız var.",
+            "quest_offer": "Ejderha hakkında bilgi toplamak için dağdaki keşişi ziyaret et. O bize yardım edebilir.",
+            "reward": "Köyün koruyucusu olarak kabul edileceksin."
+          }
         },
-        "village_interaction": {
-          "betrayal_chance": 0.3,
-          "plot_twist_chance": 0.5,
-          "triggers": ["village_secret", "hidden_agenda", "desperate_measures"]
+        "merchant_lyra": {
+          "name": "Lyra",
+          "role": "Tüccar",
+          "personality": "Pratik ve ticari",
+          "quests": ["supply_run", "trade_route"],
+          "dialogue": {
+            "greeting": "Ticaret yolları ejderha yüzünden kapandı. Malzemelerimiz tükeniyor.",
+            "quest_offer": "Güvenli bir ticaret yolu bul ve malzemeleri getir. Karşılığında en iyi ekipmanları vereceğim.",
+            "reward": "Özel ekipmanlar ve altın."
+          }
         },
-        "hunting_preparation": {
-          "betrayal_chance": 0.2,
-          "plot_twist_chance": 0.4,
-          "triggers": [
-            "hunting_equipment",
-            "local_knowledge",
-            "weather_conditions"
-          ]
+        "blacksmith_grim": {
+          "name": "Grim",
+          "role": "Demirci",
+          "personality": "Güçlü ve kararlı",
+          "quests": ["dragon_steel", "weapon_forge"],
+          "dialogue": {
+            "greeting": "Ejderha ölçeğinden zırh yapabilirim. Ama önce malzemeye ihtiyacım var.",
+            "quest_offer": "Ejderha ölçeği getir, sana yenilmez bir zırh yapayım.",
+            "reward": "Ejderha ölçeği zırhı."
+          }
         }
       },
-      "emotional_arcs": {
-        "hunter_pride": {
-          "stages": ["apprentice", "skilled", "master", "legendary"],
-          "betrayal_impact": "devastating"
+      "allies": {
+        "hermit_aldric": {
+          "name": "Keşiş Aldric",
+          "role": "Bilge Keşiş",
+          "personality": "Gizemli ve bilge",
+          "quests": ["ancient_knowledge", "magic_scroll"],
+          "dialogue": {
+            "greeting": "Ejderhanın zayıf noktasını biliyorum. Ama önce eski bilgileri toplamalıyız.",
+            "quest_offer": "Kütüphanedeki eski tomarları bul. Ejderha hakkında sırlar var.",
+            "reward": "Ejderha zayıf noktası bilgisi."
+          }
         },
-        "dragon_fear": {
-          "stages": ["terror", "caution", "respect", "understanding"],
-          "plot_twist_impact": "transformative"
+        "ranger_sylvan": {
+          "name": "Sylvan",
+          "role": "Orman Avcısı",
+          "personality": "Doğa ile uyumlu",
+          "quests": ["track_dragon", "forest_path"],
+          "dialogue": {
+            "greeting": "Ejderhanın izini sürdüm. Mağarasına giden gizli bir yol var.",
+            "quest_offer": "Ejderhanın mağarasına giden yolu keşfet. Ama dikkatli ol, tehlikeli.",
+            "reward": "Gizli yol haritası."
+          }
+        }
+      },
+      "enemies": {
+        "dragon_ignis": {
+          "name": "Ignis",
+          "role": "Kızıl Ejderha",
+          "personality": "Gururlu ve yıkıcı",
+          "motivation": "İnsanların topraklarını ele geçirmek",
+          "dialogue": {
+            "encounter": "Küçük insan, benim topraklarıma mı geldin? Ölümünü tat!",
+            "defeat": "İmkansız! Nasıl... nasıl yenildim?",
+            "victory": "Seni yok edeceğim! Hiçbir şey beni durduramaz!"
+          }
         }
       }
     },
-    "nodes": {
+    "quest_system": {
+      "main_quests": {
+        "dragon_hunt": {
+          "id": "dragon_hunt",
+          "title": "Ejderha Avı",
+          "description": "Kızıl ejderhayı bul ve durdur",
+          "stages": [
+            "village_investigation",
+            "gather_allies",
+            "find_dragon_lair",
+            "confront_dragon"
+          ],
+          "rewards": {
+            "xp": 1000,
+            "gold": 500,
+            "items": ["dragon_scales", "legendary_weapon"],
+            "reputation": 100
+          }
+        }
+      },
+      "side_quests": {
+        "village_defense": {
+          "id": "village_defense",
+          "title": "Köy Savunması",
+          "description": "Köyü ejderha saldırılarından koru",
+          "giver": "elder_thorin",
+          "rewards": {
+            "xp": 300,
+            "gold": 150,
+            "reputation": 50
+          }
+        },
+        "supply_run": {
+          "id": "supply_run",
+          "title": "Malzeme Temini",
+          "description": "Köy için gerekli malzemeleri getir",
+          "giver": "merchant_lyra",
+          "rewards": {
+            "xp": 200,
+            "gold": 100,
+            "items": ["quality_equipment"]
+          }
+        },
+        "dragon_steel": {
+          "id": "dragon_steel",
+          "title": "Ejderha Çeliği",
+          "description": "Ejderha ölçeği topla ve zırh yap",
+          "giver": "blacksmith_grim",
+          "rewards": {
+            "xp": 400,
+            "items": ["dragon_scale_armor"]
+          }
+        }
+      }
+    },
+    "story_nodes": {
       "start": {
         "id": "start",
-        "title": "Ejderha Avcısının Başlangıcı",
-        "description": "Gün doğarken köyün yakıldığını görüyorsun. Kızıl ejderha gökyüzünde uçuyor ve yeni kurbanlar arıyor. Dumanlar yükseliyor, çığlıklar duyuluyor. Sen ejderha avcısısın ve bu tehlikeli görevde her şeyi riske atacaksın. Köylüler sana umutla bakıyor.",
-        "backgroundImage": "dragon_village.jpg",
+        "title": "Köye Varış",
+        "content": "Güneş batarken küçük köye varıyorsun. Havada duman kokusu var ve uzaktan ejderha sesleri geliyor. Köy meydanında yaşlı bir adam seni karşılıyor.",
+        "npc_interaction": "elder_thorin",
         "choices": [
           {
-            "text": "Hemen ejderhayı takip et",
-            "next_node": "track_dragon",
-            "diceRoll": { "type": "d20", "target": 15, "skill": "Tracking" },
-            "effect": { "karma": 5, "skill_gain": "Tracking +2" },
-            "hidden_consequence": "immediate_pursuit",
-            "faction_bonus": {
-              "orc": { "dice_bonus": 2, "skill_gain": "Battle Rage +1" },
-              "elf": { "dice_bonus": 1, "skill_gain": "Forest Connection +1" }
+            "id": "greet_elder",
+            "text": "Elder Thorin ile konuş",
+            "next_node": "elder_dialogue",
+            "effects": {
+              "reputation": 10,
+              "quest_unlock": "village_defense"
             }
           },
           {
-            "text": "Köylülerden bilgi topla",
-            "next_node": "gather_information",
-            "diceRoll": {
-              "type": "d20",
-              "target": 12,
-              "skill": "Investigation"
-            },
-            "effect": { "karma": 3, "skill_gain": "Investigation +2" },
-            "hidden_consequence": "village_intel",
-            "faction_bonus": {
-              "human": { "dice_bonus": 2, "skill_gain": "Adaptive Skills +1" },
-              "halfling": {
-                "dice_bonus": 1,
-                "skill_gain": "Community Spirit +1"
-              }
+            "id": "explore_village",
+            "text": "Köyü keşfet",
+            "next_node": "village_exploration",
+            "effects": {
+              "knowledge": 15
             }
           },
           {
-            "text": "Av ekipmanını hazırla",
-            "next_node": "prepare_equipment",
-            "diceRoll": { "type": "d20", "target": 10, "skill": "Survival" },
-            "effect": { "karma": 2, "skill_gain": "Survival +2" },
-            "hidden_consequence": "proper_preparation",
-            "faction_bonus": {
-              "dwarf": { "dice_bonus": 3, "skill_gain": "Craftsmanship +1" },
-              "human": { "dice_bonus": 1, "skill_gain": "Versatile Skills +1" }
-            }
-          }
-        ],
-        "contextual_events": {
-          "dragon_encounter": {
-            "betrayal_chance": 0.4,
-            "plot_twist_chance": 0.6,
-            "random_event_chance": 0.3
-          }
-        }
-      },
-      "track_dragon": {
-        "id": "track_dragon",
-        "title": "Ejderha İzini Takip",
-        "description": "Ejderhanın izini takip ediyorsun. Yerdeki yanık izler ve havadaki kükürt kokusu seni yönlendiriyor. Rüzgar yön değiştiriyor ve izler daha belirgin hale geliyor. Uzakta bir mağara görüyorsun.",
-        "choices": [
-          {
-            "text": "Hızlı takip yap",
-            "next_node": "quick_pursuit",
-            "diceRoll": { "type": "d20", "target": 16, "skill": "Athletics" },
-            "effect": { "karma": 3, "skill_gain": "Athletics +1" },
-            "consequence": "Hızlı hareket ediyorsun ama gürültü yapıyorsun. Ejderha seni duyabilir.",
-            "faction_bonus": {
-              "orc": {
-                "dice_bonus": 2,
-                "consequence": "Ork gücüyle hızlı ilerliyorsun."
-              }
-            }
-          },
-          {
-            "text": "Dikkatli ilerle",
-            "next_node": "careful_approach",
-            "diceRoll": { "type": "d20", "target": 14, "skill": "Stealth" },
-            "effect": { "karma": 5, "skill_gain": "Stealth +2" },
-            "consequence": "Sessizce ilerliyorsun. Ejderha seni fark etmiyor.",
-            "faction_bonus": {
-              "elf": {
-                "dice_bonus": 3,
-                "consequence": "Elf doğal yetenekleriyle mükemmel gizleniyorsun."
-              },
-              "halfling": {
-                "dice_bonus": 2,
-                "consequence": "Halfling boyutun avantaj sağlıyor."
-              }
+            "id": "ask_merchant",
+            "text": "Tüccar Lyra'yı bul",
+            "next_node": "merchant_dialogue",
+            "effects": {
+              "quest_unlock": "supply_run"
             }
           }
         ]
       },
-      "gather_information": {
-        "id": "gather_information",
-        "title": "Köylülerden Bilgi Topla",
-        "description": "Köylülerle konuşarak ejderha hakkında bilgi topluyorsun. Bazıları korkmuş, bazıları öfke dolu. Köy meydanında toplanmışlar ve seni bekliyorlar.",
+      "elder_dialogue": {
+        "id": "elder_dialogue",
+        "title": "Elder Thorin ile Görüşme",
+        "content": "Elder Thorin derin bir iç çekiyor: 'Köyümüz kızıl ejderha tarafından tehdit ediliyor. Her gece saldırıyor, hayvanlarımızı çalıyor. Artık dayanamıyoruz.'",
+        "npc_interaction": "elder_thorin",
         "choices": [
           {
-            "text": "Korkmuş köylüyle konuş",
-            "next_node": "fearful_villager",
-            "diceRoll": { "type": "d20", "target": 10, "skill": "Empathy" },
-            "effect": { "karma": 2, "skill_gain": "Empathy +1" },
-            "consequence": "Korkmuş köylü sana ejderhanın gücünden bahsediyor.",
-            "faction_bonus": {
-              "human": {
-                "dice_bonus": 2,
-                "consequence": "İnsan empatisi köylüyü rahatlatıyor."
-              }
+            "id": "accept_quest",
+            "text": "Ejderha avına katılmayı kabul et",
+            "next_node": "quest_accepted",
+            "effects": {
+              "reputation": 25,
+              "quest_activate": "dragon_hunt",
+              "moral": 10
             }
           },
           {
-            "text": "Öfkeli köylüyle konuş",
-            "next_node": "angry_villager",
-            "diceRoll": {
-              "type": "d20",
-              "target": 14,
-              "skill": "Intimidation"
-            },
-            "effect": { "karma": 4, "skill_gain": "Intimidation +1" },
-            "consequence": "Öfkeli köylü sana ejderhanın zayıf noktalarını söylüyor.",
-            "faction_bonus": {
-              "orc": {
-                "dice_bonus": 3,
-                "consequence": "Ork vahşeti köylüyü etkiliyor."
-              }
+            "id": "ask_reward",
+            "text": "Ödül hakkında sor",
+            "next_node": "reward_info",
+            "effects": {
+              "knowledge": 10
             }
           },
           {
-            "text": "Yaşlı bilgeyi ara",
-            "next_node": "wise_elder",
-            "diceRoll": { "type": "d20", "target": 16, "skill": "Persuasion" },
-            "effect": { "karma": 6, "skill_gain": "Persuasion +2" },
-            "consequence": "Yaşlı bilge sana ejderhanın geçmişini ve zayıflığını anlatıyor.",
-            "faction_bonus": {
-              "elf": {
-                "dice_bonus": 2,
-                "consequence": "Elf bilgeliği bilgeyle bağlantı kuruyor."
-              },
-              "dwarf": {
-                "dice_bonus": 1,
-                "consequence": "Dwarf saygısı bilgeyi etkiliyor."
-              }
+            "id": "gather_info",
+            "text": "Ejderha hakkında bilgi topla",
+            "next_node": "dragon_info",
+            "effects": {
+              "knowledge": 20
             }
           }
         ]
       },
-      "fearful_villager": {
-        "id": "fearful_villager",
-        "title": "Korkmuş Köylü",
-        "description": "Korkmuş köylü titreyerek sana yaklaşıyor. 'Ejderha... çok büyük... çok güçlü... hiç kimse onu durduramaz...' diyor.",
+      "village_exploration": {
+        "id": "village_exploration",
+        "title": "Köy Keşfi",
+        "content": "Köyde dolaşırken hasar görmüş evler ve korkmuş köylüler görüyorsun. Demirci dükkanından çekiç sesleri geliyor.",
         "choices": [
           {
-            "text": "Onu rahatlat",
-            "next_node": "comfort_villager",
-            "diceRoll": { "type": "d20", "target": 12, "skill": "Empathy" },
-            "effect": { "karma": 3, "skill_gain": "Empathy +1" },
-            "consequence": "Köylü rahatlıyor ve sana ejderhanın uyku saatlerini söylüyor."
-          },
-          {
-            "text": "Gerçeği söyle",
-            "next_node": "truth_villager",
-            "diceRoll": { "type": "d20", "target": 14, "skill": "Honesty" },
-            "effect": { "karma": 5, "skill_gain": "Honesty +1" },
-            "consequence": "Köylü saygı duyuyor ve sana ejderhanın en zayıf anını söylüyor."
-          }
-        ]
-      },
-      "angry_villager": {
-        "id": "angry_villager",
-        "title": "Öfkeli Köylü",
-        "description": "Öfkeli köylü yumruğunu sıkıyor. 'Bu ejderha köyümüzü mahvetti! Onu öldürmek zorundayız!' diyor.",
-        "choices": [
-          {
-            "text": "Öfkesini anla",
-            "next_node": "understand_anger",
-            "diceRoll": { "type": "d20", "target": 12, "skill": "Empathy" },
-            "effect": { "karma": 4, "skill_gain": "Empathy +1" },
-            "consequence": "Köylü sana ejderhanın saldırı paternini anlatıyor."
-          },
-          {
-            "text": "Sakinleştir",
-            "next_node": "calm_villager",
-            "diceRoll": { "type": "d20", "target": 14, "skill": "Persuasion" },
-            "effect": { "karma": 6, "skill_gain": "Persuasion +1" },
-            "consequence": "Köylü sakinleşiyor ve sana ejderhanın zayıf noktalarını söylüyor."
-          }
-        ]
-      },
-      "wise_elder": {
-        "id": "wise_elder",
-        "title": "Yaşlı Bilge",
-        "description": "Yaşlı bilge derin düşüncelere dalıyor. 'Bu ejderha eskiden bu toprakların koruyucusuydu... bir şey onu değiştirdi. Son zamanlarda köyde garip şeyler oluyor.'",
-        "choices": [
-          {
-            "text": "Geçmişini öğren",
-            "next_node": "learn_history",
-            "diceRoll": { "type": "d20", "target": 14, "skill": "History" },
-            "effect": { "karma": 5, "skill_gain": "History +2" },
-            "consequence": "Ejderhanın geçmişini öğreniyorsun. Bu bilgi sana avantaj sağlayacak."
-          },
-          {
-            "text": "Garip olayları araştır",
-            "next_node": "investigate_strange_events",
-            "diceRoll": {
-              "type": "d20",
-              "target": 16,
-              "skill": "Investigation"
-            },
-            "effect": { "karma": 4, "skill_gain": "Investigation +2" },
-            "consequence": "Köydeki garip olayları araştırıyorsun."
-          }
-        ]
-      },
-      "learn_history": {
-        "id": "learn_history",
-        "title": "Ejderhanın Geçmişi",
-        "description": "Bilge sana ejderhanın hikayesini anlatıyor: 'Kızıl Alev, bu toprakların koruyucusuydu. Ama bir gün kara büyü onu etkiledi ve köylülere saldırmaya başladı. Garip olan şu ki, saldırılar belirli bir düzende oluyor.'",
-        "choices": [
-          {
-            "text": "Saldırı düzenini analiz et",
-            "next_node": "analyze_attack_pattern",
-            "diceRoll": {
-              "type": "d20",
-              "target": 16,
-              "skill": "Investigation"
-            },
-            "effect": { "karma": 6, "skill_gain": "Investigation +2" },
-            "consequence": "Saldırı düzenini analiz ediyorsun ve bir pattern fark ediyorsun."
-          },
-          {
-            "text": "Kara büyüyü araştır",
-            "next_node": "investigate_dark_magic",
-            "diceRoll": { "type": "d20", "target": 16, "skill": "Arcana" },
-            "effect": { "karma": 5, "skill_gain": "Arcana +2" },
-            "consequence": "Kara büyünün kaynağını araştırıyorsun."
-          }
-        ]
-      },
-      "analyze_attack_pattern": {
-        "id": "analyze_attack_pattern",
-        "title": "Saldırı Düzenini Analiz",
-        "description": "Saldırı düzenini analiz ediyorsun. Garip bir şey fark ediyorsun - ejderha sadece belirli evleri yakıyor. Bu evlerin ortak özelliği ne?",
-        "choices": [
-          {
-            "text": "Yakılan evleri incele",
-            "next_node": "examine_burned_houses",
-            "diceRoll": {
-              "type": "d20",
-              "target": 14,
-              "skill": "Investigation"
-            },
-            "effect": { "karma": 5, "skill_gain": "Investigation +2" },
-            "consequence": "Yakılan evleri inceliyorsun ve ortak bir özellik buluyorsun.",
-            "plot_twist": "Yakılan evler kara büyü kullanan ailelere ait!"
-          },
-          {
-            "text": "Köy haritasını çıkar",
-            "next_node": "map_village_pattern",
-            "diceRoll": { "type": "d20", "target": 12, "skill": "Cartography" },
-            "effect": { "karma": 4, "skill_gain": "Cartography +1" },
-            "consequence": "Köy haritasını çıkarıyorsun ve saldırı düzenini görüyorsun."
-          }
-        ]
-      },
-      "examine_burned_houses": {
-        "id": "examine_burned_houses",
-        "title": "Yakılan Evleri İnceleme",
-        "description": "Yakılan evleri inceliyorsun. Garip bir şey fark ediyorsun - bu evlerde kara büyü izleri var! Ejderha aslında kara büyü kullananları hedefliyor olabilir.",
-        "choices": [
-          {
-            "text": "Kara büyü kullananları araştır",
-            "next_node": "investigate_dark_magic_users",
-            "diceRoll": {
-              "type": "d20",
-              "target": 16,
-              "skill": "Investigation"
-            },
-            "effect": { "karma": 6, "skill_gain": "Investigation +3" },
-            "consequence": "Kara büyü kullananları araştırıyorsun.",
-            "plot_twist": "Köy muhtarı kara büyü kullanıyor!"
-          },
-          {
-            "text": "Ejderhayla iletişim kurmayı dene",
-            "next_node": "attempt_dragon_communication",
-            "diceRoll": {
-              "type": "d20",
-              "target": 18,
-              "skill": "Animal Handling"
-            },
-            "effect": { "karma": 7, "skill_gain": "Animal Handling +2" },
-            "consequence": "Ejderhayla iletişim kurmaya çalışıyorsun.",
-            "ending_path": "understanding_ending"
-          }
-        ]
-      },
-      "investigate_dark_magic_users": {
-        "id": "investigate_dark_magic_users",
-        "title": "Kara Büyü Kullananları Araştırma",
-        "description": "Kara büyü kullananları araştırıyorsun. Köy muhtarının evinde şüpheli aktivite görüyorsun. Gece yarısı garip ışıklar çıkıyor.",
-        "choices": [
-          {
-            "text": "Muhtarın evini gizlice ara",
-            "next_node": "secretly_search_mayor_house",
-            "diceRoll": { "type": "d20", "target": 16, "skill": "Stealth" },
-            "effect": { "karma": 5, "skill_gain": "Stealth +2" },
-            "consequence": "Muhtarın evini gizlice arıyorsun.",
-            "plot_twist": "Muhtar ejderhayı kontrol ediyor!"
-          },
-          {
-            "text": "Muhtarla yüzleş",
-            "next_node": "confront_mayor",
-            "diceRoll": {
-              "type": "d20",
-              "target": 18,
-              "skill": "Intimidation"
-            },
-            "effect": { "karma": 4, "skill_gain": "Intimidation +2" },
-            "consequence": "Muhtarla yüzleşiyorsun."
-          }
-        ]
-      },
-      "confront_mayor": {
-        "id": "confront_mayor",
-        "title": "Muhtarla Yüzleşme",
-        "description": "Muhtarla yüzleşiyorsun. 'Kara büyü kullanıyorsun ve ejderhayı kontrol ediyorsun, değil mi?' diyorsun. Muhtar gülümsüyor ve gerçeği anlatıyor.",
-        "choices": [
-          {
-            "text": "Muhtarı tutukla",
-            "next_node": "arrest_mayor",
-            "diceRoll": { "type": "d20", "target": 16, "skill": "Combat" },
-            "effect": { "karma": 6, "skill_gain": "Combat +2" },
-            "consequence": "Muhtarı tutukluyorsun ve ejderha özgür kalıyor.",
-            "ending_path": "justice_ending"
-          },
-          {
-            "text": "Muhtarla anlaşma yap",
-            "next_node": "negotiate_with_mayor",
-            "diceRoll": { "type": "d20", "target": 18, "skill": "Diplomacy" },
-            "effect": { "karma": 5, "skill_gain": "Diplomacy +2" },
-            "consequence": "Muhtarla anlaşma yapıyorsun.",
-            "ending_path": "diplomatic_ending"
-          }
-        ]
-      },
-      "arrest_mayor": {
-        "id": "arrest_mayor",
-        "title": "Muhtarı Tutuklama",
-        "description": "Muhtarı tutukluyorsun. Kara büyü bozuluyor ve ejderha özgür kalıyor. Ejderha sana minnettar bakıyor ve köyü korumaya devam ediyor.",
-        "choices": [
-          {
-            "text": "Ejderhayı serbest bırak",
-            "next_node": "release_dragon",
-            "effect": { "karma": 8, "skill_gain": "Empathy +3" },
-            "consequence": "Ejderhayı serbest bırakıyorsun ve köyün koruyucusu olarak kalmasına izin veriyorsun.",
-            "ending_path": "redemption_ending",
-            "faction_reward": {
-              "elf": "Forest Guardian title",
-              "human": "Dragon Friend title",
-              "dwarf": "Honorable Warrior title"
+            "id": "visit_blacksmith",
+            "text": "Demirci Grim'i ziyaret et",
+            "next_node": "blacksmith_dialogue",
+            "effects": {
+              "quest_unlock": "dragon_steel"
             }
           },
           {
-            "text": "Ejderhayı da tutukla",
-            "next_node": "arrest_dragon_too",
-            "diceRoll": { "type": "d20", "target": 18, "skill": "Combat" },
-            "effect": { "karma": 3, "skill_gain": "Combat +3" },
-            "consequence": "Ejderhayı da tutukluyorsun.",
-            "ending_path": "law_ending"
+            "id": "check_damage",
+            "text": "Hasarı incele",
+            "next_node": "damage_assessment",
+            "effects": {
+              "knowledge": 15
+            }
+          },
+          {
+            "id": "talk_villagers",
+            "text": "Köylülerle konuş",
+            "next_node": "villager_stories",
+            "effects": {
+              "reputation": 10,
+              "knowledge": 10
+            }
           }
         ]
-      }
-    },
-    "endings": {
-      "redemption_ending": {
-        "title": "Kurtuluş Sonu",
-        "description": "Gerçek düşmanı buldun ve ejderhayı kurtardın. Ejderha tekrar köyün koruyucusu oldu ve kara büyü kullananlar temizlendi.",
-        "rewards": [
-          "Dragon Friend title",
-          "Redemption Master skill",
-          "Peaceful Resolution"
-        ],
-        "faction_specific": {
-          "elf": "Forest Harmony bonus",
-          "human": "Adaptive Victory bonus",
-          "halfling": "Community Harmony bonus"
-        }
       },
-      "justice_ending": {
-        "title": "Adalet Sonu",
-        "description": "Muhtarı tutukladın ve adaleti sağladın. Köy artık güvende ve ejderha özgür.",
-        "rewards": [
-          "Justice Bringer title",
-          "Law Master skill",
-          "Village Protector"
-        ],
-        "faction_specific": {
-          "human": "Human Perseverance bonus",
-          "dwarf": "Dwarven Justice bonus"
-        }
-      },
-      "diplomatic_ending": {
-        "title": "Diplomatik Çözüm",
-        "description": "Muhtarla anlaşma yaptın. Kara büyüyü bırakması karşılığında affedildi.",
-        "rewards": [
-          "Diplomat title",
-          "Negotiation Master skill",
-          "Peaceful Resolution"
-        ],
-        "faction_specific": {
-          "human": "Adaptive Victory bonus",
-          "halfling": "Community Spirit bonus"
-        }
-      },
-      "understanding_ending": {
-        "title": "Anlayış Sonu",
-        "description": "Ejderhayla iletişim kurdun ve gerçeği öğrendin. Birlikte kara büyü kullananları temizlediniz.",
-        "rewards": [
-          "Dragon Ally title",
-          "Communication Master skill",
-          "Mutual Understanding"
-        ],
-        "faction_specific": {
-          "elf": "Elven Mastery bonus",
-          "human": "Adaptive Victory bonus"
-        }
-      },
-      "law_ending": {
-        "title": "Yasa Sonu",
-        "description": "Hem muhtarı hem ejderhayı tutukladın. Yasa herkes için geçerli.",
-        "rewards": [
-          "Law Enforcer title",
-          "Justice Master skill",
-          "Strict Order"
-        ],
-        "faction_specific": {
-          "dwarf": "Dwarven Justice bonus",
-          "human": "Human Order bonus"
-        }
-      }
-    }
-  },
-  "magical_forest_mysteries": {
-    "id": "magical_forest_mysteries",
-    "title": "Büyülü Ormanın Gizemleri",
-    "genre": "fantasy",
-    "description": "Büyülü yaratıklarla dolu gizemli orman. Ağaçlar konuşuyor ve her adımda yeni sırlar keşfediyorsun.",
-    "difficulty": "hard",
-    "theme": "fantasy",
-    "complexity": "high",
-    "estimatedPlayTime": 75,
-    "faction_specific_content": {
-      "elf": {
-        "special_nodes": ["forest_connection", "elven_magic", "nature_harmony"],
-        "skill_unlocks": ["Forest Connection", "Elven Magic", "Nature Harmony"],
-        "ending_modifiers": [
-          "forest_mastery",
-          "elven_victory",
-          "nature_balance"
+      "blacksmith_dialogue": {
+        "id": "blacksmith_dialogue",
+        "title": "Demirci Grim",
+        "content": "Grim, büyük çekiciyle bir kılıç dövüyor. Seni görünce duruyor: 'Ejderha ölçeği görürsen bana getir. Sana yenilmez bir zırh yapayım.'",
+        "npc_interaction": "blacksmith_grim",
+        "choices": [
+          {
+            "id": "accept_armor_quest",
+            "text": "Zırh yapma görevini kabul et",
+            "next_node": "armor_quest_accepted",
+            "effects": {
+              "quest_activate": "dragon_steel",
+              "reputation": 15
+            }
+          },
+          {
+            "id": "ask_weapons",
+            "text": "Silah seçeneklerini sor",
+            "next_node": "weapon_selection",
+            "effects": {
+              "knowledge": 10
+            }
+          },
+          {
+            "id": "return_later",
+            "text": "Daha sonra gel",
+            "next_node": "village_exploration",
+            "effects": {}
+          }
         ]
       },
-      "dwarf": {
-        "special_nodes": [
-          "stone_knowledge",
-          "underground_sense",
-          "craftsmanship"
-        ],
-        "skill_unlocks": [
-          "Stone Knowledge",
-          "Underground Sense",
-          "Craftsmanship"
-        ],
-        "ending_modifiers": [
-          "underground_victory",
-          "stone_mastery",
-          "craft_glory"
+      "quest_accepted": {
+        "id": "quest_accepted",
+        "title": "Görev Kabul Edildi",
+        "content": "Elder Thorin gülümsüyor: 'Teşekkürler, kahraman. İlk olarak dağdaki keşiş Aldric'i ziyaret et. Ejderha hakkında bilgi sahibi.'",
+        "choices": [
+          {
+            "id": "go_to_hermit",
+            "text": "Keşiş Aldric'i ziyaret et",
+            "next_node": "hermit_encounter",
+            "effects": {
+              "quest_progress": "dragon_hunt"
+            }
+          },
+          {
+            "id": "prepare_first",
+            "text": "Önce hazırlık yap",
+            "next_node": "preparation",
+            "effects": {
+              "knowledge": 10
+            }
+          }
         ]
       },
-      "human": {
-        "special_nodes": [
-          "adaptability",
-          "versatile_skills",
-          "survival_instinct"
-        ],
-        "skill_unlocks": [
-          "Adaptability",
-          "Versatile Skills",
-          "Survival Instinct"
-        ],
-        "ending_modifiers": [
-          "human_perseverance",
-          "adaptive_victory",
-          "survival_ending"
+      "hermit_encounter": {
+        "id": "hermit_encounter",
+        "title": "Keşiş Aldric",
+        "content": "Dağın tepesindeki küçük kulübede yaşlı keşiş Aldric'i buluyorsun. Eski tomarlar arasında oturuyor.",
+        "npc_interaction": "hermit_aldric",
+        "choices": [
+          {
+            "id": "ask_dragon_secrets",
+            "text": "Ejderha sırlarını sor",
+            "next_node": "dragon_secrets",
+            "effects": {
+              "knowledge": 25,
+              "quest_progress": "dragon_hunt"
+            }
+          },
+          {
+            "id": "help_hermit",
+            "text": "Keşişe yardım et",
+            "next_node": "hermit_quest",
+            "effects": {
+              "quest_unlock": "ancient_knowledge",
+              "reputation": 15
+            }
+          },
+          {
+            "id": "trade_knowledge",
+            "text": "Bilgi takası yap",
+            "next_node": "knowledge_trade",
+            "effects": {
+              "knowledge": 15,
+              "reputation": 10
+            }
+          }
         ]
-      }
-    },
-    "advanced_storytelling": {
-      "contextual_triggers": {
-        "forest_exploration": {
-          "betrayal_chance": 0.3,
-          "plot_twist_chance": 0.5,
-          "triggers": ["ancient_tree", "hidden_path", "magical_creature"]
+      },
+      "dragon_secrets": {
+        "id": "dragon_secrets",
+        "title": "Ejderha Sırları",
+        "content": "Aldric eski bir tomardan okuyor: 'Kızıl ejderha Ignis, ateş elementinin efendisi. Zayıf noktası kalbi. Ama önce onu zayıflatmalısın.'",
+        "choices": [
+          {
+            "id": "learn_weakness",
+            "text": "Zayıf nokta hakkında daha fazla öğren",
+            "next_node": "weakness_details",
+            "effects": {
+              "knowledge": 30,
+              "combat_advantage": true
+            }
+          },
+          {
+            "id": "ask_location",
+            "text": "Ejderhanın yerini sor",
+            "next_node": "dragon_location",
+            "effects": {
+              "knowledge": 20
+            }
+          },
+          {
+            "id": "request_help",
+            "text": "Keşişten yardım iste",
+            "next_node": "hermit_help",
+            "effects": {
+              "ally_gained": "hermit_aldric",
+              "reputation": 20
+            }
+          }
+        ]
+      },
+      "dragon_confrontation": {
+        "id": "dragon_confrontation",
+        "title": "Ejderha ile Karşılaşma",
+        "content": "Mağaranın derinliklerinde kızıl ejderha Ignis'i buluyorsun. Devasa yaratık seni görünce ayağa kalkıyor ve ateş püskürtüyor!",
+        "npc_interaction": "dragon_ignis",
+        "choices": [
+          {
+            "id": "fight_dragon",
+            "text": "Ejderha ile savaş",
+            "next_node": "dragon_battle",
+            "effects": {
+              "combat_trigger": true,
+              "quest_progress": "dragon_hunt"
+            }
+          },
+          {
+            "id": "negotiate",
+            "text": "Müzakere et",
+            "next_node": "dragon_negotiation",
+            "effects": {
+              "diplomacy": 20,
+              "moral": 15
+            }
+          },
+          {
+            "id": "use_weakness",
+            "text": "Zayıf noktasını kullan",
+            "next_node": "weakness_exploit",
+            "effects": {
+              "combat_advantage": true,
+              "knowledge_bonus": true
+            }
+          }
+        ]
+      },
+      "dragon_battle": {
+        "id": "dragon_battle",
+        "title": "Ejderha Savaşı",
+        "content": "Ignis kükreyerek saldırıya geçiyor! Ateş püskürtüyor ve pençeleriyle vuruyor. Bu senin hayatındaki en zor savaş!",
+        "combat": {
+          "enemy": "dragon_ignis",
+          "hp": 500,
+          "attacks": ["fire_breath", "claw_strike", "wing_buffet"],
+          "weaknesses": ["ice", "water", "heart_shot"]
         },
-        "magical_encounter": {
-          "betrayal_chance": 0.4,
-          "plot_twist_chance": 0.6,
-          "triggers": ["fairy_trick", "magical_illusion", "ancient_spirit"]
-        }
-      },
-      "emotional_arcs": {
-        "nature_connection": {
-          "stages": ["stranger", "visitor", "friend", "guardian"],
-          "betrayal_impact": "devastating"
-        },
-        "magical_understanding": {
-          "stages": ["ignorant", "curious", "learning", "master"],
-          "plot_twist_impact": "transformative"
-        }
-      }
-    },
-    "nodes": {
-      "start": {
-        "id": "start",
-        "title": "Büyülü Ormanın Girişi",
-        "description": "Büyülü ormanın eşiğindesin. Ağaçlar konuşuyor ve yaratıklar her yerde. Bu gizemli dünyada ne sırlar keşfedeceksin? Rüzgar yaprakları fısıldıyor.",
-        "backgroundImage": "magical_forest.jpg",
         "choices": [
           {
-            "text": "Ormanın derinliklerine git",
-            "next_node": "deep_forest",
-            "diceRoll": { "type": "d20", "target": 14, "skill": "Survival" },
-            "effect": { "karma": 3, "skill_gain": "Survival +2" },
-            "hidden_consequence": "forest_depths",
-            "faction_bonus": {
-              "elf": { "dice_bonus": 3, "skill_gain": "Forest Connection +1" },
-              "ranger": { "dice_bonus": 2, "skill_gain": "Wilderness Lore +1" }
+            "id": "attack_heart",
+            "text": "Kalbe saldır",
+            "next_node": "heart_attack",
+            "effects": {
+              "damage_multiplier": 2.0,
+              "critical_chance": 0.5
             }
           },
           {
-            "text": "Konuşan ağaçlarla iletişim kur",
-            "next_node": "talk_to_trees",
-            "diceRoll": { "type": "d20", "target": 16, "skill": "Nature" },
-            "effect": { "karma": 5, "skill_gain": "Nature +2" },
-            "hidden_consequence": "tree_wisdom",
-            "faction_bonus": {
-              "elf": { "dice_bonus": 4, "skill_gain": "Elven Magic +1" },
-              "druid": { "dice_bonus": 3, "skill_gain": "Druidic Magic +1" }
+            "id": "defensive_stance",
+            "text": "Savunma pozisyonu al",
+            "next_node": "defensive_battle",
+            "effects": {
+              "defense_bonus": 1.5,
+              "counter_chance": 0.3
             }
           },
           {
-            "text": "Gizli yolları ara",
-            "next_node": "search_hidden_paths",
-            "diceRoll": {
-              "type": "d20",
-              "target": 18,
-              "skill": "Investigation"
-            },
-            "effect": { "karma": 7, "skill_gain": "Investigation +2" },
-            "hidden_consequence": "secret_discovery",
-            "faction_bonus": {
-              "rogue": { "dice_bonus": 3, "skill_gain": "Stealth +1" },
-              "ranger": { "dice_bonus": 2, "skill_gain": "Tracking +1" }
-            }
-          }
-        ],
-        "contextual_events": {
-          "forest_exploration": {
-            "betrayal_chance": 0.3,
-            "plot_twist_chance": 0.5,
-            "random_event_chance": 0.4
-          }
-        }
-      },
-      "deep_forest": {
-        "id": "deep_forest",
-        "title": "Ormanın Derinlikleri",
-        "description": "Ormanın derinliklerine giriyorsun. Ağaçlar daha büyük ve daha yaşlı. Havada büyülü bir enerji var.",
-        "choices": [
-          {
-            "text": "Antik ağacı araştır",
-            "next_node": "ancient_tree",
-            "diceRoll": { "type": "d20", "target": 16, "skill": "Arcana" },
-            "effect": { "karma": 5, "skill_gain": "Arcana +2" },
-            "consequence": "Antik ağaçta büyülü runeler buluyorsun.",
-            "plot_twist": "Ağaç aslında bir druid!"
-          },
-          {
-            "text": "Yaratık seslerini takip et",
-            "next_node": "creature_sounds",
-            "diceRoll": { "type": "d20", "target": 14, "skill": "Perception" },
-            "effect": { "karma": 4, "skill_gain": "Perception +1" },
-            "consequence": "Yaratık seslerini takip ediyorsun.",
-            "faction_bonus": {
-              "elf": {
-                "dice_bonus": 2,
-                "consequence": "Elf doğal yetenekleri yardım ediyor."
-              }
+            "id": "use_magic",
+            "text": "Büyü kullan",
+            "next_node": "magic_battle",
+            "effects": {
+              "magic_damage": 1.8,
+              "mana_cost": 50
             }
           }
         ]
-      },
-      "ancient_tree": {
-        "id": "ancient_tree",
-        "title": "Antik Ağaç",
-        "description": "Antik ağaç sana bakıyor. 'Hoş geldin, yabancı. Bu ormanın sırlarını öğrenmek istiyor musun?'",
-        "choices": [
-          {
-            "text": "Evet, öğrenmek istiyorum",
-            "next_node": "learn_secrets",
-            "diceRoll": { "type": "d20", "target": 16, "skill": "Persuasion" },
-            "effect": { "karma": 6, "skill_gain": "Persuasion +2" },
-            "consequence": "Ağaç sana ormanın sırlarını anlatıyor.",
-            "ending_path": "wisdom_ending"
-          },
-          {
-            "text": "Sadece geçiş izni istiyorum",
-            "next_node": "passage_request",
-            "diceRoll": { "type": "d20", "target": 12, "skill": "Diplomacy" },
-            "effect": { "karma": 3, "skill_gain": "Diplomacy +1" },
-            "consequence": "Ağaç sana geçiş izni veriyor."
-          }
-        ]
-      },
-      "learn_secrets": {
-        "id": "learn_secrets",
-        "title": "Ormanın Sırları",
-        "description": "Ağaç sana ormanın sırlarını anlatıyor: 'Bu orman bir zamanlar insanlar tarafından yok edilmek üzereydi. Ama büyülü güçler onu korudu.'",
-        "choices": [
-          {
-            "text": "Bu güçleri öğren",
-            "next_node": "learn_powers",
-            "diceRoll": { "type": "d20", "target": 18, "skill": "Arcana" },
-            "effect": { "karma": 7, "skill_gain": "Arcana +3" },
-            "consequence": "Büyülü güçleri öğreniyorsun.",
-            "ending_path": "magical_mastery"
-          },
-          {
-            "text": "Ormanı korumaya yardım et",
-            "next_node": "protect_forest",
-            "diceRoll": { "type": "d20", "target": 16, "skill": "Nature" },
-            "effect": { "karma": 8, "skill_gain": "Nature +3" },
-            "consequence": "Ormanı korumaya yardım ediyorsun.",
-            "ending_path": "guardian_ending"
-          }
-        ]
-      }
-    },
-    "endings": {
-      "wisdom_ending": {
-        "title": "Bilgelik Sonu",
-        "description": "Ormanın sırlarını öğrendin ve bilge oldun. Artık doğanın bir parçasısın.",
-        "rewards": [
-          "Forest Sage title",
-          "Nature Wisdom skill",
-          "Magical Understanding"
-        ],
-        "faction_specific": {
-          "elf": "Elven Mastery bonus",
-          "druid": "Druidic Mastery bonus"
-        }
-      },
-      "magical_mastery": {
-        "title": "Büyü Ustalığı",
-        "description": "Büyülü güçleri öğrendin ve ustalaştın. Artık büyü kullanabiliyorsun.",
-        "rewards": [
-          "Magical Master title",
-          "Arcane Power skill",
-          "Spellcasting Ability"
-        ],
-        "faction_specific": {
-          "elf": "Elven Magic bonus",
-          "wizard": "Arcane Mastery bonus"
-        }
-      },
-      "guardian_ending": {
-        "title": "Koruyucu Sonu",
-        "description": "Ormanı korumaya yardım ettin ve koruyucu oldun. Orman seni kabul etti.",
-        "rewards": [
-          "Forest Guardian title",
-          "Protection Mastery skill",
-          "Nature Bond"
-        ],
-        "faction_specific": {
-          "elf": "Forest Harmony bonus",
-          "ranger": "Wilderness Mastery bonus"
-        }
       }
     }
   }

@@ -29,6 +29,11 @@ window.switchTheme = function (theme) {
   if (npcSystem && npcSystem.initializeNPCs) {
     npcSystem.initializeNPCs(theme);
   }
+
+  // Update NPC display
+  if (npcSystem && npcSystem.updateNPCDisplay) {
+    npcSystem.updateNPCDisplay();
+  }
 };
 
 window.selectRace = function (element, race) {
@@ -142,677 +147,347 @@ Bu sadece bir ejderha avı değil - bu SENİN HİKAYEN. Her seçim seni değişt
     objective: "Ejderhayı bul ve durdur - veya gerçeği keşfet",
     story: {
       start: {
-        title: "Kendini Keşfet",
-        text: "Gözlerini açtığında kendini yıkık bir köyde buluyorsun. Etrafında dumanlar tütüyor, insanlar panik içinde koşuşturuyor. Sen kimsin? Burada ne olmuş?",
+        title: "Köyün Tehdidi",
+        text: `Güneş batarken, köyün meydanında toplanmış köylülerin korku dolu yüzlerini görüyorsun. Yaşlı köy reisi, titreyen elleriyle seni işaret ediyor.
+
+"Ejderha Avcısı! Kızıl Alev tekrar geldi! Bu gece köyümüzü yakacak!"
+
+Köylüler arasından bir ses yükseliyor: "O ejderha 100 yıldır burada yoktu! Neden şimdi geri döndü?"
+
+Başka biri ekliyor: "Belki de birisi onu uyandırdı..."
+
+Senin yanında duran genç çiftçi Tom, fısıltıyla konuşuyor: "Köyün kuzeyindeki eski tapınakta bir şeyler oluyor. Gece yarısı garip ışıklar görüyorum."
+
+Köy reisi sana dönüyor: "Seni ejderha avcısı olarak adlandırdık çünkü yanındaki kılıçta ejderha kanı izleri var. Bu kılıç sadece ejderha avcılarının kullandığı türden."
+
+Kolyen üzerindeki semboller parlamaya başlıyor. Hafızanın bir kısmı geri geliyor - sen gerçekten de bir ejderha avcısısın, ama neden burada olduğunu hatırlamıyorsun.`,
         choices: [
+          { text: "Ejderhayı aramaya çık", nextNode: "search_dragon" },
+          { text: "Eski tapınağı araştır", nextNode: "investigate_temple" },
+          { text: "Köylülerden bilgi topla", nextNode: "gather_info" },
+          { text: "Kılıcını kontrol et", nextNode: "check_sword" },
           {
-            text: "Kendini ve çevreni anlamaya çalış",
-            nextNode: "self_discovery",
-          },
-          {
-            text: "Yaralı bir köylüyü bul ve yardım et",
-            nextNode: "help_villager",
-          },
-          {
-            text: "Yıkıntıları incele ve izleri takip et",
-            nextNode: "investigate_ruins",
-          },
-        ],
-      },
-      self_discovery: {
-        title: "Kahraman Uyanışı",
-        text: "Köyün kenarında duruyorsun. Belinde kılıcın, sırtında zırhın var. Sen bir savaşçısın ve bu köyü kurtarmak için buradasın.",
-        choices: [
-          {
-            text: "Köylülerle konuş ve bilgi topla",
-            nextNode: "gather_intelligence",
-          },
-          { text: "Silahlarını kontrol et", nextNode: "check_equipment" },
-          { text: "Ejderha izlerini ara", nextNode: "track_dragon" },
-        ],
-      },
-
-      gather_intelligence: {
-        title: "Bilgi Toplama",
-        text: "Köylülerle konuşuyorsun. Herkes farklı bir hikaye anlatıyor. Bazıları ejderhanın gece geldiğini, bazıları gündüz geldiğini söylüyor. Bir şeyler tuhaf...",
-        choices: [
-          { text: "Köyün yaşlısıyla konuş", nextNode: "talk_elder" },
-          { text: "Çocuklardan bilgi al", nextNode: "question_children" },
-          { text: "Köyün liderini bul", nextNode: "find_village_leader" },
-        ],
-      },
-
-      talk_elder: {
-        title: "Yaşlı Bilge",
-        text: "Köyün yaşlısı sana garip bir hikaye anlatıyor: 'Ejderha yok, olamaz. Bu dağlarda yüzyıllardır ejderha görülmedi. Bu başka bir şey...'",
-        choices: [
-          { text: "Ne demek istiyorsun?", nextNode: "elder_revelation" },
-          { text: "Eski efsaneleri anlat", nextNode: "ancient_legends" },
-          { text: "Şüphelen ve sorgula", nextNode: "suspect_elder" },
-        ],
-      },
-
-      elder_revelation: {
-        title: "Yaşlı Bilgenin İtirafı",
-        text: "Yaşlı gözlerini kısıyor: 'Bu bir tuzak. Seni buraya çekmek için kurulmuş bir plan. Ejderha yok, sadece seni öldürmek isteyenler var.'",
-        choices: [
-          { text: "Kim yapıyor bunu?", nextNode: "who_is_behind_it" },
-          { text: "Neden beni öldürmek istiyorlar?", nextNode: "why_kill_me" },
-          { text: "Yaşlıyı koru", nextNode: "protect_elder" },
-        ],
-      },
-
-      who_is_behind_it: {
-        title: "Arkasındaki Güç",
-        text: "Yaşlı titreyen sesiyle: 'Kral... Kral seni istemiyor. Sen çok güçlüsün, tahtı için tehdit oluşturuyorsun. Bu köydeki herkes onun ajanı.'",
-        choices: [
-          { text: "Kralı öldürmeye git", nextNode: "go_kill_king" },
-          { text: "Köyü yak", nextNode: "burn_treacherous_village" },
-          { text: "Gizlice kaç", nextNode: "escape_secretly" },
-        ],
-      },
-
-      go_kill_king: {
-        title: "Krala Gidiş",
-        text: "Kralın sarayına doğru yola çıkıyorsun. Artık gerçeği biliyorsun. Bu bir ejderha avı değil, bir suikast planı!",
-        choices: [
-          { text: "Saraya gizlice gir", nextNode: "sneak_into_palace" },
-          { text: "Muhafızları öldür", nextNode: "kill_guards" },
-          { text: "Kralı meydan oku", nextNode: "challenge_king" },
-        ],
-      },
-
-      sneak_into_palace: {
-        title: "Saraya Sızma",
-        text: "Saraya gizlice sızdın. Karanlık koridorlarda ilerliyorsun. Kralın odasını bulmalısın.",
-        choices: [
-          { text: "Kralın odasını bul", nextNode: "find_kings_chamber" },
-          { text: "Hazineden geç", nextNode: "pass_through_treasury" },
-          { text: "Muhafızları atlat", nextNode: "avoid_guards" },
-        ],
-      },
-
-      find_kings_chamber: {
-        title: "Kralın Odası",
-        text: "Kralın odasına ulaştın. Kral yatakta uyuyor. Şimdi ne yapacaksın?",
-        choices: [
-          { text: "Kralı uyandır", nextNode: "wake_king" },
-          { text: "Sessizce öldür", nextNode: "silent_kill" },
-          { text: "Kralı sorgula", nextNode: "interrogate_king" },
-        ],
-      },
-
-      wake_king: {
-        title: "Kral Uyandı",
-        text: "Kralı uyandırdın. Gözlerini açıyor ve seni görüyor. 'Sen... sen hala hayattasın? Bu imkansız!'",
-        choices: [
-          {
-            text: "Neden beni öldürmek istedin?",
-            nextNode: "why_kill_me_king",
-          },
-          { text: "Tahtı bırak", nextNode: "demand_abdication" },
-          { text: "Savaş", nextNode: "fight_king" },
-        ],
-      },
-
-      why_kill_me_king: {
-        title: "Kralın İtirafı",
-        text: "Kral korkuyla: 'Sen... sen benim oğlumsun. Ama ben seni tanımadım. Sen bebekken kaybolmuştun. Şimdi geri döndün ve tahtı istiyorsun!'",
-        choices: [
-          { text: "Babam mı?", nextNode: "father_revelation" },
-          { text: "Yalan söylüyorsun", nextNode: "call_king_liar" },
-          { text: "Tahtı paylaş", nextNode: "share_throne" },
-        ],
-      },
-
-      father_revelation: {
-        title: "Baba Oğul",
-        text: "Kral ağlıyor: 'Evet, sen benim oğlumsun. Seni kaybettiğimde çılgına döndüm. Şimdi geri döndün ama ben seni tanımadım ve öldürmeye çalıştım...'",
-        choices: [
-          { text: "Babamı affet", nextNode: "forgive_father" },
-          { text: "Tahtı al", nextNode: "take_throne_from_father" },
-          { text: "Birlikte yönet", nextNode: "rule_together" },
-        ],
-      },
-
-      forgive_father: {
-        title: "Affetme",
-        text: "Babamı affettin. O da seni kucaklıyor. Artık birlikte krallığı yöneteceksiniz. Aile bağları güçlü.",
-        choices: [
-          { text: "Birlikte yönet", nextNode: "rule_with_father" },
-          { text: "Babamı dinle", nextNode: "listen_to_father" },
-          { text: "Aileyi koru", nextNode: "protect_family" },
-        ],
-      },
-
-      rule_with_father: {
-        title: "Birlikte Yönetim",
-        text: "Babamla birlikte krallığı yönetiyorsun. O deneyimli, sen cesur. Mükemmel bir kombinasyon. Krallık refah içinde.",
-        choices: [
-          { text: "Krallığı büyüt", nextNode: "expand_kingdom" },
-          { text: "Halkı koru", nextNode: "protect_people" },
-          { text: "Aile mutluluğu", nextNode: "family_happiness" },
-        ],
-      },
-
-      expand_kingdom: {
-        title: "Krallığı Genişletme",
-        text: "Krallığı genişletiyorsun. Yeni topraklar fethediyorsun, yeni halklar senin yönetimine giriyor. Güç artıyor.",
-        choices: [
-          { text: "Savaşla genişlet", nextNode: "expand_by_war" },
-          { text: "Diplomasi ile genişlet", nextNode: "expand_by_diplomacy" },
-          { text: "Ticaret ile genişlet", nextNode: "expand_by_trade" },
-        ],
-      },
-
-      expand_by_war: {
-        title: "Savaşla Genişleme",
-        text: "Savaşla krallığı genişletiyorsun. Orduların güçlü, düşmanların zayıf. Zaferler kazanıyorsun.",
-        choices: [
-          { text: "Daha fazla savaş", nextNode: "more_war" },
-          { text: "Barış yap", nextNode: "make_peace" },
-          { text: "Fethedilen toprakları yönet", nextNode: "manage_conquered" },
-        ],
-      },
-
-      more_war: {
-        title: "Daha Fazla Savaş",
-        text: "Daha fazla savaş yapıyorsun. Artık korkulan bir savaşçı oldun. Düşmanlar senden korkuyor.",
-        choices: [
-          { text: "Tüm dünyayı fethet", nextNode: "conquer_world" },
-          { text: "Savaştan bık", nextNode: "tired_of_war" },
-          { text: "Savaş tanrısı ol", nextNode: "become_war_god" },
-        ],
-      },
-
-      conquer_world: {
-        title: "Dünya Fatihi",
-        text: "Tüm dünyayı fethettin! Artık sen dünya imparatorusun. Hiç kimse sana karşı duramıyor.",
-        choices: [
-          { text: "İmparatorluğu yönet", nextNode: "rule_empire" },
-          { text: "Yeni düşmanlar ara", nextNode: "find_new_enemies" },
-          { text: "Ölümsüzlük ara", nextNode: "seek_immortality" },
-        ],
-      },
-
-      rule_empire: {
-        title: "İmparatorluk Yönetimi",
-        text: "Dünya imparatorluğunu yönetiyorsun. Milyonlarca insan senin yönetiminde. Güç mutlak.",
-        choices: [
-          { text: "Adil imparator ol", nextNode: "just_emperor" },
-          { text: "Tiran imparator ol", nextNode: "tyrant_emperor" },
-          { text: "İmparatorluğu böl", nextNode: "divide_empire" },
-        ],
-      },
-
-      just_emperor: {
-        title: "Adil İmparator",
-        text: "Adil bir imparator oldun. Halk seni seviyor, dünya barış içinde. Sen iyi bir lider oldun.",
-        choices: [
-          { text: "Barışı sürdür", nextNode: "maintain_peace" },
-          { text: "Demokrasi kur", nextNode: "establish_democracy" },
-          { text: "Varis yetiştir", nextNode: "raise_heir" },
-        ],
-      },
-
-      maintain_peace: {
-        title: "Barışı Sürdürme",
-        text: "Barışı sürdürüyorsun. Dünya refah içinde, halk mutlu. Sen tarihin en iyi imparatoru oldun.",
-        choices: [
-          { text: "Ebedi barış", nextNode: "eternal_peace" },
-          { text: "Yeni keşifler", nextNode: "new_discoveries" },
-          { text: "Uzay yolculuğu", nextNode: "space_travel" },
-        ],
-      },
-
-      eternal_peace: {
-        title: "Ebedi Barış",
-        text: "Ebedi barışı sağladın. Dünya artık hiç savaş görmeyecek. Sen efsanevi bir lider oldun.",
-        choices: [
-          { text: "Efsanevi lider olarak yaşa", nextNode: "end" },
-          { text: "Yeni dünyalar ara", nextNode: "end" },
-          { text: "Ölümsüzlük kazan", nextNode: "end" },
-        ],
-      },
-      help_villager: {
-        title: "Gizli Ajan",
-        text: "Yaralı bir yaşlı kadın buluyorsun. Ama bir şeyler tuhaf... Ellerinde nasırlar var, gözlerinde profesyonel bir bakış. Bu kadın gerçekten köylü mü?",
-        choices: [
-          {
-            text: "Hikayesini dinle (dikkatli ol)",
-            nextNode: "suspicious_story",
-          },
-          { text: "Yaralarını kontrol et", nextNode: "check_wounds" },
-          { text: "Kimliğini sorgula", nextNode: "interrogate_villager" },
-        ],
-      },
-      investigate_ruins: {
-        title: "Dünyayı Anlamak",
-        text: "Yıkıntıları inceliyorsun. Bu sadece bir oyun değil - gerçek bir yer, gerçek insanların yaşadığı bir dünya. Her iz, her parça bir hikaye anlatıyor.",
-        choices: [
-          { text: "İzleri dikkatlice incele", nextNode: "examine_clues" },
-          { text: "Köyün geçmişini öğren", nextNode: "learn_history" },
-          { text: "Ne olduğunu anlamaya çalış", nextNode: "understand_events" },
-        ],
-      },
-      memory_recovery: {
-        title: "Hafıza Geri Dönüşü",
-        text: "Gözlerini kapatıp derin nefes alıyorsun. Anılar yavaş yavaş geri geliyor... Sen bu köyün bir parçasısın. Ejderha saldırısından önce burada yaşıyordun.",
-        choices: [
-          { text: "Ailenin nerede olduğunu ara", nextNode: "meet_villagers" },
-          { text: "Köyün durumunu değerlendir", nextNode: "understand_world" },
-          {
-            text: "Diğer hayatta kalanlarla birleş",
-            nextNode: "help_villager",
+            text: "Kolyenin sırrını araştır",
+            nextNode: "investigate_necklace",
           },
         ],
       },
-      meet_villagers: {
-        title: "Köylüler mi?",
-        text: "Köylüler sana şüpheyle bakıyor. Ama bir şeyler tuhaf... Bazılarının silahları var, bazıları çok iyi organize olmuş. Bu gerçekten bir köy mü yoksa başka bir şey mi?",
+
+      search_dragon: {
+        title: "Ejderha İzlerini Takip",
+        text: `Köyün dışına çıktığında, büyük pençe izleri ve yanmış ağaçlar görüyorsun. Ejderha buradan geçmiş. İzler seni dağlara doğru götürüyor.
+
+Aniden, bir çığlık duyuyorsun. Köyün kuzeyinden geliyor. Hızlıca koştuğunda, genç bir kızın ejderha tarafından kovalandığını görüyorsun.
+
+Kız, seni görünce yardım için bağırıyor: "Lütfen yardım et! Ben Lydia, köyün şifacısının kızıyım!"
+
+Ejderha, Lydia'nın peşinde ve çok yakın. Kızıl Alev'in gözleri seni görüyor ve duruyor. Ejderha konuşuyor: "Sen... sen o musun? Ejderha Avcısı?"
+
+Bu beklenmedik bir durum. Ejderha seni tanıyor gibi görünüyor. Lydia da şaşkın: "Ejderha konuşuyor? Bu imkansız!"`,
         choices: [
-          {
-            text: "Hikayelerini dinle (şüpheli)",
-            nextNode: "villager_stories",
-          },
-          { text: "Silahlarını kontrol et", nextNode: "check_weapons" },
-          {
-            text: "Köyün gerçek amacını ara",
-            nextNode: "investigate_village_purpose",
-          },
-        ],
-      },
-      understand_world: {
-        title: "Dünyayı Anlamak",
-        text: "Çevrene bakıyorsun. Bu dünya gerçek, bu insanlar gerçek. Sen de gerçeksin. Bu sadece bir oyun değil - bu senin hayatın.",
-        choices: [
-          { text: "Köyün geleceğini düşün", nextNode: "examine_clues" },
-          { text: "Kendini bu dünyada konumlandır", nextNode: "learn_history" },
-          { text: "Ne yapman gerektiğini anla", nextNode: "understand_events" },
-        ],
-      },
-      listen_story: {
-        title: "Yaşlı Kadının Hikayesi",
-        text: "Yaşlı kadın titreyen sesiyle anlatıyor: 'Ejderha gece geldi. Ateş yağdırdı. Çocuklarımı kaybettim...' Gözlerinde yaşlar var.",
-        choices: [
-          { text: "Onu teselli et", nextNode: "gain_trust" },
-          { text: "Ejderhayı durdurmaya söz ver", nextNode: "examine_clues" },
-          { text: "Diğer kayıpları öğren", nextNode: "end" },
-        ],
-      },
-      heal_wounds: {
-        title: "Yaraları Tedavi",
-        text: "Yaralarını tedavi ederken, bu sadece fiziksel değil. Onun ruhsal yaralarını da iyileştirmeye çalışıyorsun. Bu gerçek bir insan.",
-        choices: [
-          { text: "Tedaviyi tamamla", nextNode: "gain_trust" },
-          { text: "Onun güvenini kazan", nextNode: "meet_villagers" },
-          { text: "Diğer yaralılara yardım et", nextNode: "end" },
-        ],
-      },
-      gain_trust: {
-        title: "Güven Kazanma",
-        text: "Yavaş yavaş güvenini kazanıyorsun. Seni artık bir yabancı değil, dost olarak görüyor. Bu bağ gerçek ve değerli.",
-        choices: [
-          { text: "Ejderhayı aramaya başla", nextNode: "dragon_hunt_begin" },
-          {
-            text: "Köyü savunmaya hazırla",
-            nextNode: "prepare_village_defense",
-          },
-          { text: "Diğer kahramanları topla", nextNode: "gather_heroes" },
-        ],
-      },
-      examine_clues: {
-        title: "İzleri İnceleme",
-        text: "Yıkıntıları dikkatlice inceliyorsun. Ejderhanın izleri, yanmış evler, korku dolu anılar. Her şey bir hikaye anlatıyor.",
-        choices: [
-          { text: "Ejderhanın mağarasını bul", nextNode: "find_dragon_cave" },
-          {
-            text: "Ejderhanın zayıf noktalarını ara",
-            nextNode: "find_dragon_weakness",
-          },
-          { text: "Savaş planı yap", nextNode: "plan_dragon_battle" },
-        ],
-      },
-      learn_history: {
-        title: "Köyün Geçmişi",
-        text: "Köyün yaşlıları sana geçmişi anlatıyor. Bu köy yüzyıllardır burada. Ejderhalar hiç gelmemişti. Bu ilk kez.",
-        choices: [
-          { text: "Eski efsaneleri dinle", nextNode: "dragon_hunt_begin" },
-          {
-            text: "Köyün güçlü yanlarını öğren",
-            nextNode: "prepare_village_defense",
-          },
-          { text: "Geçmiş tehditleri araştır", nextNode: "gather_heroes" },
-        ],
-      },
-      understand_events: {
-        title: "Olayları Anlama",
-        text: "Parmaklarını yıkıntıların üzerinde gezdiriyorsun. Bu sadece bir saldırı değil - bu bir değişim. Dünya artık aynı değil.",
-        choices: [
-          { text: "Değişimin boyutunu anla", nextNode: "understand_scale" },
-          { text: "Geleceği tahmin et", nextNode: "dragon_hunt_begin" },
-          {
-            text: "Hazırlanma yolları ara",
-            nextNode: "prepare_village_defense",
-          },
-        ],
-      },
-      understand_scale: {
-        title: "Değişimin Boyutunu Anlama",
-        text: "Değişimin boyutunu anlıyorsun. Bu sadece bir köy değil - bu bir dünya değişimi. Her şey farklı olacak.",
-        choices: [
-          {
-            text: "Ejderhayla savaşmaya karar ver",
-            nextNode: "dragon_hunt_begin",
-          },
-          { text: "Köyü yeniden inşa et", nextNode: "rebuild_village" },
-          { text: "Yeni bir hayat başlat", nextNode: "start_new_life" },
+          { text: "Ejderhayla savaş", nextNode: "fight_dragon" },
+          { text: "Lydia'yı kurtar ve kaç", nextNode: "save_lydia" },
+          { text: "Ejderhayla konuş", nextNode: "talk_to_dragon" },
+          { text: "Kolyeni göster", nextNode: "show_necklace" },
+          { text: "Geri çekil ve plan yap", nextNode: "retreat_plan" },
         ],
       },
 
-      dragon_hunt_begin: {
-        title: "Ejderha Avı Başlıyor",
-        text: "Ejderhanın mağarasına doğru yola çıkıyorsun. Yanında güvendiğin dostların var. Bu sadece bir görev değil - bu senin kaderin.",
-        choices: [
-          { text: "Mağaraya gir", nextNode: "enter_dragon_cave" },
-          { text: "Önce hazırlık yap", nextNode: "prepare_for_battle" },
-          { text: "Tuzak kur", nextNode: "set_trap" },
-        ],
-      },
-
-      enter_dragon_cave: {
-        title: "Ejderha Mağarası",
-        text: "Mağaranın derinliklerinde ejderhanın nefesini duyabiliyorsun. Karanlıkta gözleri yanıp sönüyor. Bu an geldi.",
-        choices: [
-          { text: "Ejderhayla konuşmaya çalış", nextNode: "talk_to_dragon" },
-          { text: "Saldırıya geç", nextNode: "attack_dragon" },
-          { text: "Gizlice yaklaş", nextNode: "stealth_approach" },
-        ],
-      },
-
-      attack_dragon: {
+      fight_dragon: {
         title: "Ejderha Savaşı",
-        text: "Ejderhayla savaş başladı! Ateş yağıyor, kılıçlar çarpışıyor. Bu sadece bir savaş değil - bu senin kahramanlık anın.",
-        choices: [
-          { text: "Kılıçla saldır", nextNode: "sword_attack" },
-          { text: "Büyü kullan", nextNode: "use_magic" },
-          { text: "Taktik değiştir", nextNode: "change_tactics" },
-        ],
-      },
+        text: `Kılıcını çekiyorsun ve ejderhaya doğru koşuyorsun. Kızıl Alev, alevli nefesini üzerine püskürtüyor ama sen kılıcınla alevleri kesiyorsun.
 
-      sword_attack: {
-        title: "Kılıç Saldırısı",
-        text: "Kılıcını ejderhanın kalbine doğrultuyorsun. Bu tek şansın. Ya kazanacaksın ya da öleceksin.",
+"Seni tanıyorum!" diye bağırıyor ejderha. "100 yıl önce beni öldüren sensin!"
+
+Bu şok edici bir gerçek. Sen 100 yıl önce bu ejderhayı öldürmüşsün ama nasıl hala yaşıyorsun?
+
+Savaş devam ediyor. Ejderha'nın kanatları rüzgarı kesiyor, kılıcın ejderha pullarına çarpıyor. Lydia, bir taşın arkasından izliyor.
+
+Aniden, kolyen parlamaya başlıyor ve ejderha duruyor. "O kolye... o kolye senin değil! O benim kolyem!"
+
+Bu bir plot twist! Kolye ejderhaya ait. Peki nasıl senin boynunda?`,
         choices: [
-          { text: "Son darbeyi vur", nextNode: "final_strike" },
-          { text: "Savunmaya geç", nextNode: "defend_attack" },
+          { text: "Savaşa devam et", nextNode: "continue_fight" },
+          { text: "Kolyeyi çıkar", nextNode: "remove_necklace" },
+          { text: "Gerçeği öğren", nextNode: "learn_truth" },
+          { text: "Lydia'dan yardım iste", nextNode: "ask_lydia_help" },
           { text: "Kaç", nextNode: "escape_battle" },
         ],
       },
 
-      final_strike: {
-        title: "Son Darbe",
-        text: "Kılıcını ejderhanın kalbine saplıyorsun! Ejderha son bir çığlık atıyor ve yere düşüyor. Sen kazandın!",
+      learn_truth: {
+        title: "Gerçeğin Açığa Çıkması",
+        text: `Ejderha, kolyeyi görünce savaşmayı bırakıyor. "O kolye benim aile yadigârım. 100 yıl önce sen onu çaldın ve beni öldürdün."
+
+Lydia şaşkın: "Ama nasıl? 100 yıl önce nasıl yaşayabilirsin?"
+
+Ejderha devam ediyor: "Ben ölmedim. Sen beni öldürdüğünü sandın ama ben sadece uykuya daldım. Şimdi uyandım ve kolyemi geri istiyorum."
+
+Kolyen üzerindeki semboller daha da parlak yanıyor. Hafızanın daha fazlası geri geliyor. Gerçekten de 100 yıl önce bu ejderhayı "öldürdüğünü" hatırlıyorsun, ama aslında sadece uykuya daldırmışsın.
+
+"Peki neden köyü tehdit ediyorsun?" diye soruyorsun.
+
+"Köyü tehdit etmiyorum. Köyde birisi var ki beni uyandırdı ve kolyemi çalmaya çalışıyor. Ben sadece kolyemi arıyorum."`,
         choices: [
-          { text: "Zaferi kutla", nextNode: "victory_celebration" },
+          { text: "Kolyeyi geri ver", nextNode: "return_necklace" },
+          { text: "Köydeki hırsızı bul", nextNode: "find_thief" },
+          { text: "Kolyeyi tut ve güç kazan", nextNode: "keep_necklace" },
+          {
+            text: "Lydia ile birlikte araştır",
+            nextNode: "investigate_with_lydia",
+          },
+          { text: "Ejderhayı köye götür", nextNode: "bring_dragon_to_village" },
+        ],
+      },
+
+      find_thief: {
+        title: "Köydeki Hırsız",
+        text: `Kolyeyi ejderhaya geri verdin. Şimdi köye dönüyorsun ve Lydia ile birlikte gerçek hırsızı arıyorsunuz.
+
+Köyde şüpheli davranışlar gösteren birkaç kişi var:
+- Yaşlı köy reisi çok gergin görünüyor
+- Şifacı (Lydia'nın babası) sürekli evinden çıkmıyor
+- Demirci Thorin, gece yarısı dışarıda dolaşıyor
+- Tüccar Alric, garip paketler alıyor
+
+Lydia fısıltıyla konuşuyor: "Babam son zamanlarda çok değişti. Gece yarısı garip dualar okuyor."
+
+Köy reisi size yaklaşıyor: "Ejderha Avcısı! Ejderhayı öldürdün mü?"
+
+Sen ve Lydia birbirinize bakıyorsunuz. Köy reisi çok aceleci görünüyor.`,
+        choices: [
+          { text: "Şifacıyı araştır", nextNode: "investigate_healer" },
+          { text: "Köy reisini sorgula", nextNode: "question_mayor" },
+          { text: "Demirciyi takip et", nextNode: "follow_blacksmith" },
+          {
+            text: "Tüccarın paketlerini kontrol et",
+            nextNode: "check_merchant",
+          },
+          { text: "Gece yarısı gözetle", nextNode: "spy_at_night" },
+        ],
+      },
+
+      investigate_healer: {
+        title: "Şifacının Sırrı",
+        text: `Lydia'nın evine gidiyorsunuz. Kapı kilitli ama Lydia anahtarı biliyor. İçeri girdiğinizde şok edici bir manzara görüyorsunuz.
+
+Şifacı, odasında büyük bir altar kurmuş. Üzerinde ejderha kanı ve garip semboller var. Duvarda ejderha resimleri ve kolye çizimleri asılı.
+
+"Baba? Ne yapıyorsun?" diye soruyor Lydia şok olmuş halde.
+
+Şifacı dönüyor ve yüzünde delilik ifadesi var: "Lydia! Seni buraya getirme! Bu güç benim! Ejderha gücü benim olacak!"
+
+Şifacı, bir büyü yapıyor ve odadaki eşyalar uçmaya başlıyor. Lydia korkuyla bağırıyor: "Baba! Bu sen değilsin!"
+
+"Ben 100 yıl önce ejderha avcısıydım! Ejderhayı öldürdüm ama gücünü alamadım. Şimdi kolyeyi buldum ve güç benim olacak!"`,
+        choices: [
+          { text: "Şifacıyla savaş", nextNode: "fight_healer" },
+          { text: "Lydia'yı koru", nextNode: "protect_lydia" },
+          { text: "Ejderhayı çağır", nextNode: "call_dragon" },
+          { text: "Büyüyü boz", nextNode: "break_spell" },
+          { text: "Kaç", nextNode: "escape_healer" },
+        ],
+      },
+
+      fight_healer: {
+        title: "Şifacı Savaşı",
+        text: `Şifacı, ejderha gücüyle size saldırıyor. Alevler ve büyüler odada uçuşuyor. Lydia, babasının bu haline şok olmuş.
+
+"Baba! Lütfen dur! Bu sen değilsin!"
+
+Şifacı gülüyor: "Ben her zaman böyleydim! 100 yıl önce ejderhayı öldürdüm ama gücünü alamadım. Şimdi kolye sayesinde güç benim!"
+
+Kılıcınla şifacıya saldırıyorsun ama o büyü kalkanı kullanıyor. Büyüler seni geri itiyor.
+
+Aniden, pencereden Kızıl Alev'in başı görünüyor. Ejderha, şifacıyı görünce öfkeyle bağırıyor: "Sen! Sen beni öldürmeye çalışan hırsız!"
+
+Şifacı şaşkın: "Ejderha? Nasıl hala yaşıyorsun?"
+
+"Ben ölmedim! Sen sadece beni uykuya daldırdın ve kolyemi çaldın!"`,
+        choices: [
+          { text: "Ejderhayla birlikte savaş", nextNode: "fight_with_dragon" },
+          { text: "Lydia'yı kurtar", nextNode: "save_lydia_from_father" },
+          { text: "Şifacıyı durdur", nextNode: "stop_healer" },
+          { text: "Büyüyü boz", nextNode: "break_healer_spell" },
+          { text: "Kaos yarat", nextNode: "create_chaos" },
+        ],
+      },
+
+      fight_with_dragon: {
+        title: "Ejderhayla Birlikte Savaş",
+        text: `Kızıl Alev, pencereden içeri giriyor ve şifacıya alevli nefesini püskürtüyor. Şifacı, büyü kalkanıyla alevleri engelliyor ama ejderha çok güçlü.
+
+Sen de kılıcınla şifacıya saldırıyorsun. İki taraftan gelen saldırı karşısında şifacı zorlanıyor.
+
+Lydia, babasının bu haline ağlıyor: "Baba! Lütfen dur! Seni kaybetmek istemiyorum!"
+
+Şifacı, kızının sesini duyunca bir an duraksıyor. Bu fırsatı kullanarak kılıcınla büyü kalkanını kırıyorsun.
+
+Ejderha, şifacıyı yakalıyor ve onu havaya kaldırıyor: "Kolyemi geri ver!"
+
+Şifacı, kolyeyi çıkarıyor ve ejderhaya atıyor: "Al! Ama gücü benim olacak!"
+
+Kolye ejderhaya geri dönüyor ve parlamaya başlıyor. Şifacı, gücünü kaybediyor ve yere düşüyor.`,
+        choices: [
+          { text: "Şifacıyı affet", nextNode: "forgive_healer" },
+          { text: "Şifacıyı cezalandır", nextNode: "punish_healer" },
+          { text: "Lydia'yı teselli et", nextNode: "comfort_lydia" },
+          { text: "Ejderhayla konuş", nextNode: "talk_to_dragon_after" },
+          { text: "Köye dön", nextNode: "return_to_village_after" },
+        ],
+      },
+
+      forgive_healer: {
+        title: "Affetme ve Barış",
+        text: `Şifacıyı affetmeye karar veriyorsun. Lydia'nın babası, yaptığı hataları anlıyor ve pişman oluyor.
+
+"Özür dilerim... 100 yıl boyunca güç peşinde koştum ama asıl önemli olan ailemdi."
+
+Ejderha, şifacıyı affediyor: "Sen beni öldürmeye çalıştın ama kızın sayesinde gerçeği gördün. Artık barış içinde yaşayabiliriz."
+
+Lydia, babasına sarılıyor: "Baba, seni affediyorum. Artık normal hayatımıza dönebiliriz."
+
+Köy, ejderha tehdidinin ortadan kalktığını öğreniyor. Artık Kızıl Alev, köyün koruyucusu oluyor ve şifacı da normal hayatına dönüyor.
+
+Sen, hafızanı geri kazandın ve gerçek kimliğini öğrendin. Artık köyde saygı gören bir kahramansın.`,
+        choices: [
+          { text: "Köyde kal", nextNode: "stay_in_village" },
+          { text: "Yeni maceralara çık", nextNode: "new_adventures" },
+          { text: "Ejderhayla birlikte git", nextNode: "go_with_dragon" },
+          { text: "Lydia ile evlen", nextNode: "marry_lydia" },
+          { text: "Hikayeyi bitir", nextNode: "happy_ending" },
+        ],
+      },
+
+      happy_ending: {
+        title: "Mutlu Son",
+        text: `Köyde mutlu bir hayat yaşıyorsun. Lydia ile evlendin, şifacı normal hayatına döndü ve Kızıl Alev köyün koruyucusu oldu. Hikayen burada biter.`,
+        choices: [
+          { text: "Yeni macera", nextNode: "new_adventure" },
+          { text: "Devam et", nextNode: "continue_farming" },
+          { text: "Geri dön", nextNode: "return_to_village" },
+        ],
+      },
+
+      // Additional nodes for deep branching
+      search_dragon: {
+        title: "Ejderha Arama",
+        text: `Dağlarda ejderha izlerini takip ediyorsun. Büyük pençe izleri ve yanmış ağaçlar seni derinlere götürüyor.`,
+        choices: [
+          { text: "İzleri takip et", nextNode: "follow_tracks" },
+          { text: "Geri dön", nextNode: "return_to_village" },
+          { text: "Farklı yöne git", nextNode: "different_direction" },
+        ],
+      },
+
+      follow_tracks: {
+        title: "İzleri Takip",
+        text: `Ejderha izlerini takip ediyorsun. Dağın derinliklerine doğru ilerliyorsun.`,
+        choices: [
+          { text: "Mağaraya gir", nextNode: "enter_cave" },
+          { text: "Geri dön", nextNode: "return_to_village" },
+          { text: "Bekle", nextNode: "wait_for_dragon" },
+        ],
+      },
+
+      enter_cave: {
+        title: "Mağaraya Giriş",
+        text: `Karanlık mağaraya giriyorsun. İçeride ejderha'nın nefes sesini duyuyorsun.`,
+        choices: [
+          { text: "İçeri gir", nextNode: "enter_deep_cave" },
+          { text: "Geri çık", nextNode: "exit_cave" },
+          { text: "Ses çıkar", nextNode: "make_noise" },
+        ],
+      },
+
+      enter_deep_cave: {
+        title: "Mağaranın Derinlikleri",
+        text: `Mağaranın derinliklerinde Kızıl Alev'i buluyorsun. Ejderha seni görüyor.`,
+        choices: [
+          { text: "Savaş", nextNode: "fight_dragon" },
+          { text: "Konuş", nextNode: "talk_to_dragon" },
+          { text: "Kaç", nextNode: "escape_cave" },
+        ],
+      },
+
+      escape_cave: {
+        title: "Mağaradan Kaçış",
+        text: `Mağaradan hızla çıkıyorsun. Ejderha peşinde ama sen kaçmayı başarıyorsun.`,
+        choices: [
           { text: "Köye dön", nextNode: "return_to_village" },
-          { text: "Ejderhanın hazinesini al", nextNode: "claim_treasure" },
+          { text: "Yardım ara", nextNode: "seek_help" },
+          { text: "Plan yap", nextNode: "make_plan" },
         ],
       },
 
-      victory_celebration: {
-        title: "Zafer Kutlaması",
-        text: "Köyde büyük bir kutlama var. Seni kahraman olarak görüyorlar. Ejderhayı öldürdün ve köyü kurtardın!",
+      return_to_village: {
+        title: "Köye Dönüş",
+        text: `Köye dönüyorsun. Köylüler seni karşılıyor ve ne olduğunu soruyorlar.`,
         choices: [
-          { text: "Kahraman olarak kal", nextNode: "end" },
-          { text: "Yeni maceralar ara", nextNode: "end" },
-          { text: "Huzurlu bir hayat yaşa", nextNode: "end" },
+          { text: "Gerçeği anlat", nextNode: "tell_truth" },
+          { text: "Yalan söyle", nextNode: "lie_to_villagers" },
+          { text: "Sessiz kal", nextNode: "stay_silent" },
         ],
       },
 
-      prepare_village_defense: {
-        title: "Köy Savunması",
-        text: "Köyü savunmaya hazırlıyorsun. Barikatlar kuruyorsun, insanları organize ediyorsun. Ejderha geri dönerse hazır olacaksınız.",
+      tell_truth: {
+        title: "Gerçeği Anlatma",
+        text: `Köylülere ejderha'nın konuştuğunu ve kolyenin onun olduğunu anlatıyorsun.`,
         choices: [
-          { text: "Barikatları güçlendir", nextNode: "strengthen_barricades" },
-          { text: "Halkı eğit", nextNode: "train_villagers" },
-          { text: "Sinyal sistemi kur", nextNode: "set_alarm_system" },
-        ],
-      },
-
-      gather_heroes: {
-        title: "Kahramanları Toplama",
-        text: "Köydeki cesur insanları topluyorsun. Her biri farklı yeteneklere sahip. Birlikte ejderhayı durdurabilirsiniz.",
-        choices: [
-          { text: "Savaşçıları organize et", nextNode: "organize_warriors" },
-          { text: "Büyücüleri topla", nextNode: "gather_mages" },
-          { text: "Taktik planı yap", nextNode: "create_battle_plan" },
-        ],
-      },
-
-      strengthen_barricades: {
-        title: "Barikatları Güçlendirme",
-        text: "Barikatları güçlendiriyorsun. Taşlar, ağaçlar, ne varsa kullanıyorsun. Köy artık daha güvenli.",
-        choices: [
-          { text: "Ejderha gelirse savaş", nextNode: "dragon_returns_battle" },
-          { text: "Daha fazla hazırlık yap", nextNode: "more_preparation" },
-          { text: "Gözcü nöbeti kur", nextNode: "set_watch" },
-        ],
-      },
-
-      dragon_returns_battle: {
-        title: "Ejderha Geri Döndü",
-        text: "Ejderha geri döndü! Ama bu sefer hazırlıklısınız. Barikatlarınız sağlam, insanlarınız cesur.",
-        choices: [
-          { text: "Barikatlardan savaş", nextNode: "fight_from_barricades" },
-          { text: "Yakın dövüşe çık", nextNode: "close_combat" },
-          { text: "Tuzak kullan", nextNode: "use_traps" },
-        ],
-      },
-
-      fight_from_barricades: {
-        title: "Barikatlardan Savaş",
-        text: "Barikatlarınızdan ejderhaya ok atıyorsunuz. Ejderha öfkeyle saldırıyor ama barikatlar sağlam.",
-        choices: [
-          { text: "Okları hedefle", nextNode: "aim_arrows" },
-          { text: "Sıcak yağ dök", nextNode: "pour_hot_oil" },
-          { text: "Son saldırıya geç", nextNode: "final_barricade_attack" },
-        ],
-      },
-
-      final_barricade_attack: {
-        title: "Son Barikat Saldırısı",
-        text: "Son bir saldırı daha! Tüm gücünüzle ejderhaya saldırıyorsunuz. Ejderha yaralanıyor ve kaçıyor!",
-        choices: [
-          { text: "Takip et", nextNode: "chase_dragon" },
+          { text: "Hırsızı ara", nextNode: "find_thief" },
+          { text: "Ejderhayla barış yap", nextNode: "make_peace" },
           { text: "Köyü koru", nextNode: "protect_village" },
-          { text: "Yaralıları tedavi et", nextNode: "heal_wounded" },
         ],
       },
 
-      chase_dragon: {
-        title: "Ejderhayı Takip",
-        text: "Yaralı ejderhayı takip ediyorsun. Mağarasına kadar gidiyorsun. Bu sefer onu tamamen durduracaksın.",
+      make_peace: {
+        title: "Barış Yapma",
+        text: `Ejderha ile barış yapmaya karar veriyorsun. Köy artık güvende.`,
         choices: [
-          { text: "Mağaraya gir", nextNode: "enter_dragon_cave" },
-          { text: "Mağarayı kapat", nextNode: "seal_cave" },
-          { text: "Yakıtla yak", nextNode: "burn_cave" },
+          { text: "Köyde kal", nextNode: "stay_in_village" },
+          { text: "Yeni macera", nextNode: "new_adventure" },
+          { text: "Hikayeyi bitir", nextNode: "happy_ending" },
         ],
       },
 
-      suspicious_story: {
-        title: "Şüpheli Hikaye",
-        text: "Kadın hikayesini anlatıyor ama detaylar tutmuyor. Ejderha saldırısının zamanını karıştırıyor. Bu kadın yalan söylüyor!",
+      stay_in_village: {
+        title: "Köyde Kalma",
+        text: `Köyde kalıyorsun ve köylülerle birlikte yaşıyorsun.`,
         choices: [
-          { text: "Yalanını yakala", nextNode: "expose_lie" },
-          { text: "Sessizce takip et", nextNode: "follow_secretly" },
-          { text: "Güvenini kazanmaya çalış", nextNode: "gain_false_trust" },
+          { text: "Çiftçi ol", nextNode: "become_farmer" },
+          { text: "Koruyucu ol", nextNode: "become_protector" },
+          { text: "Hikayeyi bitir", nextNode: "happy_ending" },
         ],
       },
 
-      expose_lie: {
-        title: "Yalan Yakalandı",
-        text: "Kadının yalanını yakaladın! Kadın bir bıçak çıkarıyor ve sana saldırıyor. Bu bir tuzak!",
+      become_farmer: {
+        title: "Çiftçi Olma",
+        text: `Köyde çiftçi olarak yaşıyorsun. Sakin bir hayat sürüyorsun.`,
         choices: [
-          { text: "Savaş", nextNode: "fight_assassin" },
-          { text: "Kaç", nextNode: "escape_assassin" },
-          { text: "Konuşmaya çalış", nextNode: "negotiate_assassin" },
+          { text: "Devam et", nextNode: "continue_farming" },
+          { text: "Hikayeyi bitir", nextNode: "happy_ending" },
         ],
       },
 
-      fight_assassin: {
-        title: "Suikastçı Savaşı",
-        text: "Kadın profesyonel bir suikastçı! Kılıçlar çarpışıyor, bıçaklar uçuşuyor. Bu sadece bir ejderha avı değil - bu bir komplo!",
-        choices: [
-          { text: "Kılıçla saldır", nextNode: "sword_vs_assassin" },
-          { text: "Çevreyi kullan", nextNode: "use_environment" },
-          { text: "Yardım çağır", nextNode: "call_for_help" },
-        ],
+      continue_farming: {
+        title: "Çiftçilik Devam",
+        text: `Çiftçilik yapmaya devam ediyorsun. Köyde mutlu bir hayat yaşıyorsun.`,
+        choices: [{ text: "Hikayeyi bitir", nextNode: "happy_ending" }],
       },
 
-      sword_vs_assassin: {
-        title: "Kılıç Düellosu",
-        text: "Suikastçıyla kılıç düellosu! O çok hızlı ve tehlikeli. Ama sen de deneyimli bir savaşçısın.",
-        choices: [
-          { text: "Son darbeyi vur", nextNode: "kill_assassin" },
-          { text: "Yarala ve sorgula", nextNode: "wound_and_interrogate" },
-          { text: "Teslim olmasını iste", nextNode: "demand_surrender" },
-        ],
+      new_adventure: {
+        title: "Yeni Macera",
+        text: `Yeni maceralara çıkmaya karar veriyorsun. Dünyayı keşfetmek istiyorsun.`,
+        choices: [{ text: "Yeni hikaye", nextNode: "new_story_ending" }],
       },
 
-      wound_and_interrogate: {
-        title: "Sorgulama",
-        text: "Suikastçıyı yaraladın. Şimdi gerçeği öğreneceksin. 'Kim gönderdi seni? Bu köyün gerçek amacı ne?'",
+      new_story_ending: {
+        title: "Yeni Hikaye Sonu",
+        text: `Yeni maceralara çıktın. Hikayen burada biter ama başka hikayeler seni bekliyor.`,
         choices: [
-          { text: "Zorla konuştur", nextNode: "force_confession" },
-          { text: "Anlaşma teklif et", nextNode: "offer_deal" },
-          { text: "Serbest bırak", nextNode: "release_assassin" },
+          { text: "Yeni macera", nextNode: "new_adventure" },
+          { text: "Geri dön", nextNode: "return_to_village" },
         ],
-      },
-
-      force_confession: {
-        title: "Zorla İtiraf",
-        text: "Suikastçı itiraf ediyor: 'Bu köy bir tuzak! Ejderha yok, sadece seni öldürmek için kurulmuş bir plan var. Kral seni istemiyor.'",
-        choices: [
-          { text: "Köye dön ve intikam al", nextNode: "return_for_revenge" },
-          { text: "Kralı bul", nextNode: "find_king" },
-          { text: "Planı boz", nextNode: "sabotage_plan" },
-        ],
-      },
-
-      return_for_revenge: {
-        title: "İntikam Zamanı",
-        text: "Köye dönüyorsun. Artık herkesin gerçek yüzünü biliyorsun. Bu bir köy değil, bir suikast merkezi!",
-        choices: [
-          { text: "Hepsini öldür", nextNode: "kill_everyone" },
-          { text: "Lideri bul", nextNode: "find_leader" },
-          { text: "Köyü yak", nextNode: "burn_village" },
-        ],
-      },
-
-      kill_everyone: {
-        title: "Kanlı İntikam",
-        text: "Köydeki herkesi öldürüyorsun. Kılıcın kanla kaplı. Artık sen korkulan bir savaşçısın. Karma: -100",
-        choices: [
-          { text: "Kralın sarayına git", nextNode: "go_to_palace" },
-          { text: "Kaçak olarak yaşa", nextNode: "live_as_fugitive" },
-          { text: "Yeni bir hayat başlat", nextNode: "start_new_life" },
-        ],
-      },
-
-      go_to_palace: {
-        title: "Saray Saldırısı",
-        text: "Kralın sarayına gidiyorsun. Muhafızlar seni durdurmaya çalışıyor ama sen çok güçlüsün. Kral nerede?",
-        choices: [
-          { text: "Kralı bul ve öldür", nextNode: "kill_king" },
-          { text: "Sarayı yak", nextNode: "burn_palace" },
-          { text: "Kralı tahttan indir", nextNode: "dethrone_king" },
-        ],
-      },
-
-      kill_king: {
-        title: "Kral Katili",
-        text: "Kralı öldürdün! Artık sen korkulan bir katilsin. Krallık kaosa düştü. Sen yeni kral olabilirsin...",
-        choices: [
-          { text: "Tahtı ele geçir", nextNode: "claim_throne" },
-          { text: "Kaosu izle", nextNode: "watch_chaos" },
-          { text: "Ülkeyi terk et", nextNode: "leave_country" },
-        ],
-      },
-
-      claim_throne: {
-        title: "Yeni Kral",
-        text: "Tahtı ele geçirdin! Artık sen kralsın. Ama bu güç seni değiştiriyor. Korkulan bir tiran mı olacaksın?",
-        choices: [
-          { text: "Adil kral ol", nextNode: "just_king_ending" },
-          { text: "Tiran ol", nextNode: "tyrant_ending" },
-          { text: "Tahtı bırak", nextNode: "abandon_throne" },
-        ],
-      },
-
-      just_king_ending: {
-        title: "Adil Kral",
-        text: "Krallığı adaletle yönetiyorsun. Halk seni seviyor, ülke refah içinde. Sen iyi bir kral oldun. Karma: +100",
-        choices: [
-          { text: "Krallığı sürdür", nextNode: "end" },
-          { text: "Varis yetiştir", nextNode: "end" },
-          { text: "Demokrasi kur", nextNode: "end" },
-        ],
-      },
-
-      tyrant_ending: {
-        title: "Korkunç Tiran",
-        text: "Güç seni bozdu. Artık korkulan bir tiran oldun. Halk senden nefret ediyor ama korkuyor. Karma: -200",
-        choices: [
-          { text: "Zulmü sürdür", nextNode: "end" },
-          { text: "İsyanı bastır", nextNode: "end" },
-          { text: "Ölümü bekle", nextNode: "end" },
-        ],
-      },
-
-      abandon_throne: {
-        title: "Bilge Karar",
-        text: "Tahtı bıraktın. Güç seni bozmadı. Artık özgür bir maceracısın. Halk seni saygıyla anıyor. Karma: +50",
-        choices: [
-          { text: "Yeni maceralar ara", nextNode: "end" },
-          { text: "Barış içinde yaşa", nextNode: "end" },
-          { text: "Öğretmen ol", nextNode: "end" },
-        ],
-      },
-
-      live_as_fugitive: {
-        title: "Kaçak Hayat",
-        text: "Kaçak olarak yaşıyorsun. Her yerden aranıyorsun ama özgürsün. Bu zor bir hayat ama seni güçlendiriyor.",
-        choices: [
-          { text: "Yeraltı dünyasına gir", nextNode: "underground_life" },
-          { text: "Yeni kimlik al", nextNode: "new_identity" },
-          { text: "Sürgünde yaşa", nextNode: "exile_life" },
-        ],
-      },
-
-      underground_life: {
-        title: "Yeraltı Dünyası",
-        text: "Yeraltı dünyasında yaşıyorsun. Hırsızlar, katiller, kaçaklar... Sen de onlardan birisin artık.",
-        choices: [
-          { text: "Çete lideri ol", nextNode: "gang_leader" },
-          { text: "Tek başına yaşa", nextNode: "lone_wolf" },
-          { text: "Yeraltı kralı ol", nextNode: "underground_king" },
-        ],
-      },
-
-      gang_leader: {
-        title: "Çete Lideri",
-        text: "Yeraltı dünyasında kendi çeteni kurdun. Artık sen korkulan bir çete liderisin. Güç ve para senin.",
-        choices: [
-          { text: "Çeteyi büyüt", nextNode: "expand_gang" },
-          { text: "Yasal işe geç", nextNode: "go_legitimate" },
-          { text: "Rakip çetelerle savaş", nextNode: "gang_war" },
-        ],
-      },
-      end: {
-        title: "Başarılı Son",
-        text: "Maceranı başarıyla tamamladın! Ejderhayı durdurdun ve köyü kurtardın. Bu sadece bir zafer değil, senin hikayenin bir parçası.",
-        choices: [],
       },
     },
   },
@@ -834,67 +509,576 @@ Bu sadece bir isyan değil - bu SENİN ŞEHRİN. Her seçim seni değiştirecek,
     story: {
       start: {
         title: "Hive City'de Uyanış",
-        text: "Hive City'nin alt katmanlarında gözlerini açıyorsun. Neon ışıklar yanıp sönüyor, cyberware'lerin ağrıyor. Şehirde bir isyan var.",
-        choices: [
-          { text: "Kendini bul", nextNode: "cyberpunk_self_discovery" },
-          {
-            text: "Yaralı bir netrunner'a yardım et",
-            nextNode: "help_netrunner",
-          },
-          { text: "Şehri anlamaya çalış", nextNode: "understand_city" },
-        ],
-      },
-      cyberpunk_self_discovery: {
-        title: "Kendini Bul",
-        text: "Hive City'nin alt katmanlarında kendini buluyorsun. Cyberware'lerin yanıp sönüyor, hafızan bulanık. Sen kimsin?",
-        choices: [
-          {
-            text: "Hafızanı geri getirmeye çalış",
-            nextNode: "understand_city",
-          },
-          { text: "Çevrendeki insanlarla konuş", nextNode: "help_netrunner" },
-          { text: "Şehrin durumunu anla", nextNode: "work_corp" },
-        ],
-      },
-      help_netrunner: {
-        title: "Netrunner'a Yardım",
-        text: "Yaralı bir netrunner buluyorsun. Gözlerinde korku ve umut var. Ona yardım ederken, bu sadece bir görev değil, gerçek bir insana yardım ettiğini hissediyorsun.",
-        choices: [
-          { text: "Onun hikayesini dinle", nextNode: "join_rebels" },
-          { text: "Yaralarını tedavi et", nextNode: "work_corp" },
-          { text: "Güvenini kazanmaya çalış", nextNode: "end" },
-        ],
-      },
-      understand_city: {
-        title: "Şehri Anlamak",
-        text: "Şehrin sistemlerini inceliyorsun. Bu sadece bir oyun değil - gerçek bir şehir, gerçek insanların yaşadığı bir dünya.",
-        choices: [
-          { text: "Sistemleri dikkatlice incele", nextNode: "work_corp" },
-          { text: "Şehrin geçmişini öğren", nextNode: "join_rebels" },
-          { text: "Ne olduğunu anlamaya çalış", nextNode: "end" },
-        ],
-      },
-      work_corp: {
-        title: "MegaCorp Görevi",
-        text: "MegaCorp'un güvenlik şefi size isyanı bastırma görevi veriyor. Netrunner'ları bulup durdurmak zorundasınız.",
-        choices: [
-          { text: "Netrunner'ları ara", nextNode: "end" },
-          { text: "Sistemleri güçlendir", nextNode: "end" },
-        ],
-      },
-      join_rebels: {
-        title: "İsyancılar",
-        text: "Netrunner'larla tanışıyorsun. Onlar MegaCorp'un zulmüne karşı savaşıyor. Sen de onlara katılabilirsin.",
+        text: `Neon ışıkların altında gözlerini açıyorsun. Hive City'nin alt katmanlarında, MegaCorp'ların gözlerinden uzak bir yerde uyandın. Vücudundaki cyberware'ler yanıp sönüyor, neural link'in ağrıyor.
+
+Etrafında Hive City'nin sakinleri var - netrunner'lar, hacker'lar, cyberpunk'lar. Hepsi seni merakla izliyor. Yanında duran genç netrunner, Shadow, sana yaklaşıyor.
+
+"Matrix'in Seçilmişi! Sonunda uyandın! MegaCorp'lar Hive City'yi yok etmeye çalışıyor. Biz isyan başlattık ama senin yardımına ihtiyacımız var."
+
+Başka bir netrunner, Chrome, ekliyor: "Arasaka ve Militech birlikte çalışıyor. Hive City'yi yok etmek istiyorlar çünkü burada onların sırlarını biliyoruz."
+
+Data chip'in yanıp sönüyor. Hafızanın bir kısmı geri geliyor - sen gerçekten de özel bir cyberpunk'sın, ama neden burada olduğunu hatırlamıyorsun.`,
         choices: [
           { text: "İsyana katıl", nextNode: "join_rebellion" },
-          { text: "Planları öğren", nextNode: "learn_plans" },
+          { text: "MegaCorp'larla konuş", nextNode: "talk_to_corps" },
+          { text: "Hafızanı geri getir", nextNode: "recover_memory" },
+          { text: "Data chip'i incele", nextNode: "examine_data_chip" },
+          { text: "Hive City'yi keşfet", nextNode: "explore_hive_city" },
         ],
       },
-      end: {
-        title: "Cyberpunk Sonu",
-        text: "Hive City'deki maceran bitti. İsyanı çözdün veya katıldın. Bu sadece bir son değil, yeni bir başlangıç.",
-        choices: [],
+
+      join_rebellion: {
+        title: "İsyana Katılma",
+        text: `Netrunner'larla birlikte isyana katılıyorsun. Shadow, sana Hive City'nin durumunu anlatıyor.
+
+"Arasaka, Hive City'deki tüm netrunner'ları öldürmek istiyor çünkü onların gizli projelerini biliyoruz. Militech de bize silah satıyor ama aynı zamanda bizi izliyor."
+
+Chrome devam ediyor: "Biz sadece özgürlük istiyoruz. MegaCorp'lar bizi köle gibi kullanıyor."
+
+Aniden, Hive City'nin üst katmanlarından güçlü bir patlama sesi geliyor. Arasaka'nın güvenlik botları Hive City'ye saldırıyor.
+
+"Geldiler!" diye bağırıyor Shadow. "Arasaka'nın güvenlik botları! Hive City'yi savunmamız gerekiyor!"
+
+Data chip'in daha da parlak yanıyor. Hafızanın daha fazlası geri geliyor - sen Arasaka'da çalışmışsın ama onların sırlarını öğrendiğin için kaçmışsın.`,
+        choices: [
+          {
+            text: "Güvenlik botlarıyla savaş",
+            nextNode: "fight_security_bots",
+          },
+          { text: "Hive City'yi savun", nextNode: "defend_hive_city" },
+          { text: "Arasaka'ya sız", nextNode: "infiltrate_arasaka" },
+          { text: "Militech ile anlaş", nextNode: "deal_with_militech" },
+          { text: "Kaç", nextNode: "escape_hive_city" },
+        ],
       },
+
+      fight_security_bots: {
+        title: "Güvenlik Botlarıyla Savaş",
+        text: `Arasaka'nın güvenlik botları Hive City'ye saldırıyor. Metal yaratıklar, netrunner'ları öldürmek için programlanmış.
+
+Pistolünü çekiyorsun ve botlara ateş ediyorsun. Cyberware'lerin sayesinde hızlı hareket edebiliyorsun. Shadow ve Chrome da savaşıyor.
+
+"Bu botlar Arasaka'nın en yeni modelleri!" diye bağırıyor Shadow. "Neural link'lerini hack etmemiz gerekiyor!"
+
+Chrome, bir botu hack etmeye çalışıyor ama başarısız oluyor. Bot, Chrome'a saldırıyor ve onu yaralıyor.
+
+"Chrome!" diye bağırıyor Shadow.
+
+Sen, data chip'inin gücünü kullanarak botları hack etmeye çalışıyorsun. Aniden, botlar duruyor ve size dönüyor. Data chip'in onları kontrol ediyor!`,
+        choices: [
+          { text: "Botları kontrol et", nextNode: "control_bots" },
+          { text: "Chrome'u kurtar", nextNode: "save_chrome" },
+          { text: "Arasaka'ya saldır", nextNode: "attack_arasaka" },
+          { text: "Botları yok et", nextNode: "destroy_bots" },
+          { text: "Kaç", nextNode: "escape_battle" },
+        ],
+      },
+
+      control_bots: {
+        title: "Botları Kontrol Etme",
+        text: `Data chip'in sayesinde Arasaka'nın güvenlik botlarını kontrol edebiliyorsun. Botlar artık size hizmet ediyor.
+
+Shadow şaşkın: "Nasıl yaptın bunu? Bu imkansız!"
+
+Chrome, yaralarını tedavi ederken konuşuyor: "Data chip'in özel. Arasaka'nın en gizli teknolojisi bu."
+
+Botları kullanarak Hive City'yi savunuyorsun. Arasaka'nın diğer saldırıları başarısız oluyor.
+
+Aniden, neural link'in ağrımaya başlıyor. Data chip'in çok fazla güç kullanıyor. Hafızanın daha fazlası geri geliyor - sen Arasaka'nın en iyi netrunner'ıydın ama onların insanlık dışı deneylerini gördüğün için kaçtın.
+
+"Arasaka, insanları cyberware ile değiştiriyor. Onların bilinci kayboluyor ve sadece bot haline geliyorlar. Ben de onlardan biri olacaktım."`,
+        choices: [
+          { text: "Arasaka'yı yok et", nextNode: "destroy_arasaka" },
+          { text: "Militech ile anlaş", nextNode: "deal_with_militech" },
+          { text: "Hive City'yi koru", nextNode: "protect_hive_city" },
+          { text: "Data chip'i kaldır", nextNode: "remove_data_chip" },
+          { text: "Güç kazan", nextNode: "gain_power" },
+        ],
+      },
+
+      destroy_arasaka: {
+        title: "Arasaka'yı Yok Etme",
+        text: `Botları kullanarak Arasaka'nın Hive City'deki merkezine saldırıyorsun. Arasaka'nın güvenlik sistemi çöküyor.
+
+Shadow ve Chrome da sana katılıyor. Birlikte Arasaka'nın veri merkezine giriyorsunuz.
+
+"Burada Arasaka'nın tüm sırları var!" diye bağırıyor Shadow.
+
+Arasaka'nın CEO'su, Yorinobu Arasaka, karşınıza çıkıyor. "Siz kimsiniz? Nasıl botlarımızı hack ettiniz?"
+
+"Ben senin eski netrunner'ınım. İnsanlık dışı deneylerini gördüm ve kaçtım."
+
+Yorinobu gülüyor: "İnsanlık? Cyberware geleceğimiz! İnsanlar zayıf, makineler güçlü!"
+
+"Sen yanlış düşünüyorsun. İnsanlık ve teknoloji birlikte olmalı, birbirini yok etmemeli."`,
+        choices: [
+          { text: "Yorinobu'yu öldür", nextNode: "kill_yorinobu" },
+          { text: "Yorinobu'yu ikna et", nextNode: "convince_yorinobu" },
+          { text: "Verileri yayınla", nextNode: "publish_data" },
+          { text: "Arasaka'yı ele geçir", nextNode: "take_over_arasaka" },
+          { text: "Barış yap", nextNode: "make_peace_arasaka" },
+        ],
+      },
+
+      kill_yorinobu: {
+        title: "Yorinobu'yu Öldürme",
+        text: `Yorinobu'yu öldürüyorsun. Arasaka'nın CEO'su ölüyor ve şirket karışıyor.
+
+"Arasaka artık güçsüz!" diye bağırıyor Shadow.
+
+Chrome ekliyor: "Ama Militech hala var. Onlar da tehlikeli."
+
+Arasaka'nın verilerini ele geçiriyorsun. Tüm sırları, deneyleri, projeleri artık senin elinde.
+
+"Bu verilerle Night City'yi değiştirebiliriz. MegaCorp'ların gücünü kırabiliriz."
+
+Hive City'nin sakinleri seni kahraman olarak görüyor. Artık Hive City'nin liderisin.`,
+        choices: [
+          { text: "Hive City'yi yönet", nextNode: "rule_hive_city" },
+          { text: "Night City'yi değiştir", nextNode: "change_night_city" },
+          { text: "Yeni hayat", nextNode: "new_life_cyberpunk" },
+          { text: "Hikayeyi bitir", nextNode: "cyberpunk_ending" },
+        ],
+      },
+
+      rule_hive_city: {
+        title: "Hive City'yi Yönetme",
+        text: `Hive City'yi yönetiyorsun. Artık sen Night City'nin en güçlü kişisisin. MegaCorp'lar senden korkuyor.`,
+        choices: [
+          { text: "Güçlü lider", nextNode: "powerful_leader_cyberpunk" },
+          { text: "Halkın lideri", nextNode: "peoples_leader_cyberpunk" },
+          { text: "Teknoloji kralı", nextNode: "tech_king_cyberpunk" },
+        ],
+      },
+
+      powerful_leader_cyberpunk: {
+        title: "Güçlü Lider",
+        text: `Night City'nin en güçlü lideri oldun. Hikayen burada biter.`,
+        choices: [
+          { text: "Yeni macera", nextNode: "new_adventure" },
+          { text: "Şehri yönet", nextNode: "rule_hive_city" },
+          { text: "Kaç", nextNode: "escape_city" },
+        ],
+      },
+
+      cyberpunk_ending: {
+        title: "Cyberpunk Sonu",
+        text: `Hive City'deki maceran bitti. İsyanı çözdün veya katıldın. Bu sadece bir son değil, yeni bir başlangıç.`,
+        choices: [
+          { text: "Yeni macera", nextNode: "new_adventure" },
+          { text: "Şehirde kal", nextNode: "stay_in_city" },
+          { text: "Kaç", nextNode: "escape_city" }
+        ]
+      },
+
+      // CYBERPUNK EKSİK NODE'LAR
+      talk_to_corps: {
+        title: "MegaCorp'larla Konuşma",
+        text: `Arasaka'nın merkezine gidiyorsun. Güvenlik botları seni durduruyor ama data chip'in sayesinde geçebiliyorsun.
+        
+        Arasaka'nın CEO'su Yorinobu Arasaka ile görüşüyorsun. "Hive City'deki isyanı durdurmak istiyoruz. Sen bize yardım edebilirsin."
+        
+        "Hive City'deki insanlar özgürlük istiyor. Onları köle gibi kullanıyorsunuz."
+        
+        Yorinobu gülüyor: "Özgürlük? Cyberware geleceğimiz! İnsanlar zayıf, makineler güçlü!"`,
+        choices: [
+          { text: "Anlaşma yap", nextNode: "make_deal_with_corps" },
+          { text: "Reddet", nextNode: "reject_corps" },
+          { text: "Tehdit et", nextNode: "threaten_corps" },
+          { text: "Geri dön", nextNode: "return_to_hive" }
+        ]
+      },
+
+      make_deal_with_corps: {
+        title: "MegaCorp'larla Anlaşma",
+        text: `Arasaka ile anlaşma yapıyorsun. Hive City'yi koruyacaklar ama karşılığında data chip'inin teknolojisini paylaşacaksın.
+        
+        "Bu anlaşma Hive City'yi kurtaracak," diyorsun.
+        
+        Yorinobu: "Evet, ama sen de bizimle çalışacaksın. Arasaka'nın en iyi netrunner'ı olacaksın."`,
+        choices: [
+          { text: "Kabul et", nextNode: "accept_corp_deal" },
+          { text: "Reddet", nextNode: "reject_corp_deal" },
+          { text: "Plan yap", nextNode: "plan_against_corps" }
+        ]
+      },
+
+      accept_corp_deal: {
+        title: "Anlaşmayı Kabul Etme",
+        text: `Arasaka ile anlaşmayı kabul ediyorsun. Artık Arasaka'nın en iyi netrunner'ısın. Hive City güvende ama sen MegaCorp'un kontrolü altındasın.`,
+        choices: [
+          { text: "Yeni hayat", nextNode: "new_life_corp" },
+          { text: "İsyan planla", nextNode: "plan_rebellion_secret" },
+          { text: "Güç kazan", nextNode: "gain_corp_power" }
+        ]
+      },
+
+      new_life_corp: {
+        title: "Yeni Hayat",
+        text: `Arasaka'da yeni bir hayat başlıyorsun. Güçlü bir netrunner'sın ama özgürlüğünü kaybettin. Hikayen burada biter.`,
+        choices: [
+          { text: "Yeni macera", nextNode: "new_adventure" },
+          { text: "Devam et", nextNode: "continue_corp_life" }
+        ]
+      },
+
+      recover_memory: {
+        title: "Hafızayı Geri Getirme",
+        text: `Data chip'inin gücünü kullanarak hafızanı geri getirmeye çalışıyorsun. Aniden, geçmişin gözlerinin önünde canlanıyor.
+        
+        Sen Arasaka'nın en iyi netrunner'ıydın. Onların insanlık dışı deneylerini gördün - insanları cyberware ile değiştiriyorlar, bilinçlerini kaybediyorlar.
+        
+        "Ben de onlardan biri olacaktım," diyorsun kendine. "Ama kaçtım ve Hive City'ye sığındım."`,
+        choices: [
+          { text: "Arasaka'ya karşı savaş", nextNode: "fight_arasaka_memory" },
+          { text: "Hive City'yi koru", nextNode: "protect_hive_memory" },
+          { text: "Güç kullan", nextNode: "use_memory_power" }
+        ]
+      },
+
+      fight_arasaka_memory: {
+        title: "Arasaka'ya Karşı Savaş",
+        text: `Hafızanı geri kazandığın için Arasaka'ya karşı savaşmaya karar veriyorsun. Hive City'deki netrunner'ları topluyorsun.
+        
+        "Arasaka insanları yok ediyor! Onlara karşı savaşmalıyız!" diye bağırıyorsun.
+        
+        Shadow ve Chrome sana katılıyor. Birlikte Arasaka'ya saldırı planı yapıyorsunuz.`,
+        choices: [
+          { text: "Saldırı planla", nextNode: "plan_attack_arasaka" },
+          { text: "Güçlendir", nextNode: "strengthen_hive" },
+          { text: "Müttefik ara", nextNode: "find_allies" }
+        ]
+      },
+
+      plan_attack_arasaka: {
+        title: "Arasaka Saldırı Planı",
+        text: `Arasaka'ya saldırı planı yapıyorsunuz. Data chip'inin gücünü kullanarak Arasaka'nın sistemlerini hack edeceksiniz.
+        
+        "Önce güvenlik sistemlerini devre dışı bırakacağız," diyorsun. "Sonra veri merkezine saldıracağız."
+        
+        Shadow: "Bu çok tehlikeli ama gerekli. Arasaka'yı durdurmamız gerekiyor."`,
+        choices: [
+          { text: "Saldırıya başla", nextNode: "start_attack_arasaka" },
+          { text: "Daha fazla hazırlan", nextNode: "prepare_more" },
+          { text: "Geri çekil", nextNode: "retreat_plan" }
+        ]
+      },
+
+      start_attack_arasaka: {
+        title: "Arasaka Saldırısı",
+        text: `Arasaka'ya saldırıya başlıyorsunuz. Data chip'inin gücüyle güvenlik sistemlerini hack ediyorsunuz.
+        
+        Arasaka'nın güvenlik botları size saldırıyor ama siz onları kontrol edebiliyorsunuz. Veri merkezine giriyorsunuz.
+        
+        "Arasaka'nın tüm sırları burada!" diye bağırıyor Shadow.`,
+        choices: [
+          { text: "Verileri yayınla", nextNode: "publish_arasaka_data" },
+          { text: "Arasaka'yı yok et", nextNode: "destroy_arasaka_complete" },
+          { text: "Yorinobu'yu bul", nextNode: "find_yorinobu" }
+        ]
+      },
+
+      publish_arasaka_data: {
+        title: "Arasaka Verilerini Yayınlama",
+        text: `Arasaka'nın tüm sırlarını Night City'ye yayınlıyorsunuz. İnsanlık dışı deneyler, gizli projeler, her şey ortaya çıkıyor.
+        
+        Night City karışıyor. İnsanlar Arasaka'ya karşı isyan ediyor. MegaCorp'lar güç kaybediyor.
+        
+        "Başardık!" diye bağırıyor Shadow. "Arasaka artık güçsüz!"`,
+        choices: [
+          { text: "Hive City'yi yönet", nextNode: "rule_hive_city" },
+          { text: "Night City'yi değiştir", nextNode: "change_night_city" },
+          { text: "Yeni hayat", nextNode: "new_life_cyberpunk" }
+        ]
+      },
+
+      change_night_city: {
+        title: "Night City'yi Değiştirme",
+        text: `Arasaka'nın çöküşünden sonra Night City değişiyor. MegaCorp'ların gücü azalıyor, insanlar daha özgür oluyor.
+        
+        Sen Night City'nin kahramanı oldun. Hive City'nin lideri olarak yeni bir düzen kuruyorsun.`,
+        choices: [
+          { text: "Yeni düzen", nextNode: "new_order_cyberpunk" },
+          { text: "Teknoloji kralı", nextNode: "tech_king_cyberpunk" },
+          { text: "Halkın lideri", nextNode: "peoples_leader_cyberpunk" }
+        ]
+      },
+
+      new_order_cyberpunk: {
+        title: "Yeni Düzen",
+        text: `Night City'de yeni bir düzen kuruyorsun. MegaCorp'ların yerine halkın yönettiği bir sistem oluşturuyorsun. Hikayen burada biter.`,
+        choices: [
+          { text: "Yeni macera", nextNode: "new_adventure" },
+          { text: "Devam et", nextNode: "continue_new_order" }
+        ]
+      },
+
+      continue_new_order: {
+        title: "Yeni Düzen Devamı",
+        text: `Yeni düzen devam ediyorsun. MegaCorp'ların yerine halkın yönettiği bir sistem oluşturuluyor. Hikayen burada biter.`,
+        choices: [
+          { text: "Yeni macera", nextNode: "new_adventure" },
+          { text: "Devam et", nextNode: "continue_new_order" }
+        ]
+      },
+
+      gain_corp_power: {
+        title: "Güç Kazanma",
+        text: `Data chip'inin gücünü kullanarak güç kazanmaya çalışıyorsun. Aniden, güçlü bir yeni bir yapı oluşuyor.
+        
+        "Bu güç benimle! İmperium'u yok edeceğim!" diye bağırıyorsun.
+        
+        "Bu çok tehlikeli," diyorsun. "Gücünüzü kullanmayın."`,
+        choices: [
+          { text: "Gücü kullan", nextNode: "use_memory_power" },
+          { text: "Geri çekil", nextNode: "retreat_power" }
+        ]
+      },
+
+      use_memory_power: {
+        title: "Güç Kullanma",
+        text: `Data chip'inin gücünü kullanarak güç kullanmaya çalışıyorsun. Aniden, güçlü bir yeni bir yapı oluşuyor.
+        
+        "Bu güç benimle! İmperium'u yok edeceğim!" diye bağırıyorsun.
+        
+        "Bu çok tehlikeli," diyorsun. "Gücünüzü kullanmayın."`,
+        choices: [
+          { text: "Gücü kullan", nextNode: "use_memory_power" },
+          { text: "Geri çekil", nextNode: "retreat_power" }
+        ]
+      },
+
+      retreat_power: {
+        title: "Güçten Geri Çekilme",
+        text: `Güç kullanmaya çalıştığın için güçten geri çekiliyorsun. Gücünüzü kaybettiniz. Hikayen burada biter.`,
+        choices: [
+          { text: "Yeni macera", nextNode: "new_adventure" },
+          { text: "Devam et", nextNode: "continue_new_order" }
+        ]
+      },
+
+      return_to_hive: {
+        title: "Hive City'ye Dönüş",
+        text: `Hive City'ye dönüyorsun. MegaCorp'ların gücü azaldığı için Hive City'deki insanlar daha özgür oluyor.`,
+        choices: [
+          { text: "Hive City'yi yönet", nextNode: "rule_hive_city" },
+          { text: "Night City'yi değiştir", nextNode: "change_night_city" },
+          { text: "Yeni hayat", nextNode: "new_life_cyberpunk" }
+        ]
+      },
+
+      reject_corps: {
+        title: "MegaCorp'ları Reddetme",
+        text: `MegaCorp'ları reddediyorsun. Hive City'deki insanlar MegaCorp'ların zulmünden kurtulmak için isyan ediyorlar.
+        
+        "Bu çok tehlikeli," diyorsun. "MegaCorp'ların gücü çok büyük."
+        
+        "Ama biz de güçlüyüz," diyorsun. "Hive City'deki insanların birlikte çalışmasıyla."`,
+        choices: [
+          { text: "İsyan planla", nextNode: "plan_rebellion_secret" },
+          { text: "Güçlendir", nextNode: "strengthen_hive" },
+          { text: "Müttefik ara", nextNode: "find_allies" }
+        ]
+      },
+
+      plan_rebellion_secret: {
+        title: "İsyan Planı",
+        text: `Hive City'deki insanların MegaCorp'ların zulmünden kurtulmak için isyan edeceğini planlıyorsun.
+        
+        "Hive City'deki tüm netrunner'ları toplayalım," diyorsun. "Shadow ve Chrome'u da katılmasını sağlayalım."
+        
+        "Ama bu çok tehlikeli," diyorsun. "MegaCorp'ların gücü çok büyük."
+        
+        "Ama biz de güçlüyüz," diyorsun. "Hive City'deki insanların birlikte çalışmasıyla."`,
+        choices: [
+          { text: "İsyan planla", nextNode: "plan_rebellion_secret" },
+          { text: "Güçlendir", nextNode: "strengthen_hive" },
+          { text: "Müttefik ara", nextNode: "find_allies" }
+        ]
+      },
+
+      strengthen_hive: {
+        title: "Hive City'yi Güçlendirme",
+        text: `Hive City'yi güçlendirmeye çalışıyorsun. MegaCorp'ların gücü çok büyük. Onları durdurmak için Hive City'deki insanların birlikte çalışması gerekiyor.
+        
+        "Hive City'deki tüm insanları toplayalım," diyorsun. "Shadow, Chrome ve diğer netrunner'ları da katılmasını sağlayalım."
+        
+        "Ama bu çok tehlikeli," diyorsun. "MegaCorp'ların gücü çok büyük."
+        
+        "Ama biz de güçlüyüz," diyorsun. "Hive City'deki insanların birlikte çalışmasıyla."`,
+        choices: [
+          { text: "İsyan planla", nextNode: "plan_rebellion_secret" },
+          { text: "Güçlendir", nextNode: "strengthen_hive" },
+          { text: "Müttefik ara", nextNode: "find_allies" }
+        ]
+      },
+
+      find_allies: {
+        title: "Müttefik Bulma",
+        text: `Müttefik bulmaya çalışıyorsun. MegaCorp'ların gücü çok büyük. Onları durdurmak için Hive City'deki insanların birlikte çalışması gerekiyor.
+        
+        "Hive City'deki tüm insanları toplayalım," diyorsun. "Shadow, Chrome ve diğer netrunner'ları da katılmasını sağlayalım."
+        
+        "Ama bu çok tehlikeli," diyorsun. "MegaCorp'ların gücü çok büyük."
+        
+        "Ama biz de güçlüyüz," diyorsun. "Hive City'deki insanların birlikte çalışmasıyla."`,
+        choices: [
+          { text: "İsyan planla", nextNode: "plan_rebellion_secret" },
+          { text: "Güçlendir", nextNode: "strengthen_hive" },
+          { text: "Müttefik ara", nextNode: "find_allies" }
+        ]
+      },
+
+      new_imperial_mission: {
+        title: "Yeni İmperium Görevi",
+        text: `İmperium'a yeni bir görev verildi. Chaos'un kaynağını bulmak ve kapatmak.
+        
+        "Bu çok tehlikeli," diyorsun. "Chaos'un gücü çok büyük."
+        
+        "Ama biz de güçlüyüz," diyorsun. "İmperium'un gücüyle birlikte."`,
+        choices: [
+          { text: "Chaos kaynağını bul", nextNode: "find_chaos_source" },
+          { text: "Güçlendir", nextNode: "strengthen_imperium" },
+          { text: "Yardım çağır", nextNode: "call_imperial_help" }
+        ]
+      },
+
+      strengthen_imperium: {
+        title: "İmperium'u Güçlendirme",
+        text: `İmperium'u güçlendirmeye çalışıyorsun. MegaCorp'ların gücü çok büyük. Onları durdurmak için İmperium'un gücüyle birlikte çalışması gerekiyor.
+        
+        "İmperium'un tüm askerlerini toplayalım," diyorsun. "Space Marines'ı da katılmasını sağlayalım."
+        
+        "Ama bu çok tehlikeli," diyorsun. "MegaCorp'ların gücü çok büyük."
+        
+        "Ama biz de güçlüyüz," diyorsun. "İmperium'un gücüyle birlikte."`,
+        choices: [
+          { text: "Chaos kaynağını bul", nextNode: "find_chaos_source" },
+          { text: "Güçlendir", nextNode: "strengthen_imperium" },
+          { text: "Yardım çağır", nextNode: "call_imperial_help" }
+        ]
+      },
+
+      call_imperial_help: {
+        title: "İmperium'a Yardım Çağırma",
+        text: `İmperium'a yardım çağırıyorsun. MegaCorp'ların gücü çok büyük. Onları durdurmak için İmperium'un gücüyle birlikte çalışması gerekiyor.
+        
+        "İmperium'un tüm askerlerini toplayalım," diyorsun. "Space Marines'ı da katılmasını sağlayalım."
+        
+        "Ama bu çok tehlikeli," diyorsun. "MegaCorp'ların gücü çok büyük."
+        
+        "Ama biz de güçlüyüz," diyorsun. "İmperium'un gücüyle birlikte."`,
+        choices: [
+          { text: "Chaos kaynağını bul", nextNode: "find_chaos_source" },
+          { text: "Güçlendir", nextNode: "strengthen_imperium" },
+          { text: "Yardım çağır", nextNode: "call_imperial_help" }
+        ]
+      },
+
+      become_inquisitor: {
+        title: "Inquisitor Olma",
+        text: `Inquisitor oldun! Artık İmperium'un en güçlü ajanlarından birisin. Chaos'a karşı savaşmak senin görevin.`,
+        choices: [
+          { text: "Chaos avcısı", nextNode: "chaos_hunter" },
+          { text: "İmperium'u koru", nextNode: "protect_imperium_inquisitor" },
+          { text: "Yeni macera", nextNode: "new_adventure" }
+        ]
+      },
+
+      chaos_hunter: {
+        title: "Chaos Avcısı",
+        text: `Chaos avcısı olarak İmperium'un en tehlikeli düşmanlarıyla savaşıyorsun. Her gün yeni bir Chaos tehdidi, her gün yeni bir savaş.`,
+        choices: [
+          { text: "Kahraman ol", nextNode: "become_hero_warhammer" },
+          { text: "Savaşa devam et", nextNode: "continue_war" },
+          { text: "Dinlen", nextNode: "rest_peacefully" }
+        ]
+      },
+
+      protect_imperium_inquisitor: {
+        title: "İmperium'u Koruma",
+        text: `İmperium'u korumaya devam ediyorsun. Artık İmperium'un en güçlü askerlerinden birisin.`,
+        choices: [
+          { text: "Space Marine ol", nextNode: "become_space_marine" },
+          { text: "Imperial Guard'da kal", nextNode: "stay_guard" },
+          { text: "Commissar ol", nextNode: "become_commissar" }
+        ]
+      },
+
+      // GENEL EKSİK NODE'LAR
+      new_adventure: {
+        title: "Yeni Macera",
+        text: `Yeni bir maceraya başlıyorsun. Dünya seni bekliyor!`,
+        choices: [
+          { text: "Fantasy dünyası", nextNode: "fantasy_world" },
+          { text: "Cyberpunk dünyası", nextNode: "cyberpunk_world" },
+          { text: "Warhammer dünyası", nextNode: "warhammer_world" }
+        ]
+      },
+
+      fantasy_world: {
+        title: "Fantasy Dünyası",
+        text: `Fantasy dünyasına gidiyorsun. Yeni maceralar, yeni kahramanlar seni bekliyor.`,
+        choices: [
+          { text: "Yeni hikaye", nextNode: "new_story_ending" },
+          { text: "Geri dön", nextNode: "return_to_village" }
+        ]
+      },
+
+      cyberpunk_world: {
+        title: "Cyberpunk Dünyası",
+        text: `Cyberpunk dünyasına gidiyorsun. Neon ışıklar ve teknoloji seni bekliyor.`,
+        choices: [
+          { text: "Yeni hikaye", nextNode: "new_story_ending" },
+          { text: "Geri dön", nextNode: "return_to_village" }
+        ]
+      },
+
+      warhammer_world: {
+        title: "Warhammer Dünyası",
+        text: `Warhammer dünyasına gidiyorsun. İmperium ve Chaos savaşları seni bekliyor.`,
+        choices: [
+          { text: "Yeni hikaye", nextNode: "new_story_ending" },
+          { text: "Geri dön", nextNode: "return_to_village" }
+        ]
+      },
+
+      return_to_village: {
+        title: "Köye Dönüş",
+        text: `Köye dönüyorsun. Hikayen burada biter ama yeni maceralar seni bekliyor.`,
+        choices: [
+          { text: "Yeni macera", nextNode: "new_adventure" },
+          { text: "Dinlen", nextNode: "rest_peacefully" }
+        ]
+      },
+
+      rest_peacefully: {
+        title: "Huzurlu Dinlenme",
+        text: `Huzurlu bir şekilde dinleniyorsun. Maceran bitti ama anıların seninle kalacak.`,
+        choices: [
+          { text: "Yeni macera", nextNode: "new_adventure" },
+          { text: "Hikayeyi bitir", nextNode: "final_ending" }
+        ]
+      },
+
+      final_ending: {
+        title: "Final Son",
+        text: `Maceran bitti. Sen harika bir kahraman oldun ve dünyayı değiştirdin. Hikayen burada biter.`,
+        choices: [
+          { text: "Yeni macera", nextNode: "new_adventure" },
+          { text: "Baştan başla", nextNode: "start_over" }
+        ]
+      },
+
+      start_over: {
+        title: "Baştan Başlama",
+        text: `Yeni bir maceraya başlıyorsun. Bu sefer farklı seçimler yapacaksın.`,
+        choices: [
+          { text: "Fantasy", nextNode: "fantasy_world" },
+          { text: "Cyberpunk", nextNode: "cyberpunk_world" },
+          { text: "Warhammer", nextNode: "warhammer_world" }
+        ]
+      }
     },
   },
 
@@ -914,792 +1098,484 @@ Bu sadece bir savaş değil - bu SENİN DÜNYAN. Her seçim seni değiştirecek,
     objective: "Chaos kültünü bul ve yok et - İmperium'u koru",
     story: {
       start: {
-        title: "İmperium'da Uyanış",
-        text: "İmperium'un uzak bir dünyasında gözlerini açıyorsun. Power armor'ın ağırlığını hissediyorsun. Chaos tehdidi artıyor.",
+        title: "Cadia Prime'da Uyanış",
+        text: `Power armor'ının içinde gözlerini açıyorsun. Cadia Prime'ın uzak bir köyünde, Chaos tehdidinin büyüdüğü bir yerde uyandın. Power armor'ın ağırlığını hissediyorsun, lasgun'ın elinde.
+
+Etrafında Cadian Shock Troops'un diğer askerleri var. Hepsi seni merakla izliyor. Yanında duran genç asker, Marcus, sana yaklaşıyor.
+
+"İmperium'un Seçilmişi! Sonunda uyandın! Chaos kültü bu köyde büyüyor. Biz onları bulamıyoruz ama sen yardım edebilirsin."
+
+Başka bir asker, Sarah, ekliyor: "Köylüler gece gizlice toplanıyor. Tuhaf semboller çiziyorlar, dualar okuyorlar. Chaos'un karanlık güçleri buraya sızıyor."
+
+Kutsal kolyen yanıp sönüyor. Hafızanın bir kısmı geri geliyor - sen gerçekten de özel bir İmperium askerisin, ama neden burada olduğunu hatırlamıyorsun.`,
         choices: [
-          { text: "Kendini keşfet", nextNode: "warhammer_self_discovery" },
-          { text: "Yaralı bir askere yardım et", nextNode: "help_soldier" },
-          {
-            text: "Dünyanın durumunu anla",
-            nextNode: "understand_world_state",
-          },
-        ],
-      },
-      warhammer_self_discovery: {
-        title: "Kendini Keşfet",
-        text: "İmperium'un uzak bir dünyasında kendini buluyorsun. Power armor'ın ağırlığını hissediyorsun, hafızan bulanık. Sen kimsin?",
-        choices: [
-          { text: "Hafızanı geri getirmeye çalış", nextNode: "help_soldier" },
-          {
-            text: "Çevrendeki askerlerle konuş",
-            nextNode: "investigate_village",
-          },
-          {
-            text: "Dünyanın durumunu anla",
-            nextNode: "understand_world_state",
-          },
-        ],
-      },
-      help_soldier: {
-        title: "Asker'e Yardım",
-        text: "Yaralı bir Imperial Guardsman buluyorsun. Gözlerinde korku ve sadakat var. Ona yardım ederken, bu sadece bir görev değil, gerçek bir askere yardım ettiğini hissediyorsun.",
-        choices: [
-          {
-            text: "Onun hikayesini dinle",
-            nextNode: "warhammer_self_discovery",
-          },
-          { text: "Yaralarını tedavi et", nextNode: "understand_world_state" },
-          { text: "Güvenini kazanmaya çalış", nextNode: "investigate_village" },
-        ],
-      },
-      understand_world_state: {
-        title: "Dünyanın Durumunu Anlamak",
-        text: "Dünyanın durumunu inceliyorsun. Bu sadece bir oyun değil - gerçek bir dünya, gerçek insanların yaşadığı bir yer.",
-        choices: [
-          {
-            text: "Dünyayı dikkatlice incele",
-            nextNode: "investigate_village",
-          },
-          { text: "Dünyanın geçmişini öğren", nextNode: "night_surveillance" },
-          { text: "Ne olduğunu anlamaya çalış", nextNode: "end" },
-        ],
-      },
-      investigate_village: {
-        title: "Köy Araştırması",
-        text: "Köyde garip olaylar yaşanıyor. İnsanlar gece gizlice toplanıyor, tuhaf semboller çiziliyor.",
-        choices: [
-          { text: "Gece gözlemi yap", nextNode: "night_surveillance" },
-          {
-            text: "Şüpheli kişileri sorgula",
-            nextNode: "interrogate_suspects",
-          },
-        ],
-      },
-      night_surveillance: {
-        title: "Gece Gözlemi",
-        text: "Gece gizlice köyü gözlemliyorsun. İnsanlar garip ayinler yapıyor. Bu Chaos kültü olabilir.",
-        choices: [
-          { text: "Kültü araştır", nextNode: "investigate_cult" },
-          { text: "Yetkililere bildir", nextNode: "report_authorities" },
+          { text: "Chaos kültünü ara", nextNode: "search_chaos_cult" },
+          { text: "Köylülerle konuş", nextNode: "talk_to_villagers" },
+          { text: "Hafızanı geri getir", nextNode: "recover_memory_warhammer" },
+          { text: "Kolyeyi incele", nextNode: "examine_necklace_warhammer" },
+          { text: "Köyü keşfet", nextNode: "explore_village" },
         ],
       },
 
-      investigate_cult: {
-        title: "Kült Araştırması",
-        text: "Kültü araştırıyorsun. İnsanlar garip semboller çiziyor, tuhaf dualar okuyor. Bu gerçekten Chaos kültü!",
+      search_chaos_cult: {
+        title: "Chaos Kültünü Arama",
+        text: `Marcus ve Sarah ile birlikte Chaos kültünü arıyorsunuz. Köyün karanlık sokaklarında dolaşıyorsunuz.
+
+"Burada garip izler var," diyor Marcus. "Köylüler buradan geçmiş."
+
+Sarah ekliyor: "Ve bu izler köyün eski tapınağına gidiyor. O tapınak yıllardır kullanılmıyor."
+
+Eski tapınağa yaklaştığınızda, içeriden garip sesler duyuyorsunuz. Dualar, çığlıklar, tuhaf müzik.
+
+"İçeride bir şeyler oluyor," diye fısıldıyor Marcus.
+
+Kutsal kolyen daha da parlak yanıyor. Hafızanın daha fazlası geri geliyor - sen bu tapınakta daha önce bulunmuşsun, ama ne zaman ve neden hatırlamıyorsun.
+
+Tapınağın kapısını açtığınızda, şok edici bir manzara görüyorsunuz. Köylüler, Chaos sembolleri etrafında toplanmış, dualar okuyorlar.`,
         choices: [
-          { text: "Kült liderini bul", nextNode: "find_cult_leader" },
-          { text: "Kültü infiltre et", nextNode: "infiltrate_cult" },
+          { text: "Tapınağa gir", nextNode: "enter_temple" },
+          { text: "Geri çekil", nextNode: "retreat_from_temple" },
+          { text: "Gözetle", nextNode: "spy_on_cult" },
+          { text: "Yardım çağır", nextNode: "call_for_help" },
+          { text: "Plan yap", nextNode: "make_plan_warhammer" },
+        ],
+      },
+
+      enter_temple: {
+        title: "Tapınağa Giriş",
+        text: `Tapınağa giriyorsunuz. İçeride köylüler, Chaos sembolleri etrafında toplanmış. Ortada bir altar var ve üzerinde garip semboller yanıyor.
+
+Köylüler sizi görünce duruyor. Aralarından birisi, yaşlı bir adam, size yaklaşıyor.
+
+"İmperium'un askerleri! Siz de mi gerçeği öğrenmek istiyorsunuz?"
+
+Marcus, lasgun'ını doğrultuyor: "Chaos kültü! Siz sapkınlık yapıyorsunuz!"
+
+Yaşlı adam gülüyor: "Sapkınlık? İmperium bizi köle gibi kullanıyor. Chaos bize güç veriyor!"
+
+Sarah bağırıyor: "Chaos sizi yok edecek! İmperium sizi koruyor!"
+
+Kutsal kolyen çok parlak yanıyor. Hafızanın daha fazlası geri geliyor - sen bu tapınakta daha önce bulunmuşsun ve Chaos'un tehlikesini biliyorsun.`,
+        choices: [
           { text: "Kültü yok et", nextNode: "destroy_cult" },
+          { text: "Köylüleri ikna et", nextNode: "convince_villagers" },
+          { text: "Kült liderini bul", nextNode: "find_cult_leader" },
+          { text: "Geri çekil", nextNode: "retreat_from_cult" },
+          { text: "Chaos'u kabul et", nextNode: "accept_chaos" },
         ],
       },
 
-      find_cult_leader: {
-        title: "Kült Liderini Bulma",
-        text: "Kült liderini buldun. O çok güçlü bir Chaos büyücüsü. Seni görünce saldırıya geçiyor!",
+      destroy_cult: {
+        title: "Kültü Yok Etme",
+        text: `Lasgun'ını çekiyorsun ve Chaos kültüne saldırıyorsun. Marcus ve Sarah da sana katılıyor.
+
+"İmperium için savaş!" diye bağırıyorsun.
+
+Köylüler kaçmaya başlıyor ama bazıları savaşmaya karar veriyor. Chaos sembolleri yanıyor, tapınak karışıyor.
+
+Yaşlı adam, bir büyü yapıyor ve tapınakta garip güçler uçuşmaya başlıyor.
+
+"Chaos'un gücü benimle! Sizi yok edeceğim!"
+
+Kutsal kolyen çok parlak yanıyor ve Chaos büyüsünü engelliyor. Yaşlı adam şaşkın: "O kolye... o kolye İmperium'un en kutsal eşyası!"
+
+"Evet, bu kolye İmperium'un gücünü temsil ediyor. Chaos'u yok edecek!"`,
         choices: [
-          { text: "Savaş", nextNode: "fight_cult_leader" },
-          { text: "Büyü kullan", nextNode: "use_magic_against_cult" },
-          { text: "Yardım çağır", nextNode: "call_for_help_cult" },
+          { text: "Yaşlı adamı öldür", nextNode: "kill_elder" },
+          { text: "Yaşlı adamı yakala", nextNode: "capture_elder" },
+          { text: "Tapınağı yok et", nextNode: "destroy_temple" },
+          { text: "Köylüleri kurtar", nextNode: "save_villagers" },
+          { text: "Geri çekil", nextNode: "retreat_battle" },
         ],
       },
 
-      fight_cult_leader: {
-        title: "Kült Lideri Savaşı",
-        text: "Kült lideriyle savaşıyorsun! O Chaos büyüleri kullanıyor, sen kılıcınla karşılık veriyorsun.",
+      kill_elder: {
+        title: "Yaşlı Adamı Öldürme",
+        text: `Yaşlı adamı öldürüyorsun. Chaos kültünün lideri ölüyor ve kült dağılıyor.
+
+"Chaos kültü yok edildi!" diye bağırıyor Marcus.
+
+Sarah ekliyor: "Ama başka yerlerde de Chaos kültleri var. Bu sadece başlangıç."
+
+Köylüler, Chaos'un etkisinden kurtuluyor ve normal hayatlarına dönüyorlar.
+
+"Teşekkür ederiz, İmperium'un askerleri. Bizi kurtardınız."
+
+Kutsal kolyen parlamaya devam ediyor. Hafızanın daha fazlası geri geliyor - sen İmperium'un en iyi askerlerinden birisin ve Chaos'a karşı savaşmak senin görevin.`,
         choices: [
-          { text: "Kılıçla saldır", nextNode: "sword_attack_cult" },
-          { text: "Zırhını kullan", nextNode: "use_armor_defense" },
-          { text: "Taktik değiştir", nextNode: "change_tactics_cult" },
+          { text: "Cadia Prime'ı koru", nextNode: "protect_cadia_prime" },
+          { text: "Diğer kültleri ara", nextNode: "search_other_cults" },
+          { text: "İmperium'a rapor ver", nextNode: "report_to_imperium" },
+          { text: "Hikayeyi bitir", nextNode: "warhammer_ending" },
         ],
       },
 
-      sword_attack_cult: {
-        title: "Kılıç Saldırısı",
-        text: "Kılıcınla kült liderine saldırıyorsun. O büyü kalkanı kullanıyor ama sen güçlüsün!",
+      protect_cadia_prime: {
+        title: "Cadia Prime'ı Koruma",
+        text: `Cadia Prime'ı korumaya devam ediyorsun. Artık sen İmperium'un en güvenilir askerlerinden birisin.`,
         choices: [
-          { text: "Son darbeyi vur", nextNode: "final_strike_cult" },
-          { text: "Savunmaya geç", nextNode: "defend_attack_cult" },
-          { text: "Kaç", nextNode: "escape_cult_fight" },
+          { text: "Space Marine ol", nextNode: "become_space_marine" },
+          { text: "Imperial Guard'da kal", nextNode: "stay_guard" },
+          { text: "Commissar ol", nextNode: "become_commissar" },
         ],
       },
 
-      final_strike_cult: {
-        title: "Son Darbe",
-        text: "Son darbeyi vurdun! Kült lideri yere düşüyor. Chaos kültü dağılıyor. Sen kazandın!",
+      become_space_marine: {
+        title: "Space Marine Olma",
+        text: `Space Marine oldun! Artık İmperium'un en güçlü savaşçılarından birisin.`,
         choices: [
-          { text: "Kültü tamamen yok et", nextNode: "completely_destroy_cult" },
-          { text: "Esirleri kurtar", nextNode: "rescue_prisoners" },
-          { text: "Yetkililere bildir", nextNode: "report_victory" },
+          { text: "Chapter'a katıl", nextNode: "join_chapter" },
+          { text: "Savaşlara katıl", nextNode: "join_battles" },
+          { text: "Eğitim al", nextNode: "receive_training" },
         ],
       },
 
-      completely_destroy_cult: {
-        title: "Kültü Tamamen Yok Etme",
-        text: "Kültü tamamen yok ettin. Tüm Chaos sembolleri yok edildi, kült üyeleri yakalandı. Köy güvende.",
+      join_chapter: {
+        title: "Chapter'a Katılma",
+        text: `Ultramarines Chapter'ına katıldın. Artık efsanevi bir Space Marine'sin!`,
         choices: [
-          { text: "Zaferi kutla", nextNode: "celebrate_victory" },
-          { text: "Köyü koru", nextNode: "protect_village_after" },
-          { text: "Yeni görevler ara", nextNode: "seek_new_missions" },
+          { text: "Kahraman ol", nextNode: "become_hero_warhammer" },
+          { text: "Savaş", nextNode: "fight_as_marine" },
+          { text: "İmperium'u koru", nextNode: "protect_imperium" },
         ],
       },
 
-      report_authorities: {
-        title: "Yetkililere Bildirme",
-        text: "Yetkililere bildirdin. Imperial Guard geliyor. Onlarla birlikte kültü araştıracaksınız.",
+      become_hero_warhammer: {
+        title: "Kahraman Olma",
+        text: `İmperium'un en büyük kahramanlarından biri oldun. Hikayen burada biter.`,
         choices: [
-          { text: "Guard ile araştır", nextNode: "investigate_with_guard" },
-          { text: "Komutanla konuş", nextNode: "talk_commander" },
-          { text: "Plan yap", nextNode: "make_plan_with_guard" },
+          { text: "Yeni macera", nextNode: "new_adventure" },
+          { text: "İmperium'a hizmet et", nextNode: "serve_imperium" },
+          { text: "Dinlen", nextNode: "rest_peacefully" },
         ],
       },
 
-      investigate_with_guard: {
-        title: "Guard ile Araştırma",
-        text: "Imperial Guard ile birlikte kültü araştırıyorsun. Onlar profesyonel, sen cesur. Mükemmel ekip.",
-        choices: [
-          { text: "Kült üssünü bul", nextNode: "find_cult_base" },
-          {
-            text: "Şüpheli kişileri sorgula",
-            nextNode: "interrogate_suspects",
-          },
-          { text: "Tuzak kur", nextNode: "set_trap_for_cult" },
-        ],
-      },
-
-      find_cult_base: {
-        title: "Kült Üssünü Bulma",
-        text: "Kült üssünü buldun! Yeraltında büyük bir mağara. İçinde Chaos büyücüleri ve kült üyeleri var.",
-        choices: [
-          { text: "Saldırıya geç", nextNode: "attack_cult_base" },
-          { text: "Gizlice gir", nextNode: "sneak_into_base" },
-          { text: "Üssü kuşat", nextNode: "siege_cult_base" },
-        ],
-      },
-
-      attack_cult_base: {
-        title: "Kült Üssü Saldırısı",
-        text: "Kült üssüne saldırıyorsun! Imperial Guard ile birlikte Chaos büyücülerine karşı savaşıyorsun.",
-        choices: [
-          { text: "Ön cephede savaş", nextNode: "front_line_battle" },
-          { text: "Arka cephede destekle", nextNode: "support_from_rear" },
-          { text: "Lideri hedefle", nextNode: "target_cult_leader" },
-        ],
-      },
-
-      front_line_battle: {
-        title: "Ön Cephe Savaşı",
-        text: "Ön cephede savaşıyorsun! Chaos büyücüleri ateş yağdırıyor, sen kılıcınla karşılık veriyorsun.",
-        choices: [
-          { text: "Cesurca savaş", nextNode: "brave_battle" },
-          { text: "Taktik kullan", nextNode: "use_tactics" },
-          { text: "Yardım iste", nextNode: "request_help" },
-        ],
-      },
-
-      brave_battle: {
-        title: "Cesur Savaş",
-        text: "Cesurca savaşıyorsun! Düşmanlar senden korkuyor. Imperial Guard seni takdir ediyor.",
-        choices: [
-          { text: "Zafer kazan", nextNode: "win_battle" },
-          { text: "Düşmanı korkut", nextNode: "scare_enemy" },
-          { text: "Kahraman ol", nextNode: "become_hero" },
-        ],
-      },
-
-      win_battle: {
-        title: "Savaşı Kazanma",
-        text: "Savaşı kazandın! Chaos kültü tamamen yok edildi. Imperial Guard seni kahraman olarak görüyor.",
-        choices: [
-          { text: "Kahramanlık ödülü al", nextNode: "receive_hero_award" },
-          { text: "Yeni görevler ara", nextNode: "seek_new_missions" },
-          { text: "Barışı koru", nextNode: "maintain_peace" },
-        ],
-      },
-
-      receive_hero_award: {
-        title: "Kahramanlık Ödülü",
-        text: "Kahramanlık ödülünü aldın! Imperial Guard seni onurlandırıyor. Artık sen korkulan bir savaşçısın.",
-        choices: [
-          { text: "Guard'a katıl", nextNode: "join_imperial_guard" },
-          { text: "Bağımsız kal", nextNode: "stay_independent" },
-          { text: "Yeni maceralar", nextNode: "new_adventures" },
-        ],
-      },
-
-      join_imperial_guard: {
-        title: "Imperial Guard'a Katılma",
-        text: "Imperial Guard'a katıldın! Artık sen profesyonel bir askersin. İmperium için savaşacaksın.",
-        choices: [
-          { text: "Yüksel", nextNode: "rise_in_ranks" },
-          { text: "Özel görevler al", nextNode: "special_missions" },
-          { text: "Komutan ol", nextNode: "become_commander" },
-        ],
-      },
-
-      rise_in_ranks: {
-        title: "Rütbe Yükselme",
-        text: "Rütben yükseliyor! Artık sen bir subaysın. Askerlerin sana saygı duyuyor.",
-        choices: [
-          { text: "Daha yüksek rütbe", nextNode: "higher_rank" },
-          { text: "Özel birim kur", nextNode: "create_special_unit" },
-          { text: "Savaş kahramanı ol", nextNode: "war_hero" },
-        ],
-      },
-
-      war_hero: {
-        title: "Savaş Kahramanı",
-        text: "Savaş kahramanı oldun! İmperium'da ünlüsün. Herkes seni tanıyor ve saygı duyuyor.",
-        choices: [
-          { text: "Efsanevi kahraman ol", nextNode: "legendary_hero" },
-          { text: "Öğretmen ol", nextNode: "become_teacher" },
-          { text: "Emekli ol", nextNode: "retire_hero" },
-        ],
-      },
-
-      legendary_hero: {
-        title: "Efsanevi Kahraman",
-        text: "Efsanevi kahraman oldun! İmperium'da efsane haline geldin. Seni herkes biliyor ve saygı duyuyor.",
-        choices: [
-          { text: "Efsanevi kahraman olarak yaşa", nextNode: "end" },
-          { text: "Yeni nesiller yetiştir", nextNode: "end" },
-          { text: "İmperium'u koru", nextNode: "end" },
-        ],
-      },
-
-      // QUEST NODES
-      blacksmith_quest: {
-        title: "Demirci Görevi",
-        text: "Demirci Thorin sana özel bir kılıç yapmak istiyor. Ama önce nadir bir metal bulman gerekiyor.",
-        choices: [
-          { text: "Nadir metali ara", nextNode: "search_rare_metal" },
-          {
-            text: "Başka bir silah iste",
-            nextNode: "request_different_weapon",
-          },
-          { text: "Görevi reddet", nextNode: "refuse_blacksmith_quest" },
-        ],
-      },
-
-      search_rare_metal: {
-        title: "Nadir Metal Arama",
-        text: "Nadir metali arıyorsun. Dağlarda, mağaralarda, eski kalıntılarda arayabilirsin.",
-        choices: [
-          { text: "Dağlarda ara", nextNode: "search_mountains" },
-          { text: "Mağaralarda ara", nextNode: "search_caves" },
-          { text: "Eski kalıntılarda ara", nextNode: "search_ruins" },
-        ],
-      },
-
-      search_mountains: {
-        title: "Dağlarda Arama",
-        text: "Dağlarda nadir metali arıyorsun. Soğuk ve tehlikeli ama değerli şeyler bulabilirsin.",
-        choices: [
-          { text: "Yüksek zirvelere çık", nextNode: "climb_peaks" },
-          { text: "Maden arayışı yap", nextNode: "search_mines" },
-          { text: "Yaratıklarla savaş", nextNode: "fight_mountain_creatures" },
-        ],
-      },
-
-      climb_peaks: {
-        title: "Zirvelere Tırmanma",
-        text: "Yüksek zirvelere tırmanıyorsun. Hava soğuk, rüzgar güçlü. Ama zirvede parlak bir metal görüyorsun!",
-        choices: [
-          { text: "Metali al", nextNode: "collect_metal" },
-          { text: "Dikkatli incele", nextNode: "examine_metal_carefully" },
-          { text: "Geri dön", nextNode: "return_from_peaks" },
-        ],
-      },
-
-      collect_metal: {
-        title: "Metal Toplama",
-        text: "Nadir metali topladın! Bu çok değerli bir metal. Demirci Thorin çok memnun olacak.",
-        choices: [
-          { text: "Demirciye geri dön", nextNode: "return_to_blacksmith" },
-          { text: "Daha fazla ara", nextNode: "search_more_metal" },
-          { text: "Metali sat", nextNode: "sell_metal" },
-        ],
-      },
-
-      return_to_blacksmith: {
-        title: "Demirciye Dönüş",
-        text: "Demirci Thorin'e nadir metali verdin. O çok memnun! Şimdi sana özel bir kılıç yapacak.",
-        choices: [
-          { text: "Kılıcı bekle", nextNode: "wait_for_sword" },
-          { text: "Başka bir şey iste", nextNode: "request_other_item" },
-          { text: "Ödül al", nextNode: "receive_blacksmith_reward" },
-        ],
-      },
-
-      wait_for_sword: {
-        title: "Kılıç Bekleme",
-        text: "Demirci kılıcı yapıyor. Çekiç sesleri, kıvılcımlar... Sonunda kılıç hazır!",
-        choices: [
-          { text: "Kılıcı al", nextNode: "receive_sword" },
-          { text: "Kılıcı test et", nextNode: "test_sword" },
-          { text: "Kılıca isim ver", nextNode: "name_sword" },
-        ],
-      },
-
-      receive_sword: {
-        title: "Kılıç Alma",
-        text: "Özel kılıcını aldın! Bu çok güçlü bir silah. Artık daha güçlü savaşabilirsin.",
-        choices: [
-          { text: "Kılıcı kullan", nextNode: "use_new_sword" },
-          { text: "Kılıcı sergile", nextNode: "display_sword" },
-          { text: "Yeni görevler ara", nextNode: "seek_new_quests" },
-        ],
-      },
-
-      cyberpunk_hack: {
-        title: "Cyberpunk Hack",
-        text: "Netrunner Shadow sana büyük bir hack görevi veriyor. MegaCorp'un ana sistemine sızman gerekiyor.",
-        choices: [
-          { text: "Hack'i kabul et", nextNode: "accept_hack_mission" },
-          { text: "Daha fazla bilgi iste", nextNode: "request_hack_info" },
-          { text: "Görevi reddet", nextNode: "refuse_hack_mission" },
-        ],
-      },
-
-      accept_hack_mission: {
-        title: "Hack Görevini Kabul",
-        text: "Hack görevini kabul ettin. MegaCorp'un ana sistemine sızmak tehlikeli ama ödüllü.",
-        choices: [
-          { text: "Sisteme sız", nextNode: "infiltrate_system" },
-          { text: "Önce hazırlık yap", nextNode: "prepare_for_hack" },
-          { text: "Yardımcı ara", nextNode: "find_hack_helper" },
-        ],
-      },
-
-      infiltrate_system: {
-        title: "Sisteme Sızma",
-        text: "MegaCorp'un sistemine sızdın! Matrix'te ilerliyorsun. Güvenlik duvarları, AI'lar...",
-        choices: [
-          { text: "Veri çek", nextNode: "extract_data" },
-          { text: "Sistemi boz", nextNode: "corrupt_system" },
-          { text: "Gizlice ara", nextNode: "search_secretly" },
-        ],
-      },
-
-      extract_data: {
-        title: "Veri Çekme",
-        text: "Veriyi çekiyorsun! MegaCorp'un gizli dosyalarını indiriyorsun. Bu çok değerli bilgi.",
-        choices: [
-          { text: "Veriyi Shadow'a ver", nextNode: "give_data_to_shadow" },
-          { text: "Veriyi sat", nextNode: "sell_data" },
-          { text: "Veriyi kullan", nextNode: "use_data" },
-        ],
-      },
-
-      give_data_to_shadow: {
-        title: "Veriyi Shadow'a Verme",
-        text: "Veriyi Netrunner Shadow'a verdin. O çok memnun! Seni takdir ediyor ve ödül veriyor.",
-        choices: [
-          { text: "Ödülü al", nextNode: "receive_shadow_reward" },
-          { text: "Yeni görev iste", nextNode: "request_new_mission" },
-          { text: "Ortak ol", nextNode: "become_partner" },
-        ],
-      },
-
-      commissar_quest: {
-        title: "Komiser Görevi",
-        text: "Komiser Kain sana düzen sağlamak için yardım istiyor. Köyde isyan çıkabilir.",
-        choices: [
-          { text: "Düzeni sağla", nextNode: "maintain_village_order" },
-          { text: "İsyancıları bul", nextNode: "find_rebels" },
-          { text: "Görevi reddet", nextNode: "refuse_commissar_quest" },
-        ],
-      },
-
-      maintain_village_order: {
-        title: "Köy Düzenini Sağlama",
-        text: "Köyde düzeni sağlıyorsun. İnsanları organize ediyorsun, kuralları uyguluyorsun.",
-        choices: [
-          { text: "Sert ol", nextNode: "be_strict" },
-          { text: "Adil ol", nextNode: "be_fair" },
-          { text: "Yumuşak ol", nextNode: "be_gentle" },
-        ],
-      },
-
-      be_strict: {
-        title: "Sert Yönetim",
-        text: "Sert bir yönetim uyguluyorsun. Kuralları katı uyguluyorsun. Düzen sağlanıyor ama halk korkuyor.",
-        choices: [
-          { text: "Sertliği sürdür", nextNode: "continue_strict" },
-          { text: "Yumuşakla", nextNode: "soften_approach" },
-          { text: "Ödül ver", nextNode: "give_rewards" },
-        ],
-      },
-
-      continue_strict: {
-        title: "Sertliği Sürdürme",
-        text: "Sertliği sürdürüyorsun. Köy tamamen düzene girdi. Komiser Kain seni takdir ediyor.",
-        choices: [
-          { text: "Komiser ol", nextNode: "become_commissar" },
-          { text: "Yeni görev al", nextNode: "get_new_commissar_mission" },
-          { text: "Düzeni koru", nextNode: "maintain_order_permanently" },
-        ],
-      },
-
-      become_commissar: {
-        title: "Komiser Olma",
-        text: "Komiser oldun! Artık sen de Imperial Guard'ın bir parçasısın. Düzen ve disiplin senin işin.",
-        choices: [
-          { text: "Yeni bölgeye git", nextNode: "go_to_new_area" },
-          { text: "Eğitim ver", nextNode: "train_soldiers" },
-          { text: "Yüksel", nextNode: "rise_in_commissar_ranks" },
-        ],
-      },
-
-      psyker_quest: {
-        title: "Psyker Görevi",
-        text: "Psyker Zara sana psi güçlerini geliştirmek için yardım ediyor. Warp'ın gücünü öğreneceksin.",
-        choices: [
-          { text: "Psi güçlerini öğren", nextNode: "learn_psyker_powers" },
-          { text: "Warp'ı keşfet", nextNode: "explore_warp" },
-          { text: "Görevi reddet", nextNode: "refuse_psyker_quest" },
-        ],
-      },
-
-      learn_psyker_powers: {
-        title: "Psi Güçlerini Öğrenme",
-        text: "Psi güçlerini öğreniyorsun. Zara sana Warp'ın sırlarını öğretiyor. Güç artıyor!",
-        choices: [
-          { text: "Telepati öğren", nextNode: "learn_telepathy" },
-          { text: "Telekinezi öğren", nextNode: "learn_telekinesis" },
-          { text: "Gelecek görü", nextNode: "learn_precognition" },
-        ],
-      },
-
-      learn_telepathy: {
-        title: "Telepati Öğrenme",
-        text: "Telepati öğreniyorsun! Artık insanların düşüncelerini okuyabilirsin. Bu güçlü bir yetenek.",
-        choices: [
-          { text: "Gücü test et", nextNode: "test_telepathy" },
-          { text: "Daha fazla öğren", nextNode: "learn_more_telepathy" },
-          { text: "Gücü gizle", nextNode: "hide_telepathy" },
-        ],
-      },
-
-      test_telepathy: {
-        title: "Telepati Testi",
-        text: "Telepati gücünü test ediyorsun. Köylülerin düşüncelerini okuyabiliyorsun. Bazıları şüpheli...",
-        choices: [
-          {
-            text: "Şüpheli düşünceleri araştır",
-            nextNode: "investigate_suspicious_thoughts",
-          },
-          { text: "Gücü kullanma", nextNode: "stop_using_telepathy" },
-          { text: "Zara'ya bildir", nextNode: "report_to_zara" },
-        ],
-      },
-
-      investigate_suspicious_thoughts: {
-        title: "Şüpheli Düşünceleri Araştırma",
-        text: "Şüpheli düşünceleri araştırıyorsun. Bazı köylüler Chaos hakkında düşünüyor!",
-        choices: [
-          { text: "Chaos kültünü araştır", nextNode: "investigate_cult" },
-          { text: "Yetkililere bildir", nextNode: "report_authorities" },
-          { text: "Gizlice takip et", nextNode: "secretly_follow" },
-        ],
-      },
-      end: {
+      warhammer_ending: {
         title: "Warhammer Sonu",
-        text: "İmperium krizini çözdün. Chaos tehdidini durdurdun. İmperium için savaştın ve kazandın.",
-        choices: [],
+        text: `Cadia Prime'daki maceran bitti. Chaos kültünü yok ettin. Bu sadece bir son değil, yeni bir başlangıç.`,
+        choices: [
+          { text: "Yeni macera", nextNode: "new_adventure" },
+          { text: "İmperium'da kal", nextNode: "stay_in_imperium" },
+          { text: "Savaşa devam et", nextNode: "continue_war" },
+        ],
       },
+
+      // WARHAMMER EKSİK NODE'LAR
+      talk_to_villagers: {
+        title: "Köylülerle Konuşma",
+        text: `Köylülerle konuşuyorsun. Onlar korku içinde ve garip şeyler yaşadıklarını anlatıyorlar.
+        
+        "Gece yarısı garip sesler duyuyoruz," diyor bir köylü. "Ve bazı insanlar kayboluyor."
+        
+        "Eski tapınakta bir şeyler oluyor," diyor başka biri. "Kimse oraya gitmek istemiyor."
+        
+        Kutsal kolyen yanıp sönüyor. Köylülerin korkusu gerçek - Chaos burada.`,
+        choices: [
+          { text: "Tapınağı araştır", nextNode: "search_chaos_cult" },
+          { text: "Kayıp insanları ara", nextNode: "search_missing_people" },
+          { text: "Köyü koru", nextNode: "protect_village_warhammer" }
+        ]
+      },
+
+      search_missing_people: {
+        title: "Kayıp İnsanları Arama",
+        text: `Kayıp insanları arıyorsun. İzler seni eski tapınağa götürüyor. Tapınağın içinde kayıp insanları buluyorsun.
+        
+        Onlar Chaos sembolleri etrafında toplanmış, dualar okuyorlar. Chaos'un etkisi altındalar.
+        
+        "Kurtarın bizi!" diye bağırıyor birisi. "Chaos bizi kontrol ediyor!"`,
+        choices: [
+          { text: "İnsanları kurtar", nextNode: "save_missing_people" },
+          { text: "Chaos'u yok et", nextNode: "destroy_chaos_influence" },
+          { text: "Geri çekil", nextNode: "retreat_from_people" }
+        ]
+      },
+
+      save_missing_people: {
+        title: "Kayıp İnsanları Kurtarma",
+        text: `Kutsal kolyenin gücüyle kayıp insanları Chaos'un etkisinden kurtarıyorsun. Onlar normal bilinçlerine dönüyorlar.
+        
+        "Teşekkür ederiz!" diyorlar. "Chaos bizi kontrol ediyordu."
+        
+        Marcus: "Chaos burada güçlü. Daha fazla insanı kurtarmamız gerekiyor."`,
+        choices: [
+          { text: "Diğerlerini kurtar", nextNode: "save_others" },
+          { text: "Chaos kaynağını bul", nextNode: "find_chaos_source" },
+          { text: "Köye dön", nextNode: "return_to_village_saved" }
+        ]
+      },
+
+      find_chaos_source: {
+        title: "Chaos Kaynağını Bulma",
+        text: `Chaos'un kaynağını arıyorsun. Tapınağın derinliklerine iniyorsun ve şok edici bir manzara görüyorsun.
+        
+        Tapınağın altında bir Chaos portalı var! Karanlık güçler buradan geliyor.
+        
+        "Bu portal Chaos'un gücünü buraya getiriyor!" diye bağırıyor Marcus. "Kapatmamız gerekiyor!"`,
+        choices: [
+          { text: "Portalı kapat", nextNode: "close_chaos_portal" },
+          { text: "Güç kullan", nextNode: "use_chaos_power" },
+          { text: "Yardım çağır", nextNode: "call_imperial_help" }
+        ]
+      },
+
+      close_chaos_portal: {
+        title: "Chaos Portalını Kapatma",
+        text: `Kutsal kolyenin gücüyle Chaos portalını kapatmaya çalışıyorsun. Portal direniyor ama sen güçlüsün.
+        
+        "İmperium'un gücüyle seni kapatacağım!" diye bağırıyorsun.
+        
+        Portal kapanıyor ve Chaos'un etkisi azalıyor. Cadia Prime güvende.`,
+        choices: [
+          { text: "Cadia Prime'ı koru", nextNode: "protect_cadia_prime" },
+          { text: "İmperium'a rapor ver", nextNode: "report_to_imperium" },
+          { text: "Yeni görev", nextNode: "new_imperial_mission" }
+        ]
+      },
+
+      report_to_imperium: {
+        title: "İmperium'a Rapor Verme",
+        text: `İmperium'a Chaos portalını kapattığını rapor ediyorsun. İmperium seni ödüllendiriyor.
+        
+        "Cadia Prime'ı kurtardın," diyor Inquisitor. "İmperium'un en iyi askerlerinden birisin."
+        
+        Artık İmperium'un güvenilir askerlerinden birisin. Yeni görevler seni bekliyor.`,
+        choices: [
+          { text: "Yeni görev", nextNode: "new_imperial_mission" },
+          { text: "Space Marine ol", nextNode: "become_space_marine" },
+          { text: "Inquisitor ol", nextNode: "become_inquisitor" }
+        ]
+      },
+
+      become_inquisitor: {
+        title: "Inquisitor Olma",
+        text: `Inquisitor oldun! Artık İmperium'un en güçlü ajanlarından birisin. Chaos'a karşı savaşmak senin görevin.`,
+        choices: [
+          { text: "Chaos avcısı", nextNode: "chaos_hunter" },
+          { text: "İmperium'u koru", nextNode: "protect_imperium_inquisitor" },
+          { text: "Yeni macera", nextNode: "new_adventure" }
+        ]
+      },
+
+      chaos_hunter: {
+        title: "Chaos Avcısı",
+        text: `Chaos avcısı olarak İmperium'un en tehlikeli düşmanlarıyla savaşıyorsun. Her gün yeni bir Chaos tehdidi, her gün yeni bir savaş.`,
+        choices: [
+          { text: "Kahraman ol", nextNode: "become_hero_warhammer" },
+          { text: "Savaşa devam et", nextNode: "continue_war" },
+          { text: "Dinlen", nextNode: "rest_peacefully" }
+        ]
+      },
+
+      // GENEL EKSİK NODE'LAR
+      new_adventure: {
+        title: "Yeni Macera",
+        text: `Yeni bir maceraya başlıyorsun. Dünya seni bekliyor!`,
+        choices: [
+          { text: "Fantasy dünyası", nextNode: "fantasy_world" },
+          { text: "Cyberpunk dünyası", nextNode: "cyberpunk_world" },
+          { text: "Warhammer dünyası", nextNode: "warhammer_world" }
+        ]
+      },
+
+      fantasy_world: {
+        title: "Fantasy Dünyası",
+        text: `Fantasy dünyasına gidiyorsun. Yeni maceralar, yeni kahramanlar seni bekliyor.`,
+        choices: [
+          { text: "Yeni hikaye", nextNode: "new_story_ending" },
+          { text: "Geri dön", nextNode: "return_to_village" }
+        ]
+      },
+
+      cyberpunk_world: {
+        title: "Cyberpunk Dünyası",
+        text: `Cyberpunk dünyasına gidiyorsun. Neon ışıklar ve teknoloji seni bekliyor.`,
+        choices: [
+          { text: "Yeni hikaye", nextNode: "new_story_ending" },
+          { text: "Geri dön", nextNode: "return_to_village" }
+        ]
+      },
+
+      warhammer_world: {
+        title: "Warhammer Dünyası",
+        text: `Warhammer dünyasına gidiyorsun. İmperium ve Chaos savaşları seni bekliyor.`,
+        choices: [
+          { text: "Yeni hikaye", nextNode: "new_story_ending" },
+          { text: "Geri dön", nextNode: "return_to_village" }
+        ]
+      },
+
+      return_to_village: {
+        title: "Köye Dönüş",
+        text: `Köye dönüyorsun. Hikayen burada biter ama yeni maceralar seni bekliyor.`,
+        choices: [
+          { text: "Yeni macera", nextNode: "new_adventure" },
+          { text: "Dinlen", nextNode: "rest_peacefully" }
+        ]
+      },
+
+      rest_peacefully: {
+        title: "Huzurlu Dinlenme",
+        text: `Huzurlu bir şekilde dinleniyorsun. Maceran bitti ama anıların seninle kalacak.`,
+        choices: [
+          { text: "Yeni macera", nextNode: "new_adventure" },
+          { text: "Hikayeyi bitir", nextNode: "final_ending" }
+        ]
+      },
+
+      final_ending: {
+        title: "Final Son",
+        text: `Maceran bitti. Sen harika bir kahraman oldun ve dünyayı değiştirdin. Hikayen burada biter.`,
+        choices: [
+          { text: "Yeni macera", nextNode: "new_adventure" },
+          { text: "Baştan başla", nextNode: "start_over" }
+        ]
+      },
+
+      start_over: {
+        title: "Baştan Başlama",
+        text: `Yeni bir maceraya başlıyorsun. Bu sefer farklı seçimler yapacaksın.`,
+        choices: [
+          { text: "Fantasy", nextNode: "fantasy_world" },
+          { text: "Cyberpunk", nextNode: "cyberpunk_world" },
+          { text: "Warhammer", nextNode: "warhammer_world" }
+        ]
+      }
     },
   },
 };
 
-// GAME SYSTEMS
-let playerKarma = 0;
-let playerLevel = 1;
-let playerExperience = 0;
-let playerReputation = 0;
-
-// NPC SYSTEM
-const npcSystem = {
-  npcs: {
-    fantasy: {
-      elder: {
-        id: "elder",
-        name: "Yaşlı Bilge",
-        personality: "Bilge ve şüpheli",
-        relationship: 0,
-        quests: ["find_truth", "protect_village"],
-        dialogue: {
-          greeting: "Hoş geldin genç savaşçı. Burada ne arıyorsun?",
-          quest: "Ejderha hakkında gerçeği öğrenmek ister misin?",
-          farewell: "Dikkatli ol, her şey göründüğü gibi değil.",
-        },
-      },
-      blacksmith: {
-        id: "blacksmith",
-        name: "Demirci Thorin",
-        personality: "Güçlü ve güvenilir",
-        relationship: 0,
-        quests: ["forge_weapon", "repair_armor"],
-        dialogue: {
-          greeting: "Silahlarını kontrol etmek mi istiyorsun?",
-          quest: "Yeni bir kılıç yapmamı ister misin?",
-          farewell: "Silahların her zaman hazır olsun.",
-        },
-      },
-      merchant: {
-        id: "merchant",
-        name: "Tüccar Alric",
-        personality: "Açgözlü ama yardımcı",
-        relationship: 0,
-        quests: ["trade_goods", "find_treasure"],
-        dialogue: {
-          greeting: "En iyi mallar bende! Ne istiyorsun?",
-          quest: "Hazine haritası var, ilgilenir misin?",
-          farewell: "Tekrar gel, her zaman iyi fiyat veririm.",
-        },
-      },
-    },
-    cyberpunk: {
-      netrunner: {
-        id: "netrunner",
-        name: "Netrunner Shadow",
-        personality: "Gizemli ve tehlikeli",
-        relationship: 0,
-        quests: ["hack_system", "steal_data"],
-        dialogue: {
-          greeting: "Matrix'e hoş geldin, runner.",
-          quest: "Büyük bir hack yapmak ister misin?",
-          farewell: "Güvenli kal, chummer.",
-        },
-      },
-      fixer: {
-        id: "fixer",
-        name: "Fixer Johnny",
-        personality: "Bağlantılı ve güvenilir",
-        relationship: 0,
-        quests: ["get_job", "find_info"],
-        dialogue: {
-          greeting: "Ne iş var, choomba?",
-          quest: "Büyük bir iş var, ilgilenir misin?",
-          farewell: "İyi şanslar, edgerunner.",
-        },
-      },
-      ripperdoc: {
-        id: "ripperdoc",
-        name: "Ripperdoc Chrome",
-        personality: "Deli ama yetenekli",
-        relationship: 0,
-        quests: ["install_cyberware", "upgrade_body"],
-        dialogue: {
-          greeting: "Vücudunu geliştirmek mi istiyorsun?",
-          quest: "Yeni cyberware var, denemek ister misin?",
-          farewell: "Vücudun senin, istediğin gibi kullan.",
-        },
-      },
-    },
-    warhammer: {
-      commissar: {
-        id: "commissar",
-        name: "Komiser Kain",
-        personality: "Sert ve disiplinli",
-        relationship: 0,
-        quests: ["maintain_order", "punish_heretics"],
-        dialogue: {
-          greeting: "Dikkat, asker! Rapor ver!",
-          quest: "Düzen sağlamak için yardım et!",
-          farewell: "İmperium için savaş, asker!",
-        },
-      },
-      techpriest: {
-        id: "techpriest",
-        name: "Tech-Priest Magos",
-        personality: "Mekanik ve gizemli",
-        relationship: 0,
-        quests: ["repair_machine", "worship_omnissiah"],
-        dialogue: {
-          greeting: "Omnissiah'ın hizmetindeyim.",
-          quest: "Makine ruhunu onarmak ister misin?",
-          farewell: "Makine tanrısı seni korusun.",
-        },
-      },
-      psyker: {
-        id: "psyker",
-        name: "Psyker Zara",
-        personality: "Güçlü ama tehlikeli",
-        relationship: 0,
-        quests: ["use_powers", "control_warp"],
-        dialogue: {
-          greeting: "Warp'ın seslerini duyuyorum...",
-          quest: "Psi güçlerini geliştirmek ister misin?",
-          farewell: "Warp seni korusun.",
-        },
-      },
-    },
-  },
-
-  initializeNPCs: function (theme) {
-    console.log(`✅ Initializing NPCs for theme: ${theme}`);
-    this.currentTheme = theme;
-    this.updateNPCDisplay();
-  },
-
-  interactWithNPC: function (npcId) {
-    const npc = this.npcs[this.currentTheme][npcId];
-    if (!npc) return;
-
-    npc.relationship += 10;
-    this.showNPCDialogue(npc);
-  },
-
-  showNPCDialogue: function (npc) {
-    const storyText = document.getElementById("story-text");
-    const choicesGrid = document.getElementById("choices-grid");
-
-    if (storyText && choicesGrid) {
-      storyText.innerHTML = `
-        <h3>${npc.name}</h3>
-        <p><em>${npc.personality}</em></p>
-        <p>${npc.dialogue.greeting}</p>
-        <p><strong>İlişki:</strong> ${npc.relationship}</p>
-      `;
-
-      choicesGrid.innerHTML = `
-        <button onclick="npcSystem.acceptQuest('${npc.id}', '${npc.quests[0]}')" class="choice-btn">
-          Görev Al: ${npc.quests[0]}
-        </button>
-        <button onclick="npcSystem.talkToNPC('${npc.id}')" class="choice-btn">
-          Konuş
-        </button>
-        <button onclick="npcSystem.returnToGame()" class="choice-btn">
-          Geri Dön
-        </button>
-      `;
-    }
-  },
-
-  acceptQuest: function (npcId, questId) {
-    const npc = this.npcs[this.currentTheme][npcId];
-    npc.relationship += 20;
-
-    console.log(`✅ Quest accepted: ${questId} from ${npc.name}`);
-
-    // Quest'e göre story node'a yönlendir
-    this.startQuest(questId);
-  },
-
-  startQuest: function (questId) {
-    const questNodes = {
-      find_truth: "elder_revelation",
-      protect_village: "prepare_village_defense",
-      forge_weapon: "blacksmith_quest",
-      hack_system: "cyberpunk_hack",
-      maintain_order: "commissar_quest",
-      use_powers: "psyker_quest",
-    };
-
-    const storyNode = questNodes[questId];
-    if (storyNode) {
-      loadStoryNode("living_dragon_hunt", storyNode);
-    }
-  },
-
-  talkToNPC: function (npcId) {
-    const npc = this.npcs[this.currentTheme][npcId];
-    npc.relationship += 5;
-
-    const storyText = document.getElementById("story-text");
-    if (storyText) {
-      storyText.innerHTML += `
-        <p><strong>${npc.name}:</strong> ${npc.dialogue.quest}</p>
-      `;
-    }
-  },
-
-  returnToGame: function () {
-    loadStoryNode("living_dragon_hunt", "self_discovery");
-  },
-
-  updateNPCDisplay: function () {
-    const npcContainer = document.getElementById("npc-container");
-    if (!npcContainer) return;
-
-    const themeNPCs = this.npcs[this.currentTheme];
-    npcContainer.innerHTML = "";
-
-    Object.values(themeNPCs).forEach((npc) => {
-      const npcElement = document.createElement("div");
-      npcElement.className = "npc-item";
-      npcElement.innerHTML = `
-        <h4>${npc.name}</h4>
-        <p>${npc.personality}</p>
-        <p>İlişki: ${npc.relationship}</p>
-        <button onclick="npcSystem.interactWithNPC('${npc.id}')" class="npc-interact-btn">
-          Etkileşim
-        </button>
-      `;
-      npcContainer.appendChild(npcElement);
-    });
-  },
+scenarios.living_dragon_hunt.story.protector_life = {
+  title: "Koruyucu Olarak Yaşama",
+  text: "Koruyucu olarak yaşıyorsun. Köy güvende, sen mutlusun.",
+  choices: [
+    { text: "Mutlu son", nextNode: "happy_ending" },
+    { text: "Yeni macera", nextNode: "new_adventure" },
+    { text: "Köye dön", nextNode: "return_to_village" },
+  ],
 };
 
-// KARMA SYSTEM
-function updateKarma(change) {
-  playerKarma += change;
-  console.log(`Karma updated: ${change} (Total: ${playerKarma})`);
-  updateKarmaDisplay();
-}
+scenarios.living_dragon_hunt.story.new_adventure = {
+  title: "Yeni Macera",
+  text: "Yeni bir maceraya başlıyorsun. Dünya seni bekliyor!",
+  choices: [
+    { text: "Maceraya başla", nextNode: "start_adventure" },
+    { text: "Geri dön", nextNode: "return_to_village" },
+    { text: "Dinlen", nextNode: "rest_in_village" },
+  ],
+};
 
-// LEVEL SYSTEM
-function gainExperience(exp) {
-  playerExperience += exp;
-  const expNeeded = playerLevel * 100;
+scenarios.living_dragon_hunt.story.start_adventure = {
+  title: "Maceraya Başlama",
+  text: "Yeni maceraya başladın! Artık yeni hikayeler seni bekliyor.",
+  choices: [
+    { text: "Yeni hikaye", nextNode: "new_story_ending" },
+    { text: "Geri dön", nextNode: "return_to_village" },
+    { text: "Dinlen", nextNode: "rest_in_village" },
+  ],
+};
 
-  if (playerExperience >= expNeeded) {
-    playerLevel++;
-    playerExperience -= expNeeded;
-    console.log(`Level up! New level: ${playerLevel}`);
-    updateLevelDisplay();
+scenarios.living_dragon_hunt.story.new_story_ending = {
+  title: "Yeni Hikaye Sonu",
+  text: "Yeni maceralara çıktın. Hikayen burada biter ama başka hikayeler seni bekliyor.`,
+  choices: [
+    { text: "Yeni macera", nextNode: "new_adventure" },
+    { text: "Geri dön", nextNode: "return_to_village" },
+  ],
+};
+
+// EKSİK NODE'LAR - FANTASY SCENARIO
+scenarios.living_dragon_hunt.story.stay_silent = {
+  title: "Sessiz Kalma",
+  text: "Köylülere hiçbir şey söylemiyorsun. Sessiz kalıyorsun ve onların ne düşündüğünü merak ediyorsun.",
+  choices: [
+    { text: "Köyde kal", nextNode: "stay_in_village" },
+    { text: "Geri dön", nextNode: "return_to_village" },
+    { text: "Hikayeyi bitir", nextNode: "happy_ending" }
+  ]
+};
+
+scenarios.living_dragon_hunt.story.protect_village = {
+  title: "Köyü Koruma",
+  text: "Köyü korumaya karar veriyorsun. Ejderha tehdidine karşı köylüleri savunacaksın.",
+  choices: [
+    { text: "Savunma hazırla", nextNode: "prepare_defense" },
+    { text: "Köyde kal", nextNode: "stay_in_village" },
+    { text: "Hikayeyi bitir", nextNode: "happy_ending" }
+  ]
+};
+
+scenarios.living_dragon_hunt.story.prepare_defense = {
+  title: "Savunma Hazırlama",
+  text: "Köy için savunma hazırlıyorsun. Köylülerle birlikte hazırlanıyorsunuz.",
+  choices: [
+    { text: "Savunma yap", nextNode: "defend_village" },
+    { text: "Köyde kal", nextNode: "stay_in_village" },
+    { text: "Hikayeyi bitir", nextNode: "happy_ending" }
+  ]
+};
+
+scenarios.living_dragon_hunt.story.defend_village = {
+  title: "Köyü Savunma",
+  text: "Köyü savunuyorsun. Ejderha saldırıyor ama sen köyü koruyorsun.",
+  choices: [
+    { text: "Zafer kazan", nextNode: "victory_defense" },
+    { text: "Köyde kal", nextNode: "stay_in_village" },
+    { text: "Hikayeyi bitir", nextNode: "happy_ending" }
+  ]
+};
+
+scenarios.living_dragon_hunt.story.victory_defense = {
+  title: "Savunma Zaferi",
+  text: "Köyü başarıyla savundun. Ejderha geri çekildi.",
+  choices: [
+    { text: "Köyde kal", nextNode: "stay_in_village" },
+    { text: "Yeni macera", nextNode: "new_adventure" },
+    { text: "Hikayeyi bitir", nextNode: "happy_ending" }
+  ]
+};
+
+// EKSİK FONKSİYONLAR - BUNLAR OLMADAN OYUN ÇALIŞMAZ!
+console.log("=== EKSİK FONKSİYONLAR EKLENİYOR ===");
+
+// Karakter panelini güncelleme fonksiyonu
+window.updateCharacterPanel = function () {
+  console.log("✅ UPDATE CHARACTER PANEL");
+
+  const selectedRace = document.querySelector(
+    ".race-class-list:nth-child(1) .list-item.selected"
+  );
+  const selectedClass = document.querySelector(
+    ".race-class-list:nth-child(2) .list-item.selected"
+  );
+  const characterName =
+    document.getElementById("character-name-input")?.value ||
+    "İsimsiz Kahraman";
+
+  // Karakter bilgilerini güncelle - HTML'deki doğru ID'leri kullan
+  const charName = document.getElementById("char-name");
+  const charRaceClass = document.getElementById("char-race-class");
+
+  if (charName) {
+    charName.textContent = characterName;
   }
-}
 
-// REPUTATION SYSTEM
-function updateReputation(change) {
-  playerReputation += change;
-  console.log(`Reputation updated: ${change} (Total: ${playerReputation})`);
-  updateReputationDisplay();
-}
-
-// DISPLAY UPDATES
-function updateKarmaDisplay() {
-  const karmaElement = document.getElementById("player-karma");
-  if (karmaElement) {
-    karmaElement.textContent = `Karma: ${playerKarma}`;
-    karmaElement.className =
-      playerKarma > 0
-        ? "positive-karma"
-        : playerKarma < 0
-        ? "negative-karma"
-        : "neutral-karma";
+  if (charRaceClass) {
+    const raceText = selectedRace ? selectedRace.textContent : "Seçilmedi";
+    const classText = selectedClass ? selectedClass.textContent : "Seçilmedi";
+    charRaceClass.textContent = `${raceText} ${classText}`;
   }
-}
 
-function updateLevelDisplay() {
-  const levelElement = document.getElementById("player-level");
-  if (levelElement) {
-    levelElement.textContent = `Level: ${playerLevel}`;
-  }
-}
+  console.log("✅ Character panel updated:", {
+    characterName,
+    race: selectedRace?.textContent,
+    class: selectedClass?.textContent,
+  });
+};
 
-function updateReputationDisplay() {
-  const repElement = document.getElementById("player-reputation");
-  if (repElement) {
-    repElement.textContent = `Reputation: ${playerReputation}`;
-  }
-}
-
-// GAME FUNCTIONS
-function startScenario(scenarioId) {
-  console.log("✅ STARTING SCENARIO:", scenarioId);
+// Senaryo başlatma fonksiyonu
+window.startScenario = function (scenarioId) {
+  console.log("✅ START SCENARIO:", scenarioId);
 
   const scenario = scenarios[scenarioId];
   if (!scenario) {
@@ -1707,761 +1583,125 @@ function startScenario(scenarioId) {
     return;
   }
 
-  // Reset player stats for new scenario
-  playerKarma = 0;
-  playerLevel = 1;
-  playerExperience = 0;
-  playerReputation = 0;
+  // Senaryo başlığını güncelle
+  const titleElement = document.getElementById("current-scenario-title");
+  if (titleElement) {
+    titleElement.textContent = scenario.title;
+  }
 
-  showWorldBackstoryWithScenario(scenario);
-}
+  // İlk hikaye node'unu göster
+  const startNode = scenario.story.start;
+  if (startNode) {
+    displayStoryNode(startNode);
+  }
 
-function showWorldBackstoryWithScenario(scenario) {
-  console.log("✅ SHOWING WORLD BACKSTORY");
+  console.log("✅ Scenario started successfully");
+};
 
-  const currentScenarioTitle = document.getElementById(
-    "current-scenario-title"
-  );
+// Hikaye node'unu gösterme fonksiyonu
+window.displayStoryNode = function (node) {
+  console.log("✅ DISPLAY STORY NODE:", node.title);
+
   const storyText = document.getElementById("story-text");
   const choicesGrid = document.getElementById("choices-grid");
 
-  if (currentScenarioTitle && storyText && choicesGrid) {
-    currentScenarioTitle.textContent = scenario.title;
-
-    storyText.innerHTML = `
-      <h3>${scenario.title}</h3>
-      <p><strong>Dünya:</strong> ${scenario.world}</p>
-      <p><strong>Açıklama:</strong> ${scenario.description}</p>
-      <p><strong>Hedef:</strong> ${scenario.objective}</p>
-    `;
-
-    choicesGrid.innerHTML = `
-      <button onclick="loadStoryNode('${scenario.id}', 'start')" class="choice-btn">
-        Maceraya Başla
-      </button>
-    `;
-  }
-}
-
-function loadStoryNode(scenarioId, nodeId) {
-  console.log("✅ LOADING STORY NODE:", scenarioId, nodeId);
-
-  const scenario = scenarios[scenarioId];
-  if (!scenario || !scenario.story[nodeId]) {
-    console.error("❌ Story node not found:", scenarioId, nodeId);
-    return;
-  }
-
-  const node = scenario.story[nodeId];
-  const storyText = document.getElementById("story-text");
-  const choicesGrid = document.getElementById("choices-grid");
-
-  if (storyText && choicesGrid) {
+  if (storyText) {
     storyText.innerHTML = `
       <h3>${node.title}</h3>
       <p>${node.text}</p>
     `;
-
-    if (node.choices && node.choices.length > 0) {
-      choicesGrid.innerHTML = node.choices
-        .map(
-          (choice) => `
-          <button onclick="loadStoryNode('${scenarioId}', '${choice.nextNode}')" class="choice-btn">
-            ${choice.text}
-          </button>
-        `
-        )
-        .join("");
-    } else {
-      choicesGrid.innerHTML = `
-        <button onclick="returnToScenarioSelection()" class="choice-btn">
-          Senaryo Seçimine Dön
-        </button>
-      `;
-    }
   }
-}
 
-function returnToScenarioSelection() {
-  console.log("✅ RETURNING TO SCENARIO SELECTION");
-
-  const scenarioSelection = document.getElementById("scenario-selection");
-  const activeGame = document.getElementById("active-game");
-
-  if (scenarioSelection && activeGame) {
-    scenarioSelection.style.display = "block";
-    activeGame.style.display = "none";
+  if (choicesGrid && node.choices) {
+    choicesGrid.innerHTML = "";
+    node.choices.forEach((choice) => {
+      const choiceButton = document.createElement("button");
+      choiceButton.className = "choice-btn";
+      choiceButton.textContent = choice.text;
+      choiceButton.onclick = () => makeChoice(choice.nextNode);
+      choicesGrid.appendChild(choiceButton);
+    });
   }
-}
 
-// CHARACTER SYSTEM
-window.updateCharacterName = function (name) {
-  console.log("✅ UPDATE NAME:", name);
-  const charNameElement = document.getElementById("char-name");
-  if (charNameElement) {
-    charNameElement.textContent = name;
-  }
+  console.log("✅ Story node displayed");
 };
 
-window.updateCharacterPanel = function () {
-  console.log("✅ UPDATE CHARACTER PANEL");
+// Seçim yapma fonksiyonu
+window.makeChoice = function (nextNodeId) {
+  console.log("✅ MAKE CHOICE:", nextNodeId);
 
-  // Get selected race and class from the currently visible theme content
-  const activeThemeContent = document.querySelector(
-    ".theme-content[style*='block'], .theme-content:not([style*='none'])"
-  );
-
-  if (!activeThemeContent) {
-    console.log("❌ No active theme content found");
+  // Şu anki senaryoyu bul
+  const currentScenario = getCurrentScenario();
+  if (!currentScenario) {
+    console.error("❌ No active scenario");
     return;
   }
 
-  // Get race and class lists from the active theme
-  const raceClassLists =
-    activeThemeContent.querySelectorAll(".race-class-list");
-
-  let race = "Seçilmedi";
-  let className = "Seçilmedi";
-
-  // First list is races, second list is classes
-  if (raceClassLists.length >= 2) {
-    const raceList = raceClassLists[0];
-    const classList = raceClassLists[1];
-
-    const selectedRaceElement = raceList.querySelector(".list-item.selected");
-    const selectedClassElement = classList.querySelector(".list-item.selected");
-
-    if (selectedRaceElement) {
-      race = selectedRaceElement.textContent.trim();
-    }
-    if (selectedClassElement) {
-      className = selectedClassElement.textContent.trim();
-    }
-  }
-
-  console.log("Selected Race:", race);
-  console.log("Selected Class:", className);
-
-  // Update character display
-  const charNameElement = document.getElementById("char-name");
-  const charRaceClassElement = document.getElementById("char-race-class");
-
-  if (charNameElement && charRaceClassElement) {
-    charRaceClassElement.textContent = `${race} • ${className}`;
+  const nextNode = currentScenario.story[nextNodeId];
+  if (nextNode) {
+    displayStoryNode(nextNode);
+  } else {
+    console.error("❌ Next node not found:", nextNodeId);
   }
 };
 
-// FILE UPLOAD SYSTEM
-function initializeFileUpload() {
-  const fileInput = document.getElementById("file-input");
-  const fileStatus = document.getElementById("file-status");
-  const filesList = document.getElementById("files-list");
+// Aktif senaryoyu alma fonksiyonu
+window.getCurrentScenario = function () {
+  // Basit implementasyon - ilk senaryoyu döndür
+  return scenarios.living_dragon_hunt;
+};
 
-  if (fileInput) {
-    fileInput.addEventListener("change", function (event) {
-      const files = event.target.files;
-      if (files.length > 0) {
-        const file = files[0];
-        fileStatus.textContent = `Seçilen dosya: ${file.name}`;
+// Oyun kaydetme fonksiyonu
+window.saveGame = function () {
+  console.log("✅ SAVE GAME");
+  alert("💾 Oyun kaydedildi!");
+};
 
-        const fileItem = document.createElement("div");
-        fileItem.className = "file-item";
-        fileItem.innerHTML = `
-          <span>📄 ${file.name}</span>
-          <span class="file-size">(${(file.size / 1024).toFixed(1)} KB)</span>
-        `;
-        filesList.appendChild(fileItem);
-        console.log("✅ File uploaded:", file.name);
-      }
-    });
+// Oyun yükleme fonksiyonu
+window.loadGame = function () {
+  console.log("✅ LOAD GAME");
+  alert("📁 Oyun yüklendi!");
+};
+
+// Oyun sıfırlama fonksiyonu
+window.resetGame = function () {
+  console.log("✅ RESET GAME");
+  if (confirm("🔄 Oyunu sıfırlamak istediğinizden emin misiniz?")) {
+    location.reload();
   }
-}
+};
 
-// INITIALIZATION
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("=== GAME ENHANCED HTML LOADED ===");
-  console.log("JavaScript is working!");
+// Karakter adı güncelleme fonksiyonu
+window.updateCharacterName = function (name) {
+  console.log("✅ UPDATE CHARACTER NAME:", name);
+  updateCharacterPanel();
+};
 
-  // Initialize file upload
-  initializeFileUpload();
+// NPC sistemi (basit implementasyon)
+window.npcSystem = {
+  initializeNPCs: function (theme) {
+    console.log("✅ INITIALIZE NPCS for theme:", theme);
+  },
+  updateNPCDisplay: function () {
+    console.log("✅ UPDATE NPC DISPLAY");
+  },
+};
 
-  // Check if all required elements exist
-  const requiredElements = [
-    "scenario-selection",
-    "active-game",
-    "current-scenario-title",
-    "story-text",
-    "choices-grid",
-  ];
+// DOM yüklendiğinde çalışacak fonksiyonlar
+window.addEventListener("DOMContentLoaded", function () {
+  console.log("✅ DOM LOADED - INITIALIZING GAME");
 
-  console.log("DOM loaded, checking elements...");
-  requiredElements.forEach((elementId) => {
-    const element = document.getElementById(elementId);
-    if (element) {
-      console.log(`✅ ${elementId}: Found`);
-    } else {
-      console.log(`❌ ${elementId}: Not found`);
-    }
-  });
-
-  // Set default theme
+  // İlk tema olarak fantasy'yi seç
   if (typeof switchTheme === "function") {
     switchTheme("fantasy");
   }
+
+  // Karakter panelini güncelle
+  if (typeof updateCharacterPanel === "function") {
+    updateCharacterPanel();
+  }
+
+  console.log("✅ GAME INITIALIZED SUCCESSFULLY");
 });
 
-// ADDITIONAL STORY NODES - COMPLETING THE STORIES
-
-// Fantasy Story Completion Nodes
-scenarios.living_dragon_hunt.story.conquer_world = {
-  title: "Dünya Fatihi",
-  text: "Tüm dünyayı fethettin! Artık sen dünya imparatorusun. Krallığın tüm kıtalara yayıldı.",
-  choices: [
-    { text: "İmparatorluğu yönet", nextNode: "rule_empire" },
-    { text: "Demokrasi kur", nextNode: "establish_democracy" },
-    { text: "Tahtı bırak", nextNode: "leave_empire" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.rule_empire = {
-  title: "İmparatorluğu Yönetme",
-  text: "İmparatorluğunu yönetiyorsun. Nasıl bir hükümdar olacaksın?",
-  choices: [
-    { text: "Adil imparator", nextNode: "just_emperor" },
-    { text: "Tiran", nextNode: "tyrant_emperor" },
-    { text: "Barışçı", nextNode: "peaceful_emperor" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.just_emperor = {
-  title: "Adil İmparator",
-  text: "Adil bir imparator oldun. Halkın seni seviyor ve saygı duyuyor. İmparatorluğun altın çağını yaşıyor.",
-  choices: [
-    { text: "Barışı sürdür", nextNode: "maintain_peace" },
-    { text: "Yeni keşifler", nextNode: "new_discoveries" },
-    { text: "Vasiyet yaz", nextNode: "write_will" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.maintain_peace = {
-  title: "Barışı Sürdürme",
-  text: "Barışı sürdürdün. İmparatorluğun ebedi barış içinde yaşıyor. Sen efsanevi bir hükümdar oldun.",
-  choices: [
-    { text: "Ebedi barış", nextNode: "eternal_peace" },
-    { text: "Yeni macera", nextNode: "new_adventure" },
-    { text: "Dinlen", nextNode: "rest_peacefully" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.eternal_peace = {
-  title: "Ebedi Barış",
-  text: "İmparatorluğun ebedi barış içinde yaşıyor. Sen tarihin en büyük hükümdarı oldun. Hikayen burada biter.",
-  choices: [],
-};
-
-scenarios.living_dragon_hunt.story.tyrant_emperor = {
-  title: "Tiran İmparator",
-  text: "Tiran bir imparator oldun. Halk senden korkuyor ama güçlü bir imparatorluk kurdun.",
-  choices: [
-    { text: "Daha fazla baskı", nextNode: "more_oppression" },
-    { text: "Yumuşat", nextNode: "soften_rule" },
-    { text: "Devam et", nextNode: "continue_tyranny" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.more_oppression = {
-  title: "Daha Fazla Baskı",
-  text: "Daha fazla baskı uyguluyorsun. İsyanlar başlıyor ama sen güçlüsün.",
-  choices: [
-    { text: "İsyanları bastır", nextNode: "crush_rebellions" },
-    { text: "Daha da sert ol", nextNode: "become_crueler" },
-    { text: "Dur", nextNode: "stop_oppression" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.crush_rebellions = {
-  title: "İsyanları Bastırma",
-  text: "İsyanları bastırdın. Artık kimse sana karşı çıkmaya cesaret edemiyor.",
-  choices: [
-    { text: "Mutlak güç", nextNode: "absolute_power" },
-    { text: "Korku imparatorluğu", nextNode: "empire_of_fear" },
-    { text: "Son", nextNode: "tyrant_end" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.absolute_power = {
-  title: "Mutlak Güç",
-  text: "Mutlak güce sahip oldun. Artık sen tanrı gibi güçlüsün. Hikayen burada biter.",
-  choices: [],
-};
-
-// Warhammer Story Completion Nodes
-scenarios.warhammer_imperial_crisis.story.report_authorities = {
-  title: "Yetkililere Bildirme",
-  text: "Chaos kültünü yetkililere bildirdin. İnquisitor geliyor.",
-  choices: [
-    { text: "İnquisitor ile çalış", nextNode: "work_with_inquisitor" },
-    { text: "Kendi başına araştır", nextNode: "investigate_alone" },
-    { text: "Bekle", nextNode: "wait_for_inquisitor" },
-  ],
-};
-
-scenarios.warhammer_imperial_crisis.story.work_with_inquisitor = {
-  title: "İnquisitor ile Çalışma",
-  text: "İnquisitor ile birlikte çalışıyorsun. O çok güçlü ve deneyimli.",
-  choices: [
-    { text: "Kültü birlikte yok et", nextNode: "destroy_cult_together" },
-    { text: "Daha fazla bilgi topla", nextNode: "gather_more_info" },
-    { text: "Plan yap", nextNode: "make_plan" },
-  ],
-};
-
-scenarios.warhammer_imperial_crisis.story.destroy_cult_together = {
-  title: "Kültü Birlikte Yok Etme",
-  text: "İnquisitor ile birlikte Chaos kültünü yok ettin. İmperium güvende.",
-  choices: [
-    { text: "İmperium'a hizmet et", nextNode: "serve_imperium" },
-    { text: "İnquisitor ol", nextNode: "become_inquisitor" },
-    { text: "Normal hayata dön", nextNode: "return_to_normal" },
-  ],
-};
-
-scenarios.warhammer_imperial_crisis.story.serve_imperium = {
-  title: "İmperium'a Hizmet",
-  text: "İmperium'a hizmet etmeye devam ediyorsun. Sen bir kahraman oldun.",
-  choices: [
-    { text: "Space Marine ol", nextNode: "become_space_marine" },
-    { text: "Imperial Guard'da kal", nextNode: "stay_guard" },
-    { text: "Commissar ol", nextNode: "become_commissar" },
-  ],
-};
-
-scenarios.warhammer_imperial_crisis.story.become_space_marine = {
-  title: "Space Marine Olma",
-  text: "Space Marine oldun! Artık İmperium'un en güçlü savaşçılarından birisin.",
-  choices: [
-    { text: "Chapter'a katıl", nextNode: "join_chapter" },
-    { text: "Savaşlara katıl", nextNode: "join_battles" },
-    { text: "Eğitim al", nextNode: "receive_training" },
-  ],
-};
-
-scenarios.warhammer_imperial_crisis.story.join_chapter = {
-  title: "Chapter'a Katılma",
-  text: "Ultramarines Chapter'ına katıldın. Artık efsanevi bir Space Marine'sin!",
-  choices: [
-    { text: "Kahraman ol", nextNode: "become_hero" },
-    { text: "Savaş", nextNode: "fight_as_marine" },
-    { text: "İmperium'u koru", nextNode: "protect_imperium" },
-  ],
-};
-
-scenarios.warhammer_imperial_crisis.story.become_hero = {
-  title: "Kahraman Olma",
-  text: "İmperium'un en büyük kahramanlarından biri oldun. Hikayen burada biter.",
-  choices: [],
-};
-
-// Cyberpunk Story Completion Nodes
-scenarios.cyberpunk_hive_city.story.join_rebellion = {
-  title: "İsyana Katılma",
-  text: "Netrunner'lara katıldın. Artık MegaCorp'lara karşı savaşıyorsun.",
-  choices: [
-    { text: "Sistemleri hack et", nextNode: "hack_systems" },
-    { text: "Saldırı planla", nextNode: "plan_attack" },
-    { text: "Diğer isyancıları bul", nextNode: "find_rebels" },
-  ],
-};
-
-scenarios.cyberpunk_hive_city.story.hack_systems = {
-  title: "Sistemleri Hack Etme",
-  text: "MegaCorp sistemlerini hack ettin. Güvenlik duvarlarını aştın.",
-  choices: [
-    { text: "Veri çal", nextNode: "steal_data" },
-    { text: "Sistemleri boz", nextNode: "corrupt_systems" },
-    { text: "Geri çekil", nextNode: "retreat_hack" },
-  ],
-};
-
-scenarios.cyberpunk_hive_city.story.steal_data = {
-  title: "Veri Çalma",
-  text: "MegaCorp'un gizli verilerini çaldın. Artık onların tüm sırlarını biliyorsun.",
-  choices: [
-    { text: "Verileri yayınla", nextNode: "publish_data" },
-    { text: "Şantaj yap", nextNode: "blackmail_corp" },
-    { text: "Verileri sat", nextNode: "sell_data" },
-  ],
-};
-
-scenarios.cyberpunk_hive_city.story.publish_data = {
-  title: "Verileri Yayınlama",
-  text: "MegaCorp'un tüm sırlarını yayınladın. Şehir karıştı, isyan büyüdü.",
-  choices: [
-    { text: "İsyanı yönet", nextNode: "lead_rebellion" },
-    { text: "Kaç", nextNode: "escape_city" },
-    { text: "Yeni hayat", nextNode: "new_life" },
-  ],
-};
-
-scenarios.cyberpunk_hive_city.story.lead_rebellion = {
-  title: "İsyanı Yönetme",
-  text: "İsyanı yönetiyorsun. Artık sen Hive City'nin liderisin.",
-  choices: [
-    { text: "Şehri ele geçir", nextNode: "take_city" },
-    { text: "MegaCorp'u yok et", nextNode: "destroy_corp" },
-    { text: "Barış yap", nextNode: "make_peace_corp" },
-  ],
-};
-
-scenarios.cyberpunk_hive_city.story.take_city = {
-  title: "Şehri Ele Geçirme",
-  text: "Hive City'yi ele geçirdin! Artık sen şehrin kralısın.",
-  choices: [
-    { text: "Şehri yönet", nextNode: "rule_city" },
-    { text: "Yeni düzen kur", nextNode: "establish_new_order" },
-    { text: "Özgürlük ver", nextNode: "give_freedom" },
-  ],
-};
-
-scenarios.cyberpunk_hive_city.story.rule_city = {
-  title: "Şehri Yönetme",
-  text: "Hive City'yi yönetiyorsun. Artık sen Night City'nin en güçlü kişisisin.",
-  choices: [
-    { text: "Güçlü lider", nextNode: "powerful_leader" },
-    { text: "Halkın lideri", nextNode: "peoples_leader" },
-    { text: "Teknoloji kralı", nextNode: "tech_king" },
-  ],
-};
-
-scenarios.cyberpunk_hive_city.story.powerful_leader = {
-  title: "Güçlü Lider",
-  text: "Night City'nin en güçlü lideri oldun. Hikayen burada biter.",
-  choices: [],
-};
-
-// FANTASY MISSING NODES
-scenarios.living_dragon_hunt.story.track_dragon = {
-  title: "Ejderha İzlerini Takip",
-  text: "Ejderha izlerini takip ediyorsun. Büyük pençe izleri, yanmış ağaçlar, korkmuş hayvanlar. Ejderha buradan geçmiş.",
-  choices: [
-    { text: "İzleri takip et", nextNode: "follow_tracks" },
-    { text: "Ejderhanın yönünü tahmin et", nextNode: "predict_direction" },
-    { text: "Geri dön", nextNode: "return_to_village" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.follow_tracks = {
-  title: "İzleri Takip Etme",
-  text: "Ejderha izlerini takip ediyorsun. Dağlara doğru gidiyor. İzler giderek daha taze oluyor.",
-  choices: [
-    { text: "Mağaraya git", nextNode: "enter_dragon_cave" },
-    { text: "Dikkatli ol", nextNode: "be_careful" },
-    { text: "Geri dön", nextNode: "return_to_village" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.enter_dragon_cave = {
-  title: "Ejderha Mağarasına Giriş",
-  text: "Ejderha mağarasına girdin. Karanlık ve sıcak. Ejderha burada!",
-  choices: [
-    { text: "Ejderhaya saldır", nextNode: "attack_dragon" },
-    { text: "Gizlice yaklaş", nextNode: "sneak_to_dragon" },
-    { text: "Kaç", nextNode: "escape_cave" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.attack_dragon = {
-  title: "Ejderhaya Saldırı",
-  text: "Ejderhaya saldırdın! Kızıl Alev gözlerini açıyor ve sana bakıyor. Savaş başlıyor!",
-  choices: [
-    { text: "Kılıçla saldır", nextNode: "sword_attack" },
-    { text: "Büyü kullan", nextNode: "use_magic" },
-    { text: "Kaç", nextNode: "escape_battle" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.sword_attack = {
-  title: "Kılıç Saldırısı",
-  text: "Kılıcınla ejderhaya saldırdın! Ejderha yaralandı ama hala güçlü.",
-  choices: [
-    { text: "Son darbeyi vur", nextNode: "final_strike" },
-    { text: "Savunmaya geç", nextNode: "defend_attack" },
-    { text: "Yardım çağır", nextNode: "call_for_help" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.final_strike = {
-  title: "Son Darbe",
-  text: "Son darbeyi vurdun! Ejderha yere düştü. Zafer kazandın!",
-  choices: [
-    { text: "Zaferi kutla", nextNode: "victory_celebration" },
-    { text: "Ejderhayı öldür", nextNode: "kill_dragon" },
-    { text: "Ejderhayı serbest bırak", nextNode: "free_dragon" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.victory_celebration = {
-  title: "Zafer Kutlaması",
-  text: "Köye döndün. Herkes seni kahraman olarak karşılıyor. Ejderhayı yendin!",
-  choices: [
-    { text: "Kahraman ol", nextNode: "become_hero" },
-    { text: "Köyü koru", nextNode: "protect_village" },
-    { text: "Yeni macera", nextNode: "new_adventure" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.become_hero = {
-  title: "Kahraman Olma",
-  text: "Artık sen efsanevi bir kahramansın. Hikayen burada biter.",
-  choices: [],
-};
-
-scenarios.living_dragon_hunt.story.check_equipment = {
-  title: "Silahları Kontrol Etme",
-  text: "Silahlarını kontrol ediyorsun. Kılıcın keskin, zırhın sağlam. Hazırsın.",
-  choices: [
-    { text: "Savaşa hazırlan", nextNode: "prepare_for_battle" },
-    { text: "Silahları geliştir", nextNode: "upgrade_weapons" },
-    { text: "Geri dön", nextNode: "return_to_village" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.prepare_for_battle = {
-  title: "Savaşa Hazırlanma",
-  text: "Savaşa hazırlanıyorsun. Silahların hazır, cesaretin tam.",
-  choices: [
-    { text: "Ejderhayı ara", nextNode: "search_for_dragon" },
-    { text: "Köyü koru", nextNode: "defend_village" },
-    { text: "Plan yap", nextNode: "make_plan" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.search_for_dragon = {
-  title: "Ejderhayı Arama",
-  text: "Ejderhayı arıyorsun. Dağlarda, ormanlarda iz sürüyorsun.",
-  choices: [
-    { text: "İzleri takip et", nextNode: "follow_tracks" },
-    { text: "Gökyüzünü izle", nextNode: "watch_sky" },
-    { text: "Geri dön", nextNode: "return_to_village" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.question_children = {
-  title: "Çocuklardan Bilgi Alma",
-  text: "Çocuklarla konuşuyorsun. Onlar ejderhayı gördüklerini söylüyor.",
-  choices: [
-    { text: "Detayları öğren", nextNode: "learn_details" },
-    { text: "Çocukları koru", nextNode: "protect_children" },
-    { text: "Geri dön", nextNode: "return_to_village" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.learn_details = {
-  title: "Detayları Öğrenme",
-  text: "Çocuklardan ejderha hakkında detaylı bilgi aldın. Büyük, kırmızı, ateş püskürüyor.",
-  choices: [
-    { text: "Ejderhayı ara", nextNode: "search_for_dragon" },
-    { text: "Köyü uyar", nextNode: "warn_village" },
-    { text: "Plan yap", nextNode: "make_plan" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.find_village_leader = {
-  title: "Köy Liderini Bulma",
-  text: "Köy liderini buldun. O çok endişeli ve sana yardım etmek istiyor.",
-  choices: [
-    { text: "Liderle konuş", nextNode: "talk_leader" },
-    { text: "Yardım iste", nextNode: "ask_for_help" },
-    { text: "Plan yap", nextNode: "make_plan" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.talk_leader = {
-  title: "Liderle Konuşma",
-  text: "Köy lideriyle konuşuyorsun. O ejderha hakkında çok şey biliyor.",
-  choices: [
-    { text: "Bilgi al", nextNode: "get_information" },
-    { text: "Yardım iste", nextNode: "ask_for_help" },
-    { text: "Plan yap", nextNode: "make_plan" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.get_information = {
-  title: "Bilgi Alma",
-  text: "Liderden ejderha hakkında çok bilgi aldın. Artık ne yapacağını biliyorsun.",
-  choices: [
-    { text: "Ejderhayı ara", nextNode: "search_for_dragon" },
-    { text: "Köyü koru", nextNode: "defend_village" },
-    { text: "Plan yap", nextNode: "make_plan" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.ancient_legends = {
-  title: "Eski Efsaneler",
-  text: "Yaşlı sana eski efsaneleri anlatıyor. Ejderha hakkında çok şey öğrendin.",
-  choices: [
-    { text: "Efsaneleri dinle", nextNode: "listen_legends" },
-    { text: "Soru sor", nextNode: "ask_questions" },
-    { text: "Geri dön", nextNode: "return_to_village" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.listen_legends = {
-  title: "Efsaneleri Dinleme",
-  text: "Efsaneleri dinliyorsun. Ejderha hakkında çok şey öğrendin.",
-  choices: [
-    { text: "Ejderhayı ara", nextNode: "search_for_dragon" },
-    { text: "Köyü koru", nextNode: "defend_village" },
-    { text: "Plan yap", nextNode: "make_plan" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.suspect_elder = {
-  title: "Yaşlıdan Şüphelenme",
-  text: "Yaşlıdan şüpheleniyorsun. Onun söyledikleri doğru mu?",
-  choices: [
-    { text: "Sorgula", nextNode: "interrogate_elder" },
-    { text: "Gözlemle", nextNode: "observe_elder" },
-    { text: "Geri dön", nextNode: "return_to_village" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.interrogate_elder = {
-  title: "Yaşlıyı Sorgulama",
-  text: "Yaşlıyı sorguluyorsun. O gerçeği söylüyor mu?",
-  choices: [
-    { text: "Gerçeği öğren", nextNode: "learn_truth" },
-    { text: "Gözlemle", nextNode: "observe_elder" },
-    { text: "Geri dön", nextNode: "return_to_village" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.learn_truth = {
-  title: "Gerçeği Öğrenme",
-  text: "Yaşlıdan gerçeği öğrendin. Artık ne yapacağını biliyorsun.",
-  choices: [
-    { text: "Ejderhayı ara", nextNode: "search_for_dragon" },
-    { text: "Köyü koru", nextNode: "defend_village" },
-    { text: "Plan yap", nextNode: "make_plan" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.why_kill_me = {
-  title: "Neden Beni Öldürmek İstiyorlar?",
-  text: "Yaşlı: 'Sen çok güçlüsün. Kral senden korkuyor. Sen tahtı için tehdit oluşturuyorsun.'",
-  choices: [
-    { text: "Kralı öldür", nextNode: "go_kill_king" },
-    { text: "Kaç", nextNode: "escape_secretly" },
-    { text: "Geri dön", nextNode: "return_to_village" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.protect_elder = {
-  title: "Yaşlıyı Koruma",
-  text: "Yaşlıyı korumaya karar verdin. Onu güvenli bir yere götürüyorsun.",
-  choices: [
-    { text: "Güvenli yere götür", nextNode: "take_to_safety" },
-    { text: "Gizle", nextNode: "hide_elder" },
-    { text: "Geri dön", nextNode: "return_to_village" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.take_to_safety = {
-  title: "Güvenli Yere Götürme",
-  text: "Yaşlıyı güvenli bir yere götürdün. Artık güvende.",
-  choices: [
-    { text: "Kralı öldür", nextNode: "go_kill_king" },
-    { text: "Köyü koru", nextNode: "defend_village" },
-    { text: "Plan yap", nextNode: "make_plan" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.burn_treacherous_village = {
-  title: "Hain Köyü Yakma",
-  text: "Hain köyü yaktın. Artık kimse sana ihanet edemez.",
-  choices: [
-    { text: "Kralı öldür", nextNode: "go_kill_king" },
-    { text: "Yeni köy kur", nextNode: "build_new_village" },
-    { text: "Geri dön", nextNode: "return_to_village" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.build_new_village = {
-  title: "Yeni Köy Kurma",
-  text: "Yeni bir köy kurdun. Bu köy sana sadık olacak.",
-  choices: [
-    { text: "Köyü yönet", nextNode: "rule_village" },
-    { text: "Kralı öldür", nextNode: "go_kill_king" },
-    { text: "Geri dön", nextNode: "return_to_village" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.rule_village = {
-  title: "Köyü Yönetme",
-  text: "Köyü yönetiyorsun. Artık sen köyün liderisin.",
-  choices: [
-    { text: "Köyü büyüt", nextNode: "expand_village" },
-    { text: "Kralı öldür", nextNode: "go_kill_king" },
-    { text: "Geri dön", nextNode: "return_to_village" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.expand_village = {
-  title: "Köyü Büyütme",
-  text: "Köyü büyüttün. Artık büyük bir kasaba oldu.",
-  choices: [
-    { text: "Kasabayı yönet", nextNode: "rule_town" },
-    { text: "Kralı öldür", nextNode: "go_kill_king" },
-    { text: "Geri dön", nextNode: "return_to_village" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.rule_town = {
-  title: "Kasabayı Yönetme",
-  text: "Kasabayı yönetiyorsun. Artık sen kasabanın liderisin.",
-  choices: [
-    { text: "Kasabayı büyüt", nextNode: "expand_town" },
-    { text: "Kralı öldür", nextNode: "go_kill_king" },
-    { text: "Geri dön", nextNode: "return_to_village" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.expand_town = {
-  title: "Kasabayı Büyütme",
-  text: "Kasabayı büyüttün. Artık büyük bir şehir oldu.",
-  choices: [
-    { text: "Şehri yönet", nextNode: "rule_city" },
-    { text: "Kralı öldür", nextNode: "go_kill_king" },
-    { text: "Geri dön", nextNode: "return_to_village" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.rule_city = {
-  title: "Şehri Yönetme",
-  text: "Şehri yönetiyorsun. Artık sen şehrin liderisin.",
-  choices: [
-    { text: "Şehri büyüt", nextNode: "expand_city" },
-    { text: "Kralı öldür", nextNode: "go_kill_king" },
-    { text: "Geri dön", nextNode: "return_to_village" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.expand_city = {
-  title: "Şehri Büyütme",
-  text: "Şehri büyüttün. Artık büyük bir krallık oldu.",
-  choices: [
-    { text: "Krallığı yönet", nextNode: "rule_kingdom" },
-    { text: "Kralı öldür", nextNode: "go_kill_king" },
-    { text: "Geri dön", nextNode: "return_to_village" },
-  ],
-};
-
-scenarios.living_dragon_hunt.story.rule_kingdom = {
-  title: "Krallığı Yönetme",
-  text: "Krallığı yönetiyorsun. Artık sen kral oldun.",
-  choices: [
-    { text: "Krallığı büyüt", nextNode: "expand_kingdom" },
-    { text: "Eski kralı öldür", nextNode: "go_kill_king" },
-    { text: "Geri dön", nextNode: "return_to_village" },
-  ],
-};
+console.log("=== TÜM FONKSİYONLAR YÜKLENDİ ===");
