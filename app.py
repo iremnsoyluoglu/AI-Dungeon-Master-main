@@ -5,6 +5,7 @@ AI Dungeon Master - Basit Flask Uygulaması
 
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
+from flask_socketio import SocketIO, emit, join_room, leave_room
 from datetime import datetime
 import json
 import sys
@@ -13,10 +14,11 @@ import time
 
 app = Flask(__name__)
 CORS(app)
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Multiplayer modüllerini import et
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
-# Multiplayer modülü kaldırıldı - Railway uyumluluğu için
+from multiplayer.session_manager import MultiplayerSessionManager, SessionStatus
 
 # Multiplayer session manager
 session_manager = MultiplayerSessionManager()
@@ -25,6 +27,10 @@ session_manager = MultiplayerSessionManager()
 @app.route('/api/health')
 def health_check():
     return jsonify({"status": "healthy", "message": "AI Dungeon Master is running!"})
+
+@app.route('/')
+def index():
+    return render_template('game_enhanced.html')
 
 # Warhammer ve Fantasy karakter sınıfları
 CHARACTER_CLASSES = [
@@ -404,18 +410,7 @@ def minimal_test():
 
 
 
-@app.route('/api/health')
-def health_check():
-    return jsonify({
-        "status": "healthy",
-        "timestamp": datetime.now().isoformat(),
-        "systems": {
-            "character_system": "active",
-            "combat_system": "active",
-            "dice_system": "active",
-            "game_engine": "active"
-        }
-    })
+
 
 @app.route('/api/game/character/classes')
 def get_character_classes():

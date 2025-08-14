@@ -1,17 +1,50 @@
 {
-  "name": "ai-dungeon-master",
-  "description": "AI-Powered Interactive Storytelling Game - YOUR EXACT DESIGN",
-  "repository": "https://github.com/your-username/ai-dungeon-master",
-  "keywords": [
-    "ai",
-    "gaming",
-    "storytelling",
-    "rpg"
-  ],
+  "name": "AI Dungeon Master",
+  "description": "An intelligent AI-powered Fantasy Role-Playing Game Master that creates immersive, dynamic adventures using advanced language models. Features intelligent storytelling, dynamic NPCs, rule management, campaign management, and a modern web interface.",
+  "repository": "https://github.com/yourusername/AI-Dungeon-Master",
+  "keywords": ["ai", "rpg", "dungeon-master", "flask", "gaming", "storytelling", "multiplayer"],
+  "website": "https://your-app-name.herokuapp.com",
+  "logo": "https://via.placeholder.com/150x150/4A90E2/FFFFFF?text=AI+DM",
+  "success_url": "/",
   "env": {
     "FLASK_ENV": {
-      "description": "Flask environment",
-      "value": "production"
+      "description": "Flask environment setting",
+      "value": "production",
+      "required": false
+    },
+    "FLASK_DEBUG": {
+      "description": "Flask debug mode",
+      "value": "0",
+      "required": false
+    },
+    "OPENAI_API_KEY": {
+      "description": "Your OpenAI API key for AI storytelling features",
+      "required": false
+    },
+    "ANTHROPIC_API_KEY": {
+      "description": "Your Anthropic API key for alternative AI features",
+      "required": false
+    },
+    "SECRET_KEY": {
+      "description": "Secret key for Flask sessions",
+      "generator": "secret",
+      "required": false
     }
-  }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "addons": [],
+  "scripts": {
+    "postdeploy": "echo 'AI Dungeon Master deployed successfully! Visit your app to start playing.'"
+  },
+  "stack": "heroku-22"
 }

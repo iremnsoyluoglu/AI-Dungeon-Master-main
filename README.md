@@ -15,6 +15,14 @@ An intelligent AI-powered Fantasy Role-Playing Game Master that creates immersiv
 
 ## 🚀 Quick Start
 
+### 🚀 Deploy to Heroku (Recommended)
+
+The easiest way to get started is to deploy directly to Heroku using the button below:
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/yourusername/AI-Dungeon-Master)
+
+**Note**: Replace `yourusername` in the button URL with your actual GitHub username after you push this repository to GitHub.
+
 ### Windows Kullanıcıları İçin (En Kolay Yöntem)
 
 #### Batch Dosyası ile Başlatma:

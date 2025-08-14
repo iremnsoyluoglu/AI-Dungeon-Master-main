@@ -311,15 +311,15 @@ function addAIScenarioToGrid(scenarioId, title, description, difficulty) {
   scenarioCard.onclick = () => window.selectScenario(scenarioId);
 
   scenarioCard.innerHTML = `
-    <div class="scenario-header">
+      <div class="scenario-header">
       <h4>🧙‍♂️ ${title}</h4>
-      <span class="difficulty ${difficulty}">${difficulty}</span>
-    </div>
+        <span class="difficulty ${difficulty}">${difficulty}</span>
+      </div>
     <p>${description}</p>
-    <div class="ai-info">
+      <div class="ai-info">
       <small>🤖 AI tarafından üretildi</small>
-    </div>
-  `;
+      </div>
+    `;
 
   aiScenariosGrid.appendChild(scenarioCard);
 }
