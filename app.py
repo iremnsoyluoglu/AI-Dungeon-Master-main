@@ -5,23 +5,27 @@ AI Dungeon Master - Basit Flask Uygulaması
 
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
-from flask_socketio import SocketIO, emit, join_room, leave_room
 from datetime import datetime
 import json
-import sys
 import os
 import time
 
 app = Flask(__name__)
 CORS(app)
-socketio = SocketIO(app, cors_allowed_origins="*")
 
-# Multiplayer modüllerini import et
-sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
-from multiplayer.session_manager import MultiplayerSessionManager, SessionStatus
+# Basit session manager
+class SimpleSessionManager:
+    def __init__(self):
+        self.sessions = {}
+    
+    def create_session(self, session_id):
+        self.sessions[session_id] = {"status": "active", "created": datetime.now()}
+        return True
+    
+    def get_session(self, session_id):
+        return self.sessions.get(session_id)
 
-# Multiplayer session manager
-session_manager = MultiplayerSessionManager()
+session_manager = SimpleSessionManager()
 
 # Health check endpoint
 @app.route('/api/health')
