@@ -1,8 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const multer = require("multer");
-const fs = require("fs");
-const path = require("path");
 
 const app = express();
 
@@ -15,7 +13,7 @@ app.use(express.static("public"));
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: {
-    fileSize: 10 * 1024 * 1024 // 10MB limit
+    fileSize: 10 * 1024 * 1024, // 10MB limit
   },
   fileFilter: (req, file, cb) => {
     // Allow text files, PDFs, and other document types
@@ -36,18 +34,30 @@ const upload = multer({
 // Load scenarios endpoint
 app.get("/api/scenarios", (req, res) => {
   try {
-    // Load all scenario files
-    const enhancedScenarios = require("../data/enhanced_scenarios.json");
-    const cyberpunkScenarios = require("../data/enhanced_cyberpunk_scenarios.json");
-    const hiveCityScenarios = require("../data/expanded_hive_city.json");
-    const warhammerScenarios = require("../data/enhanced_warhammer_scenarios.json");
-
-    // Combine all scenarios
+    // Static scenarios for Vercel
     const allScenarios = [
-      ...enhancedScenarios,
-      ...cyberpunkScenarios,
-      ...hiveCityScenarios,
-      ...warhammerScenarios,
+      {
+        id: "scenario_1",
+        title: "🐉 Fantastik Macera",
+        description: "Ejderhalar ve büyücüler dünyasında epik bir yolculuk",
+        theme: "fantasy",
+        difficulty: "medium",
+        complexity: "medium",
+        estimatedPlayTime: 60,
+        source: "predefined",
+        created_at: new Date().toISOString(),
+      },
+      {
+        id: "scenario_2",
+        title: "🌃 Cyberpunk Macera",
+        description: "Neon ışıklar altında dijital savaş",
+        theme: "cyberpunk",
+        difficulty: "hard",
+        complexity: "high",
+        estimatedPlayTime: 90,
+        source: "predefined",
+        created_at: new Date().toISOString(),
+      },
     ];
 
     res.json({
@@ -99,28 +109,18 @@ app.post(
       });
 
       // Generate AI scenario
-      const scenario = await generateAIScenario(
+      const scenario = generateAIScenario(
         finalPrompt,
         theme,
         difficulty,
         genre
       );
 
-      // Save scenario
-      const saved = await saveAIScenario(scenario);
-
-      if (saved) {
-        res.json({
-          success: true,
-          scenario: scenario,
-          message: "Yeni senaryo üretildi: " + scenario.title,
-        });
-      } else {
-        res.status(500).json({
-          success: false,
-          error: "Failed to save generated scenario",
-        });
-      }
+      res.json({
+        success: true,
+        scenario: scenario,
+        message: "Yeni senaryo üretildi: " + scenario.title,
+      });
     } catch (error) {
       console.error("Error generating AI scenario:", error);
       res.status(500).json({
@@ -134,7 +134,28 @@ app.post(
 // Get AI generated scenarios
 app.get("/api/ai/scenarios", (req, res) => {
   try {
-    const aiScenarios = loadAIScenarios();
+    // Static AI scenarios for Vercel
+    const aiScenarios = [
+      {
+        id: "ai_1",
+        title: "🤖 AI Üretilen Macera",
+        description: "Yapay zeka tarafından üretilen özel macera",
+        theme: "fantasy",
+        difficulty: "medium",
+        source: "ai_generated",
+        created_at: new Date().toISOString(),
+      },
+      {
+        id: "ai_2",
+        title: "🌃 AI Cyberpunk Macera",
+        description: "AI tarafından üretilen cyberpunk dünyası",
+        theme: "cyberpunk",
+        difficulty: "hard",
+        source: "ai_generated",
+        created_at: new Date().toISOString(),
+      },
+    ];
+
     res.json({
       success: true,
       scenarios: aiScenarios,
@@ -149,7 +170,7 @@ app.get("/api/ai/scenarios", (req, res) => {
 });
 
 // AI Scenario Generator Function
-async function generateAIScenario(prompt, theme, difficulty, genre) {
+function generateAIScenario(prompt, theme, difficulty, genre) {
   const scenarioId = `ai_${Date.now()}`;
 
   // Theme-based scenario creation
@@ -443,60 +464,6 @@ async function generateAIScenario(prompt, theme, difficulty, genre) {
   };
 
   return scenario;
-}
-
-// Save AI scenario function
-async function saveAIScenario(scenario) {
-  try {
-    const aiScenariosPath = path.join(
-      __dirname,
-      "../data/ai_generated_scenarios.json"
-    );
-
-    // Ensure directory exists
-    const dir = path.dirname(aiScenariosPath);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-
-    // Load existing scenarios or create new file
-    let data = { scenarios: [] };
-    if (fs.existsSync(aiScenariosPath)) {
-      data = JSON.parse(fs.readFileSync(aiScenariosPath, "utf8"));
-    }
-
-    // Add new scenario
-    data.scenarios.push(scenario);
-
-    // Save to file
-    fs.writeFileSync(aiScenariosPath, JSON.stringify(data, null, 2));
-
-    console.log(`AI Scenario saved: ${scenario.title}`);
-    return true;
-  } catch (error) {
-    console.error("Error saving AI scenario:", error);
-    return false;
-  }
-}
-
-// Load AI scenarios function
-function loadAIScenarios() {
-  try {
-    const aiScenariosPath = path.join(
-      __dirname,
-      "../data/ai_generated_scenarios.json"
-    );
-
-    if (fs.existsSync(aiScenariosPath)) {
-      const data = JSON.parse(fs.readFileSync(aiScenariosPath, "utf8"));
-      return data.scenarios || [];
-    }
-
-    return [];
-  } catch (error) {
-    console.error("Error loading AI scenarios:", error);
-    return [];
-  }
 }
 
 // Serve React app for all other routes
