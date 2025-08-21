@@ -16,7 +16,7 @@ let hiddenMoralState = {
   worldState: {},
 };
 
-const API_BASE = "http://localhost:5002";
+const API_BASE = "";
 
 // ===== UTILITY FUNCTIONS =====
 
@@ -641,23 +641,37 @@ function startAdventure() {
   console.log("🎮 Macera başlıyor...");
 
   // Senaryo başlığını güncelle
-  document.getElementById("scenario-title").textContent = currentScenario.title;
-  document.getElementById("character-name").textContent = currentCharacter.name;
-  document.getElementById("character-class").textContent =
-    currentCharacter.class;
-  document.getElementById("character-race").textContent = currentCharacter.race;
+  if (document.getElementById("scenario-title")) {
+    document.getElementById("scenario-title").textContent = currentGameSession.scenario.title;
+  }
+  if (document.getElementById("character-name")) {
+    document.getElementById("character-name").textContent = currentGameSession.character.name;
+  }
+  if (document.getElementById("character-class")) {
+    document.getElementById("character-class").textContent = currentGameSession.character.class;
+  }
+  if (document.getElementById("character-race")) {
+    document.getElementById("character-race").textContent = currentGameSession.character.race;
+  }
 
-  // İlk hikaye metnini göster
-  const storyText = document.getElementById("story-text");
-  storyText.innerHTML = `
-    <h3>${currentScenario.title}</h3>
-    <p>${currentScenario.description}</p>
-    <p>Karakteriniz <strong>${currentCharacter.name}</strong> olarak, ${currentCharacter.class} sınıfında bir ${currentCharacter.race} olarak bu maceraya başlıyor.</p>
-    <p>Hazır mısınız? Seçenekleriniz aşağıda...</p>
-  `;
+  // Gerçek senaryo hikayesini yükle
+  if (currentGameSession && currentGameSession.scenario) {
+    loadStoryFromScenario(currentGameSession.scenario.id);
+  } else {
+    // Fallback: Basit hikaye gösterimi
+    const storyText = document.getElementById("story-text");
+    if (storyText) {
+      storyText.innerHTML = `
+        <h3>${currentScenario.title}</h3>
+        <p>${currentScenario.description}</p>
+        <p>Karakteriniz <strong>${currentCharacter.name}</strong> olarak, ${currentCharacter.class} sınıfında bir ${currentCharacter.race} olarak bu maceraya başlıyor.</p>
+        <p>Hazır mısınız? Seçenekleriniz aşağıda...</p>
+      `;
+    }
 
-  // İlk seçenekleri göster
-  showInitialChoices();
+    // İlk seçenekleri göster
+    showInitialChoices();
+  }
 }
 
 function showInitialChoices() {
@@ -681,7 +695,13 @@ function showInitialChoices() {
 function makeChoice(choice) {
   console.log("🎯 Seçim yapıldı:", choice);
 
-  // Seçime göre hikaye devam et
+  // Gerçek senaryo choice navigation için
+  if (currentGameSession && currentGameSession.scenario) {
+    makeStoryChoice(choice);
+    return;
+  }
+
+  // Fallback: Basit choice system (eski)
   const storyText = document.getElementById("story-text");
 
   switch (choice) {
@@ -709,6 +729,102 @@ function makeChoice(choice) {
 
   // Yeni seçenekler göster
   showNewChoices(choice);
+}
+
+// Gerçek story choice navigation
+async function makeStoryChoice(choiceId) {
+  console.log("📖 Story choice yapıldı:", choiceId);
+  
+  try {
+    const response = await fetch(`/api/stories/${currentGameSession.scenario.id}/choice`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        choice_id: choiceId,
+        user_id: currentUser?.id || 'guest_user'
+      })
+    });
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      // Next story node'u göster
+      displayStoryNode(result.story);
+      
+      // Action kaydedildi mesajı
+      if (result.action_recorded) {
+        showMessage(result.message, "success");
+      }
+    } else {
+      showMessage("Hikaye devam ettirilemiyor: " + result.error, "error");
+    }
+  } catch (error) {
+    console.error("Story choice error:", error);
+    showMessage("Bağlantı hatası!", "error");
+  }
+}
+
+// Story node'u göster
+function displayStoryNode(storyNode) {
+  const storyText = document.getElementById("story-text");
+  const choicesContainer = document.getElementById("choices-container");
+  
+  if (!storyText || !choicesContainer) {
+    console.error("Story elements not found!");
+    return;
+  }
+  
+  // Story text'i güncelle
+  storyText.innerHTML = `
+    <h3>${storyNode.title}</h3>
+    <p>${storyNode.description}</p>
+  `;
+  
+  // Choices'ları güncelle
+  if (storyNode.choices && storyNode.choices.length > 0) {
+    choicesContainer.innerHTML = storyNode.choices.map(choice => `
+      <button onclick="makeStoryChoice('${choice.id}')" class="choice-btn">
+        ${choice.text}
+      </button>
+    `).join('');
+  } else {
+    // Eğer seçenek yoksa, end node'u olabilir
+    choicesContainer.innerHTML = `
+      <div style="text-align: center; padding: 20px;">
+        <p style="color: #FFD700;">Bu hikaye yolu henüz tamamlanmadı. Lütfen başka bir seçim yapın veya hikayenin başına dönün.</p>
+        <button onclick="restartStory()" class="choice-btn">🔄 Başa Dön</button>
+      </div>
+    `;
+  }
+}
+
+// Hikayeyi yeniden başlat
+function restartStory() {
+  if (currentGameSession && currentGameSession.scenario) {
+    loadStoryFromScenario(currentGameSession.scenario.id);
+  }
+}
+
+// Senaryo hikayesini yükle
+async function loadStoryFromScenario(scenarioId) {
+  try {
+    const response = await fetch(`/api/stories/${scenarioId}`, {
+      method: 'GET'
+    });
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      displayStoryNode(result.story);
+    } else {
+      showMessage("Hikaye yüklenemedi: " + result.error, "error");
+    }
+  } catch (error) {
+    console.error("Story loading error:", error);
+    showMessage("Hikaye yükleme hatası!", "error");
+  }
 }
 
 function showNewChoices(previousChoice) {
