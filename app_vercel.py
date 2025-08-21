@@ -329,14 +329,14 @@ def game():
 
 @app.route('/enhanced')
 def enhanced():
-    """Enhanced game page with full functionality"""
+    """Enhanced game page with full RPG functionality, plot twists, NPC interactions, and multiple endings"""
     return '''
     <!DOCTYPE html>
     <html lang="tr">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AI Dungeon Master - Enhanced</title>
+        <title>AI Dungeon Master - Enhanced RPG Experience</title>
         <style>
             * {
                 margin: 0;
@@ -746,10 +746,52 @@ def enhanced():
         </div>
 
         <script>
+            // Game State Variables
             let currentTheme = 'fantasy';
             let selectedRace = '';
             let selectedClass = '';
             let characterName = '';
+            let playerLevel = 1;
+            let playerXP = 0;
+            let currentQuest = null;
+            let questsCompleted = [];
+            let currentScenario = null;
+            let storyProgress = 0;
+            let plotTwistsUnlocked = [];
+            let gameState = 'character_creation';
+            
+            // NPC Relationship System
+            let npcRelationships = {
+                aldric: { trust: 0, quests: 0, status: 'neutral', betrayalRevealed: false },
+                lydia: { trust: 0, quests: 0, status: 'neutral', dragonIdentityRevealed: false },
+                marcus: { trust: 0, quests: 0, status: 'neutral' },
+                zara: { trust: 0, quests: 0, status: 'neutral' },
+                rexSteel: { trust: 0, quests: 0, status: 'enemy' }
+            };
+
+            // Combat System Variables
+            let inCombat = false;
+            let combatRound = 0;
+            let enemyHP = 100;
+            let playerHP = 100;
+
+            // Scenario Data
+            let scenarios = {
+                dragon_hunter: {
+                    title: "🐉 Ejderha Avcısının Yolu",
+                    theme: "fantasy",
+                    description: "Kızıl ejderha köyleri yakıyor. Sen ejderha avcısısın. Bu tehlikeli görevde ejderhayı durdurmak için her şeyi riske atacaksın.",
+                    plotTwists: ['aldric_betrayal', 'lydia_dragon_identity', 'mother_dragon_twist'],
+                    endings: ['good_ending', 'betrayal_ending', 'dragon_alliance', 'sacrifice_ending', 'dark_lord_ending']
+                },
+                neon_city: {
+                    title: "🌃 Neon Şehir Koşucuları", 
+                    theme: "cyberpunk",
+                    description: "MegaCorp şehri kontrol ediyor. Gizli AI'ların insanlığı ele geçirdiğini keşfediyorsun. Dijital devrim başlıyor!",
+                    plotTwists: ['ai_ceo_shock', 'digital_consciousness', 'corporate_conspiracy'],
+                    endings: ['revolution_ending', 'corporate_ending', 'ai_merge_ending', 'underground_king', 'lone_wolf']
+                }
+            };
 
             function switchTheme(theme) {
                 currentTheme = theme;
@@ -813,10 +855,71 @@ def enhanced():
                     return;
                 }
                 
-                // Karakter istatistiklerini güncelle
+                // Oyun durumunu güncelle
+                gameState = 'playing';
                 updateCharacterStats();
                 
-                // Hikaye alanını güncelle
+                // Senaryoyu belirle
+                if (currentTheme === 'fantasy') {
+                    currentScenario = 'dragon_hunter';
+                    startDragonHunterScenario();
+                } else if (currentTheme === 'cyberpunk') {
+                    currentScenario = 'neon_city';
+                    startNeonCityScenario();
+                } else {
+                    startGenericScenario();
+                }
+            }
+
+            function startDragonHunterScenario() {
+                storyProgress = 1;
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h2>🐉 Ejderha Avcısının Yolu Başlıyor!</h2>
+                    <p><strong>Karakter:</strong> ${characterName} - ${selectedRace} ${selectedClass}</p>
+                    <p><strong>Level:</strong> ${playerLevel} | <strong>XP:</strong> ${playerXP}</p>
+                    <hr>
+                    <h3>📖 Hikaye:</h3>
+                    <p>Kızıl ejderha Pyraxis köyleri yakıyor. Köy büyükleri seni ejderha avcısı olarak seçti. 
+                    Aldric adındaki deneyimli savaşçı senin rehberin olacak. Lydia ise köyün şifacısı - yolculukta sana yardım edecek.</p>
+                    <br>
+                    <p><strong>Aldric</strong> yaklaşıyor: "Genç avcı, ejderha çok güçlü. Önce kendini geliştirmen gerek!"</p>
+                    <p><strong>Güven Sistemi:</strong> Aldric ile olan ilişkin hikayeyi etkileyecek.</p>
+                `;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="interactWithNPC('aldric', 'agree')">✅ "Haklısın Aldric, eğitim almaya hazırım!"</button>
+                    <button class="choice-btn" onclick="interactWithNPC('aldric', 'stubborn')">⚔️ "Doğrudan ejderhaya saldıralım!"</button>
+                    <button class="choice-btn" onclick="exploreVillage()">🏘️ "Önce köyü keşfetmek istiyorum"</button>
+                `;
+            }
+
+            function startNeonCityScenario() {
+                storyProgress = 1;
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h2>🌃 Neon Şehir Koşucuları Başlıyor!</h2>
+                    <p><strong>Karakter:</strong> ${characterName} - ${selectedRace} ${selectedClass}</p>
+                    <p><strong>Level:</strong> ${playerLevel} | <strong>XP:</strong> ${playerXP}</p>
+                    <hr>
+                    <h3>📖 Hikaye:</h3>
+                    <p>2087 yılı, Neo Tokyo. MegaCorp şehri kontrol ediyor. Sen bir hacker olarak şehrin karanlık sırlarını keşfediyorsun. 
+                    Zara adında devrimci bir hacker senin yanında. Rex Steel ise MegaCorp'un güvenlik şefi - düşmanın.</p>
+                    <br>
+                    <p><strong>Zara</strong> ekranda beliriyor: "Taze kan! MegaCorp'un gizli AI projesi var. Araştırmaya hazır mısın?"</p>
+                    <p><strong>Güven Sistemi:</strong> Zara ile olan ilişkin devrimin sonucunu belirleyecek.</p>
+                `;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="interactWithNPC('zara', 'agree')">💻 "Elbette! AI projesini araştıralım"</button>
+                    <button class="choice-btn" onclick="interactWithNPC('zara', 'cautious')">🔍 "Önce daha fazla bilgi toplamamız gerek"</button>
+                    <button class="choice-btn" onclick="soloMission()">🚶 "Tek başıma çalışmayı tercih ederim"</button>
+                `;
+            }
+
+            function startGenericScenario() {
                 const storyArea = document.querySelector('.story-text');
                 storyArea.innerHTML = `
                     <h2>🎮 ${characterName} olarak maceraya başlıyorsunuz!</h2>
@@ -830,7 +933,6 @@ def enhanced():
                     </ul>
                 `;
                 
-                // Butonları güncelle
                 const choiceButtons = document.querySelector('.choice-buttons');
                 choiceButtons.innerHTML = `
                     <button class="choice-btn" onclick="choosePath('castle')">🏰 KALEYE GİT</button>
@@ -1097,11 +1199,539 @@ def enhanced():
                 alert('Savaş sistemi yakında eklenecek!');
             }
 
+            // NPC Interaction System
+            function interactWithNPC(npc, response) {
+                let npcData = npcRelationships[npc];
+                const storyArea = document.querySelector('.story-text');
+                
+                if (npc === 'aldric') {
+                    if (response === 'agree') {
+                        npcData.trust += 20;
+                        addXP(50);
+                        storyArea.innerHTML = `
+                            <h3>✅ Aldric ile Güven Artışı!</h3>
+                            <p><strong>Aldric Güven Seviyesi:</strong> ${npcData.trust}/100</p>
+                            <p><strong>XP Kazandınız:</strong> +50 | <strong>Toplam XP:</strong> ${playerXP}</p>
+                            <hr>
+                            <p><strong>Aldric</strong> gülümsüyor: "Akıllı seçim! Önce köydeki görevleri tamamlayalım. 
+                            Şifalı otlar topla, köylüleri koru, sonra ejderha için hazır olacaksın."</p>
+                            <p>Aldric sana ilk görevi veriyor...</p>
+                        `;
+                        
+                        const choiceButtons = document.querySelector('.choice-buttons');
+                        choiceButtons.innerHTML = `
+                            <button class="choice-btn" onclick="startQuest('healing_herbs')">🌿 "Şifalı ot toplama görevini kabul ediyorum"</button>
+                            <button class="choice-btn" onclick="interactWithNPC('lydia', 'first_meet')">💊 "Önce Lydia ile konuşayım"</button>
+                            <button class="choice-btn" onclick="exploreVillage()">🏘️ "Köyü keşfetmek istiyorum"</button>
+                        `;
+                    } else if (response === 'stubborn') {
+                        npcData.trust -= 10;
+                        storyArea.innerHTML = `
+                            <h3>⚠️ Aldric'in Güveni Azaldı!</h3>
+                            <p><strong>Aldric Güven Seviyesi:</strong> ${npcData.trust}/100</p>
+                            <hr>
+                            <p><strong>Aldric</strong> kaşlarını çatıyor: "Tecrübesizlik! Ejderha seni bir nefeste öldürür. 
+                            Ama madem kararını verdin... Kendi yolunu çiz."</p>
+                            <p>Aldric senden uzaklaşıyor. Bu, ileride ona olan güvenini etkileyebilir...</p>
+                        `;
+                        
+                        const choiceButtons = document.querySelector('.choice-buttons');
+                        choiceButtons.innerHTML = `
+                            <button class="choice-btn" onclick="directToDragon()">🐉 "Ejderha mağarasına doğrudan git"</button>
+                            <button class="choice-btn" onclick="apologizeToAldric()">🙏 "Aldric'ten özür dile"</button>
+                            <button class="choice-btn" onclick="findOtherAllies()">👥 "Başka müttefikler bul"</button>
+                        `;
+                    }
+                } else if (npc === 'zara') {
+                    if (response === 'agree') {
+                        npcData.trust += 30;
+                        addXP(75);
+                        storyArea.innerHTML = `
+                            <h3>💻 Zara ile Devrimci İttifak!</h3>
+                            <p><strong>Zara Güven Seviyesi:</strong> ${npcData.trust}/100</p>
+                            <p><strong>XP Kazandınız:</strong> +75 | <strong>Toplam XP:</strong> ${playerXP}</p>
+                            <hr>
+                            <p><strong>Zara</strong> heyecanla: "Harika! İlk hedefimiz MegaCorp'un veri merkezine sızmak. 
+                            Ama dikkatli olmamız gerek - Rex Steel'in güvenlik sistemleri çok güçlü."</p>
+                            <p>Zara size gelişmiş bir hacking aracı veriyor...</p>
+                        `;
+                        
+                        const choiceButtons = document.querySelector('.choice-buttons');
+                        choiceButtons.innerHTML = `
+                            <button class="choice-btn" onclick="startQuest('data_infiltration')">🔓 "Veri merkezine sızma görevini başlat"</button>
+                            <button class="choice-btn" onclick="gatherIntel()">🔍 "Önce istihbarat toplayalım"</button>
+                            <button class="choice-btn" onclick="meetOtherHackers()">👥 "Diğer hackerlarla tanışmak istiyorum"</button>
+                        `;
+                    }
+                } else if (npc === 'lydia' && response === 'first_meet') {
+                    npcData.trust += 15;
+                    storyArea.innerHTML = `
+                        <h3>💊 Şifacı Lydia ile Tanışma</h3>
+                        <p><strong>Lydia Güven Seviyesi:</strong> ${npcData.trust}/100</p>
+                        <hr>
+                        <p><strong>Lydia</strong> yumuşak bir sesle: "Merhaba cesur avcı. Ben köyün şifacısıyım. 
+                        Yolculuğun için sana şifalı iksirler hazırlayabilirim... Ama bir şey var..."</p>
+                        <p>Lydia'nın gözlerinde gizemli bir ışık parlıyor.</p>
+                        <p><em>Not: Lydia'nın sırrı hikayenin ilerleyen bölümlerinde ortaya çıkacak...</em></p>
+                    `;
+                    
+                    const choiceButtons = document.querySelector('.choice-buttons');
+                    choiceButtons.innerHTML = `
+                        <button class="choice-btn" onclick="askLydiaSecret()">❓ "Ne tür bir şey? Bana anlatabilir misin?"</button>
+                        <button class="choice-btn" onclick="acceptPotions()">💊 "İksirler için teşekkürler"</button>
+                        <button class="choice-btn" onclick="observeLydia()">👁️ "Lydia'yı dikkatlice gözlemle"</button>
+                    `;
+                }
+                
+                updateNPCDisplay();
+            }
+
+            // Plot Twist System
+            function triggerPlotTwist(twistType) {
+                const storyArea = document.querySelector('.story-text');
+                
+                if (twistType === 'aldric_betrayal' && !plotTwistsUnlocked.includes('aldric_betrayal')) {
+                    plotTwistsUnlocked.push('aldric_betrayal');
+                    npcRelationships.aldric.betrayalRevealed = true;
+                    
+                    storyArea.innerHTML = `
+                        <h2>💥 ŞOK! ALDRIC'IN İHANETİ!</h2>
+                        <p><strong>Plot Twist Açıldı:</strong> Aldric'in Gerçek Yüzü</p>
+                        <hr>
+                        <p>Ejderha mağarasının önünde korkunç gerçek ortaya çıkıyor...</p>
+                        <p><strong>Aldric</strong> aniden sana sırtını dönüyor: "Özür dilerim genç avcı... 
+                        Ama Pyraxis benim efendim! Seni buraya getirmem için bana altın dağları vaat etti!"</p>
+                        <p><strong>Ejderha Pyraxis</strong> gülerek: "Mükemmel plan değil mi? En güvendiğin kişi seni ele verdi!"</p>
+                        <p>Şimdi hem Aldric hem de ejderhayla savaşman gerekiyor!</p>
+                    `;
+                    
+                    const choiceButtons = document.querySelector('.choice-buttons');
+                    choiceButtons.innerHTML = `
+                        <button class="choice-btn" onclick="fightBoth()">⚔️ "İkisiyle de savaş!"</button>
+                        <button class="choice-btn" onclick="tryToConvinceAldric()">💬 "Aldric'i ikna etmeye çalış"</button>
+                        <button class="choice-btn" onclick="makeAllianceWithDragon()">🤝 "Ejderhayla ittifak yap"</button>
+                    `;
+                    
+                } else if (twistType === 'lydia_dragon_identity' && !plotTwistsUnlocked.includes('lydia_dragon_identity')) {
+                    plotTwistsUnlocked.push('lydia_dragon_identity');
+                    npcRelationships.lydia.dragonIdentityRevealed = true;
+                    
+                    storyArea.innerHTML = `
+                        <h2>🐲 İNANILMAZ SÜRPRIZ! LYDIA'NIN GERÇEĞİ!</h2>
+                        <p><strong>Plot Twist Açıldı:</strong> Lydia'nın Gerçek Kimliği</p>
+                        <hr>
+                        <p>Kritik anda Lydia aniden parıldıyor ve altın pullu ejderha formuna dönüşüyor!</p>
+                        <p><strong>Lydia (Ejderha formu)</strong>: "Özür dilerim sevgili dostum... Ben Pyraxis'in kardeşiyim. 
+                        Ama artık insanları sevdim. Kardeşimi durdurmana yardım edeceğim!"</p>
+                        <p>Bu ihanet mi, yoksa yeni bir ittifak mı? Karar senin!</p>
+                    `;
+                    
+                    const choiceButtons = document.querySelector('.choice-buttons');
+                    choiceButtons.innerHTML = `
+                        <button class="choice-btn" onclick="acceptDragonAlliance()">🤝 "Lydia'ya güven ve ittifak yap"</button>
+                        <button class="choice-btn" onclick="feelBetrayed()">💔 "İhanete uğradığını hisset"</button>
+                        <button class="choice-btn" onclick="askForProof()">❓ "Sadakatinin kanıtını iste"</button>
+                    `;
+                }
+            }
+
+            // Quest System
+            function startQuest(questType) {
+                currentQuest = questType;
+                const storyArea = document.querySelector('.story-text');
+                
+                if (questType === 'healing_herbs') {
+                    storyArea.innerHTML = `
+                        <h3>🌿 Görev: Şifalı Ot Toplama</h3>
+                        <p><strong>Görev Vereni:</strong> Aldric</p>
+                        <p><strong>Açıklama:</strong> Ormandan 5 adet şifalı ot topla</p>
+                        <hr>
+                        <p>Ormana giriyorsun. Şifalı otlar burada bir yerde olmalı...</p>
+                        <p>Ama dikkat et! Orman tehlikeli yaratıklarla dolu.</p>
+                    `;
+                    
+                    const choiceButtons = document.querySelector('.choice-buttons');
+                    choiceButtons.innerHTML = `
+                        <button class="choice-btn" onclick="searchHerbs('carefully')">🔍 "Dikkatli şekilde ara"</button>
+                        <button class="choice-btn" onclick="searchHerbs('quickly')">⏰ "Hızlıca topla"</button>
+                        <button class="choice-btn" onclick="searchHerbs('magical')">✨ "Büyü kullanarak ara"</button>
+                    `;
+                }
+            }
+
+            // Combat System
+            function startCombat(enemy, enemyStats) {
+                inCombat = true;
+                combatRound = 1;
+                enemyHP = enemyStats.hp;
+                
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h3>⚔️ SAVAŞ BAŞLADI!</h3>
+                    <p><strong>Düşman:</strong> ${enemy}</p>
+                    <p><strong>Düşman HP:</strong> ${enemyHP}/${enemyStats.hp}</p>
+                    <p><strong>Sizin HP:</strong> ${playerHP}/100</p>
+                    <p><strong>Round:</strong> ${combatRound}</p>
+                    <hr>
+                    <p>${enemy} ile epic bir savaş başlıyor!</p>
+                `;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="combatAction('attack')">⚔️ SALDI</button>
+                    <button class="choice-btn" onclick="combatAction('defend')">🛡️ SAVUN</button>
+                    <button class="choice-btn" onclick="combatAction('special')">✨ ÖZEL SALDIRI</button>
+                    <button class="choice-btn" onclick="combatAction('flee')">🏃 KAÇMAYA ÇALIŞ</button>
+                `;
+            }
+
+            // XP and Level System
+            function addXP(amount) {
+                playerXP += amount;
+                checkLevelUp();
+                updateStatsDisplay();
+            }
+
+            function checkLevelUp() {
+                const xpNeeded = playerLevel * 100;
+                if (playerXP >= xpNeeded) {
+                    playerLevel++;
+                    playerXP -= xpNeeded;
+                    levelUp();
+                }
+            }
+
+            function levelUp() {
+                alert(`🎉 LEVEL UP! Şimdi ${playerLevel}. seviyesiniz!`);
+                updateCharacterStats();
+            }
+
+            function updateStatsDisplay() {
+                // HP, XP ve level güncelleme
+                document.getElementById('stat-hp').textContent = playerHP;
+                // Level ve XP gösterimi için yeni alanlar eklenebilir
+            }
+
+            function updateNPCDisplay() {
+                // NPC ilişkilerini gösteren UI güncellemesi
+                // Bu kısım daha sonra genişletilebilir
+            }
+
+            // Missing Functions Implementation
+            function exploreVillage() {
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h3>🏘️ Köy Keşfi</h3>
+                    <p>Köyde dolaşıyorsun. Farklı yerler ve insanlar görüyorsun...</p>
+                    <ul>
+                        <li>🏠 Aldric'in evi - Eğitim alabilirsin</li>
+                        <li>💊 Lydia'nın şifahanesi - İksir alabilirsin</li>
+                        <li>🏛️ Köy meydanı - Büyüklerle konuşabilirsin</li>
+                        <li>🗡️ Silah ustası - Ekipman geliştirebilirsin</li>
+                    </ul>
+                `;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="visitAldric()">🏠 "Aldric'i ziyaret et"</button>
+                    <button class="choice-btn" onclick="visitLydia()">💊 "Lydia'nın şifahanesine git"</button>
+                    <button class="choice-btn" onclick="visitWeaponsmith()">🗡️ "Silah ustasını görmeye git"</button>
+                    <button class="choice-btn" onclick="startGame()">🎮 "Maceraya başla"</button>
+                `;
+            }
+
+            function searchHerbs(method) {
+                const storyArea = document.querySelector('.story-text');
+                let herbsFound = 0;
+                let xpGained = 0;
+                let danger = false;
+                
+                if (method === 'carefully') {
+                    herbsFound = 5;
+                    xpGained = 100;
+                    storyArea.innerHTML = `
+                        <h3>🌿 Başarılı Ot Toplama!</h3>
+                        <p>Dikkatli araman sonuç verdi! 5/5 şifalı ot topladın.</p>
+                        <p><strong>XP Kazandın:</strong> +${xpGained}</p>
+                    `;
+                } else if (method === 'quickly') {
+                    herbsFound = 3;
+                    xpGained = 50;
+                    danger = true;
+                    storyArea.innerHTML = `
+                        <h3>⚠️ Kısmi Başarı!</h3>
+                        <p>Acele ettin! Sadece 3/5 şifalı ot topladın.</p>
+                        <p>Ama dikkat! Bir orman canavarı yaklaşıyor!</p>
+                    `;
+                } else if (method === 'magical') {
+                    herbsFound = 7;
+                    xpGained = 150;
+                    storyArea.innerHTML = `
+                        <h3>✨ Büyülü Başarı!</h3>
+                        <p>Büyün sayesinde ekstra şifalı otlar buldun! 7/5 şifalı ot topladın.</p>
+                        <p>Bonus ödül: Nadir şifalı ot!</p>
+                    `;
+                }
+                
+                addXP(xpGained);
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                if (danger) {
+                    choiceButtons.innerHTML = `
+                        <button class="choice-btn" onclick="startCombat('Orman Canavarı', {hp: 80, attack: 20})">⚔️ "Canavarla savaş!"</button>
+                        <button class="choice-btn" onclick="fleeFromDanger()">🏃 "Kaçmaya çalış!"</button>
+                        <button class="choice-btn" onclick="hideFromMonster()">🌿 "Saklanmaya çalış!"</button>
+                    `;
+                } else {
+                    choiceButtons.innerHTML = `
+                        <button class="choice-btn" onclick="returnToAldric()">🏠 "Aldric'e dön"</button>
+                        <button class="choice-btn" onclick="continueExploring()">🔍 "Keşfe devam et"</button>
+                        <button class="choice-btn" onclick="visitLydia()">💊 "Lydia'yı ziyaret et"</button>
+                    `;
+                }
+            }
+
+            function combatAction(action) {
+                if (!inCombat) return;
+                
+                const storyArea = document.querySelector('.story-text');
+                combatRound++;
+                
+                let playerDamage = 0;
+                let enemyDamage = 0;
+                let actionText = '';
+                
+                if (action === 'attack') {
+                    playerDamage = Math.floor(Math.random() * 30) + 20;
+                    enemyDamage = Math.floor(Math.random() * 20) + 10;
+                    actionText = `Saldırın ${playerDamage} hasar verdi!`;
+                } else if (action === 'defend') {
+                    playerDamage = Math.floor(Math.random() * 15) + 10;
+                    enemyDamage = Math.floor(Math.random() * 10) + 5;
+                    actionText = `Savunduğunuz için daha az hasar aldınız!`;
+                } else if (action === 'special') {
+                    playerDamage = Math.floor(Math.random() * 50) + 30;
+                    enemyDamage = Math.floor(Math.random() * 25) + 15;
+                    actionText = `Özel saldırınız ${playerDamage} hasar verdi!`;
+                } else if (action === 'flee') {
+                    if (Math.random() > 0.5) {
+                        inCombat = false;
+                        storyArea.innerHTML = `
+                            <h3>🏃 Kaçış Başarılı!</h3>
+                            <p>Savaştan başarıyla kaçtınız!</p>
+                        `;
+                        const choiceButtons = document.querySelector('.choice-buttons');
+                        choiceButtons.innerHTML = `
+                            <button class="choice-btn" onclick="exploreArea()">🔍 "Güvenli bir yer ara"</button>
+                            <button class="choice-btn" onclick="rest()">😴 "Dinlen"</button>
+                        `;
+                        return;
+                    } else {
+                        actionText = `Kaçış başarısız! Düşman saldırdı!`;
+                        enemyDamage = Math.floor(Math.random() * 30) + 20;
+                    }
+                }
+                
+                enemyHP -= playerDamage;
+                playerHP -= enemyDamage;
+                
+                if (enemyHP <= 0) {
+                    inCombat = false;
+                    addXP(200);
+                    storyArea.innerHTML = `
+                        <h3>🎉 ZAFER!</h3>
+                        <p>Düşmanı yendiniz!</p>
+                        <p><strong>XP Kazandınız:</strong> +200</p>
+                        <p>Level: ${playerLevel} | XP: ${playerXP}</p>
+                    `;
+                    
+                    const choiceButtons = document.querySelector('.choice-buttons');
+                    choiceButtons.innerHTML = `
+                        <button class="choice-btn" onclick="collectLoot()">💰 "Ganimet topla"</button>
+                        <button class="choice-btn" onclick="continueQuest()">➡️ "Göreve devam et"</button>
+                        <button class="choice-btn" onclick="rest()">😴 "Dinlen"</button>
+                    `;
+                    return;
+                }
+                
+                if (playerHP <= 0) {
+                    inCombat = false;
+                    storyArea.innerHTML = `
+                        <h3>💀 YENİLGİ!</h3>
+                        <p>Düşman sizi yendi... Ama hikaye burada bitmiyor!</p>
+                        <p>Bir şekilde kurtuldunuz ama HP'niz düşük.</p>
+                    `;
+                    playerHP = 10;
+                    
+                    const choiceButtons = document.querySelector('.choice-buttons');
+                    choiceButtons.innerHTML = `
+                        <button class="choice-btn" onclick="seekHealing()">💊 "Şifacı ara"</button>
+                        <button class="choice-btn" onclick="rest()">😴 "Dinlenmeye çalış"</button>
+                        <button class="choice-btn" onclick="retreatToVillage()">🏠 "Köye geri dön"</button>
+                    `;
+                    return;
+                }
+                
+                storyArea.innerHTML = `
+                    <h3>⚔️ SAVAŞ DEVAM EDİYOR!</h3>
+                    <p><strong>Round ${combatRound}</strong></p>
+                    <p>${actionText}</p>
+                    <p><strong>Düşman HP:</strong> ${enemyHP > 0 ? enemyHP : 0}</p>
+                    <p><strong>Sizin HP:</strong> ${playerHP > 0 ? playerHP : 0}</p>
+                    <hr>
+                    <p>Savaş devam ediyor! Bir sonraki hamlenizi seçin:</p>
+                `;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="combatAction('attack')">⚔️ SALDI</button>
+                    <button class="choice-btn" onclick="combatAction('defend')">🛡️ SAVUN</button>
+                    <button class="choice-btn" onclick="combatAction('special')">✨ ÖZEL SALDIRI</button>
+                    <button class="choice-btn" onclick="combatAction('flee')">🏃 KAÇMAYA ÇALIŞ</button>
+                `;
+            }
+
+            function directToDragon() {
+                storyProgress = 5; // İleri atlıyoruz
+                if (Math.random() > 0.3) { // %70 ihtimalle plot twist
+                    triggerPlotTwist('aldric_betrayal');
+                } else {
+                    const storyArea = document.querySelector('.story-text');
+                    storyArea.innerHTML = `
+                        <h2>🐉 Ejderha Mağarası</h2>
+                        <p>Doğrudan ejderha mağarasına geldiniz ama çok zayıfsınız!</p>
+                        <p>Pyraxis sizi görünce gülerek: "Başka bir cesur fool! Seni yakacağım!"</p>
+                    `;
+                    
+                    startCombat('Kızıl Ejderha Pyraxis', {hp: 300, attack: 50});
+                }
+            }
+
+            function fightBoth() {
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h2>⚔️ İKİLİ SAVAŞ!</h2>
+                    <p>Hem Aldric hem de Pyraxis'e karşı epic bir savaş başlıyor!</p>
+                    <p>Bu çok zor olacak ama imkansız değil...</p>
+                `;
+                
+                startCombat('Aldric & Pyraxis', {hp: 400, attack: 60});
+            }
+
+            function makeAllianceWithDragon() {
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h2>🤝 DARK LORD ENDING!</h2>
+                    <p><strong>Sonlardan Biri: Karanlık Lord</strong></p>
+                    <hr>
+                    <p>Pyraxis ile ittifak yaptınız! Birlikte köyü yöneteceksiniz.</p>
+                    <p>İnsanlar sizi korkar ama siz güçlüsünüz. Bu bir son...</p>
+                    <p><strong>🏆 Başarım Açıldı:</strong> Dark Lord Ending</p>
+                `;
+                
+                endGame('dark_lord');
+            }
+
+            function acceptDragonAlliance() {
+                npcRelationships.lydia.trust = 100;
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h2>🐲 DRAGON ALLIANCE ENDING!</h2>
+                    <p><strong>Sonlardan Biri: Ejderha İttifakı</strong></p>
+                    <hr>
+                    <p>Lydia ile birlikte kardeşi Pyraxis'i ikna ettiniz!</p>
+                    <p>Artık ejderhalar ve insanlar barış içinde yaşıyor.</p>
+                    <p><strong>🏆 Başarım Açıldı:</strong> Dragon Alliance Ending</p>
+                `;
+                
+                endGame('dragon_alliance');
+            }
+
+            function endGame(endingType) {
+                gameState = 'ended';
+                questsCompleted.push(endingType);
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="showAllEndings()">📜 "Tüm sonları gör"</button>
+                    <button class="choice-btn" onclick="playAgain()">🔄 "Tekrar oyna"</button>
+                    <button class="choice-btn" onclick="resetGame()">🆕 "Yeni oyun"</button>
+                `;
+            }
+
+            function showAllEndings() {
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h2>📜 TÜM SONLAR</h2>
+                    <h3>🐉 Dragon Hunter Sonları:</h3>
+                    <ul>
+                        <li>✅ Good Ending - Ejderhayı yen, köyü kurtar</li>
+                        <li>💔 Betrayal Ending - Aldric'in ihanetini keşfet</li>
+                        <li>🤝 Dragon Alliance - Ejderhalarla barış</li>
+                        <li>🕯️ Sacrifice Ending - Kendini feda et</li>
+                        <li>👑 Dark Lord Ending - Karanlık güçlerle ittifak</li>
+                    </ul>
+                    <h3>🌃 Cyberpunk Sonları:</h3>
+                    <ul>
+                        <li>🔥 Revolution Ending - Sistemi çökert</li>
+                        <li>💼 Corporate Ending - Şirketlere katıl</li>
+                        <li>🤖 AI Merge Ending - AI ile birleş</li>
+                        <li>👤 Underground King - Gölgeden yönet</li>
+                        <li>🐺 Lone Wolf - Herkesi aldat</li>
+                    </ul>
+                `;
+            }
+
+            function playAgain() {
+                // Aynı karakterle yeni macera
+                storyProgress = 0;
+                plotTwistsUnlocked = [];
+                currentQuest = null;
+                startGame();
+            }
+
+            // Helper functions
+            function visitAldric() { interactWithNPC('aldric', 'visit'); }
+            function visitLydia() { interactWithNPC('lydia', 'first_meet'); }
+            function apologizeToAldric() { interactWithNPC('aldric', 'apologize'); }
+            function returnToAldric() { interactWithNPC('aldric', 'return_quest'); }
+            function soloMission() { startQuest('solo_hack'); }
+            function gatherIntel() { startQuest('intel_gathering'); }
+            function askLydiaSecret() { triggerPlotTwist('lydia_dragon_identity'); }
+            function feelBetrayed() { npcRelationships.lydia.trust -= 30; }
+            function seekHealing() { visitLydia(); }
+            function collectLoot() { addXP(50); exploreArea(); }
+            function continueQuest() { startGame(); }
+            function continueExploring() { exploreArea(); }
+
             function resetGame() {
                 if (confirm('Oyunu sıfırlamak istediğinizden emin misiniz?')) {
+                    // Tüm oyun değişkenlerini sıfırla
                     characterName = '';
                     selectedRace = '';
                     selectedClass = '';
+                    playerLevel = 1;
+                    playerXP = 0;
+                    currentQuest = null;
+                    questsCompleted = [];
+                    currentScenario = null;
+                    storyProgress = 0;
+                    plotTwistsUnlocked = [];
+                    gameState = 'character_creation';
+                    inCombat = false;
+                    combatRound = 0;
+                    enemyHP = 100;
+                    playerHP = 100;
+                    
+                    // NPC ilişkilerini sıfırla
+                    npcRelationships = {
+                        aldric: { trust: 0, quests: 0, status: 'neutral', betrayalRevealed: false },
+                        lydia: { trust: 0, quests: 0, status: 'neutral', dragonIdentityRevealed: false },
+                        marcus: { trust: 0, quests: 0, status: 'neutral' },
+                        zara: { trust: 0, quests: 0, status: 'neutral' },
+                        rexSteel: { trust: 0, quests: 0, status: 'enemy' }
+                    };
+                    
                     document.getElementById('character-name-input').value = '';
                     document.querySelectorAll('.list-item').forEach(item => {
                         item.classList.remove('selected');
@@ -1136,7 +1766,7 @@ def enhanced():
                         <button class="choice-btn" onclick="showCharacter()">👤 KARAKTER GÖSTER</button>
                     `;
                     
-                    alert('Oyun sıfırlandı!');
+                    alert('Oyun tamamen sıfırlandı! Yeni bir macera başlayabilirsiniz.');
                 }
             }
         </script>
