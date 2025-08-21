@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "exact_original_vercel.py",
+      "src": "app_super_simple.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "exact_original_vercel.py"
+      "dest": "app_super_simple.py"
     }
   ],
   "env": {
