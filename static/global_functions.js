@@ -508,6 +508,28 @@ window.generateAIScenario = function () {
   const difficulty = document.getElementById("ai-difficulty")?.value || "medium";
   const level = document.getElementById("ai-level")?.value || 5;
   
+  // Check if file is uploaded
+  const fileInput = document.getElementById("file-input");
+  let fileContent = "";
+  
+  if (fileInput && fileInput.files[0]) {
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+    
+    reader.onload = function(e) {
+      fileContent = e.target.result;
+      generateScenarioWithFile(theme, difficulty, level, fileContent);
+    };
+    
+    reader.readAsText(file);
+  } else {
+    // Generate without file
+    generateScenarioWithFile(theme, difficulty, level, "");
+  }
+};
+
+// Generate scenario with file content
+async function generateScenarioWithFile(theme, difficulty, level, fileContent) {
   // Show loading state
   const generateBtn = document.querySelector(".generate-btn");
   if (generateBtn) {
@@ -515,173 +537,41 @@ window.generateAIScenario = function () {
     generateBtn.disabled = true;
   }
   
-  // Generate AI scenario
-  setTimeout(() => {
-    const aiScenario = generateMockAIScenario(theme, difficulty, level);
+  try {
+    // Call API to generate scenario
+    const response = await fetch('/api/generate-scenario', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        theme: theme,
+        difficulty: difficulty,
+        fileContent: fileContent
+      }),
+    });
     
-    // Save to generated scenarios
-    saveAIScenario(aiScenario);
+    const data = await response.json();
     
-    // Add to AI scenarios grid
-    addAIScenarioToGrid(aiScenario);
-    
-    // Show success message
-    alert(`✅ AI Senaryo üretildi: ${aiScenario.title}`);
-    
+    if (data.success) {
+      // Add to AI scenarios grid
+      addAIScenarioToGrid(data.scenario);
+      
+      // Show success message
+      alert(`✅ AI Senaryo üretildi: ${data.scenario.title}`);
+    } else {
+      alert('❌ Senaryo üretilemedi!');
+    }
+  } catch (error) {
+    console.error('Hata:', error);
+    alert('❌ Bir hata oluştu!');
+  } finally {
     // Reset button
     if (generateBtn) {
       generateBtn.textContent = "🧙‍♂️ Senaryo Üret";
       generateBtn.disabled = false;
     }
-  }, 2000);
-};
-
-// Generate mock AI scenario
-function generateMockAIScenario(theme, difficulty, level) {
-  const themes = {
-    fantasy: {
-      titles: ["Ejderha Avcısı", "Büyülü Orman", "Antik Tapınak", "Kayıp Şehir"],
-      settings: ["Büyülü bir dünyada", "Antik kalıntılarda", "Gizli mağaralarda", "Kayıp krallıkta"],
-      enemies: ["Goblin", "Ork", "Troll", "Ejderha", "Lich"]
-    },
-    warhammer: {
-      titles: ["Space Marine Görevi", "Hive City Savaşı", "Chaos İstilası", "Ork Waaagh"],
-      settings: ["Hive şehrinde", "Uzay gemisinde", "Chaos dünyasında", "Ork kampında"],
-      enemies: ["Chaos Marine", "Ork Boy", "Tyranid", "Necron", "Eldar"]
-    },
-    cyberpunk: {
-      titles: ["Netrunner Macerası", "Corpo Komplosu", "Street Gang Savaşı", "AI İsyanı"],
-      settings: ["Cyberpunk şehrinde", "Corpo binasında", "Underground'da", "AI merkezinde"],
-      enemies: ["Corpo Guard", "Street Thug", "Rogue AI", "Cyberpsycho", "Netrunner"]
-    }
-  };
-  
-  const themeData = themes[theme] || themes.fantasy;
-  const title = themeData.titles[Math.floor(Math.random() * themeData.titles.length)];
-  const setting = themeData.settings[Math.floor(Math.random() * themeData.settings.length)];
-  const enemy = themeData.enemies[Math.floor(Math.random() * themeData.enemies.length)];
-  
-  return {
-    id: `ai_scenario_${Date.now()}`,
-    title: title,
-    theme: theme,
-    difficulty: difficulty,
-    level: level,
-    description: `${setting} başlayan tehlikeli bir macera. ${enemy} ile karşılaşacaksın ve zorlu kararlar vermen gerekecek.`,
-    nodes: {
-      start: {
-        id: "start",
-        title: "Macera Başlıyor",
-        description: `${setting} duruyorsun. Etrafında tehlikeler var ve ${enemy} yakınlarda. Ne yapacaksın?`,
-        choices: [
-          {
-            text: "Keşfet",
-            next_node: "explore",
-            diceRoll: { type: "d20", target: 12, skill: "investigation" },
-            effect: { karma: 2 }
-          },
-          {
-            text: "Savaş",
-            next_node: "combat",
-            combat: true,
-            enemies: [{ name: enemy, hp: 20, attack: 6, defense: 3 }],
-            effect: { karma: 0, xp: 50 }
-          },
-          {
-            text: "Kaç",
-            next_node: "escape",
-            diceRoll: { type: "d20", target: 10, skill: "dexterity" },
-            effect: { karma: -1 }
-          }
-        ]
-      },
-      explore: {
-        id: "explore",
-        title: "Keşif",
-        description: "Etrafı keşfederken gizli bir geçit buluyorsun. İçinde değerli eşyalar olabilir.",
-        choices: [
-          {
-            text: "Geçide gir",
-            next_node: "secret_passage",
-            diceRoll: { type: "d20", target: 14, skill: "stealth" },
-            effect: { karma: 3, item: "treasure" }
-          },
-          {
-            text: "Geri dön",
-            next_node: "start",
-            effect: { karma: 1 }
-          }
-        ]
-      },
-      combat: {
-        id: "combat",
-        title: "Savaş",
-        description: `${enemy} ile savaşıyorsun! Bu zorlu bir mücadele olacak.`,
-        choices: [
-          {
-            text: "Savaşmaya devam et",
-            next_node: "victory",
-            diceRoll: { type: "d20", target: 15, skill: "combat" },
-            effect: { karma: 2, xp: 100 }
-          }
-        ]
-      },
-      escape: {
-        id: "escape",
-        title: "Kaçış",
-        description: "Başarıyla kaçtın ama hiçbir şey kazanamadın.",
-        choices: [
-          {
-            text: "Yeni macera başlat",
-            next_node: "start",
-            effect: { karma: 0 }
-          }
-        ]
-      }
-    }
-  };
-}
-
-// Save AI scenario to storage
-function saveAIScenario(scenario) {
-  try {
-    // Load existing scenarios
-    let scenarios = JSON.parse(localStorage.getItem('ai_generated_scenarios') || '[]');
-    
-    // Add new scenario
-    scenarios.push(scenario);
-    
-    // Save back to storage
-    localStorage.setItem('ai_generated_scenarios', JSON.stringify(scenarios));
-    
-    console.log(`✅ AI Scenario saved: ${scenario.title}`);
-  } catch (error) {
-    console.error("❌ Error saving AI scenario:", error);
   }
-}
-
-// Add AI scenario to grid
-function addAIScenarioToGrid(scenario) {
-  const aiScenariosGrid = document.getElementById("ai-scenarios-grid");
-  if (!aiScenariosGrid) return;
-  
-  const scenarioCard = document.createElement("div");
-  scenarioCard.className = "scenario-card";
-  scenarioCard.onclick = () => window.selectScenario(scenario.id);
-  
-  scenarioCard.innerHTML = `
-    <div class="scenario-header">
-      <h4>🤖 ${scenario.title}</h4>
-      <span class="difficulty ${scenario.difficulty}">${scenario.difficulty}</span>
-    </div>
-    <p>${scenario.description}</p>
-    <div class="scenario-meta">
-      <span>🎮 Tema: ${scenario.theme}</span>
-      <span>⭐ Seviye: ${scenario.level}</span>
-    </div>
-  `;
-  
-  aiScenariosGrid.appendChild(scenarioCard);
 }
 
 // Make choice for AI scenarios
