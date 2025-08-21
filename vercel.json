@@ -2,18 +2,17 @@
   "version": 2,
   "builds": [
     {
-      "src": "app_vercel.py",
+      "src": "exact_original_vercel.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "app_vercel.py"
+      "dest": "exact_original_vercel.py"
     }
   ],
   "env": {
-    "PYTHONPATH": ".",
-    "FORCE_REDEPLOY": "true"
+    "PYTHONPATH": "."
   }
 }
