@@ -355,12 +355,14 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "OK", timestamp: new Date().toISOString() });
 });
 
-// Vercel için özel export
-if (process.env.NODE_ENV === 'production') {
-  module.exports = app;
-} else {
-  const PORT = process.env.PORT || 3000;
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
-}
+// Root endpoint
+app.get("/", (req, res) => {
+  res.json({ message: "AI Dungeon Master API is running!" });
+});
+
+// Catch all other routes
+app.get("*", (req, res) => {
+  res.status(404).json({ error: "Route not found" });
+});
+
+module.exports = app;
