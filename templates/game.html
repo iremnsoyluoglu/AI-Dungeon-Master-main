@@ -4194,11 +4194,15 @@
       }
       
       // Character functions
+      let selectedRace = null;
+      let selectedClass = null;
+      
       function selectRace(race, theme) {
         console.log("🏃 Race selected:", race, "for theme:", theme);
+        selectedRace = race;
         
         // Remove selected class from all race options
-        document.querySelectorAll('.list-item').forEach(item => {
+        document.querySelectorAll('.race-option').forEach(item => {
           item.classList.remove('selected');
         });
         
@@ -4206,14 +4210,15 @@
         event.target.classList.add('selected');
         
         updatePreviewStats();
-        alert(`Irk seçildi: ${race}`);
+        console.log(`Irk seçildi: ${race}`);
       }
       
       function selectClass(className, theme) {
         console.log("⚔️ Class selected:", className, "for theme:", theme);
+        selectedClass = className;
         
         // Remove selected class from all class options
-        document.querySelectorAll('.list-item').forEach(item => {
+        document.querySelectorAll('.class-option').forEach(item => {
           item.classList.remove('selected');
         });
         
@@ -4221,17 +4226,16 @@
         event.target.classList.add('selected');
         
         updatePreviewStats();
-        alert(`Sınıf seçildi: ${className}`);
+        console.log(`Sınıf seçildi: ${className}`);
       }
       
       function updatePreviewStats() {
-        const selectedRace = document.querySelector('.list-item.selected');
-        const selectedClass = document.querySelector('.list-item.selected');
+        if (!selectedRace || !selectedClass) {
+          return; // Eğer ırk veya sınıf seçilmemişse çık
+        }
         
-        if (selectedRace && selectedClass) {
-          const race = selectedRace.textContent;
-          const className = selectedClass.textContent;
-          const stats = calculateCharacterStats(race, className);
+        try {
+          const stats = calculateCharacterStats(selectedRace, selectedClass);
           
           // Preview stats panelini güncelle
           const previewPanel = document.querySelector('.character-creation-panel');
@@ -4253,12 +4257,14 @@
                   <div>🔮 Özel: <span style="color: #FFD700;">${stats.special}</span></div>
                 </div>
                 <div style="margin-top: 10px; font-size: 12px; color: rgba(255,255,255,0.7); text-align: center;">
-                  ${getRaceDescription(race)} | ${getClassDescription(className)}
+                  ${getRaceDescription(selectedRace)} | ${getClassDescription(selectedClass)}
                 </div>
               </div>
             `;
             previewPanel.appendChild(previewDiv);
           }
+        } catch (error) {
+          console.error("Stats update error:", error);
         }
       }
       
@@ -4292,8 +4298,6 @@
         console.log("🎭 Creating character...");
         
         const nameInput = document.getElementById('character-name-input');
-        const selectedRace = document.querySelector('.race-list .list-item.selected');
-        const selectedClass = document.querySelector('.class-list .list-item.selected');
         
         if (!nameInput || !selectedRace || !selectedClass) {
           alert("❌ Lütfen isim, ırk ve sınıf seçin!");
@@ -4301,20 +4305,18 @@
         }
         
         const characterName = nameInput.value || "Yeni Kahraman";
-        const race = selectedRace.textContent;
-        const className = selectedClass.textContent;
         
         // Dinamik stat hesaplama
-        const characterStats = calculateCharacterStats(race, className);
+        const characterStats = calculateCharacterStats(selectedRace, selectedClass);
         
         // Update character display
         document.getElementById('character-name').textContent = characterName;
-        document.getElementById('character-class').textContent = `${race} ${className}`;
+        document.getElementById('character-class').textContent = `${selectedRace} ${selectedClass}`;
         
         // Update stats display
         updateStatsDisplay(characterStats);
         
-        alert(`✅ Karakter oluşturuldu: ${characterName} - ${race} ${className}\n\n📊 Statlar:\nHP: ${characterStats.hp}\nSaldırı: ${characterStats.attack}\nSavunma: ${characterStats.defense}\nÖzel: ${characterStats.special}`);
+        alert(`✅ Karakter oluşturuldu: ${characterName} - ${selectedRace} ${selectedClass}\n\n📊 Statlar:\nHP: ${characterStats.hp}\nSaldırı: ${characterStats.attack}\nSavunma: ${characterStats.defense}\nÖzel: ${characterStats.special}`);
       }
       
       function calculateCharacterStats(race, className) {
