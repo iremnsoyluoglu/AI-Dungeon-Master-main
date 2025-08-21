@@ -732,6 +732,26 @@ def enhanced():
                         <div class="stat-label">Güç</div>
                         <div class="stat-value" id="stat-strength">12</div>
                     </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Çeviklik</div>
+                        <div class="stat-value" id="stat-dexterity">12</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Zeka</div>
+                        <div class="stat-value" id="stat-intelligence">14</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Dayanıklılık</div>
+                        <div class="stat-value" id="stat-constitution">16</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Bilgelik</div>
+                        <div class="stat-value" id="stat-wisdom">13</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Karizma</div>
+                        <div class="stat-value" id="stat-charisma">11</div>
+                    </div>
                 </div>
 
                 <div class="action-buttons">
@@ -985,45 +1005,68 @@ def enhanced():
             }
 
             function updateCharacterStats() {
-                // Tema ve sınıfa göre istatistikleri güncelle
-                let hp = 100, attack = 15, defense = 10, strength = 12;
+                // Temel özellikler (ırk ve sınıfa göre dinamik)
+                let strength = 12, dexterity = 12, intelligence = 14, constitution = 16, wisdom = 13, charisma = 11;
+                let hp = 100, attack = 15, defense = 10;
                 
+                // IRK BONUSLARI
+                if (selectedRace === 'human') {
+                    strength += 1; dexterity += 1; intelligence += 1; constitution += 1; wisdom += 1; charisma += 1;
+                } else if (selectedRace === 'elf') {
+                    dexterity += 3; intelligence += 2; wisdom += 1; constitution -= 1;
+                } else if (selectedRace === 'dwarf') {
+                    strength += 2; constitution += 3; wisdom += 1; charisma -= 1;
+                } else if (selectedRace === 'orc') {
+                    strength += 3; constitution += 2; intelligence -= 1; charisma -= 1;
+                } else if (selectedRace === 'halfling') {
+                    dexterity += 3; charisma += 2; strength -= 1;
+                } else if (selectedRace === 'tiefling') {
+                    intelligence += 2; charisma += 2; constitution -= 1;
+                }
+                
+                // SINIF BONUSLARI
                 if (currentTheme === 'fantasy') {
                     if (selectedClass === 'warrior') {
-                        hp = 120; attack = 18; defense = 12; strength = 15;
+                        strength += 3; constitution += 2; hp = 120; attack = 18; defense = 12;
                     } else if (selectedClass === 'mage') {
-                        hp = 80; attack = 20; defense = 8; strength = 10;
+                        intelligence += 3; wisdom += 2; hp = 80; attack = 20; defense = 8;
                     } else if (selectedClass === 'rogue') {
-                        hp = 90; attack = 16; defense = 11; strength = 13;
+                        dexterity += 3; intelligence += 1; hp = 90; attack = 16; defense = 11;
                     } else if (selectedClass === 'cleric') {
-                        hp = 100; attack = 14; defense = 13; strength = 12;
+                        wisdom += 3; constitution += 1; hp = 100; attack = 14; defense = 13;
                     }
                 } else if (currentTheme === 'warhammer') {
                     if (selectedClass === 'spacemarine') {
-                        hp = 150; attack = 25; defense = 20; strength = 18;
+                        strength += 4; constitution += 3; hp = 150; attack = 25; defense = 20;
                     } else if (selectedClass === 'imperialguard') {
-                        hp = 80; attack = 15; defense = 12; strength = 12;
+                        strength += 1; constitution += 1; hp = 80; attack = 15; defense = 12;
                     } else if (selectedClass === 'psyker') {
-                        hp = 70; attack = 30; defense = 8; strength = 10;
+                        intelligence += 4; wisdom += 2; hp = 70; attack = 30; defense = 8;
                     } else if (selectedClass === 'orknob') {
-                        hp = 120; attack = 22; defense = 15; strength = 20;
+                        strength += 3; constitution += 2; hp = 120; attack = 22; defense = 15;
                     }
                 } else if (currentTheme === 'cyberpunk') {
                     if (selectedClass === 'netrunner') {
-                        hp = 85; attack = 18; defense = 9; strength = 11;
+                        intelligence += 3; dexterity += 2; hp = 85; attack = 18; defense = 9;
                     } else if (selectedClass === 'solo') {
-                        hp = 110; attack = 20; defense = 14; strength = 16;
+                        strength += 2; constitution += 2; hp = 110; attack = 20; defense = 14;
                     } else if (selectedClass === 'techie') {
-                        hp = 90; attack = 16; defense = 12; strength = 13;
+                        intelligence += 2; dexterity += 2; hp = 90; attack = 16; defense = 12;
                     } else if (selectedClass === 'fixer') {
-                        hp = 95; attack = 17; defense = 11; strength = 14;
+                        charisma += 3; intelligence += 1; hp = 95; attack = 17; defense = 11;
                     }
                 }
                 
+                // Özellikleri güncelle
                 document.getElementById('stat-hp').textContent = hp;
                 document.getElementById('stat-attack').textContent = attack;
                 document.getElementById('stat-defense').textContent = defense;
                 document.getElementById('stat-strength').textContent = strength;
+                document.getElementById('stat-dexterity').textContent = dexterity;
+                document.getElementById('stat-intelligence').textContent = intelligence;
+                document.getElementById('stat-constitution').textContent = constitution;
+                document.getElementById('stat-wisdom').textContent = wisdom;
+                document.getElementById('stat-charisma').textContent = charisma;
             }
 
             function choosePath(path) {
