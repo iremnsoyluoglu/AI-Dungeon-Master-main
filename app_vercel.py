@@ -1787,6 +1787,197 @@ def enhanced():
                 startGame();
             }
 
+            // Missing Critical Functions
+            function visitWeaponsmith() {
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h3>🗡️ Silah Ustası Dükkanı</h3>
+                    <p>Yaşlı silah ustası Gareth seni karşılıyor: "Merhaba genç savaşçı! Senin için ne yapabilirim?"</p>
+                    <ul>
+                        <li>🗡️ Kılıç geliştirme - 100 altın</li>
+                        <li>🛡️ Zırh tamir - 50 altın</li>
+                        <li>🏹 Yay ve ok - 75 altın</li>
+                    </ul>
+                `;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="buyWeapon('sword')">🗡️ "Kılıç satın al"</button>
+                    <button class="choice-btn" onclick="buyWeapon('armor')">🛡️ "Zırh tamir ettir"</button>
+                    <button class="choice-btn" onclick="buyWeapon('bow')">🏹 "Yay satın al"</button>
+                    <button class="choice-btn" onclick="exploreVillage()">🏘️ "Köye geri dön"</button>
+                `;
+            }
+
+            function buyWeapon(weaponType) {
+                const storyArea = document.querySelector('.story-text');
+                if (weaponType === 'sword') {
+                    storyArea.innerHTML = `
+                        <h3>🗡️ Kılıç Satın Alındı!</h3>
+                        <p>Saldırı gücünüz +10 arttı!</p>
+                    `;
+                    let currentAttack = parseInt(document.getElementById('stat-attack').textContent);
+                    document.getElementById('stat-attack').textContent = currentAttack + 10;
+                } else if (weaponType === 'armor') {
+                    storyArea.innerHTML = `
+                        <h3>🛡️ Zırh Tamir Edildi!</h3>
+                        <p>Savunma gücünüz +5 arttı!</p>
+                    `;
+                    let currentDefense = parseInt(document.getElementById('stat-defense').textContent);
+                    document.getElementById('stat-defense').textContent = currentDefense + 5;
+                } else if (weaponType === 'bow') {
+                    storyArea.innerHTML = `
+                        <h3>🏹 Yay Satın Alındı!</h3>
+                        <p>Uzaktan saldırı yeteneği kazandınız!</p>
+                    `;
+                }
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="visitWeaponsmith()">🗡️ "Başka bir şey al"</button>
+                    <button class="choice-btn" onclick="exploreVillage()">🏘️ "Köye geri dön"</button>
+                    <button class="choice-btn" onclick="startGame()">🎮 "Maceraya başla"</button>
+                `;
+            }
+
+            function fleeFromDanger() {
+                const storyArea = document.querySelector('.story-text');
+                if (Math.random() > 0.4) {
+                    storyArea.innerHTML = `
+                        <h3>🏃 Başarılı Kaçış!</h3>
+                        <p>Hızla koşarak tehlikeden uzaklaştınız!</p>
+                        <p>Güvenli bir yere ulaştınız.</p>
+                    `;
+                    
+                    const choiceButtons = document.querySelector('.choice-buttons');
+                    choiceButtons.innerHTML = `
+                        <button class="choice-btn" onclick="rest()">😴 "Nefes al ve dinlen"</button>
+                        <button class="choice-btn" onclick="exploreArea()">🔍 "Etrafı keşfet"</button>
+                        <button class="choice-btn" onclick="returnToAldric()">🏠 "Aldric'e geri dön"</button>
+                    `;
+                } else {
+                    storyArea.innerHTML = `
+                        <h3>⚠️ Kaçış Başarısız!</h3>
+                        <p>Canavar sizi yakaladı! Savaşmak zorundasınız!</p>
+                    `;
+                    
+                    startCombat('Orman Canavarı', {hp: 80, attack: 20});
+                }
+            }
+
+            function hideFromMonster() {
+                const storyArea = document.querySelector('.story-text');
+                if (Math.random() > 0.3) {
+                    storyArea.innerHTML = `
+                        <h3>🌿 Başarılı Saklanma!</h3>
+                        <p>Ağaçların arkasına saklandınız. Canavar sizi görmedi ve uzaklaştı.</p>
+                        <p>Artık güvendesiniz.</p>
+                    `;
+                    
+                    const choiceButtons = document.querySelector('.choice-buttons');
+                    choiceButtons.innerHTML = `
+                        <button class="choice-btn" onclick="continueExploring()">🔍 "Aramaya devam et"</button>
+                        <button class="choice-btn" onclick="returnToAldric()">🏠 "Aldric'e geri dön"</button>
+                        <button class="choice-btn" onclick="rest()">😴 "Dinlen"</button>
+                    `;
+                } else {
+                    storyArea.innerHTML = `
+                        <h3>👁️ Fark Edildin!</h3>
+                        <p>Canavar sizi gördü! Artık savaş kaçınılmaz!</p>
+                    `;
+                    
+                    startCombat('Orman Canavarı', {hp: 80, attack: 20});
+                }
+            }
+
+            function retreatToVillage() {
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h3>🏠 Köye Geri Dönüş</h3>
+                    <p>Yaralı olarak köye geri döndünüz. Köylüler size yardım ediyor.</p>
+                    <p>Lydia sizi iyileştirdi. HP'niz restore edildi!</p>
+                `;
+                
+                playerHP = 50; // Kısmen iyileştir
+                document.getElementById('stat-hp').textContent = playerHP;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="visitLydia()">💊 "Lydia ile konuş"</button>
+                    <button class="choice-btn" onclick="visitAldric()">🏠 "Aldric'i ziyaret et"</button>
+                    <button class="choice-btn" onclick="rest()">😴 "Tam dinlen"</button>
+                `;
+            }
+
+            function meetOtherHackers() {
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h3>👥 Underground Hacker Topluluğu</h3>
+                    <p>Zara sizi gizli hacker topluluğuna götürüyor...</p>
+                    <p>Burada Rex Steel'e karşı savaşan diğer devrimcilerle tanışıyorsunuz.</p>
+                    <p><strong>Nova:</strong> "Yeni üye! MegaCorp'a karşı birlikte savaşacağız!"</p>
+                `;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="planRevolution()">🔥 "Devrim planla"</button>
+                    <button class="choice-btn" onclick="gatherIntel()">🔍 "İstihbarat topla"</button>
+                    <button class="choice-btn" onclick="hackTraining()">💻 "Hacking eğitimi al"</button>
+                `;
+            }
+
+            function planRevolution() {
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h3>🔥 Devrim Planı</h3>
+                    <p>Hacker grubu ile birlikte MegaCorp'un ana sistemlerine saldırı planı yapıyorsunuz!</p>
+                    <p>Bu epik bir son olabilir...</p>
+                `;
+                
+                addXP(300);
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="executeRevolution()">⚡ "Devrimi başlat!"</button>
+                    <button class="choice-btn" onclick="soloMission()">🚶 "Tek başına git"</button>
+                    <button class="choice-btn" onclick="gatherIntel()">📊 "Daha fazla bilgi topla"</button>
+                `;
+            }
+
+            function executeRevolution() {
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h2>🔥 REVOLUTION ENDING!</h2>
+                    <p><strong>Sonlardan Biri: Devrim</strong></p>
+                    <hr>
+                    <p>Hacker topluluğu ile birlikte MegaCorp'u çökerttiniz!</p>
+                    <p>Şehir artık özgür! İnsanlar AI kontrolünden kurtuldu!</p>
+                    <p><strong>🏆 Başarım Açıldı:</strong> Revolution Ending</p>
+                `;
+                
+                endGame('revolution');
+            }
+
+            function hackTraining() {
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h3>💻 Hacking Eğitimi</h3>
+                    <p>Gelişmiş hacking teknikleri öğreniyorsunuz...</p>
+                    <p>Saldırı gücünüz arttı!</p>
+                `;
+                
+                addXP(150);
+                let currentAttack = parseInt(document.getElementById('stat-attack').textContent);
+                document.getElementById('stat-attack').textContent = currentAttack + 15;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="planRevolution()">🔥 "Devrim planla"</button>
+                    <button class="choice-btn" onclick="soloMission()">🚶 "Tek operasyon yap"</button>
+                    <button class="choice-btn" onclick="meetOtherHackers()">👥 "Grup ile kal"</button>
+                `;
+            }
+
             // Helper functions
             function visitAldric() { interactWithNPC('aldric', 'visit'); }
             function visitLydia() { interactWithNPC('lydia', 'first_meet'); }
