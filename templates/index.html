@@ -9,9 +9,9 @@
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         background: linear-gradient(
           135deg,
-          #0a0a0a 0%,
+          #2d5016 0%,
           #1a1a1a 50%,
-          #2a2a2a 100%
+          #0a0a0a 100%
         );
         color: white;
         margin: 0;
@@ -20,191 +20,139 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
+        overflow: hidden;
       }
+
+      /* Background dots effect */
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: radial-gradient(circle, #ffd700 1px, transparent 1px);
+        background-size: 20px 20px;
+        opacity: 0.1;
+        pointer-events: none;
+      }
+
       .container {
         text-align: center;
-        background: rgba(26, 26, 26, 0.8);
+        background: rgba(40, 40, 40, 0.95);
         padding: 40px;
-        border-radius: 12px;
-        border: 2px solid #ffd700;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        max-width: 800px;
+        border-radius: 15px;
+        border: 3px solid #ffd700;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        max-width: 500px;
         width: 100%;
+        position: relative;
+        z-index: 1;
       }
+
+      .game-icon {
+        font-size: 48px;
+        margin-bottom: 20px;
+        display: block;
+      }
+
       .game-title {
-        font-size: 32px;
+        font-size: 36px;
         font-weight: bold;
         color: #ffd700;
-        margin-bottom: 8px;
+        margin-bottom: 10px;
         text-transform: uppercase;
-        letter-spacing: 2px;
+        letter-spacing: 3px;
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
       }
+
       .game-subtitle {
-        color: rgba(255, 255, 255, 0.8);
+        color: rgba(255, 255, 255, 0.9);
         margin-bottom: 30px;
-        font-size: 18px;
+        font-size: 16px;
+        font-style: italic;
       }
+
       .button {
-        background: linear-gradient(45deg, #ffd700, #ffa500);
-        color: #000;
-        border: none;
+        background: rgba(60, 60, 60, 0.8);
+        color: white;
+        border: 2px solid #ffd700;
         padding: 12px 24px;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 16px;
         font-weight: bold;
         cursor: pointer;
-        margin: 5px;
+        margin: 8px;
         text-decoration: none;
         display: inline-block;
         transition: all 0.3s ease;
+        min-width: 120px;
       }
+
       .button:hover {
+        background: rgba(255, 215, 0, 0.2);
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+        box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
       }
+
       .guest-button {
-        background: linear-gradient(45deg, #4caf50, #45a049);
-        color: white;
-      }
-      .ai-button {
-        background: linear-gradient(45deg, #9c27b0, #673ab7);
-        color: white;
-      }
-      .scenario-preview {
-        background: rgba(0, 0, 0, 0.3);
-        padding: 20px;
-        border-radius: 8px;
-        margin: 20px 0;
-        text-align: left;
-        border-left: 4px solid #ffd700;
-      }
-      .scenario-title {
-        color: #ffd700;
-        font-size: 18px;
+        background: #ffd700;
+        color: #000;
+        border: 2px solid #ffd700;
         font-weight: bold;
-        margin-bottom: 10px;
       }
-      .scenario-desc {
+
+      .guest-button:hover {
+        background: #ffed4e;
+        box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5);
+      }
+
+      .guest-info {
         color: rgba(255, 255, 255, 0.8);
-        margin-bottom: 10px;
-        line-height: 1.5;
-      }
-      .scenario-stats {
-        color: #4caf50;
+        margin: 20px 0;
         font-size: 14px;
       }
-      .features {
-        text-align: left;
-        margin-top: 2rem;
-        background: rgba(0, 0, 0, 0.2);
-        padding: 20px;
+
+      .start-button {
+        background: #ffd700;
+        color: #000;
+        border: none;
+        padding: 15px 40px;
         border-radius: 8px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 20px;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        min-width: 200px;
+        box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
       }
-      .features h3 {
-        margin-bottom: 1rem;
-        color: #ffd700;
-      }
-      .features ul {
-        list-style: none;
-        padding: 0;
-      }
-      .features li {
-        padding: 0.5rem 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        color: rgba(255, 255, 255, 0.8);
-      }
-      .features li:before {
-        content: "✨ ";
-        margin-right: 0.5rem;
-        color: #ffd700;
-      }
-      .status {
-        background: rgba(76, 175, 80, 0.2);
-        padding: 10px;
-        border-radius: 6px;
-        margin-bottom: 20px;
-        border: 1px solid #4caf50;
+
+      .start-button:hover {
+        background: #ffed4e;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(255, 215, 0, 0.5);
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="status">✅ AI Dungeon Master Başarıyla Çalışıyor!</div>
+      <span class="game-icon">🎮</span>
 
-      <h1 class="game-title">🎮 AI DUNGEON MASTER</h1>
+      <h1 class="game-title">AI DUNGEON MASTER</h1>
       <p class="game-subtitle">Fantastik Dünyalara Açılan Kapı</p>
 
-      <div class="scenario-preview">
-        <div class="scenario-title">🐉 Dragon Hunter's Path</div>
-        <div class="scenario-desc">
-          Köyü tehdit eden ejderhayı durdurmak için kahramanlar toplanıyor. Bu
-          sadece bir görev değil, bu SENİN HİKAYEN. 56 farklı node ile uzun ve
-          detaylı bir macera!
-        </div>
-        <div class="scenario-stats">
-          🎯 Zorluk: Yüksek | ⏱️ Süre: 4+ saat | 🎮 Tür: Fantazi | 🌟 NPC'ler: 4
-          | 🎭 Plot Twist'ler: Var
-        </div>
-      </div>
+      <a href="/login" class="button">GİRİŞ</a>
+      <a href="/register" class="button">KAYIT</a>
+      <a href="/game" class="button guest-button">MİSAFİR</a>
+      <a href="/multiplayer" class="button">MULTIPL</a>
 
-      <div class="scenario-preview">
-        <div class="scenario-title">⚔️ Imperial Crisis</div>
-        <div class="scenario-desc">
-          Warhammer 40K evreninde Chaos tehdidi altındaki Imperial dünyasında
-          görev yapıyorsun. Commissar Kane ve Tech-Priest Zeta-7 ile birlikte
-          heresy'i temizle!
-        </div>
-        <div class="scenario-stats">
-          🎯 Zorluk: Çok Yüksek | ⏱️ Süre: 5+ saat | 🎮 Tür: Warhammer 40K | 🌟
-          NPC'ler: 2 | 🎭 Plot Twist'ler: Var
-        </div>
-      </div>
+      <div class="guest-info">Misafir olarak hızlıca oyuna başlayın!</div>
 
-      <div class="scenario-preview">
-        <div class="scenario-title">🏙️ Hive City Crisis</div>
-        <div class="scenario-desc">
-          Hive City'de Ork istilası ve Genestealer tehdidi var. Diplomatik
-          çözümler mi yoksa savaş mı? Karar senin!
-        </div>
-        <div class="scenario-stats">
-          🎯 Zorluk: Yüksek | ⏱️ Süre: 4+ saat | 🎮 Tür: Warhammer 40K | 🌟
-          NPC'ler: 3 | 🎭 Plot Twist'ler: Var
-        </div>
-      </div>
-
-      <div class="scenario-preview">
-        <div class="scenario-title">🌃 Neon City Runners</div>
-        <div class="scenario-desc">
-          Cyberpunk dünyasında Ghost ve King Jax ile birlikte corporate
-          hegemony'yi devir. Digital consciousness ve AI merge seçenekleri!
-        </div>
-        <div class="scenario-stats">
-          🎯 Zorluk: Orta | ⏱️ Süre: 3+ saat | 🎮 Tür: Cyberpunk | 🌟 NPC'ler: 2
-          | 🎭 Plot Twist'ler: Var
-        </div>
-      </div>
-
-      <div class="features">
-        <h3>🚀 Özellikler:</h3>
-        <ul>
-          <li>AI Destekli Hikaye Üretimi (Dosya yükleme ile)</li>
-          <li>Detaylı Karakter Sistemi ve NPC İlişkileri</li>
-          <li>Çoklu Tema (Fantasy, Warhammer 40K, Cyberpunk)</li>
-          <li>İnteraktif Oyun Deneyimi ve Seçim Sistemi</li>
-          <li>
-            Dinamik Görev Sistemi (Tıklama ile değil, aksiyon ile tamamlanır)
-          </li>
-          <li>Plot Twist'ler ve İhanet Sistemi</li>
-          <li>Çoklu Son Sistemi (Her senaryoda farklı ending'ler)</li>
-          <li>Uzun Gameplay (Her senaryo 3-5+ saat)</li>
-        </ul>
-      </div>
-
-      <a href="/login" class="button">🔐 GİRİŞ</a>
-      <a href="/register" class="button">📝 KAYIT</a>
-      <a href="/game" class="button guest-button">🎮 MİSAFİR</a>
-      <a href="/multiplayer" class="button">👥 MULTIPLAYER</a>
-      <a href="/ai-scenarios" class="button ai-button">🤖 AI SENARYOLAR</a>
+      <a href="/game" class="start-button">OYUNA BAŞLA</a>
     </div>
   </body>
 </html>

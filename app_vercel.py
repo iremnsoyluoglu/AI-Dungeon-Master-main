@@ -7,6 +7,7 @@ A simplified Flask application specifically designed for Vercel deployment
 
 from flask import Flask, render_template, request, jsonify
 import os
+import json
 
 app = Flask(__name__)
 
@@ -330,105 +331,7 @@ def game():
 @app.route('/enhanced')
 def enhanced():
     """Enhanced game page with full RPG functionality, plot twists, NPC interactions, and multiple endings"""
-    return '''
-    <!DOCTYPE html>
-    <html lang="tr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AI Dungeon Master - Enhanced RPG Experience</title>
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-
-            body {
-                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-                color: white;
-                height: 100vh;
-                overflow: hidden;
-            }
-
-            .dashboard {
-                display: grid;
-                grid-template-columns: 280px 1fr 320px;
-                height: 100vh;
-                gap: 2px;
-                background: #000;
-            }
-
-            .left-panel {
-                background: linear-gradient(180deg, #2c1810 0%, #4a1f1f 100%);
-                padding: 15px;
-                overflow-y: auto;
-                border: 1px solid rgba(255, 215, 0, 0.3);
-            }
-
-            .left-panel h3 {
-                color: #ffd700;
-                font-size: 16px;
-                margin-bottom: 15px;
-                text-align: center;
-            }
-
-            .theme-tabs {
-                display: flex;
-                margin-bottom: 20px;
-                background: rgba(0, 0, 0, 0.3);
-                border-radius: 8px;
-                overflow: hidden;
-            }
-
-            .theme-tab {
-                flex: 1;
-                padding: 10px;
-                text-align: center;
-                cursor: pointer;
-                background: rgba(255, 255, 255, 0.1);
-                transition: all 0.3s ease;
-                font-size: 12px;
-            }
-
-            .theme-tab.active {
-                background: #ffd700;
-                color: #000;
-                font-weight: bold;
-            }
-
-            .theme-tab:hover {
-                background: rgba(255, 215, 0, 0.3);
-            }
-
-            .character-name-section {
-                margin-bottom: 20px;
-            }
-
-            .character-name-section h4 {
-                color: #ffd700;
-                margin-bottom: 10px;
-                font-size: 14px;
-            }
-
-            .name-input-container input {
-                width: 100%;
-                padding: 8px;
-                border: 1px solid #ffd700;
-                border-radius: 4px;
-                background: rgba(0, 0, 0, 0.3);
-                color: white;
-                font-size: 12px;
-            }
-
-            .theme-content {
-                margin-bottom: 20px;
-            }
-
-            .race-class-list {
-                margin-bottom: 20px;
-            }
+    return render_template('game.html')
 
             .race-class-list h4 {
                 color: #ffd700;
@@ -2361,6 +2264,67 @@ def health():
         "version": "1.0.0",
         "deployment": "vercel"
     })
+
+@app.route('/api/scenarios/enhanced/<scenario_id>')
+def get_enhanced_scenario(scenario_id):
+    """Get enhanced scenario data"""
+    try:
+        # Load enhanced scenarios from data file
+        with open('data/enhanced_scenarios.json', 'r', encoding='utf-8') as f:
+            scenarios_data = json.load(f)
+        
+        if 'enhanced_scenarios' in scenarios_data and scenario_id in scenarios_data['enhanced_scenarios']:
+            scenario = scenarios_data['enhanced_scenarios'][scenario_id]
+            return jsonify({
+                "success": True,
+                "scenario": scenario
+            })
+        else:
+            return jsonify({
+                "success": False,
+                "error": "Scenario not found"
+            }), 404
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": str(e)
+        }), 500
+
+@app.route('/api/scenarios/enhanced/<scenario_id>/ending')
+def get_scenario_endings(scenario_id):
+    """Get possible endings for a scenario"""
+    try:
+        # Load enhanced scenarios from data file
+        with open('data/enhanced_scenarios.json', 'r', encoding='utf-8') as f:
+            scenarios_data = json.load(f)
+        
+        if 'enhanced_scenarios' in scenarios_data and scenario_id in scenarios_data['enhanced_scenarios']:
+            scenario = scenarios_data['enhanced_scenarios'][scenario_id]
+            endings = scenario.get('ending_variations', {})
+            
+            possible_endings = []
+            for ending_id, ending_data in endings.items():
+                possible_endings.append({
+                    "id": ending_id,
+                    "name": ending_id.replace('_', ' ').title(),
+                    "description": ending_data.get('description', ''),
+                    "requirements": ending_data.get('requirements', {})
+                })
+            
+            return jsonify({
+                "success": True,
+                "possible_endings": possible_endings
+            })
+        else:
+            return jsonify({
+                "success": False,
+                "error": "Scenario not found"
+            }), 404
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": str(e)
+        }), 500
 
 @app.route('/api/game')
 def game_api():

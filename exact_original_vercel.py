@@ -4345,6 +4345,10 @@ def home():
         app.logger.error(f'Traceback: {traceback.format_exc()}')
         return f'Error: {str(e)}', 500
 
+@app.route('/test')
+def test():
+    return jsonify({"status": "OK", "message": "Server is working"})
+
 @app.route('/game')
 def game():
     return render_template('game.html')
