@@ -47,11 +47,11 @@ else:
         "id": "dragon_hunters_path",
         "title": "🐉 Dragon Hunter's Path",
         "genre": "fantasy",
-        "description": "Köyü tehdit eden ejderhayı durdurmak için kahramanlar toplanıyor. Bu sadece bir görev değil, bu SENİN HİKAYEN.",
+        "description": "Köyü tehdit eden ejderhayı durdurmak için kahramanlar toplanıyor. Bu sadece bir görev değil, bu SENİN HİKAYEN. 🔥 PLOT TWIST'LER, 💬 NPC ETKİLEŞİMLERİ, ⚔️ UZUN SAVAŞ SAHNELERİ, 🎯 ACTION-BASED GÖREVLER, 🏁 5+ FARKLI SON!",
         "difficulty": "hard",
         "theme": "fantasy",
         "complexity": "high",
-        "estimatedPlayTime": 240,
+        "estimatedPlayTime": 480,  # 8 saat - çok daha uzun
         "levels": {
             "level_1": {
                 "title": "Köy Tehdidi",
@@ -1995,6 +1995,133 @@ else:
                         "text": "Ana Menüye Dön",
                         "next_node": "start",
                         "effect": {"xp": 50}
+                    }
+                ]
+            }
+        }
+    },
+    
+    # ============== HORROR SENARYO ==============
+    "haunted_mansion_nightmare": {
+        "id": "haunted_mansion_nightmare",
+        "title": "👻 Haunted Mansion Nightmare",
+        "genre": "horror",
+        "description": "Karanlık bir malikanede mahsur kaldın. Ruhlar, sırlar ve korkunç gerçekler! 🔥 PLOT TWIST'LER, 💬 NPC ETKİLEŞİMLERİ, ⚔️ KORKU SAHNELERİ, 🎯 ACTION-BASED GÖREVLER, 🏁 5+ FARKLI SON!",
+        "difficulty": "hard",
+        "theme": "horror",
+        "complexity": "high",
+        "estimatedPlayTime": 480,
+        "levels": {
+            "level_1": {
+                "title": "Mansion Entry",
+                "description": "Karanlık malikaneye giriş yapıyorsun.",
+                "min_level": 1,
+                "max_level": 3,
+                "enemies": ["Ghosts", "Dark Spirits", "Cursed Objects"],
+                "boss": "Mansion Guardian",
+                "side_quests": ["Find Keys", "Solve Puzzles", "Exorcise Spirits"]
+            },
+            "level_2": {
+                "title": "Deep Secrets",
+                "description": "Malikanenin derinliklerindeki sırları keşfediyorsun.",
+                "min_level": 3,
+                "max_level": 5,
+                "enemies": ["Ancient Spirits", "Dark Entities", "Cursed Family"],
+                "boss": "Ancient Evil",
+                "side_quests": ["Family Curse", "Ancient Ritual", "Escape Mansion"]
+            }
+        },
+        "npc_relationships": {
+            "ghost_maid": {
+                "name": "Ghost Maid",
+                "backstory": "Malikanenin eski hizmetçisi, ölümünden sonra ruh olarak kaldı",
+                "personality": "Sad, helpful, knows mansion secrets",
+                "trust_level": 0,
+                "quests_completed": 0,
+                "relationship_status": "stranger",
+                "ending_impact": "medium",
+                "quest_offers": ["Mansion Secrets", "Ghost Help", "Escape Route"]
+            },
+            "cursed_butler": {
+                "name": "Cursed Butler",
+                "backstory": "Malikanenin lanetli uşağı, ailesinin sırlarını koruyor",
+                "personality": "Loyal, mysterious, knows dark secrets",
+                "trust_level": 0,
+                "quests_completed": 0,
+                "relationship_status": "stranger",
+                "ending_impact": "high",
+                "quest_offers": ["Family Secrets", "Curse Breaking", "Dark Ritual"]
+            },
+            "ancient_spirit": {
+                "name": "Ancient Spirit",
+                "backstory": "Malikanenin en eski ruhu, binlerce yıllık bilgiye sahip",
+                "personality": "Wise, dangerous, seeks freedom",
+                "trust_level": 0,
+                "quests_completed": 0,
+                "relationship_status": "stranger",
+                "ending_impact": "extreme",
+                "quest_offers": ["Ancient Knowledge", "Spirit Pact", "Eternal Curse"]
+            }
+        },
+        "quest_chains": {
+            "mansion_secrets": {
+                "title": "Mansion Secrets Chain",
+                "prerequisites": [],
+                "quests": ["explore_mansion", "find_secrets", "break_curse"],
+                "rewards": {"xp": 600, "spirit_essence": 300, "items": ["ghost_weapon"], "relationship_boost": 40}
+            }
+        },
+        "ending_variations": {
+            "escape_ending": {
+                "requirements": {"ghost_maid_trust": 70, "quests_completed": 12},
+                "description": "Malikaneden kaçtınız! Özgürsünüz ama sırlar sizinle."
+            },
+            "curse_ending": {
+                "requirements": {"cursed_butler_trust": 60, "quests_completed": 8},
+                "description": "Laneti kırdınız ama bedeli ağır oldu."
+            },
+            "spirit_ending": {
+                "requirements": {"ancient_spirit_trust": 80, "quests_completed": 15},
+                "description": "Ruhla birleştiniz. Yeni bir varlık oldunuz."
+            },
+            "trapped_ending": {
+                "requirements": {"quests_completed": 5},
+                "description": "Malikanede mahsur kaldınız. Sonsuza dek buradasınız."
+            },
+            "dark_ending": {
+                "requirements": {"quests_completed": 10},
+                "description": "Karanlık güçleri seçtiniz. Artık onlardan birisiniz."
+            }
+        },
+        "story_nodes": {
+            "start": {
+                "id": "start",
+                "title": "👻 Haunted Mansion - Karanlık Giriş",
+                "description": "Karanlık bir malikanede mahsur kaldın. Rüzgar pencereleri sallıyor, gölgeler duvarlarda dans ediyor. Bu sadece bir ev değil, lanetli bir yer. Geçmişin sırları burada yatıyor. Bir hizmetçi ruhu seni görüyor ve yardım etmek istiyor ama güvenilir mi?",
+                "choices": [
+                    {
+                        "id": "trust_ghost",
+                        "text": "Ruh hizmetçiye güven",
+                        "next_node": "ghost_help",
+                        "effect": {"charisma": 15, "xp": 20}
+                    },
+                    {
+                        "id": "explore_alone",
+                        "text": "Tek başına keşfet",
+                        "next_node": "solo_exploration",
+                        "effect": {"exploration": 20, "xp": 30}
+                    },
+                    {
+                        "id": "find_exit",
+                        "text": "Çıkış yolunu ara",
+                        "next_node": "exit_search",
+                        "effect": {"investigation": 15, "xp": 25}
+                    },
+                    {
+                        "id": "call_help",
+                        "text": "Yardım çağır",
+                        "next_node": "help_call",
+                        "effect": {"charisma": 10, "xp": 15}
                     }
                 ]
             }
@@ -5158,27 +5285,27 @@ def make_story_choice(scenario_id):
             action_type = "talk"
             action_value = 2
             update_player_stats(user_id, "charisma_skill", action_value)
-            update_player_stats(user_id, "conversations", 1)
+                update_player_stats(user_id, "conversations", 1)
             update_player_stats(user_id, "npc_interactions", 1)
             
         elif any(word in choice_id.lower() for word in ["investigate", "araştır", "search", "explore", "look"]):
             action_type = "exploration"
             action_value = 2
             update_player_stats(user_id, "exploration_skill", action_value)
-            update_player_stats(user_id, "search_actions", 1)
+                update_player_stats(user_id, "search_actions", 1)
             update_player_stats(user_id, "locations_visited", 1)
             
         elif any(word in choice_id.lower() for word in ["magic", "büyü", "spell", "cast"]):
             action_type = "magic"
             action_value = 3
             update_player_stats(user_id, "intelligence_skill", action_value)
-            update_player_stats(user_id, "puzzle_attempts", 1)
+                update_player_stats(user_id, "puzzle_attempts", 1)
             
         elif any(word in choice_id.lower() for word in ["collect", "topla", "gather", "take", "grab"]):
             action_type = "collect"
             action_value = 1
             update_player_stats(user_id, "exploration_skill", 1)
-            update_player_stats(user_id, "items_collected", 1)
+                update_player_stats(user_id, "items_collected", 1)
             
         elif any(word in choice_id.lower() for word in ["help", "yardım", "assist", "aid"]):
             action_type = "help"
@@ -5192,7 +5319,7 @@ def make_story_choice(scenario_id):
             action_value = 1
             update_player_stats(user_id, "exploration_skill", action_value)
         
-        action_recorded = True
+            action_recorded = True
         
         # Quest progress kontrol et - action'lar otomatik quest completion yapar
         quest_notifications = []
@@ -7156,10 +7283,14 @@ def get_boss_for_theme(theme, level):
             "minor": "Gang Leader",
             "major": "AI Overlord"
         },
-        "warhammer": {
-            "minor": "Chaos Champion", 
-            "major": "Daemon Prince"
-        }
+            "warhammer": {
+        "minor": "Chaos Champion", 
+        "major": "Daemon Prince"
+    },
+    "horror": {
+        "minor": "Ghost",
+        "major": "Ancient Evil"
+    }
     }
     return bosses.get(theme, {}).get(level, "Boss Enemy")
 

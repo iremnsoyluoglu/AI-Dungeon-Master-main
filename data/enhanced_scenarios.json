@@ -62,7 +62,11 @@
           "quests_completed": 0,
           "relationship_status": "stranger",
           "ending_impact": "extreme",
-          "quest_offers": ["Prophecy Quest", "Spirit Communication", "Ancient Knowledge"]
+          "quest_offers": [
+            "Prophecy Quest",
+            "Spirit Communication",
+            "Ancient Knowledge"
+          ]
         },
         "captain_marcus": {
           "name": "Captain Marcus Ironheart",
@@ -72,7 +76,11 @@
           "quests_completed": 0,
           "relationship_status": "stranger",
           "ending_impact": "high",
-          "quest_offers": ["Royal Investigation", "Corruption Quest", "Loyalty Test"]
+          "quest_offers": [
+            "Royal Investigation",
+            "Corruption Quest",
+            "Loyalty Test"
+          ]
         },
         "sienna": {
           "name": "Sienna Shadowstep",
@@ -82,7 +90,11 @@
           "quests_completed": 0,
           "relationship_status": "stranger",
           "ending_impact": "medium",
-          "quest_offers": ["Heist Quest", "Information Gathering", "Underground War"]
+          "quest_offers": [
+            "Heist Quest",
+            "Information Gathering",
+            "Underground War"
+          ]
         }
       },
       "quest_chains": {
@@ -90,40 +102,53 @@
           "title": "Ejderha Avı Ana Görevi",
           "prerequisites": [],
           "quests": ["find_dragon", "gather_allies", "final_battle"],
-          "rewards": {"xp": 1000, "gold": 5000, "items": ["dragon_scale_armor"], "title": "Dragon Slayer"}
+          "rewards": {
+            "xp": 1000,
+            "gold": 5000,
+            "items": ["dragon_scale_armor"],
+            "title": "Dragon Slayer"
+          }
         },
         "village_protection": {
           "title": "Köy Koruma Zinciri",
           "prerequisites": [],
           "quests": ["defend_village", "heal_wounded", "rebuild_homes"],
-          "rewards": {"xp": 500, "village_rep": 200, "items": ["village_hero_badge"]}
+          "rewards": {
+            "xp": 500,
+            "village_rep": 200,
+            "items": ["village_hero_badge"]
+          }
         },
         "ancient_secrets": {
           "title": "Antik Sırlar",
           "prerequisites": ["mystic_lyra_trust_50"],
           "quests": ["find_ancient_tome", "decipher_prophecy", "unlock_power"],
-          "rewards": {"xp": 800, "magic_power": 100, "items": ["ancient_staff"]}
+          "rewards": {
+            "xp": 800,
+            "magic_power": 100,
+            "items": ["ancient_staff"]
+          }
         }
       },
       "ending_variations": {
         "hero_ending": {
-          "requirements": {"aldric_trust": 80, "quests_completed": 15},
+          "requirements": { "aldric_trust": 80, "quests_completed": 15 },
           "description": "Ejderhayı yendin ve köyü kurtardın. Kahraman oldun!"
         },
         "dragon_alliance": {
-          "requirements": {"lydia_trust": 70, "quests_completed": 12},
+          "requirements": { "lydia_trust": 70, "quests_completed": 12 },
           "description": "Ejderhalarla barış yaptın. Yeni bir düzen başladı."
         },
         "betrayal_ending": {
-          "requirements": {"aldric_trust": 90, "quests_completed": 8},
+          "requirements": { "aldric_trust": 90, "quests_completed": 8 },
           "description": "Aldric'e güvendin ama o seni ejderlere sattı."
         },
         "sacrifice_ending": {
-          "requirements": {"quests_completed": 10},
+          "requirements": { "quests_completed": 10 },
           "description": "Kendini feda ederek herkesi kurtardın."
         },
         "dark_lord_ending": {
-          "requirements": {"quests_completed": 8},
+          "requirements": { "quests_completed": 8 },
           "description": "Karanlık güçleri seçerek dünyayı yönetmeye başladın."
         }
       },
@@ -137,25 +162,42 @@
               "id": "talk_aldric",
               "text": "Aldric ile konuş",
               "next_node": "aldric_dialogue",
-              "effect": {"charisma_skill": 2, "conversations": 1, "npc_interactions": 1, "time_spent": 5}
+              "effect": {
+                "charisma_skill": 2,
+                "conversations": 1,
+                "npc_interactions": 1,
+                "time_spent": 5
+              }
             },
             {
               "id": "chase_dragon",
               "text": "Hemen ejderhayı takip et",
               "next_node": "dragon_chase",
-              "effect": {"combat_skill": 3, "exploration_skill": 2, "time_spent": 10}
+              "effect": {
+                "combat_skill": 3,
+                "exploration_skill": 2,
+                "time_spent": 10
+              }
             },
             {
               "id": "gather_info",
               "text": "Köylülerden bilgi topla",
               "next_node": "village_info",
-              "effect": {"charisma_skill": 2, "conversations": 2, "time_spent": 8}
+              "effect": {
+                "charisma_skill": 2,
+                "conversations": 2,
+                "time_spent": 8
+              }
             },
             {
               "id": "find_healer",
               "text": "Şifacıyı ara",
               "next_node": "healer_search",
-              "effect": {"exploration_skill": 2, "search_actions": 1, "time_spent": 6}
+              "effect": {
+                "exploration_skill": 2,
+                "search_actions": 1,
+                "time_spent": 6
+              }
             }
           ]
         },
@@ -168,25 +210,41 @@
               "id": "trust_aldric",
               "text": "Aldric'e güven",
               "next_node": "aldric_trust",
-              "effect": {"aldric_trust": 20, "charisma_skill": 3, "conversations": 1}
+              "effect": {
+                "aldric_trust": 20,
+                "charisma_skill": 3,
+                "conversations": 1
+              }
             },
             {
               "id": "question_aldric",
               "text": "Aldric'i sorgula",
               "next_node": "aldric_suspicion",
-              "effect": {"aldric_trust": -10, "investigation_skill": 2, "conversations": 1}
+              "effect": {
+                "aldric_trust": -10,
+                "investigation_skill": 2,
+                "conversations": 1
+              }
             },
             {
               "id": "ask_about_lydia",
               "text": "Lydia hakkında sor",
               "next_node": "lydia_info",
-              "effect": {"charisma_skill": 2, "conversations": 1, "npc_interactions": 1}
+              "effect": {
+                "charisma_skill": 2,
+                "conversations": 1,
+                "npc_interactions": 1
+              }
             },
             {
               "id": "request_help",
               "text": "Yardım iste",
               "next_node": "aldric_help",
-              "effect": {"aldric_trust": 15, "charisma_skill": 2, "conversations": 1}
+              "effect": {
+                "aldric_trust": 15,
+                "charisma_skill": 2,
+                "conversations": 1
+              }
             }
           ]
         }
@@ -219,7 +277,7 @@
           "ending_impact": "high"
         },
         "rex": {
-          "name": "Rex Steel - Cyber Mercenary", 
+          "name": "Rex Steel - Cyber Mercenary",
           "trust_level": 0,
           "quests_completed": 0,
           "relationship_status": "enemy",
@@ -233,7 +291,11 @@
           "quests_completed": 0,
           "relationship_status": "stranger",
           "ending_impact": "extreme",
-          "quest_offers": ["Corporate Hack", "Digital Consciousness", "Reality Manipulation"]
+          "quest_offers": [
+            "Corporate Hack",
+            "Digital Consciousness",
+            "Reality Manipulation"
+          ]
         },
         "king_jax": {
           "name": "King Jax - Street Gang Leader",
@@ -243,7 +305,11 @@
           "quests_completed": 0,
           "relationship_status": "stranger",
           "ending_impact": "high",
-          "quest_offers": ["Gang War", "Territory Expansion", "Underground Empire"]
+          "quest_offers": [
+            "Gang War",
+            "Territory Expansion",
+            "Underground Empire"
+          ]
         }
       },
       "quest_chains": {
@@ -251,28 +317,32 @@
           "title": "MegaCorp Sızma Operasyonu",
           "prerequisites": [],
           "quests": ["hack_security", "steal_data", "escape_facility"],
-          "rewards": {"credits": 50000, "rep": 300, "items": ["cyber_implant"]}
+          "rewards": {
+            "credits": 50000,
+            "rep": 300,
+            "items": ["cyber_implant"]
+          }
         }
       },
       "ending_variations": {
         "revolution_ending": {
-          "requirements": {"zara_trust": 80, "quests_completed": 15},
+          "requirements": { "zara_trust": 80, "quests_completed": 15 },
           "description": "Sistemi çökerterek özgürlük getirdin."
         },
         "corporate_ending": {
-          "requirements": {"rex_trust": 70, "quests_completed": 12},
+          "requirements": { "rex_trust": 70, "quests_completed": 12 },
           "description": "Korporasyonlara katılarak güç elde ettin."
         },
         "ai_merge_ending": {
-          "requirements": {"ghost_trust": 90, "quests_completed": 18},
+          "requirements": { "ghost_trust": 90, "quests_completed": 18 },
           "description": "AI ile birleşerek post-human oldun."
         },
         "underground_king": {
-          "requirements": {"king_jax_trust": 75, "quests_completed": 14},
+          "requirements": { "king_jax_trust": 75, "quests_completed": 14 },
           "description": "Gölgelerden dünyayı yönetmeye başladın."
         },
         "lone_wolf_ending": {
-          "requirements": {"quests_completed": 10},
+          "requirements": { "quests_completed": 10 },
           "description": "Herkesi aldatarak tek başına ayakta kaldın."
         }
       },
@@ -286,25 +356,41 @@
               "id": "trust_zara",
               "text": "Zara'ya güven",
               "next_node": "zara_help",
-              "effect": {"zara_trust": 20, "charisma_skill": 2, "conversations": 1}
+              "effect": {
+                "zara_trust": 20,
+                "charisma_skill": 2,
+                "conversations": 1
+              }
             },
             {
               "id": "hack_system",
               "text": "Sistemi hack et",
               "next_node": "system_hack",
-              "effect": {"hacking_skill": 3, "cyber_warfare": 2, "time_spent": 8}
+              "effect": {
+                "hacking_skill": 3,
+                "cyber_warfare": 2,
+                "time_spent": 8
+              }
             },
             {
               "id": "find_ghost",
               "text": "Ghost'u ara",
               "next_node": "ghost_search",
-              "effect": {"exploration_skill": 2, "search_actions": 1, "time_spent": 6}
+              "effect": {
+                "exploration_skill": 2,
+                "search_actions": 1,
+                "time_spent": 6
+              }
             },
             {
               "id": "join_gang",
               "text": "Gang'a katıl",
               "next_node": "gang_join",
-              "effect": {"king_jax_trust": 15, "charisma_skill": 2, "conversations": 1}
+              "effect": {
+                "king_jax_trust": 15,
+                "charisma_skill": 2,
+                "conversations": 1
+              }
             }
           ]
         }
@@ -376,28 +462,36 @@
           "title": "Mansion Secrets Chain",
           "prerequisites": [],
           "quests": ["explore_mansion", "find_secrets", "break_curse"],
-          "rewards": {"xp": 600, "spirit_essence": 300, "items": ["ghost_weapon"], "relationship_boost": 40}
+          "rewards": {
+            "xp": 600,
+            "spirit_essence": 300,
+            "items": ["ghost_weapon"],
+            "relationship_boost": 40
+          }
         }
       },
       "ending_variations": {
         "escape_ending": {
-          "requirements": {"ghost_maid_trust": 70, "quests_completed": 12},
+          "requirements": { "ghost_maid_trust": 70, "quests_completed": 12 },
           "description": "Malikaneden kaçtınız! Özgürsünüz ama sırlar sizinle."
         },
         "curse_ending": {
-          "requirements": {"cursed_butler_trust": 60, "quests_completed": 8},
+          "requirements": { "cursed_butler_trust": 60, "quests_completed": 8 },
           "description": "Laneti kırdınız ama bedeli ağır oldu."
         },
         "spirit_ending": {
-          "requirements": {"ancient_spirit_trust": 80, "quests_completed": 15},
+          "requirements": {
+            "ancient_spirit_trust": 80,
+            "quests_completed": 15
+          },
           "description": "Ruhla birleştiniz. Yeni bir varlık oldunuz."
         },
         "trapped_ending": {
-          "requirements": {"quests_completed": 5},
+          "requirements": { "quests_completed": 5 },
           "description": "Malikanede mahsur kaldınız. Sonsuza dek buradasınız."
         },
         "dark_ending": {
-          "requirements": {"quests_completed": 10},
+          "requirements": { "quests_completed": 10 },
           "description": "Karanlık güçleri seçtiniz. Artık onlardan birisiniz."
         }
       },
@@ -411,25 +505,37 @@
               "id": "trust_ghost_maid",
               "text": "Hizmetçi ruhuna güven",
               "next_node": "ghost_maid_help",
-              "effect": {"ghost_maid_trust": 20, "charisma_skill": 2, "conversations": 1}
+              "effect": {
+                "ghost_maid_trust": 20,
+                "charisma_skill": 2,
+                "conversations": 1
+              }
             },
             {
               "id": "explore_mansion",
               "text": "Malikaneyi keşfet",
               "next_node": "mansion_exploration",
-              "effect": {"exploration_skill": 3, "search_actions": 2, "time_spent": 10}
+              "effect": {
+                "exploration_skill": 3,
+                "search_actions": 2,
+                "time_spent": 10
+              }
             },
             {
               "id": "find_butler",
               "text": "Uşağı ara",
               "next_node": "butler_search",
-              "effect": {"exploration_skill": 2, "search_actions": 1, "time_spent": 6}
+              "effect": {
+                "exploration_skill": 2,
+                "search_actions": 1,
+                "time_spent": 6
+              }
             },
             {
               "id": "escape_attempt",
               "text": "Kaçmaya çalış",
               "next_node": "escape_attempt",
-              "effect": {"combat_skill": 2, "time_spent": 8}
+              "effect": { "combat_skill": 2, "time_spent": 8 }
             }
           ]
         }
@@ -452,7 +558,11 @@
           "max_level": 8,
           "enemies": ["Chaos Cultists", "Heretic Guards", "Mutants"],
           "boss": "Chaos Champion",
-          "side_quests": ["Defend Position", "Rescue Civilians", "Secure Supplies"]
+          "side_quests": [
+            "Defend Position",
+            "Rescue Civilians",
+            "Secure Supplies"
+          ]
         },
         "level_2": {
           "title": "Chaos Invasion",
@@ -461,7 +571,11 @@
           "max_level": 15,
           "enemies": ["Chaos Space Marines", "Daemons", "Chaos Lords"],
           "boss": "Daemon Prince",
-          "side_quests": ["Hold the Line", "Evacuate Civilians", "Destroy Portal"]
+          "side_quests": [
+            "Hold the Line",
+            "Evacuate Civilians",
+            "Destroy Portal"
+          ]
         }
       },
       "npc_relationships": {
@@ -473,7 +587,11 @@
           "quests_completed": 0,
           "relationship_status": "stranger",
           "ending_impact": "high",
-          "quest_offers": ["Defense Mission", "Reconnaissance", "Rescue Operation"]
+          "quest_offers": [
+            "Defense Mission",
+            "Reconnaissance",
+            "Rescue Operation"
+          ]
         },
         "tech_priest_maria": {
           "name": "Tech-Priest Maria",
@@ -483,7 +601,11 @@
           "quests_completed": 0,
           "relationship_status": "stranger",
           "ending_impact": "medium",
-          "quest_offers": ["Weapon Maintenance", "Technology Recovery", "Machine Spirit Ritual"]
+          "quest_offers": [
+            "Weapon Maintenance",
+            "Technology Recovery",
+            "Machine Spirit Ritual"
+          ]
         },
         "inquisitor_thorne": {
           "name": "Inquisitor Thorne",
@@ -493,7 +615,11 @@
           "quests_completed": 0,
           "relationship_status": "stranger",
           "ending_impact": "extreme",
-          "quest_offers": ["Heresy Investigation", "Purge Mission", "Secret Knowledge"]
+          "quest_offers": [
+            "Heresy Investigation",
+            "Purge Mission",
+            "Secret Knowledge"
+          ]
         }
       },
       "quest_chains": {
@@ -501,28 +627,41 @@
           "title": "Cadia Savunma Zinciri",
           "prerequisites": [],
           "quests": ["defend_cadia", "hold_position", "counter_attack"],
-          "rewards": {"xp": 800, "imperial_rep": 400, "items": ["imperial_medal"]}
+          "rewards": {
+            "xp": 800,
+            "imperial_rep": 400,
+            "items": ["imperial_medal"]
+          }
         }
       },
       "ending_variations": {
         "heroic_sacrifice": {
-          "requirements": {"commander_kain_trust": 80, "quests_completed": 15},
+          "requirements": {
+            "commander_kain_trust": 80,
+            "quests_completed": 15
+          },
           "description": "Cadia için kahramanca savaştın ve öldün. İmparator seni hatırlayacak!"
         },
         "escape_cadia": {
-          "requirements": {"tech_priest_maria_trust": 70, "quests_completed": 12},
+          "requirements": {
+            "tech_priest_maria_trust": 70,
+            "quests_completed": 12
+          },
           "description": "Cadia'dan kaçtın ama savaş devam ediyor."
         },
         "chaos_corruption": {
-          "requirements": {"quests_completed": 8},
+          "requirements": { "quests_completed": 8 },
           "description": "Chaos'un etkisi altına girdin. Artık onlardan birisin."
         },
         "inquisitor_ending": {
-          "requirements": {"inquisitor_thorne_trust": 75, "quests_completed": 14},
+          "requirements": {
+            "inquisitor_thorne_trust": 75,
+            "quests_completed": 14
+          },
           "description": "Inquisitor oldun ve Chaos'a karşı savaşmaya devam ediyorsun."
         },
         "imperial_hero": {
-          "requirements": {"quests_completed": 18},
+          "requirements": { "quests_completed": 18 },
           "description": "Cadia'nın son kahramanı oldun. İmparator seni ödüllendirecek."
         }
       },
@@ -536,25 +675,41 @@
               "id": "defend_position",
               "text": "Pozisyonu savun",
               "next_node": "position_defense",
-              "effect": {"combat_skill": 3, "imperial_rep": 2, "time_spent": 8}
+              "effect": {
+                "combat_skill": 3,
+                "imperial_rep": 2,
+                "time_spent": 8
+              }
             },
             {
               "id": "help_tech_priest",
               "text": "Tech-Priest'e yardım et",
               "next_node": "tech_priest_help",
-              "effect": {"tech_priest_maria_trust": 20, "technology_skill": 2, "time_spent": 6}
+              "effect": {
+                "tech_priest_maria_trust": 20,
+                "technology_skill": 2,
+                "time_spent": 6
+              }
             },
             {
               "id": "scout_enemy",
               "text": "Düşmanı keşfet",
               "next_node": "enemy_scouting",
-              "effect": {"exploration_skill": 3, "stealth_skill": 2, "time_spent": 10}
+              "effect": {
+                "exploration_skill": 3,
+                "stealth_skill": 2,
+                "time_spent": 10
+              }
             },
             {
               "id": "find_inquisitor",
               "text": "Inquisitor'ı ara",
               "next_node": "inquisitor_search",
-              "effect": {"exploration_skill": 2, "search_actions": 1, "time_spent": 7}
+              "effect": {
+                "exploration_skill": 2,
+                "search_actions": 1,
+                "time_spent": 7
+              }
             }
           ]
         }

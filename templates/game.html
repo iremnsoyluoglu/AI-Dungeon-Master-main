@@ -4205,6 +4205,7 @@
         // Add selected class to clicked item
         event.target.classList.add('selected');
         
+        updatePreviewStats();
         alert(`Irk seçildi: ${race}`);
       }
       
@@ -4219,15 +4220,80 @@
         // Add selected class to clicked item
         event.target.classList.add('selected');
         
+        updatePreviewStats();
         alert(`Sınıf seçildi: ${className}`);
+      }
+      
+      function updatePreviewStats() {
+        const selectedRace = document.querySelector('.list-item.selected');
+        const selectedClass = document.querySelector('.list-item.selected');
+        
+        if (selectedRace && selectedClass) {
+          const race = selectedRace.textContent;
+          const className = selectedClass.textContent;
+          const stats = calculateCharacterStats(race, className);
+          
+          // Preview stats panelini güncelle
+          const previewPanel = document.querySelector('.character-creation-panel');
+          if (previewPanel) {
+            const existingPreview = previewPanel.querySelector('.stats-preview');
+            if (existingPreview) {
+              existingPreview.remove();
+            }
+            
+            const previewDiv = document.createElement('div');
+            previewDiv.className = 'stats-preview';
+            previewDiv.innerHTML = `
+              <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,215,0,0.3); margin-top: 15px;">
+                <h4 style="color: #FFD700; text-align: center; margin-bottom: 10px;">📊 Önizleme Statları</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 14px;">
+                  <div>❤️ HP: <span style="color: #FFD700;">${stats.hp}</span></div>
+                  <div>⚔️ Saldırı: <span style="color: #FFD700;">${stats.attack}</span></div>
+                  <div>🛡️ Savunma: <span style="color: #FFD700;">${stats.defense}</span></div>
+                  <div>🔮 Özel: <span style="color: #FFD700;">${stats.special}</span></div>
+                </div>
+                <div style="margin-top: 10px; font-size: 12px; color: rgba(255,255,255,0.7); text-align: center;">
+                  ${getRaceDescription(race)} | ${getClassDescription(className)}
+                </div>
+              </div>
+            `;
+            previewPanel.appendChild(previewDiv);
+          }
+        }
+      }
+      
+      function getRaceDescription(race) {
+        const descriptions = {
+          'İnsan': 'Dengeli ve uyumlu',
+          'Elf': 'Zarif ve büyüye yatkın',
+          'Cüce': 'Güçlü ve dayanıklı',
+          'Ork': 'Vahşi ve güçlü',
+          'Android': 'Yapay zeka ile donatılmış',
+          'Uzaylı': 'Telepatik yeteneklere sahip',
+          'Mutasyon': 'Radyasyon sonucu değişmiş',
+          'Yarı Robot': 'Siber implantlarla geliştirilmiş',
+          'Geliştirilmiş': 'Genetik olarak geliştirilmiş'
+        };
+        return descriptions[race] || 'Bilinmeyen ırk';
+      }
+      
+      function getClassDescription(className) {
+        const descriptions = {
+          'Savaşçı': 'Güçlü ve dayanıklı savaşçı',
+          'Büyücü': 'Güçlü büyüler kullanan',
+          'Hırsız': 'Hızlı ve gizli hareket eden',
+          'Rahip': 'İyileştirici ve kutsal güçler',
+          'Paladin': 'Kutsal savaşçı'
+        };
+        return descriptions[className] || 'Bilinmeyen sınıf';
       }
       
       function createCharacter() {
         console.log("🎭 Creating character...");
         
         const nameInput = document.getElementById('character-name-input');
-        const selectedRace = document.querySelector('.race-class-list .list-item.selected');
-        const selectedClass = document.querySelector('.race-class-list .list-item.selected');
+        const selectedRace = document.querySelector('.race-list .list-item.selected');
+        const selectedClass = document.querySelector('.class-list .list-item.selected');
         
         if (!nameInput || !selectedRace || !selectedClass) {
           alert("❌ Lütfen isim, ırk ve sınıf seçin!");
@@ -4238,11 +4304,76 @@
         const race = selectedRace.textContent;
         const className = selectedClass.textContent;
         
+        // Dinamik stat hesaplama
+        const characterStats = calculateCharacterStats(race, className);
+        
         // Update character display
         document.getElementById('character-name').textContent = characterName;
         document.getElementById('character-class').textContent = `${race} ${className}`;
         
-        alert(`✅ Karakter oluşturuldu: ${characterName} - ${race} ${className}`);
+        // Update stats display
+        updateStatsDisplay(characterStats);
+        
+        alert(`✅ Karakter oluşturuldu: ${characterName} - ${race} ${className}\n\n📊 Statlar:\nHP: ${characterStats.hp}\nSaldırı: ${characterStats.attack}\nSavunma: ${characterStats.defense}\nÖzel: ${characterStats.special}`);
+      }
+      
+      function calculateCharacterStats(race, className) {
+        // Irk bonusları
+        const raceBonuses = {
+          'İnsan': { hp: 0, attack: 0, defense: 0, special: 0 },
+          'Elf': { hp: -10, attack: 2, defense: 1, special: 15 },
+          'Cüce': { hp: 20, attack: 1, defense: 3, special: -5 },
+          'Ork': { hp: 15, attack: 3, defense: 0, special: -10 },
+          'Android': { hp: 25, attack: 2, defense: 2, special: 10 },
+          'Uzaylı': { hp: -5, attack: 4, defense: 1, special: 20 },
+          'Mutasyon': { hp: 30, attack: 3, defense: 1, special: 5 },
+          'Yarı Robot': { hp: 20, attack: 2, defense: 2, special: 8 },
+          'Geliştirilmiş': { hp: 15, attack: 2, defense: 1, special: 12 }
+        };
+        
+        // Sınıf base statları
+        const classStats = {
+          'Savaşçı': { hp: 120, attack: 85, defense: 90, special: 0 },
+          'Büyücü': { hp: 60, attack: 100, defense: 40, special: 150 },
+          'Hırsız': { hp: 80, attack: 90, defense: 60, special: 95 },
+          'Rahip': { hp: 70, attack: 50, defense: 70, special: 80 },
+          'Paladin': { hp: 100, attack: 70, defense: 85, special: 40 },
+          'Savaşçı': { hp: 120, attack: 85, defense: 90, special: 0 },
+          'Büyücü': { hp: 60, attack: 100, defense: 40, special: 150 },
+          'Hırsız': { hp: 80, attack: 90, defense: 60, special: 95 },
+          'Rahip': { hp: 70, attack: 50, defense: 70, special: 80 },
+          'Paladin': { hp: 100, attack: 70, defense: 85, special: 40 },
+          'Savaşçı': { hp: 120, attack: 85, defense: 90, special: 0 },
+          'Büyücü': { hp: 60, attack: 100, defense: 40, special: 150 },
+          'Hırsız': { hp: 80, attack: 90, defense: 60, special: 95 },
+          'Rahip': { hp: 70, attack: 50, defense: 70, special: 80 },
+          'Paladin': { hp: 100, attack: 70, defense: 85, special: 40 }
+        };
+        
+        // Base statları al
+        const baseStats = classStats[className] || { hp: 80, attack: 70, defense: 60, special: 50 };
+        const raceBonus = raceBonuses[race] || { hp: 0, attack: 0, defense: 0, special: 0 };
+        
+        // Toplam statları hesapla
+        const totalStats = {
+          hp: Math.max(1, baseStats.hp + raceBonus.hp),
+          attack: Math.max(1, baseStats.attack + raceBonus.attack),
+          defense: Math.max(1, baseStats.defense + raceBonus.defense),
+          special: Math.max(0, baseStats.special + raceBonus.special)
+        };
+        
+        return totalStats;
+      }
+      
+      function updateStatsDisplay(stats) {
+        // Stats panelini güncelle
+        const statsElements = document.querySelectorAll('.stat-value');
+        if (statsElements.length >= 4) {
+          statsElements[0].textContent = stats.hp;
+          statsElements[1].textContent = stats.attack;
+          statsElements[2].textContent = stats.defense;
+          statsElements[3].textContent = stats.special;
+        }
       }
       
       // Make functions globally available
