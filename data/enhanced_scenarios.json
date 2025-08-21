@@ -2,81 +2,47 @@
   "enhanced_scenarios": {
     "dragon_hunters_path": {
       "id": "dragon_hunters_path",
-      "title": "Ejderha Avcısının Yolu",
+      "title": "🐉 Dragon Hunter's Path",
       "genre": "fantasy",
-      "description": "Kızıl ejderha köyleri yakıyor. Sen ejderha avcısısın. Bu tehlikeli görevde ejderhayı durdurmak için her şeyi riske atacaksın. Önce güçlenmen gerekiyor!",
+      "description": "Köyü tehdit eden ejderhayı durdurmak için kahramanlar toplanıyor. Bu sadece bir görev değil, bu SENİN HİKAYEN. 🔥 PLOT TWIST'LER, 💬 NPC ETKİLEŞİMLERİ, ⚔️ UZUN SAVAŞ SAHNELERİ, 🎯 ACTION-BASED GÖREVLER, 🏁 5+ FARKLI SON!",
       "difficulty": "hard",
       "theme": "fantasy",
       "complexity": "high",
       "estimatedPlayTime": 480,
-      "level_requirements": {
+      "levels": {
         "level_1": {
+          "title": "Köy Tehdidi",
+          "description": "Köy ejderha tehdidi altında. İnsanlar korku içinde.",
           "min_level": 1,
-          "max_level": 5,
-          "xp_required": 0,
-          "estimated_time": 120
+          "max_level": 3,
+          "enemies": ["Goblin Scouts", "Wolf Pack", "Bandit Raiders"],
+          "boss": "Goblin Chief",
+          "side_quests": ["Village Defense", "Supply Run", "Scout Mission"]
         },
         "level_2": {
+          "title": "Orman Keşfi",
+          "description": "Ejderhanın izini sürmek için tehlikeli ormana giriyorsun.",
           "min_level": 3,
-          "max_level": 8,
-          "xp_required": 200,
-          "estimated_time": 90
-        },
-        "level_3": {
-          "min_level": 5,
-          "max_level": 10,
-          "xp_required": 500,
-          "estimated_time": 75
-        },
-        "level_4": {
-          "min_level": 8,
-          "max_level": 15,
-          "xp_required": 1000,
-          "estimated_time": 60
-        },
-        "level_5": {
-          "min_level": 10,
-          "max_level": 18,
-          "xp_required": 1500,
-          "estimated_time": 45
-        },
-        "level_6": {
-          "min_level": 12,
-          "max_level": 20,
-          "xp_required": 2000,
-          "estimated_time": 30
-        },
-        "boss_level": {
-          "min_level": 15,
-          "max_level": 25,
-          "xp_required": 3000,
-          "estimated_time": 60
+          "max_level": 5,
+          "enemies": ["Forest Trolls", "Dark Elves", "Giant Spiders"],
+          "boss": "Ancient Treant",
+          "side_quests": ["Herb Collection", "Lost Traveler", "Sacred Grove"]
         }
       },
       "npc_relationships": {
         "aldric": {
+          "name": "Aldric the Wise",
           "trust_level": 0,
           "quests_completed": 0,
-          "relationship_status": "neutral",
-          "ending_impact": "village_support"
+          "relationship_status": "stranger",
+          "ending_impact": "high"
         },
         "lydia": {
+          "name": "Lydia the Healer",
           "trust_level": 0,
           "quests_completed": 0,
-          "relationship_status": "neutral",
-          "ending_impact": "healing_support"
-        },
-        "shadow": {
-          "trust_level": 0,
-          "quests_completed": 0,
-          "relationship_status": "suspicious",
-          "ending_impact": "secret_knowledge"
-        },
-        "healer": {
-          "trust_level": 0,
-          "quests_completed": 0,
-          "relationship_status": "corrupted",
-          "ending_impact": "final_battle_ally"
+          "relationship_status": "stranger",
+          "ending_impact": "medium"
         },
         "elder_thorin": {
           "name": "Elder Thorin Stonebeard",
@@ -84,8 +50,8 @@
           "personality": "Stoic, wise, values honor above all",
           "trust_level": 0,
           "quests_completed": 0,
-          "relationship_status": "neutral",
-          "ending_impact": "village_support",
+          "relationship_status": "stranger",
+          "ending_impact": "high",
           "quest_offers": ["Defend Village", "Ancient Weapon", "Honor Quest"]
         },
         "mystic_lyra": {
@@ -94,13 +60,9 @@
           "personality": "Mysterious, contemplative, speaks in riddles",
           "trust_level": 0,
           "quests_completed": 0,
-          "relationship_status": "neutral",
-          "ending_impact": "magical_support",
-          "quest_offers": [
-            "Prophecy Quest",
-            "Spirit Communication",
-            "Ancient Knowledge"
-          ]
+          "relationship_status": "stranger",
+          "ending_impact": "extreme",
+          "quest_offers": ["Prophecy Quest", "Spirit Communication", "Ancient Knowledge"]
         },
         "captain_marcus": {
           "name": "Captain Marcus Ironheart",
@@ -108,2631 +70,125 @@
           "personality": "Loyal, disciplined, honorable",
           "trust_level": 0,
           "quests_completed": 0,
-          "relationship_status": "neutral",
-          "ending_impact": "military_support",
-          "quest_offers": [
-            "Royal Investigation",
-            "Corruption Quest",
-            "Loyalty Test"
-          ]
+          "relationship_status": "stranger",
+          "ending_impact": "high",
+          "quest_offers": ["Royal Investigation", "Corruption Quest", "Loyalty Test"]
         },
-        "sienna_shadowstep": {
+        "sienna": {
           "name": "Sienna Shadowstep",
           "backstory": "Orphaned street child who became the city's most skilled thief",
           "personality": "Cunning, resourceful, morally flexible",
           "trust_level": 0,
           "quests_completed": 0,
-          "relationship_status": "neutral",
-          "ending_impact": "stealth_support",
-          "quest_offers": [
-            "Heist Quest",
-            "Information Gathering",
-            "Underground War"
-          ]
+          "relationship_status": "stranger",
+          "ending_impact": "medium",
+          "quest_offers": ["Heist Quest", "Information Gathering", "Underground War"]
         }
       },
       "quest_chains": {
-        "village_protection": {
+        "dragon_hunt_main": {
+          "title": "Ejderha Avı Ana Görevi",
           "prerequisites": [],
-          "quests": [
-            "defend_village",
-            "heal_villagers",
-            "gather_supplies",
-            "train_militia"
-          ],
-          "rewards": {
-            "xp": 500,
-            "gold": 200,
-            "items": ["Village Defender Armor"],
-            "relationship_boost": {
-              "aldric": 50,
-              "lydia": 30
-            }
-          }
+          "quests": ["find_dragon", "gather_allies", "final_battle"],
+          "rewards": {"xp": 1000, "gold": 5000, "items": ["dragon_scale_armor"], "title": "Dragon Slayer"}
+        },
+        "village_protection": {
+          "title": "Köy Koruma Zinciri",
+          "prerequisites": [],
+          "quests": ["defend_village", "heal_wounded", "rebuild_homes"],
+          "rewards": {"xp": 500, "village_rep": 200, "items": ["village_hero_badge"]}
         },
         "ancient_secrets": {
-          "prerequisites": ["village_protection"],
-          "quests": [
-            "find_ancient_tome",
-            "decipher_runes",
-            "locate_dragon_lair",
-            "understand_dragon_magic"
-          ],
-          "rewards": {
-            "xp": 800,
-            "gold": 400,
-            "items": ["Ancient Knowledge Scroll"],
-            "relationship_boost": {
-              "shadow": 40
-            }
-          }
-        },
-        "healer_redemption": {
-          "prerequisites": ["ancient_secrets"],
-          "quests": [
-            "confront_healer",
-            "break_dragon_curse",
-            "restore_healer_mind",
-            "unite_against_dragon"
-          ],
-          "rewards": {
-            "xp": 1000,
-            "gold": 600,
-            "items": ["Dragon Slayer Sword"],
-            "relationship_boost": {
-              "healer": 100,
-              "lydia": 80
-            }
-          }
+          "title": "Antik Sırlar",
+          "prerequisites": ["mystic_lyra_trust_50"],
+          "quests": ["find_ancient_tome", "decipher_prophecy", "unlock_power"],
+          "rewards": {"xp": 800, "magic_power": 100, "items": ["ancient_staff"]}
         }
       },
-      "quest_definitions": {
-        "defend_village": {
-          "title": "Defend Village",
-          "objectives": ["Scout area", "Fortify village", "Defeat bandits"],
-          "branches": {
-            "success": {
-              "leads_to": "ancient_weapon",
-              "rewards": {
-                "xp": 200,
-                "gold": 150,
-                "village_defender_badge": true
-              }
-            },
-            "failure": {
-              "leads_to": "redemption_quest",
-              "penalties": { "village_trust": -10 }
-            }
-          },
-          "dynamic_rewards": {
-            "experience": 200,
-            "gold": 150,
-            "reputation": 30
-          },
-          "world_state_impact": {
-            "village_safety": 50,
-            "bandit_threat": -30,
-            "reputation": 20
-          }
+      "ending_variations": {
+        "hero_ending": {
+          "requirements": {"aldric_trust": 80, "quests_completed": 15},
+          "description": "Ejderhayı yendin ve köyü kurtardın. Kahraman oldun!"
         },
-        "ancient_weapon": {
-          "title": "Ancient Weapon",
-          "objectives": [
-            "Find weapon location",
-            "Overcome guardians",
-            "Claim weapon",
-            "Master its power"
-          ],
-          "branches": {
-            "success": {
-              "leads_to": "prophecy_quest",
-              "rewards": { "xp": 350, "ancient_sword": true, "combat": 50 }
-            },
-            "failure": {
-              "leads_to": "alternative_path",
-              "penalties": { "combat": -10 }
-            }
-          },
-          "dynamic_rewards": { "experience": 350, "combat": 50, "magic": 30 },
-          "world_state_impact": {
-            "power_level": 80,
-            "ancient_knowledge": 40,
-            "legend_status": 30
-          }
+        "dragon_alliance": {
+          "requirements": {"lydia_trust": 70, "quests_completed": 12},
+          "description": "Ejderhalarla barış yaptın. Yeni bir düzen başladı."
         },
-        "prophecy_quest": {
-          "title": "Prophecy Quest",
-          "objectives": [
-            "Decode prophecy",
-            "Fulfill requirements",
-            "Face destiny",
-            "Change fate"
-          ],
-          "branches": {
-            "success": {
-              "leads_to": "dragon_confrontation",
-              "rewards": {
-                "xp": 500,
-                "prophecy_fulfillment": true,
-                "wisdom": 100
-              }
-            },
-            "failure": { "leads_to": "dark_path", "penalties": { "fate": -50 } }
-          },
-          "dynamic_rewards": {
-            "experience": 500,
-            "wisdom": 100,
-            "destiny": 150
-          },
-          "world_state_impact": {
-            "fate_alignment": 100,
-            "prophetic_power": 80,
-            "cosmic_balance": 60
-          }
+        "betrayal_ending": {
+          "requirements": {"aldric_trust": 90, "quests_completed": 8},
+          "description": "Aldric'e güvendin ama o seni ejderlere sattı."
         },
-        "dragon_hunt": {
-          "title": "Dragon Hunt",
-          "objectives": [
-            "Track dragon",
-            "Fight dragon minions",
-            "Weaken dragon",
-            "Final battle"
-          ],
-          "branches": {
-            "success": {
-              "leads_to": "dragon_victory",
-              "rewards": { "xp": 800, "dragon_slayer": true, "combat": 200 }
-            },
-            "failure": {
-              "leads_to": "dragon_defeat",
-              "penalties": { "combat": -30 }
-            },
-            "perfect": {
-              "leads_to": "legendary_victory",
-              "rewards": { "xp": 1200, "legendary_status": true, "combat": 300 }
-            }
-          },
-          "dynamic_rewards": {
-            "experience": 800,
-            "combat": 200,
-            "dragon_slayer": true
-          },
-          "world_state_impact": {
-            "dragon_threat": -100,
-            "village_safety": 150,
-            "legendary_reputation": 100
-          }
+        "sacrifice_ending": {
+          "requirements": {"quests_completed": 10},
+          "description": "Kendini feda ederek herkesi kurtardın."
         },
-        "bandit_elimination": {
-          "title": "Bandit Elimination",
-          "objectives": [
-            "Find bandit camp",
-            "Fight bandit scouts",
-            "Defeat bandit leader",
-            "Clear territory"
-          ],
-          "branches": {
-            "success": {
-              "leads_to": "territory_secured",
-              "rewards": { "xp": 300, "territory_control": true, "combat": 80 }
-            },
-            "failure": {
-              "leads_to": "bandit_retaliation",
-              "penalties": { "village_safety": -20 }
-            },
-            "perfect": {
-              "leads_to": "bandit_annihilation",
-              "rewards": { "xp": 450, "peace_bringer": true, "combat": 120 }
-            }
-          },
-          "dynamic_rewards": {
-            "experience": 300,
-            "combat": 80,
-            "territory_control": true
-          },
-          "world_state_impact": {
-            "bandit_threat": -80,
-            "trade_routes": 60,
-            "regional_peace": 50
-          }
-        },
-        "monster_hunt": {
-          "title": "Monster Hunt",
-          "objectives": [
-            "Track monster",
-            "Fight monster pack",
-            "Defeat alpha monster",
-            "Secure area"
-          ],
-          "branches": {
-            "success": {
-              "leads_to": "monster_defeated",
-              "rewards": { "xp": 400, "monster_hunter": true, "combat": 100 }
-            },
-            "failure": {
-              "leads_to": "monster_escape",
-              "penalties": { "area_safety": -30 }
-            },
-            "perfect": {
-              "leads_to": "monster_master",
-              "rewards": { "xp": 600, "beast_master": true, "combat": 150 }
-            }
-          },
-          "dynamic_rewards": {
-            "experience": 400,
-            "combat": 100,
-            "monster_hunter": true
-          },
-          "world_state_impact": {
-            "monster_threat": -90,
-            "area_safety": 80,
-            "hunting_reputation": 70
-          }
-        },
-        "guardian_battle": {
-          "title": "Guardian Battle",
-          "objectives": [
-            "Face ancient guardian",
-            "Survive guardian attacks",
-            "Find guardian weakness",
-            "Defeat guardian"
-          ],
-          "branches": {
-            "success": {
-              "leads_to": "guardian_defeated",
-              "rewards": { "xp": 600, "guardian_slayer": true, "combat": 180 }
-            },
-            "failure": {
-              "leads_to": "guardian_mercy",
-              "penalties": { "combat": -20 }
-            },
-            "perfect": {
-              "leads_to": "guardian_mastery",
-              "rewards": { "xp": 900, "ancient_power": true, "combat": 250 }
-            }
-          },
-          "dynamic_rewards": {
-            "experience": 600,
-            "combat": 180,
-            "guardian_slayer": true
-          },
-          "world_state_impact": {
-            "ancient_power": 120,
-            "guardian_respect": 100,
-            "mystical_knowledge": 80
-          }
-        }
-      },
-      "faction_specific_content": {
-        "human": {
-          "special_nodes": [
-            "human_adaptability",
-            "versatile_skills",
-            "survival_instinct"
-          ],
-          "skill_unlocks": [
-            "Adaptive Combat",
-            "Versatile Skills",
-            "Survival Instinct"
-          ],
-          "ending_modifiers": [
-            "human_perseverance",
-            "adaptive_victory",
-            "survival_ending"
-          ]
-        },
-        "elf": {
-          "special_nodes": [
-            "elven_magic",
-            "forest_connection",
-            "ancient_wisdom"
-          ],
-          "skill_unlocks": [
-            "Elven Magic",
-            "Forest Connection",
-            "Ancient Wisdom"
-          ],
-          "ending_modifiers": [
-            "elven_mastery",
-            "magical_victory",
-            "forest_harmony"
-          ]
-        },
-        "dwarf": {
-          "special_nodes": [
-            "dwarven_craftsmanship",
-            "mountain_strength",
-            "stone_knowledge"
-          ],
-          "skill_unlocks": [
-            "Dwarven Craftsmanship",
-            "Mountain Strength",
-            "Stone Knowledge"
-          ],
-          "ending_modifiers": [
-            "dwarven_glory",
-            "craftsmanship_victory",
-            "mountain_pride"
-          ]
-        },
-        "orc": {
-          "special_nodes": ["orc_brutality", "battle_rage", "tribal_strength"],
-          "skill_unlocks": ["Orc Brutality", "Battle Rage", "Tribal Strength"],
-          "ending_modifiers": [
-            "orc_dominance",
-            "brutal_victory",
-            "tribal_glory"
-          ]
-        },
-        "halfling": {
-          "special_nodes": [
-            "halfling_luck",
-            "stealth_skills",
-            "community_spirit"
-          ],
-          "skill_unlocks": [
-            "Halfling Luck",
-            "Stealth Skills",
-            "Community Spirit"
-          ],
-          "ending_modifiers": [
-            "lucky_victory",
-            "stealth_mastery",
-            "community_harmony"
-          ]
-        }
-      },
-      "advanced_storytelling": {
-        "contextual_triggers": {
-          "dragon_encounter": {
-            "betrayal_chance": 0.4,
-            "plot_twist_chance": 0.6,
-            "triggers": ["dragon_lair", "dragon_weakness", "ancient_pact"]
-          },
-          "village_interaction": {
-            "betrayal_chance": 0.3,
-            "plot_twist_chance": 0.5,
-            "triggers": ["village_secret", "hidden_ally", "betrayal_reveal"]
-          }
-        },
-        "emotional_arcs": {
-          "hero_journey": {
-            "stages": [
-              "call_to_adventure",
-              "trials",
-              "transformation",
-              "return"
-            ],
-            "betrayal_impact": "devastating"
-          },
-          "dragon_relationship": {
-            "stages": ["fear", "understanding", "respect", "confrontation"],
-            "plot_twist_impact": "transformative"
-          }
-        },
-        "story_nodes": {
-          "start": {
-            "id": "start",
-            "title": "Köy Girişi - Kızıl Alev'in İlk İzleri",
-            "description": "Güneş batarken köyün üzerinde kızıl bir gölge beliriyor. Kızıl Alev adıyla bilinen ejderha gökyüzünde uçuyor ve alevler saçarak köyü yakıyor. Sen ejderha avcısısın ve bu tehlikeli görevde her şeyi riske atacaksın. Köy meydanında yaşlı bir adam seni bekliyor - köy reisi Aldric. Ama önce köyün durumunu değerlendirmen gerekiyor.",
-            "atmosphere": "Korku ve panik dolu, güneş batımının kızıl ışıkları altında",
-            "sounds": [
-              "Çığlıklar",
-              "Kaçış sesleri",
-              "Ejderha uğultusu",
-              "Yanan ahşap çatırtısı"
-            ],
-            "visuals": [
-              "Duman",
-              "Kaçan köylüler",
-              "Yanan evler",
-              "Kızıl gökyüzü"
-            ],
-            "choices": [
-              {
-                "text": "Köye koş ve yardım et",
-                "next_node": "village_rescue",
-                "effect": { "karma": 10, "reputation": 5 },
-                "consequence": "Köylüler seni kahraman olarak görecek"
-              },
-              {
-                "text": "Dikkatli yaklaş ve durumu değerlendir",
-                "next_node": "stealth_approach",
-                "effect": { "stealth": 5, "intelligence": 3 },
-                "consequence": "Daha fazla bilgi toplayabilirsin"
-              },
-              {
-                "text": "Önce güçlenmek için ekipman ara",
-                "next_node": "equipment_search",
-                "effect": { "defense": 5, "preparation": 10 },
-                "consequence": "Daha iyi hazırlanmış olursun"
-              },
-              {
-                "text": "Aldric ile hemen konuş",
-                "next_node": "aldric_first_meeting",
-                "effect": { "diplomacy": 8, "information": 10 },
-                "consequence": "Köyün sırrını öğrenebilirsin"
-              }
-            ]
-          },
-          "aldric_first_meeting": {
-            "title": "Aldric ile İlk Karşılaşma - Köyün Sırrı",
-            "description": "Köy meydanında yaşlı Aldric seni bekliyor. Yüzünde hem umut hem de derin bir keder var. 'Ejderha Avcısı! Sonunda geldin. Köyümüzün umudu sensin. Her gece o sesi duyuyorum... Kızıl Alev'in nefesini... Ama bir şeyler ters gitti. Ejderha artık sadece yıkım getirmiyor, bir mesaj veriyor gibi.'",
-            "atmosphere": "Gizem ve umut karışımı",
-            "sounds": [
-              "Uzak ejderha sesleri",
-              "Aldric'in titreyen sesi",
-              "Köyün sessizliği"
-            ],
-            "visuals": ["Yaşlı Aldric", "Köy meydanı", "Uzak dumanlar"],
-            "choices": [
-              {
-                "text": "Ejderhanın mesajını araştır",
-                "next_node": "dragon_message_investigation",
-                "effect": { "intelligence": 10, "mystery": 8 },
-                "consequence": "Ejderhanın gerçek amacını öğrenebilirsin"
-              },
-              {
-                "text": "Köyün geçmişini sor",
-                "next_node": "village_history",
-                "effect": { "knowledge": 10, "diplomacy": 5 },
-                "consequence": "Köyün gizli geçmişini öğrenebilirsin"
-              },
-              {
-                "text": "Şifacı Lydia'dan bahset",
-                "next_node": "lydia_investigation",
-                "effect": { "relationship": 10, "healing": 5 },
-                "consequence": "Lydia'nın sırrını araştırabilirsin"
-              },
-              {
-                "text": "Hemen eyleme geç",
-                "next_node": "immediate_action",
-                "effect": { "bravery": 10, "speed": 5 },
-                "consequence": "Hızlı ama dikkatsiz bir hamle"
-              }
-            ]
-          },
-          "dragon_message_investigation": {
-            "title": "Ejderhanın Mesajı - Yanan Harfler",
-            "description": "Ejderhanın yakıp yıktığı binaları incelediğinde garip bir şey fark ediyorsun. Yanan duvarlarda eski runik harfler beliriyor. 'KORUYUCU... İHANET... KOLYE...' kelimeleri ateşle yazılmış gibi görünüyor. Bu bir mesaj mı?",
-            "atmosphere": "Gizem ve antik büyü",
-            "sounds": [
-              "Rüzgar sesi",
-              "Uzak ejderha uğultusu",
-              "Yanan taş çatırtısı"
-            ],
-            "visuals": [
-              "Yanan runik harfler",
-              "Antik semboller",
-              "Ateş izleri"
-            ],
-            "choices": [
-              {
-                "text": "Runik harfleri deşifre et",
-                "next_node": "rune_deciphering",
-                "effect": { "intelligence": 15, "magic": 10 },
-                "consequence": "Ejderhanın gerçek mesajını anlayabilirsin"
-              },
-              {
-                "text": "Shadow'dan yardım iste",
-                "next_node": "shadow_rune_help",
-                "effect": { "relationship": 10, "knowledge": 8 },
-                "consequence": "Shadow'ın gizli bilgisini kullanabilirsin"
-              },
-              {
-                "text": "Köyün kütüphanesini ara",
-                "next_node": "library_research",
-                "effect": { "research": 10, "knowledge": 8 },
-                "consequence": "Antik bilgileri bulabilirsin"
-              },
-              {
-                "text": "Lydia'nın babasına sor",
-                "next_node": "healer_father_inquiry",
-                "effect": { "diplomacy": 8, "healing": 5 },
-                "consequence": "Şifacının sırrını öğrenebilirsin"
-              }
-            ]
-          },
-          "village_history": {
-            "title": "Köyün Gizli Geçmişi - 100 Yıllık Sır",
-            "description": "Aldric seni köyün en eski binasına götürüyor - taştan yapılmış antik bir kule. 'Bu kule 100 yıl önce inşa edildi. O zamanlar burada büyük bir ejderha avcısı yaşıyordu. Ama bir gün kayboldu ve ejderha da ortadan kayboldu. Şimdi geri döndü ama farklı...'",
-            "atmosphere": "Tarih ve gizem",
-            "sounds": ["Eski taşların sesi", "Rüzgar", "Uzak anılar"],
-            "visuals": ["Antik kule", "Eski freskler", "Tarihi eşyalar"],
-            "choices": [
-              {
-                "text": "Kuledeki freskleri incele",
-                "next_node": "fresco_investigation",
-                "effect": { "history": 15, "art": 8 },
-                "consequence": "Geçmişin görsel hikayesini görebilirsin"
-              },
-              {
-                "text": "Eski kayıtları ara",
-                "next_node": "ancient_records",
-                "effect": { "research": 12, "knowledge": 10 },
-                "consequence": "Yazılı tarihi öğrenebilirsin"
-              },
-              {
-                "text": "Kuledeki gizli odaları ara",
-                "next_node": "secret_chambers",
-                "effect": { "exploration": 15, "stealth": 8 },
-                "consequence": "Gizli sırları keşfedebilirsin"
-              },
-              {
-                "text": "Köyün yaşlılarıyla konuş",
-                "next_node": "elder_interviews",
-                "effect": { "diplomacy": 10, "oral_history": 8 },
-                "consequence": "Sözlü tarihi dinleyebilirsin"
-              }
-            ]
-          },
-          "lydia_investigation": {
-            "title": "Lydia'nın Sırrı - Babasının Değişimi",
-            "description": "Şifacı Lydia'nın evine gittiğinde onu ağlarken buluyorsun. 'Babam... babam değişti. Son zamanlarda çok garip davranıyor. Ejderha hakkında sürekli konuşuyor. Gece yarısı odasından garip sesler geliyor. Ve bu kolyeyi buldum...' Elinde eski bir kolye tutuyor.",
-            "atmosphere": "Endişe ve gizem",
-            "sounds": ["Lydia'nın ağlama sesi", "Uzak garip sesler", "Rüzgar"],
-            "visuals": ["Ağlayan Lydia", "Eski kolye", "Gizemli ev"],
-            "choices": [
-              {
-                "text": "Kolyeyi incele",
-                "next_node": "necklace_examination",
-                "effect": { "magic": 12, "investigation": 10 },
-                "consequence": "Kolyenin gücünü anlayabilirsin"
-              },
-              {
-                "text": "Babasının odasını ara",
-                "next_node": "father_room_search",
-                "effect": { "stealth": 10, "investigation": 8 },
-                "consequence": "Babasının sırrını keşfedebilirsin"
-              },
-              {
-                "text": "Lydia'yı teselli et",
-                "next_node": "lydia_comfort",
-                "effect": { "empathy": 12, "relationship": 10 },
-                "consequence": "Lydia'nın güvenini kazanabilirsin"
-              },
-              {
-                "text": "Shadow'dan bilgi al",
-                "next_node": "shadow_lydia_info",
-                "effect": { "information": 15, "mystery": 8 },
-                "consequence": "Shadow'ın gizli bilgisini öğrenebilirsin"
-              }
-            ]
-          },
-          "village_rescue": {
-            "title": "Köyü Kurtarma - Kızıl Alev'in Saldırısı",
-            "description": "Köye girdiğinde kaos manzarasıyla karşılaşıyorsun. Kızıl Alev köyün üstünde uçuyor ve alevler saçıyor. Köylüler panik içinde kaçışıyor. Ejderha sadece belirli binaları hedef alıyor gibi görünüyor - özellikle şifacının evini ve antik kuleyi.",
-            "atmosphere": "Yoğun aksiyon ve tehlike",
-            "sounds": [
-              "Ejderha kükremesi",
-              "Alev sesleri",
-              "Yardım çığlıkları",
-              "Çöken binalar"
-            ],
-            "visuals": [
-              "Uçan ejderha",
-              "Yanan binalar",
-              "Kaçan insanlar",
-              "Hedefli saldırı"
-            ],
-            "choices": [
-              {
-                "text": "Köylüleri güvenli yere yönlendir",
-                "next_node": "evacuation_effort",
-                "effect": { "karma": 15, "leadership": 10 },
-                "consequence": "Köylüler seni lider olarak görecek"
-              },
-              {
-                "text": "Ejderhaya doğrudan saldır",
-                "next_node": "direct_confrontation",
-                "effect": { "bravery": 10, "combat": 5 },
-                "consequence": "Cesur ama tehlikeli bir hamle"
-              },
-              {
-                "text": "Köyün savunma sistemlerini aktif et",
-                "next_node": "defense_activation",
-                "effect": { "strategy": 10, "defense": 8 },
-                "consequence": "Taktiksel avantaj sağlar"
-              },
-              {
-                "text": "Şifacının evini koru",
-                "next_node": "healer_house_protection",
-                "effect": { "protection": 12, "priority": 10 },
-                "consequence": "Lydia ve babasını koruyabilirsin"
-              }
-            ]
-          },
-          "stealth_approach": {
-            "title": "Gizli Yaklaşım - Ejderhanın Davranış Analizi",
-            "description": "Köyün etrafından dolaşarak gizlice yaklaşıyorsun. Kızıl Alev'in davranışlarını gözlemliyorsun. Garip bir şey fark ediyorsun - ejderha sadece belirli binaları hedef alıyor ve her saldırıdan sonra gökyüzünde bir süre bekliyor, sanki bir şey arıyor gibi.",
-            "atmosphere": "Gizem ve gözlem",
-            "sounds": [
-              "Uzak ejderha sesleri",
-              "Rüzgar",
-              "Gizli adımlar",
-              "Dikkatli nefes"
-            ],
-            "visuals": [
-              "Gölgeler",
-              "Dikkatli gözlem",
-              "Stratejik pozisyon",
-              "Hedefli saldırılar"
-            ],
-            "choices": [
-              {
-                "text": "Ejderhanın hedef aldığı binaları araştır",
-                "next_node": "target_investigation",
-                "effect": { "intelligence": 10, "mystery": 5 },
-                "consequence": "Gizemli bir sır keşfedebilirsin"
-              },
-              {
-                "text": "Köylülerle gizlice iletişim kur",
-                "next_node": "secret_communication",
-                "effect": { "stealth": 8, "diplomacy": 5 },
-                "consequence": "Daha fazla bilgi alabilirsin"
-              },
-              {
-                "text": "Ejderhanın zayıf noktalarını araştır",
-                "next_node": "weakness_analysis",
-                "effect": { "analysis": 10, "combat": 3 },
-                "consequence": "Savaş avantajı elde edersin"
-              },
-              {
-                "text": "Ejderhanın arama davranışını analiz et",
-                "next_node": "search_pattern_analysis",
-                "effect": { "observation": 12, "strategy": 8 },
-                "consequence": "Ejderhanın amacını anlayabilirsin"
-              }
-            ]
-          },
-          "equipment_search": {
-            "title": "Ekipman Arama - Antik Silahların Peşinde",
-            "description": "Köyün etrafında terk edilmiş evlerde ve dükkanlarda güçlü ekipmanlar arıyorsun. Eski bir demirci dükkanında özel silahlar buluyorsun. Ama en ilginç olanı, demircinin not defterinde ejderha avcılığı hakkında yazılar var.",
-            "atmosphere": "Keşif ve hazırlık",
-            "sounds": [
-              "Arama sesleri",
-              "Metal tıngırtısı",
-              "Uzak tehdit",
-              "Kağıt hışırtısı"
-            ],
-            "visuals": [
-              "Terk edilmiş dükkanlar",
-              "Eski silahlar",
-              "Hazırlık",
-              "Antik notlar"
-            ],
-            "choices": [
-              {
-                "text": "Demirci dükkanından silah al",
-                "next_node": "weapon_choice",
-                "effect": { "combat": 10, "equipment": 8 },
-                "consequence": "Güçlü silahlar elde edersin"
-              },
-              {
-                "text": "Zırh ve koruyucu ekipman ara",
-                "next_node": "armor_search",
-                "effect": { "defense": 10, "survival": 5 },
-                "consequence": "Daha dayanıklı olursun"
-              },
-              {
-                "text": "Büyülü ekipmanlar ara",
-                "next_node": "magical_equipment",
-                "effect": { "magic": 10, "special": 8 },
-                "consequence": "Büyülü güçler elde edersin"
-              },
-              {
-                "text": "Demircinin notlarını oku",
-                "next_node": "blacksmith_notes",
-                "effect": { "knowledge": 12, "history": 8 },
-                "consequence": "Geçmiş ejderha avcılarının bilgisini öğrenebilirsin"
-              }
-            ]
-          },
-          "rune_deciphering": {
-            "title": "Runik Harflerin Deşifresi - Antik Mesaj",
-            "description": "Yanan duvarlardaki runik harfleri dikkatlice incelediğinde, bunların sadece rastgele ateş izleri olmadığını anlıyorsun. Bu gerçek bir mesaj! 'KORUYUCU İHANET ETTİ... KOLYE GÜCÜ KORUYUCUYU DEĞİŞTİRDİ... KORUYUCUYU BUL VE KOLYEYİ YOK ET...' Mesaj ejderhadan geliyor gibi görünüyor.",
-            "atmosphere": "Antik büyü ve gizem",
-            "sounds": [
-              "Rüzgar",
-              "Uzak ejderha sesi",
-              "Yanan taş çatırtısı",
-              "Antik runik sesler"
-            ],
-            "visuals": [
-              "Yanan runik harfler",
-              "Antik semboller",
-              "Ateş izleri",
-              "Gizemli mesaj"
-            ],
-            "choices": [
-              {
-                "text": "Koruyucunun kim olduğunu araştır",
-                "next_node": "guardian_identity_search",
-                "effect": { "investigation": 15, "mystery": 10 },
-                "consequence": "Koruyucunun kimliğini öğrenebilirsin"
-              },
-              {
-                "text": "Kolyenin gücünü araştır",
-                "next_node": "necklace_power_research",
-                "effect": { "magic": 12, "knowledge": 10 },
-                "consequence": "Kolyenin tehlikesini anlayabilirsin"
-              },
-              {
-                "text": "Shadow'a bu mesajı göster",
-                "next_node": "shadow_message_reaction",
-                "effect": { "relationship": 15, "information": 12 },
-                "consequence": "Shadow'ın tepkisini görebilirsin"
-              },
-              {
-                "text": "Lydia'ya kolyeyi sor",
-                "next_node": "lydia_necklace_confrontation",
-                "effect": { "confrontation": 10, "truth": 12 },
-                "consequence": "Lydia'dan gerçeği öğrenebilirsin"
-              }
-            ]
-          },
-          "guardian_identity_search": {
-            "title": "Koruyucunun Kimliği - 100 Yıllık Sır",
-            "description": "Köyün tarihini araştırdığında, 100 yıl önce burada yaşayan büyük bir ejderha avcısı olduğunu öğreniyorsun. Adı Marcus the Guardian'dı ve ejderhayı öldürdükten sonra kaybolmuştu. Ama gerçekte ne oldu? Köyün yaşlılarından biri size gizli bir bilgi veriyor: 'Marcus ejderhayı öldürdü ama gücünü alamadı. Sonra kolyeyi buldu ve değişti...'",
-            "atmosphere": "Tarih ve gizem",
-            "sounds": [
-              "Yaşlı adamın sesi",
-              "Rüzgar",
-              "Uzak anılar",
-              "Gizli fısıltılar"
-            ],
-            "visuals": [
-              "Yaşlı köylü",
-              "Eski resimler",
-              "Tarihi belgeler",
-              "Gizemli kolye"
-            ],
-            "choices": [
-              {
-                "text": "Marcus'un mezarını ara",
-                "next_node": "marcus_grave_search",
-                "effect": { "exploration": 15, "history": 10 },
-                "consequence": "Marcus'un gerçek kaderini öğrenebilirsin"
-              },
-              {
-                "text": "Köyün gizli arşivini incele",
-                "next_node": "secret_archives",
-                "effect": { "research": 15, "knowledge": 12 },
-                "consequence": "Yazılı tarihi öğrenebilirsin"
-              },
-              {
-                "text": "Shadow'dan Marcus hakkında bilgi al",
-                "next_node": "shadow_marcus_info",
-                "effect": { "relationship": 12, "truth": 15 },
-                "consequence": "Shadow'ın gizli bilgisini öğrenebilirsin"
-              },
-              {
-                "text": "Lydia'nın babasının Marcus olup olmadığını araştır",
-                "next_node": "father_marcus_connection",
-                "effect": { "investigation": 15, "family": 10 },
-                "consequence": "Baba-kız ilişkisinin sırrını çözebilirsin"
-              }
-            ]
-          },
-          "lydia_necklace_confrontation": {
-            "title": "Lydia ile Kolye Konfrontasyonu - Aile Sırrı",
-            "description": "Lydia'ya kolyeyi gösterdiğinde yüzü sararıyor. 'Bu kolye... babamın odasında buldum. Ama babam bunun nereden geldiğini bilmiyor. Gece yarısı odasından garip sesler geliyor ve sabah kolye orada oluyor. Babam değişti... artık tanıyamıyorum onu.' Lydia'nın gözlerinde korku ve endişe var.",
-            "atmosphere": "Aile dramı ve gizem",
-            "sounds": [
-              "Lydia'nın titreyen sesi",
-              "Uzak garip sesler",
-              "Rüzgar",
-              "Kolye tıngırtısı"
-            ],
-            "visuals": [
-              "Ağlayan Lydia",
-              "Eski kolye",
-              "Gizemli ev",
-              "Korku dolu gözler"
-            ],
-            "choices": [
-              {
-                "text": "Lydia'yı teselli et ve birlikte araştır",
-                "next_node": "lydia_comfort_investigation",
-                "effect": { "empathy": 15, "relationship": 12 },
-                "consequence": "Lydia'nın güvenini kazanabilirsin"
-              },
-              {
-                "text": "Babasının odasını gizlice ara",
-                "next_node": "father_room_secret_search",
-                "effect": { "stealth": 15, "investigation": 12 },
-                "consequence": "Babasının sırrını keşfedebilirsin"
-              },
-              {
-                "text": "Kolyeyi incelemek için Shadow'a götür",
-                "next_node": "shadow_necklace_analysis",
-                "effect": { "magic": 15, "knowledge": 12 },
-                "consequence": "Kolyenin gücünü anlayabilirsin"
-              },
-              {
-                "text": "Babasıyla doğrudan konuş",
-                "next_node": "father_direct_confrontation",
-                "effect": { "bravery": 15, "confrontation": 12 },
-                "consequence": "Marcus'la doğrudan konuşabilirsin"
-              }
-            ]
-          },
-          "shadow_message_reaction": {
-            "title": "Shadow'ın Mesaj Tepkisi - Gizli Bilgi",
-            "description": "Shadow'a runik mesajı gösterdiğinde yüzü ciddileşiyor. 'Bu mesaj... ejderhadan geliyor. Ama bu ejderha normal bir ejderha değil. Bu Marcus'un ejderhası. 100 yıl önce Marcus ejderhayı öldürdü ama gücünü alamadı. Sonra kolyeyi buldu ve ejderha gücü onu değiştirdi. Şimdi ejderha olarak geri döndü ve kolyeyi arıyor.'",
-            "atmosphere": "Gizem ve gerçek",
-            "sounds": [
-              "Shadow'ın ciddi sesi",
-              "Rüzgar",
-              "Uzak ejderha sesi",
-              "Gizli bilgi"
-            ],
-            "visuals": [
-              "Ciddi Shadow",
-              "Runik mesaj",
-              "Gizemli atmosfer",
-              "Gerçek yüzü"
-            ],
-            "choices": [
-              {
-                "text": "Marcus'un nasıl ejderha olduğunu sor",
-                "next_node": "marcus_transformation_story",
-                "effect": { "knowledge": 15, "history": 12 },
-                "consequence": "Dönüşüm hikayesini öğrenebilirsin"
-              },
-              {
-                "text": "Kolyenin gücünü sor",
-                "next_node": "necklace_power_explanation",
-                "effect": { "magic": 15, "danger": 12 },
-                "consequence": "Kolyenin tehlikesini anlayabilirsin"
-              },
-              {
-                "text": "Shadow'ın kim olduğunu sor",
-                "next_node": "shadow_identity_reveal",
-                "effect": { "truth": 15, "relationship": 12 },
-                "consequence": "Shadow'ın gerçek kimliğini öğrenebilirsin"
-              },
-              {
-                "text": "Nasıl durduracağımızı sor",
-                "next_node": "stopping_plan_discussion",
-                "effect": { "strategy": 15, "planning": 12 },
-                "consequence": "Durdurma planını öğrenebilirsin"
-              }
-            ]
-          },
-          "marcus_transformation_story": {
-            "title": "Marcus'un Dönüşüm Hikayesi - Ejderha Oluşu",
-            "description": "Shadow size Marcus'un hikayesini anlatıyor: 'Marcus 100 yıl önce bu köyde yaşayan büyük bir ejderha avcısıydı. Ejderhayı öldürdü ama gücünü alamadı. Sonra antik bir kolye buldu. Kolye ejderha gücünü içeriyordu. Marcus kolyeyi taktı ve gücü onu değiştirmeye başladı. Yavaş yavaş ejderha oldu. Şimdi Kızıl Alev olarak geri döndü ve kolyeyi arıyor çünkü tam gücüne ulaşmak istiyor.'",
-            "atmosphere": "Tarih ve trajedi",
-            "sounds": [
-              "Shadow'ın anlatımı",
-              "Rüzgar",
-              "Uzak anılar",
-              "Tragik hikaye"
-            ],
-            "visuals": [
-              "Shadow'ın yüzü",
-              "Geçmiş görüntüleri",
-              "Marcus'un resmi",
-              "Dönüşüm süreci"
-            ],
-            "choices": [
-              {
-                "text": "Kolyeyi nasıl yok edeceğimizi sor",
-                "next_node": "necklace_destruction_method",
-                "effect": { "strategy": 15, "solution": 12 },
-                "consequence": "Kolyeyi yok etme yöntemini öğrenebilirsin"
-              },
-              {
-                "text": "Marcus'u kurtarmanın bir yolu var mı sor",
-                "next_node": "marcus_redemption_possibility",
-                "effect": { "hope": 15, "redemption": 12 },
-                "consequence": "Marcus'u kurtarma umudunu öğrenebilirsin"
-              },
-              {
-                "text": "Lydia'nın babasının Marcus olup olmadığını sor",
-                "next_node": "father_marcus_connection_confirmation",
-                "effect": { "truth": 15, "family": 12 },
-                "consequence": "Baba-kız ilişkisinin gerçeğini öğrenebilirsin"
-              },
-              {
-                "text": "Hemen eyleme geç",
-                "next_node": "immediate_action_plan",
-                "effect": { "bravery": 15, "speed": 12 },
-                "consequence": "Hızlı ama dikkatsiz bir hamle"
-              }
-            ]
-          },
-          "father_marcus_connection": {
-            "title": "Baba-Marcus Bağlantısı - Aile Sırrı",
-            "description": "Lydia'nın babasının odasını araştırdığında eski bir günlük buluyorsun. Günlükte şunlar yazıyor: '100 yıl geçti... hala aynıyım. Kolye beni koruyor ama aynı zamanda değiştiriyor. Lydia'mı korumak istiyorum ama güç beni kontrol ediyor. Ejderha gücü geri dönüyor...' Günlüğün son sayfasında: 'Marcus the Guardian - Son Giriş' yazıyor.",
-            "atmosphere": "Aile dramı ve gizem",
-            "sounds": [
-              "Kağıt hışırtısı",
-              "Uzak garip sesler",
-              "Rüzgar",
-              "Gizli fısıltılar"
-            ],
-            "visuals": [
-              "Eski günlük",
-              "Marcus'un yazısı",
-              "Gizemli oda",
-              "Aile sırrı"
-            ],
-            "choices": [
-              {
-                "text": "Lydia'ya gerçeği söyle",
-                "next_node": "lydia_truth_revelation",
-                "effect": { "truth": 15, "family": 12 },
-                "consequence": "Lydia'ya gerçeği söyleyebilirsin"
-              },
-              {
-                "text": "Babasıyla doğrudan konuş",
-                "next_node": "marcus_father_confrontation",
-                "effect": { "confrontation": 15, "truth": 12 },
-                "consequence": "Marcus'la doğrudan konuşabilirsin"
-              },
-              {
-                "text": "Shadow'dan yardım iste",
-                "next_node": "shadow_family_help",
-                "effect": { "help": 15, "strategy": 12 },
-                "consequence": "Shadow'ın yardımını alabilirsin"
-              },
-              {
-                "text": "Kolyeyi gizlice al",
-                "next_node": "necklace_stealth_theft",
-                "effect": { "stealth": 15, "possession": 12 },
-                "consequence": "Kolyeyi ele geçirebilirsin"
-              }
-            ]
-          },
-          "lydia_truth_revelation": {
-            "title": "Lydia'ya Gerçeği Açıklama - Aile Dramı",
-            "description": "Lydia'ya babasının gerçek kimliğini söylediğinde şok oluyor. 'Babam... Marcus? 100 yaşında? Bu imkansız! Ama şimdi anlıyorum... neden hiç yaşlanmıyor, neden garip davranıyor...' Lydia'nın gözlerinde hem şok hem de anlayış var. 'Onu kurtarmamız gerekiyor. Babamı geri getirmemiz gerekiyor.'",
-            "atmosphere": "Aile dramı ve umut",
-            "sounds": [
-              "Lydia'nın şok sesi",
-              "Ağlama",
-              "Umut dolu ses",
-              "Kararlılık"
-            ],
-            "visuals": [
-              "Şok olmuş Lydia",
-              "Aile resimleri",
-              "Umut dolu gözler",
-              "Kararlı yüz"
-            ],
-            "choices": [
-              {
-                "text": "Birlikte babasını kurtarma planı yap",
-                "next_node": "father_rescue_planning",
-                "effect": { "family": 15, "planning": 12 },
-                "consequence": "Birlikte kurtarma planı yapabilirsiniz"
-              },
-              {
-                "text": "Shadow'dan kurtarma yöntemi sor",
-                "next_node": "shadow_rescue_method",
-                "effect": { "help": 15, "knowledge": 12 },
-                "consequence": "Kurtarma yöntemini öğrenebilirsin"
-              },
-              {
-                "text": "Önce kolyeyi güvenli hale getir",
-                "next_node": "necklace_secure_planning",
-                "effect": { "safety": 15, "strategy": 12 },
-                "consequence": "Kolyeyi güvenli hale getirebilirsin"
-              },
-              {
-                "text": "Babasıyla konuşmaya çalış",
-                "next_node": "father_communication_attempt",
-                "effect": { "communication": 15, "family": 12 },
-                "consequence": "Babasıyla iletişim kurabilirsin"
-              }
-            ]
-          }
-        },
-        "character_development": {
-          "aldric_arc": {
-            "stages": [
-              {
-                "stage": "meeting",
-                "description": "Köy reisi Aldric ile ilk karşılaşma. Seni şüpheyle karşılıyor ama umutsuz.",
-                "dialogue": "Ejderha Avcısı! Köyümüzün umudu sensin. Her gece o sesi duyuyorum... Kızıl Alev'in nefesini...",
-                "relationship_change": 10
-              },
-              {
-                "stage": "trust_building",
-                "description": "Aldric'in güvenini kazanma süreci. Köyü korumaya yardım ediyorsun.",
-                "dialogue": "Gerçekten farklısın. Diğer avcılar gibi değilsin. Köyümüzü gerçekten umursuyorsun.",
-                "relationship_change": 25
-              },
-              {
-                "stage": "confession",
-                "description": "Aldric'in köyün gizli sırrını açıklaması. Ejderha aslında köyü koruyordu.",
-                "dialogue": "Gerçeği söylemeliyim... Ejderha aslında köyümüzü koruyordu. Ama şimdi tehdit ediyor.",
-                "relationship_change": 40
-              },
-              {
-                "stage": "partnership",
-                "description": "Aldric ile tam ortaklık. Birlikte köyü kurtarmaya çalışıyorsunuz.",
-                "dialogue": "Birlikte köyümüzü kurtaracağız. Sen benim en güvendiğim dostumsun.",
-                "relationship_change": 60
-              }
-            ]
-          },
-          "lydia_arc": {
-            "stages": [
-              {
-                "stage": "first_meeting",
-                "description": "Lydia ile ilk karşılaşma. Babasının değişiminden endişeli.",
-                "dialogue": "Babam... babam değişti. Son zamanlarda çok garip davranıyor. Ejderha hakkında sürekli konuşuyor.",
-                "relationship_change": 15
-              },
-              {
-                "stage": "investigation",
-                "description": "Lydia'nın babasının sırrını araştırma. Birlikte gerçeği bulmaya çalışıyorsunuz.",
-                "dialogue": "Babamın odasında eski bir kitap buldum. Ejderha avcılığı hakkında yazılar var. Ama babam bunları hiç bilmiyordu.",
-                "relationship_change": 30
-              },
-              {
-                "stage": "truth_revelation",
-                "description": "Lydia'nın babasının gerçek kimliğini öğrenme. 100 yıl önce ejderha avcısıydı.",
-                "dialogue": "Shadow bana babamın geçmişini anlattı. 100 yıl önce ejderha avcısıymış. Ama bir şeyler ters gitti.",
-                "relationship_change": 45
-              },
-              {
-                "stage": "redemption_quest",
-                "description": "Lydia'nın babasını kurtarma görevi. Birlikte babasını iyileştirmeye çalışıyorsunuz.",
-                "dialogue": "Babamı kurtarmak istiyorum. Ama korkuyorum... eğer gerçekten ejderha gücü kazandıysa...",
-                "relationship_change": 70
-              }
-            ]
-          },
-          "shadow_arc": {
-            "stages": [
-              {
-                "stage": "mysterious_encounter",
-                "description": "Shadow ile gizemli karşılaşma. Gerçek kimliği belirsiz.",
-                "dialogue": "Ejderha avcısı... sonunda geldin. Bu köyde olanları biliyorum. Şifacının sırrını da...",
-                "relationship_change": 5
-              },
-              {
-                "stage": "information_sharing",
-                "description": "Shadow'ın bilgilerini paylaşması. Şifacının gerçek kimliğini açıklıyor.",
-                "dialogue": "Şifacı 100 yıl önce ejderhayı öldürdü ama gücünü alamadı. Şimdi kolyeyi buldu ve güç peşinde.",
-                "relationship_change": 20
-              },
-              {
-                "stage": "alliance_formation",
-                "description": "Shadow ile ittifak kurma. Birlikte şifacıyı durdurmaya çalışıyorsunuz.",
-                "dialogue": "Dikkatli ol. Şifacı artık insan değil. Ejderha gücü onu değiştirdi. Lydia'yı koru.",
-                "relationship_change": 35
-              },
-              {
-                "stage": "true_identity",
-                "description": "Shadow'ın gerçek kimliğini öğrenme. O da eski bir ejderha avcısı.",
-                "dialogue": "Ben de 100 yıl önce ejderha avcısıydım. Şifacıyla birlikte ejderhayı öldürdük. Ama o gücü çalmaya çalıştı.",
-                "relationship_change": 50
-              }
-            ]
-          }
-        },
-        "environmental_storytelling": {
-          "village_atmosphere": {
-            "morning": "Güneş doğarken köy hala korku içinde. Ejderha tehdidi herkesi etkilemiş.",
-            "afternoon": "Öğle vakti köylüler toplanmış, ne yapacaklarını tartışıyorlar.",
-            "evening": "Akşam olurken ejderha sesleri tekrar duyulmaya başlıyor.",
-            "night": "Gece karanlığında ejderha gözleri köyün üzerinde parlıyor."
-          },
-          "dragon_lair": {
-            "entrance": "Ejderha ininin girişi korkutucu. Kemikler ve hazinelerle dolu.",
-            "main_chamber": "Ana odada ejderha hazinesi ve antik yazılar var.",
-            "treasure_room": "Hazine odasında kolye ve diğer değerli eşyalar bulunuyor.",
-            "ritual_chamber": "Ritüel odasında ejderha büyüsü hala aktif."
-          },
-          "ancient_temple": {
-            "exterior": "Antik tapınak zamanın testine dayanmış. Büyülü enerji yayıyor.",
-            "interior": "Tapınağın içi rünlerle kaplı. Ejderha tarihi burada yazılı.",
-            "sanctuary": "Kutsal alanda ejderha gücünün kaynağı bulunuyor.",
-            "chamber_of_secrets": "Gizemler odasında en büyük sırlar saklı."
-          }
-        },
-        "dynamic_events": {
-          "random_encounters": [
-            {
-              "id": "wandering_merchant",
-              "title": "Gezgin Tüccar",
-              "description": "Yolda gizemli bir tüccarla karşılaşıyorsun. Ejderha hakkında bilgi satıyor.",
-              "choices": [
-                {
-                  "text": "Bilgi satın al",
-                  "cost": 50,
-                  "reward": "ejderha_bilgisi"
-                },
-                {
-                  "text": "Zorla bilgi al",
-                  "risk": "karma_loss",
-                  "reward": "bilgi"
-                },
-                { "text": "Göz ardı et", "effect": "nothing" }
-              ]
-            },
-            {
-              "id": "injured_traveler",
-              "title": "Yaralı Yolcu",
-              "description": "Yolda yaralı bir yolcu buluyorsun. Ejderha saldırısından kaçmış.",
-              "choices": [
-                {
-                  "text": "Yardım et",
-                  "cost": "healing_potion",
-                  "reward": "gratitude"
-                },
-                { "text": "Bilgi al ve git", "effect": "information" },
-                { "text": "Göz ardı et", "effect": "karma_loss" }
-              ]
-            },
-            {
-              "id": "ancient_ruins",
-              "title": "Antik Harabeler",
-              "description": "Yolda antik harabeler keşfediyorsun. Ejderha tarihi hakkında ipuçları var.",
-              "choices": [
-                { "text": "Araştır", "risk": "trap", "reward": "knowledge" },
-                { "text": "Hazine ara", "risk": "curse", "reward": "treasure" },
-                { "text": "Güvenli geç", "effect": "nothing" }
-              ]
-            }
-          ],
-          "weather_events": [
-            {
-              "id": "dragon_storm",
-              "title": "Ejderha Fırtınası",
-              "description": "Ejderhanın gücü hava durumunu etkiliyor. Korkunç bir fırtına başlıyor.",
-              "effects": [
-                "visibility_reduced",
-                "combat_difficulty_increased",
-                "atmosphere_enhanced"
-              ]
-            },
-            {
-              "id": "magical_rain",
-              "title": "Büyülü Yağmur",
-              "description": "Büyülü yağmur yağıyor. Ejderha gücü havada hissediliyor.",
-              "effects": [
-                "magic_enhanced",
-                "healing_boosted",
-                "mystery_increased"
-              ]
-            }
-          ]
-        }
-      },
-      "levels": {
-        "level_1": {
-          "title": "Köy Tehdidi",
-          "description": "Köyde ejderha tehdidi var. Önce köylüleri koru ve güçlen.",
-          "min_level": 1,
-          "max_level": 5,
-          "enemies": [
-            {
-              "name": "Goblin Savaşçısı",
-              "hp": 20,
-              "attack": 6,
-              "defense": 3,
-              "xp_reward": 25,
-              "level": 1
-            },
-            {
-              "name": "Kurt Sürüsü",
-              "hp": 15,
-              "attack": 5,
-              "defense": 2,
-              "xp_reward": 20,
-              "level": 1
-            },
-            {
-              "name": "Haydut Lideri",
-              "hp": 30,
-              "attack": 8,
-              "defense": 4,
-              "xp_reward": 40,
-              "level": 2
-            },
-            {
-              "name": "Köpekbalığı",
-              "hp": 25,
-              "attack": 7,
-              "defense": 3,
-              "xp_reward": 35,
-              "level": 2
-            }
-          ],
-          "boss": {
-            "name": "Goblin Şefi",
-            "hp": 50,
-            "attack": 10,
-            "defense": 6,
-            "xp_reward": 100,
-            "level": 3,
-            "special_abilities": ["Goblin Horde", "Poison Dagger"]
-          },
-          "side_quests": [
-            {
-              "id": "defend_village",
-              "title": "Köyü Savun",
-              "description": "Goblin saldırısına karşı köyü savun",
-              "xp_reward": 50,
-              "gold_reward": 25
-            },
-            {
-              "id": "heal_villagers",
-              "title": "Köylüleri İyileştir",
-              "description": "Yaralı köylüleri iyileştir",
-              "xp_reward": 30,
-              "gold_reward": 15
-            }
-          ]
-        },
-        "level_2": {
-          "title": "Orman Tehlikesi",
-          "description": "Ejderhanın izlerini takip ediyorsun. Orman tehlikeli yaratıklarla dolu.",
-          "min_level": 3,
-          "max_level": 8,
-          "enemies": [
-            {
-              "name": "Ork Savaşçısı",
-              "hp": 35,
-              "attack": 9,
-              "defense": 5,
-              "xp_reward": 45,
-              "level": 3
-            },
-            {
-              "name": "Troll",
-              "hp": 60,
-              "attack": 12,
-              "defense": 8,
-              "xp_reward": 80,
-              "level": 4
-            },
-            {
-              "name": "Giant Spider",
-              "hp": 40,
-              "attack": 10,
-              "defense": 6,
-              "xp_reward": 60,
-              "level": 4
-            },
-            {
-              "name": "Ork Okçusu",
-              "hp": 30,
-              "attack": 11,
-              "defense": 4,
-              "xp_reward": 50,
-              "level": 3
-            }
-          ],
-          "boss": {
-            "name": "Ork Warlord",
-            "hp": 80,
-            "attack": 15,
-            "defense": 10,
-            "xp_reward": 150,
-            "level": 5,
-            "special_abilities": ["Battle Cry", "Heavy Axe"]
-          },
-          "side_quests": [
-            {
-              "id": "gather_supplies",
-              "title": "Malzeme Topla",
-              "description": "Orman bitkilerinden iyileştirici malzemeler topla",
-              "xp_reward": 40,
-              "gold_reward": 20
-            },
-            {
-              "id": "find_dragon_tracks",
-              "title": "Ejderha İzlerini Bul",
-              "description": "Ejderhanın geçtiği yolları araştır",
-              "xp_reward": 60,
-              "gold_reward": 30
-            }
-          ]
-        },
-        "level_3": {
-          "title": "Dağ Geçidi",
-          "description": "Dağlara çıkıyorsun. Hava soğuk ve tehlikeli yaratıklar her yerde.",
-          "min_level": 5,
-          "max_level": 10,
-          "enemies": [
-            {
-              "name": "Yeti",
-              "hp": 70,
-              "attack": 14,
-              "defense": 9,
-              "xp_reward": 90,
-              "level": 6
-            },
-            {
-              "name": "Ice Golem",
-              "hp": 90,
-              "attack": 16,
-              "defense": 12,
-              "xp_reward": 120,
-              "level": 7
-            },
-            {
-              "name": "Frost Giant",
-              "hp": 120,
-              "attack": 18,
-              "defense": 14,
-              "xp_reward": 180,
-              "level": 8
-            },
-            {
-              "name": "Mountain Lion",
-              "hp": 50,
-              "attack": 13,
-              "defense": 7,
-              "xp_reward": 70,
-              "level": 6
-            }
-          ],
-          "boss": {
-            "name": "Frost Giant King",
-            "hp": 150,
-            "attack": 20,
-            "defense": 16,
-            "xp_reward": 250,
-            "level": 9,
-            "special_abilities": ["Ice Storm", "Frozen Ground"]
-          },
-          "side_quests": [
-            {
-              "id": "train_militia",
-              "title": "Milis Eğit",
-              "description": "Köylülere savaş eğitimi ver",
-              "xp_reward": 80,
-              "gold_reward": 40
-            },
-            {
-              "id": "find_ancient_tome",
-              "title": "Antik Kitabı Bul",
-              "description": "Dağlarda gizli antik kitabı ara",
-              "xp_reward": 100,
-              "gold_reward": 50
-            }
-          ]
-        },
-        "level_4": {
-          "title": "Ejderha Yuvası",
-          "description": "Ejderhanın yuvasına yaklaşıyorsun. Ama önce onun koruyucularını geçmen gerekiyor.",
-          "min_level": 8,
-          "max_level": 15,
-          "enemies": [
-            {
-              "name": "Dragon Spawn",
-              "hp": 100,
-              "attack": 18,
-              "defense": 12,
-              "xp_reward": 150,
-              "level": 10
-            },
-            {
-              "name": "Wyvern",
-              "hp": 130,
-              "attack": 20,
-              "defense": 14,
-              "xp_reward": 200,
-              "level": 11
-            },
-            {
-              "name": "Dragon Knight",
-              "hp": 160,
-              "attack": 22,
-              "defense": 16,
-              "xp_reward": 250,
-              "level": 12
-            },
-            {
-              "name": "Dragon Cultist",
-              "hp": 80,
-              "attack": 16,
-              "defense": 10,
-              "xp_reward": 120,
-              "level": 9
-            }
-          ],
-          "boss": {
-            "name": "Dragon Guardian",
-            "hp": 200,
-            "attack": 25,
-            "defense": 18,
-            "xp_reward": 350,
-            "level": 13,
-            "special_abilities": ["Dragon Breath", "Wing Attack"]
-          },
-          "side_quests": [
-            {
-              "id": "decipher_runes",
-              "title": "Rünleri Çöz",
-              "description": "Ejderha yuvasındaki antik rünleri çöz",
-              "xp_reward": 150,
-              "gold_reward": 75
-            },
-            {
-              "id": "locate_dragon_lair",
-              "title": "Ejderha İnini Bul",
-              "description": "Ejderhanın gizli inini keşfet",
-              "xp_reward": 200,
-              "gold_reward": 100
-            }
-          ]
-        },
-        "level_5": {
-          "title": "Antik Tapınak",
-          "description": "Ejderhanın gücünün kaynağı olan antik tapınağı keşfediyorsun.",
-          "min_level": 10,
-          "max_level": 18,
-          "enemies": [
-            {
-              "name": "Ancient Guardian",
-              "hp": 180,
-              "attack": 24,
-              "defense": 18,
-              "xp_reward": 300,
-              "level": 14
-            },
-            {
-              "name": "Temple Priest",
-              "hp": 140,
-              "attack": 20,
-              "defense": 15,
-              "xp_reward": 250,
-              "level": 13
-            },
-            {
-              "name": "Cursed Warrior",
-              "hp": 160,
-              "attack": 22,
-              "defense": 16,
-              "xp_reward": 280,
-              "level": 14
-            },
-            {
-              "name": "Shadow Assassin",
-              "hp": 120,
-              "attack": 26,
-              "defense": 12,
-              "xp_reward": 220,
-              "level": 12
-            }
-          ],
-          "boss": {
-            "name": "Temple Master",
-            "hp": 250,
-            "attack": 28,
-            "defense": 20,
-            "xp_reward": 500,
-            "level": 16,
-            "special_abilities": ["Ancient Magic", "Temple Powers"]
-          },
-          "side_quests": [
-            {
-              "id": "understand_dragon_magic",
-              "title": "Ejderha Büyüsünü Anla",
-              "description": "Tapınaktaki ejderha büyüsünü öğren",
-              "xp_reward": 300,
-              "gold_reward": 150
-            },
-            {
-              "id": "confront_healer",
-              "title": "Şifacıyla Yüzleş",
-              "description": "Şifacının gerçek kimliğini öğren",
-              "xp_reward": 400,
-              "gold_reward": 200
-            }
-          ]
-        },
-        "level_6": {
-          "title": "Ejderha Gücü",
-          "description": "Şifacının ejderha gücünü kırmak için son hazırlıkları yapıyorsun.",
-          "min_level": 12,
-          "max_level": 20,
-          "enemies": [
-            {
-              "name": "Dragon Corrupted",
-              "hp": 200,
-              "attack": 26,
-              "defense": 18,
-              "xp_reward": 350,
-              "level": 16
-            },
-            {
-              "name": "Power Seeker",
-              "hp": 180,
-              "attack": 24,
-              "defense": 16,
-              "xp_reward": 320,
-              "level": 15
-            },
-            {
-              "name": "Ancient Dragon",
-              "hp": 300,
-              "attack": 30,
-              "defense": 22,
-              "xp_reward": 600,
-              "level": 18
-            },
-            {
-              "name": "Dragon Apprentice",
-              "hp": 160,
-              "attack": 22,
-              "defense": 14,
-              "xp_reward": 280,
-              "level": 14
-            }
-          ],
-          "boss": {
-            "name": "Corrupted Healer",
-            "hp": 300,
-            "attack": 32,
-            "defense": 24,
-            "xp_reward": 800,
-            "level": 18,
-            "special_abilities": [
-              "Dragon Magic",
-              "Mind Control",
-              "Healing Corruption"
-            ]
-          },
-          "side_quests": [
-            {
-              "id": "break_dragon_curse",
-              "title": "Ejderha Lanetini Kır",
-              "description": "Şifacıyı ejderha lanetinden kurtar",
-              "xp_reward": 500,
-              "gold_reward": 250
-            },
-            {
-              "id": "restore_healer_mind",
-              "title": "Şifacının Aklını Geri Getir",
-              "description": "Şifacının normal haline dönmesini sağla",
-              "xp_reward": 600,
-              "gold_reward": 300
-            }
-          ]
-        },
-        "boss_level": {
-          "title": "Kızıl Ejderha",
-          "description": "Son savaş zamanı. Kızıl ejderha ile yüzleşiyorsun!",
-          "min_level": 15,
-          "max_level": 25,
-          "boss": {
-            "name": "Kızıl Ejderha",
-            "hp": 800,
-            "attack": 40,
-            "defense": 30,
-            "xp_reward": 2000,
-            "level": 20,
-            "special_abilities": [
-              "Fire Breath",
-              "Wing Attack",
-              "Tail Swipe",
-              "Dragon Fear",
-              "Lair Actions",
-              "Ancient Magic",
-              "Dragon Roar"
-            ],
-            "phases": [
-              {
-                "name": "Phase 1",
-                "hp_threshold": 600,
-                "special_abilities": ["Fire Breath", "Wing Attack"]
-              },
-              {
-                "name": "Phase 2",
-                "hp_threshold": 400,
-                "special_abilities": [
-                  "Dragon Fear",
-                  "Tail Swipe",
-                  "Lair Actions"
-                ]
-              },
-              {
-                "name": "Phase 3",
-                "hp_threshold": 200,
-                "special_abilities": [
-                  "Ancient Magic",
-                  "Dragon Roar",
-                  "Final Stand"
-                ]
-              }
-            ]
-          },
-          "side_quests": [
-            {
-              "id": "unite_against_dragon",
-              "title": "Ejderhaya Karşı Birleş",
-              "description": "Tüm müttefiklerini son savaş için topla",
-              "xp_reward": 1000,
-              "gold_reward": 500
-            }
-          ]
+        "dark_lord_ending": {
+          "requirements": {"quests_completed": 8},
+          "description": "Karanlık güçleri seçerek dünyayı yönetmeye başladın."
         }
       },
       "story_nodes": {
         "start": {
           "id": "start",
-          "title": "Köy Girişi - Kızıl Alev'in İlk İzleri",
-          "description": "Güneş batarken köyün üzerinde kızıl bir gölge beliriyor. Kızıl Alev adıyla bilinen ejderha gökyüzünde uçuyor ve alevler saçarak köyü yakıyor. Sen ejderha avcısısın ve bu tehlikeli görevde her şeyi riske atacaksın. Köy meydanında yaşlı bir adam seni bekliyor - köy reisi Aldric. Ama önce köyün durumunu değerlendirmen gerekiyor.",
-          "atmosphere": "Korku ve panik dolu, güneş batımının kızıl ışıkları altında",
-          "sounds": [
-            "Çığlıklar",
-            "Kaçış sesleri",
-            "Ejderha uğultusu",
-            "Yanan ahşap çatırtısı"
-          ],
-          "visuals": [
-            "Duman",
-            "Kaçan köylüler",
-            "Yanan evler",
-            "Kızıl gökyüzü"
-          ],
+          "title": "🐉 Dragon Hunter's Path - Köy Tehdidi",
+          "description": "Güneş batarken köyün üzerinde kızıl bir gölge beliriyor. Kızıl ejderha gökyüzünde uçuyor ve alevler saçarak köyü yakıyor. Sen ejderha avcısısın ve bu tehlikeli görevde her şeyi riske atacaksın. Köy meydanında yaşlı bir adam seni bekliyor - köy reisi Aldric.",
           "choices": [
             {
-              "text": "Köye koş ve yardım et",
-              "next_node": "village_rescue",
-              "effect": { "karma": 10, "reputation": 5 },
-              "consequence": "Köylüler seni kahraman olarak görecek"
+              "id": "talk_aldric",
+              "text": "Aldric ile konuş",
+              "next_node": "aldric_dialogue",
+              "effect": {"charisma_skill": 2, "conversations": 1, "npc_interactions": 1, "time_spent": 5}
             },
             {
-              "text": "Dikkatli yaklaş ve durumu değerlendir",
-              "next_node": "stealth_approach",
-              "effect": { "stealth": 5, "intelligence": 3 },
-              "consequence": "Daha fazla bilgi toplayabilirsin"
+              "id": "chase_dragon",
+              "text": "Hemen ejderhayı takip et",
+              "next_node": "dragon_chase",
+              "effect": {"combat_skill": 3, "exploration_skill": 2, "time_spent": 10}
             },
             {
-              "text": "Önce güçlenmek için ekipman ara",
-              "next_node": "equipment_search",
-              "effect": { "defense": 5, "preparation": 10 },
-              "consequence": "Daha iyi hazırlanmış olursun"
+              "id": "gather_info",
+              "text": "Köylülerden bilgi topla",
+              "next_node": "village_info",
+              "effect": {"charisma_skill": 2, "conversations": 2, "time_spent": 8}
             },
             {
-              "text": "Aldric ile hemen konuş",
-              "next_node": "aldric_first_meeting",
-              "effect": { "diplomacy": 8, "information": 10 },
-              "consequence": "Köyün sırrını öğrenebilirsin"
+              "id": "find_healer",
+              "text": "Şifacıyı ara",
+              "next_node": "healer_search",
+              "effect": {"exploration_skill": 2, "search_actions": 1, "time_spent": 6}
             }
           ]
         },
-        "aldric_first_meeting": {
-          "id": "aldric_first_meeting",
-          "title": "Aldric ile İlk Karşılaşma - Köyün Sırrı",
-          "description": "Köy meydanında yaşlı Aldric seni bekliyor. Yüzünde hem umut hem de derin bir keder var. 'Ejderha Avcısı! Sonunda geldin. Köyümüzün umudu sensin. Her gece o sesi duyuyorum... Kızıl Alev'in nefesini... Ama bir şeyler ters gitti. Ejderha artık sadece yıkım getirmiyor, bir mesaj veriyor gibi.'",
-          "atmosphere": "Gizem ve umut karışımı",
-          "sounds": [
-            "Uzak ejderha sesleri",
-            "Aldric'in titreyen sesi",
-            "Köyün sessizliği"
-          ],
-          "visuals": ["Yaşlı Aldric", "Köy meydanı", "Uzak dumanlar"],
+        "aldric_dialogue": {
+          "id": "aldric_dialogue",
+          "title": "Aldric ile Sohbet",
+          "description": "Aldric seni karşılıyor. 'Ejderha avcısı, sonunda geldin. Bu ejderha sadece köyü tehdit etmiyor, tüm bölgeyi yakıp yıkıyor. Ama... bir şey var. Bu ejderha normal değil. Sanki birisi onu kontrol ediyor gibi.' Aldric'in gözlerinde gizemli bir ifade var.",
           "choices": [
             {
-              "text": "Ejderhanın mesajını araştır",
-              "next_node": "dragon_message_investigation",
-              "effect": { "intelligence": 10, "mystery": 8 },
-              "consequence": "Ejderhanın gerçek amacını öğrenebilirsin"
+              "id": "trust_aldric",
+              "text": "Aldric'e güven",
+              "next_node": "aldric_trust",
+              "effect": {"aldric_trust": 20, "charisma_skill": 3, "conversations": 1}
             },
             {
-              "text": "Köyün geçmişini sor",
-              "next_node": "village_history",
-              "effect": { "knowledge": 10, "diplomacy": 5 },
-              "consequence": "Köyün gizli geçmişini öğrenebilirsin"
+              "id": "question_aldric",
+              "text": "Aldric'i sorgula",
+              "next_node": "aldric_suspicion",
+              "effect": {"aldric_trust": -10, "investigation_skill": 2, "conversations": 1}
             },
             {
-              "text": "Şifacı Lydia'dan bahset",
-              "next_node": "lydia_investigation",
-              "effect": { "relationship": 10, "healing": 5 },
-              "consequence": "Lydia'nın sırrını araştırabilirsin"
+              "id": "ask_about_lydia",
+              "text": "Lydia hakkında sor",
+              "next_node": "lydia_info",
+              "effect": {"charisma_skill": 2, "conversations": 1, "npc_interactions": 1}
             },
             {
-              "text": "Hemen eyleme geç",
-              "next_node": "immediate_action",
-              "effect": { "bravery": 10, "speed": 5 },
-              "consequence": "Hızlı ama dikkatsiz bir hamle"
+              "id": "request_help",
+              "text": "Yardım iste",
+              "next_node": "aldric_help",
+              "effect": {"aldric_trust": 15, "charisma_skill": 2, "conversations": 1}
             }
           ]
-        },
-        "end": {
-          "id": "end",
-          "title": "🏆 Dragon Hunter's Path Sonu",
-          "description": "Ejderha avını başarıyla tamamladınız! Köy kurtuldu!",
-          "choices": []
-        }
-      },
-      "ending_variations": {
-        "good_ending": {
-          "requirements": {
-            "aldric_trust": 80,
-            "lydia_trust": 70,
-            "shadow_trust": 60,
-            "healer_redemption": true,
-            "quests_completed": 15
-          },
-          "description": "Ejderhayı yendin ve köyü kurtardın. Şifacı da iyileşti. Herkes mutlu."
-        },
-        "neutral_ending": {
-          "requirements": {
-            "aldric_trust": 50,
-            "lydia_trust": 40,
-            "quests_completed": 10
-          },
-          "description": "Ejderhayı yendin ama bazı kayıplar oldu. Köy kurtuldu ama acı çekti."
-        },
-        "bad_ending": {
-          "requirements": {
-            "aldric_trust": 20,
-            "quests_completed": 5
-          },
-          "description": "Ejderhayı yendin ama köy büyük zarar gördü. Şifacı öldü."
-        },
-        "secret_ending": {
-          "requirements": {
-            "shadow_trust": 100,
-            "healer_redemption": true,
-            "quests_completed": 20,
-            "dragon_understanding": true
-          },
-          "description": "Ejderhayla anlaştın. O aslında köyü koruyordu. Şifacı da iyileşti."
-        }
-      }
-    },
-    "cyberpunk_city_secrets": {
-      "id": "cyberpunk_city_secrets",
-      "title": "Cyberpunk Şehrinin Gizli Sırları",
-      "genre": "cyberpunk",
-      "description": "Cyberpunk şehrinin gizli sırlarını keşfet. Teknoloji ve insanlık arasındaki sınır bulanıklaşıyor. Önce sokaklarda güçlenmen gerekiyor!",
-      "difficulty": "hard",
-      "theme": "cyberpunk",
-      "complexity": "high",
-      "estimatedPlayTime": 160,
-      "level_requirements": {
-        "level_1": {
-          "min_level": 1,
-          "max_level": 5,
-          "xp_required": 0,
-          "estimated_time": 45
-        },
-        "level_2": {
-          "min_level": 3,
-          "max_level": 8,
-          "xp_required": 200,
-          "estimated_time": 60
-        },
-        "level_3": {
-          "min_level": 5,
-          "max_level": 10,
-          "xp_required": 500,
-          "estimated_time": 75
-        },
-        "level_4": {
-          "min_level": 8,
-          "max_level": 15,
-          "xp_required": 1000,
-          "estimated_time": 90
-        },
-        "boss_level": {
-          "min_level": 12,
-          "max_level": 20,
-          "xp_required": 2000,
-          "estimated_time": 120
-        }
-      },
-      "faction_specific_content": {
-        "netrunner": {
-          "special_nodes": ["cyber_deck", "matrix_access", "digital_mastery"],
-          "skill_unlocks": ["Cyber Deck", "Matrix Access", "Digital Mastery"],
-          "ending_modifiers": [
-            "digital_victory",
-            "matrix_ascension",
-            "cyber_mastery"
-          ]
-        },
-        "street_samurai": {
-          "special_nodes": ["combat_implants", "street_combat", "honor_code"],
-          "skill_unlocks": ["Combat Implants", "Street Combat", "Honor Code"],
-          "ending_modifiers": ["combat_victory", "honor_ending", "street_glory"]
-        },
-        "corporate": {
-          "special_nodes": [
-            "corporate_access",
-            "business_skills",
-            "political_influence"
-          ],
-          "skill_unlocks": [
-            "Corporate Access",
-            "Business Skills",
-            "Political Influence"
-          ],
-          "ending_modifiers": [
-            "corporate_victory",
-            "political_ending",
-            "business_success"
-          ]
-        }
-      },
-      "advanced_storytelling": {
-        "contextual_triggers": {
-          "digital_infiltration": {
-            "betrayal_chance": 0.4,
-            "plot_twist_chance": 0.6,
-            "triggers": [
-              "ai_manipulation",
-              "digital_trap",
-              "corporate_espionage"
-            ]
-          },
-          "street_conflict": {
-            "betrayal_chance": 0.5,
-            "plot_twist_chance": 0.4,
-            "triggers": [
-              "gang_betrayal",
-              "weapon_failure",
-              "unexpected_alliance"
-            ]
-          }
-        },
-        "emotional_arcs": {
-          "humanity_loss": {
-            "stages": ["human", "enhanced", "cyber", "transhuman"],
-            "betrayal_impact": "devastating"
-          },
-          "digital_awakening": {
-            "stages": ["ignorant", "aware", "connected", "transcendent"],
-            "plot_twist_impact": "transformative"
-          }
-        }
-      },
-      "levels": {
-        "level_1": {
-          "title": "Sokak Savaşları",
-          "description": "Cyberpunk şehrinin tehlikeli sokaklarında hayatta kalmaya çalışıyorsun.",
-          "min_level": 1,
-          "max_level": 5,
-          "enemies": [
-            {
-              "name": "Gang Member",
-              "hp": 25,
-              "attack": 7,
-              "defense": 4,
-              "xp_reward": 30,
-              "level": 1
-            },
-            {
-              "name": "Cyber Thug",
-              "hp": 35,
-              "attack": 9,
-              "defense": 5,
-              "xp_reward": 45,
-              "level": 2
-            },
-            {
-              "name": "Street Fighter",
-              "hp": 40,
-              "attack": 10,
-              "defense": 6,
-              "xp_reward": 50,
-              "level": 3
-            }
-          ],
-          "boss": {
-            "name": "Gang Leader",
-            "hp": 60,
-            "attack": 12,
-            "defense": 7,
-            "xp_reward": 100,
-            "level": 4,
-            "special_abilities": ["Gang Tactics", "Cyber Implants"]
-          }
-        },
-        "level_2": {
-          "title": "Corporate Espionage",
-          "description": "Şirket binalarına sızıyorsun. Güvenlik sistemleri ve korumalar seni bekliyor.",
-          "min_level": 3,
-          "max_level": 8,
-          "enemies": [
-            {
-              "name": "Security Guard",
-              "hp": 45,
-              "attack": 11,
-              "defense": 7,
-              "xp_reward": 55,
-              "level": 4
-            },
-            {
-              "name": "Corporate Agent",
-              "hp": 55,
-              "attack": 13,
-              "defense": 8,
-              "xp_reward": 70,
-              "level": 5
-            },
-            {
-              "name": "Security Bot",
-              "hp": 70,
-              "attack": 15,
-              "defense": 10,
-              "xp_reward": 90,
-              "level": 6
-            }
-          ],
-          "boss": {
-            "name": "Corporate Executive",
-            "hp": 90,
-            "attack": 16,
-            "defense": 11,
-            "xp_reward": 150,
-            "level": 7,
-            "special_abilities": ["Corporate Power", "Money Talks"]
-          }
-        },
-        "level_3": {
-          "title": "Matrix Infiltration",
-          "description": "Siberuzaya giriyorsun. AI'lar ve dijital tehlikeler seni bekliyor.",
-          "min_level": 5,
-          "max_level": 10,
-          "enemies": [
-            {
-              "name": "Virus Program",
-              "hp": 60,
-              "attack": 14,
-              "defense": 8,
-              "xp_reward": 80,
-              "level": 7
-            },
-            {
-              "name": "Security AI",
-              "hp": 80,
-              "attack": 16,
-              "defense": 10,
-              "xp_reward": 110,
-              "level": 8
-            },
-            {
-              "name": "Digital Demon",
-              "hp": 100,
-              "attack": 18,
-              "defense": 12,
-              "xp_reward": 140,
-              "level": 9
-            }
-          ],
-          "boss": {
-            "name": "Matrix Overlord",
-            "hp": 130,
-            "attack": 20,
-            "defense": 14,
-            "xp_reward": 200,
-            "level": 10,
-            "special_abilities": ["Digital Manipulation", "Reality Warp"]
-          }
-        },
-        "level_4": {
-          "title": "Underground Network",
-          "description": "Şehrin altındaki gizli ağlara giriyorsun. En tehlikeli sırlar burada.",
-          "min_level": 8,
-          "max_level": 15,
-          "enemies": [
-            {
-              "name": "Underground Hacker",
-              "hp": 110,
-              "attack": 19,
-              "defense": 13,
-              "xp_reward": 160,
-              "level": 11
-            },
-            {
-              "name": "Cyber Assassin",
-              "hp": 130,
-              "attack": 21,
-              "defense": 15,
-              "xp_reward": 190,
-              "level": 12
-            },
-            {
-              "name": "Digital Ghost",
-              "hp": 150,
-              "attack": 23,
-              "defense": 17,
-              "xp_reward": 220,
-              "level": 13
-            }
-          ],
-          "boss": {
-            "name": "Underground Master",
-            "hp": 180,
-            "attack": 25,
-            "defense": 18,
-            "xp_reward": 300,
-            "level": 14,
-            "special_abilities": ["Underground Control", "Shadow Network"]
-          }
-        },
-        "boss_level": {
-          "title": "MegaCorp AI",
-          "description": "Son savaş zamanı. MegaCorp'un yapay zekası ile yüzleşiyorsun!",
-          "min_level": 12,
-          "max_level": 20,
-          "boss": {
-            "name": "MegaCorp AI",
-            "hp": 400,
-            "attack": 30,
-            "defense": 22,
-            "xp_reward": 800,
-            "level": 16,
-            "special_abilities": [
-              "Digital Domination",
-              "Reality Manipulation",
-              "AI Horde",
-              "System Override",
-              "Digital Apocalypse"
-            ],
-            "phases": [
-              {
-                "name": "Phase 1",
-                "hp_threshold": 100,
-                "special_abilities": ["Digital Domination", "AI Horde"]
-              },
-              {
-                "name": "Phase 2",
-                "hp_threshold": 50,
-                "special_abilities": [
-                  "Reality Manipulation",
-                  "System Override",
-                  "Digital Apocalypse"
-                ]
-              }
-            ]
-          }
-        }
-      }
-    },
-    "imperial_crisis": {
-      "id": "imperial_crisis",
-      "title": "🛡️ Imperial Crisis - Warhammer 40K Macera",
-      "genre": "warhammer",
-      "description": "Imperium'un en kritik anında, Cadia'nın savunmasında yer alıyorsun. Chaos orduları yaklaşıyor ve sadece sen bu savaşı kazanabilirsin. İmparator'a olan sadakatini kanıtla!",
-      "difficulty": "extreme",
-      "theme": "warhammer",
-      "complexity": "extreme",
-      "estimatedPlayTime": 360,
-      "npc_relationships": {
-        "commissar_valen": {
-          "name": "Commissar Valen",
-          "trust_level": 0,
-          "quests_completed": 0,
-          "relationship_status": "stranger",
-          "ending_impact": "extreme"
-        },
-        "tech_priest_maria": {
-          "name": "Tech-Priest Maria",
-          "trust_level": 0,
-          "quests_completed": 0,
-          "relationship_status": "stranger",
-          "ending_impact": "high"
-        },
-        "inquisitor_kain": {
-          "name": "Inquisitor Kain",
-          "trust_level": 0,
-          "quests_completed": 0,
-          "relationship_status": "enemy",
-          "ending_impact": "extreme"
-        },
-        "commissar_kane": {
-          "name": "Commissar Kane",
-          "backstory": "Born into Imperial service, executed hundreds for heresy",
-          "personality": "Ruthless, fanatically loyal to the Emperor",
-          "trust_level": 0,
-          "quests_completed": 0,
-          "relationship_status": "stranger",
-          "ending_impact": "extreme",
-          "quest_offers": [
-            "Heresy Investigation",
-            "Loyalty Purge",
-            "Emperor Quest"
-          ]
-        },
-        "tech_priest_zeta": {
-          "name": "Tech-Priest Zeta-7",
-          "backstory": "Brilliant engineer who gave up humanity to serve the Machine God",
-          "personality": "Logical, ritualistic, obsessed with technology",
-          "trust_level": 0,
-          "quests_completed": 0,
-          "relationship_status": "stranger",
-          "ending_impact": "high",
-          "quest_offers": ["STC Hunt", "Machine Spirit", "Techno Heresy"]
-        }
-      },
-      "quest_chains": {
-        "cadia_defense": {
-          "title": "Cadia Savunma Operasyonu",
-          "prerequisites": [],
-          "quests": [
-            "defend_cadia",
-            "eliminate_chaos",
-            "protect_imperial_citizens"
-          ],
-          "rewards": {
-            "xp": 1000,
-            "imperial_rep": 500,
-            "items": ["power_sword"]
-          }
-        }
-      },
-      "quest_definitions": {
-        "chaos_purge": {
-          "title": "Chaos Purge",
-          "objectives": [
-            "Find chaos cultists",
-            "Fight chaos marines",
-            "Destroy chaos artifacts",
-            "Purify area"
-          ],
-          "branches": {
-            "success": {
-              "leads_to": "chaos_defeat",
-              "rewards": { "xp": 400, "imperial_rep": 80, "combat": 100 }
-            },
-            "failure": {
-              "leads_to": "chaos_spread",
-              "penalties": { "chaos_influence": 50 }
-            },
-            "perfect": {
-              "leads_to": "chaos_annihilation",
-              "rewards": {
-                "xp": 600,
-                "imperial_rep": 120,
-                "purifier_badge": true
-              }
-            }
-          },
-          "dynamic_rewards": {
-            "experience": 400,
-            "imperial_rep": 80,
-            "combat": 100
-          },
-          "world_state_impact": {
-            "chaos_influence": -100,
-            "imperial_control": 80,
-            "combat_reputation": 60
-          }
-        },
-        "space_marine_assault": {
-          "title": "Space Marine Assault",
-          "objectives": [
-            "Coordinate with marines",
-            "Fight alongside marines",
-            "Defeat chaos lord",
-            "Secure objective"
-          ],
-          "branches": {
-            "success": {
-              "leads_to": "marine_victory",
-              "rewards": { "xp": 500, "marine_honor": true, "combat": 120 }
-            },
-            "failure": {
-              "leads_to": "marine_loss",
-              "penalties": { "imperial_rep": -30 }
-            },
-            "perfect": {
-              "leads_to": "marine_brotherhood",
-              "rewards": { "xp": 700, "honorary_marine": true, "combat": 150 }
-            }
-          },
-          "dynamic_rewards": {
-            "experience": 500,
-            "marine_honor": true,
-            "combat": 120
-          },
-          "world_state_impact": {
-            "marine_support": 100,
-            "combat_efficiency": 90,
-            "imperial_morale": 80
-          }
-        },
-        "titan_battle": {
-          "title": "Titan Battle",
-          "objectives": [
-            "Pilot titan",
-            "Fight enemy titan",
-            "Destroy chaos titan",
-            "Survive battle"
-          ],
-          "branches": {
-            "success": {
-              "leads_to": "titan_victory",
-              "rewards": { "xp": 800, "titan_pilot": true, "combat": 200 }
-            },
-            "failure": {
-              "leads_to": "titan_destruction",
-              "penalties": { "combat": -50 }
-            },
-            "perfect": {
-              "leads_to": "titan_master",
-              "rewards": {
-                "xp": 1000,
-                "titan_ace": true,
-                "legendary_status": true
-              }
-            }
-          },
-          "dynamic_rewards": {
-            "experience": 800,
-            "titan_pilot": true,
-            "combat": 200
-          },
-          "world_state_impact": {
-            "titan_support": 150,
-            "combat_superiority": 120,
-            "imperial_dominance": 100
-          }
-        },
-        "inquisitor_mission": {
-          "title": "Inquisitor Mission",
-          "objectives": [
-            "Investigate heresy",
-            "Fight heretics",
-            "Execute traitors",
-            "Secure evidence"
-          ],
-          "branches": {
-            "success": {
-              "leads_to": "inquisitor_success",
-              "rewards": { "xp": 300, "inquisitor_trust": 50, "combat": 80 }
-            },
-            "failure": {
-              "leads_to": "inquisitor_disappointment",
-              "penalties": { "inquisitor_trust": -20 }
-            },
-            "perfect": {
-              "leads_to": "inquisitor_approval",
-              "rewards": { "xp": 450, "inquisitor_favor": true, "combat": 100 }
-            }
-          },
-          "dynamic_rewards": {
-            "experience": 300,
-            "inquisitor_trust": 50,
-            "combat": 80
-          },
-          "world_state_impact": {
-            "heresy_level": -60,
-            "inquisitor_support": 70,
-            "imperial_security": 50
-          }
-        }
-      },
-      "ending_variations": {
-        "imperial_victory": {
-          "requirements": {
-            "commissar_trust": 90,
-            "tech_priest_trust": 80,
-            "imperial_rep": 100
-          },
-          "description": "Cadia'yı kurtardınız! İmparator'un iradesi galip geldi!"
-        },
-        "chaos_corruption": {
-          "requirements": { "inquisitor_trust": 70, "chaos_influence": 50 },
-          "description": "Chaos'un gücü sizi ele geçirdi. Artık İmparator'un düşmanısınız."
-        },
-        "heroic_sacrifice": {
-          "requirements": { "imperial_rep": 150, "sacrifice_points": 100 },
-          "description": "Cadia için canınızı verdiniz. İmparator sizi hatırlayacak."
-        }
-      },
-      "story_nodes": {
-        "start": {
-          "id": "start",
-          "title": "🛡️ Cadia'nın Son Savunması - Imperial Crisis Başlangıç",
-          "description": "Cadia'nın savunma hatlarında duruyorsunuz. Gökyüzü kızıl, Chaos orduları yaklaşıyor. Commissar Valen size yaklaşıyor: 'Soldier, bu savaşta her adım önemli. İmparator bizi izliyor.' Tech-Priest Maria silahlarınızı kontrol ediyor. Inquisitor Kain şüpheli bakışlarla size bakıyor. Chaos'un gücü her yerde hissediliyor. Bu savaş sadece Cadia için değil, tüm Imperium için kritik!",
-          "choices": [
-            {
-              "id": "defend_cadia_walls",
-              "text": "Cadia'nın duvarlarını savun (Imperial Görevi)",
-              "next_node": "cadia_walls_defense",
-              "effect": { "combat": 25, "imperial_rep": 30, "xp": 40 }
-            },
-            {
-              "id": "investigate_chaos_cult",
-              "text": "Chaos kültünü araştır (Gizem Yolu)",
-              "next_node": "chaos_cult_investigation",
-              "effect": {
-                "investigation": 30,
-                "inquisitor_trust": 15,
-                "xp": 35
-              }
-            },
-            {
-              "id": "tech_priest_assistance",
-              "text": "Tech-Priest ile çalış (Teknoloji Yolu)",
-              "next_node": "tech_priest_workshop",
-              "effect": { "technology": 25, "tech_priest_trust": 20, "xp": 30 }
-            },
-            {
-              "id": "commissar_briefing",
-              "text": "Commissar'dan brifing al (Strateji Yolu)",
-              "next_node": "commissar_briefing_room",
-              "effect": { "strategy": 20, "commissar_trust": 25, "xp": 25 }
-            }
-          ]
-        },
-        "end": {
-          "id": "end",
-          "title": "🏆 Imperial Crisis Sonu",
-          "description": "Cadia krizini başarıyla çözdünüz! İmparator'un adı yüceltildi!",
-          "choices": []
-        }
-      }
-    },
-    "hive_city_crisis": {
-      "id": "hive_city_crisis",
-      "title": "🏙️ Hive City Crisis - Warhammer 40K Macera",
-      "genre": "warhammer",
-      "description": "Hive City Tertium'da geçen epik macera. Ork istilası, Chaos kültü ve Genestealer tehdidi aynı anda şehri tehdit ediyor. Sadece sen bu krizi çözebilirsin!",
-      "difficulty": "extreme",
-      "theme": "warhammer",
-      "complexity": "extreme",
-      "estimatedPlayTime": 420,
-      "npc_relationships": {
-        "governor_maria": {
-          "name": "Governor Maria Tertium",
-          "trust_level": 0,
-          "quests_completed": 0,
-          "relationship_status": "stranger",
-          "ending_impact": "extreme"
-        },
-        "arbites_commander": {
-          "name": "Arbites Commander Rex",
-          "trust_level": 0,
-          "quests_completed": 0,
-          "relationship_status": "stranger",
-          "ending_impact": "high"
-        },
-        "tech_priest_alpha": {
-          "name": "Tech-Priest Alpha-7",
-          "trust_level": 0,
-          "quests_completed": 0,
-          "relationship_status": "stranger",
-          "ending_impact": "high"
-        }
-      },
-      "quest_chains": {
-        "hive_defense": {
-          "title": "Hive City Savunma Operasyonu",
-          "prerequisites": [],
-          "quests": ["defend_hive", "eliminate_threats", "protect_citizens"],
-          "rewards": { "xp": 1200, "hive_rep": 600, "items": ["power_armor"] }
-        }
-      },
-      "quest_definitions": {
-        "ork_invasion": {
-          "title": "Ork Invasion",
-          "objectives": [
-            "Fight ork boyz",
-            "Defeat ork warboss",
-            "Destroy ork vehicles",
-            "Secure hive sectors"
-          ],
-          "branches": {
-            "success": {
-              "leads_to": "ork_defeat",
-              "rewards": { "xp": 500, "hive_rep": 100, "combat": 150 }
-            },
-            "failure": {
-              "leads_to": "ork_takeover",
-              "penalties": { "hive_rep": -50 }
-            },
-            "perfect": {
-              "leads_to": "ork_annihilation",
-              "rewards": { "xp": 750, "legendary_status": true, "combat": 200 }
-            }
-          },
-          "dynamic_rewards": {
-            "experience": 500,
-            "hive_rep": 100,
-            "combat": 150
-          },
-          "world_state_impact": {
-            "ork_threat": -100,
-            "hive_security": 80,
-            "military_reputation": 70
-          }
-        },
-        "genestealer_hunt": {
-          "title": "Genestealer Hunt",
-          "objectives": [
-            "Track genestealers",
-            "Fight genestealer brood",
-            "Destroy genestealer nest",
-            "Purify infestation"
-          ],
-          "branches": {
-            "success": {
-              "leads_to": "genestealer_defeat",
-              "rewards": { "xp": 400, "purity": 100, "combat": 120 }
-            },
-            "failure": {
-              "leads_to": "genestealer_spread",
-              "penalties": { "corruption_level": 30 }
-            },
-            "perfect": {
-              "leads_to": "purity_victory",
-              "rewards": { "xp": 600, "purifier_title": true, "combat": 160 }
-            }
-          },
-          "dynamic_rewards": {
-            "experience": 400,
-            "purity": 100,
-            "combat": 120
-          },
-          "world_state_impact": {
-            "genestealer_threat": -80,
-            "hive_purity": 90,
-            "vigilance": 60
-          }
-        },
-        "chaos_cult_elimination": {
-          "title": "Chaos Cult Elimination",
-          "objectives": [
-            "Investigate cult activity",
-            "Fight chaos cultists",
-            "Destroy cult shrine",
-            "Execute cult leader"
-          ],
-          "branches": {
-            "success": {
-              "leads_to": "cult_destroyed",
-              "rewards": { "xp": 450, "imperial_rep": 90, "combat": 130 }
-            },
-            "failure": {
-              "leads_to": "cult_escape",
-              "penalties": { "chaos_influence": 40 }
-            },
-            "perfect": {
-              "leads_to": "faith_restored",
-              "rewards": { "xp": 675, "faith_champion": true, "combat": 170 }
-            }
-          },
-          "dynamic_rewards": {
-            "experience": 450,
-            "imperial_rep": 90,
-            "combat": 130
-          },
-          "world_state_impact": {
-            "chaos_influence": -90,
-            "imperial_faith": 80,
-            "hive_morale": 70
-          }
-        },
-        "hive_warfare": {
-          "title": "Hive Warfare",
-          "objectives": [
-            "Command hive forces",
-            "Coordinate defenses",
-            "Fight multiple enemies",
-            "Secure victory"
-          ],
-          "branches": {
-            "success": {
-              "leads_to": "hive_victory",
-              "rewards": { "xp": 600, "commander_rank": true, "combat": 180 }
-            },
-            "failure": {
-              "leads_to": "hive_fall",
-              "penalties": { "all_stats": -30 }
-            },
-            "perfect": {
-              "leads_to": "legendary_commander",
-              "rewards": { "xp": 900, "legendary_status": true, "combat": 250 }
-            }
-          },
-          "dynamic_rewards": {
-            "experience": 600,
-            "commander_rank": true,
-            "combat": 180
-          },
-          "world_state_impact": {
-            "hive_control": 100,
-            "military_dominance": 120,
-            "legendary_reputation": 90
-          }
-        },
-        "warboss_duel": {
-          "title": "Warboss Duel",
-          "objectives": [
-            "Challenge warboss",
-            "Fight in single combat",
-            "Defeat warboss",
-            "Claim victory"
-          ],
-          "branches": {
-            "success": {
-              "leads_to": "warboss_defeat",
-              "rewards": { "xp": 800, "duel_master": true, "combat": 220 }
-            },
-            "failure": {
-              "leads_to": "honorable_defeat",
-              "penalties": { "combat": -20 }
-            },
-            "perfect": {
-              "leads_to": "legendary_duel",
-              "rewards": { "xp": 1200, "duel_legend": true, "combat": 300 }
-            }
-          },
-          "dynamic_rewards": {
-            "experience": 800,
-            "duel_master": true,
-            "combat": 220
-          },
-          "world_state_impact": {
-            "ork_morale": -100,
-            "personal_legend": 150,
-            "combat_mastery": 100
-          }
-        }
-      },
-      "ending_variations": {
-        "hive_salvation": {
-          "requirements": {
-            "governor_trust": 90,
-            "hive_rep": 100,
-            "combat": 200
-          },
-          "description": "Hive City'yi kurtardınız! Tüm tehditler yok edildi!"
-        },
-        "partial_victory": {
-          "requirements": { "hive_rep": 60, "combat": 120 },
-          "description": "Başarılı oldunuz ama kayıplar ağırdı."
-        },
-        "chaos_corruption": {
-          "requirements": { "chaos_influence": 80, "corruption_level": 60 },
-          "description": "Chaos'un gücü sizi ele geçirdi. Hive City yok oldu."
-        }
-      },
-      "story_nodes": {
-        "start": {
-          "id": "start",
-          "title": "🏙️ Hive City Tertium - Kriz Başlangıcı",
-          "description": "Hive City Tertium'un üst seviyelerinde duruyorsunuz. Gökyüzü kızıl, Ork roketleri düşüyor, Chaos kültü alt katmanlarda faaliyet gösteriyor. Governor Maria size yaklaşıyor: 'Hive City'miz üçlü tehdit altında. Ork istilası, Chaos kültü ve Genestealer tehdidi. Sadece siz bu krizi çözebilirsiniz.' Arbites Commander Rex: 'Yasa ve düzen tehlikede.' Tech-Priest Alpha-7: 'Omnissiah'ın iradesi ile savaşacağız.'",
-          "choices": [
-            {
-              "id": "fight_orks",
-              "text": "Ork istilasıyla savaş (Savaş Yolu)",
-              "next_node": "ork_battle_hive",
-              "effect": { "combat": 30, "hive_rep": 25, "xp": 45 }
-            },
-            {
-              "id": "investigate_chaos",
-              "text": "Chaos kültünü araştır (Gizem Yolu)",
-              "next_node": "chaos_investigation_hive",
-              "effect": { "investigation": 25, "imperial_rep": 20, "xp": 40 }
-            },
-            {
-              "id": "hunt_genestealers",
-              "text": "Genestealer'ları avla (Temizlik Yolu)",
-              "next_node": "genestealer_hunt_start",
-              "effect": { "combat": 25, "purity": 30, "xp": 50 }
-            },
-            {
-              "id": "coordinate_defense",
-              "text": "Savunma koordine et (Komuta Yolu)",
-              "next_node": "defense_coordination",
-              "effect": { "strategy": 35, "leadership": 25, "xp": 55 }
-            }
-          ]
-        },
-        "end": {
-          "id": "end",
-          "title": "🏆 Hive City Crisis Sonu",
-          "description": "Hive City krizini başarıyla çözdünüz! Şehir kurtuldu!",
-          "choices": []
         }
       }
     },
@@ -2740,11 +196,20 @@
       "id": "neon_city_runners",
       "title": "🌃 Neon City Runners - Cyberpunk Macera",
       "genre": "cyberpunk",
-      "description": "2087 yılında mega şehir Neo-Tokyo'da geçen siber-punk macera. Hackerlar, korporasyonlar ve AI'lar arasındaki savaşta hayatta kalabilecek misin?",
+      "description": "2087 yılında mega şehir Neo-Tokyo'da geçen siber-punk macera. Hackerlar, korporasyonlar ve AI'lar arasındaki savaşta hayatta kalabilecek misin? 🔥 PLOT TWIST'LER, 💬 NPC ETKİLEŞİMLERİ, ⚔️ UZUN SAVAŞ SAHNELERİ, 🎯 ACTION-BASED GÖREVLER, 🏁 5+ FARKLI SON!",
       "difficulty": "very_hard",
       "theme": "cyberpunk",
       "complexity": "extreme",
       "estimatedPlayTime": 480,
+      "levels": {
+        "level_1": {
+          "title": "Street Hacker",
+          "min_level": 1,
+          "max_level": 8,
+          "enemies": ["Security Drones", "Corporate Guards", "Gang Members"],
+          "boss": "Cyber Assassin"
+        }
+      },
       "npc_relationships": {
         "zara": {
           "name": "Zara the Netrunner",
@@ -2754,7 +219,7 @@
           "ending_impact": "high"
         },
         "rex": {
-          "name": "Rex Steel - Cyber Mercenary",
+          "name": "Rex Steel - Cyber Mercenary", 
           "trust_level": 0,
           "quests_completed": 0,
           "relationship_status": "enemy",
@@ -2768,11 +233,7 @@
           "quests_completed": 0,
           "relationship_status": "stranger",
           "ending_impact": "extreme",
-          "quest_offers": [
-            "Corporate Hack",
-            "Digital Consciousness",
-            "Reality Manipulation"
-          ]
+          "quest_offers": ["Corporate Hack", "Digital Consciousness", "Reality Manipulation"]
         },
         "king_jax": {
           "name": "King Jax - Street Gang Leader",
@@ -2782,433 +243,320 @@
           "quests_completed": 0,
           "relationship_status": "stranger",
           "ending_impact": "high",
-          "quest_offers": [
-            "Gang War",
-            "Territory Expansion",
-            "Underground Empire"
-          ]
+          "quest_offers": ["Gang War", "Territory Expansion", "Underground Empire"]
         }
       },
       "quest_chains": {
-        "megacorp_infiltration": {
+        "mega_corp_infiltration": {
           "title": "MegaCorp Sızma Operasyonu",
           "prerequisites": [],
-          "quests": ["hack_systems", "steal_data", "escape_security"],
-          "rewards": { "xp": 800, "cyber_rep": 400, "items": ["advanced_deck"] }
-        }
-      },
-      "quest_definitions": {
-        "corporate_hack": {
-          "title": "Corporate Hack",
-          "objectives": [
-            "Infiltrate corp network",
-            "Steal sensitive data",
-            "Plant virus",
-            "Escape undetected"
-          ],
-          "branches": {
-            "success": {
-              "leads_to": "data_liberation",
-              "rewards": { "xp": 400, "cyber_warfare": 80, "hacking": 100 }
-            },
-            "failure": {
-              "leads_to": "corp_retaliation",
-              "penalties": { "corporate_rep": -50 }
-            },
-            "perfect": {
-              "leads_to": "legendary_hack",
-              "rewards": { "xp": 600, "legendary_hacker": true, "hacking": 150 }
-            }
-          },
-          "dynamic_rewards": {
-            "experience": 400,
-            "cyber_warfare": 80,
-            "hacking": 100
-          },
-          "world_state_impact": {
-            "corporate_power": -60,
-            "digital_freedom": 80,
-            "hacker_reputation": 70
-          }
-        },
-        "gang_war": {
-          "title": "Gang War",
-          "objectives": [
-            "Rally gang members",
-            "Fight rival gangs",
-            "Control territory",
-            "Establish dominance"
-          ],
-          "branches": {
-            "success": {
-              "leads_to": "gang_victory",
-              "rewards": { "xp": 350, "street_rep": 90, "combat": 120 }
-            },
-            "failure": {
-              "leads_to": "gang_defeat",
-              "penalties": { "street_rep": -40 }
-            },
-            "perfect": {
-              "leads_to": "gang_empire",
-              "rewards": { "xp": 525, "gang_lord": true, "combat": 160 }
-            }
-          },
-          "dynamic_rewards": {
-            "experience": 350,
-            "street_rep": 90,
-            "combat": 120
-          },
-          "world_state_impact": {
-            "gang_control": 100,
-            "street_influence": 80,
-            "territorial_dominance": 60
-          }
-        },
-        "digital_consciousness": {
-          "title": "Digital Consciousness",
-          "objectives": [
-            "Upload consciousness",
-            "Navigate cyberspace",
-            "Fight AI entities",
-            "Achieve transcendence"
-          ],
-          "branches": {
-            "success": {
-              "leads_to": "digital_ascension",
-              "rewards": { "xp": 500, "ai_powers": 100, "consciousness": 200 }
-            },
-            "failure": {
-              "leads_to": "digital_death",
-              "penalties": { "humanity": -100 }
-            },
-            "perfect": {
-              "leads_to": "digital_godhood",
-              "rewards": {
-                "xp": 750,
-                "digital_god": true,
-                "consciousness": 300
-              }
-            }
-          },
-          "dynamic_rewards": {
-            "experience": 500,
-            "ai_powers": 100,
-            "consciousness": 200
-          },
-          "world_state_impact": {
-            "digital_evolution": 150,
-            "ai_relationship": 100,
-            "reality_perception": 80
-          }
+          "quests": ["hack_security", "steal_data", "escape_facility"],
+          "rewards": {"credits": 50000, "rep": 300, "items": ["cyber_implant"]}
         }
       },
       "ending_variations": {
-        "revolution_victory": {
-          "requirements": {
-            "cyber_warfare": 100,
-            "street_rep": 80,
-            "ai_relationship": 60
-          },
-          "description": "AI devrimini başlattınız! Korporasyonlar yıkıldı!"
+        "revolution_ending": {
+          "requirements": {"zara_trust": 80, "quests_completed": 15},
+          "description": "Sistemi çökerterek özgürlük getirdin."
         },
-        "corporate_power": {
-          "requirements": { "corporate_rep": 80, "cyber_control": 70 },
-          "description": "Korporasyonların gücü galip geldi."
+        "corporate_ending": {
+          "requirements": {"rex_trust": 70, "quests_completed": 12},
+          "description": "Korporasyonlara katılarak güç elde ettin."
         },
-        "ai_singularity": {
-          "requirements": { "ai_relationship": 100, "consciousness": 200 },
-          "description": "AI ile birleştiniz! Artık insandan çok makinasınız."
+        "ai_merge_ending": {
+          "requirements": {"ghost_trust": 90, "quests_completed": 18},
+          "description": "AI ile birleşerek post-human oldun."
+        },
+        "underground_king": {
+          "requirements": {"king_jax_trust": 75, "quests_completed": 14},
+          "description": "Gölgelerden dünyayı yönetmeye başladın."
+        },
+        "lone_wolf_ending": {
+          "requirements": {"quests_completed": 10},
+          "description": "Herkesi aldatarak tek başına ayakta kaldın."
         }
       },
       "story_nodes": {
         "start": {
           "id": "start",
-          "title": "🌃 Neon Işıkları Altında - Cyberpunk Başlangıç",
-          "description": "2087 yılı, Neo-Tokyo. Neon ışıkları yağmurlu sokakları aydınlatıyor. Siz bir sokak hacker'ısınız ve MegaCorp size büyük bir iş teklifi yapıyor. 'Bir rakip şirketten veri çal' diyorlar. Ama bu sadece başlangıç... Asıl gizem daha derinlerde yatıyor. Şehirde AI Devrimi başlamış ve herkes bir taraf seçmeli! Cyber-implantlarınız sızlıyor, neural linkiniz aktif. Zara the Netrunner size mesaj gönderiyor: 'Dikkatli ol, bu iş göründüğünden daha tehlikeli.'",
+          "title": "🌃 Neon City Runners - Digital Nightmare",
+          "description": "2087 yılında Neo-Tokyo'nun neon ışıkları altında uyanıyorsun. Kafan karışık, kim olduğunu hatırlamıyorsun. Etrafında dijital dünyanın karmaşası var. Hackerlar, korporasyonlar ve AI'lar arasında sıkışmış durumdasın. Zara adında bir netrunner seni buluyor ve yardım etmek istiyor.",
           "choices": [
             {
-              "id": "accept_corp_job",
-              "text": "MegaCorp işini kabul et (Korporat Yol)",
-              "next_node": "corporate_mission",
-              "effect": { "corporate_rep": 25, "cyber_warfare": 20, "xp": 40 }
+              "id": "trust_zara",
+              "text": "Zara'ya güven",
+              "next_node": "zara_help",
+              "effect": {"zara_trust": 20, "charisma_skill": 2, "conversations": 1}
             },
             {
-              "id": "investigate_ai_revolution",
-              "text": "AI Devrimini araştır (Devrim Yolu)",
-              "next_node": "ai_investigation",
-              "effect": {
-                "ai_relationship": 30,
-                "digital_consciousness": 25,
-                "xp": 45
-              }
+              "id": "hack_system",
+              "text": "Sistemi hack et",
+              "next_node": "system_hack",
+              "effect": {"hacking_skill": 3, "cyber_warfare": 2, "time_spent": 8}
             },
             {
-              "id": "join_street_gang",
-              "text": "Sokak çetesine katıl (Sokak Yolu)",
-              "next_node": "gang_recruitment",
-              "effect": { "street_rep": 35, "combat": 20, "xp": 50 }
+              "id": "find_ghost",
+              "text": "Ghost'u ara",
+              "next_node": "ghost_search",
+              "effect": {"exploration_skill": 2, "search_actions": 1, "time_spent": 6}
             },
             {
-              "id": "freelance_hacking",
-              "text": "Bağımsız hacker kal (Özgür Yol)",
-              "next_node": "freelance_start",
-              "effect": { "hacking": 30, "freedom": 25, "xp": 35 }
+              "id": "join_gang",
+              "text": "Gang'a katıl",
+              "next_node": "gang_join",
+              "effect": {"king_jax_trust": 15, "charisma_skill": 2, "conversations": 1}
             }
           ]
-        },
-        "end": {
-          "id": "end",
-          "title": "🏆 Neon City Runners Sonu",
-          "description": "Cyberpunk maceranız sona erdi! Neo-Tokyo'nun kaderini değiştirdiniz!",
-          "choices": []
         }
       }
     },
-    "warhammer_40k_battle": {
-      "id": "warhammer_40k_battle",
-      "title": "Warhammer 40K Savaşı",
-      "genre": "warhammer",
-      "description": "Imperium ve Chaos arasındaki büyük savaşa katılıyorsun. Önce asker olarak eğitilmen gerekiyor!",
+    "haunted_mansion_nightmare": {
+      "id": "haunted_mansion_nightmare",
+      "title": "👻 Haunted Mansion Nightmare",
+      "genre": "horror",
+      "description": "Karanlık bir malikanede mahsur kaldın. Ruhlar, sırlar ve korkunç gerçekler! 🔥 PLOT TWIST'LER, 💬 NPC ETKİLEŞİMLERİ, ⚔️ KORKU SAHNELERİ, 🎯 ACTION-BASED GÖREVLER, 🏁 5+ FARKLI SON!",
       "difficulty": "hard",
-      "theme": "warhammer",
+      "theme": "horror",
       "complexity": "high",
-      "estimatedPlayTime": 200,
-      "level_requirements": {
-        "level_1": {
-          "min_level": 1,
-          "max_level": 5,
-          "xp_required": 0,
-          "estimated_time": 45
-        },
-        "level_2": {
-          "min_level": 3,
-          "max_level": 8,
-          "xp_required": 200,
-          "estimated_time": 60
-        },
-        "level_3": {
-          "min_level": 5,
-          "max_level": 10,
-          "xp_required": 500,
-          "estimated_time": 75
-        },
-        "level_4": {
-          "min_level": 8,
-          "max_level": 15,
-          "xp_required": 1000,
-          "estimated_time": 90
-        },
-        "boss_level": {
-          "min_level": 12,
-          "max_level": 20,
-          "xp_required": 2000,
-          "estimated_time": 120
-        }
-      },
+      "estimatedPlayTime": 480,
       "levels": {
         "level_1": {
-          "title": "Imperial Training",
-          "description": "Imperial Guard olarak eğitim görüyorsun. Temel savaş becerilerini öğreniyorsun.",
+          "title": "Mansion Entry",
+          "description": "Karanlık malikaneye giriş yapıyorsun.",
           "min_level": 1,
+          "max_level": 3,
+          "enemies": ["Ghosts", "Dark Spirits", "Cursed Objects"],
+          "boss": "Mansion Guardian",
+          "side_quests": ["Find Keys", "Solve Puzzles", "Exorcise Spirits"]
+        },
+        "level_2": {
+          "title": "Deep Secrets",
+          "description": "Malikanenin derinliklerindeki sırları keşfediyorsun.",
+          "min_level": 3,
           "max_level": 5,
-          "enemies": [
+          "enemies": ["Ancient Spirits", "Dark Entities", "Cursed Family"],
+          "boss": "Ancient Evil",
+          "side_quests": ["Family Curse", "Ancient Ritual", "Escape Mansion"]
+        }
+      },
+      "npc_relationships": {
+        "ghost_maid": {
+          "name": "Ghost Maid",
+          "backstory": "Malikanenin eski hizmetçisi, ölümünden sonra ruh olarak kaldı",
+          "personality": "Sad, helpful, knows mansion secrets",
+          "trust_level": 0,
+          "quests_completed": 0,
+          "relationship_status": "stranger",
+          "ending_impact": "medium",
+          "quest_offers": ["Mansion Secrets", "Ghost Help", "Escape Route"]
+        },
+        "cursed_butler": {
+          "name": "Cursed Butler",
+          "backstory": "Malikanenin lanetli uşağı, ailesinin sırlarını koruyor",
+          "personality": "Loyal, mysterious, knows dark secrets",
+          "trust_level": 0,
+          "quests_completed": 0,
+          "relationship_status": "stranger",
+          "ending_impact": "high",
+          "quest_offers": ["Family Secrets", "Curse Breaking", "Dark Ritual"]
+        },
+        "ancient_spirit": {
+          "name": "Ancient Spirit",
+          "backstory": "Malikanenin en eski ruhu, binlerce yıllık bilgiye sahip",
+          "personality": "Wise, dangerous, seeks freedom",
+          "trust_level": 0,
+          "quests_completed": 0,
+          "relationship_status": "stranger",
+          "ending_impact": "extreme",
+          "quest_offers": ["Ancient Knowledge", "Spirit Pact", "Eternal Curse"]
+        }
+      },
+      "quest_chains": {
+        "mansion_secrets": {
+          "title": "Mansion Secrets Chain",
+          "prerequisites": [],
+          "quests": ["explore_mansion", "find_secrets", "break_curse"],
+          "rewards": {"xp": 600, "spirit_essence": 300, "items": ["ghost_weapon"], "relationship_boost": 40}
+        }
+      },
+      "ending_variations": {
+        "escape_ending": {
+          "requirements": {"ghost_maid_trust": 70, "quests_completed": 12},
+          "description": "Malikaneden kaçtınız! Özgürsünüz ama sırlar sizinle."
+        },
+        "curse_ending": {
+          "requirements": {"cursed_butler_trust": 60, "quests_completed": 8},
+          "description": "Laneti kırdınız ama bedeli ağır oldu."
+        },
+        "spirit_ending": {
+          "requirements": {"ancient_spirit_trust": 80, "quests_completed": 15},
+          "description": "Ruhla birleştiniz. Yeni bir varlık oldunuz."
+        },
+        "trapped_ending": {
+          "requirements": {"quests_completed": 5},
+          "description": "Malikanede mahsur kaldınız. Sonsuza dek buradasınız."
+        },
+        "dark_ending": {
+          "requirements": {"quests_completed": 10},
+          "description": "Karanlık güçleri seçtiniz. Artık onlardan birisiniz."
+        }
+      },
+      "story_nodes": {
+        "start": {
+          "id": "start",
+          "title": "👻 Haunted Mansion - Karanlık Giriş",
+          "description": "Karanlık bir malikanede mahsur kaldın. Rüzgar pencereleri sallıyor, gölgeler duvarlarda dans ediyor. Bu sadece bir ev değil, lanetli bir yer. Geçmişin sırları burada yatıyor. Bir hizmetçi ruhu seni görüyor ve yardım etmek istiyor ama güvenilir mi?",
+          "choices": [
             {
-              "name": "Training Dummy",
-              "hp": 20,
-              "attack": 5,
-              "defense": 3,
-              "xp_reward": 20,
-              "level": 1
+              "id": "trust_ghost_maid",
+              "text": "Hizmetçi ruhuna güven",
+              "next_node": "ghost_maid_help",
+              "effect": {"ghost_maid_trust": 20, "charisma_skill": 2, "conversations": 1}
             },
             {
-              "name": "Recruit",
-              "hp": 30,
-              "attack": 7,
-              "defense": 4,
-              "xp_reward": 35,
-              "level": 2
+              "id": "explore_mansion",
+              "text": "Malikaneyi keşfet",
+              "next_node": "mansion_exploration",
+              "effect": {"exploration_skill": 3, "search_actions": 2, "time_spent": 10}
             },
             {
-              "name": "Veteran Soldier",
-              "hp": 45,
-              "attack": 10,
-              "defense": 6,
-              "xp_reward": 55,
-              "level": 3
+              "id": "find_butler",
+              "text": "Uşağı ara",
+              "next_node": "butler_search",
+              "effect": {"exploration_skill": 2, "search_actions": 1, "time_spent": 6}
+            },
+            {
+              "id": "escape_attempt",
+              "text": "Kaçmaya çalış",
+              "next_node": "escape_attempt",
+              "effect": {"combat_skill": 2, "time_spent": 8}
             }
-          ],
-          "boss": {
-            "name": "Drill Sergeant",
-            "hp": 70,
-            "attack": 12,
-            "defense": 8,
-            "xp_reward": 100,
-            "level": 4,
-            "special_abilities": ["Discipline", "Tactical Knowledge"]
-          }
+          ]
+        }
+      }
+    },
+    "cadia_falls": {
+      "id": "cadia_falls",
+      "title": "⚔️ Cadia Falls - Warhammer 40K",
+      "genre": "warhammer",
+      "description": "Cadia'nın düşüşü sırasında geçen epik Warhammer 40K macerası. Chaos orduları Cadia'yı kuşatıyor ve sen Imperial Guard olarak bu savaşta hayatta kalmalısın! 🔥 PLOT TWIST'LER, 💬 NPC ETKİLEŞİMLERİ, ⚔️ UZUN SAVAŞ SAHNELERİ, 🎯 ACTION-BASED GÖREVLER, 🏁 5+ FARKLI SON!",
+      "difficulty": "very_hard",
+      "theme": "warhammer",
+      "complexity": "extreme",
+      "estimatedPlayTime": 480,
+      "levels": {
+        "level_1": {
+          "title": "Cadia Defense",
+          "description": "Cadia'nın savunma hatlarında savaşıyorsun.",
+          "min_level": 1,
+          "max_level": 8,
+          "enemies": ["Chaos Cultists", "Heretic Guards", "Mutants"],
+          "boss": "Chaos Champion",
+          "side_quests": ["Defend Position", "Rescue Civilians", "Secure Supplies"]
         },
         "level_2": {
           "title": "Chaos Invasion",
-          "description": "Chaos birlikleri saldırıyor. İlk gerçek savaşın başlıyor.",
-          "min_level": 3,
-          "max_level": 8,
-          "enemies": [
-            {
-              "name": "Chaos Cultist",
-              "hp": 50,
-              "attack": 11,
-              "defense": 7,
-              "xp_reward": 60,
-              "level": 5
-            },
-            {
-              "name": "Chaos Space Marine",
-              "hp": 80,
-              "attack": 15,
-              "defense": 10,
-              "xp_reward": 100,
-              "level": 6
-            },
-            {
-              "name": "Chaos Spawn",
-              "hp": 100,
-              "attack": 17,
-              "defense": 12,
-              "xp_reward": 130,
-              "level": 7
-            }
-          ],
-          "boss": {
-            "name": "Chaos Champion",
-            "hp": 120,
-            "attack": 18,
-            "defense": 13,
-            "xp_reward": 180,
-            "level": 8,
-            "special_abilities": ["Chaos Power", "Daemon Weapon"]
-          }
-        },
-        "level_3": {
-          "title": "Space Marine Mission",
-          "description": "Space Marine olarak görev yapıyorsun. En tehlikeli düşmanlarla savaşıyorsun.",
-          "min_level": 5,
-          "max_level": 10,
-          "enemies": [
-            {
-              "name": "Ork Nob",
-              "hp": 120,
-              "attack": 18,
-              "defense": 13,
-              "xp_reward": 150,
-              "level": 9
-            },
-            {
-              "name": "Eldar Warrior",
-              "hp": 100,
-              "attack": 20,
-              "defense": 15,
-              "xp_reward": 180,
-              "level": 10
-            },
-            {
-              "name": "Tyranid Warrior",
-              "hp": 150,
-              "attack": 22,
-              "defense": 16,
-              "xp_reward": 220,
-              "level": 11
-            }
-          ],
-          "boss": {
-            "name": "Tyranid Hive Tyrant",
-            "hp": 200,
-            "attack": 25,
-            "defense": 18,
-            "xp_reward": 300,
-            "level": 12,
-            "special_abilities": ["Hive Mind", "Bio-Weapons"]
-          }
-        },
-        "level_4": {
-          "title": "Chaos Stronghold",
-          "description": "Chaos'un güçlü kalesine saldırıyorsun. En güçlü düşmanlar burada.",
+          "description": "Chaos orduları Cadia'ya giriyor.",
           "min_level": 8,
           "max_level": 15,
-          "enemies": [
-            {
-              "name": "Chaos Terminator",
-              "hp": 180,
-              "attack": 24,
-              "defense": 17,
-              "xp_reward": 250,
-              "level": 13
-            },
-            {
-              "name": "Daemon Prince",
-              "hp": 220,
-              "attack": 26,
-              "defense": 19,
-              "xp_reward": 300,
-              "level": 14
-            },
-            {
-              "name": "Chaos Lord",
-              "hp": 250,
-              "attack": 28,
-              "defense": 20,
-              "xp_reward": 350,
-              "level": 15
-            }
-          ],
-          "boss": {
-            "name": "Chaos Primarch",
-            "hp": 300,
-            "attack": 30,
-            "defense": 22,
-            "xp_reward": 450,
-            "level": 16,
-            "special_abilities": ["Primarch Power", "Chaos Ascension"]
-          }
+          "enemies": ["Chaos Space Marines", "Daemons", "Chaos Lords"],
+          "boss": "Daemon Prince",
+          "side_quests": ["Hold the Line", "Evacuate Civilians", "Destroy Portal"]
+        }
+      },
+      "npc_relationships": {
+        "commander_kain": {
+          "name": "Commander Kain",
+          "backstory": "Veteran Imperial Guard commander, fought in countless battles",
+          "personality": "Stoic, loyal, experienced warrior",
+          "trust_level": 0,
+          "quests_completed": 0,
+          "relationship_status": "stranger",
+          "ending_impact": "high",
+          "quest_offers": ["Defense Mission", "Reconnaissance", "Rescue Operation"]
         },
-        "boss_level": {
-          "title": "Chaos God",
-          "description": "Son savaş zamanı. Chaos tanrısı ile yüzleşiyorsun!",
-          "min_level": 12,
-          "max_level": 20,
-          "boss": {
-            "name": "Khorne",
-            "hp": 600,
-            "attack": 40,
-            "defense": 30,
-            "xp_reward": 1200,
-            "level": 18,
-            "special_abilities": [
-              "Blood for the Blood God",
-              "Skull Throne",
-              "Rage Incarnate",
-              "Chaos Ascension",
-              "Reality Warp"
-            ],
-            "phases": [
-              {
-                "name": "Phase 1",
-                "hp_threshold": 150,
-                "special_abilities": [
-                  "Blood for the Blood God",
-                  "Rage Incarnate"
-                ]
-              },
-              {
-                "name": "Phase 2",
-                "hp_threshold": 75,
-                "special_abilities": [
-                  "Skull Throne",
-                  "Chaos Ascension",
-                  "Reality Warp"
-                ]
-              }
-            ]
-          }
+        "tech_priest_maria": {
+          "name": "Tech-Priest Maria",
+          "backstory": "Adeptus Mechanicus representative, maintains Imperial technology",
+          "personality": "Logical, devoted to Machine God, values technology",
+          "trust_level": 0,
+          "quests_completed": 0,
+          "relationship_status": "stranger",
+          "ending_impact": "medium",
+          "quest_offers": ["Weapon Maintenance", "Technology Recovery", "Machine Spirit Ritual"]
+        },
+        "inquisitor_thorne": {
+          "name": "Inquisitor Thorne",
+          "backstory": "Ordo Hereticus inquisitor, investigating Chaos corruption",
+          "personality": "Suspicious, determined, ruthless against heretics",
+          "trust_level": 0,
+          "quests_completed": 0,
+          "relationship_status": "stranger",
+          "ending_impact": "extreme",
+          "quest_offers": ["Heresy Investigation", "Purge Mission", "Secret Knowledge"]
+        }
+      },
+      "quest_chains": {
+        "cadia_defense": {
+          "title": "Cadia Savunma Zinciri",
+          "prerequisites": [],
+          "quests": ["defend_cadia", "hold_position", "counter_attack"],
+          "rewards": {"xp": 800, "imperial_rep": 400, "items": ["imperial_medal"]}
+        }
+      },
+      "ending_variations": {
+        "heroic_sacrifice": {
+          "requirements": {"commander_kain_trust": 80, "quests_completed": 15},
+          "description": "Cadia için kahramanca savaştın ve öldün. İmparator seni hatırlayacak!"
+        },
+        "escape_cadia": {
+          "requirements": {"tech_priest_maria_trust": 70, "quests_completed": 12},
+          "description": "Cadia'dan kaçtın ama savaş devam ediyor."
+        },
+        "chaos_corruption": {
+          "requirements": {"quests_completed": 8},
+          "description": "Chaos'un etkisi altına girdin. Artık onlardan birisin."
+        },
+        "inquisitor_ending": {
+          "requirements": {"inquisitor_thorne_trust": 75, "quests_completed": 14},
+          "description": "Inquisitor oldun ve Chaos'a karşı savaşmaya devam ediyorsun."
+        },
+        "imperial_hero": {
+          "requirements": {"quests_completed": 18},
+          "description": "Cadia'nın son kahramanı oldun. İmparator seni ödüllendirecek."
+        }
+      },
+      "story_nodes": {
+        "start": {
+          "id": "start",
+          "title": "⚔️ Cadia Falls - Savaş Başlıyor",
+          "description": "Cadia'nın savunma hatlarında bulunuyorsun. Gökyüzünde Chaos gemileri beliriyor ve yerde binlerce cultist saldırıyor. Commander Kain size yaklaşıyor: 'Guard, pozisyonunu koru! Cadia düşerse, tüm Imperium tehlikeye girer!' Tech-Priest Maria silahları kontrol ediyor.",
+          "choices": [
+            {
+              "id": "defend_position",
+              "text": "Pozisyonu savun",
+              "next_node": "position_defense",
+              "effect": {"combat_skill": 3, "imperial_rep": 2, "time_spent": 8}
+            },
+            {
+              "id": "help_tech_priest",
+              "text": "Tech-Priest'e yardım et",
+              "next_node": "tech_priest_help",
+              "effect": {"tech_priest_maria_trust": 20, "technology_skill": 2, "time_spent": 6}
+            },
+            {
+              "id": "scout_enemy",
+              "text": "Düşmanı keşfet",
+              "next_node": "enemy_scouting",
+              "effect": {"exploration_skill": 3, "stealth_skill": 2, "time_spent": 10}
+            },
+            {
+              "id": "find_inquisitor",
+              "text": "Inquisitor'ı ara",
+              "next_node": "inquisitor_search",
+              "effect": {"exploration_skill": 2, "search_actions": 1, "time_spent": 7}
+            }
+          ]
         }
       }
     }
