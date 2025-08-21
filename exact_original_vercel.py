@@ -4210,6 +4210,192 @@ def home():
 def game():
     return render_template('game.html')
 
+@app.route('/login')
+def login():
+    return '''
+    <!DOCTYPE html>
+    <html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Giriş - AI Dungeon Master</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+                color: white;
+                margin: 0;
+                padding: 20px;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .container {
+                text-align: center;
+                background: rgba(26, 26, 26, 0.8);
+                padding: 40px;
+                border-radius: 12px;
+                border: 2px solid #FFD700;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                max-width: 400px;
+                width: 100%;
+            }
+            .button {
+                background: linear-gradient(45deg, #FFD700, #FFA500);
+                color: #000;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 6px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                margin: 5px;
+                text-decoration: none;
+                display: inline-block;
+                transition: all 0.3s ease;
+            }
+            .button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>🔐 GİRİŞ</h1>
+            <p>Giriş sistemi yakında aktif olacak!</p>
+            <a href="/" class="button">← Ana Sayfa</a>
+            <a href="/game" class="button">🎮 Oyna</a>
+        </div>
+    </body>
+    </html>
+    '''
+
+@app.route('/register')
+def register():
+    return '''
+    <!DOCTYPE html>
+    <html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kayıt - AI Dungeon Master</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+                color: white;
+                margin: 0;
+                padding: 20px;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .container {
+                text-align: center;
+                background: rgba(26, 26, 26, 0.8);
+                padding: 40px;
+                border-radius: 12px;
+                border: 2px solid #FFD700;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                max-width: 400px;
+                width: 100%;
+            }
+            .button {
+                background: linear-gradient(45deg, #FFD700, #FFA500);
+                color: #000;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 6px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                margin: 5px;
+                text-decoration: none;
+                display: inline-block;
+                transition: all 0.3s ease;
+            }
+            .button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>📝 KAYIT</h1>
+            <p>Kayıt sistemi yakında aktif olacak!</p>
+            <a href="/" class="button">← Ana Sayfa</a>
+            <a href="/game" class="button">🎮 Oyna</a>
+        </div>
+    </body>
+    </html>
+    '''
+
+@app.route('/multiplayer')
+def multiplayer():
+    return '''
+    <!DOCTYPE html>
+    <html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Multiplayer - AI Dungeon Master</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+                color: white;
+                margin: 0;
+                padding: 20px;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .container {
+                text-align: center;
+                background: rgba(26, 26, 26, 0.8);
+                padding: 40px;
+                border-radius: 12px;
+                border: 2px solid #FFD700;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                max-width: 400px;
+                width: 100%;
+            }
+            .button {
+                background: linear-gradient(45deg, #FFD700, #FFA500);
+                color: #000;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 6px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                margin: 5px;
+                text-decoration: none;
+                display: inline-block;
+                transition: all 0.3s ease;
+            }
+            .button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>👥 MULTIPLAYER</h1>
+            <p>Multiplayer sistemi yakında aktif olacak!</p>
+            <a href="/" class="button">← Ana Sayfa</a>
+            <a href="/game" class="button">🎮 Oyna</a>
+        </div>
+    </body>
+    </html>
+    '''
+
 @app.route('/static/<path:filename>')
 def static_files(filename):
     return send_from_directory('static', filename)
@@ -4217,6 +4403,288 @@ def static_files(filename):
 @app.route('/test-buttons')
 def test_buttons():
     return send_from_directory('.', 'test_buttons.html')
+
+@app.route('/ai-scenarios')
+def ai_scenarios():
+    return '''
+    <!DOCTYPE html>
+    <html lang="tr">
+    <head>
+        <title>AI Senaryolar - AI Dungeon Master</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+                color: white;
+                margin: 0;
+                padding: 20px;
+                min-height: 100vh;
+            }
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+                background: rgba(26, 26, 26, 0.8);
+                padding: 40px;
+                border-radius: 12px;
+                border: 2px solid #9C27B0;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            }
+            .ai-header {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .ai-icon {
+                font-size: 60px;
+                color: #9C27B0;
+                margin-bottom: 10px;
+            }
+            .ai-title {
+                font-size: 32px;
+                font-weight: bold;
+                color: #9C27B0;
+                margin-bottom: 10px;
+            }
+            .form-group {
+                margin-bottom: 20px;
+            }
+            label {
+                display: block;
+                margin-bottom: 5px;
+                color: #9C27B0;
+                font-weight: bold;
+            }
+            input, select, textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #9C27B0;
+                border-radius: 4px;
+                background: rgba(255, 255, 255, 0.1);
+                color: white;
+                box-sizing: border-box;
+            }
+            textarea {
+                height: 100px;
+                resize: vertical;
+            }
+            .button {
+                background: linear-gradient(45deg, #9C27B0, #673AB7);
+                color: white;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 6px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                margin: 5px;
+                transition: all 0.3s ease;
+            }
+            .button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(156, 39, 176, 0.4);
+            }
+            .scenario-result {
+                background: rgba(0, 0, 0, 0.3);
+                padding: 20px;
+                border-radius: 8px;
+                margin-top: 20px;
+                border-left: 4px solid #9C27B0;
+            }
+            .loading {
+                text-align: center;
+                color: #9C27B0;
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="ai-header">
+                <div class="ai-icon">🤖</div>
+                <h1 class="ai-title">AI SENARYO ÜRETİCİ</h1>
+                <p>Kendi hikayeni oluştur!</p>
+            </div>
+            
+            <form id="ai-scenario-form">
+                <div class="form-group">
+                    <label>Senaryo Teması</label>
+                    <select id="theme" required>
+                        <option value="">Tema seçin...</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="warhammer">Warhammer 40K</option>
+                        <option value="cyberpunk">Cyberpunk</option>
+                        <option value="scifi">Bilim Kurgu</option>
+                        <option value="horror">Korku</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Senaryo Başlığı</label>
+                    <input type="text" id="title" placeholder="Senaryonun başlığını girin..." required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Ana Karakter</label>
+                    <input type="text" id="character" placeholder="Ana karakterin adını girin..." required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Senaryo Açıklaması</label>
+                    <textarea id="description" placeholder="Senaryonun kısa açıklamasını girin..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Zorluk Seviyesi</label>
+                    <select id="difficulty" required>
+                        <option value="">Zorluk seçin...</option>
+                        <option value="easy">Kolay</option>
+                        <option value="medium">Orta</option>
+                        <option value="hard">Zor</option>
+                        <option value="extreme">Aşırı Zor</option>
+                    </select>
+                </div>
+                
+                <div style="text-align: center;">
+                    <button type="submit" class="button">🤖 AI SENARYO ÜRET</button>
+                    <button type="button" class="button" onclick="window.location.href='/game'">🎮 OYUNA DÖN</button>
+                    <button type="button" class="button" onclick="window.location.href='/'">🏠 ANA SAYFA</button>
+                </div>
+            </form>
+            
+            <div id="scenario-result" class="scenario-result" style="display: none;">
+                <h3>🎭 Üretilen Senaryo</h3>
+                <div id="generated-scenario"></div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="button" onclick="saveScenario()">💾 SENARYOYU KAYDET</button>
+                    <button class="button" onclick="playScenario()">🎮 OYNA</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let currentScenario = null;
+            
+            document.getElementById('ai-scenario-form').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    theme: document.getElementById('theme').value,
+                    title: document.getElementById('title').value,
+                    character: document.getElementById('character').value,
+                    description: document.getElementById('description').value,
+                    difficulty: document.getElementById('difficulty').value
+                };
+                
+                // Loading göster
+                document.getElementById('scenario-result').style.display = 'block';
+                document.getElementById('generated-scenario').innerHTML = `
+                    <div class="loading">
+                        <h4>🤖 AI senaryo üretiyor...</h4>
+                        <p>Lütfen bekleyin, bu birkaç saniye sürebilir...</p>
+                    </div>
+                `;
+                
+                try {
+                    // Gerçek AI senaryo üretimi
+                    const response = await fetch('/api/generate-scenario', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        currentScenario = result.scenario;
+                        displayGeneratedScenario(result.scenario);
+                    } else {
+                        throw new Error(result.error || 'Senaryo üretimi başarısız');
+                    }
+                } catch (error) {
+                    console.error('AI Scenario generation error:', error);
+                    document.getElementById('generated-scenario').innerHTML = `
+                        <div style="color: #ff6b6b;">
+                            <h4>❌ Hata!</h4>
+                            <p>Senaryo üretimi sırasında bir hata oluştu: ${error.message}</p>
+                            <p>Lütfen tekrar deneyin.</p>
+                        </div>
+                    `;
+                }
+            });
+            
+            function displayGeneratedScenario(scenario) {
+                document.getElementById('generated-scenario').innerHTML = `
+                    <h4>🎭 ${scenario.title}</h4>
+                    <div style="margin: 15px 0;">
+                        <p><strong>🎯 Tema:</strong> ${scenario.theme}</p>
+                        <p><strong>⚔️ Zorluk:</strong> ${scenario.difficulty}</p>
+                        <p><strong>🎮 Seviye:</strong> ${scenario.min_level}-${scenario.max_level}</p>
+                        <p><strong>⏱️ Süre:</strong> ${scenario.duration} dakika</p>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 6px; margin: 15px 0;">
+                        <p><strong>📖 Açıklama:</strong></p>
+                        <p>${scenario.description}</p>
+                    </div>
+                    <div style="margin: 10px 0;">
+                        <p><strong>🏰 Hikaye Noktaları:</strong> ${Object.keys(scenario.story_nodes || {}).length} adet</p>
+                        <p><strong>👥 NPC'ler:</strong> ${Object.keys(scenario.npc_relationships || {}).length} adet</p>
+                        <p><strong>🎯 Görev Zincirleri:</strong> ${Object.keys(scenario.quest_chains || {}).length} adet</p>
+                    </div>
+                    <div style="background: rgba(156, 39, 176, 0.2); padding: 10px; border-radius: 6px; margin: 15px 0;">
+                        <p style="color: #9C27B0; font-weight: bold;">✨ Bu senaryo AI tarafından özel olarak sizin için üretildi!</p>
+                        <p style="font-size: 12px; color: rgba(255,255,255,0.7);">ID: ${scenario.id} | Oluşturulma: ${new Date().toLocaleString('tr-TR')}</p>
+                    </div>
+                `;
+            }
+            
+            async function saveScenario() {
+                if (!currentScenario) {
+                    alert('❌ Kaydedilecek senaryo yok!');
+                    return;
+                }
+                
+                try {
+                    const response = await fetch('/api/scenarios/save', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            scenario: currentScenario,
+                            user_id: 'guest_user'
+                        })
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        alert('✅ Senaryo başarıyla kaydedildi!');
+                    } else {
+                        alert('❌ Kaydetme başarısız: ' + result.error);
+                    }
+                } catch (error) {
+                    console.error('Save error:', error);
+                    alert('❌ Kaydetme sırasında hata: ' + error.message);
+                }
+            }
+            
+            async function playScenario() {
+                if (!currentScenario) {
+                    alert('❌ Oynanacak senaryo yok!');
+                    return;
+                }
+                
+                // Senaryoyu oyun moduna aktar
+                localStorage.setItem('selectedScenario', JSON.stringify(currentScenario));
+                window.location.href = '/game?scenario=' + currentScenario.id;
+            }
+        </script>
+    </body>
+    </html>
+    '''
 
 @app.route('/ai-scenario')
 def ai_scenario():
@@ -4658,56 +5126,83 @@ def make_story_choice(scenario_id):
         choice_id = data.get('choice_id')
         user_id = data.get('user_id', 'guest_user')
         
-        # Seçim türüne göre aksiyon belirle
+        # Seçim türüne göre aksiyon belirle ve kaydet
         action_type = "exploration"  # varsayılan
         action_value = 1
         
-        if "combat" in choice_id or "savaş" in choice_id or "⚔️" in choice_id:
+        # İlk olarak genel action tracking
+        update_player_stats(user_id, "total_actions", 1)
+        update_player_stats(user_id, "time_spent", 5)  # Her action 5 dakika
+        
+        # Seçime göre spesifik action'lar
+        if any(word in choice_id.lower() for word in ["combat", "savaş", "fight", "attack", "battle"]):
             action_type = "combat"
-            action_value = 2
-        elif "talk" in choice_id or "konuş" in choice_id or "💬" in choice_id:
-            action_type = "talk"
-            action_value = 1
-        elif "investigate" in choice_id or "araştır" in choice_id or "🔍" in choice_id:
-            action_type = "investigation"
-            action_value = 2
-        elif "magic" in choice_id or "büyü" in choice_id or "🔮" in choice_id:
-            action_type = "solve"
             action_value = 3
-        elif "collect" in choice_id or "topla" in choice_id or "💎" in choice_id:
+            update_player_stats(user_id, "combat_skill", action_value)
+            update_player_stats(user_id, "damage_dealt", action_value * 15)
+            update_player_stats(user_id, "combat_won", 1)
+            
+        elif any(word in choice_id.lower() for word in ["talk", "konuş", "negotiate", "speak", "conversation"]):
+            action_type = "talk"
+            action_value = 2
+            update_player_stats(user_id, "charisma_skill", action_value)
+            update_player_stats(user_id, "conversations", 1)
+            update_player_stats(user_id, "npc_interactions", 1)
+            
+        elif any(word in choice_id.lower() for word in ["investigate", "araştır", "search", "explore", "look"]):
+            action_type = "exploration"
+            action_value = 2
+            update_player_stats(user_id, "exploration_skill", action_value)
+            update_player_stats(user_id, "search_actions", 1)
+            update_player_stats(user_id, "locations_visited", 1)
+            
+        elif any(word in choice_id.lower() for word in ["magic", "büyü", "spell", "cast"]):
+            action_type = "magic"
+            action_value = 3
+            update_player_stats(user_id, "intelligence_skill", action_value)
+            update_player_stats(user_id, "puzzle_attempts", 1)
+            
+        elif any(word in choice_id.lower() for word in ["collect", "topla", "gather", "take", "grab"]):
             action_type = "collect"
             action_value = 1
-        
-        # Oyuncu aksiyonunu kaydet
-        try:
-            # Direct function call instead of HTTP request
-            update_player_stats(user_id, f"{action_type}_skill", action_value)
-            if action_type == "combat":
-                update_player_stats(user_id, "damage_dealt", action_value * 10)
-            elif action_type == "talk":
-                update_player_stats(user_id, "conversations", 1)
-            elif action_type == "investigation":
-                update_player_stats(user_id, "search_actions", 1)
-            elif action_type == "solve":
-                update_player_stats(user_id, "puzzle_attempts", 1)
-            elif action_type == "collect":
-                update_player_stats(user_id, "items_collected", 1)
+            update_player_stats(user_id, "exploration_skill", 1)
+            update_player_stats(user_id, "items_collected", 1)
             
-            # Time spent
-            update_player_stats(user_id, "time_spent", 5)
-            action_recorded = True
-        except Exception as e:
-            print(f"Action recording error: {e}")
-            action_recorded = False
+        elif any(word in choice_id.lower() for word in ["help", "yardım", "assist", "aid"]):
+            action_type = "help"
+            action_value = 2
+            update_player_stats(user_id, "charisma_skill", action_value)
+            update_player_stats(user_id, "npc_interactions", 1)
+            
+        else:
+            # Varsayılan exploration action
+            action_type = "exploration"
+            action_value = 1
+            update_player_stats(user_id, "exploration_skill", action_value)
+        
+        action_recorded = True
+        
+        # Quest progress kontrol et - action'lar otomatik quest completion yapar
+        quest_notifications = []
+        completed_quests = check_and_complete_quests(user_id, scenario_id)
+        if completed_quests:
+            for quest in completed_quests:
+                quest_notifications.append(f"🎉 Görev Tamamlandı: {quest['title']}")
+                update_player_stats(user_id, "xp", quest.get('xp_reward', 100))
         
         # Sonraki hikaye noktasını bul
         next_story = get_next_story_node(scenario_id, choice_id)
+        
+        # Action message ve quest notifications birleştir
+        messages = [f"{action_type} aksiyonu kaydedildi!"]
+        messages.extend(quest_notifications)
         
         return jsonify({
             "success": True,
             "story": next_story,
             "action_recorded": action_recorded,
-            "message": f"{action_type} aksiyonu kaydedildi!"
+            "message": " | ".join(messages),
+            "quests_completed": len(completed_quests) if completed_quests else 0
         })
         
     except Exception as e:
@@ -5191,6 +5686,94 @@ def generate_ai_scenario():
     except Exception as e:
         print(f"AI Senaryo üretimi hatası: {e}")
         return jsonify({"error": "Senaryo üretimi başarısız"}), 500
+
+@app.route('/api/generate-scenario', methods=['POST'])
+def generate_ai_scenario():
+    """Form verilerinden AI senaryo üret"""
+    try:
+        data = request.get_json()
+        theme = data.get('theme')
+        title = data.get('title')
+        character = data.get('character')
+        description = data.get('description')
+        difficulty = data.get('difficulty')
+        
+        if not all([theme, title, character, description, difficulty]):
+            return jsonify({"error": "Tüm alanlar doldurulmalıdır"}), 400
+        
+        # AI senaryo üretimi
+        scenario = generate_advanced_scenario(theme, title, character, description, difficulty)
+        
+        # AI senaryolarına kaydet
+        try:
+            ai_scenarios_file = 'data/ai_scenarios.json'
+            os.makedirs('data', exist_ok=True)
+            
+            try:
+                with open(ai_scenarios_file, 'r', encoding='utf-8') as f:
+                    ai_scenarios = json.load(f)
+            except FileNotFoundError:
+                ai_scenarios = {"scenarios": []}
+            
+            ai_scenarios["scenarios"].append(scenario)
+            
+            with open(ai_scenarios_file, 'w', encoding='utf-8') as f:
+                json.dump(ai_scenarios, f, ensure_ascii=False, indent=2)
+        except Exception as e:
+            print(f"Error saving AI scenario: {e}")
+        
+        return jsonify({
+            "success": True,
+            "scenario": scenario,
+            "message": "AI senaryo başarıyla üretildi!"
+        })
+        
+    except Exception as e:
+        print(f"AI scenario generation error: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({
+            "success": False,
+            "error": f"Senaryo üretimi başarısız: {str(e)}"
+        }), 500
+
+@app.route('/api/scenarios/save', methods=['POST'])
+def save_scenario():
+    """Üretilen senaryoyu kullanıcıya özel kaydet"""
+    try:
+        data = request.get_json()
+        scenario = data.get('scenario')
+        user_id = data.get('user_id', 'guest_user')
+        
+        if not scenario:
+            return jsonify({"error": "Senaryo verisi bulunamadı"}), 400
+        
+        # Kullanıcı senaryolarını kaydet
+        user_scenarios_file = f'data/user_scenarios_{user_id}.json'
+        os.makedirs('data', exist_ok=True)
+        
+        try:
+            with open(user_scenarios_file, 'r', encoding='utf-8') as f:
+                user_scenarios = json.load(f)
+        except FileNotFoundError:
+            user_scenarios = {"scenarios": []}
+        
+        user_scenarios["scenarios"].append(scenario)
+        
+        with open(user_scenarios_file, 'w', encoding='utf-8') as f:
+            json.dump(user_scenarios, f, ensure_ascii=False, indent=2)
+        
+        return jsonify({
+            "success": True,
+            "message": "Senaryo başarıyla kaydedildi!"
+        })
+        
+    except Exception as e:
+        print(f"Save scenario error: {e}")
+        return jsonify({
+            "success": False,
+            "error": f"Kaydetme başarısız: {str(e)}"
+        }), 500
 
 @app.route('/api/ai-scenarios', methods=['GET'])
 def get_ai_scenarios():
@@ -5999,7 +6582,574 @@ def create_end_node_from_content(content, theme):
         ]
     }
 
+def check_and_complete_quests(user_id, scenario_id):
+    """Oyuncu action'larına göre quest'leri otomatik kontrol et ve tamamla"""
+    try:
+        # Oyuncu istatistiklerini al
+        player_stats = get_player_stats(user_id)
+        
+        # Senaryo quest'lerini al
+        quests_to_check = get_scenario_quests(scenario_id)
+        
+        completed_quests = []
+        
+        for quest in quests_to_check:
+            # Quest zaten tamamlanmış mı kontrol et
+            completed_quest_key = f"quest_completed_{quest['id']}"
+            if player_stats.get(completed_quest_key, False):
+                continue  # Bu quest zaten tamamlanmış
+            
+            # Quest requirement'larını kontrol et
+            requirements = quest.get('requirements', {})
+            all_met = True
+            
+            for requirement, required_value in requirements.items():
+                current_value = player_stats.get(requirement, 0)
+                if current_value < required_value:
+                    all_met = False
+                    break
+            
+            if all_met:
+                # Quest tamamlandı!
+                completed_quests.append(quest)
+                # Quest'i tamamlandı olarak işaretle
+                update_player_stats(user_id, completed_quest_key, True)
+                update_player_stats(user_id, "quests_completed", 1)
+                
+                # Quest reward'larını ver
+                if 'rewards' in quest:
+                    for reward_type, reward_value in quest['rewards'].items():
+                        if reward_type != 'title':  # Title special case
+                            update_player_stats(user_id, reward_type, reward_value)
+        
+        return completed_quests
+        
+    except Exception as e:
+        print(f"Quest check error: {e}")
+        return []
+
+def get_scenario_quests(scenario_id):
+    """Senaryonun quest'lerini getir"""
+    # Dragon Hunter senaryosu için özel quest'ler
+    if scenario_id == "dragon_hunters_path":
+        return [
+            {
+                "id": "dragon_hunt_main",
+                "title": "Ejderha Avı",
+                "requirements": {
+                    "combat_skill": 25,
+                    "exploration_skill": 15,
+                    "conversations": 3,
+                    "locations_visited": 5,
+                    "time_spent": 60
+                },
+                "rewards": {
+                    "xp": 500,
+                    "title": "Dragon Slayer"
+                }
+            },
+            {
+                "id": "village_helper",
+                "title": "Köy Yardımcısı",
+                "requirements": {
+                    "charisma_skill": 10,
+                    "conversations": 5,
+                    "npc_interactions": 3
+                },
+                "rewards": {
+                    "xp": 200,
+                    "title": "Village Hero"
+                }
+            },
+            {
+                "id": "explorer",
+                "title": "Keşifçi",
+                "requirements": {
+                    "exploration_skill": 20,
+                    "locations_visited": 8,
+                    "search_actions": 10
+                },
+                "rewards": {
+                    "xp": 300,
+                    "title": "Master Explorer"
+                }
+            },
+            {
+                "id": "warrior",
+                "title": "Savaşçı",
+                "requirements": {
+                    "combat_skill": 30,
+                    "damage_dealt": 200,
+                    "combat_won": 5
+                },
+                "rewards": {
+                    "xp": 400,
+                    "title": "Warrior"
+                }
+            }
+        ]
+    
+    # Diğer senaryolar için genel quest'ler
+    return [
+        {
+            "id": "first_steps",
+            "title": "İlk Adımlar",
+            "requirements": {
+                "exploration_skill": 5,
+                "time_spent": 15
+            },
+            "rewards": {
+                "xp": 100,
+                "title": "Adventurer"
+            }
+        },
+        {
+            "id": "social_butterfly",
+            "title": "Sosyal Kelebek",
+            "requirements": {
+                "conversations": 8,
+                "charisma_skill": 15
+            },
+            "rewards": {
+                "xp": 200,
+                "title": "Social Master"
+            }
+        }
+    ]
+
+def generate_advanced_scenario(theme, title, character, description, difficulty):
+    """Gelişmiş AI senaryo üretimi"""
+    import time
+    from datetime import datetime
+    
+    # Benzersiz ID oluştur
+    scenario_id = f"ai_scenario_{int(time.time())}"
+    
+    # Zorluk seviyesine göre parametreler
+    difficulty_settings = {
+        "easy": {"min_level": 1, "max_level": 5, "duration": 60, "complexity": "simple"},
+        "medium": {"min_level": 3, "max_level": 10, "duration": 120, "complexity": "medium"},
+        "hard": {"min_level": 8, "max_level": 15, "duration": 180, "complexity": "complex"},
+        "extreme": {"min_level": 12, "max_level": 20, "duration": 240, "complexity": "extreme"}
     }
+    
+    settings = difficulty_settings.get(difficulty, difficulty_settings["medium"])
+    
+    # Tema özelleştirilmiş hikaye noktaları
+    story_nodes = create_advanced_story_nodes(theme, title, character, description, settings)
+    
+    # Gelişmiş NPC sistemi
+    npc_relationships = create_advanced_npcs(theme, character, settings)
+    
+    # Görev zincirleri
+    quest_chains = create_advanced_quests(theme, character, settings)
+    
+    # Plot twist'ler ve ihanetler
+    betrayals = create_plot_twists(theme, character, settings)
+    
+    # Multiple endings
+    endings = create_multiple_endings(theme, settings)
+    
+    scenario = {
+        "id": scenario_id,
+        "title": title,
+        "theme": theme,
+        "difficulty": difficulty,
+        "min_level": settings["min_level"],
+        "max_level": settings["max_level"],
+        "duration": settings["duration"],
+        "complexity": settings["complexity"],
+        "description": f"{description} Bu senaryo {character} karakteri için {theme} temasında AI tarafından özel olarak üretildi. Zorluk seviyesi: {difficulty}. Tahmini süre: {settings['duration']} dakika.",
+        "main_character": character,
+        "story_nodes": story_nodes,
+        "npc_relationships": npc_relationships,
+        "quest_chains": quest_chains,
+        "betrayals": betrayals,
+        "endings": endings,
+        "ai_generated": True,
+        "created_at": datetime.now().isoformat(),
+        "source_type": "ai_form",
+        "features": [
+            "Plot Twists", "Multiple Endings", "NPC Relationships", 
+            "Quest Chains", "Dynamic Choices", "Skill Development"
+        ],
+        "levels": {
+            "level_1": {
+                "title": "Başlangıç",
+                "min_level": settings["min_level"],
+                "max_level": settings["min_level"] + 3,
+                "enemies": get_enemies_for_theme(theme, "easy"),
+                "boss": get_boss_for_theme(theme, "minor")
+            },
+            "level_2": {
+                "title": "Gelişim",
+                "min_level": settings["min_level"] + 3,
+                "max_level": settings["max_level"],
+                "enemies": get_enemies_for_theme(theme, "hard"),
+                "boss": get_boss_for_theme(theme, "major")
+            }
+        }
+    }
+    
+    return scenario
+
+def create_advanced_story_nodes(theme, title, character, description, settings):
+    """Gelişmiş hikaye noktaları oluştur"""
+    nodes = {}
+    
+    # Başlangıç
+    nodes["start"] = {
+        "title": f"🎭 {title} - Macera Başlıyor",
+        "description": f"{character}, {description} Bu hikayede her seçimin sonuçları olacak ve hikaye senin kararlarınla şekillenecek.",
+        "atmosphere": get_atmosphere_for_theme(theme),
+        "choices": [
+            {
+                "id": "explore_world",
+                "text": "🗺️ Dünyayı keşfet",
+                "next_node": "world_exploration",
+                "effect": {"xp": 20, "exploration": 15}
+            },
+            {
+                "id": "meet_npcs",
+                "text": "👥 Karakterlerle tanış",
+                "next_node": "npc_introduction",
+                "effect": {"xp": 15, "social": 10}
+            },
+            {
+                "id": "start_main_quest",
+                "text": "⚔️ Ana göreve başla",
+                "next_node": "main_quest_start",
+                "effect": {"xp": 25, "combat": 15}
+            }
+        ]
+    }
+    
+    # Dünya keşfi
+    nodes["world_exploration"] = {
+        "title": "🗺️ Dünya Keşfi",
+        "description": f"Etrafını keşfederken, bu {theme} dünyasının zenginliklerini görüyorsun. Her köşede yeni sırlar ve tehlikeler seni bekliyor.",
+        "choices": [
+            {
+                "id": "find_secret",
+                "text": "🔍 Gizli yerleri ara",
+                "next_node": "secret_discovery",
+                "effect": {"xp": 30, "investigation": 20}
+            },
+            {
+                "id": "gather_resources",
+                "text": "💎 Kaynak topla",
+                "next_node": "resource_gathering",
+                "effect": {"xp": 20, "collection": 15}
+            },
+            {
+                "id": "encounter_danger",
+                "text": "⚡ Tehlikeye atıl",
+                "next_node": "danger_encounter",
+                "effect": {"xp": 35, "combat": 25}
+            }
+        ]
+    }
+    
+    # NPC tanışma
+    nodes["npc_introduction"] = {
+        "title": "👥 Karakter Tanışmaları",
+        "description": "Bu dünyada yaşayan ilginç karakterlerle tanışıyorsun. Her birinin kendine özgü hikayeleri ve amaçları var.",
+        "choices": [
+            {
+                "id": "meet_ally",
+                "text": "🤝 Müttefik bul",
+                "next_node": "ally_meeting",
+                "effect": {"xp": 25, "social": 20, "trust": 10}
+            },
+            {
+                "id": "meet_rival",
+                "text": "⚔️ Rakiple karşılaş",
+                "next_node": "rival_encounter",
+                "effect": {"xp": 30, "combat": 15, "rivalry": 10}
+            },
+            {
+                "id": "meet_mentor",
+                "text": "🧙 Mentor ara",
+                "next_node": "mentor_meeting",
+                "effect": {"xp": 35, "wisdom": 25}
+            }
+        ]
+    }
+    
+    # Ana görev başlangıcı
+    nodes["main_quest_start"] = {
+        "title": "⚔️ Ana Görev",
+        "description": f"{character} olarak ana görevine başlıyorsun. Bu görev {theme} dünyasının kaderini değiştirebilir.",
+        "choices": [
+            {
+                "id": "choose_strategy",
+                "text": "🧠 Strateji belirle",
+                "next_node": "strategy_planning",
+                "effect": {"xp": 30, "strategy": 20}
+            },
+            {
+                "id": "gather_allies",
+                "text": "👥 Müttefik topla",
+                "next_node": "ally_gathering",
+                "effect": {"xp": 25, "social": 15, "team": 10}
+            },
+            {
+                "id": "direct_action",
+                "text": "⚡ Doğrudan harekete geç",
+                "next_node": "action_sequence",
+                "effect": {"xp": 40, "combat": 30}
+            }
+        ]
+    }
+    
+    # Son nokta
+    nodes["end"] = {
+        "title": "🎉 Macera Tamamlandı",
+        "description": f"{character} olarak bu epik macerade çok şey başardın. Hikayende aldığın kararlar dünyayı değiştirdi.",
+        "choices": [
+            {
+                "id": "restart",
+                "text": "🔄 Yeniden başla",
+                "next_node": "start",
+                "effect": {"xp": 50, "achievement": "completed_story"}
+            }
+        ]
+    }
+    
+    return nodes
+
+def create_advanced_npcs(theme, character, settings):
+    """Gelişmiş NPC sistemi"""
+    npcs = {}
+    
+    if theme == "fantasy":
+        npcs.update({
+            "aldric_mentor": {
+                "name": "Aldric the Wise",
+                "title": "Büyülü Mentor",
+                "trust_level": 0,
+                "relationship_status": "mentor",
+                "ending_impact": "high",
+                "backstory": f"{character} için rehber olan yaşlı büyücü",
+                "personality": "Bilge, sabırlı ama gizemli",
+                "potential_betrayal": True,
+                "betrayal_reason": "Gizli ejderha paktı",
+                "quest_offers": ["Büyü Eğitimi", "Antik Bilgi", "Güç Ritüeli"]
+            },
+            "lydia_healer": {
+                "name": "Lydia the Healer", 
+                "title": "Gizemli Şifacı",
+                "trust_level": 0,
+                "relationship_status": "stranger",
+                "ending_impact": "extreme",
+                "backstory": "Köyde yaşayan genç şifacı, gizli kimliği var",
+                "personality": "Nazik, yardımsever ama sır dolu",
+                "potential_betrayal": True,
+                "betrayal_reason": "Gizli ejderha kimliği",
+                "romance_option": True,
+                "quest_offers": ["Şifa Bitkileri", "Gizli Kimlik", "Ejderha Sırrı"]
+            }
+        })
+    elif theme == "cyberpunk":
+        npcs.update({
+            "zara_hacker": {
+                "name": "Zara Storm",
+                "title": "Devrimci Hacker",
+                "trust_level": 0,
+                "relationship_status": "ally",
+                "ending_impact": "high",
+                "backstory": "Korporasyonlara karşı savaşan hacker",
+                "personality": "Asi, zeki, tehlikeli",
+                "quest_offers": ["Sistem Hack", "Devrim Planı", "Kurumsal Casusluk"]
+            },
+            "rex_steel": {
+                "name": "Rex Steel",
+                "title": "Korporasyon Ajanı",
+                "trust_level": 0,
+                "relationship_status": "enemy",
+                "ending_impact": "extreme",
+                "backstory": "MegaCorp için çalışan siber ajan",
+                "personality": "Soğuk, hesapçı, sadakatsiz",
+                "potential_betrayal": True,
+                "betrayal_reason": "AI CEO'nun emri",
+                "quest_offers": ["Korporasyon Görevi", "AI Sırrı", "Son Görev"]
+            }
+        })
+    
+    return npcs
+
+def create_advanced_quests(theme, character, settings):
+    """Gelişmiş görev zincirleri"""
+    quests = {}
+    
+    if theme == "fantasy":
+        quests["dragon_alliance"] = {
+            "title": "Ejderha İttifakı",
+            "description": "Ejderhalarla barış kurma görevi",
+            "prerequisites": ["meet_lydia", "discover_truth"],
+            "quests": ["find_dragon_eggs", "heal_mother_dragon", "create_peace_treaty"],
+            "rewards": {"xp": 1000, "dragon_rep": 500, "special_power": "dragon_speech"},
+            "multiple_paths": True,
+            "betrayal_triggers": ["trust_aldric", "ignore_warnings"]
+        }
+    elif theme == "cyberpunk":
+        quests["ai_revolution"] = {
+            "title": "AI Devrimi",
+            "description": "AI sistemini çökertme görevi",
+            "prerequisites": ["hack_system", "meet_zara"],
+            "quests": ["infiltrate_megacorp", "discover_ai_secret", "shutdown_or_merge"],
+            "rewards": {"xp": 1200, "hacker_rep": 600, "special_tech": "ai_interface"},
+            "multiple_paths": True,
+            "betrayal_triggers": ["trust_rex", "corporate_deal"]
+        }
+    
+    return quests
+
+def create_plot_twists(theme, character, settings):
+    """Plot twist'ler ve ihanetler"""
+    betrayals = {}
+    
+    if theme == "fantasy":
+        betrayals.update({
+            "aldric_betrayal": {
+                "trigger": "trust_level_high",
+                "description": "Aldric'in ejderhalarla gizli paktı ortaya çıkıyor!",
+                "impact": "Mentor düşman oluyor",
+                "player_choice": True
+            },
+            "lydia_secret": {
+                "trigger": "romance_level_high", 
+                "description": "Lydia'nın gerçek kimliği - o bir ejderha!",
+                "impact": "Tüm hikaye değişiyor",
+                "player_choice": True
+            }
+        })
+    elif theme == "cyberpunk":
+        betrayals.update({
+            "ai_ceo_reveal": {
+                "trigger": "corporate_meeting",
+                "description": "MegaCorp CEO'su aslında bir AI!",
+                "impact": "Gerçeklik algısı değişiyor",
+                "player_choice": False
+            },
+            "digital_consciousness": {
+                "trigger": "deep_hack",
+                "description": "Sen ölmüş birinin dijital bilincin!",
+                "impact": "Kimlik krizi",
+                "player_choice": True
+            }
+        })
+    
+    return betrayals
+
+def create_multiple_endings(theme, settings):
+    """Multiple ending sistemi"""
+    endings = {}
+    
+    if theme == "fantasy":
+        endings.update({
+            "good_ending": {
+                "title": "Ejderha Avcısı Zaferi",
+                "description": "Ejderhayı yendin, köy kurtuldu, halk seni kahraman ilan etti.",
+                "requirements": ["defeat_dragon", "save_village", "high_heroism"],
+                "rewards": {"title": "Dragon Slayer", "fame": 100}
+            },
+            "dragon_alliance": {
+                "title": "Ejderhalarla Barış",
+                "description": "Ejderhalarla barış kurarak yeni bir çağ başlattın.",
+                "requirements": ["trust_lydia", "find_truth", "peace_treaty"],
+                "rewards": {"title": "Peacemaker", "dragon_friend": True}
+            },
+            "betrayal_ending": {
+                "title": "Aldric'in İhaneti",
+                "description": "Aldric'e güvendin ama o seni ejderlere sattı.",
+                "requirements": ["trust_aldric", "ignore_warnings"],
+                "rewards": {"title": "Betrayed Hero", "tragedy": True}
+            },
+            "sacrifice_ending": {
+                "title": "Kahramanlık Fedakarlığı",
+                "description": "Kendini feda ederek herkesi kurtardın.",
+                "requirements": ["sacrifice_choice", "save_others"],
+                "rewards": {"title": "Martyr", "legend": True}
+            },
+            "dark_lord_ending": {
+                "title": "Karanlık Efendi",
+                "description": "Karanlık güçleri seçerek dünyayı yönetmeye başladın.",
+                "requirements": ["embrace_darkness", "betray_allies"],
+                "rewards": {"title": "Dark Lord", "evil_power": True}
+            }
+        })
+    elif theme == "cyberpunk":
+        endings.update({
+            "revolution_ending": {
+                "title": "Sistem Çöküşü",
+                "description": "Korporasyon sistemini çökerterek özgürlük getirdin.",
+                "requirements": ["destroy_ai", "lead_revolution", "high_rebel_rep"],
+                "rewards": {"title": "Revolutionary", "freedom": True}
+            },
+            "corporate_ending": {
+                "title": "Korporasyon Ajanı",
+                "description": "Korporasyonlara katılarak güç elde ettin.",
+                "requirements": ["join_corp", "betray_rebels", "corporate_loyalty"],
+                "rewards": {"title": "Corporate Executive", "wealth": 1000000}
+            },
+            "ai_merge_ending": {
+                "title": "AI ile Birleşme",
+                "description": "AI ile birleşerek post-human oldun.",
+                "requirements": ["merge_with_ai", "transcend_humanity"],
+                "rewards": {"title": "Digital God", "ai_powers": True}
+            },
+            "underground_king": {
+                "title": "Yeraltı Kralı",
+                "description": "Gölgelerden dünyayı yönetmeye başladın.",
+                "requirements": ["control_underworld", "manipulate_all"],
+                "rewards": {"title": "Shadow Ruler", "hidden_power": True}
+            },
+            "lone_wolf_ending": {
+                "title": "Yalnız Kurt",
+                "description": "Herkesi aldatarak tek başına ayakta kaldın.",
+                "requirements": ["betray_everyone", "survive_alone"],
+                "rewards": {"title": "Lone Survivor", "independence": True}
+            }
+        })
+    
+    return endings
+
+def get_enemies_for_theme(theme, difficulty):
+    """Tema için düşmanlar"""
+    enemies = {
+        "fantasy": {
+            "easy": ["Goblin", "Wolf", "Bandit"],
+            "hard": ["Orc Warrior", "Dark Wizard", "Troll"]
+        },
+        "cyberpunk": {
+            "easy": ["Street Thug", "Security Bot", "Corpo Guard"],
+            "hard": ["Cyber Assassin", "AI Drone", "Enhanced Soldier"]
+        },
+        "warhammer": {
+            "easy": ["Chaos Cultist", "Heretic Guard", "Mutant"],
+            "hard": ["Chaos Marine", "Daemon", "Chaos Lord"]
+        }
+    }
+    return enemies.get(theme, {}).get(difficulty, ["Generic Enemy"])
+
+def get_boss_for_theme(theme, level):
+    """Tema için boss"""
+    bosses = {
+        "fantasy": {
+            "minor": "Orc Captain",
+            "major": "Ancient Dragon"
+        },
+        "cyberpunk": {
+            "minor": "Gang Leader",
+            "major": "AI Overlord"
+        },
+        "warhammer": {
+            "minor": "Chaos Champion", 
+            "major": "Daemon Prince"
+        }
+    }
+    return bosses.get(theme, {}).get(level, "Boss Enemy")
 
 if __name__ == '__main__':
     # For Vercel deployment
