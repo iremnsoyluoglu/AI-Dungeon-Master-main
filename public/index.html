@@ -1,291 +1,240 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="AI Dungeon Master - Interactive RPG Game" />
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet" />
-    
-    <title>AI Dungeon Master</title>
-    
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      
-      body {
-        font-family: 'Orbitron', monospace;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        min-height: 100vh;
-        color: white;
-      }
-      
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-      }
-      
-      .header {
-        text-align: center;
-        margin-bottom: 40px;
-      }
-      
-      .header h1 {
-        font-size: 3rem;
-        margin-bottom: 10px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-      }
-      
-      .header p {
-        font-size: 1.2rem;
-        opacity: 0.9;
-      }
-      
-      .scenarios-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-        margin-bottom: 40px;
-      }
-      
-      .scenario-card {
-        background: rgba(255,255,255,0.1);
-        border-radius: 15px;
-        padding: 20px;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.2);
-        transition: transform 0.3s ease;
-      }
-      
-      .scenario-card:hover {
-        transform: translateY(-5px);
-      }
-      
-      .scenario-card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
-      }
-      
-      .scenario-card p {
-        margin-bottom: 15px;
-        opacity: 0.9;
-      }
-      
-      .scenario-card button {
-        background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 25px;
-        cursor: pointer;
-        font-family: 'Orbitron', monospace;
-        font-weight: bold;
-        transition: all 0.3s ease;
-      }
-      
-      .scenario-card button:hover {
-        transform: scale(1.05);
-        box-shadow: 0 5px 15px rgba(255,107,107,0.4);
-      }
-      
-      .ai-section {
-        background: rgba(255,255,255,0.1);
-        border-radius: 15px;
-        padding: 30px;
-        margin-bottom: 40px;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.2);
-      }
-      
-      .ai-section h2 {
-        font-size: 2rem;
-        margin-bottom: 20px;
-        text-align: center;
-      }
-      
-      .file-upload {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-      
-      .file-upload input[type="file"] {
-        display: none;
-      }
-      
-      .file-upload label {
-        background: linear-gradient(45deg, #667eea, #764ba2);
-        color: white;
-        padding: 12px 25px;
-        border-radius: 25px;
-        cursor: pointer;
-        font-weight: bold;
-        display: inline-block;
-        transition: all 0.3s ease;
-      }
-      
-      .file-upload label:hover {
-        transform: scale(1.05);
-        box-shadow: 0 5px 15px rgba(102,126,234,0.4);
-      }
-      
-      .generate-btn {
-        background: linear-gradient(45deg, #00b894, #00a085);
-        color: white;
-        border: none;
-        padding: 15px 30px;
-        border-radius: 25px;
-        cursor: pointer;
-        font-family: 'Orbitron', monospace;
-        font-weight: bold;
-        font-size: 1.1rem;
-        transition: all 0.3s ease;
-        display: block;
-        margin: 0 auto;
-      }
-      
-      .generate-btn:hover {
-        transform: scale(1.05);
-        box-shadow: 0 5px 15px rgba(0,184,148,0.4);
-      }
-      
-      .loading {
-        display: none;
-        text-align: center;
-        margin: 20px 0;
-      }
-      
-      .loading.show {
-        display: block;
-      }
-      
-      .spinner {
-        border: 3px solid rgba(255,255,255,0.3);
-        border-top: 3px solid white;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        animation: spin 1s linear infinite;
-        margin: 0 auto 10px;
-      }
-      
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Dungeon Master - Dashboard</title>
+    <link rel="stylesheet" href="/static/enhanced_style.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="header">
-        <h1>🐉 AI Dungeon Master</h1>
-        <p>Epik RPG Maceralarına Hoş Geldin!</p>
-      </div>
-      
-      <div class="scenarios-grid" id="scenariosGrid">
-        <!-- Senaryolar buraya yüklenecek -->
-      </div>
-      
-      <div class="ai-section">
-        <h2>🤖 AI ile Senaryo Üret</h2>
-        <div class="file-upload">
-          <input type="file" id="fileInput" accept=".txt,.md,.json,.pdf,.csv">
-          <label for="fileInput">📁 Dosya Seç</label>
+    <div class="dashboard">
+      <!-- Sol Panel -->
+      <div class="left-panel">
+        <h3>🎮 Temalar & Karakterler</h3>
+        <div class="theme-tabs">
+          <div class="theme-tab active" onclick="window.switchTheme('fantasy')">
+            Fantasy
+          </div>
+          <div class="theme-tab" onclick="window.switchTheme('warhammer')">
+            Warhammer 40K
+          </div>
+          <div class="theme-tab" onclick="window.switchTheme('cyberpunk')">
+            Cyberpunk
+          </div>
         </div>
-        <button class="generate-btn" onclick="generateScenario()">🎲 Senaryo Üret</button>
-        <div class="loading" id="loading">
-          <div class="spinner"></div>
-          <p>Senaryo üretiliyor...</p>
+
+        <!-- Character Name Input -->
+        <div class="character-name-section">
+          <h4>👤 Karakter Adı</h4>
+          <div class="name-input-container">
+            <input
+              type="text"
+              id="character-name-input"
+              placeholder="Karakter adınızı girin..."
+              maxlength="20"
+              oninput="window.updateCharacterName(this.value)"
+            />
+          </div>
+        </div>
+
+        <div id="fantasy-content" class="theme-content">
+          <div class="race-class-list">
+            <h4>🏹 Irklar</h4>
+            <div class="list-items">
+              <div class="list-item" onclick="window.selectRace(this, 'elf')">
+                Elf
+              </div>
+              <div class="list-item" onclick="window.selectRace(this, 'human')">
+                İnsan
+              </div>
+              <div class="list-item" onclick="window.selectRace(this, 'dwarf')">
+                Cüce
+              </div>
+              <div class="list-item" onclick="window.selectRace(this, 'orc')">
+                Ork
+              </div>
+            </div>
+          </div>
+          <div class="race-class-list">
+            <h4>🗡️ Sınıflar</h4>
+            <div class="list-items">
+              <div class="list-item" onclick="window.selectClass(this, 'warrior')">
+                Savaşçı
+              </div>
+              <div class="list-item" onclick="window.selectClass(this, 'mage')">
+                Büyücü
+              </div>
+              <div class="list-item" onclick="window.selectClass(this, 'rogue')">
+                Hırsız
+              </div>
+              <div class="list-item" onclick="window.selectClass(this, 'cleric')">
+                Rahip
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="warhammer-content" class="theme-content" style="display: none">
+          <div class="race-class-list">
+            <h4>👥 Irklar</h4>
+            <div class="list-items">
+              <div class="list-item" onclick="window.selectRace(this, 'imperial')">
+                İmparatorluk
+              </div>
+              <div class="list-item" onclick="window.selectRace(this, 'spacemarine')">
+                Space Marine
+              </div>
+              <div class="list-item" onclick="window.selectRace(this, 'eldar')">
+                Eldar
+              </div>
+              <div class="list-item" onclick="window.selectRace(this, 'ork')">
+                Ork
+              </div>
+            </div>
+          </div>
+          <div class="race-class-list">
+            <h4>⚔️ Sınıflar</h4>
+            <div class="list-items">
+              <div class="list-item" onclick="window.selectClass(this, 'guardsman')">
+                Imperial Guard
+              </div>
+              <div class="list-item" onclick="window.selectClass(this, 'astartes')">
+                Space Marine
+              </div>
+              <div class="list-item" onclick="window.selectClass(this, 'inquisitor')">
+                Inquisitor
+              </div>
+              <div class="list-item" onclick="window.selectClass(this, 'techpriest')">
+                Tech Priest
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="cyberpunk-content" class="theme-content" style="display: none">
+          <div class="race-class-list">
+            <h4>🤖 Irklar</h4>
+            <div class="list-items">
+              <div class="list-item" onclick="window.selectRace(this, 'human')">
+                İnsan
+              </div>
+              <div class="list-item" onclick="window.selectRace(this, 'cyborg')">
+                Cyborg
+              </div>
+              <div class="list-item" onclick="window.selectRace(this, 'android')">
+                Android
+              </div>
+              <div class="list-item" onclick="window.selectRace(this, 'netrunner')">
+                Netrunner
+              </div>
+            </div>
+          </div>
+          <div class="race-class-list">
+            <h4>💻 Sınıflar</h4>
+            <div class="list-items">
+              <div class="list-item" onclick="window.selectClass(this, 'streetkid')">
+                Street Kid
+              </div>
+              <div class="list-item" onclick="window.selectClass(this, 'corpo')">
+                Corpo
+              </div>
+              <div class="list-item" onclick="window.selectClass(this, 'nomad')">
+                Nomad
+              </div>
+              <div class="list-item" onclick="window.selectClass(this, 'hacker')">
+                Hacker
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orta Panel -->
+      <div class="center-panel">
+        <div class="scenario-section">
+          <h3>📚 Senaryolar</h3>
+          <div class="scenario-tabs">
+            <div class="scenario-tab active" onclick="window.switchScenarioTab('predefined')">
+              Hazır Senaryolar
+            </div>
+            <div class="scenario-tab" onclick="window.switchScenarioTab('ai-generated')">
+              AI Üretilen
+            </div>
+            <div class="scenario-tab" onclick="window.switchScenarioTab('file-upload')">
+              Dosya Yükle
+            </div>
+          </div>
+
+          <!-- Predefined Scenarios -->
+          <div id="predefined-scenarios" class="scenario-content">
+            <div class="scenario-grid" id="scenario-grid">
+              <!-- Senaryolar buraya yüklenecek -->
+            </div>
+          </div>
+
+          <!-- AI Generated Scenarios -->
+          <div id="ai-generated-scenarios" class="scenario-content" style="display: none">
+            <div class="scenario-grid" id="ai-scenario-grid">
+              <!-- AI senaryoları buraya yüklenecek -->
+            </div>
+          </div>
+
+          <!-- File Upload Section -->
+          <div id="file-upload-scenarios" class="scenario-content" style="display: none">
+            <div class="file-upload-section">
+              <h4>📁 Dosya Yükle ve Senaryo Üret</h4>
+              <div class="file-upload-controls">
+                <input type="file" id="file-input" accept=".txt,.md,.json,.pdf,.csv" style="display: none;">
+                <label for="file-input" class="file-input-label">📁 Dosya Seç</label>
+                <div id="file-info" class="file-info" style="display: none;"></div>
+                <button id="generate-scenario-btn" class="generate-btn" onclick="window.generateScenarioFromFile()">
+                  🎲 Senaryo Üret
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sağ Panel -->
+      <div class="right-panel">
+        <div class="character-info">
+          <h3>👤 Karakter Bilgileri</h3>
+          <div class="character-details">
+            <div class="detail-item">
+              <span class="label">İsim:</span>
+              <span id="character-name-display">Belirtilmemiş</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Irk:</span>
+              <span id="character-race-display">Seçilmemiş</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Sınıf:</span>
+              <span id="character-class-display">Seçilmemiş</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Tema:</span>
+              <span id="character-theme-display">Fantasy</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-controls">
+          <h3>🎮 Oyun Kontrolleri</h3>
+          <button class="control-btn" onclick="window.startGame()">
+            🚀 Oyunu Başlat
+          </button>
+          <button class="control-btn" onclick="window.saveGame()">
+            💾 Oyunu Kaydet
+          </button>
+          <button class="control-btn" onclick="window.loadGame()">
+            📂 Oyunu Yükle
+          </button>
         </div>
       </div>
     </div>
 
-    <script>
-      // Senaryoları yükle
-      async function loadScenarios() {
-        try {
-          const response = await fetch('/api/scenarios');
-          const data = await response.json();
-          
-          if (data.success && data.scenarios) {
-            const grid = document.getElementById('scenariosGrid');
-            grid.innerHTML = '';
-            
-            data.scenarios.forEach(scenario => {
-              const card = document.createElement('div');
-              card.className = 'scenario-card';
-              card.innerHTML = `
-                <h3>${scenario.title}</h3>
-                <p>${scenario.description}</p>
-                <button onclick="playScenario('${scenario.id}')">🎮 Oyna</button>
-              `;
-              grid.appendChild(card);
-            });
-          }
-        } catch (error) {
-          console.error('Senaryolar yüklenemedi:', error);
-        }
-      }
-      
-      // Senaryo oyna
-      function playScenario(scenarioId) {
-        alert(`🎮 ${scenarioId} senaryosu başlatılıyor...`);
-        // Burada oyun başlatılacak
-      }
-      
-      // AI ile senaryo üret
-      async function generateScenario() {
-        const fileInput = document.getElementById('fileInput');
-        const loading = document.getElementById('loading');
-        
-        if (!fileInput.files[0]) {
-          alert('Lütfen bir dosya seçin!');
-          return;
-        }
-        
-        loading.classList.add('show');
-        
-        try {
-          const file = fileInput.files[0];
-          const fileContent = await file.text();
-          
-          const response = await fetch('/api/generate-scenario', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              theme: 'fantasy',
-              difficulty: 'medium',
-              fileContent: fileContent
-            }),
-          });
-          
-          const data = await response.json();
-          
-          if (data.success) {
-            alert(`✅ Senaryo üretildi: ${data.scenario.title}`);
-            loadScenarios(); // Senaryoları yeniden yükle
-          } else {
-            alert('❌ Senaryo üretilemedi!');
-          }
-        } catch (error) {
-          console.error('Hata:', error);
-          alert('❌ Bir hata oluştu!');
-        } finally {
-          loading.classList.remove('show');
-        }
-      }
-      
-      // Sayfa yüklendiğinde senaryoları yükle
-      window.addEventListener('load', loadScenarios);
-    </script>
+    <script src="/static/enhanced_script.js"></script>
   </body>
 </html>
