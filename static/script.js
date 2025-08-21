@@ -739,9 +739,12 @@ function makeChoice(choice) {
 async function makeStoryChoice(choiceId) {
   console.log("📖 Story choice yapıldı:", choiceId);
 
+  // Mevcut senaryo ID'sini al
+  const scenarioId = currentScenario || 'dragon_hunters_path'; // Varsayılan senaryo
+
   try {
     const response = await fetch(
-      `/api/stories/${currentGameSession.scenario.id}/choice`,
+      `/api/stories/${scenarioId}/choice`,
       {
         method: "POST",
         headers: {
@@ -813,9 +816,8 @@ function displayStoryNode(storyNode) {
 
 // Hikayeyi yeniden başlat
 function restartStory() {
-  if (currentGameSession && currentGameSession.scenario) {
-    loadStoryFromScenario(currentGameSession.scenario.id);
-  }
+  const scenarioId = currentScenario || 'dragon_hunters_path';
+  loadStoryFromScenario(scenarioId);
 }
 
 // Senaryo hikayesini yükle
