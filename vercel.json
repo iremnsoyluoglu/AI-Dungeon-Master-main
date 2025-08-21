@@ -2,17 +2,37 @@
   "version": 2,
   "builds": [
     {
-      "src": "exact_original_vercel.py",
-      "use": "@vercel/python"
+      "src": "api/index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/ai/scenarios.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/scenarios.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
+      "src": "/api/scenarios",
+      "dest": "/api/scenarios.js"
+    },
+    {
+      "src": "/api/ai/scenarios",
+      "dest": "/api/ai/scenarios.js"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.js"
+    },
+    {
       "src": "/(.*)",
-      "dest": "exact_original_vercel.py"
+      "dest": "/api/index.js"
     }
   ],
   "env": {
-    "PYTHONPATH": "."
+    "NODE_ENV": "production"
   }
 }

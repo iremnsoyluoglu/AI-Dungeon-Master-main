@@ -3378,8 +3378,31 @@ export const GameMasterUI: React.FC<GameMasterUIProps> = ({
 
         const data = await response.json();
 
+        // Load AI generated scenarios
+        const aiResponse = await fetch("/api/ai/scenarios");
+        let aiScenarios = [];
+        if (aiResponse.ok) {
+          const aiData = await aiResponse.json();
+          aiScenarios = aiData.scenarios || [];
+        }
+
+        // Load file-generated scenarios
+        const fileGeneratedResponse = await fetch("/api/ai/scenarios");
+        let fileGeneratedScenarios = [];
+        if (fileGeneratedResponse.ok) {
+          const fileData = await fileGeneratedResponse.json();
+          fileGeneratedScenarios = fileData.scenarios || [];
+        }
+
+        // Combine all scenarios
+        const allScenarios = [
+          ...(data.scenarios || data || []),
+          ...aiScenarios,
+          ...fileGeneratedScenarios,
+        ];
+
         // Validate and filter scenarios to ensure they have proper content
-        const validScenarios = data.filter((scenario: any) => {
+        const validScenarios = allScenarios.filter((scenario: any) => {
           return (
             scenario &&
             scenario.id &&
@@ -3397,10 +3420,12 @@ export const GameMasterUI: React.FC<GameMasterUIProps> = ({
         }
 
         setAvailableScenarios(validScenarios);
-        console.log(`Loaded ${validScenarios.length} valid scenarios`);
+        console.log(
+          `Loaded ${validScenarios.length} valid scenarios (including ${aiScenarios.length} AI generated)`
+        );
 
         // Log any invalid scenarios for debugging
-        const invalidScenarios = data.filter((scenario: any) => {
+        const invalidScenarios = allScenarios.filter((scenario: any) => {
           return !(
             scenario &&
             scenario.id &&

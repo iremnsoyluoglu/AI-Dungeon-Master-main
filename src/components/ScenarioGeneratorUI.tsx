@@ -18,10 +18,77 @@ export const ScenarioGeneratorUI: React.FC<ScenarioGeneratorUIProps> = ({
   >("medium");
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  
+  // Dosya yükleme state'leri
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [fileContent, setFileContent] = useState<string>("");
+  const [isReadingFile, setIsReadingFile] = useState<boolean>(false);
+  const [fileError, setFileError] = useState<string | null>(null);
 
-  const handleGenerate = () => {
-    if (!knowledgeBase) {
-      setError("Please complete the comic reading process first!");
+  // Dosya yükleme fonksiyonu
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    // Dosya tipini kontrol et
+    const allowedTypes = [
+      'text/plain',
+      'text/markdown',
+      'application/pdf',
+      'application/msword',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+    ];
+
+    if (!allowedTypes.includes(file.type)) {
+      setFileError("Sadece .txt, .md, .pdf, .doc, .docx dosyaları kabul edilir!");
+      return;
+    }
+
+    setUploadedFile(file);
+    setFileError(null);
+    setFileContent("");
+  };
+
+  // Dosya okuma fonksiyonu
+  const handleReadFile = async () => {
+    if (!uploadedFile) {
+      setFileError("Lütfen önce bir dosya yükleyin!");
+      return;
+    }
+
+    setIsReadingFile(true);
+    setFileError(null);
+
+    try {
+      const formData = new FormData();
+      formData.append('file', uploadedFile);
+
+      const response = await fetch('/api/read-file', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Dosya okunamadı!');
+      }
+
+      const data = await response.json();
+      setFileContent(data.content);
+      
+      // Dosya içeriğini senaryo üretimi için kullan
+      console.log("Dosya içeriği okundu:", data.content);
+      
+    } catch (error) {
+      console.error("Dosya okuma hatası:", error);
+      setFileError(`Dosya okunamadı: ${error}`);
+    } finally {
+      setIsReadingFile(false);
+    }
+  };
+
+  const handleGenerate = async () => {
+    if (!knowledgeBase && !fileContent) {
+      setError("Lütfen önce comic okuma işlemini tamamlayın veya bir dosya yükleyin!");
       return;
     }
 
@@ -29,14 +96,36 @@ export const ScenarioGeneratorUI: React.FC<ScenarioGeneratorUIProps> = ({
     setError(null);
 
     try {
-      const generator = new LearnedScenarioGenerator(knowledgeBase);
-      const scenario = generator.generateRPGScenario(
-        selectedTheme,
-        selectedDifficulty
-      );
+      // API'ye senaryo üretimi için istek gönder
+      const response = await fetch('/api/generate-scenario', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          theme: selectedTheme,
+          difficulty: selectedDifficulty,
+          fileContent: fileContent,
+          knowledgeBase: knowledgeBase
+        }),
+      });
 
-      setGeneratedScenario(scenario);
-      console.log("Generated scenario:", scenario);
+      if (!response.ok) {
+        throw new Error('Senaryo üretilemedi!');
+      }
+
+      const data = await response.json();
+      
+      if (data.success) {
+        setGeneratedScenario(data.scenario);
+        console.log("Generated scenario:", data.scenario);
+        
+        // Başarı mesajı göster
+        alert(data.message);
+      } else {
+        throw new Error(data.error || 'Senaryo üretilemedi!');
+      }
+      
     } catch (error) {
       console.error("Error generating scenario:", error);
       setError(`Failed to generate scenario: ${error}`);
@@ -45,9 +134,9 @@ export const ScenarioGeneratorUI: React.FC<ScenarioGeneratorUIProps> = ({
     }
   };
 
-  const handleGenerateMultiple = () => {
-    if (!knowledgeBase) {
-      setError("Please complete the comic reading process first!");
+  const handleGenerateMultiple = async () => {
+    if (!knowledgeBase && !fileContent) {
+      setError("Lütfen önce comic okuma işlemini tamamlayın veya bir dosya yükleyin!");
       return;
     }
 
@@ -55,12 +144,40 @@ export const ScenarioGeneratorUI: React.FC<ScenarioGeneratorUIProps> = ({
     setError(null);
 
     try {
-      const generator = new LearnedScenarioGenerator(knowledgeBase);
-      const scenarios = generator.generateMultipleScenarios(selectedTheme, 3);
+      // Birden fazla senaryo üret
+      const scenarios = [];
+      
+      for (let i = 0; i < 3; i++) {
+        const response = await fetch('/api/generate-scenario', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            theme: selectedTheme,
+            difficulty: selectedDifficulty,
+            fileContent: fileContent,
+            knowledgeBase: knowledgeBase,
+            scenarioNumber: i + 1
+          }),
+        });
 
-      // For now, just show the first one
-      setGeneratedScenario(scenarios[0]);
-      console.log("Generated multiple scenarios:", scenarios);
+        if (response.ok) {
+          const data = await response.json();
+          if (data.success) {
+            scenarios.push(data.scenario);
+          }
+        }
+      }
+
+      if (scenarios.length > 0) {
+        setGeneratedScenario(scenarios[0]);
+        console.log("Generated multiple scenarios:", scenarios);
+        alert(`${scenarios.length} senaryo başarıyla üretildi!`);
+      } else {
+        throw new Error('Hiçbir senaryo üretilemedi!');
+      }
+      
     } catch (error) {
       console.error("Error generating scenarios:", error);
       setError(`Failed to generate scenarios: ${error}`);
@@ -69,14 +186,13 @@ export const ScenarioGeneratorUI: React.FC<ScenarioGeneratorUIProps> = ({
     }
   };
 
-  if (!knowledgeBase) {
+  if (!knowledgeBase && !uploadedFile) {
     return (
       <div className="scenario-generator">
         <div className="no-knowledge">
           <h2>🎲 Scenario Generator</h2>
           <p>
-            Please complete the comic reading process first to generate RPG
-            scenarios.
+            Please complete the comic reading process first or upload a file to generate RPG scenarios.
           </p>
         </div>
       </div>
@@ -87,7 +203,69 @@ export const ScenarioGeneratorUI: React.FC<ScenarioGeneratorUIProps> = ({
     <div className="scenario-generator">
       <div className="generator-header">
         <h2>🎲 Generate RPG Scenarios from Learned Patterns</h2>
-        <p>Create unique adventures based on comic storytelling techniques</p>
+        <p>Create unique adventures based on comic storytelling techniques or uploaded files</p>
+      </div>
+
+      {/* Dosya Yükleme Bölümü */}
+      <div className="file-upload-section">
+        <h3>📁 Dosya Yükle ve Oku</h3>
+        <div className="file-upload-controls">
+          <input
+            type="file"
+            accept=".txt,.md,.pdf,.doc,.docx"
+            onChange={handleFileUpload}
+            className="file-input"
+            id="file-upload"
+          />
+          <label htmlFor="file-upload" className="file-input-label">
+            📁 Dosya Seç
+          </label>
+          
+          {uploadedFile && (
+            <div className="file-info">
+              <span>📄 {uploadedFile.name}</span>
+              <span>📊 {(uploadedFile.size / 1024).toFixed(1)} KB</span>
+            </div>
+          )}
+          
+          {uploadedFile && !fileContent && (
+            <button
+              onClick={handleReadFile}
+              className="read-file-btn"
+              disabled={isReadingFile}
+            >
+              {isReadingFile ? (
+                <>
+                  <span className="spinner"></span>
+                  Dosya Okunuyor...
+                </>
+              ) : (
+                "📖 Dosyayı Oku"
+              )}
+            </button>
+          )}
+          
+          {fileError && (
+            <div className="file-error">
+              <span>⚠️ {fileError}</span>
+              <button onClick={() => setFileError(null)}>×</button>
+            </div>
+          )}
+          
+          {fileContent && (
+            <div className="file-content-preview">
+              <h4>📄 Dosya İçeriği Önizleme:</h4>
+              <div className="content-preview">
+                {fileContent.substring(0, 300)}...
+                {fileContent.length > 300 && (
+                  <span className="content-length">
+                    (Toplam {fileContent.length} karakter)
+                  </span>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="generator-controls">
@@ -305,25 +483,25 @@ export const ScenarioGeneratorUI: React.FC<ScenarioGeneratorUIProps> = ({
         <div className="knowledge-stats">
           <div className="stat">
             <span className="stat-number">
-              {knowledgeBase.storyPatterns.length}
+              {knowledgeBase?.storyPatterns.length || 0}
             </span>
             <span className="stat-label">Story Patterns</span>
           </div>
           <div className="stat">
             <span className="stat-number">
-              {knowledgeBase.characterArchetypes.length}
+              {knowledgeBase?.characterArchetypes.length || 0}
             </span>
             <span className="stat-label">Character Types</span>
           </div>
           <div className="stat">
             <span className="stat-number">
-              {knowledgeBase.dialogueStyles.length}
+              {knowledgeBase?.dialogueStyles.length || 0}
             </span>
             <span className="stat-label">Dialogue Styles</span>
           </div>
           <div className="stat">
             <span className="stat-number">
-              {knowledgeBase.conflictTypes.length}
+              {knowledgeBase?.conflictTypes.length || 0}
             </span>
             <span className="stat-label">Conflict Types</span>
           </div>
