@@ -1,8 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const multer = require("multer");
-const fs = require("fs");
-const path = require("path");
 
 const app = express();
 
@@ -13,7 +11,7 @@ app.use(express.json());
 // Multer configuration
 const upload = multer({
   storage: multer.memoryStorage(),
-  limits: { fileSize: 5 * 1024 * 1024 }
+  limits: { fileSize: 5 * 1024 * 1024 },
 });
 
 // Load scenarios endpoint
@@ -47,7 +45,19 @@ app.get("/api/scenarios", (req, res) => {
 // Get AI generated scenarios
 app.get("/api/ai/scenarios", (req, res) => {
   try {
-    const aiScenarios = loadAIScenarios();
+    // Basit AI senaryoları döndür
+    const aiScenarios = [
+      {
+        id: "ai_1",
+        title: "🤖 AI Üretilen Macera",
+        description: "Yapay zeka tarafından üretilen özel macera",
+        theme: "fantasy",
+        difficulty: "medium",
+        source: "ai_generated",
+        created_at: new Date().toISOString(),
+      },
+    ];
+
     res.json({
       success: true,
       scenarios: aiScenarios,
@@ -62,42 +72,45 @@ app.get("/api/ai/scenarios", (req, res) => {
 });
 
 // Dosya okuma endpoint'i
-app.post('/api/read-file', upload.single('file'), async (req, res) => {
+app.post("/api/read-file", upload.single("file"), async (req, res) => {
   try {
     if (!req.file) {
-      return res.status(400).json({ error: 'Dosya yüklenmedi!' });
+      return res.status(400).json({ error: "Dosya yüklenmedi!" });
     }
 
     const fileType = req.file.mimetype;
-    let content = '';
+    let content = "";
 
-    if (fileType === 'text/plain' || fileType === 'text/markdown') {
-      content = req.file.buffer.toString('utf8');
-    } else if (fileType === 'application/pdf') {
-      content = 'PDF dosyası okundu - içerik işleniyor...';
-    } else if (fileType === 'application/msword' || fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
-      content = 'Word dosyası okundu - içerik işleniyor...';
+    if (fileType === "text/plain" || fileType === "text/markdown") {
+      content = req.file.buffer.toString("utf8");
+    } else if (fileType === "application/pdf") {
+      content = "PDF dosyası okundu - içerik işleniyor...";
+    } else if (
+      fileType === "application/msword" ||
+      fileType ===
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    ) {
+      content = "Word dosyası okundu - içerik işleniyor...";
     } else {
-      content = req.file.buffer.toString('utf8');
+      content = req.file.buffer.toString("utf8");
     }
 
-    res.json({ 
+    res.json({
       content: content,
       fileName: req.file.originalname,
-      fileSize: req.file.size
+      fileSize: req.file.size,
     });
-
   } catch (error) {
-    console.error('Dosya okuma hatası:', error);
-    res.status(500).json({ error: 'Dosya okunamadı: ' + error.message });
+    console.error("Dosya okuma hatası:", error);
+    res.status(500).json({ error: "Dosya okunamadı: " + error.message });
   }
 });
 
 // Dosya tabanlı senaryo üretimi endpoint'i
-app.post('/api/generate-scenario', async (req, res) => {
+app.post("/api/generate-scenario", async (req, res) => {
   try {
     const { theme, difficulty, fileContent, knowledgeBase } = req.body;
-    
+
     const scenario = {
       id: `scenario_${Date.now()}`,
       title: `${theme} Macerası - ${difficulty}`,
@@ -105,12 +118,13 @@ app.post('/api/generate-scenario', async (req, res) => {
       theme: theme,
       difficulty: difficulty,
       complexity: difficulty,
-      estimatedPlayTime: difficulty === 'easy' ? 30 : difficulty === 'medium' ? 60 : 90,
-      fileContent: fileContent ? fileContent.substring(0, 200) + '...' : null,
+      estimatedPlayTime:
+        difficulty === "easy" ? 30 : difficulty === "medium" ? 60 : 90,
+      fileContent: fileContent ? fileContent.substring(0, 200) + "..." : null,
       generatedAt: new Date().toISOString(),
       source: "file_generated",
       created_at: new Date().toISOString(),
-      
+
       story_nodes: {
         start: {
           id: "start",
@@ -140,7 +154,8 @@ app.post('/api/generate-scenario', async (req, res) => {
         careful_exploration: {
           id: "careful_exploration",
           title: "🔍 Dikkatli Keşif",
-          description: "Çevreyi dikkatli bir şekilde inceliyorsun. Dosya içeriğinden üretilen gizli geçitler ve tuzaklar fark ediyorsun.",
+          description:
+            "Çevreyi dikkatli bir şekilde inceliyorsun. Dosya içeriğinden üretilen gizli geçitler ve tuzaklar fark ediyorsun.",
           choices: [
             {
               id: "use_stealth",
@@ -159,7 +174,8 @@ app.post('/api/generate-scenario', async (req, res) => {
         rushed_encounter: {
           id: "rushed_encounter",
           title: "⚔️ Hızlı Karşılaşma",
-          description: "Hızlı hareket etmen sonucu dosya içeriğinden üretilen beklenmedik bir düşmanla karşılaştın!",
+          description:
+            "Hızlı hareket etmen sonucu dosya içeriğinden üretilen beklenmedik bir düşmanla karşılaştın!",
           choices: [
             {
               id: "fight_bravely",
@@ -178,7 +194,8 @@ app.post('/api/generate-scenario', async (req, res) => {
         npc_encounter: {
           id: "npc_encounter",
           title: "👥 NPC Karşılaşması",
-          description: "Dosya içeriğinden üretilen bir NPC ile karşılaştın. Size yardım etmek istiyor ama güvenilir mi?",
+          description:
+            "Dosya içeriğinden üretilen bir NPC ile karşılaştın. Size yardım etmek istiyor ama güvenilir mi?",
           choices: [
             {
               id: "trust_npc",
@@ -197,7 +214,8 @@ app.post('/api/generate-scenario', async (req, res) => {
         combat_scene_1: {
           id: "combat_scene_1",
           title: "⚔️ Savaş Sahnesi - Dosya Düşmanı",
-          description: "Dosya içeriğinden üretilen düşman ile karşı karşıyasın! Savaş başlıyor!",
+          description:
+            "Dosya içeriğinden üretilen düşman ile karşı karşıyasın! Savaş başlıyor!",
           choices: [
             {
               id: "heavy_attack",
@@ -216,7 +234,8 @@ app.post('/api/generate-scenario', async (req, res) => {
         npc_alliance: {
           id: "npc_alliance",
           title: "🤝 NPC İttifakı",
-          description: "Dosya içeriğinden üretilen NPC ile ittifak kurdun. Birlikte daha güçlüsünüz.",
+          description:
+            "Dosya içeriğinden üretilen NPC ile ittifak kurdun. Birlikte daha güçlüsünüz.",
           choices: [
             {
               id: "plan_together",
@@ -235,7 +254,8 @@ app.post('/api/generate-scenario', async (req, res) => {
         strategic_planning: {
           id: "strategic_planning",
           title: "🧠 Stratejik Planlama",
-          description: "NPC ile birlikte detaylı bir plan hazırladınız. Dosya içeriğinden üretilen düşmanın zayıf noktalarını belirlediniz.",
+          description:
+            "NPC ile birlikte detaylı bir plan hazırladınız. Dosya içeriğinden üretilen düşmanın zayıf noktalarını belirlediniz.",
           choices: [
             {
               id: "execute_plan",
@@ -254,7 +274,8 @@ app.post('/api/generate-scenario', async (req, res) => {
         planned_attack: {
           id: "planned_attack",
           title: "🎯 Planlanmış Saldırı",
-          description: "Hazırladığınız planı mükemmel bir şekilde uyguladınız. Dosya içeriğinden üretilen düşman şaşkın!",
+          description:
+            "Hazırladığınız planı mükemmel bir şekilde uyguladınız. Dosya içeriğinden üretilen düşman şaşkın!",
           choices: [
             {
               id: "finish_them",
@@ -273,17 +294,19 @@ app.post('/api/generate-scenario', async (req, res) => {
         ending_victory: {
           id: "ending_victory",
           title: "🏆 Zafer Sonu",
-          description: "Dosya içeriğinden üretilen macerada mükemmel bir zafer kazandın! Maceran başarıyla tamamlandı.",
+          description:
+            "Dosya içeriğinden üretilen macerada mükemmel bir zafer kazandın! Maceran başarıyla tamamlandı.",
           choices: [],
         },
         ending_redemption: {
           id: "ending_redemption",
           title: "🕊️ Kefaret Sonu",
-          description: "Dosya içeriğinden üretilen macerada merhametin sayesinde düşmanın kalbini kazandın. Barış sağlandı.",
+          description:
+            "Dosya içeriğinden üretilen macerada merhametin sayesinde düşmanın kalbini kazandın. Barış sağlandı.",
           choices: [],
         },
       },
-      
+
       npc_relationships: {
         file_npc: {
           name: "Dosya NPC'si",
@@ -310,45 +333,16 @@ app.post('/api/generate-scenario', async (req, res) => {
       },
     };
 
-    const scenariosPath = path.join(__dirname, '../data/ai_generated_scenarios.json');
-    let scenarios = [];
-    
-    if (fs.existsSync(scenariosPath)) {
-      const data = JSON.parse(fs.readFileSync(scenariosPath, 'utf8'));
-      scenarios = data.scenarios || [];
-    }
-    
-    scenarios.push(scenario);
-    fs.writeFileSync(scenariosPath, JSON.stringify({ scenarios: scenarios }, null, 2));
-
-    res.json({ 
-      success: true, 
+    res.json({
+      success: true,
       scenario: scenario,
-      message: 'Senaryo başarıyla üretildi ve kaydedildi!'
+      message: "Senaryo başarıyla üretildi!",
     });
-
   } catch (error) {
-    console.error('Senaryo üretim hatası:', error);
-    res.status(500).json({ error: 'Senaryo üretilemedi: ' + error.message });
+    console.error("Senaryo üretim hatası:", error);
+    res.status(500).json({ error: "Senaryo üretilemedi: " + error.message });
   }
 });
-
-// Load AI scenarios function
-function loadAIScenarios() {
-  try {
-    const aiScenariosPath = path.join(__dirname, "../data/ai_generated_scenarios.json");
-
-    if (fs.existsSync(aiScenariosPath)) {
-      const data = JSON.parse(fs.readFileSync(aiScenariosPath, "utf8"));
-      return data.scenarios || [];
-    }
-
-    return [];
-  } catch (error) {
-    console.error("Error loading AI scenarios:", error);
-    return [];
-  }
-}
 
 // Health check
 app.get("/api/health", (req, res) => {
