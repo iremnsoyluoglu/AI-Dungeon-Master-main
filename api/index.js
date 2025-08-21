@@ -1,18 +1,11 @@
 const express = require("express");
 const cors = require("cors");
-const multer = require("multer");
 
 const app = express();
 
 // Middleware
 app.use(cors());
 app.use(express.json());
-
-// Multer configuration
-const upload = multer({
-  storage: multer.memoryStorage(),
-  limits: { fileSize: 5 * 1024 * 1024 },
-});
 
 // Load scenarios endpoint
 app.get("/api/scenarios", (req, res) => {
@@ -96,34 +89,19 @@ app.get("/api/ai/scenarios", (req, res) => {
   }
 });
 
-// Dosya okuma endpoint'i
-app.post("/api/read-file", upload.single("file"), async (req, res) => {
+// Basit dosya okuma endpoint'i
+app.post("/api/read-file", async (req, res) => {
   try {
-    if (!req.file) {
-      return res.status(400).json({ error: "Dosya yüklenmedi!" });
-    }
-
-    const fileType = req.file.mimetype;
-    let content = "";
-
-    if (fileType === "text/plain" || fileType === "text/markdown") {
-      content = req.file.buffer.toString("utf8");
-    } else if (fileType === "application/pdf") {
-      content = "PDF dosyası okundu - içerik işleniyor...";
-    } else if (
-      fileType === "application/msword" ||
-      fileType ===
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-    ) {
-      content = "Word dosyası okundu - içerik işleniyor...";
-    } else {
-      content = req.file.buffer.toString("utf8");
+    const { fileContent } = req.body;
+    
+    if (!fileContent) {
+      return res.status(400).json({ error: "Dosya içeriği gönderilmedi!" });
     }
 
     res.json({
-      content: content,
-      fileName: req.file.originalname,
-      fileSize: req.file.size,
+      content: fileContent,
+      fileName: "uploaded_file.txt",
+      fileSize: fileContent.length,
     });
   } catch (error) {
     console.error("Dosya okuma hatası:", error);
