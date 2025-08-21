@@ -642,16 +642,20 @@ function startAdventure() {
 
   // Senaryo başlığını güncelle
   if (document.getElementById("scenario-title")) {
-    document.getElementById("scenario-title").textContent = currentGameSession.scenario.title;
+    document.getElementById("scenario-title").textContent =
+      currentGameSession.scenario.title;
   }
   if (document.getElementById("character-name")) {
-    document.getElementById("character-name").textContent = currentGameSession.character.name;
+    document.getElementById("character-name").textContent =
+      currentGameSession.character.name;
   }
   if (document.getElementById("character-class")) {
-    document.getElementById("character-class").textContent = currentGameSession.character.class;
+    document.getElementById("character-class").textContent =
+      currentGameSession.character.class;
   }
   if (document.getElementById("character-race")) {
-    document.getElementById("character-race").textContent = currentGameSession.character.race;
+    document.getElementById("character-race").textContent =
+      currentGameSession.character.race;
   }
 
   // Gerçek senaryo hikayesini yükle
@@ -734,25 +738,28 @@ function makeChoice(choice) {
 // Gerçek story choice navigation
 async function makeStoryChoice(choiceId) {
   console.log("📖 Story choice yapıldı:", choiceId);
-  
+
   try {
-    const response = await fetch(`/api/stories/${currentGameSession.scenario.id}/choice`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        choice_id: choiceId,
-        user_id: currentUser?.id || 'guest_user'
-      })
-    });
-    
+    const response = await fetch(
+      `/api/stories/${currentGameSession.scenario.id}/choice`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          choice_id: choiceId,
+          user_id: currentUser?.id || "guest_user",
+        }),
+      }
+    );
+
     const result = await response.json();
-    
+
     if (result.success) {
       // Next story node'u göster
       displayStoryNode(result.story);
-      
+
       // Action kaydedildi mesajı
       if (result.action_recorded) {
         showMessage(result.message, "success");
@@ -770,25 +777,29 @@ async function makeStoryChoice(choiceId) {
 function displayStoryNode(storyNode) {
   const storyText = document.getElementById("story-text");
   const choicesContainer = document.getElementById("choices-container");
-  
+
   if (!storyText || !choicesContainer) {
     console.error("Story elements not found!");
     return;
   }
-  
+
   // Story text'i güncelle
   storyText.innerHTML = `
     <h3>${storyNode.title}</h3>
     <p>${storyNode.description}</p>
   `;
-  
+
   // Choices'ları güncelle
   if (storyNode.choices && storyNode.choices.length > 0) {
-    choicesContainer.innerHTML = storyNode.choices.map(choice => `
+    choicesContainer.innerHTML = storyNode.choices
+      .map(
+        (choice) => `
       <button onclick="makeStoryChoice('${choice.id}')" class="choice-btn">
         ${choice.text}
       </button>
-    `).join('');
+    `
+      )
+      .join("");
   } else {
     // Eğer seçenek yoksa, end node'u olabilir
     choicesContainer.innerHTML = `
@@ -811,11 +822,11 @@ function restartStory() {
 async function loadStoryFromScenario(scenarioId) {
   try {
     const response = await fetch(`/api/stories/${scenarioId}`, {
-      method: 'GET'
+      method: "GET",
     });
-    
+
     const result = await response.json();
-    
+
     if (result.success) {
       displayStoryNode(result.story);
     } else {
@@ -1395,6 +1406,109 @@ function forceHideRAGModals() {
   });
 
   console.log("🔒 ALL RAG MODALS FORCE HIDDEN!");
+}
+
+// ===== AI SCENARIO GENERATION =====
+async function generateAIScenario() {
+  console.log("🤖 AI Senaryo üretimi başlıyor...");
+
+  const theme = document.getElementById("theme-select").value;
+  const title = document.getElementById("scenario-title").value;
+  const character = document.getElementById("character-name").value;
+  const description = document.getElementById("scenario-description").value;
+  const difficulty = document.getElementById("difficulty-select").value;
+
+  if (!title || !character || !description) {
+    showMessage("Lütfen tüm alanları doldurun!", "error");
+    return;
+  }
+
+  const generateBtn = document.getElementById("generate-btn");
+  const originalText = generateBtn.textContent;
+  generateBtn.textContent = "🤖 Üretiliyor...";
+  generateBtn.disabled = true;
+
+  try {
+    const response = await fetch(`${API_BASE}/api/generate-scenario`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        theme: theme,
+        title: title,
+        character: character,
+        description: description,
+        difficulty: difficulty,
+      }),
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      showMessage("🎉 AI Senaryo başarıyla üretildi!", "success");
+
+      // Üretilen senaryoyu göster
+      const resultDiv = document.getElementById("generation-result");
+      resultDiv.innerHTML = `
+        <div class="generated-scenario">
+          <h3>🤖 Dosyadan Üretilen: ${result.scenario.title}</h3>
+          <p><strong>Tema:</strong> ${result.scenario.theme}</p>
+          <p><strong>Zorluk:</strong> ${result.scenario.difficulty}</p>
+          <p><strong>Açıklama:</strong> ${result.scenario.description}</p>
+          <div class="scenario-actions">
+            <button onclick="saveGeneratedScenario('${result.scenario.id}')" class="action-btn">💾 Kaydet</button>
+            <button onclick="loadGeneratedScenario('${result.scenario.id}')" class="action-btn">📁 Yükle</button>
+            <button onclick="resetGenerationForm()" class="action-btn">🔄 Sıfırla</button>
+          </div>
+        </div>
+      `;
+      resultDiv.style.display = "block";
+    } else {
+      showMessage("❌ Senaryo üretimi başarısız: " + result.error, "error");
+    }
+  } catch (error) {
+    console.error("AI Senaryo üretimi hatası:", error);
+    showMessage("❌ Bağlantı hatası! Senaryo üretilemedi.", "error");
+  } finally {
+    generateBtn.textContent = originalText;
+    generateBtn.disabled = false;
+  }
+}
+
+async function saveGeneratedScenario(scenarioId) {
+  try {
+    const response = await fetch(`${API_BASE}/api/scenarios/save`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        scenario_id: scenarioId,
+        user_id: currentUser?.id || "guest_user",
+      }),
+    });
+
+    const result = await response.json();
+    if (result.success) {
+      showMessage("✅ Senaryo başarıyla kaydedildi!", "success");
+    } else {
+      showMessage("❌ Kaydetme başarısız: " + result.error, "error");
+    }
+  } catch (error) {
+    console.error("Kaydetme hatası:", error);
+    showMessage("❌ Kaydetme hatası!", "error");
+  }
+}
+
+function loadGeneratedScenario(scenarioId) {
+  console.log("📖 Üretilen senaryo yükleniyor:", scenarioId);
+  currentScenario = scenarioId;
+  showMessage("✅ Senaryo yüklendi! Maceraya başlayabilirsiniz.", "success");
+}
+
+function resetGenerationForm() {
+  document.getElementById("scenario-title").value = "";
+  document.getElementById("character-name").value = "";
+  document.getElementById("scenario-description").value = "";
+  document.getElementById("generation-result").style.display = "none";
+  showMessage("🔄 Form sıfırlandı!", "info");
 }
 
 // Force hide immediately
