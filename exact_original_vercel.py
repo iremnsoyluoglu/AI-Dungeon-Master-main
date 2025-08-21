@@ -230,30 +230,30 @@ else:
         "story_nodes": {
             "start": {
                 "id": "start",
-                "title": "Köy Tehdidi",
-                "description": "Güneş batarken köyün üzerinde kızıl bir gölge beliriyor. Kızıl ejderha gökyüzünde uçuyor ve alevler saçarak köyü yakıyor. Sen ejderha avcısısın ve bu tehlikeli görevde her şeyi riske atacaksın. Köy meydanında yaşlı bir adam seni bekliyor - köy reisi Aldric. Köylüler korku içinde evlerine kapanmış, sokaklar bomboş. Ejderhanın son saldırısında 3 ev yanmış ve 2 kişi yaralanmış.",
+                "title": "🐉 Ejderha Avcısının Yolu - Başlangıç",
+                "description": "Güneş batarken köyün üzerinde kızıl bir gölge beliriyor. Kızıl ejderha gökyüzünde uçuyor ve alevler saçarak köyü yakıyor. Sen ejderha avcısısın ve bu tehlikeli görevde her şeyi riske atacaksın. Köy meydanında yaşlı bir adam seni bekliyor - köy reisi Aldric. Köylüler korku içinde evlerine kapanmış, sokaklar bomboş. Ejderhanın son saldırısında 3 ev yanmış ve 2 kişi yaralanmış. Bu sadece bir görev değil, bu SENİN HİKAYEN.",
                 "choices": [
                     {
-                        "id": "explore_village",
-                        "text": "Köyü detaylı keşfet ve hasarı değerlendir",
-                        "next_node": "village_exploration",
-                        "effect": {"exploration": 15, "xp": 25}
-                    },
-                    {
                         "id": "talk_aldric",
-                        "text": "Aldric ile uzun bir görüşme yap ve ejderha hakkında bilgi al",
+                        "text": "Aldric ile konuş",
                         "next_node": "aldric_dialogue",
                         "effect": {"charisma": 15, "xp": 20}
                     },
                     {
-                        "id": "prepare_combat",
-                        "text": "Savaş için kapsamlı hazırlık yap",
-                        "next_node": "combat_preparation",
+                        "id": "hunt_dragon",
+                        "text": "Hemen ejderhayı takip et",
+                        "next_node": "dragon_hunt_start",
                         "effect": {"combat": 20, "xp": 30}
                     },
                     {
-                        "id": "check_injured",
-                        "text": "Yaralıları kontrol et ve şifacıyı bul",
+                        "id": "gather_info",
+                        "text": "Köylülerden bilgi topla",
+                        "next_node": "villager_info",
+                        "effect": {"charisma": 10, "xp": 15}
+                    },
+                    {
+                        "id": "find_healer",
+                        "text": "Şifacıyı ara",
                         "next_node": "healer_search",
                         "effect": {"charisma": 10, "xp": 15}
                     }
@@ -292,9 +292,21 @@ else:
             },
             "aldric_dialogue": {
                 "id": "aldric_dialogue",
-                "title": "Aldric ile Derinlemesine Görüşme",
-                "description": "Aldric the Wise sizi evine davet ediyor. Eski bir kütüphanede oturuyorsunuz. Aldric size ejderhanın geçmişini anlatıyor: 'Bu ejderha 100 yıl önce bu bölgede yaşıyordu. O zamanlar insanlarla barış içindeydi. Ama sonra bir grup avcı onu yaraladı ve o da intikam almaya başladı. Şimdi her gece köye saldırıyor. Onu durdurmak için özel bir silah gerekli - Dragonbane Kılıcı.'",
+                "title": "💬 Aldric ile Derinlemesine Görüşme",
+                "description": "Aldric the Wise sizi evine davet ediyor. Eski bir kütüphanede oturuyorsunuz. Aldric size ejderhanın geçmişini anlatıyor: 'Bu ejderha 100 yıl önce bu bölgede yaşıyordu. O zamanlar insanlarla barış içindeydi. Ama sonra bir grup avcı onu yaraladı ve o da intikam almaya başladı. Şimdi her gece köye saldırıyor. Onu durdurmak için özel bir silah gerekli - Dragonbane Kılıcı.' Aldric'in gözlerinde gizli bir endişe var. Size çok güveniyor gibi görünüyor ama bir şeyler gizliyor olabilir.",
                 "choices": [
+                    {
+                        "id": "trust_aldric",
+                        "text": "Aldric'e güven ve planını dinle",
+                        "next_node": "aldric_trust",
+                        "effect": {"charisma": 20, "aldric_trust": 30, "xp": 25}
+                    },
+                    {
+                        "id": "question_aldric",
+                        "text": "Aldric'i sorgula ve daha fazla bilgi iste",
+                        "next_node": "aldric_interrogation",
+                        "effect": {"investigation": 25, "xp": 30}
+                    },
                     {
                         "id": "learn_magic",
                         "text": "Aldric'ten sihir öğren ve büyü hazırla",
