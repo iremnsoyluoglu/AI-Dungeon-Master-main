@@ -298,7 +298,9 @@ STORY_DATA = {
     "story_progress": {},
     "npc_interactions": {},
     "story_branches": {},
-    "story_combats": {}  # Hikaye savaşları için yeni alan
+    "story_combats": {},  # Hikaye savaşları için yeni alan
+    "npc_relationships": {},
+    "player_progress": {}
 }
 
 # NPC verileri
@@ -2590,6 +2592,262 @@ def register():
         })
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)})
+
+# ===== ENHANCED SCENARIO SYSTEM =====
+
+@app.route('/api/scenarios/enhanced/<scenario_id>', methods=['GET'])
+def get_enhanced_scenario(scenario_id):
+    """Get enhanced scenario with all details"""
+    try:
+        # Load enhanced scenarios
+        with open('data/enhanced_scenarios.json', 'r', encoding='utf-8') as f:
+            enhanced_data = json.load(f)
+        
+        scenario = enhanced_data['enhanced_scenarios'].get(scenario_id)
+        if not scenario:
+            return jsonify({"success": False, "error": "Senaryo bulunamadı"}), 404
+        
+        return jsonify({"success": True, "scenario": scenario})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+@app.route('/api/scenarios/enhanced/<scenario_id>/level/<level_id>', methods=['GET'])
+def get_scenario_level(scenario_id, level_id):
+    """Get specific level of a scenario"""
+    try:
+        with open('data/enhanced_scenarios.json', 'r', encoding='utf-8') as f:
+            enhanced_data = json.load(f)
+        
+        scenario = enhanced_data['enhanced_scenarios'].get(scenario_id)
+        if not scenario:
+            return jsonify({"success": False, "error": "Senaryo bulunamadı"}), 404
+        
+        level = scenario['levels'].get(level_id)
+        if not level:
+            return jsonify({"success": False, "error": "Seviye bulunamadı"}), 404
+        
+        return jsonify({"success": True, "level": level})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+@app.route('/api/scenarios/enhanced/<scenario_id>/npc/<npc_id>/relationship', methods=['GET', 'POST'])
+def manage_npc_relationship(scenario_id, npc_id):
+    """Get or update NPC relationship"""
+    try:
+        username = request.args.get('username', 'guest')
+        
+        if request.method == 'GET':
+            # Get current relationship
+            if username not in STORY_DATA['npc_relationships']:
+                STORY_DATA['npc_relationships'][username] = {}
+            
+            if scenario_id not in STORY_DATA['npc_relationships'][username]:
+                STORY_DATA['npc_relationships'][username][scenario_id] = {}
+            
+            relationship = STORY_DATA['npc_relationships'][username][scenario_id].get(npc_id, {
+                "trust_level": 0,
+                "quests_completed": 0,
+                "relationship_status": "neutral"
+            })
+            
+            return jsonify({"success": True, "relationship": relationship})
+        
+        elif request.method == 'POST':
+            data = request.get_json()
+            trust_change = data.get('trust_change', 0)
+            quest_completed = data.get('quest_completed', False)
+            
+            if username not in STORY_DATA['npc_relationships']:
+                STORY_DATA['npc_relationships'][username] = {}
+            
+            if scenario_id not in STORY_DATA['npc_relationships'][username]:
+                STORY_DATA['npc_relationships'][username][scenario_id] = {}
+            
+            if npc_id not in STORY_DATA['npc_relationships'][username][scenario_id]:
+                STORY_DATA['npc_relationships'][username][scenario_id][npc_id] = {
+                    "trust_level": 0,
+                    "quests_completed": 0,
+                    "relationship_status": "neutral"
+                }
+            
+            # Update relationship
+            relationship = STORY_DATA['npc_relationships'][username][scenario_id][npc_id]
+            relationship['trust_level'] = max(0, min(100, relationship['trust_level'] + trust_change))
+            
+            if quest_completed:
+                relationship['quests_completed'] += 1
+            
+            # Update status based on trust level
+            if relationship['trust_level'] >= 80:
+                relationship['relationship_status'] = 'trusted'
+            elif relationship['trust_level'] >= 50:
+                relationship['relationship_status'] = 'friendly'
+            elif relationship['trust_level'] >= 20:
+                relationship['relationship_status'] = 'neutral'
+            else:
+                relationship['relationship_status'] = 'hostile'
+            
+            return jsonify({"success": True, "relationship": relationship})
+    
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+@app.route('/api/scenarios/enhanced/<scenario_id>/quest/<quest_id>/complete', methods=['POST'])
+def complete_quest(scenario_id, quest_id):
+    """Complete a quest and get rewards"""
+    try:
+        data = request.get_json()
+        username = data.get('username', 'guest')
+        
+        # Load enhanced scenario
+        with open('data/enhanced_scenarios.json', 'r', encoding='utf-8') as f:
+            enhanced_data = json.load(f)
+        
+        scenario = enhanced_data['enhanced_scenarios'].get(scenario_id)
+        if not scenario:
+            return jsonify({"success": False, "error": "Senaryo bulunamadı"}), 404
+        
+        # Find quest in quest chains
+        quest_found = False
+        quest_rewards = {}
+        
+        for chain_name, chain_data in scenario.get('quest_chains', {}).items():
+            if quest_id in chain_data.get('quests', []):
+                quest_found = True
+                quest_rewards = chain_data.get('rewards', {})
+                break
+        
+        if not quest_found:
+            return jsonify({"success": False, "error": "Görev bulunamadı"}), 404
+        
+        # Update player progress
+        if username not in STORY_DATA['player_progress']:
+            STORY_DATA['player_progress'][username] = {}
+        
+        if scenario_id not in STORY_DATA['player_progress'][username]:
+            STORY_DATA['player_progress'][username][scenario_id] = {
+                'completed_quests': [],
+                'total_xp': 0,
+                'total_gold': 0
+            }
+        
+        progress = STORY_DATA['player_progress'][username][scenario_id]
+        
+        if quest_id not in progress['completed_quests']:
+            progress['completed_quests'].append(quest_id)
+            progress['total_xp'] += quest_rewards.get('xp', 0)
+            progress['total_gold'] += quest_rewards.get('gold', 0)
+        
+        return jsonify({
+            "success": True,
+            "rewards": quest_rewards,
+            "progress": progress
+        })
+    
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+@app.route('/api/scenarios/enhanced/<scenario_id>/ending', methods=['GET'])
+def get_scenario_ending(scenario_id):
+    """Get possible endings based on player choices"""
+    try:
+        username = request.args.get('username', 'guest')
+        
+        # Load enhanced scenario
+        with open('data/enhanced_scenarios.json', 'r', encoding='utf-8') as f:
+            enhanced_data = json.load(f)
+        
+        scenario = enhanced_data['enhanced_scenarios'].get(scenario_id)
+        if not scenario:
+            return jsonify({"success": False, "error": "Senaryo bulunamadı"}), 404
+        
+        # Get player progress
+        if username not in STORY_DATA['player_progress']:
+            STORY_DATA['player_progress'][username] = {}
+        
+        if scenario_id not in STORY_DATA['player_progress'][username]:
+            STORY_DATA['player_progress'][username][scenario_id] = {
+                'completed_quests': [],
+                'total_xp': 0,
+                'total_gold': 0
+            }
+        
+        progress = STORY_DATA['player_progress'][username][scenario_id]
+        
+        # Get NPC relationships
+        if username not in STORY_DATA['npc_relationships']:
+            STORY_DATA['npc_relationships'][username] = {}
+        
+        if scenario_id not in STORY_DATA['npc_relationships'][username]:
+            STORY_DATA['npc_relationships'][username][scenario_id] = {}
+        
+        relationships = STORY_DATA['npc_relationships'][username][scenario_id]
+        
+        # Check ending requirements
+        endings = scenario.get('ending_variations', {})
+        possible_endings = []
+        
+        for ending_name, ending_data in endings.items():
+            requirements = ending_data.get('requirements', {})
+            can_achieve = True
+            
+            for req_name, req_value in requirements.items():
+                if req_name.endswith('_trust'):
+                    npc_name = req_name.replace('_trust', '')
+                    npc_trust = relationships.get(npc_name, {}).get('trust_level', 0)
+                    if npc_trust < req_value:
+                        can_achieve = False
+                        break
+                elif req_name == 'quests_completed':
+                    if len(progress['completed_quests']) < req_value:
+                        can_achieve = False
+                        break
+            
+            if can_achieve:
+                possible_endings.append({
+                    "name": ending_name,
+                    "description": ending_data.get('description', ''),
+                    "requirements": requirements
+                })
+        
+        return jsonify({
+            "success": True,
+            "possible_endings": possible_endings,
+            "progress": progress,
+            "relationships": relationships
+        })
+    
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+@app.route('/api/scenarios/enhanced/<scenario_id>/enemies/<level_id>', methods=['GET'])
+def get_level_enemies(scenario_id, level_id):
+    """Get enemies for a specific level"""
+    try:
+        with open('data/enhanced_scenarios.json', 'r', encoding='utf-8') as f:
+            enhanced_data = json.load(f)
+        
+        scenario = enhanced_data['enhanced_scenarios'].get(scenario_id)
+        if not scenario:
+            return jsonify({"success": False, "error": "Senaryo bulunamadı"}), 404
+        
+        level = scenario['levels'].get(level_id)
+        if not level:
+            return jsonify({"success": False, "error": "Seviye bulunamadı"}), 404
+        
+        enemies = level.get('enemies', [])
+        boss = level.get('boss', None)
+        
+        return jsonify({
+            "success": True,
+            "enemies": enemies,
+            "boss": boss
+        })
+    
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+# ===== AUTHENTICATION ENDPOINTS =====
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5002))

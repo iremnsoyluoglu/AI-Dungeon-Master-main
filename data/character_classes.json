@@ -433,5 +433,83 @@
     },
     "theme": "cyberpunk",
     "role": "damage_dealer"
+  },
+  "astronaut": {
+    "id": "astronaut",
+    "name": "Astronot",
+    "description": "Uzay keşif uzmanı, lazer silahları kullanır",
+    "base_hp": 100,
+    "base_attack": 85,
+    "base_defense": 70,
+    "base_special": 90,
+    "special_abilities": [
+      "Lazer Atışı",
+      "Uzay Navigasyonu",
+      "Laser Shot",
+      "Space Navigation"
+    ],
+    "starting_equipment": ["Lazer Silahı", "Uzay Kıyafeti", "Oksijen Tankı"],
+    "base_stats": {
+      "strength": 14,
+      "dexterity": 16,
+      "constitution": 14,
+      "intelligence": 14,
+      "wisdom": 12,
+      "charisma": 10
+    },
+    "theme": "scifi",
+    "role": "balanced"
+  },
+  "engineer": {
+    "id": "engineer",
+    "name": "Mühendis",
+    "description": "Teknoloji uzmanı, drone ve sistem hack kullanır",
+    "base_hp": 80,
+    "base_attack": 60,
+    "base_defense": 75,
+    "base_special": 120,
+    "special_abilities": [
+      "Drone Kontrolü",
+      "Sistem Hack",
+      "Drone Control",
+      "System Hack"
+    ],
+    "starting_equipment": ["Drone", "Hack Aracı", "Teknoloji Kitı"],
+    "base_stats": {
+      "strength": 10,
+      "dexterity": 12,
+      "constitution": 12,
+      "intelligence": 18,
+      "wisdom": 14,
+      "charisma": 10
+    },
+    "theme": "scifi",
+    "role": "support"
+  },
+  "doctor": {
+    "id": "doctor",
+    "name": "Doktor",
+    "description": "Medikal uzman, nanobot ve iyileştirme kullanır",
+    "base_hp": 90,
+    "base_attack": 50,
+    "base_defense": 65,
+    "base_special": 110,
+    "special_abilities": [
+      "Nanobot Saldırısı",
+      "Hızlı İyileştirme",
+      "Nanobot Attack",
+      "Quick Healing"
+    ],
+    "starting_equipment": ["Nanobot Kitı", "Medikal Aletler", "İyileştirme İksiri"],
+    "base_stats": {
+      "strength": 10,
+      "dexterity": 12,
+      "constitution": 14,
+      "intelligence": 16,
+      "wisdom": 16,
+      "charisma": 12
+    },
+    "theme": "scifi",
+    "role": "support"
   }
 }

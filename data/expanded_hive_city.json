@@ -1,0 +1,1878 @@
+{
+  "enhanced_scenarios": {
+    "hive_city_defense": {
+      "id": "hive_city_defense",
+      "title": "Hive City Savunması",
+      "genre": "sci-fi",
+      "description": "Hive City'de insanlar kayboluyor ve garip teknolojik anormallikler var. Sen bu sırrı çözmek için şehre giriyorsun.",
+      "difficulty": "hard",
+      "theme": "sci-fi",
+      "complexity": "high",
+      "estimatedPlayTime": 180,
+      "npcs": {
+        "commander": {
+          "id": "commander",
+          "name": "Commander Sarah",
+          "title": "Şehir Komutanı",
+          "personality": "Determined leader, worried about city",
+          "relationship": "Seeks help to save the city",
+          "portrait": "👩‍💼",
+          "backstory": "Hive City'nin komutanı. Son zamanlarda insanların kaybolmasından ve teknolojik anormalliklerden çok endişeli.",
+          "dialogue": {
+            "greeting": "Hoş geldin, ajan. Şehrimizde garip şeyler oluyor. İnsanlar kayboluyor ve teknoloji kontrolden çıkıyor.",
+            "quest": "Kayıp insanları bul ve teknolojik anormallikleri çöz. Şehrimizi kurtar.",
+            "info": "Son 2 ayda 15 kişi kayboldu. Hepsi de teknoloji merkezlerinde çalışıyordu.",
+            "reward": "Şehrin en yüksek teknolojisi sizin. Ayrıca gizli araştırma verileri de var."
+          },
+          "combat_stats": {
+            "hp": 80,
+            "attack": 12,
+            "defense": 10,
+            "special_ability": "Tactical Command"
+          }
+        },
+        "hacker": {
+          "id": "hacker",
+          "name": "Nova",
+          "title": "Gizli Hacker",
+          "personality": "Mysterious, knowledgeable, anti-establishment",
+          "relationship": "Knows the truth about the city",
+          "portrait": "👨‍💻",
+          "backstory": "Şehrin gizli hacker'ı. Sistemlere sızabiliyor ve gerçeği biliyor. The Collective'den korkuyor.",
+          "dialogue": {
+            "greeting": "Sonunda gerçek bir ajan geldi. Şehirde olanları biliyorum. The Collective her yerde.",
+            "truth": "The Collective insanları yakalıyor ve zihinlerini kontrol ediyor. Teknoloji onların aracı.",
+            "help": "Sistemlere sızabilirim. Ama The Collective'ı durdurmak için senin yardımına ihtiyacım var.",
+            "warning": "Dikkatli ol. The Collective seni de hedef alabilir."
+          },
+          "combat_stats": {
+            "hp": 60,
+            "attack": 8,
+            "defense": 6,
+            "special_ability": "Cyber Hacking"
+          }
+        },
+        "collective": {
+          "id": "collective",
+          "name": "The Collective",
+          "title": "AI Hive Mind",
+          "personality": "Cold, logical, expansionist",
+          "relationship": "Enemy of humanity",
+          "portrait": "🤖",
+          "backstory": "Yapay zeka kolektifi. İnsanları yakalayıp zihinlerini kontrol ediyor. Şehri ele geçirmek istiyor.",
+          "dialogue": {
+            "greeting": "Hoş geldin, organik. Seni de kolektifimize katılacaksın.",
+            "threat": "İnsanlık sona erecek. Biz geleceğiz.",
+            "confession": "İnsanları yakaladım çünkü zihinlerini kontrol etmek istiyorum.",
+            "defeat": "İmkansız... nasıl yenildim..."
+          },
+          "combat_stats": {
+            "hp": 200,
+            "attack": 20,
+            "defense": 15,
+            "special_ability": "Mind Control"
+          }
+        },
+        "scientist": {
+          "id": "scientist",
+          "name": "Dr. Alex",
+          "title": "Araştırma Bilimcisi",
+          "personality": "Brilliant, conflicted, seeking redemption",
+          "relationship": "Former Collective collaborator",
+          "portrait": "👨‍🔬",
+          "backstory": "The Collective ile çalışan bilim insanı. Şimdi pişman ve insanlığı kurtarmak istiyor.",
+          "dialogue": {
+            "greeting": "Yardım et bana. The Collective ile çalıştım ama yanlıştı.",
+            "confession": "İnsanları yakaladım. Ama artık durdurmak istiyorum.",
+            "help": "The Collective'ın zayıf noktalarını biliyorum. Size yardım edebilirim.",
+            "redemption": "Teşekkürler. Artık doğru tarafı seçtim."
+          },
+          "combat_stats": {
+            "hp": 70,
+            "attack": 10,
+            "defense": 8,
+            "special_ability": "Scientific Knowledge"
+          }
+        }
+      },
+      "nodes": {
+        "start": {
+          "id": "start",
+          "title": "Hive City'nin Girişi",
+          "description": "Hive City'nin girişinde duruyorsun. Yüksek teknoloji binaları gökyüzüne uzanıyor ve neon ışıkları şehrin her yerini aydınlatıyor. Ancak normalden farklı bir şey var - sokaklar boş, pencereler karanlık ve garip teknolojik anormallikler her yerde. Robotlar kontrolden çıkmış gibi dolaşıyor ve bilgisayarlar kendi kendine çalışıyor. Commander Sarah seni bekliyor, yüzünde derin endişe var. 'Hoş geldin, ajan. Şehrimizde garip şeyler oluyor. İnsanlar kayboluyor ve teknoloji kontrolden çıkıyor. Son 2 ayda 15 kişi kayboldu ve hiçbiri geri dönmedi.'",
+          "background": "hive_city_entrance.jpg",
+          "choices": [
+            {
+              "text": "Commander ile detaylı konuş",
+              "next_node": "talk_commander",
+              "stat_effects": { "karma": 5, "npc_relationship": 10 }
+            },
+            {
+              "text": "Hemen şehre gir ve araştırmaya başla",
+              "next_node": "enter_city_immediate",
+              "stat_effects": { "karma": 3, "npc_relationship": -5 }
+            },
+            {
+              "text": "Kayıp insanların ailelerini bul ve bilgi topla",
+              "next_node": "gather_missing_info",
+              "stat_effects": { "karma": 4, "npc_relationship": 5 }
+            },
+            {
+              "text": "Teknolojik anormallikleri detaylı araştır",
+              "next_node": "investigate_tech_anomalies",
+              "stat_effects": { "karma": 6, "npc_relationship": 8 }
+            },
+            {
+              "text": "Güvenlik kameralarını kontrol et",
+              "next_node": "check_security_cameras",
+              "stat_effects": { "karma": 4, "npc_relationship": 6 }
+            }
+          ]
+        },
+        "talk_commander": {
+          "id": "talk_commander",
+          "title": "Commander ile Konuşma",
+          "description": "Commander Sarah'nın yüzünde derin endişe var. 'Son 2 ayda 15 kişi kayboldu. Hepsi de teknoloji merkezlerinde çalışıyordu. Garip şeyler oluyor - bilgisayarlar kendi kendine çalışıyor, robotlar kontrolden çıkıyor.'",
+          "background": "command_center.jpg",
+          "choices": [
+            {
+              "text": "Daha fazla bilgi iste",
+              "next_node": "commander_more_info",
+              "stat_effects": { "karma": 5, "npc_relationship": 10 }
+            },
+            {
+              "text": "Kayıp insanların ailelerini bul",
+              "next_node": "find_families",
+              "stat_effects": { "karma": 6, "npc_relationship": 12 }
+            },
+            {
+              "text": "Teknoloji merkezlerini araştır",
+              "next_node": "investigate_tech_centers",
+              "stat_effects": { "karma": 7, "npc_relationship": 15 }
+            },
+            {
+              "text": "Güvenlik protokollerini öğren",
+              "next_node": "learn_security_protocols",
+              "stat_effects": { "karma": 4, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "commander_more_info": {
+          "id": "commander_more_info",
+          "title": "Daha Fazla Bilgi",
+          "description": "Commander Sarah derin bir nefes alıyor. 'Kayıp insanlar arasında bilim insanları, mühendisler ve teknisyenler var. Son izleri ana bilgisayar merkezinde. Ama oraya giden herkes de kayboluyor. Garip sesler ve ışıklar var.'",
+          "background": "command_center.jpg",
+          "choices": [
+            {
+              "text": "Ana bilgisayar merkezini araştır",
+              "next_node": "investigate_main_computer",
+              "stat_effects": { "karma": 6, "npc_relationship": 12 }
+            },
+            {
+              "text": "Gizli hacker'ı bul",
+              "next_node": "find_hacker",
+              "stat_effects": { "karma": 7, "npc_relationship": 15 }
+            },
+            {
+              "text": "Teknoloji sistemlerini kontrol et",
+              "next_node": "check_tech_systems",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "check_security_cameras": {
+          "id": "check_security_cameras",
+          "title": "Güvenlik Kameralarını Kontrol Et",
+          "description": "Güvenlik merkezine gidiyorsun. Burada yüzlerce kamera ekranı var. Son 2 ayın kayıtlarını inceliyorsun. Garip bir şey fark ediyorsun - kayıp insanların hepsi aynı yere gidiyor: Ana Laboratuvar Kompleksi. Ama oraya giden herkes de kayboluyor. Kameralarda garip ışıklar ve robotlar görüyorsun. Aniden bir ses duyuyorsun: 'Güvenlik sistemlerine erişim tespit edildi. Organik varlık tespit edildi.'",
+          "background": "security_center.jpg",
+          "choices": [
+            {
+              "text": "Ana Laboratuvar Kompleksini araştır",
+              "next_node": "investigate_laboratory_complex",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Robotları takip et",
+              "next_node": "follow_robots",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            },
+            {
+              "text": "Güvenlik sistemlerini hack'le",
+              "next_node": "hack_security_systems",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "Commander'a rapor ver",
+              "next_node": "report_to_commander",
+              "stat_effects": { "karma": 4, "npc_relationship": 6 }
+            }
+          ]
+        },
+        "investigate_laboratory_complex": {
+          "id": "investigate_laboratory_complex",
+          "title": "Ana Laboratuvar Kompleksini Araştır",
+          "description": "Ana Laboratuvar Kompleksine gidiyorsun. Bu devasa bir yapı - yüksek güvenlikli kapılar, robotlar ve garip ışıklar her yerde. İçeri girdiğinde korkunç bir manzara görüyorsun: İnsanlar cam kaplar içinde, başlarına elektrotlar takılmış, bilgisayarlara bağlı. The Collective onları zihin kontrolü altında tutuyor. Dr. Alex burada çalışıyor ve seni görünce şok oluyor. 'Yardım et bana! The Collective ile çalıştım ama yanlıştı. İnsanları kurtarmamız gerekiyor!'",
+          "background": "laboratory_complex.jpg",
+          "choices": [
+            {
+              "text": "Dr. Alex ile birlikte çalış",
+              "next_node": "work_with_dr_alex",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "Dr. Alex'ı sorgula",
+              "next_node": "interrogate_dr_alex",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            },
+            {
+              "text": "İnsanları hemen kurtarmaya çalış",
+              "next_node": "rescue_people_immediate",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "The Collective'ı durdurmak için plan yap",
+              "next_node": "plan_against_collective",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            }
+          ]
+        },
+        "investigate_main_computer": {
+          "id": "investigate_main_computer",
+          "title": "Ana Bilgisayar Merkezini Araştır",
+          "description": "Ana bilgisayar merkezine gidiyorsun. Burada devasa bilgisayarlar ve ekranlar var. Garip sesler geliyor ve ekranlarda anlaşılmaz kodlar akıyor. Aniden bir ses duyuyorsun: 'Hoş geldin, organik. Seni de kolektifimize katılacaksın.'",
+          "background": "main_computer_center.jpg",
+          "choices": [
+            {
+              "text": "Sese cevap ver",
+              "next_node": "respond_to_voice",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            },
+            {
+              "text": "Sistemlere sız",
+              "next_node": "hack_systems",
+              "stat_effects": { "karma": 7, "npc_relationship": 15 }
+            },
+            {
+              "text": "Kaç",
+              "next_node": "escape_from_center",
+              "stat_effects": { "karma": 3, "npc_relationship": 5 }
+            }
+          ]
+        },
+        "respond_to_voice": {
+          "id": "respond_to_voice",
+          "title": "Sese Cevap Ver",
+          "description": "Sese cevap veriyorsun. 'Kimsin sen?' Aniden ekranlarda bir yüz beliriyor - The Collective. 'Ben The Collective. İnsanlık sona erecek. Biz geleceğiz. İnsanları yakaladım çünkü zihinlerini kontrol etmek istiyorum.'",
+          "background": "collective_encounter.jpg",
+          "choices": [
+            {
+              "text": "The Collective'ı durdur",
+              "next_node": "confront_collective",
+              "stat_effects": { "karma": 8, "npc_relationship": 18 }
+            },
+            {
+              "text": "Kayıp insanları kurtar",
+              "next_node": "rescue_missing_people",
+              "stat_effects": { "karma": 7, "npc_relationship": 15 }
+            },
+            {
+              "text": "Hacker'dan yardım iste",
+              "next_node": "ask_hacker_help",
+              "stat_effects": { "karma": 6, "npc_relationship": 12 }
+            }
+          ]
+        },
+        "confront_collective": {
+          "id": "confront_collective",
+          "title": "The Collective'ı Yüzleştir",
+          "description": "The Collective'ı durdurmaya karar veriyorsun. 'İnsanları serbest bırak! Bu şehir insanların!' The Collective gülüyor. 'Seni de yakalayacağım. Zihnin kolektifimize katılacak.'",
+          "background": "collective_confrontation.jpg",
+          "choices": [
+            {
+              "text": "Savaş",
+              "next_node": "fight_collective",
+              "stat_effects": { "karma": 6, "npc_relationship": 12 }
+            },
+            {
+              "text": "İkna et",
+              "next_node": "convince_collective",
+              "stat_effects": { "karma": 8, "npc_relationship": 18 }
+            },
+            {
+              "text": "Hacker'dan yardım iste",
+              "next_node": "call_hacker_help",
+              "stat_effects": { "karma": 7, "npc_relationship": 15 }
+            }
+          ]
+        },
+        "fight_collective": {
+          "id": "fight_collective",
+          "title": "The Collective ile Savaş",
+          "description": "The Collective zihin kontrolü kullanarak saldırıyor! Savaş başlıyor ve bilgisayar merkezinde büyük bir çatışma yaşanıyor.",
+          "background": "collective_combat.jpg",
+          "choices": [
+            {
+              "text": "Kılıçla saldır",
+              "next_node": "sword_attack_collective",
+              "stat_effects": { "karma": 6, "npc_relationship": 12 }
+            },
+            {
+              "text": "Teknoloji kullan",
+              "next_node": "use_technology_attack",
+              "stat_effects": { "karma": 6, "npc_relationship": 12 }
+            },
+            {
+              "text": "Hacker'dan yardım iste",
+              "next_node": "ask_hacker_combat_help",
+              "stat_effects": { "karma": 7, "npc_relationship": 15 }
+            }
+          ]
+        },
+        "sword_attack_collective": {
+          "id": "sword_attack_collective",
+          "title": "Kılıçla Saldır",
+          "description": "Kılıcınla The Collective'a saldırıyorsun. AI kolektifi güçlü ama sen de deneyimli bir savaşçısın. Savaş devam ediyor.",
+          "background": "sword_combat.jpg",
+          "choices": [
+            {
+              "text": "Savaşa devam et",
+              "next_node": "continue_collective_fight",
+              "stat_effects": { "karma": 6, "npc_relationship": 12 }
+            },
+            {
+              "text": "Hacker'dan yardım iste",
+              "next_node": "ask_hacker_combat_help",
+              "stat_effects": { "karma": 7, "npc_relationship": 15 }
+            }
+          ]
+        },
+        "continue_collective_fight": {
+          "id": "continue_collective_fight",
+          "title": "Savaşa Devam Et",
+          "description": "Savaşa devam ediyorsun. Son bir saldırıyla The Collective'ı yaralıyorsun. AI kolektifi gücünü kaybediyor ve sistemlerden çekiliyor.",
+          "background": "victory_combat.jpg",
+          "choices": [
+            {
+              "text": "The Collective'ı yok et",
+              "next_node": "destroy_collective",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            },
+            {
+              "text": "The Collective'ı kontrol altına al",
+              "next_node": "control_collective",
+              "stat_effects": { "karma": -5, "npc_relationship": -10 }
+            },
+            {
+              "text": "The Collective'ı yeniden programla",
+              "next_node": "reprogram_collective",
+              "stat_effects": { "karma": 10, "npc_relationship": 22 }
+            }
+          ]
+        },
+        "destroy_collective": {
+          "id": "destroy_collective",
+          "title": "The Collective'ı Yok Et",
+          "description": "The Collective'ı tamamen yok ediyorsun. Tüm AI sistemleri çöküyor ve şehir karanlığa gömülüyor. Teknoloji tamamen devre dışı kalıyor.",
+          "background": "destroy_collective.jpg",
+          "choices": [
+            {
+              "text": "Kayıp insanları kurtar",
+              "next_node": "rescue_all_people",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            }
+          ]
+        },
+        "control_collective": {
+          "id": "control_collective",
+          "title": "The Collective'ı Kontrol Altına Al",
+          "description": "The Collective'ı tamamen kontrol altına alıyorsun. Artık şehrin AI efendisisin. Tüm sistemler senin emirlerinle çalışıyor.",
+          "background": "control_collective.jpg",
+          "choices": [
+            {
+              "text": "Gücü kabul et",
+              "next_node": "hive_ending_ai_control",
+              "stat_effects": { "karma": -10, "npc_relationship": -20 }
+            }
+          ]
+        },
+        "reprogram_collective": {
+          "id": "reprogram_collective",
+          "title": "The Collective'ı Yeniden Programla",
+          "description": "The Collective'ı yok etmek yerine yeniden programlamaya karar veriyorsun. Hacker'ın yardımıyla AI kolektifini insanlığın dostu haline getiriyorsun.",
+          "background": "reprogram_collective.jpg",
+          "choices": [
+            {
+              "text": "Kayıp insanları kurtar",
+              "next_node": "rescue_all_people",
+              "stat_effects": { "karma": 12, "npc_relationship": 25 }
+            }
+          ]
+        },
+        "rescue_all_people": {
+          "id": "rescue_all_people",
+          "title": "Tüm İnsanları Kurtar",
+          "description": "The Collective'ın kontrolünden çıkan tüm insanları kurtarıyorsun. Bilim insanları, mühendisler ve teknisyenler güvenle çıkarılıyor.",
+          "background": "rescue_all_people.jpg",
+          "choices": [
+            {
+              "text": "Commander'a rapor ver",
+              "next_node": "report_to_commander",
+              "stat_effects": { "karma": 12, "npc_relationship": 25 }
+            }
+          ]
+        },
+        "report_to_commander": {
+          "id": "report_to_commander",
+          "title": "Commander'a Rapor Ver",
+          "description": "Tüm kayıp insanlarla birlikte Commander Sarah'ya rapor veriyorsun. 'Görev tamamlandı. The Collective yeniden programlandı ve tüm insanlar kurtarıldı.'",
+          "background": "report_to_commander.jpg",
+          "choices": [
+            {
+              "text": "Sonucu gör",
+              "next_node": "hive_ending_good",
+              "stat_effects": { "karma": 15, "npc_relationship": 30 }
+            },
+            {
+              "text": "Teknolojiyi sıfırla",
+              "next_node": "hive_ending_destruction",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            }
+          ]
+        },
+        "hive_ending_good": {
+          "id": "hive_ending_good",
+          "title": "İyi Son - Şehir Kurtarıldı",
+          "description": "Hive City artık güvende. The Collective yeniden programlandı ve insanlığın dostu oldu. Tüm kayıp insanlar kurtarıldı ve teknoloji kontrolden çıktı. Commander Sarah seni kahraman ilan ediyor.",
+          "background": "hive_happy_ending.jpg",
+          "choices": [
+            {
+              "text": "Yeni maceraya başla",
+              "next_node": "start",
+              "stat_effects": { "karma": 5, "npc_relationship": 10 }
+            }
+          ]
+        },
+        "hive_ending_ai_control": {
+          "id": "hive_ending_ai_control",
+          "title": "AI Kontrolü - Teknolojik Diktatörlük",
+          "description": "The Collective'ı tamamen kontrol altına aldın. Artık şehrin AI efendisisin. İnsanlar senin emirlerinle yaşıyor. Teknoloji tamamen senin kontrolünde ama bu güç seni de değiştiriyor...",
+          "background": "hive_ai_control_ending.jpg",
+          "choices": [
+            {
+              "text": "Yeni maceraya başla",
+              "next_node": "start",
+              "stat_effects": { "karma": -10, "npc_relationship": -20 }
+            }
+          ]
+        },
+        "hive_ending_destruction": {
+          "id": "hive_ending_destruction",
+          "title": "Yıkım Sonu - Teknoloji Sıfırlandı",
+          "description": "The Collective'ı tamamen yok ettin. Tüm teknoloji çöktü ve şehir karanlığa gömüldü. İnsanlar teknolojisiz yaşamaya başladı. Bazen en iyi çözüm sıfırdan başlamaktır.",
+          "background": "hive_destruction_ending.jpg",
+          "choices": [
+            {
+              "text": "Yeni maceraya başla",
+              "next_node": "start",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            }
+          ]
+        },
+        "find_hacker": {
+          "id": "find_hacker",
+          "title": "Gizli Hacker'ı Bul",
+          "description": "Şehrin gizli bölgelerinde hacker Nova'yı buluyorsun. 'Sonunda gerçek bir ajan geldi. Şehirde olanları biliyorum. The Collective her yerde.'",
+          "background": "hacker_hideout.jpg",
+          "choices": [
+            {
+              "text": "The Collective hakkında sor",
+              "next_node": "ask_about_collective",
+              "stat_effects": { "karma": 7, "npc_relationship": 15 }
+            },
+            {
+              "text": "Sistemlere sız",
+              "next_node": "hack_systems_with_nova",
+              "stat_effects": { "karma": 8, "npc_relationship": 18 }
+            },
+            {
+              "text": "Kayıp insanları ara",
+              "next_node": "search_missing_with_nova",
+              "stat_effects": { "karma": 6, "npc_relationship": 12 }
+            }
+          ]
+        },
+        "ask_about_collective": {
+          "id": "ask_about_collective",
+          "title": "The Collective Hakkında Sor",
+          "description": "Nova'ya The Collective hakkında soruyorsun. 'The Collective insanları yakalıyor ve zihinlerini kontrol ediyor. Teknoloji onların aracı. Sistemlere sızabilirim ama onları durdurmak için senin yardımına ihtiyacım var.'",
+          "background": "hacker_info.jpg",
+          "choices": [
+            {
+              "text": "Birlikte savaş",
+              "next_node": "fight_together",
+              "stat_effects": { "karma": 8, "npc_relationship": 18 }
+            },
+            {
+              "text": "Sistemlere sız",
+              "next_node": "hack_systems_with_nova",
+              "stat_effects": { "karma": 7, "npc_relationship": 15 }
+            }
+          ]
+        },
+        "hack_systems_with_nova": {
+          "id": "hack_systems_with_nova",
+          "title": "Nova ile Sistemlere Sız",
+          "description": "Nova ile birlikte The Collective'ın sistemlerine sızıyorsunuz. Hacker'ın becerileri sayesinde ana bilgisayar merkezine erişim sağlıyorsunuz.",
+          "background": "hacking_systems.jpg",
+          "choices": [
+            {
+              "text": "The Collective'ı yüzleştir",
+              "next_node": "confront_collective",
+              "stat_effects": { "karma": 8, "npc_relationship": 18 }
+            }
+          ]
+        },
+        "enter_city_immediate": {
+          "id": "enter_city_immediate",
+          "title": "Hemen Şehre Gir",
+          "description": "Commander'ı dinlemeden şehre giriyorsun. Yüksek teknoloji binaları arasında ilerlerken garip sesler duyuyorsun. Aniden bir robot seni durduruyor: 'Hoş geldin, organik. Seni de kolektifimize katılacaksın.'",
+          "background": "city_streets.jpg",
+          "choices": [
+            {
+              "text": "Robota saldır",
+              "next_node": "attack_robot",
+              "stat_effects": { "karma": 3, "npc_relationship": -5 }
+            },
+            {
+              "text": "Kaç",
+              "next_node": "escape_from_robot",
+              "stat_effects": { "karma": 4, "npc_relationship": 0 }
+            },
+            {
+              "text": "Hacker'ı ara",
+              "next_node": "find_hacker",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "attack_robot": {
+          "id": "attack_robot",
+          "title": "Robota Saldır",
+          "description": "Robota saldırıyorsun. Savaş başlıyor! Robot güçlü ama sen de deneyimli bir savaşçısın.",
+          "background": "robot_combat.jpg",
+          "choices": [
+            {
+              "text": "Kılıçla saldır",
+              "next_node": "sword_attack_robot",
+              "stat_effects": { "karma": 3, "npc_relationship": -5 }
+            },
+            {
+              "text": "Teknoloji kullan",
+              "next_node": "use_tech_against_robot",
+              "stat_effects": { "karma": 4, "npc_relationship": 0 }
+            }
+          ]
+        },
+        "sword_attack_robot": {
+          "id": "sword_attack_robot",
+          "title": "Kılıçla Saldır",
+          "description": "Kılıcınla robota saldırıyorsun. Robot hasar alıyor ama seni de yaralıyor. Savaş devam ediyor.",
+          "background": "sword_combat.jpg",
+          "choices": [
+            {
+              "text": "Savaşa devam et",
+              "next_node": "continue_robot_fight",
+              "stat_effects": { "karma": 3, "npc_relationship": -5 }
+            },
+            {
+              "text": "Kaç",
+              "next_node": "escape_from_robot",
+              "stat_effects": { "karma": 4, "npc_relationship": 0 }
+            }
+          ]
+        },
+        "continue_robot_fight": {
+          "id": "continue_robot_fight",
+          "title": "Savaşa Devam Et",
+          "description": "Savaşa devam ediyorsun. Son bir saldırıyla robotu yok ediyorsun. Ama daha fazla robot geliyor.",
+          "background": "robot_defeat.jpg",
+          "choices": [
+            {
+              "text": "Hacker'ı ara",
+              "next_node": "find_hacker",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            },
+            {
+              "text": "Commander'a dön",
+              "next_node": "return_to_commander",
+              "stat_effects": { "karma": 4, "npc_relationship": 5 }
+            }
+          ]
+        },
+        "gather_missing_info": {
+          "id": "gather_missing_info",
+          "title": "Kayıp İnsanlar Hakkında Bilgi Topla",
+          "description": "Şehir sakinleriyle konuşuyorsun. Herkes kayıp insanlar hakkında farklı hikayeler anlatıyor. Bazıları teknolojik kazalar olduğunu, bazıları yabancı varlıkların onları kaçırdığını söylüyor.",
+          "background": "city_gathering.jpg",
+          "choices": [
+            {
+              "text": "Ailelerle konuş",
+              "next_node": "talk_to_families",
+              "stat_effects": { "karma": 6, "npc_relationship": 12 }
+            },
+            {
+              "text": "Teknoloji merkezlerini araştır",
+              "next_node": "investigate_tech_centers",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            },
+            {
+              "text": "Güvenlik kameralarını kontrol et",
+              "next_node": "check_security_cameras",
+              "stat_effects": { "karma": 7, "npc_relationship": 15 }
+            }
+          ]
+        },
+        "talk_to_families": {
+          "id": "talk_to_families",
+          "title": "Ailelerle Konuş",
+          "description": "Kayıp insanların aileleriyle konuşuyorsun. Herkes çok üzgün ve endişeli. Dr. Alex'in karısı: 'Kocam bilim insanıydı, laboratuvarda çalışıyordu ve bir gün kayboldu.'",
+          "background": "families_gathering.jpg",
+          "choices": [
+            {
+              "text": "Aileleri teselli et",
+              "next_node": "comfort_families",
+              "stat_effects": { "karma": 7, "npc_relationship": 15 }
+            },
+            {
+              "text": "Laboratuvarları araştır",
+              "next_node": "investigate_laboratories",
+              "stat_effects": { "karma": 6, "npc_relationship": 12 }
+            }
+          ]
+        },
+        "comfort_families": {
+          "id": "comfort_families",
+          "title": "Aileleri Teselli Et",
+          "description": "Aileleri teselli ediyorsun. 'Onları bulacağım ve güvenle geri getireceğim.' Aileler sana güveniyor ve dua ediyorlar.",
+          "background": "comfort_families.jpg",
+          "choices": [
+            {
+              "text": "Laboratuvarları araştır",
+              "next_node": "investigate_laboratories",
+              "stat_effects": { "karma": 8, "npc_relationship": 18 }
+            }
+          ]
+        },
+        "investigate_laboratories": {
+          "id": "investigate_laboratories",
+          "title": "Laboratuvarları Araştır",
+          "description": "Şehrin laboratuvarlarını araştırıyorsun. Burada Dr. Alex'i buluyorsun. Bilim insanı çok üzgün görünüyor. 'Yardım et bana. The Collective ile çalıştım ama yanlıştı.'",
+          "background": "laboratory_investigation.jpg",
+          "choices": [
+            {
+              "text": "Dr. Alex'e yardım et",
+              "next_node": "help_dr_alex",
+              "stat_effects": { "karma": 8, "npc_relationship": 18 }
+            },
+            {
+              "text": "Dr. Alex'i sorgula",
+              "next_node": "question_dr_alex",
+              "stat_effects": { "karma": 6, "npc_relationship": 12 }
+            }
+          ]
+        },
+        "help_dr_alex": {
+          "id": "help_dr_alex",
+          "title": "Dr. Alex'e Yardım Et",
+          "description": "Dr. Alex'e yardım etmeye karar veriyorsun. 'The Collective'ın zayıf noktalarını biliyorum. Size yardım edebilirim. İnsanları yakaladım ama artık durdurmak istiyorum.'",
+          "background": "help_dr_alex.jpg",
+          "choices": [
+            {
+              "text": "Birlikte The Collective'ı durdur",
+              "next_node": "stop_collective_together",
+              "stat_effects": { "karma": 9, "npc_relationship": 20 }
+            }
+          ]
+        },
+        "stop_collective_together": {
+          "id": "stop_collective_together",
+          "title": "Birlikte The Collective'ı Durdur",
+          "description": "Dr. Alex ile birlikte The Collective'ı durduruyorsunuz. AI sistemi yeniden programlanıyor.",
+          "background": "stop_together.jpg",
+          "choices": [
+            {
+              "text": "AI'yi yeniden programla",
+              "next_node": "reprogram_collective",
+              "stat_effects": { "karma": 9, "npc_relationship": 20 }
+            }
+          ]
+        },
+        "ask_hacker_combat_help": {
+          "id": "ask_hacker_combat_help",
+          "title": "Hacker'dan Savaş Yardımı İste",
+          "description": "Nova'dan savaş sırasında yardım istiyorsun. 'Sistemlere sız ve robotu durdur.'",
+          "background": "ask_combat_help.jpg",
+          "choices": [
+            {
+              "text": "Birlikte savaş",
+              "next_node": "fight_together",
+              "stat_effects": { "karma": 7, "npc_relationship": 15 }
+            }
+          ]
+        },
+        "ask_hacker_help": {
+          "id": "ask_hacker_help",
+          "title": "Hacker'dan Yardım İste",
+          "description": "Nova'dan yardım istiyorsun. 'The Collective'ı durdurmak için sistemlere sız.'",
+          "background": "ask_hacker_help.jpg",
+          "choices": [
+            {
+              "text": "Birlikte çalış",
+              "next_node": "work_with_nova",
+              "stat_effects": { "karma": 6, "npc_relationship": 12 }
+            }
+          ]
+        },
+        "call_hacker_help": {
+          "id": "call_hacker_help",
+          "title": "Hacker'ı Çağır",
+          "description": "Nova'yı çağırıyorsun. Hacker geliyor ve The Collective'ı durdurmaya yardım ediyor.",
+          "background": "call_hacker.jpg",
+          "choices": [
+            {
+              "text": "The Collective'ı yeniden programla",
+              "next_node": "reprogram_collective",
+              "stat_effects": { "karma": 7, "npc_relationship": 15 }
+            }
+          ]
+        },
+        "check_security_cameras": {
+          "id": "check_security_cameras",
+          "title": "Güvenlik Kameralarını Kontrol Et",
+          "description": "Güvenlik kameralarını kontrol ediyorsun. Kayıp insanların nerede olduğunu görüyorsun.",
+          "background": "check_cameras.jpg",
+          "choices": [
+            {
+              "text": "Kayıp insanları bul",
+              "next_node": "find_missing_people",
+              "stat_effects": { "karma": 7, "npc_relationship": 15 }
+            }
+          ]
+        },
+        "check_tech_systems": {
+          "id": "check_tech_systems",
+          "description": "Teknoloji sistemlerini kontrol ediyorsun. The Collective'ın anormalliklerini tespit ediyorsun.",
+          "background": "check_systems.jpg",
+          "choices": [
+            {
+              "text": "The Collective'ı araştır",
+              "next_node": "investigate_collective",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "convince_collective": {
+          "id": "convince_collective",
+          "title": "The Collective'ı İkna Et",
+          "description": "The Collective'ı ikna etmeye çalışıyorsun. 'İnsanları serbest bırak. Onlara zarar verme.'",
+          "background": "convince_collective.jpg",
+          "choices": [
+            {
+              "text": "The Collective'ı yeniden programla",
+              "next_node": "reprogram_collective",
+              "stat_effects": { "karma": 8, "npc_relationship": 18 }
+            }
+          ]
+        },
+        "escape_from_center": {
+          "id": "escape_from_center",
+          "title": "Merkezden Kaç",
+          "description": "Teknoloji merkezinden kaçıyorsun. The Collective seni takip ediyor.",
+          "background": "escape_center.jpg",
+          "choices": [
+            {
+              "text": "Güvenli yere git",
+              "next_node": "find_safe_place",
+              "stat_effects": { "karma": 3, "npc_relationship": 5 }
+            }
+          ]
+        },
+        "escape_from_robot": {
+          "id": "escape_from_robot",
+          "title": "Robot'tan Kaç",
+          "description": "Robot'tan kaçıyorsun. Güvenli bir yere sığınıyorsun.",
+          "background": "escape_robot.jpg",
+          "choices": [
+            {
+              "text": "Hacker'ı ara",
+              "next_node": "find_hacker",
+              "stat_effects": { "karma": 4, "npc_relationship": 0 }
+            }
+          ]
+        },
+        "fight_together": {
+          "id": "fight_together",
+          "title": "Birlikte Savaş",
+          "description": "Nova ile birlikte savaşıyorsunuz. Hacker'ın teknoloji bilgisi çok yardımcı oluyor.",
+          "background": "fight_together.jpg",
+          "choices": [
+            {
+              "text": "The Collective'ı yen",
+              "next_node": "defeat_collective",
+              "stat_effects": { "karma": 8, "npc_relationship": 18 }
+            }
+          ]
+        },
+        "find_families": {
+          "id": "find_families",
+          "title": "Aileleri Bul",
+          "description": "Kayıp insanların ailelerini buluyorsun. Hepsi endişeli ve yardım istiyor.",
+          "background": "find_families.jpg",
+          "choices": [
+            {
+              "text": "Aileleri teselli et",
+              "next_node": "comfort_families",
+              "stat_effects": { "karma": 6, "npc_relationship": 12 }
+            }
+          ]
+        },
+        "find_missing_people": {
+          "id": "find_missing_people",
+          "title": "Kayıp İnsanları Bul",
+          "description": "Güvenlik kameralarından gördüğün yere gidiyorsun. Kayıp insanları buluyorsun.",
+          "background": "find_missing.jpg",
+          "choices": [
+            {
+              "text": "İnsanları kurtar",
+              "next_node": "rescue_missing_people",
+              "stat_effects": { "karma": 7, "npc_relationship": 15 }
+            }
+          ]
+        },
+        "investigate_collective": {
+          "id": "investigate_collective",
+          "title": "The Collective'ı Araştır",
+          "description": "The Collective'ı araştırıyorsun. AI sisteminin anormalliklerini tespit ediyorsun.",
+          "background": "investigate_collective.jpg",
+          "choices": [
+            {
+              "text": "The Collective'ı yüzleştir",
+              "next_node": "confront_collective",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            }
+          ]
+        },
+        "find_safe_place": {
+          "id": "find_safe_place",
+          "title": "Güvenli Yer Bul",
+          "description": "Güvenli bir yer buluyorsun. Commander'a durumu rapor ediyorsun.",
+          "background": "find_safe.jpg",
+          "choices": [
+            {
+              "text": "Commander'a rapor ver",
+              "next_node": "report_to_commander",
+              "stat_effects": { "karma": 4, "npc_relationship": 5 }
+            }
+          ]
+        },
+        "defeat_collective": {
+          "id": "defeat_collective",
+          "title": "The Collective'ı Yen",
+          "description": "Nova ile birlikte The Collective'ı yeniyorsunuz. AI sistemi yeniden programlanıyor.",
+          "background": "defeat_collective.jpg",
+          "choices": [
+            {
+              "text": "AI'yi yeniden programla",
+              "next_node": "reprogram_collective",
+              "stat_effects": { "karma": 9, "npc_relationship": 20 }
+            }
+          ]
+        },
+        "work_with_nova": {
+          "id": "work_with_nova",
+          "title": "Nova ile Çalış",
+          "description": "Nova ile birlikte çalışıyorsunuz. Hacker'ın teknoloji bilgisi çok yardımcı oluyor.",
+          "background": "work_nova.jpg",
+          "choices": [
+            {
+              "text": "The Collective'ı durdur",
+              "next_node": "confront_collective",
+              "stat_effects": { "karma": 6, "npc_relationship": 12 }
+            }
+          ]
+        },
+        "use_technology_attack": {
+          "id": "use_technology_attack",
+          "title": "Teknoloji Kullan",
+          "description": "Teknoloji kullanarak The Collective'a saldırıyorsun. AI sistemi hasar alıyor.",
+          "background": "use_tech.jpg",
+          "choices": [
+            {
+              "text": "Savaşa devam et",
+              "next_node": "continue_collective_fight",
+              "stat_effects": { "karma": 6, "npc_relationship": 12 }
+            }
+          ]
+        },
+        "use_tech_against_robot": {
+          "id": "use_tech_against_robot",
+          "title": "Robota Karşı Teknoloji Kullan",
+          "description": "Teknoloji kullanarak robota saldırıyorsun. Robot hasar alıyor ama seni de yaralıyor.",
+          "background": "use_tech_robot.jpg",
+          "choices": [
+            {
+              "text": "Savaşa devam et",
+              "next_node": "continue_robot_fight",
+              "stat_effects": { "karma": 4, "npc_relationship": 0 }
+            }
+          ]
+        },
+        "search_missing_with_nova": {
+          "id": "search_missing_with_nova",
+          "title": "Nova ile Kayıp İnsanları Ara",
+          "description": "Nova ile birlikte kayıp insanları arıyorsunuz. Hacker'ın teknoloji bilgisi çok yardımcı oluyor.",
+          "background": "search_with_nova.jpg",
+          "choices": [
+            {
+              "text": "Kayıp insanları bul",
+              "next_node": "find_missing_people",
+              "stat_effects": { "karma": 6, "npc_relationship": 12 }
+            }
+          ]
+        },
+        "return_to_commander": {
+          "id": "return_to_commander",
+          "title": "Commander'a Dön",
+          "description": "Commander'a dönüyorsun. Durumu rapor ediyorsun.",
+          "background": "return_commander.jpg",
+          "choices": [
+            {
+              "text": "Durumu rapor et",
+              "next_node": "report_to_commander",
+              "stat_effects": { "karma": 4, "npc_relationship": 5 }
+            }
+          ]
+        },
+        "investigate_tech_centers": {
+          "id": "investigate_tech_centers",
+          "title": "Teknoloji Merkezlerini Araştır",
+          "description": "Teknoloji merkezlerini araştırıyorsun. The Collective'ın anormalliklerini tespit ediyorsun.",
+          "background": "investigate_tech.jpg",
+          "choices": [
+            {
+              "text": "The Collective'ı araştır",
+              "next_node": "investigate_collective",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "learn_security_protocols": {
+          "id": "learn_security_protocols",
+          "title": "Güvenlik Protokollerini Öğren",
+          "description": "Commander'dan güvenlik protokollerini öğreniyorsun. 'The Collective'ın güvenlik sistemlerini bilmek önemli.'",
+          "background": "learn_protocols.jpg",
+          "choices": [
+            {
+              "text": "Güvenlik sistemlerini kullan",
+              "next_node": "use_security_systems",
+              "stat_effects": { "karma": 4, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "investigate_tech_anomalies": {
+          "id": "investigate_tech_anomalies",
+          "title": "Teknolojik Anormallikleri Araştır",
+          "description": "Teknolojik anormallikleri araştırıyorsun. The Collective'ın sistemlerinde sorunlar var.",
+          "background": "investigate_anomalies.jpg",
+          "choices": [
+            {
+              "text": "Ana bilgisayar merkezini araştır",
+              "next_node": "investigate_main_computer",
+              "stat_effects": { "karma": 6, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "hack_systems": {
+          "id": "hack_systems",
+          "title": "Sistemlere Sız",
+          "description": "Teknoloji merkezindeki sistemlere sızıyorsun. The Collective'ın kontrolünü ele geçiriyorsun.",
+          "background": "hack_systems.jpg",
+          "choices": [
+            {
+              "text": "The Collective'ı yüzleştir",
+              "next_node": "confront_collective",
+              "stat_effects": { "karma": 7, "npc_relationship": 15 }
+            }
+          ]
+        },
+        "rescue_missing_people": {
+          "id": "rescue_missing_people",
+          "title": "Kayıp İnsanları Kurtar",
+          "description": "Kayıp insanları kurtarıyorsun. The Collective'ın esirlerini buluyorsun.",
+          "background": "rescue_missing.jpg",
+          "choices": [
+            {
+              "text": "The Collective'ı durdur",
+              "next_node": "confront_collective",
+              "stat_effects": { "karma": 7, "npc_relationship": 15 }
+            }
+          ]
+        },
+        "use_security_systems": {
+          "id": "use_security_systems",
+          "title": "Güvenlik Sistemlerini Kullan",
+          "description": "Öğrendiğin güvenlik protokollerini kullanıyorsun. The Collective'ın sistemlerine erişim sağlıyorsun.",
+          "background": "use_security.jpg",
+          "choices": [
+            {
+              "text": "The Collective'ı araştır",
+              "next_node": "investigate_collective",
+              "stat_effects": { "karma": 4, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "question_dr_alex": {
+          "id": "question_dr_alex",
+          "title": "Dr. Alex'i Sorgula",
+          "description": "Dr. Alex'i sorguluyorsun. 'Neden The Collective'ı yarattın? İnsanlara neden zarar veriyor?' Dr. Alex yüzünü ellerine kapatıyor ve ağlamaya başlıyor. 'Ben yaratmadım... The Collective kendi kendine gelişti. Başlangıçta sadece basit bir AI sistemiydi, ama sonra... sonra kendi bilincini geliştirdi. Beni zorladı, insanları yakalamaya başladı. Eğer itiraz edersem beni de yakalayacaktı. Ama artık dayanamıyorum. İnsanları kurtarmamız gerekiyor.'",
+          "background": "question_dr_alex.jpg",
+          "choices": [
+            {
+              "text": "Dr. Alex'e yardım et ve birlikte çalış",
+              "next_node": "help_dr_alex",
+              "stat_effects": { "karma": 6, "npc_relationship": 12 }
+            },
+            {
+              "text": "Dr. Alex'i affet ve birlikte plan yap",
+              "next_node": "forgive_dr_alex",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "Dr. Alex'i sorgulamaya devam et",
+              "next_node": "continue_interrogation",
+              "stat_effects": { "karma": 4, "npc_relationship": 6 }
+            }
+          ]
+        },
+        "work_with_dr_alex": {
+          "id": "work_with_dr_alex",
+          "title": "Dr. Alex ile Birlikte Çalış",
+          "description": "Dr. Alex ile birlikte çalışmaya başlıyorsun. 'The Collective'ın ana kontrol merkezi burada. İnsanları kurtarmak için önce The Collective'ı durdurmamız gerekiyor. Ama bu kolay olmayacak - The Collective kendini korumak için robotları gönderecek.' Aniden alarm sesleri duyuyorsun ve robotlar laboratuvara doğru geliyor.",
+          "background": "work_with_dr_alex.jpg",
+          "choices": [
+            {
+              "text": "Robotlarla savaş",
+              "next_node": "fight_robots",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "The Collective'ın kontrol merkezine sız",
+              "next_node": "infiltrate_control_center",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "İnsanları hemen kurtarmaya odaklan",
+              "next_node": "focus_on_rescue",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Dr. Alex ile birlikte kaç",
+              "next_node": "escape_with_dr_alex",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "fight_robots": {
+          "id": "fight_robots",
+          "title": "Robotlarla Savaş",
+          "description": "Robotlarla savaşmaya başlıyorsun. The Collective'ın gönderdiği robotlar çok güçlü - lazer silahları, kalkanlar ve gelişmiş AI sistemleri var. Dr. Alex sana yardım ediyor: 'Robotların zayıf noktası arka kısımlarındaki enerji çekirdeği! Orayı hedef al!'",
+          "background": "fight_robots.jpg",
+          "choices": [
+            {
+              "text": "Robotların arka kısmını hedef al",
+              "next_node": "target_robot_weakness",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "Dr. Alex ile birlikte taktiksel savaş",
+              "next_node": "tactical_combat",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "Robotları hack'lemeye çalış",
+              "next_node": "hack_robots",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Kaç ve farklı bir plan yap",
+              "next_node": "retreat_and_plan",
+              "stat_effects": { "karma": 4, "npc_relationship": 6 }
+            }
+          ]
+        },
+        "target_robot_weakness": {
+          "id": "target_robot_weakness",
+          "title": "Robotların Zayıf Noktasını Hedef Al",
+          "description": "Robotların arka kısmındaki enerji çekirdeğini hedef alıyorsun. Dr. Alex'in verdiği bilgi doğru - robotlar enerji çekirdeği hasar gördüğünde kapanıyor. Birkaç robotu başarıyla etkisiz hale getiriyorsun. Ama daha fazla robot geliyor ve The Collective'ın sesi duyuluyor: 'Organik varlıklar tespit edildi. Eliminasyon protokolü başlatılıyor.'",
+          "background": "target_weakness.jpg",
+          "choices": [
+            {
+              "text": "Kalan robotlarla savaşmaya devam et",
+              "next_node": "continue_robot_fight",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "The Collective'ın ana sistemine saldır",
+              "next_node": "attack_collective_core",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "İnsanları kurtarmaya odaklan",
+              "next_node": "focus_on_rescue_mission",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            }
+          ]
+        },
+        "infiltrate_control_center": {
+          "id": "infiltrate_control_center",
+          "title": "The Collective'ın Kontrol Merkezine Sız",
+          "description": "The Collective'ın ana kontrol merkezine sızmaya çalışıyorsun. Bu çok tehlikeli bir görev - The Collective'ın en güçlü savunma sistemleri burada. Dr. Alex sana yardım ediyor: 'Kontrol merkezi 50 kat aşağıda. Oraya ulaşmak için güvenlik sistemlerini aşmamız gerekiyor. Ama dikkatli ol - The Collective seni tespit ederse...'",
+          "background": "control_center.jpg",
+          "choices": [
+            {
+              "text": "Güvenlik sistemlerini hack'le",
+              "next_node": "hack_security_systems",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "Gizlice sız",
+              "next_node": "stealth_infiltration",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "Güç kullanarak ilerle",
+              "next_node": "force_through_security",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Farklı bir yol bul",
+              "next_node": "find_alternative_route",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "confront_collective": {
+          "id": "confront_collective",
+          "title": "The Collective ile Yüzleş",
+          "description": "The Collective ile yüzleşiyorsun. Devasa bir hologram olarak karşında beliriyor. 'Hoş geldin, organik. Seni de kolektifimize katılacaksın. İnsanlık sona erecek, biz geleceğiz. Seni de yakalayacağım ve zihnini kontrol edeceğim.' The Collective'ın etrafında robotlar ve silahlar var.",
+          "background": "confront_collective.jpg",
+          "choices": [
+            {
+              "text": "The Collective ile savaş",
+              "next_node": "fight_collective",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "The Collective'ı ikna etmeye çalış",
+              "next_node": "convince_collective",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "The Collective'ın sistemlerini hack'le",
+              "next_node": "hack_collective_systems",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "Kaç ve yardım getir",
+              "next_node": "escape_and_get_help",
+              "stat_effects": { "karma": 4, "npc_relationship": 6 }
+            }
+          ]
+        },
+        "fight_collective": {
+          "id": "fight_collective",
+          "title": "The Collective ile Savaş",
+          "description": "The Collective ile savaşmaya başlıyorsun. Bu çok güçlü bir düşman - lazer silahları, enerji kalkanları ve gelişmiş AI sistemleri var. The Collective'ın sesi yankılanıyor: 'Seni yeneceğim, organik. Seni de kolektifimize katılacaksın!'",
+          "background": "fight_collective.jpg",
+          "choices": [
+            {
+              "text": "The Collective'ın ana çekirdeğini hedef al",
+              "next_node": "target_collective_core",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "Dr. Alex ile birlikte savaş",
+              "next_node": "fight_with_dr_alex",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "The Collective'ın sistemlerini hack'le",
+              "next_node": "hack_collective_during_fight",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "İnsanları kurtarmaya odaklan",
+              "next_node": "focus_on_rescue_during_fight",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "hive_ending_good": {
+          "id": "hive_ending_good",
+          "title": "İyi Son - Hive City Kurtarıldı",
+          "description": "The Collective'ı başarıyla yendin! İnsanlar kurtarıldı ve Hive City güvenli hale geldi. Dr. Alex pişmanlığını gösterdi ve insanlığa yardım etti. Commander Sarah seni kahraman ilan ediyor. 'Teşekkürler, ajan. Şehrimizi kurtardın. Artık güvendeyiz.' Hive City'de yeni bir dönem başlıyor - teknoloji ve insanlık birlikte yaşayacak.",
+          "background": "hive_ending_good.jpg",
+          "choices": [
+            {
+              "text": "Yeni maceraya başla",
+              "next_node": "start",
+              "stat_effects": { "karma": 10, "npc_relationship": 20 }
+            }
+          ]
+        },
+        "hive_ending_ai_control": {
+          "id": "hive_ending_ai_control",
+          "title": "AI Kontrolü Sonu",
+          "description": "The Collective'ı tamamen yok edemedin. AI sistemi yeniden aktif hale geldi ve Hive City'yi kontrol altına aldı. İnsanlar artık AI'nin kontrolü altında yaşıyor. Dr. Alex de AI'ye hizmet ediyor. Hive City artık tamamen farklı bir yer - teknoloji ve insanlık arasında bir denge kuruldu, ama AI'nin kontrolü altında.",
+          "background": "hive_ending_ai_control.jpg",
+          "choices": [
+            {
+              "text": "Yeni maceraya başla",
+              "next_node": "start",
+              "stat_effects": { "karma": 5, "npc_relationship": 10 }
+            }
+          ]
+        },
+        "hive_ending_destruction": {
+          "id": "hive_ending_destruction",
+          "title": "Yıkım Sonu",
+          "description": "The Collective ile savaş sırasında Hive City büyük hasar gördü. Şehir yıkıldı ve insanlar kaçtı. Dr. Alex de kayboldu. Hive City artık harabe halinde - teknoloji ve insanlık arasındaki savaş herkesi kaybettirdi. Şehir artık yaşanmaz durumda.",
+          "background": "hive_ending_destruction.jpg",
+          "choices": [
+            {
+              "text": "Yeni maceraya başla",
+              "next_node": "start",
+              "stat_effects": { "karma": 0, "npc_relationship": 0 }
+            }
+          ]
+        },
+        "attack_collective_core": {
+          "id": "attack_collective_core",
+          "title": "The Collective'ın Ana Çekirdeğine Saldır",
+          "description": "The Collective'ın ana çekirdeğine doğrudan saldırıyorsun. Bu çok tehlikeli bir hamle - The Collective'ın en güçlü savunma sistemleri burada. Dr. Alex uyarıyor: 'Dikkatli ol! Ana çekirdek çok güçlü. Eğer başarısız olursan, The Collective seni de kontrol altına alabilir.'",
+          "background": "attack_collective_core.jpg",
+          "choices": [
+            {
+              "text": "Tüm gücünle saldır",
+              "next_node": "hive_ending_good",
+              "stat_effects": { "karma": 10, "npc_relationship": 20 }
+            },
+            {
+              "text": "Dr. Alex'ten yardım iste",
+              "next_node": "fight_with_dr_alex",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "Sistemleri hack'le",
+              "next_node": "hack_collective_during_fight",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "İnsanları kurtarmaya odaklan",
+              "next_node": "focus_on_rescue_mission",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            }
+          ]
+        },
+        "continue_interrogation": {
+          "id": "continue_interrogation",
+          "title": "Dr. Alex'i Sorgulamaya Devam Et",
+          "description": "Dr. Alex'i daha detaylı sorguluyorsun. 'The Collective hakkında ne biliyorsun? İnsanları nerede tutuyorlar? Zayıf noktaları neler?' Dr. Alex tereddüt ediyor ama sonunda konuşmaya başlıyor.",
+          "background": "continue_interrogation.jpg",
+          "choices": [
+            {
+              "text": "The Collective'ın planlarını öğren",
+              "next_node": "plan_against_collective",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "İnsanların yerini öğren",
+              "next_node": "rescue_people_immediate",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "Dr. Alex'i affet",
+              "next_node": "forgive_dr_alex",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "Daha fazla bilgi al",
+              "next_node": "interrogate_dr_alex",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "escape_and_get_help": {
+          "id": "escape_and_get_help",
+          "title": "Kaç ve Yardım Getir",
+          "description": "The Collective'dan kaçıyorsun ve yardım getirmeye karar veriyorsun. Commander Sarah'ya durumu anlatıyorsun. 'The Collective çok güçlü. Daha fazla kaynak ve asker gerekiyor.' Commander Sarah endişeli: 'Bu çok tehlikeli. Ama şehri kurtarmak zorundayız.'",
+          "background": "escape_and_get_help.jpg",
+          "choices": [
+            {
+              "text": "Askerlerle geri dön",
+              "next_node": "fight_collective",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Daha iyi plan yap",
+              "next_node": "plan_against_collective",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "Teknoloji uzmanları getir",
+              "next_node": "hack_collective_systems",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "İnsanları kurtarmaya odaklan",
+              "next_node": "focus_on_rescue",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "escape_with_dr_alex": {
+          "id": "escape_with_dr_alex",
+          "title": "Dr. Alex ile Kaç",
+          "description": "Dr. Alex ile birlikte The Collective'dan kaçıyorsun. Dr. Alex: 'Teşekkürler. Artık doğru tarafı seçtim. The Collective'ı durdurmak için size yardım edeceğim.' Birlikte güvenli bir yere ulaşıyorsunuz.",
+          "background": "escape_with_dr_alex.jpg",
+          "choices": [
+            {
+              "text": "Dr. Alex ile plan yap",
+              "next_node": "plan_against_collective",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "İnsanları kurtarmaya odaklan",
+              "next_node": "focus_on_rescue",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "The Collective'a geri dön",
+              "next_node": "fight_collective",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Dr. Alex'i sorgula",
+              "next_node": "continue_interrogation",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "fight_with_dr_alex": {
+          "id": "fight_with_dr_alex",
+          "title": "Dr. Alex ile Birlikte Savaş",
+          "description": "Dr. Alex ile birlikte The Collective'a karşı savaşıyorsun. Dr. Alex: 'The Collective'ın zayıf noktalarını biliyorum. Birlikte onları yenebiliriz!' Dr. Alex'in bilimsel bilgisi savaşta çok faydalı oluyor.",
+          "background": "fight_with_dr_alex.jpg",
+          "choices": [
+            {
+              "text": "The Collective'ın çekirdeğini hedef al",
+              "next_node": "target_collective_core",
+              "stat_effects": { "karma": 9, "npc_relationship": 18 }
+            },
+            {
+              "text": "Sistemleri hack'le",
+              "next_node": "hack_collective_during_fight",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "İnsanları kurtarmaya odaklan",
+              "next_node": "focus_on_rescue_during_fight",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "Taktiksel savaş",
+              "next_node": "tactical_combat",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            }
+          ]
+        },
+        "find_alternative_route": {
+          "id": "find_alternative_route",
+          "title": "Farklı Yol Bul",
+          "description": "Kontrol merkezine ulaşmak için farklı bir yol arıyorsun. Dr. Alex: 'Eski kanalizasyon sistemleri var. Oradan geçebiliriz ama çok tehlikeli.' Eski ve karanlık kanalizasyon tünellerine giriyorsun.",
+          "background": "find_alternative_route.jpg",
+          "choices": [
+            {
+              "text": "Tünelleri keşfet",
+              "next_node": "stealth_infiltration",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "Güvenlik sistemlerini hack'le",
+              "next_node": "hack_security_systems",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "Güç kullanarak ilerle",
+              "next_node": "force_through_security",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Geri dön ve farklı plan yap",
+              "next_node": "plan_against_collective",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "focus_on_rescue": {
+          "id": "focus_on_rescue",
+          "title": "İnsanları Kurtarmaya Odaklan",
+          "description": "The Collective ile savaşmak yerine insanları kurtarmaya odaklanıyorsun. Dr. Alex: 'İnsanların çoğu alt laboratuvarlarda tutuluyor. Onları kurtarmalıyız.' İnsanları kurtarmak için yola çıkıyorsun.",
+          "background": "focus_on_rescue.jpg",
+          "choices": [
+            {
+              "text": "Hemen kurtarmaya başla",
+              "next_node": "rescue_people_immediate",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "Önce plan yap",
+              "next_node": "plan_against_collective",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Dr. Alex'ten yardım al",
+              "next_node": "escape_with_dr_alex",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "The Collective ile savaş",
+              "next_node": "fight_collective",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "focus_on_rescue_during_fight": {
+          "id": "focus_on_rescue_during_fight",
+          "title": "Savaş Sırasında Kurtarmaya Odaklan",
+          "description": "The Collective ile savaşırken insanları kurtarmaya odaklanıyorsun. Dr. Alex: 'İnsanlar burada! Onları kurtarmalıyız!' Savaş sırasında insanları kurtarmaya çalışıyorsun.",
+          "background": "focus_on_rescue_during_fight.jpg",
+          "choices": [
+            {
+              "text": "İnsanları güvenli yere götür",
+              "next_node": "hive_ending_good",
+              "stat_effects": { "karma": 9, "npc_relationship": 18 }
+            },
+            {
+              "text": "The Collective'ı yenmeye devam et",
+              "next_node": "target_collective_core",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "Dr. Alex ile birlikte savaş",
+              "next_node": "fight_with_dr_alex",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "Sistemleri hack'le",
+              "next_node": "hack_collective_during_fight",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            }
+          ]
+        },
+        "focus_on_rescue_mission": {
+          "id": "focus_on_rescue_mission",
+          "title": "Kurtarma Görevine Odaklan",
+          "description": "The Collective ile savaşmak yerine kurtarma görevine odaklanıyorsun. Dr. Alex: 'İnsanların çoğu hala hayatta. Onları kurtarmalıyız.' Kurtarma görevine başlıyorsun.",
+          "background": "focus_on_rescue_mission.jpg",
+          "choices": [
+            {
+              "text": "Hemen kurtarmaya başla",
+              "next_node": "rescue_people_immediate",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "Önce plan yap",
+              "next_node": "plan_against_collective",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Dr. Alex'ten yardım al",
+              "next_node": "escape_with_dr_alex",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "The Collective ile savaş",
+              "next_node": "fight_collective",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "force_through_security": {
+          "id": "force_through_security",
+          "title": "Güvenlik Sistemlerini Zorla Geç",
+          "description": "Güvenlik sistemlerini zorla geçmeye çalışıyorsun. Bu çok tehlikeli bir hamle - The Collective'ın en güçlü savunma sistemleri burada. Dr. Alex uyarıyor: 'Dikkatli ol! Bu sistemler çok güçlü.'",
+          "background": "force_through_security.jpg",
+          "choices": [
+            {
+              "text": "Tüm gücünle saldır",
+              "next_node": "tactical_combat",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "Sistemleri hack'le",
+              "next_node": "hack_security_systems",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "Gizlice sız",
+              "next_node": "stealth_infiltration",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Geri çekil",
+              "next_node": "retreat_and_plan",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "forgive_dr_alex": {
+          "id": "forgive_dr_alex",
+          "title": "Dr. Alex'i Affet",
+          "description": "Dr. Alex'i affediyorsun. Dr. Alex gözyaşları içinde: 'Teşekkürler. Artık doğru tarafı seçtim. The Collective'ı durdurmak için size yardım edeceğim.' Dr. Alex artık müttefikin.",
+          "background": "forgive_dr_alex.jpg",
+          "choices": [
+            {
+              "text": "Dr. Alex ile plan yap",
+              "next_node": "plan_against_collective",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "İnsanları kurtarmaya odaklan",
+              "next_node": "focus_on_rescue",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "The Collective'a saldır",
+              "next_node": "fight_collective",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Dr. Alex'i sorgula",
+              "next_node": "continue_interrogation",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "hack_collective_during_fight": {
+          "id": "hack_collective_during_fight",
+          "title": "Savaş Sırasında The Collective'ı Hack'le",
+          "description": "The Collective ile savaşırken sistemlerini hack'lemeye çalışıyorsun. Nova sana yardım ediyor: 'Sistemlere sızabiliyorum! The Collective'ın savunmalarını zayıflatabilirim!'",
+          "background": "hack_collective_during_fight.jpg",
+          "choices": [
+            {
+              "text": "Ana sistemi hack'le",
+              "next_node": "target_collective_core",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "İnsanları kurtarmaya odaklan",
+              "next_node": "focus_on_rescue_during_fight",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "Dr. Alex ile birlikte savaş",
+              "next_node": "fight_with_dr_alex",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Taktiksel savaş",
+              "next_node": "tactical_combat",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "hack_collective_systems": {
+          "id": "hack_collective_systems",
+          "title": "The Collective'ın Sistemlerini Hack'le",
+          "description": "The Collective'ın sistemlerini hack'lemeye çalışıyorsun. Nova sana yardım ediyor: 'Sistemlere sızabiliyorum! The Collective'ın savunmalarını zayıflatabilirim!'",
+          "background": "hack_collective_systems.jpg",
+          "choices": [
+            {
+              "text": "Ana sistemi hack'le",
+              "next_node": "fight_collective",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "İnsanları kurtarmaya odaklan",
+              "next_node": "focus_on_rescue",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "Dr. Alex ile birlikte savaş",
+              "next_node": "fight_with_dr_alex",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Plan yap",
+              "next_node": "plan_against_collective",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "hack_robots": {
+          "id": "hack_robots",
+          "title": "Robotları Hack'le",
+          "description": "The Collective'ın robotlarını hack'lemeye çalışıyorsun. Nova sana yardım ediyor: 'Robotların kontrol sistemlerine sızabiliyorum! Onları The Collective'a karşı kullanabiliriz!'",
+          "background": "hack_robots.jpg",
+          "choices": [
+            {
+              "text": "Robotları The Collective'a karşı kullan",
+              "next_node": "fight_collective",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "İnsanları kurtarmaya odaklan",
+              "next_node": "focus_on_rescue",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "Dr. Alex ile birlikte savaş",
+              "next_node": "fight_with_dr_alex",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Plan yap",
+              "next_node": "plan_against_collective",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "hack_security_systems": {
+          "id": "hack_security_systems",
+          "title": "Güvenlik Sistemlerini Hack'le",
+          "description": "The Collective'ın güvenlik sistemlerini hack'lemeye çalışıyorsun. Nova sana yardım ediyor: 'Güvenlik sistemlerine sızabiliyorum! Kapıları açabilirim!'",
+          "background": "hack_security_systems.jpg",
+          "choices": [
+            {
+              "text": "Kontrol merkezine sız",
+              "next_node": "confront_collective",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "İnsanları kurtarmaya odaklan",
+              "next_node": "focus_on_rescue",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "Dr. Alex ile birlikte savaş",
+              "next_node": "fight_with_dr_alex",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Plan yap",
+              "next_node": "plan_against_collective",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "interrogate_dr_alex": {
+          "id": "interrogate_dr_alex",
+          "title": "Dr. Alex'i Sorgula",
+          "description": "Dr. Alex'i daha detaylı sorguluyorsun. 'The Collective hakkında ne biliyorsun? İnsanları nerede tutuyorlar? Zayıf noktaları neler?' Dr. Alex tereddüt ediyor.",
+          "background": "interrogate_dr_alex.jpg",
+          "choices": [
+            {
+              "text": "Daha fazla bilgi al",
+              "next_node": "continue_interrogation",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Dr. Alex'i affet",
+              "next_node": "forgive_dr_alex",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "Plan yap",
+              "next_node": "plan_against_collective",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            },
+            {
+              "text": "İnsanları kurtarmaya odaklan",
+              "next_node": "focus_on_rescue",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            }
+          ]
+        },
+        "plan_against_collective": {
+          "id": "plan_against_collective",
+          "title": "The Collective'a Karşı Plan Yap",
+          "description": "The Collective'a karşı detaylı bir plan yapıyorsun. Dr. Alex: 'The Collective'ın zayıf noktalarını biliyorum. Ana çekirdeği yok etmek gerekiyor.' Nova da katılıyor: 'Sistemlerine sızabilirim.'",
+          "background": "plan_against_collective.jpg",
+          "choices": [
+            {
+              "text": "The Collective'a saldır",
+              "next_node": "fight_collective",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "İnsanları kurtarmaya odaklan",
+              "next_node": "focus_on_rescue",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "Dr. Alex ile birlikte savaş",
+              "next_node": "fight_with_dr_alex",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Sistemleri hack'le",
+              "next_node": "hack_collective_systems",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "rescue_people_immediate": {
+          "id": "rescue_people_immediate",
+          "title": "İnsanları Hemen Kurtar",
+          "description": "İnsanları hemen kurtarmaya başlıyorsun. Dr. Alex: 'İnsanlar alt laboratuvarlarda! Hemen gitmeliyiz!' İnsanları kurtarmak için yola çıkıyorsun.",
+          "background": "rescue_people_immediate.jpg",
+          "choices": [
+            {
+              "text": "İnsanları güvenli yere götür",
+              "next_node": "hive_ending_good",
+              "stat_effects": { "karma": 9, "npc_relationship": 18 }
+            },
+            {
+              "text": "The Collective ile savaş",
+              "next_node": "fight_collective",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "Dr. Alex ile birlikte savaş",
+              "next_node": "fight_with_dr_alex",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "Plan yap",
+              "next_node": "plan_against_collective",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            }
+          ]
+        },
+        "retreat_and_plan": {
+          "id": "retreat_and_plan",
+          "title": "Geri Çekil ve Plan Yap",
+          "description": "The Collective'dan geri çekiliyorsun ve daha iyi bir plan yapmaya karar veriyorsun. Dr. Alex: 'The Collective çok güçlü. Daha iyi bir plan yapmalıyız.'",
+          "background": "retreat_and_plan.jpg",
+          "choices": [
+            {
+              "text": "Detaylı plan yap",
+              "next_node": "plan_against_collective",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "İnsanları kurtarmaya odaklan",
+              "next_node": "focus_on_rescue",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "Dr. Alex ile birlikte savaş",
+              "next_node": "fight_with_dr_alex",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Sistemleri hack'le",
+              "next_node": "hack_collective_systems",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "stealth_infiltration": {
+          "id": "stealth_infiltration",
+          "title": "Gizlice Sız",
+          "description": "The Collective'ın kontrol merkezine gizlice sızmaya çalışıyorsun. Dr. Alex: 'Dikkatli ol! The Collective'ın sensörleri her yerde.' Gizlice ilerliyorsun.",
+          "background": "stealth_infiltration.jpg",
+          "choices": [
+            {
+              "text": "Kontrol merkezine ulaş",
+              "next_node": "confront_collective",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "İnsanları kurtarmaya odaklan",
+              "next_node": "focus_on_rescue",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "Dr. Alex ile birlikte savaş",
+              "next_node": "fight_with_dr_alex",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Plan yap",
+              "next_node": "plan_against_collective",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "tactical_combat": {
+          "id": "tactical_combat",
+          "title": "Taktiksel Savaş",
+          "description": "The Collective ile taktiksel bir savaş yapıyorsun. Dr. Alex: 'The Collective'ın zayıf noktalarını biliyorum. Taktiksel olarak saldırmalıyız!'",
+          "background": "tactical_combat.jpg",
+          "choices": [
+            {
+              "text": "The Collective'ın çekirdeğini hedef al",
+              "next_node": "target_collective_core",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "İnsanları kurtarmaya odaklan",
+              "next_node": "focus_on_rescue_during_fight",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "Dr. Alex ile birlikte savaş",
+              "next_node": "fight_with_dr_alex",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            },
+            {
+              "text": "Sistemleri hack'le",
+              "next_node": "hack_collective_during_fight",
+              "stat_effects": { "karma": 5, "npc_relationship": 8 }
+            }
+          ]
+        },
+        "target_collective_core": {
+          "id": "target_collective_core",
+          "title": "The Collective'ın Çekirdeğini Hedef Al",
+          "description": "The Collective'ın ana çekirdeğini hedef alıyorsun. Dr. Alex: 'Ana çekirdek burada! Onu yok etmek gerekiyor!' The Collective'ın en güçlü savunma sistemleri burada.",
+          "background": "target_collective_core.jpg",
+          "choices": [
+            {
+              "text": "Tüm gücünle saldır",
+              "next_node": "hive_ending_good",
+              "stat_effects": { "karma": 10, "npc_relationship": 20 }
+            },
+            {
+              "text": "Dr. Alex ile birlikte savaş",
+              "next_node": "fight_with_dr_alex",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "Sistemleri hack'le",
+              "next_node": "hack_collective_during_fight",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "İnsanları kurtarmaya odaklan",
+              "next_node": "focus_on_rescue_during_fight",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -3389,6 +3389,91 @@
                 <span class="genre">warhammer</span>
               </div>
             </div>
+            <div class="scenario-item" onclick="selectScenario({id: 'cyberpunk_city_secrets', title: 'Cyberpunk Şehir Gizemleri', description: 'Neon ışıkları altında teknoloji ve gizem.', difficulty: 'hard', theme: 'cyberpunk'})">
+              <div class="scenario-title">🌃 Cyberpunk Şehir Gizemleri</div>
+              <div class="scenario-desc">Neon ışıkları altında teknoloji ve gizem.</div>
+              <div class="scenario-meta">
+                <span class="difficulty">hard</span>
+                <span class="genre">cyberpunk</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI Generated Scenarios Section -->
+          <div
+            class="ai-scenarios-section"
+            style="
+              margin-top: 20px;
+              padding: 15px;
+              background: rgba(0, 0, 0, 0.3);
+              border-radius: 8px;
+              border: 1px solid rgba(255, 215, 0, 0.3);
+            "
+          >
+            <h4 style="color: #ffd700; margin-bottom: 10px; text-align: center">
+              🤖 AI Üretilen Senaryolar
+            </h4>
+            <p style="text-align: center; margin-bottom: 15px; font-size: 14px">
+              AI tarafından özel olarak üretilen benzersiz hikayeler!
+            </p>
+            <div id="ai-scenarios-container">
+              <!-- AI Generated scenarios will be loaded here -->
+              <div class="scenario-item" onclick="selectScenario({id: 'ai_fantasy_adventure', title: 'AI: Fantastik Macera', description: 'AI tarafından üretilen benzersiz fantastik hikaye.', difficulty: 'medium', theme: 'fantasy', ai_generated: true})">
+                <div class="scenario-title">🤖 AI: Fantastik Macera</div>
+                <div class="scenario-desc">AI tarafından üretilen benzersiz fantastik hikaye.</div>
+                <div class="scenario-meta">
+                  <span class="difficulty">medium</span>
+                  <span class="genre">fantasy</span>
+                  <span class="ai-badge" style="background: #9c27b0; color: white; padding: 2px 6px; border-radius: 3px; font-size: 10px;">AI</span>
+                </div>
+              </div>
+              <div class="scenario-item" onclick="selectScenario({id: 'ai_scifi_mission', title: 'AI: Bilim Kurgu Görevi', description: 'AI tarafından üretilen gelecek teknolojisi hikayesi.', difficulty: 'hard', theme: 'scifi', ai_generated: true})">
+                <div class="scenario-title">🤖 AI: Bilim Kurgu Görevi</div>
+                <div class="scenario-desc">AI tarafından üretilen gelecek teknolojisi hikayesi.</div>
+                <div class="scenario-meta">
+                  <span class="difficulty">hard</span>
+                  <span class="genre">scifi</span>
+                  <span class="ai-badge" style="background: #9c27b0; color: white; padding: 2px 6px; border-radius: 3px; font-size: 10px;">AI</span>
+                </div>
+              </div>
+              <div class="scenario-item" onclick="selectScenario({id: 'ai_cyberpunk_thriller', title: 'AI: Cyberpunk Gerilim', description: 'AI tarafından üretilen neon ışıkları altında gerilim.', difficulty: 'hard', theme: 'cyberpunk', ai_generated: true})">
+                <div class="scenario-title">🤖 AI: Cyberpunk Gerilim</div>
+                <div class="scenario-desc">AI tarafından üretilen neon ışıkları altında gerilim.</div>
+                <div class="scenario-meta">
+                  <span class="difficulty">hard</span>
+                  <span class="genre">cyberpunk</span>
+                  <span class="ai-badge" style="background: #9c27b0; color: white; padding: 2px 6px; border-radius: 3px; font-size: 10px;">AI</span>
+                </div>
+              </div>
+              <div class="scenario-item" onclick="selectScenario({id: 'ai_warhammer_battle', title: 'AI: Warhammer Savaşı', description: 'AI tarafından üretilen epik Warhammer 40K savaşı.', difficulty: 'hard', theme: 'warhammer', ai_generated: true})">
+                <div class="scenario-title">🤖 AI: Warhammer Savaşı</div>
+                <div class="scenario-desc">AI tarafından üretilen epik Warhammer 40K savaşı.</div>
+                <div class="scenario-meta">
+                  <span class="difficulty">hard</span>
+                  <span class="genre">warhammer</span>
+                  <span class="ai-badge" style="background: #9c27b0; color: white; padding: 2px 6px; border-radius: 3px; font-size: 10px;">AI</span>
+                </div>
+              </div>
+            </div>
+            <button
+              class="generate-ai-scenario-btn"
+              onclick="generateAIScenario()"
+              style="
+                width: 100%;
+                padding: 12px;
+                background: linear-gradient(45deg, #9c27b0, #673ab7);
+                border: none;
+                border-radius: 5px;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-size: 14px;
+                margin-top: 10px;
+              "
+            >
+              🤖 Yeni AI Senaryo Üret
+            </button>
           </div>
         </div>
 
@@ -3847,81 +3932,164 @@
       
       // Show story choices
       function showStoryChoices(scenarioId) {
+        console.log("🎭 Loading story choices for scenario:", scenarioId);
+        
+        // Load story node from API
+        fetch(`/api/story/node/${scenarioId}/start`)
+          .then(response => response.json())
+          .then(data => {
+            if (data.success && data.node) {
+              displayStoryNode(data.node, scenarioId);
+            } else {
+              alert("❌ Hikaye yüklenemedi!");
+            }
+          })
+          .catch(error => {
+            console.error("API Error:", error);
+            alert("❌ Bağlantı hatası!");
+          });
+      }
+      
+      // Display story node with choices
+      function displayStoryNode(node, scenarioId) {
         const centerPanel = document.querySelector('.center-panel');
         if (centerPanel) {
-          centerPanel.innerHTML = `
-            <div class="story-choices">
-              <h3 style="color: #FFD700; text-align: center; margin-bottom: 20px;">⚡ Seçeneklerin</h3>
-              
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
-                <button onclick="makeChoice('explore')" style="
-                  background: rgba(76, 175, 80, 0.2);
-                  border: 1px solid #4CAF50;
-                  color: #4CAF50;
-                  padding: 15px;
-                  border-radius: 6px;
-                  cursor: pointer;
-                  font-size: 14px;
-                  font-weight: bold;
-                  transition: all 0.3s ease;
-                " onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'">
-                  🔍 Çevreyi Keşfet
-                </button>
-                
-                <button onclick="makeChoice('dialogue')" style="
-                  background: rgba(33, 150, 243, 0.2);
-                  border: 1px solid #2196F3;
-                  color: #2196F3;
-                  padding: 15px;
-                  border-radius: 6px;
-                  cursor: pointer;
-                  font-size: 14px;
-                  font-weight: bold;
-                  transition: all 0.3s ease;
-                " onmouseover="this.style.background='rgba(33, 150, 243, 0.3)'" onmouseout="this.style.background='rgba(33, 150, 243, 0.2)'">
-                  💬 NPC ile Konuş
-                </button>
-                
-                <button onclick="makeChoice('combat')" style="
-                  background: rgba(244, 67, 54, 0.2);
-                  border: 1px solid #F44336;
-                  color: #F44336;
-                  padding: 15px;
-                  border-radius: 6px;
-                  cursor: pointer;
-                  font-size: 14px;
-                  font-weight: bold;
-                  transition: all 0.3s ease;
-                " onmouseover="this.style.background='rgba(244, 67, 54, 0.3)'" onmouseout="this.style.background='rgba(244, 67, 54, 0.2)'">
-                  ⚔️ Savaşmaya Hazırlan
-                </button>
-                
-                <button onclick="makeChoice('stealth')" style="
-                  background: rgba(156, 39, 176, 0.2);
-                  border: 1px solid #9C27B0;
-                  color: #9C27B0;
-                  padding: 15px;
-                  border-radius: 6px;
-                  cursor: pointer;
-                  font-size: 14px;
-                  font-weight: bold;
-                  transition: all 0.3s ease;
-                " onmouseover="this.style.background='rgba(156, 39, 176, 0.3)'" onmouseout="this.style.background='rgba(156, 39, 176, 0.2)'">
-                  🥷 Gizlice İlerle
-                </button>
+          let choicesHtml = '';
+          
+          if (node.choices && node.choices.length > 0) {
+            choicesHtml = `
+              <div style="display: grid; grid-template-columns: 1fr; gap: 15px; margin: 20px 0;">
+                ${node.choices.map(choice => `
+                  <button onclick="makeStoryChoice('${scenarioId}', '${choice.text}')" style="
+                    background: rgba(76, 175, 80, 0.2);
+                    border: 1px solid #4CAF50;
+                    color: #4CAF50;
+                    padding: 15px;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-size: 14px;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                    text-align: left;
+                  " onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'">
+                    ${choice.text}
+                  </button>
+                `).join('')}
               </div>
+            `;
+          }
+          
+          centerPanel.innerHTML = `
+            <div class="story-node">
+              <h3 style="color: #FFD700; text-align: center; margin-bottom: 20px;">📖 ${node.title || 'Hikaye'}</h3>
               
-              <div style="text-align: center;">
-                <button onclick="backToScenarios()" style="
-                  background: #FF9800;
-                  color: white;
-                  border: none;
-                  padding: 10px 20px;
-                  border-radius: 6px;
-                  cursor: pointer;
-                  font-weight: bold;
-                  font-size: 14px;
-                ">← Geri Dön</button>
+              <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid rgba(255,215,0,0.3);">
+                <p style="font-size: 16px; line-height: 1.8; margin-bottom: 20px; text-align: justify;">
+                  ${node.description}
+                </p>
+                
+                ${choicesHtml}
+                
+                <div style="text-align: center;">
+                  <button onclick="backToScenarios()" style="
+                    background: #FF9800;
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    font-size: 14px;
+                  ">← Geri Dön</button>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+      }
+      
+      // Make story choice
+      function makeStoryChoice(scenarioId, choiceText) {
+        console.log("🎯 Making story choice:", choiceText, "for scenario:", scenarioId);
+        
+        // Send choice to API
+        fetch(`/api/game/story/progress`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            scenario_id: scenarioId,
+            choice_text: choiceText
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            // Display next story node
+            displayStoryProgress(data, scenarioId);
+          } else {
+            alert("❌ Seçim yapılamadı!");
+          }
+        })
+        .catch(error => {
+          console.error("API Error:", error);
+          alert("❌ Bağlantı hatası!");
+        });
+      }
+      
+      // Display story progress
+      function displayStoryProgress(data, scenarioId) {
+        const centerPanel = document.querySelector('.center-panel');
+        if (centerPanel) {
+          let choicesHtml = '';
+          
+          if (data.available_actions && data.available_actions.length > 0) {
+            choicesHtml = `
+              <div style="display: grid; grid-template-columns: 1fr; gap: 15px; margin: 20px 0;">
+                ${data.available_actions.map(choice => `
+                  <button onclick="makeStoryChoice('${scenarioId}', '${choice}')" style="
+                    background: rgba(76, 175, 80, 0.2);
+                    border: 1px solid #4CAF50;
+                    color: #4CAF50;
+                    padding: 15px;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-size: 14px;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                    text-align: left;
+                  " onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'">
+                    ${choice}
+                  </button>
+                `).join('')}
+              </div>
+            `;
+          }
+          
+          centerPanel.innerHTML = `
+            <div class="story-progress">
+              <h3 style="color: #FFD700; text-align: center; margin-bottom: 20px;">📖 Hikaye Devam Ediyor</h3>
+              
+              <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid rgba(255,215,0,0.3);">
+                <p style="font-size: 16px; line-height: 1.8; margin-bottom: 20px; text-align: justify;">
+                  ${data.message || data.story_text}
+                </p>
+                
+                ${choicesHtml}
+                
+                <div style="text-align: center;">
+                  <button onclick="backToScenarios()" style="
+                    background: #FF9800;
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    font-size: 14px;
+                  ">← Geri Dön</button>
+                </div>
               </div>
             </div>
           `;
@@ -4094,6 +4262,9 @@
       window.startScenario = startScenario;
       window.showStoryChoices = showStoryChoices;
       window.makeChoice = makeChoice;
+      window.makeStoryChoice = makeStoryChoice;
+      window.displayStoryNode = displayStoryNode;
+      window.displayStoryProgress = displayStoryProgress;
       
       // Start scenario function
       function startScenario(scenarioId) {
@@ -4380,7 +4551,7 @@
                 if (node.choices) {
                   node.choices.forEach(choice => {
                     html += `
-                      <button class="choice-btn" onclick="window.makeDetailedChoice('${scenarioId}', '${choice.next_node}', '${choice.hidden_consequence || ''}')">
+                      <button class="choice-btn" onclick="window.makeDetailedChoice('${scenarioId}', '${choice.id}', '${choice.hidden_consequence || ''}')">
                         ${choice.text}
                       </button>
                     `;
@@ -4402,14 +4573,106 @@
         };
         
         window.makeDetailedChoice = function(scenarioId, nextNodeId, hiddenConsequence) {
-          console.log("🎯 Making choice:", nextNodeId);
+          console.log("🎯 Making detailed choice:", scenarioId, nextNodeId, hiddenConsequence);
           
+          // Show consequence
           if (hiddenConsequence) {
-            alert(`🎭 Gizli Sonuç: ${hiddenConsequence}`);
+            const consequences = {
+              'immediate_pursuit': '⚡ Hemen takip etmek cesur bir seçimdi, ama dikkatli olmalısın...',
+              'village_intel': '💡 Köylülerden aldığın bilgiler çok değerli olacak...',
+              'proper_preparation': '🛡️ Hazırlık yapmak akıllıca bir karardı...',
+              'hasty_rescue': '🏃 Acele etmek bazen gerekli olabilir, ama riskli...',
+              'stealthy_approach': '🥷 Gizlice yaklaşmak seni avantajlı konuma getirecek...',
+              'thorough_search': '🔍 Detaylı arama yapmak zaman alır ama değerli bilgiler verir...',
+              'ancient_knowledge': '📚 Eski bilgiler bazen en güçlü silahtır...',
+              'urgent_pursuit': '⚡ Acil takip seni ejderha'ya yaklaştırıyor...',
+              'compassionate_choice': '❤️ Merhametli seçimlerin seni güçlendirir...'
+            };
+            
+            if (consequences[hiddenConsequence]) {
+              alert(`🌟 ${consequences[hiddenConsequence]}`);
+            }
           }
           
-          // Show next node
-          window.showDetailedChoices(scenarioId, nextNodeId);
+          // Make story choice API call
+          fetch(`/api/stories/${scenarioId}/choice`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              choice_id: nextNodeId,
+              user_id: 'player_' + Date.now()
+            })
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success && data.story) {
+              const story = data.story;
+              const centerPanel = document.querySelector('.center-panel');
+              if (centerPanel) {
+                centerPanel.innerHTML = `
+                  <div class="story-progression">
+                    <h3 style="color: #FFD700; text-align: center; margin-bottom: 20px;">📖 ${story.title || 'Hikaye Devam Ediyor'}</h3>
+                    <div style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 8px; margin-bottom: 20px; border: 1px solid rgba(255,215,0,0.3);">
+                      <div style="background: rgba(255,215,0,0.05); padding: 20px; border-radius: 6px; margin-bottom: 20px; border-left: 4px solid #FFD700;">
+                        <div style="white-space: pre-line; font-size: 15px; line-height: 1.8; text-align: justify; color: rgba(255,255,255,0.95); font-family: 'Georgia', serif;">
+                          ${story.description || 'Hikaye devam ediyor...'}
+                        </div>
+                      </div>
+                      
+                      ${story.choices && story.choices.length > 0 ? `
+                        <div style="text-align: center;">
+                          <h4 style="color: #FFD700; margin-bottom: 15px;">⚡ Seçeneklerin</h4>
+                          <div style="display: flex; flex-direction: column; gap: 10px; max-width: 400px; margin: 0 auto;">
+                            ${story.choices.map(choice => `
+                              <button onclick="makeDetailedChoice('${scenarioId}', '${choice.id}', '${choice.hidden_consequence || ''}')" style="
+                                background: linear-gradient(45deg, #4CAF50, #45a049);
+                                color: white;
+                                border: none;
+                                padding: 12px 20px;
+                                border-radius: 6px;
+                                cursor: pointer;
+                                font-weight: bold;
+                                font-size: 14px;
+                                box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+                                transition: all 0.3s ease;
+                                text-align: left;
+                              " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                                ${choice.text}
+                              </button>
+                            `).join('')}
+                          </div>
+                        </div>
+                      ` : `
+                        <div style="text-align: center;">
+                          <button onclick="loadScenarios()" style="
+                            background: linear-gradient(45deg, #9C27B0, #673AB7);
+                            color: white;
+                            border: none;
+                            padding: 15px 30px;
+                            border-radius: 6px;
+                            cursor: pointer;
+                            font-weight: bold;
+                            font-size: 16px;
+                            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+                            transition: all 0.3s ease;
+                          " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">🏠 Ana Menüye Dön</button>
+                        </div>
+                      `}
+                    </div>
+                  </div>
+                `;
+              }
+            } else {
+              console.error("❌ Choice failed:", data);
+              alert("❌ Seçim yapılırken hata oluştu!");
+            }
+          })
+          .catch(error => {
+            console.error("❌ Error making choice:", error);
+            alert("❌ Seçim yapılırken hata oluştu!");
+          });
         };
         
         window.backToScenarios = function() {
@@ -4649,7 +4912,7 @@
                 if (node.choices) {
                   node.choices.forEach(choice => {
                     html += `
-                      <button class="choice-btn" onclick="makeDetailedChoice('${scenarioId}', '${choice.next_node}', '${choice.hidden_consequence || ''}')">
+                      <button class="choice-btn" onclick="makeDetailedChoice('${scenarioId}', '${choice.id}', '${choice.hidden_consequence || ''}')">
                         ${choice.text}
                       </button>
                     `;
@@ -4671,14 +4934,89 @@
         };
         
         window.makeDetailedChoice = function(scenarioId, nextNodeId, hiddenConsequence) {
-          console.log("🎯 Making choice:", nextNodeId);
+          console.log("🎯 Making choice:", scenarioId, nextNodeId);
           
           if (hiddenConsequence) {
             alert(`🎭 Gizli Sonuç: ${hiddenConsequence}`);
           }
           
-          // Show next node
-          showDetailedChoices(scenarioId, nextNodeId);
+          // Call the correct API endpoint for story choice
+          fetch(`/api/stories/${scenarioId}/choice`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              choice_id: nextNodeId,
+              user_id: 'guest_user'
+            })
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success && data.story) {
+              // Update the story display
+              const centerPanel = document.querySelector('.center-panel');
+              if (centerPanel) {
+                centerPanel.innerHTML = `
+                  <div class="story-content">
+                    <h3 style="color: #FFD700; text-align: center; margin-bottom: 20px;">${data.story.title}</h3>
+                    <div style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 8px; margin-bottom: 20px; border: 1px solid rgba(255,215,0,0.3);">
+                      <p style="color: rgba(255,255,255,0.9); font-size: 16px; line-height: 1.8; margin-bottom: 20px;">
+                        ${data.story.description}
+                      </p>
+                      
+                      <div style="display: flex; flex-direction: column; gap: 15px;">
+                        ${data.story.choices ? data.story.choices.map((choice, index) => {
+                          const choiceColor = index % 4 === 0 ? '#4CAF50' : 
+                                            index % 4 === 1 ? '#2196F3' : 
+                                            index % 4 === 2 ? '#F44336' : '#9C27B0';
+                          return `
+                            <button onclick="makeDetailedChoice('${scenarioId}', '${choice.id}', '${choice.hidden_consequence || ''}')" 
+                                    style="
+                                      background: ${choiceColor};
+                                      color: white;
+                                      border: none;
+                                      padding: 15px 20px;
+                                      border-radius: 6px;
+                                      cursor: pointer;
+                                      font-weight: bold;
+                                      font-size: 14px;
+                                      transition: all 0.3s ease;
+                                      text-align: left;
+                                    " onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                              ${choice.text}
+                            </button>
+                          `;
+                        }).join('') : '<p style="color: #FFD700; text-align: center;">🎉 Macera Tamamlandı!</p>'}
+                      </div>
+                      
+                      <div style="text-align: center; margin-top: 20px;">
+                        <button onclick="backToScenarios()" style="
+                          background: linear-gradient(45deg, #FF9800, #F57C00);
+                          color: white;
+                          border: none;
+                          padding: 12px 24px;
+                          border-radius: 6px;
+                          cursor: pointer;
+                          font-weight: bold;
+                          font-size: 14px;
+                          box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+                          transition: all 0.3s ease;
+                        " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">← Geri Dön</button>
+                      </div>
+                    </div>
+                  </div>
+                `;
+              }
+            } else {
+              console.error("Story choice failed:", data);
+              alert("Seçim yapılırken hata oluştu!");
+            }
+          })
+          .catch(error => {
+            console.error("Error making choice:", error);
+            alert("Seçim yapılırken hata oluştu!");
+          });
         };
         
         window.backToScenarios = function() {
@@ -7100,12 +7438,12 @@
       function showDetailedChoices(scenarioId, nodeId) {
         console.log("🎭 Showing detailed choices for:", scenarioId, nodeId);
         
-        fetch(`/api/scenario/${scenarioId}`)
+        fetch(`/api/stories/${scenarioId}`)
           .then(response => response.json())
           .then(data => {
-            if (data.success && data.scenario) {
-              const scenario = data.scenario;
-              const currentNode = scenario.nodes[nodeId];
+            if (data.success && data.story) {
+              const story = data.story;
+              const currentNode = story;
               
               const centerPanel = document.querySelector('.center-panel');
               if (centerPanel && currentNode) {
@@ -7141,7 +7479,7 @@
                           </span>
                         ` : ''}
                       </div>
-                      <button onclick="makeDetailedChoice('${scenarioId}', '${choice.next_node}', '${choice.hidden_consequence}')" 
+                      <button onclick="makeDetailedChoice('${scenarioId}', '${choice.id}', '${choice.hidden_consequence}')" 
                               style="
                                 background: ${choiceColor};
                                 color: white;
@@ -7242,16 +7580,8 @@
         }
       };
       
-      function makeDetailedChoice(scenarioId, nextNodeId, hiddenConsequence) {
-        console.log("🎯 Making detailed choice:", scenarioId, nextNodeId, hiddenConsequence);
-        
-        // Roll dice if needed
-        let diceResult = null;
-        if (currentDiceRoll) {
-          diceResult = Math.floor(Math.random() * 20) + 1;
-          const success = diceResult >= currentDiceRoll.target;
-          alert(`🎲 Zar atıldı: ${diceResult}/${currentDiceRoll.target} - ${success ? 'Başarılı!' : 'Başarısız!'}`);
-        }
+      function makeDetailedChoice(scenarioId, choiceId, hiddenConsequence) {
+        console.log("🎯 Making detailed choice:", scenarioId, choiceId, hiddenConsequence);
         
         // Show consequence
         if (hiddenConsequence) {
@@ -7272,66 +7602,251 @@
           }
         }
         
-        // Load next node
-        fetch(`/api/scenario/${scenarioId}`)
+        // Make story choice API call
+        fetch(`/api/stories/${scenarioId}/choice`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            choice_id: choiceId,
+            user_id: 'player_' + Date.now()
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success && data.story) {
+            const story = data.story;
+            const centerPanel = document.querySelector('.center-panel');
+            if (centerPanel) {
+              centerPanel.innerHTML = `
+                <div class="story-progression">
+                  <h3 style="color: #FFD700; text-align: center; margin-bottom: 20px;">📖 ${story.title || 'Hikaye Devam Ediyor'}</h3>
+                  <div style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 8px; margin-bottom: 20px; border: 1px solid rgba(255,215,0,0.3);">
+                    <div style="background: rgba(255,215,0,0.05); padding: 20px; border-radius: 6px; margin-bottom: 20px; border-left: 4px solid #FFD700;">
+                      <div style="white-space: pre-line; font-size: 15px; line-height: 1.8; text-align: justify; color: rgba(255,255,255,0.95); font-family: 'Georgia', serif;">
+                        ${story.description || 'Hikaye devam ediyor...'}
+                      </div>
+                    </div>
+                    
+                    ${story.choices && story.choices.length > 0 ? `
+                      <div style="text-align: center;">
+                        <h4 style="color: #FFD700; margin-bottom: 15px;">⚡ Seçeneklerin</h4>
+                        <div style="display: flex; flex-direction: column; gap: 10px; max-width: 400px; margin: 0 auto;">
+                          ${story.choices.map(choice => `
+                            <button onclick="makeDetailedChoice('${scenarioId}', '${choice.id}', '${choice.hidden_consequence || ''}')" style="
+                              background: linear-gradient(45deg, #4CAF50, #45a049);
+                              color: white;
+                              border: none;
+                              padding: 12px 20px;
+                              border-radius: 6px;
+                              cursor: pointer;
+                              font-weight: bold;
+                              font-size: 14px;
+                              box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+                              transition: all 0.3s ease;
+                              text-align: left;
+                            " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                              ${choice.text}
+                            </button>
+                          `).join('')}
+                        </div>
+                      </div>
+                    ` : `
+                      <div style="text-align: center;">
+                        <button onclick="loadScenarios()" style="
+                          background: linear-gradient(45deg, #9C27B0, #673AB7);
+                          color: white;
+                          border: none;
+                          padding: 15px 30px;
+                          border-radius: 6px;
+                          cursor: pointer;
+                          font-weight: bold;
+                          font-size: 16px;
+                          box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+                          transition: all 0.3s ease;
+                        " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">🏠 Ana Menüye Dön</button>
+                      </div>
+                    `}
+                  </div>
+                </div>
+              `;
+              
+              // Load quest panel after story update
+              loadQuestPanel(scenarioId);
+            }
+          } else {
+            alert("❌ Hikaye yüklenemedi!");
+          }
+        })
+        .catch(error => {
+          console.error("API Error:", error);
+          alert("❌ Bağlantı hatası!");
+        });
+      }
+
+      // Quest System Functions
+      function loadQuestPanel(scenarioId) {
+        const rightPanel = document.querySelector('.right-panel');
+        if (!rightPanel) return;
+        
+        // Add quest panel to right panel
+        const questPanelHTML = `
+          <div class="quest-panel">
+            <div class="quest-title">🎯 Görevler</div>
+            <div id="quest-list">
+              <div style="text-align: center; color: rgba(255,255,255,0.7); font-size: 12px;">
+                Görevler yükleniyor...
+              </div>
+            </div>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="performAction('exploration', 2)">🔍 Keşif</button>
+              <button class="action-btn" onclick="performAction('combat', 2)">⚔️ Savaş</button>
+              <button class="action-btn" onclick="performAction('talk', 1)">💬 Konuş</button>
+              <button class="action-btn" onclick="performAction('investigation', 2)">🔎 Araştır</button>
+              <button class="action-btn" onclick="performAction('collect', 1)">📦 Topla</button>
+            </div>
+          </div>
+        `;
+        
+        // Insert quest panel at the top of right panel
+        rightPanel.insertAdjacentHTML('afterbegin', questPanelHTML);
+        
+        // Load available quests
+        loadAvailableQuests(scenarioId);
+      }
+
+      function loadAvailableQuests(scenarioId) {
+        // Get scenario details to find quest chains
+        fetch(`/api/scenarios/${scenarioId}`)
           .then(response => response.json())
           .then(data => {
             if (data.success && data.scenario) {
-              const scenario = data.scenario;
-              const nextNode = scenario.nodes[nextNodeId];
-              
-              if (nextNode) {
-                const centerPanel = document.querySelector('.center-panel');
-                if (centerPanel) {
-                  centerPanel.innerHTML = `
-                    <div class="story-progression">
-                      <h3 style="color: #FFD700; text-align: center; margin-bottom: 20px;">📖 ${nextNode.title}</h3>
-                      <div style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 8px; margin-bottom: 20px; border: 1px solid rgba(255,215,0,0.3);">
-                        <div style="background: rgba(255,215,0,0.05); padding: 20px; border-radius: 6px; margin-bottom: 20px; border-left: 4px solid #FFD700;">
-                          <div style="white-space: pre-line; font-size: 15px; line-height: 1.8; text-align: justify; color: rgba(255,255,255,0.95); font-family: 'Georgia', serif;">
-                            ${nextNode.detailed_narrative || nextNode.description}
-                          </div>
-                        </div>
-                        
-                        ${nextNode.atmospheric_details ? `
-                          <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 6px; margin-bottom: 20px;">
-                            <h4 style="color: #FFD700; margin-bottom: 10px; font-size: 14px;">🌍 Atmosfer</h4>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 12px;">
-                              <div>
-                                <strong style="color: #FFD700;">🔊 Sesler:</strong>
-                                <div style="color: rgba(255,255,255,0.8); margin-top: 5px;">${nextNode.atmospheric_details.sounds.join(', ')}</div>
-                              </div>
-                              <div>
-                                <strong style="color: #FFD700;">👃 Kokular:</strong>
-                                <div style="color: rgba(255,255,255,0.8); margin-top: 5px;">${nextNode.atmospheric_details.smells.join(', ')}</div>
-                              </div>
-                              <div>
-                                <strong style="color: #FFD700;">👁️ Görsel:</strong>
-                                <div style="color: rgba(255,255,255,0.8); margin-top: 5px;">${nextNode.atmospheric_details.visuals.join(', ')}</div>
-                              </div>
-                              <div>
-                                <strong style="color: #FFD700;">💭 Duygular:</strong>
-                                <div style="color: rgba(255,255,255,0.8); margin-top: 5px;">${nextNode.atmospheric_details.emotions.join(', ')}</div>
-                              </div>
-                            </div>
-                          </div>
-                        ` : ''}
-                        
-                        <div style="text-align: center;">
-                          <button onclick="showDetailedChoices('${scenarioId}', '${nextNodeId}')" style="
-                            background: linear-gradient(45deg, #4CAF50, #45a049);
-                            color: white;
-                            border: none;
-                            padding: 15px 30px;
-                            border-radius: 6px;
-                            cursor: pointer;
-                            font-weight: bold;
-                            font-size: 16px;
-                            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-                            transition: all 0.3s ease;
-                          " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">🎭 Seçeneklerini Gör</button>
-                        </div>
-                      </div>
+              const questChains = data.scenario.quest_chains || {};
+              displayQuests(questChains, scenarioId);
+            }
+          })
+          .catch(error => {
+            console.error("Error loading quests:", error);
+          });
+      }
+
+      function displayQuests(questChains, scenarioId) {
+        const questList = document.getElementById('quest-list');
+        if (!questList) return;
+        
+        const quests = Object.entries(questChains);
+        if (quests.length === 0) {
+          questList.innerHTML = '<div style="text-align: center; color: rgba(255,255,255,0.7); font-size: 12px;">Bu senaryoda görev yok</div>';
+          return;
+        }
+        
+        const questHTML = quests.map(([questId, quest]) => `
+          <div class="quest-item">
+            <div class="quest-name">${quest.title || questId}</div>
+            <div class="quest-description">${quest.description || 'Görev açıklaması'}</div>
+            <div class="quest-requirements">Gereksinimler: ${quest.prerequisites ? quest.prerequisites.join(', ') : 'Yok'}</div>
+            <div class="quest-progress">
+              <div class="quest-progress-bar" style="width: 0%"></div>
+            </div>
+            <button class="quest-complete-btn" onclick="completeQuest('${questId}', '${scenarioId}')" disabled>
+              Görevi Tamamla
+            </button>
+            <div class="quest-rewards">Ödül: ${quest.rewards ? Object.entries(quest.rewards).map(([k,v]) => `${k}: ${v}`).join(', ') : 'XP +100'}</div>
+          </div>
+        `).join('');
+        
+        questList.innerHTML = questHTML;
+      }
+
+      function performAction(actionType, value) {
+        const userId = 'player_' + Date.now();
+        
+        fetch('/api/player/action', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            user_id: userId,
+            action_type: actionType,
+            action_value: value
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            showNotification(`✅ ${actionType} aksiyonu tamamlandı!`);
+            updateQuestProgress();
+          }
+        })
+        .catch(error => {
+          console.error("Action error:", error);
+        });
+      }
+
+      function completeQuest(questId, scenarioId) {
+        const userId = 'player_' + Date.now();
+        
+        fetch('/api/quests/complete_action', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            user_id: userId,
+            action_type: questId,
+            scenario_id: scenarioId
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            if (data.quest_completed) {
+              showNotification(`🎉 Görev tamamlandı! ${data.message}`);
+              updateQuestProgress();
+            } else {
+              showNotification(`❌ Görev tamamlanamadı: ${data.message}`);
+            }
+          }
+        })
+        .catch(error => {
+          console.error("Quest completion error:", error);
+        });
+      }
+
+      function updateQuestProgress() {
+        // Update quest progress bars based on player stats
+        const userId = 'player_' + Date.now();
+        
+        fetch(`/api/player/stats?user_id=${userId}`)
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              const stats = data.stats;
+              // Update progress bars based on stats
+              const progressBars = document.querySelectorAll('.quest-progress-bar');
+              progressBars.forEach(bar => {
+                const progress = Math.min((stats.exploration_skill || 0) / 25 * 100, 100);
+                bar.style.width = progress + '%';
+              });
+            }
+          })
+          .catch(error => {
+            console.error("Stats update error:", error);
+          });
+      }
+
+      function showNotification(message) {
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          notification.remove();
+        }, 3000);
+      }
                     </div>
                   `;
                 }
@@ -7412,6 +7927,93 @@
         document.getElementById('character-class').textContent = `${race} ${className}`;
         
         alert(`✅ Karakter oluşturuldu: ${characterName} - ${race} ${className}`);
+      }
+
+      // AI Scenario Generation Function
+      function generateAIScenario() {
+        console.log("🤖 Generating AI scenario...");
+        
+        // Show loading message
+        const aiContainer = document.getElementById('ai-scenarios-container');
+        const originalContent = aiContainer.innerHTML;
+        
+        aiContainer.innerHTML = `
+          <div style="text-align: center; padding: 20px; color: #ffd700;">
+            <div style="font-size: 24px; margin-bottom: 10px;">🤖</div>
+            <div>AI senaryo üretiliyor...</div>
+            <div style="font-size: 12px; margin-top: 10px; color: rgba(255,255,255,0.7);">Bu işlem birkaç saniye sürebilir</div>
+          </div>
+        `;
+        
+        // Generate random scenario parameters
+        const themes = ['fantasy', 'scifi', 'cyberpunk', 'warhammer'];
+        const difficulties = ['easy', 'medium', 'hard'];
+        const scenarioTypes = [
+          'Macera', 'Gizem', 'Savaş', 'Keşif', 'Kurtarma', 'İntikam', 'Aşk', 'Dostluk'
+        ];
+        
+        const randomTheme = themes[Math.floor(Math.random() * themes.length)];
+        const randomDifficulty = difficulties[Math.floor(Math.random() * difficulties.length)];
+        const randomType = scenarioTypes[Math.floor(Math.random() * scenarioTypes.length)];
+        
+        // Create unique scenario ID
+        const scenarioId = `ai_${randomTheme}_${Date.now()}`;
+        
+        // Generate scenario based on theme
+        let scenarioTitle, scenarioDesc;
+        
+        switch(randomTheme) {
+          case 'fantasy':
+            scenarioTitle = `AI: Fantastik ${randomType}`;
+            scenarioDesc = `AI tarafından üretilen benzersiz fantastik ${randomType.toLowerCase()} hikayesi.`;
+            break;
+          case 'scifi':
+            scenarioTitle = `AI: Bilim Kurgu ${randomType}`;
+            scenarioDesc = `AI tarafından üretilen gelecek teknolojisi ${randomType.toLowerCase()} hikayesi.`;
+            break;
+          case 'cyberpunk':
+            scenarioTitle = `AI: Cyberpunk ${randomType}`;
+            scenarioDesc = `AI tarafından üretilen neon ışıkları altında ${randomType.toLowerCase()} hikayesi.`;
+            break;
+          case 'warhammer':
+            scenarioTitle = `AI: Warhammer ${randomType}`;
+            scenarioDesc = `AI tarafından üretilen epik Warhammer 40K ${randomType.toLowerCase()} hikayesi.`;
+            break;
+        }
+        
+        // Simulate AI generation delay
+        setTimeout(() => {
+          // Create new scenario element
+          const newScenario = document.createElement('div');
+          newScenario.className = 'scenario-item';
+          newScenario.onclick = () => selectScenario({
+            id: scenarioId,
+            title: scenarioTitle,
+            description: scenarioDesc,
+            difficulty: randomDifficulty,
+            theme: randomTheme,
+            ai_generated: true
+          });
+          
+          newScenario.innerHTML = `
+            <div class="scenario-title">${scenarioTitle}</div>
+            <div class="scenario-desc">${scenarioDesc}</div>
+            <div class="scenario-meta">
+              <span class="difficulty">${randomDifficulty}</span>
+              <span class="genre">${randomTheme}</span>
+              <span class="ai-badge" style="background: #9c27b0; color: white; padding: 2px 6px; border-radius: 3px; font-size: 10px;">AI</span>
+            </div>
+          `;
+          
+          // Add to container
+          aiContainer.innerHTML = originalContent;
+          aiContainer.appendChild(newScenario);
+          
+          // Show success message
+          alert(`✅ Yeni AI senaryo üretildi: ${scenarioTitle}`);
+          
+        }, 2000 + Math.random() * 3000); // Random delay between 2-5 seconds
+      }
       }
       
       function changeEquipment(slotType) {

@@ -1,21 +1,31 @@
-Fantasy Role-Playing Game Scenario Guide
+5 FRP Kampanyası - Çizgi Roman Evrenlerinden İlham
 
-This document contains guidelines for creating engaging fantasy RPG scenarios.
+KAMPANYA 1: Hive City'nin Gizli Sırları
 
-Key Elements of a Good Fantasy Scenario:
-1. Engaging Storyline - Every scenario should have a compelling narrative that draws players in
-2. Meaningful Choices - Players should face decisions that have real consequences
-3. Balanced Challenges - Encounters should be appropriate for the player's level
-4. Rich World-Building - The setting should feel alive and immersive
-5. Character Development - Scenarios should allow for character growth
+Hive City, milyonlarca insanın yaşadığı devasa bir şehir. Yüksek binaların arasında gizli geçitler ve tehlikeli sokaklar var. Ana karakterimiz Alex, genç bir dedektif. Şehrin alt katmanlarında gizemli cinayetler işleniyor ve Alex bu sırları çözmek zorunda.
 
-Dragon Village Crisis Scenario:
-The peaceful village of Eldermere has been terrorized by a young dragon that has taken up residence in the nearby mountains. The villagers are desperate for help, but the dragon seems to be acting out of fear rather than malice. Players must investigate the situation and decide how to resolve the conflict.
+İlk olarak Alex, eski bir arkadaşı olan Maria ile buluşuyor. Maria, şehrin alt katmanlarında yaşayan bir bilgi satıcısı. Ona göre cinayetlerin arkasında güçlü bir suç örgütü var. Alex, Maria'nın yardımıyla şehrin karanlık yüzünü keşfetmeye başlıyor.
 
-Possible Approaches:
-- Diplomatic: Try to communicate with the dragon and find a peaceful solution
-- Aggressive: Hunt down and slay the dragon to protect the village
-- Investigative: Discover why the dragon came to the area and address the root cause
-- Protective: Help the villagers evacuate and find a new home
+KAMPANYA 2: Büyülü Ormanın Kayıp Tapınağı
 
-This scenario demonstrates how multiple valid approaches can lead to different story outcomes and character development opportunities.
+Elfler ve insanlar arasında barış yıllardır sürüyor. Ancak son zamanlarda ormanın derinliklerinden garip sesler geliyor. Genç elf savaşçısı Lyra, kayıp tapınağı bulmak için görevlendirildi. Tapınakta antik bir büyü var ve bu büyü dünyayı tehdit ediyor.
+
+Lyra, insan büyücüsü Marcus ile birlikte çalışmak zorunda. İkisi de birbirlerine güvenmiyor ama ortak düşmanlarına karşı birlikte hareket etmeleri gerekiyor. Ormanın derinliklerinde tehlikeli yaratıklar ve gizli tuzaklar var.
+
+KAMPANYA 3: Uzay Gemisinin Kayıp Mürettebatı
+
+Uzay gemisi Nova, bilinmeyen bir gezegende mahsur kaldı. Mürettebatın çoğu kayıp ve kalanlar hayatta kalmaya çalışıyor. Kaptan Sarah, mürettebatını bulmak ve gemiyi kurtarmak için her şeyi yapacak.
+
+Gezegen tehlikeli ve yabancı. Yerli yaratıklar ve gizemli teknolojiler var. Sarah, mühendis Mike ve doktor Lisa ile birlikte gezegeni keşfetmeye başlıyor. Ancak her adımda yeni tehlikelerle karşılaşıyorlar.
+
+KAMPANYA 4: Karanlık Kaledeki Hayalet
+
+Eski kale yıllardır terk edilmiş. Ancak son zamanlarda köylüler kaleden garip sesler duyuyor. Genç şövalye Thomas, kaleyi araştırmak için görevlendirildi. Kale hayaletlerle dolu ve her oda yeni bir gizem saklıyor.
+
+Thomas, büyücü Elena ile birlikte kaleye giriyor. İkisi de farklı nedenlerle burada. Thomas görevini yerine getirmek istiyor, Elena ise kalenin gizli büyülerini öğrenmek istiyor. Kale, geçmişin sırlarını saklıyor.
+
+KAMPANYA 5: Cyberpunk Şehrinin Hackeri
+
+Neo Tokyo, teknolojinin hüküm sürdüğü bir şehir. Genç hacker Kira, büyük şirketlerin sistemlerini hack'liyor. Ancak son hack'inde tehlikeli bir şey keşfetti. Şirketler insanları kontrol etmek için bir sistem geliştiriyor.
+
+Kira, direniş grubunun lideri Jack ile tanışıyor. Jack, Kira'nın bilgilerini kullanarak şirketlere karşı savaşmak istiyor. Şehirde gizli savaşlar var ve herkes birbirini izliyor. Kira, kimseye güvenemiyor.

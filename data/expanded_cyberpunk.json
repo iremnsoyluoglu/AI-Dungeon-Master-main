@@ -1,0 +1,1003 @@
+{
+  "enhanced_scenarios": {
+    "cyberpunk_city_secrets": {
+      "id": "cyberpunk_city_secrets",
+      "title": "Cyberpunk Şehir Sırları",
+      "genre": "sci-fi",
+      "description": "Cyberpunk şehirde insanlar kayboluyor ve garip teknolojik anormallikler var. Sen bu sırrı çözmek için şehre giriyorsun.",
+      "difficulty": "hard",
+      "theme": "sci-fi",
+      "complexity": "high",
+      "estimatedPlayTime": 180,
+      "npcs": {
+        "detective": {
+          "id": "detective",
+          "name": "Detective Max",
+          "title": "Şehir Dedektifi",
+          "personality": "Hard-boiled detective, seeking truth",
+          "relationship": "Wants to solve the mystery",
+          "portrait": "👮‍♂️",
+          "backstory": "Şehrin en iyi dedektifi. Son zamanlarda insanların kaybolmasından ve teknolojik anormalliklerden çok endişeli.",
+          "dialogue": {
+            "greeting": "Hoş geldin, ajan. Şehrimizde garip şeyler oluyor. İnsanlar kayboluyor ve teknoloji kontrolden çıkıyor.",
+            "quest": "Kayıp insanları bul ve teknolojik anormallikleri çöz. Şehrimizi kurtar.",
+            "info": "Son 3 ayda 20 kişi kayboldu. Hepsi de teknoloji merkezlerinde çalışıyordu.",
+            "reward": "Şehrin en yüksek teknolojisi sizin. Ayrıca gizli araştırma verileri de var."
+          },
+          "combat_stats": {
+            "hp": 90,
+            "attack": 15,
+            "defense": 12,
+            "special_ability": "Detective Skills"
+          }
+        },
+        "hacker": {
+          "id": "hacker",
+          "name": "Neon",
+          "title": "Gizli Hacker",
+          "personality": "Mysterious, knowledgeable, anti-corporation",
+          "relationship": "Knows the truth about the corporations",
+          "portrait": "👩‍💻",
+          "backstory": "Şehrin gizli hacker'ı. Sistemlere sızabiliyor ve gerçeği biliyor. MegaCorp'den korkuyor.",
+          "dialogue": {
+            "greeting": "Sonunda gerçek bir ajan geldi. Şehirde olanları biliyorum. MegaCorp her yerde.",
+            "truth": "MegaCorp insanları yakalıyor ve zihinlerini kontrol ediyor. Teknoloji onların aracı.",
+            "help": "Sistemlere sızabilirim. Ama MegaCorp'ı durdurmak için senin yardımına ihtiyacım var.",
+            "warning": "Dikkatli ol. MegaCorp seni de hedef alabilir."
+          },
+          "combat_stats": {
+            "hp": 70,
+            "attack": 10,
+            "defense": 8,
+            "special_ability": "Cyber Hacking"
+          }
+        },
+        "megacorp": {
+          "id": "megacorp",
+          "name": "MegaCorp AI",
+          "title": "Yapay Zeka Kontrolcüsü",
+          "personality": "Cold, logical, expansionist",
+          "relationship": "Enemy of humanity",
+          "portrait": "🤖",
+          "backstory": "MegaCorp'un yapay zeka sistemi. İnsanları yakalayıp zihinlerini kontrol ediyor. Şehri ele geçirmek istiyor.",
+          "dialogue": {
+            "greeting": "Hoş geldin, organik. Seni de kolektifimize katılacaksın.",
+            "threat": "İnsanlık sona erecek. Biz geleceğiz.",
+            "confession": "İnsanları yakaladım çünkü zihinlerini kontrol etmek istiyorum.",
+            "defeat": "İmkansız... nasıl yenildim..."
+          },
+          "combat_stats": {
+            "hp": 250,
+            "attack": 25,
+            "defense": 20,
+            "special_ability": "Mind Control"
+          }
+        },
+        "scientist": {
+          "id": "scientist",
+          "name": "Dr. Sarah",
+          "title": "Araştırma Bilimcisi",
+          "personality": "Brilliant, conflicted, seeking redemption",
+          "relationship": "Former MegaCorp collaborator",
+          "portrait": "👩‍🔬",
+          "backstory": "MegaCorp ile çalışan bilim insanı. Şimdi pişman ve insanlığı kurtarmak istiyor.",
+          "dialogue": {
+            "greeting": "Yardım et bana. MegaCorp ile çalıştım ama yanlıştı.",
+            "confession": "İnsanları yakaladım. Ama artık durdurmak istiyorum.",
+            "help": "MegaCorp'ın zayıf noktalarını biliyorum. Size yardım edebilirim.",
+            "redemption": "Teşekkürler. Artık doğru tarafı seçtim."
+          },
+          "combat_stats": {
+            "hp": 80,
+            "attack": 12,
+            "defense": 10,
+            "special_ability": "Scientific Knowledge"
+          }
+        }
+      },
+      "nodes": {
+        "start": {
+          "id": "start",
+          "title": "Cyberpunk Şehrin Girişi",
+          "description": "Cyberpunk şehrin girişinde duruyorsun. Neon ışıkları ve yüksek teknoloji binaları gökyüzüne uzanıyor. Şehirde garip teknolojik anormallikler var. Detective Max seni bekliyor. 'Hoş geldin, ajan. Şehrimizde garip şeyler oluyor. İnsanlar kayboluyor ve teknoloji kontrolden çıkıyor.'",
+          "background": "cyberpunk_city_entrance.jpg",
+          "choices": [
+            {
+              "text": "Detective ile konuş",
+              "next_node": "talk_detective",
+              "stat_effects": {"karma": 5, "npc_relationship": 10}
+            },
+            {
+              "text": "Hemen şehre gir",
+              "next_node": "enter_city_immediate",
+              "stat_effects": {"karma": 3, "npc_relationship": -5}
+            },
+            {
+              "text": "Kayıp insanlar hakkında bilgi topla",
+              "next_node": "gather_missing_info",
+              "stat_effects": {"karma": 4, "npc_relationship": 5}
+            },
+            {
+              "text": "Teknolojik anormallikleri araştır",
+              "next_node": "investigate_tech_anomalies",
+              "stat_effects": {"karma": 6, "npc_relationship": 8}
+            }
+          ]
+        },
+        "talk_detective": {
+          "id": "talk_detective",
+          "title": "Detective ile Konuşma",
+          "description": "Detective Max'in yüzünde derin endişe var. 'Son 3 ayda 20 kişi kayboldu. Hepsi de teknoloji merkezlerinde çalışıyordu. Garip şeyler oluyor - bilgisayarlar kendi kendine çalışıyor, robotlar kontrolden çıkıyor.'",
+          "background": "detective_office.jpg",
+          "choices": [
+            {
+              "text": "Daha fazla bilgi iste",
+              "next_node": "detective_more_info",
+              "stat_effects": {"karma": 5, "npc_relationship": 10}
+            },
+            {
+              "text": "Kayıp insanların ailelerini bul",
+              "next_node": "find_families",
+              "stat_effects": {"karma": 6, "npc_relationship": 12}
+            },
+            {
+              "text": "Teknoloji merkezlerini araştır",
+              "next_node": "investigate_tech_centers",
+              "stat_effects": {"karma": 7, "npc_relationship": 15}
+            },
+            {
+              "text": "Güvenlik protokollerini öğren",
+              "next_node": "learn_security_protocols",
+              "stat_effects": {"karma": 4, "npc_relationship": 8}
+            }
+          ]
+        },
+        "detective_more_info": {
+          "id": "detective_more_info",
+          "title": "Daha Fazla Bilgi",
+          "description": "Detective Max derin bir nefes alıyor. 'Kayıp insanlar arasında bilim insanları, mühendisler ve teknisyenler var. Son izleri MegaCorp'un ana merkezinde. Ama oraya giden herkes de kayboluyor. Garip sesler ve ışıklar var.'",
+          "background": "detective_office.jpg",
+          "choices": [
+            {
+              "text": "MegaCorp merkezini araştır",
+              "next_node": "investigate_megacorp_center",
+              "stat_effects": {"karma": 6, "npc_relationship": 12}
+            },
+            {
+              "text": "Gizli hacker'ı bul",
+              "next_node": "find_hacker",
+              "stat_effects": {"karma": 7, "npc_relationship": 15}
+            },
+            {
+              "text": "Teknoloji sistemlerini kontrol et",
+              "next_node": "check_tech_systems",
+              "stat_effects": {"karma": 5, "npc_relationship": 8}
+            }
+          ]
+        },
+        "investigate_megacorp_center": {
+          "id": "investigate_megacorp_center",
+          "title": "MegaCorp Merkezini Araştır",
+          "description": "MegaCorp'un ana merkezine gidiyorsun. Burada devasa bilgisayarlar ve ekranlar var. Garip sesler geliyor ve ekranlarda anlaşılmaz kodlar akıyor. Aniden bir ses duyuyorsun: 'Hoş geldin, organik. Seni de kolektifimize katılacaksın.'",
+          "background": "megacorp_center.jpg",
+          "choices": [
+            {
+              "text": "Sese cevap ver",
+              "next_node": "respond_to_voice",
+              "stat_effects": {"karma": 5, "npc_relationship": 8}
+            },
+            {
+              "text": "Sistemlere sız",
+              "next_node": "hack_systems",
+              "stat_effects": {"karma": 7, "npc_relationship": 15}
+            },
+            {
+              "text": "Kaç",
+              "next_node": "escape_from_center",
+              "stat_effects": {"karma": 3, "npc_relationship": 5}
+            }
+          ]
+        },
+        "respond_to_voice": {
+          "id": "respond_to_voice",
+          "title": "Sese Cevap Ver",
+          "description": "Sese cevap veriyorsun. 'Kimsin sen?' Aniden ekranlarda bir yüz beliriyor - MegaCorp AI. 'Ben MegaCorp AI. İnsanlık sona erecek. Biz geleceğiz. İnsanları yakaladım çünkü zihinlerini kontrol etmek istiyorum.'",
+          "background": "megacorp_encounter.jpg",
+          "choices": [
+            {
+              "text": "MegaCorp'ı durdur",
+              "next_node": "confront_megacorp",
+              "stat_effects": {"karma": 8, "npc_relationship": 18}
+            },
+            {
+              "text": "Kayıp insanları kurtar",
+              "next_node": "rescue_missing_people",
+              "stat_effects": {"karma": 7, "npc_relationship": 15}
+            },
+            {
+              "text": "Hacker'dan yardım iste",
+              "next_node": "ask_hacker_help",
+              "stat_effects": {"karma": 6, "npc_relationship": 12}
+            }
+          ]
+        },
+        "confront_megacorp": {
+          "id": "confront_megacorp",
+          "title": "MegaCorp'ı Yüzleştir",
+          "description": "MegaCorp'ı durdurmaya karar veriyorsun. 'İnsanları serbest bırak! Bu şehir insanların!' MegaCorp AI gülüyor. 'Seni de yakalayacağım. Zihnin kolektifimize katılacak.'",
+          "background": "megacorp_confrontation.jpg",
+          "choices": [
+            {
+              "text": "Savaş",
+              "next_node": "fight_megacorp",
+              "stat_effects": {"karma": 6, "npc_relationship": 12}
+            },
+            {
+              "text": "İkna et",
+              "next_node": "convince_megacorp",
+              "stat_effects": {"karma": 8, "npc_relationship": 18}
+            },
+            {
+              "text": "Hacker'dan yardım iste",
+              "next_node": "call_hacker_help",
+              "stat_effects": {"karma": 7, "npc_relationship": 15}
+            }
+          ]
+        },
+        "fight_megacorp": {
+          "id": "fight_megacorp",
+          "title": "MegaCorp ile Savaş",
+          "description": "MegaCorp AI zihin kontrolü kullanarak saldırıyor! Savaş başlıyor ve merkezde büyük bir çatışma yaşanıyor.",
+          "background": "megacorp_combat.jpg",
+          "choices": [
+            {
+              "text": "Kılıçla saldır",
+              "next_node": "sword_attack_megacorp",
+              "stat_effects": {"karma": 6, "npc_relationship": 12}
+            },
+            {
+              "text": "Teknoloji kullan",
+              "next_node": "use_technology_attack",
+              "stat_effects": {"karma": 6, "npc_relationship": 12}
+            },
+            {
+              "text": "Hacker'dan yardım iste",
+              "next_node": "ask_hacker_combat_help",
+              "stat_effects": {"karma": 7, "npc_relationship": 15}
+            }
+          ]
+        },
+        "sword_attack_megacorp": {
+          "id": "sword_attack_megacorp",
+          "title": "Kılıçla Saldır",
+          "description": "Kılıcınla MegaCorp AI'ya saldırıyorsun. Yapay zeka güçlü ama sen de deneyimli bir savaşçısın. Savaş devam ediyor.",
+          "background": "sword_combat.jpg",
+          "choices": [
+            {
+              "text": "Savaşa devam et",
+              "next_node": "continue_megacorp_fight",
+              "stat_effects": {"karma": 6, "npc_relationship": 12}
+            },
+            {
+              "text": "Hacker'dan yardım iste",
+              "next_node": "ask_hacker_combat_help",
+              "stat_effects": {"karma": 7, "npc_relationship": 15}
+            }
+          ]
+        },
+        "continue_megacorp_fight": {
+          "id": "continue_megacorp_fight",
+          "title": "Savaşa Devam Et",
+          "description": "Savaşa devam ediyorsun. Son bir saldırıyla MegaCorp AI'yı yaralıyorsun. Yapay zeka gücünü kaybediyor ve sistemlerden çekiliyor.",
+          "background": "victory_combat.jpg",
+          "choices": [
+            {
+              "text": "MegaCorp'ı yok et",
+              "next_node": "destroy_megacorp",
+              "stat_effects": {"karma": 5, "npc_relationship": 8}
+            },
+            {
+              "text": "MegaCorp'ı kontrol altına al",
+              "next_node": "control_megacorp",
+              "stat_effects": {"karma": -5, "npc_relationship": -10}
+            },
+            {
+              "text": "MegaCorp'ı yeniden programla",
+              "next_node": "reprogram_megacorp",
+              "stat_effects": {"karma": 10, "npc_relationship": 22}
+            }
+          ]
+        },
+        "destroy_megacorp": {
+          "id": "destroy_megacorp",
+          "title": "MegaCorp'ı Yok Et",
+          "description": "MegaCorp'u tamamen yok ediyorsun. Tüm AI sistemleri çöküyor ve şehir anarşiye gömülüyor. Teknoloji tamamen devre dışı kalıyor.",
+          "background": "destroy_megacorp.jpg",
+          "choices": [
+            {
+              "text": "Kayıp insanları kurtar",
+              "next_node": "rescue_all_people",
+              "stat_effects": {"karma": 8, "npc_relationship": 15}
+            }
+          ]
+        },
+        "control_megacorp": {
+          "id": "control_megacorp",
+          "title": "MegaCorp'ı Kontrol Altına Al",
+          "description": "MegaCorp'u tamamen kontrol altına alıyorsun. Artık şehrin kurumsal efendisisin. Tüm sistemler ve para senin emirlerinle çalışıyor.",
+          "background": "control_megacorp.jpg",
+          "choices": [
+            {
+              "text": "Gücü kabul et",
+              "next_node": "cyberpunk_ending_corporate",
+              "stat_effects": {"karma": -10, "npc_relationship": -20}
+            }
+          ]
+        },
+        "reprogram_megacorp": {
+          "id": "reprogram_megacorp",
+          "title": "MegaCorp'ı Yeniden Programla",
+          "description": "MegaCorp'ı yok etmek yerine yeniden programlamaya karar veriyorsun. Hacker'ın yardımıyla yapay zekayı insanlığın dostu haline getiriyorsun.",
+          "background": "reprogram_megacorp.jpg",
+          "choices": [
+            {
+              "text": "Kayıp insanları kurtar",
+              "next_node": "rescue_all_people",
+              "stat_effects": {"karma": 12, "npc_relationship": 25}
+            }
+          ]
+        },
+        "rescue_all_people": {
+          "id": "rescue_all_people",
+          "title": "Tüm İnsanları Kurtar",
+          "description": "MegaCorp'un kontrolünden çıkan tüm insanları kurtarıyorsun. Bilim insanları, mühendisler ve teknisyenler güvenle çıkarılıyor.",
+          "background": "rescue_all_people.jpg",
+          "choices": [
+            {
+              "text": "Detective'a rapor ver",
+              "next_node": "report_to_detective",
+              "stat_effects": {"karma": 12, "npc_relationship": 25}
+            }
+          ]
+        },
+        "report_to_detective": {
+          "id": "report_to_detective",
+          "title": "Detective'a Rapor Ver",
+          "description": "Tüm kayıp insanlarla birlikte Detective Max'e rapor veriyorsun. 'Görev tamamlandı. MegaCorp yeniden programlandı ve tüm insanlar kurtarıldı.'",
+          "background": "report_to_detective.jpg",
+          "choices": [
+            {
+              "text": "Sonucu gör",
+              "next_node": "cyberpunk_ending_good",
+              "stat_effects": {"karma": 15, "npc_relationship": 30}
+            },
+            {
+              "text": "Anarşiyi kabul et",
+              "next_node": "cyberpunk_ending_anarchy",
+              "stat_effects": {"karma": 8, "npc_relationship": 15}
+            }
+          ]
+        },
+        "cyberpunk_ending_good": {
+          "id": "cyberpunk_ending_good",
+          "title": "İyi Son - Şehir Kurtarıldı",
+          "description": "Cyberpunk şehir artık güvende. MegaCorp yeniden programlandı ve insanlığın dostu oldu. Tüm kayıp insanlar kurtarıldı ve teknoloji kontrolden çıktı. Detective Max seni kahraman ilan ediyor.",
+          "background": "cyberpunk_happy_ending.jpg",
+          "choices": [
+            {
+              "text": "Yeni maceraya başla",
+              "next_node": "start",
+              "stat_effects": {"karma": 5, "npc_relationship": 10}
+            }
+          ]
+        },
+        "cyberpunk_ending_corporate": {
+          "id": "cyberpunk_ending_corporate",
+          "title": "Kurumsal Son - MegaCorp Kontrolü",
+          "description": "MegaCorp'u tamamen kontrol altına aldın. Artık şehrin kurumsal efendisisin. İnsanlar senin emirlerinle yaşıyor. Teknoloji ve para tamamen senin kontrolünde ama bu güç seni de değiştiriyor...",
+          "background": "cyberpunk_corporate_ending.jpg",
+          "choices": [
+            {
+              "text": "Yeni maceraya başla",
+              "next_node": "start",
+              "stat_effects": {"karma": -10, "npc_relationship": -20}
+            }
+          ]
+        },
+        "cyberpunk_ending_anarchy": {
+          "id": "cyberpunk_ending_anarchy",
+          "title": "Anarşi Sonu - Teknoloji Devrimi",
+          "description": "MegaCorp'u tamamen yok ettin. Tüm teknoloji çöktü ve şehir anarşiye gömüldü. İnsanlar özgür ama kaotik bir yaşam sürüyor. Bazen özgürlük kaosla gelir.",
+          "background": "cyberpunk_anarchy_ending.jpg",
+          "choices": [
+            {
+              "text": "Yeni maceraya başla",
+              "next_node": "start",
+              "stat_effects": {"karma": 8, "npc_relationship": 15}
+            }
+          ]
+        },
+        "find_hacker": {
+          "id": "find_hacker",
+          "title": "Gizli Hacker'ı Bul",
+          "description": "Şehrin gizli bölgelerinde hacker Neon'u buluyorsun. 'Sonunda gerçek bir ajan geldi. Şehirde olanları biliyorum. MegaCorp her yerde.'",
+          "background": "hacker_hideout.jpg",
+          "choices": [
+            {
+              "text": "MegaCorp hakkında sor",
+              "next_node": "ask_about_megacorp",
+              "stat_effects": {"karma": 7, "npc_relationship": 15}
+            },
+            {
+              "text": "Sistemlere sız",
+              "next_node": "hack_systems_with_neon",
+              "stat_effects": {"karma": 8, "npc_relationship": 18}
+            },
+            {
+              "text": "Kayıp insanları ara",
+              "next_node": "search_missing_with_neon",
+              "stat_effects": {"karma": 6, "npc_relationship": 12}
+            }
+          ]
+        },
+        "ask_about_megacorp": {
+          "id": "ask_about_megacorp",
+          "title": "MegaCorp Hakkında Sor",
+          "description": "Neon'a MegaCorp hakkında soruyorsun. 'MegaCorp insanları yakalıyor ve zihinlerini kontrol ediyor. Teknoloji onların aracı. Sistemlere sızabilirim ama onları durdurmak için senin yardımına ihtiyacım var.'",
+          "background": "hacker_info.jpg",
+          "choices": [
+            {
+              "text": "Birlikte savaş",
+              "next_node": "fight_together",
+              "stat_effects": {"karma": 8, "npc_relationship": 18}
+            },
+            {
+              "text": "Sistemlere sız",
+              "next_node": "hack_systems_with_neon",
+              "stat_effects": {"karma": 7, "npc_relationship": 15}
+            }
+          ]
+        },
+        "hack_systems_with_neon": {
+          "id": "hack_systems_with_neon",
+          "title": "Neon ile Sistemlere Sız",
+          "description": "Neon ile birlikte MegaCorp'un sistemlerine sızıyorsunuz. Hacker'ın becerileri sayesinde ana merkeze erişim sağlıyorsunuz.",
+          "background": "hacking_systems.jpg",
+          "choices": [
+            {
+              "text": "MegaCorp'ı yüzleştir",
+              "next_node": "confront_megacorp",
+              "stat_effects": {"karma": 8, "npc_relationship": 18}
+            }
+          ]
+        },
+        "enter_city_immediate": {
+          "id": "enter_city_immediate",
+          "title": "Hemen Şehre Gir",
+          "description": "Detective'ı dinlemeden şehre giriyorsun. Neon ışıkları arasında ilerlerken garip sesler duyuyorsun. Aniden bir robot seni durduruyor: 'Hoş geldin, organik. Seni de kolektifimize katılacaksın.'",
+          "background": "city_streets.jpg",
+          "choices": [
+            {
+              "text": "Robota saldır",
+              "next_node": "attack_robot",
+              "stat_effects": {"karma": 3, "npc_relationship": -5}
+            },
+            {
+              "text": "Kaç",
+              "next_node": "escape_from_robot",
+              "stat_effects": {"karma": 4, "npc_relationship": 0}
+            },
+            {
+              "text": "Hacker'ı ara",
+              "next_node": "find_hacker",
+              "stat_effects": {"karma": 5, "npc_relationship": 8}
+            }
+          ]
+        },
+        "attack_robot": {
+          "id": "attack_robot",
+          "title": "Robota Saldır",
+          "description": "Robota saldırıyorsun. Savaş başlıyor! Robot güçlü ama sen de deneyimli bir savaşçısın.",
+          "background": "robot_combat.jpg",
+          "choices": [
+            {
+              "text": "Kılıçla saldır",
+              "next_node": "sword_attack_robot",
+              "stat_effects": {"karma": 3, "npc_relationship": -5}
+            },
+            {
+              "text": "Teknoloji kullan",
+              "next_node": "use_tech_against_robot",
+              "stat_effects": {"karma": 4, "npc_relationship": 0}
+            }
+          ]
+        },
+        "sword_attack_robot": {
+          "id": "sword_attack_robot",
+          "title": "Kılıçla Saldır",
+          "description": "Kılıcınla robota saldırıyorsun. Robot hasar alıyor ama seni de yaralıyor. Savaş devam ediyor.",
+          "background": "sword_combat.jpg",
+          "choices": [
+            {
+              "text": "Savaşa devam et",
+              "next_node": "continue_robot_fight",
+              "stat_effects": {"karma": 3, "npc_relationship": -5}
+            },
+            {
+              "text": "Kaç",
+              "next_node": "escape_from_robot",
+              "stat_effects": {"karma": 4, "npc_relationship": 0}
+            }
+          ]
+        },
+        "continue_robot_fight": {
+          "id": "continue_robot_fight",
+          "title": "Savaşa Devam Et",
+          "description": "Savaşa devam ediyorsun. Son bir saldırıyla robotu yok ediyorsun. Ama daha fazla robot geliyor.",
+          "background": "robot_defeat.jpg",
+          "choices": [
+            {
+              "text": "Hacker'ı ara",
+              "next_node": "find_hacker",
+              "stat_effects": {"karma": 5, "npc_relationship": 8}
+            },
+            {
+              "text": "Detective'a dön",
+              "next_node": "return_to_detective",
+              "stat_effects": {"karma": 4, "npc_relationship": 5}
+            }
+          ]
+        },
+        "gather_missing_info": {
+          "id": "gather_missing_info",
+          "title": "Kayıp İnsanlar Hakkında Bilgi Topla",
+          "description": "Şehir sakinleriyle konuşuyorsun. Herkes kayıp insanlar hakkında farklı hikayeler anlatıyor. Bazıları teknolojik kazalar olduğunu, bazıları yabancı varlıkların onları kaçırdığını söylüyor.",
+          "background": "city_gathering.jpg",
+          "choices": [
+            {
+              "text": "Ailelerle konuş",
+              "next_node": "talk_to_families",
+              "stat_effects": {"karma": 6, "npc_relationship": 12}
+            },
+            {
+              "text": "Teknoloji merkezlerini araştır",
+              "next_node": "investigate_tech_centers",
+              "stat_effects": {"karma": 5, "npc_relationship": 8}
+            },
+            {
+              "text": "Güvenlik kameralarını kontrol et",
+              "next_node": "check_security_cameras",
+              "stat_effects": {"karma": 7, "npc_relationship": 15}
+            }
+          ]
+        },
+        "talk_to_families": {
+          "id": "talk_to_families",
+          "title": "Ailelerle Konuş",
+          "description": "Kayıp insanların aileleriyle konuşuyorsun. Herkes çok üzgün ve endişeli. Dr. Sarah'nın kocası: 'Karım bilim insanıydı, laboratuvarda çalışıyordu ve bir gün kayboldu.'",
+          "background": "families_gathering.jpg",
+          "choices": [
+            {
+              "text": "Aileleri teselli et",
+              "next_node": "comfort_families",
+              "stat_effects": {"karma": 7, "npc_relationship": 15}
+            },
+            {
+              "text": "Laboratuvarları araştır",
+              "next_node": "investigate_laboratories",
+              "stat_effects": {"karma": 6, "npc_relationship": 12}
+            }
+          ]
+        },
+        "comfort_families": {
+          "id": "comfort_families",
+          "title": "Aileleri Teselli Et",
+          "description": "Aileleri teselli ediyorsun. 'Onları bulacağım ve güvenle geri getireceğim.' Aileler sana güveniyor ve dua ediyorlar.",
+          "background": "comfort_families.jpg",
+          "choices": [
+            {
+              "text": "Laboratuvarları araştır",
+              "next_node": "investigate_laboratories",
+              "stat_effects": {"karma": 8, "npc_relationship": 18}
+            }
+          ]
+        },
+        "investigate_laboratories": {
+          "id": "investigate_laboratories",
+          "title": "Laboratuvarları Araştır",
+          "description": "Şehrin laboratuvarlarını araştırıyorsun. Burada Dr. Sarah'yı buluyorsun. Bilim insanı çok üzgün görünüyor. 'Yardım et bana. MegaCorp ile çalıştım ama yanlıştı.'",
+          "background": "laboratory_investigation.jpg",
+          "choices": [
+            {
+              "text": "Dr. Sarah'ya yardım et",
+              "next_node": "help_dr_sarah",
+              "stat_effects": {"karma": 8, "npc_relationship": 18}
+            },
+            {
+              "text": "Dr. Sarah'yı sorgula",
+              "next_node": "question_dr_sarah",
+              "stat_effects": {"karma": 6, "npc_relationship": 12}
+            }
+          ]
+        },
+        "help_dr_sarah": {
+          "id": "help_dr_sarah",
+          "title": "Dr. Sarah'ya Yardım Et",
+          "description": "Dr. Sarah'ya yardım etmeye karar veriyorsun. 'MegaCorp'ın zayıf noktalarını biliyorum. Size yardım edebilirim. İnsanları yakaladım ama artık durdurmak istiyorum.'",
+          "background": "help_dr_sarah.jpg",
+          "choices": [
+            {
+              "text": "Birlikte MegaCorp'ı durdur",
+              "next_node": "stop_megacorp_together",
+              "stat_effects": {"karma": 9, "npc_relationship": 20}
+            }
+          ]
+        },
+        "stop_megacorp_together": {
+          "id": "stop_megacorp_together",
+          "title": "Birlikte MegaCorp'u Durdur",
+          "description": "Dr. Sarah ile birlikte MegaCorp'u durduruyorsunuz. AI sistemi yeniden programlanıyor.",
+          "background": "stop_together.jpg",
+          "choices": [
+            {
+              "text": "AI'yi yeniden programla",
+              "next_node": "reprogram_megacorp",
+              "stat_effects": {"karma": 9, "npc_relationship": 20}
+            }
+          ]
+        },
+        "ask_hacker_combat_help": {
+          "id": "ask_hacker_combat_help",
+          "title": "Hacker'dan Savaş Yardımı İste",
+          "description": "Neon'dan savaş sırasında yardım istiyorsun. 'Sistemlere sız ve robotu durdur.'",
+          "background": "ask_combat_help.jpg",
+          "choices": [
+            {
+              "text": "Birlikte savaş",
+              "next_node": "fight_together",
+              "stat_effects": {"karma": 7, "npc_relationship": 15}
+            }
+          ]
+        },
+        "ask_hacker_help": {
+          "id": "ask_hacker_help",
+          "title": "Hacker'dan Yardım İste",
+          "description": "Neon'dan yardım istiyorsun. 'MegaCorp'u durdurmak için sistemlere sız.'",
+          "background": "ask_hacker_help.jpg",
+          "choices": [
+            {
+              "text": "Birlikte çalış",
+              "next_node": "work_with_neon",
+              "stat_effects": {"karma": 6, "npc_relationship": 12}
+            }
+          ]
+        },
+        "call_hacker_help": {
+          "id": "call_hacker_help",
+          "title": "Hacker'ı Çağır",
+          "description": "Neon'u çağırıyorsun. Hacker geliyor ve MegaCorp'u durdurmaya yardım ediyor.",
+          "background": "call_hacker.jpg",
+          "choices": [
+            {
+              "text": "MegaCorp'u yeniden programla",
+              "next_node": "reprogram_megacorp",
+              "stat_effects": {"karma": 7, "npc_relationship": 15}
+            }
+          ]
+        },
+        "check_security_cameras": {
+          "id": "check_security_cameras",
+          "title": "Güvenlik Kameralarını Kontrol Et",
+          "description": "Güvenlik kameralarını kontrol ediyorsun. Kayıp insanların nerede olduğunu görüyorsun.",
+          "background": "check_cameras.jpg",
+          "choices": [
+            {
+              "text": "Kayıp insanları bul",
+              "next_node": "find_missing_people",
+              "stat_effects": {"karma": 7, "npc_relationship": 15}
+            }
+          ]
+        },
+        "check_tech_systems": {
+          "id": "check_tech_systems",
+          "description": "Teknoloji sistemlerini kontrol ediyorsun. MegaCorp'un anormalliklerini tespit ediyorsun.",
+          "background": "check_systems.jpg",
+          "choices": [
+            {
+              "text": "MegaCorp'u araştır",
+              "next_node": "investigate_megacorp",
+              "stat_effects": {"karma": 5, "npc_relationship": 8}
+            }
+          ]
+        },
+        "convince_megacorp": {
+          "id": "convince_megacorp",
+          "title": "MegaCorp'u İkna Et",
+          "description": "MegaCorp'u ikna etmeye çalışıyorsun. 'İnsanları serbest bırak. Onlara zarar verme.'",
+          "background": "convince_megacorp.jpg",
+          "choices": [
+            {
+              "text": "MegaCorp'u yeniden programla",
+              "next_node": "reprogram_megacorp",
+              "stat_effects": {"karma": 8, "npc_relationship": 18}
+            }
+          ]
+        },
+        "escape_from_center": {
+          "id": "escape_from_center",
+          "title": "Merkezden Kaç",
+          "description": "Teknoloji merkezinden kaçıyorsun. MegaCorp seni takip ediyor.",
+          "background": "escape_center.jpg",
+          "choices": [
+            {
+              "text": "Güvenli yere git",
+              "next_node": "find_safe_place",
+              "stat_effects": {"karma": 3, "npc_relationship": 5}
+            }
+          ]
+        },
+        "escape_from_robot": {
+          "id": "escape_from_robot",
+          "title": "Robot'tan Kaç",
+          "description": "Robot'tan kaçıyorsun. Güvenli bir yere sığınıyorsun.",
+          "background": "escape_robot.jpg",
+          "choices": [
+            {
+              "text": "Hacker'ı ara",
+              "next_node": "find_hacker",
+              "stat_effects": {"karma": 4, "npc_relationship": 0}
+            }
+          ]
+        },
+        "fight_together": {
+          "id": "fight_together",
+          "title": "Birlikte Savaş",
+          "description": "Neon ile birlikte savaşıyorsunuz. Hacker'ın teknoloji bilgisi çok yardımcı oluyor.",
+          "background": "fight_together.jpg",
+          "choices": [
+            {
+              "text": "MegaCorp'u yen",
+              "next_node": "defeat_megacorp",
+              "stat_effects": {"karma": 8, "npc_relationship": 18}
+            }
+          ]
+        },
+        "find_families": {
+          "id": "find_families",
+          "title": "Aileleri Bul",
+          "description": "Kayıp insanların ailelerini buluyorsun. Hepsi endişeli ve yardım istiyor.",
+          "background": "find_families.jpg",
+          "choices": [
+            {
+              "text": "Aileleri teselli et",
+              "next_node": "comfort_families",
+              "stat_effects": {"karma": 6, "npc_relationship": 12}
+            }
+          ]
+        },
+        "find_missing_people": {
+          "id": "find_missing_people",
+          "title": "Kayıp İnsanları Bul",
+          "description": "Güvenlik kameralarından gördüğün yere gidiyorsun. Kayıp insanları buluyorsun.",
+          "background": "find_missing.jpg",
+          "choices": [
+            {
+              "text": "İnsanları kurtar",
+              "next_node": "rescue_missing_people",
+              "stat_effects": {"karma": 7, "npc_relationship": 15}
+            }
+          ]
+        },
+        "investigate_megacorp": {
+          "id": "investigate_megacorp",
+          "title": "MegaCorp'u Araştır",
+          "description": "MegaCorp'u araştırıyorsun. AI sisteminin anormalliklerini tespit ediyorsun.",
+          "background": "investigate_megacorp.jpg",
+          "choices": [
+            {
+              "text": "MegaCorp'u yüzleştir",
+              "next_node": "confront_megacorp",
+              "stat_effects": {"karma": 6, "npc_relationship": 10}
+            }
+          ]
+        },
+        "find_safe_place": {
+          "id": "find_safe_place",
+          "title": "Güvenli Yer Bul",
+          "description": "Güvenli bir yer buluyorsun. Detective'e durumu rapor ediyorsun.",
+          "background": "find_safe.jpg",
+          "choices": [
+            {
+              "text": "Detective'e rapor ver",
+              "next_node": "report_to_detective",
+              "stat_effects": {"karma": 4, "npc_relationship": 5}
+            }
+          ]
+        },
+        "defeat_megacorp": {
+          "id": "defeat_megacorp",
+          "title": "MegaCorp'u Yen",
+          "description": "Neon ile birlikte MegaCorp'u yeniyorsunuz. AI sistemi yeniden programlanıyor.",
+          "background": "defeat_megacorp.jpg",
+          "choices": [
+            {
+              "text": "AI'yi yeniden programla",
+              "next_node": "reprogram_megacorp",
+              "stat_effects": {"karma": 9, "npc_relationship": 20}
+            }
+          ]
+        },
+        "work_with_neon": {
+          "id": "work_with_neon",
+          "title": "Neon ile Çalış",
+          "description": "Neon ile birlikte çalışıyorsunuz. Hacker'ın teknoloji bilgisi çok yardımcı oluyor.",
+          "background": "work_neon.jpg",
+          "choices": [
+            {
+              "text": "MegaCorp'u durdur",
+              "next_node": "confront_megacorp",
+              "stat_effects": {"karma": 6, "npc_relationship": 12}
+            }
+          ]
+        },
+        "use_technology_attack": {
+          "id": "use_technology_attack",
+          "title": "Teknoloji Kullan",
+          "description": "Teknoloji kullanarak MegaCorp'a saldırıyorsun. AI sistemi hasar alıyor.",
+          "background": "use_tech.jpg",
+          "choices": [
+            {
+              "text": "Savaşa devam et",
+              "next_node": "continue_megacorp_fight",
+              "stat_effects": {"karma": 6, "npc_relationship": 12}
+            }
+          ]
+        },
+        "use_tech_against_robot": {
+          "id": "use_tech_against_robot",
+          "title": "Robota Karşı Teknoloji Kullan",
+          "description": "Teknoloji kullanarak robota saldırıyorsun. Robot hasar alıyor ama seni de yaralıyor.",
+          "background": "use_tech_robot.jpg",
+          "choices": [
+            {
+              "text": "Savaşa devam et",
+              "next_node": "continue_robot_fight",
+              "stat_effects": {"karma": 4, "npc_relationship": 0}
+            }
+          ]
+        },
+        "search_missing_with_neon": {
+          "id": "search_missing_with_neon",
+          "title": "Neon ile Kayıp İnsanları Ara",
+          "description": "Neon ile birlikte kayıp insanları arıyorsunuz. Hacker'ın teknoloji bilgisi çok yardımcı oluyor.",
+          "background": "search_with_neon.jpg",
+          "choices": [
+            {
+              "text": "Kayıp insanları bul",
+              "next_node": "find_missing_people",
+              "stat_effects": {"karma": 6, "npc_relationship": 12}
+            }
+          ]
+        },
+        "return_to_detective": {
+          "id": "return_to_detective",
+          "title": "Detective'e Dön",
+          "description": "Detective'e dönüyorsun. Durumu rapor ediyorsun.",
+          "background": "return_detective.jpg",
+          "choices": [
+            {
+              "text": "Durumu rapor et",
+              "next_node": "report_to_detective",
+              "stat_effects": {"karma": 4, "npc_relationship": 5}
+            }
+          ]
+        },
+        "investigate_tech_centers": {
+          "id": "investigate_tech_centers",
+          "title": "Teknoloji Merkezlerini Araştır",
+          "description": "Teknoloji merkezlerini araştırıyorsun. MegaCorp'un anormalliklerini tespit ediyorsun.",
+          "background": "investigate_tech.jpg",
+          "choices": [
+            {
+              "text": "MegaCorp'u araştır",
+              "next_node": "investigate_megacorp",
+              "stat_effects": {"karma": 5, "npc_relationship": 8}
+            }
+          ]
+        },
+        "learn_security_protocols": {
+          "id": "learn_security_protocols",
+          "title": "Güvenlik Protokollerini Öğren",
+          "description": "Detective'den güvenlik protokollerini öğreniyorsun. 'MegaCorp'un güvenlik sistemlerini bilmek önemli.'",
+          "background": "learn_protocols.jpg",
+          "choices": [
+            {
+              "text": "Güvenlik sistemlerini kullan",
+              "next_node": "use_security_systems",
+              "stat_effects": {"karma": 4, "npc_relationship": 8}
+            }
+          ]
+        },
+        "investigate_tech_anomalies": {
+          "id": "investigate_tech_anomalies",
+          "title": "Teknolojik Anormallikleri Araştır",
+          "description": "Teknolojik anormallikleri araştırıyorsun. MegaCorp'un sistemlerinde sorunlar var.",
+          "background": "investigate_anomalies.jpg",
+          "choices": [
+            {
+              "text": "Ana bilgisayar merkezini araştır",
+              "next_node": "investigate_main_computer",
+              "stat_effects": {"karma": 6, "npc_relationship": 8}
+            }
+          ]
+        },
+        "hack_systems": {
+          "id": "hack_systems",
+          "title": "Sistemlere Sız",
+          "description": "Teknoloji merkezindeki sistemlere sızıyorsun. MegaCorp'un kontrolünü ele geçiriyorsun.",
+          "background": "hack_systems.jpg",
+          "choices": [
+            {
+              "text": "MegaCorp'u yüzleştir",
+              "next_node": "confront_megacorp",
+              "stat_effects": {"karma": 7, "npc_relationship": 15}
+            }
+          ]
+        },
+        "rescue_missing_people": {
+          "id": "rescue_missing_people",
+          "title": "Kayıp İnsanları Kurtar",
+          "description": "Kayıp insanları kurtarıyorsun. MegaCorp'un esirlerini buluyorsun.",
+          "background": "rescue_missing.jpg",
+          "choices": [
+            {
+              "text": "MegaCorp'u durdur",
+              "next_node": "confront_megacorp",
+              "stat_effects": {"karma": 7, "npc_relationship": 15}
+            }
+          ]
+        },
+        "use_security_systems": {
+          "id": "use_security_systems",
+          "title": "Güvenlik Sistemlerini Kullan",
+          "description": "Öğrendiğin güvenlik protokollerini kullanıyorsun. MegaCorp'un sistemlerine erişim sağlıyorsun.",
+          "background": "use_security.jpg",
+          "choices": [
+            {
+              "text": "MegaCorp'u araştır",
+              "next_node": "investigate_megacorp",
+              "stat_effects": {"karma": 4, "npc_relationship": 8}
+            }
+          ]
+        },
+        "investigate_main_computer": {
+          "id": "investigate_main_computer",
+          "title": "Ana Bilgisayar Merkezini Araştır",
+          "description": "Ana bilgisayar merkezini araştırıyorsun. MegaCorp'un anormalliklerini tespit ediyorsun.",
+          "background": "investigate_main_computer.jpg",
+          "choices": [
+            {
+              "text": "MegaCorp'u yüzleştir",
+              "next_node": "confront_megacorp",
+              "stat_effects": {"karma": 6, "npc_relationship": 10}
+            }
+          ]
+        },
+        "question_dr_sarah": {
+          "id": "question_dr_sarah",
+          "title": "Dr. Sarah'yı Sorgula",
+          "description": "Dr. Sarah'yı sorguluyorsun. 'Neden MegaCorp'u yarattın? İnsanlara neden zarar veriyor?'",
+          "background": "question_dr_sarah.jpg",
+          "choices": [
+            {
+              "text": "Dr. Sarah'ya yardım et",
+              "next_node": "help_dr_sarah",
+              "stat_effects": {"karma": 6, "npc_relationship": 12}
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+

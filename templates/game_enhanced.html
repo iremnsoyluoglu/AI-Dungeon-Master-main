@@ -10,7 +10,7 @@
     <div class="dashboard">
       <!-- Sol Panel -->
       <div class="left-panel">
-        <h3>🧙‍♂️ Temalar & Karakterler</h3>
+        <h3>🎮 Temalar & Karakterler</h3>
         <div class="theme-tabs">
           <div class="theme-tab active" onclick="window.switchTheme('fantasy')">
             Fantasy
@@ -224,6 +224,53 @@
           </div>
         </div>
 
+        <!-- Level and XP Section -->
+        <div class="level-section">
+          <h4>⭐ Seviye & Deneyim</h4>
+          <div class="level-info">
+            <div class="level-row">
+              <span>Seviye:</span>
+              <span class="level-value" id="character-level">1</span>
+            </div>
+            <div class="xp-bar-container">
+              <span>XP:</span>
+              <div class="xp-bar">
+                <div class="xp-fill" id="xp-fill"></div>
+              </div>
+              <span class="xp-text" id="xp-text">0/100</span>
+            </div>
+            <div class="skill-points-row">
+              <span>Skill Puanı:</span>
+              <span class="skill-points-value" id="skill-points">0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill System Section -->
+        <div class="skill-system-section">
+          <h4>⚔️ Yetenekler</h4>
+          <div class="skill-tabs">
+            <div class="skill-tab active" onclick="switchSkillTab('available')">
+              Mevcut
+            </div>
+            <div class="skill-tab" onclick="switchSkillTab('unlocked')">
+              Açılan
+            </div>
+          </div>
+
+          <div class="skill-content" id="available-skills">
+            <div class="skill-list" id="available-skill-list">
+              <!-- Available skills will be loaded here -->
+            </div>
+          </div>
+
+          <div class="skill-content" id="unlocked-skills" style="display: none">
+            <div class="skill-list" id="unlocked-skill-list">
+              <!-- Unlocked skills will be loaded here -->
+            </div>
+          </div>
+        </div>
+
         <!-- AI/RAG Sistem Entegrasyonu - Sol Panel Altında -->
         <div class="ai-system-section">
           <h4>🤖 AI Destekli Senaryo Oluşturucu</h4>
@@ -303,7 +350,7 @@
                 onclick="window.selectScenario('living_dragon_hunt')"
               >
                 <div class="scenario-header">
-                  <h4>🐉 Yaşayan Ejderha Avı</h4>
+                  <h4>🐉 Dragon Hunters Path</h4>
                   <span class="difficulty hard">Hard</span>
                 </div>
                 <p>
@@ -311,6 +358,22 @@
                   bir grup kahraman toplanıyor. Bu sadece bir görev değil, bu
                   SENİN HİKAYEN. Her seçim seni değiştirecek, her karar dünyayı
                   değiştirecek.
+                </p>
+              </div>
+
+              <div
+                class="scenario-card"
+                onclick="window.selectScenario('magical_forest_mysteries')"
+              >
+                <div class="scenario-header">
+                  <h4>🌳 Magical Forest Mysteries</h4>
+                  <span class="difficulty medium">Medium</span>
+                </div>
+                <p>
+                  Büyülü ormanda gizli sırlar ve antik ruhlar var. Ormanın
+                  derinliklerinde kaybolmuş bir büyücü köyü ve unutulmuş bir
+                  tapınak keşfedeceksin. Her adımda yeni bir gizem ve tehlikeli
+                  kararlar seni bekliyor.
                 </p>
               </div>
             </div>
@@ -329,14 +392,13 @@
                 onclick="window.selectScenario('warhammer_imperial_crisis')"
               >
                 <div class="scenario-header">
-                  <h4>💀 İmperial Kriz</h4>
+                  <h4>🏙️ Hive City Defense</h4>
                   <span class="difficulty hard">Hard</span>
                 </div>
                 <p>
-                  İmperium'un bir dünyasında sapkınlık yayılıyor. İnquisitor
-                  olarak görev yapıyorsunuz. Bu sadece bir savaş değil, bu SENİN
-                  DÜNYAN. Her seçim seni değiştirecek, her karar dünyayı
-                  değiştirecek.
+                  Hive şehrinde AI ve büyük şirketler arasında gizli savaş var.
+                  Şehrin savunması için tehlikeli görevler üstleneceksin. Her
+                  seçim seni değiştirecek, her karar dünyayı değiştirecek.
                 </p>
               </div>
             </div>
@@ -355,12 +417,14 @@
                 onclick="window.selectScenario('cyberpunk_hive_city')"
               >
                 <div class="scenario-header">
-                  <h4>🤖 Hive City Kriz</h4>
+                  <h4>🌃 Cyberpunk City Secrets</h4>
                   <span class="difficulty hard">Hard</span>
                 </div>
                 <p>
-                  Cyberpunk şehrinde gizli sırlar var. Bu sırları keşfetmek için
-                  tehlikeli bir yolculuğa çıkacaksın.
+                  Cyberpunk şehrinde gizli sırlar ve tehlikeli komplolar var.
+                  Şehrin derinliklerinde kaybolmuş teknolojiler ve unutulmuş
+                  sırlar keşfedeceksin. Her seçim seni değiştirecek, her karar
+                  dünyayı değiştirecek.
                 </p>
               </div>
             </div>
@@ -370,11 +434,210 @@
           <div
             class="scenario-category"
             id="ai-generated-scenarios"
-            style="display: none"
+            style="display: block"
           >
             <h3>🧙‍♂️ AI ÜRETİLEN SENARYOLAR</h3>
-            <div class="scenario-grid" id="ai-scenarios-grid">
-              <!-- AI üretilen senaryolar burada dinamik olarak eklenecek -->
+
+            <!-- AI Senaryo Durumu -->
+            <div class="ai-status-section">
+              <div class="ai-status-indicator" id="ai-status-indicator">
+                <span class="status-dot" id="status-dot">🟢</span>
+                <span class="status-text" id="status-text">AI Hazır</span>
+              </div>
+              <div class="ai-progress" id="ai-progress" style="display: none">
+                <div class="progress-bar">
+                  <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <span class="progress-text" id="progress-text"
+                  >Senaryo üretiliyor... 0%</span
+                >
+              </div>
+            </div>
+
+            <!-- AI Senaryo Üretim Kontrolleri -->
+            <div class="ai-generation-controls">
+              <div class="generation-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="ai-scenario-theme">🎨 Tema:</label>
+                    <select id="ai-scenario-theme">
+                      <option value="fantasy">Fantasy</option>
+                      <option value="cyberpunk">Cyberpunk</option>
+                      <option value="warhammer">Warhammer 40K</option>
+                      <option value="post-apocalyptic">Post-Apocalyptic</option>
+                      <option value="steampunk">Steampunk</option>
+                      <option value="horror">Horror</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="ai-scenario-difficulty">⚔️ Zorluk:</label>
+                    <select id="ai-scenario-difficulty">
+                      <option value="easy">Kolay</option>
+                      <option value="medium">Orta</option>
+                      <option value="hard">Zor</option>
+                      <option value="epic">Epik</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="ai-scenario-level">⭐ Seviye Aralığı:</label>
+                    <input
+                      type="number"
+                      id="ai-scenario-min-level"
+                      min="1"
+                      max="20"
+                      value="1"
+                      placeholder="Min"
+                    />
+                    <span>-</span>
+                    <input
+                      type="number"
+                      id="ai-scenario-max-level"
+                      min="1"
+                      max="20"
+                      value="10"
+                      placeholder="Max"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="ai-scenario-duration"
+                      >⏱️ Tahmini Süre (dk):</label
+                    >
+                    <input
+                      type="number"
+                      id="ai-scenario-duration"
+                      min="30"
+                      max="480"
+                      value="120"
+                      placeholder="120"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group full-width">
+                    <label for="ai-scenario-prompt"
+                      >📝 Özel İstekler (Opsiyonel):</label
+                    >
+                    <textarea
+                      id="ai-scenario-prompt"
+                      placeholder="Senaryo için özel isteklerinizi yazın... (örn: NPC'ler, mekanlar, özel olaylar)"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <button
+                    class="generate-ai-scenario-btn"
+                    onclick="generateAIScenario()"
+                  >
+                    🧙‍♂️ AI Senaryo Üret
+                  </button>
+                  <button class="clear-ai-form-btn" onclick="clearAIForm()">
+                    🗑️ Temizle
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- AI Üretilen Senaryolar Listesi -->
+            <div class="ai-scenarios-list">
+              <h4>📚 Üretilen Senaryolar</h4>
+              <div class="scenario-grid" id="ai-scenarios-grid">
+                <!-- AI üretilen senaryolar burada dinamik olarak eklenecek -->
+                <div
+                  class="ai-scenario-placeholder"
+                  id="ai-scenario-placeholder"
+                >
+                  <div class="placeholder-content">
+                    <div class="placeholder-icon">📁</div>
+                    <h5>Dosya Yükleyin</h5>
+                    <p>
+                      Senaryo oluşturmak için PDF veya TXT dosyası yükleyin. Her
+                      dosya otomatik olarak analiz edilip senaryoya
+                      dönüştürülecek.
+                    </p>
+                    <button
+                      class="upload-file-btn"
+                      onclick="document.getElementById('file-input').click()"
+                    >
+                      📁 Dosya Seç
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- AI Senaryo Detayları -->
+            <div
+              class="ai-scenario-details"
+              id="ai-scenario-details"
+              style="display: none"
+            >
+              <div class="details-header">
+                <h4 id="ai-scenario-title">AI Senaryo Başlığı</h4>
+                <button
+                  class="close-details-btn"
+                  onclick="closeAIScenarioDetails()"
+                >
+                  ✕
+                </button>
+              </div>
+              <div class="details-content">
+                <div class="scenario-info">
+                  <div class="info-row">
+                    <span class="info-label">🎨 Tema:</span>
+                    <span class="info-value" id="ai-detail-theme">Fantasy</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">⚔️ Zorluk:</span>
+                    <span class="info-value" id="ai-detail-difficulty"
+                      >Orta</span
+                    >
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">⭐ Seviye:</span>
+                    <span class="info-value" id="ai-detail-level">1-10</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">⏱️ Süre:</span>
+                    <span class="info-value" id="ai-detail-duration"
+                      >120 dk</span
+                    >
+                  </div>
+                </div>
+                <div class="scenario-description">
+                  <h5>📖 Senaryo Açıklaması</h5>
+                  <p id="ai-detail-description">
+                    Senaryo açıklaması burada görünecek...
+                  </p>
+                </div>
+                <div class="scenario-nodes">
+                  <h5>🗺️ Hikaye Noktaları</h5>
+                  <div class="nodes-list" id="ai-detail-nodes">
+                    <!-- Hikaye noktaları burada listelenecek -->
+                  </div>
+                </div>
+                <div class="scenario-actions">
+                  <button
+                    class="play-ai-scenario-btn"
+                    onclick="playAIScenario()"
+                  >
+                    🎮 Bu Senaryoyu Oyna
+                  </button>
+                  <button
+                    class="edit-ai-scenario-btn"
+                    onclick="editAIScenario()"
+                  >
+                    ✏️ Düzenle
+                  </button>
+                  <button
+                    class="delete-ai-scenario-btn"
+                    onclick="deleteAIScenario()"
+                  >
+                    🗑️ Sil
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -453,13 +716,96 @@
               </div>
             </div>
 
-            <!-- Combat Section - LİFE İTSELF Battle Implementation -->
+            <!-- Combat Section - Enhanced Battle System -->
             <div
               class="combat-section"
               id="combat-section"
               style="display: none"
             >
-              <!-- Combat UI will be dynamically generated here -->
+              <div class="combat-header">
+                <h2>⚔️ SAVAŞ MODU</h2>
+                <div class="combat-status">
+                  <span id="combat-turn">Sıra: Oyuncu</span>
+                </div>
+              </div>
+
+              <!-- Combat Arena -->
+              <div class="combat-arena">
+                <!-- Player Side -->
+                <div class="combat-player">
+                  <div class="combat-character">
+                    <div class="character-avatar" id="player-avatar">👤</div>
+                    <div class="character-stats">
+                      <h3 id="player-name">Oyuncu</h3>
+                      <div class="health-bar">
+                        <span>❤️ Can:</span>
+                        <div class="bar-container">
+                          <div
+                            class="health-fill"
+                            id="player-health-fill"
+                          ></div>
+                        </div>
+                        <span id="player-health-text">100/100</span>
+                      </div>
+                      <div class="energy-bar">
+                        <span>⚡ Enerji:</span>
+                        <div class="bar-container">
+                          <div
+                            class="energy-fill"
+                            id="player-energy-fill"
+                          ></div>
+                        </div>
+                        <span id="player-energy-text">50/50</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- VS Indicator -->
+                <div class="combat-vs">
+                  <h2>⚔️</h2>
+                </div>
+
+                <!-- Enemy Side -->
+                <div class="combat-enemy">
+                  <div class="combat-character">
+                    <div class="character-avatar" id="enemy-avatar">👹</div>
+                    <div class="character-stats">
+                      <h3 id="enemy-name">Düşman</h3>
+                      <div class="health-bar">
+                        <span>❤️ Can:</span>
+                        <div class="bar-container">
+                          <div class="health-fill" id="enemy-health-fill"></div>
+                        </div>
+                        <span id="enemy-health-text">100/100</span>
+                      </div>
+                      <div class="energy-bar">
+                        <span>⚡ Enerji:</span>
+                        <div class="bar-container">
+                          <div class="energy-fill" id="enemy-energy-fill"></div>
+                        </div>
+                        <span id="enemy-energy-text">50/50</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Combat Actions -->
+              <div class="combat-actions">
+                <h3>🎯 Savaş Aksiyonları</h3>
+                <div class="action-grid" id="combat-action-grid">
+                  <!-- Combat actions will be generated here -->
+                </div>
+              </div>
+
+              <!-- Combat Log -->
+              <div class="combat-log">
+                <h3>📜 Savaş Günlüğü</h3>
+                <div class="log-container" id="combat-log-container">
+                  <!-- Combat log entries will appear here -->
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -551,32 +897,16 @@
               </div>
             </div>
             <div class="progress-item">
-              <div class="progress-label">Etki</div>
-              <div class="progress-value" id="influence-value">0</div>
+              <div class="progress-label">İtibar</div>
+              <div class="progress-value" id="reputation-value">0</div>
               <div class="progress-bar">
                 <div
                   class="progress-fill"
-                  id="influence-fill"
+                  id="reputation-fill"
                   style="width: 0%"
                 ></div>
               </div>
             </div>
-          </div>
-
-          <!-- Faction Standing -->
-          <div class="faction-standing-section">
-            <h5>Faksiyon İlişkileri:</h5>
-            <div class="faction-standing-grid" id="faction-standing-grid">
-              <!-- Faction items will be populated dynamically -->
-            </div>
-          </div>
-
-          <!-- Story Branch Info -->
-          <div class="story-branch-info">
-            <h5>Hikaye Dalı:</h5>
-            <div id="current-branch">Ana Dal</div>
-            <div id="visited-nodes">Ziyaret Edilen: 0</div>
-            <div id="unlocked-paths">Açılan Yollar: 0</div>
           </div>
         </div>
 
@@ -660,6 +990,93 @@
           </div>
         </div>
 
+        <div class="quest-section">
+          <div class="quest-title">📋 Görevler</div>
+          <div class="quest-container" id="quest-container">
+            <!-- Görevler buraya dinamik olarak eklenecek -->
+          </div>
+        </div>
+
+        <!-- AI Scenario Generation Section -->
+        <div class="ai-scenario-section">
+          <div class="scenario-title">🤖 AI Senaryo Üretimi</div>
+
+          <div class="ai-scenario-form">
+            <h4>🎭 Çizgi Roman Kampanyası</h4>
+            <p class="form-description">
+              Çizgi Roman Evrenlerinden İlham alan 5 büyük FRP kampanyası.
+              Marvel, DC, X-Men, Spider-Man ve Avengers evrenlerinde epik
+              maceralar yaşa!
+            </p>
+
+            <div class="ai-status">
+              <span id="status-dot">🟢</span>
+              <span id="status-text">Çizgi Roman Kampanyası Hazır</span>
+            </div>
+
+            <div class="ai-progress" id="ai-progress" style="display: none">
+              <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+              </div>
+              <div class="progress-text" id="progress-text">
+                Kampanya hazırlanıyor...
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="generate-ai-btn" onclick="generateAIScenario()">
+                🎭 Çizgi Roman Kampanyasını Yükle
+              </button>
+              <button class="clear-ai-form-btn" onclick="clearAIForm()">
+                🗑️ Temizle
+              </button>
+            </div>
+          </div>
+
+          <div id="ai-result" class="ai-result-container" style="display: none">
+            <h3>🎭 Üretilen Senaryo</h3>
+            <div id="generated-scenario-content"></div>
+            <div class="ai-result-buttons">
+              <button class="ai-save-btn" onclick="saveAIScenario()">
+                💾 KAYDET
+              </button>
+              <button class="ai-play-btn" onclick="playAIScenario()">
+                ▶️ OYNA
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enhanced Scenario System Containers -->
+        <div class="enhanced-scenario-section">
+          <div class="scenario-title">🎮 Gelişmiş Senaryo Sistemi</div>
+
+          <!-- Scenario Information -->
+          <div class="scenario-info-container" id="scenario-info">
+            <!-- Senaryo bilgileri buraya eklenecek -->
+          </div>
+
+          <!-- Level Information -->
+          <div class="level-info-container" id="level-info">
+            <!-- Seviye bilgileri buraya eklenecek -->
+          </div>
+
+          <!-- NPC Relationships -->
+          <div class="npc-relationships-container" id="npc-relationships">
+            <!-- NPC ilişkileri buraya eklenecek -->
+          </div>
+
+          <!-- Quest Progress -->
+          <div class="quest-progress-container" id="quest-progress">
+            <!-- Görev ilerlemesi buraya eklenecek -->
+          </div>
+
+          <!-- Possible Endings -->
+          <div class="possible-endings-container" id="possible-endings">
+            <!-- Mümkün sonlar buraya eklenecek -->
+          </div>
+        </div>
+
         <div class="game-stats-section">
           <div class="game-stats-title">📊 Oyun İstatistikleri</div>
           <div class="game-stats-grid">
@@ -681,35 +1098,76 @@
     </div>
 
     <script>
-      // Basit test - JavaScript çalışıyor mu?
+      // Enhanced initialization script
       console.log("=== GAME ENHANCED HTML LOADED ===");
-      console.log("JavaScript is working!");
 
-      // DOM elementlerini kontrol et
-      window.addEventListener("DOMContentLoaded", function () {
-        console.log("DOM loaded, checking elements...");
+      // Global initialization function
+      window.initializeGame = function () {
+        console.log("🎮 Initializing game systems...");
 
-        const elements = [
+        // Initialize enhanced scenario system
+        if (window.enhancedScenarioSystem) {
+          window.enhancedScenarioSystem.loadEnhancedScenario(
+            "dragon_hunters_path"
+          );
+        }
+
+        // Initialize NPC system
+        if (window.npcSystem) {
+          window.npcSystem.loadNPCs("dragon_hunters_path");
+        }
+
+        // Initialize Quest system
+        if (window.questSystem) {
+          window.questSystem.loadQuests();
+        }
+
+        // Initialize AI scenario system
+        if (window.initializeEnhancedScenarioSystem) {
+          window.initializeEnhancedScenarioSystem();
+        }
+
+        console.log("✅ All game systems initialized!");
+      };
+
+      // DOM ready event
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("DOM loaded, initializing game...");
+
+        // Check if all required elements exist
+        const requiredElements = [
           "scenario-selection",
           "active-game",
-          "current-scenario-title",
           "story-text",
           "choices-grid",
+          "scenario-info",
+          "npc-relationships",
+          "quest-progress",
+          "possible-endings",
         ];
 
-        elements.forEach((id) => {
+        let allElementsFound = true;
+        requiredElements.forEach((id) => {
           const element = document.getElementById(id);
           if (element) {
             console.log(`✅ ${id}: Found`);
           } else {
             console.log(`❌ ${id}: Not found`);
+            allElementsFound = false;
           }
         });
+
+        if (allElementsFound) {
+          console.log("✅ All required elements found, initializing game...");
+          setTimeout(window.initializeGame, 500);
+        } else {
+          console.error("❌ Some required elements missing!");
+        }
       });
 
-      // Test fonksiyonu
-      function testScenarioSelection() {
-        console.log("Test scenario selection called");
+      // Test function for scenario selection
+      window.testScenarioSelection = function () {
+        console.log("Testing scenario selection...");
         const scenarioSelection = document.getElementById("scenario-selection");
         const activeGame = document.getElementById("active-game");
 
@@ -722,10 +1180,9 @@
           console.error("❌ DOM elements not found");
           return false;
         }
-      }
+      };
     </script>
     <script src="/static/global_functions.js"></script>
     <script src="/static/enhanced_script.js"></script>
-    <script src="/static/missing_nodes.js"></script>
   </body>
 </html>

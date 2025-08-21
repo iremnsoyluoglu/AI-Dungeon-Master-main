@@ -1,271 +1,517 @@
 {
-  "weapon_mastery": {
-    "id": "weapon_mastery",
-    "name": "Silah Ustalığı",
+  "warrior_sword_strike": {
+    "id": "warrior_sword_strike",
+    "name": "🗡️ Kılıç Saldırısı",
     "type": "combat",
-    "description": "Silahları etkili kullanma becerisi",
+    "description": "Güçlü kılıç saldırısı",
     "difficulty": "easy",
-    "max_level": 5,
+    "max_level": 3,
     "prerequisites": [],
     "requirements": {
       "level": 1,
-      "skill_points": 1
+      "skill_points": 1,
+      "class": "warrior"
     },
     "effects": {
-      "attack_bonus": 2,
-      "critical_chance": 0.02
+      "damage": 15,
+      "energy_cost": 10
     },
     "progression": {
-      "xp_per_level": [
-        100,
-        200,
-        400,
-        800,
-        1600
-      ],
-      "bonus_per_level": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ]
+      "xp_per_level": [100, 200, 400],
+      "bonus_per_level": [5, 10, 15]
     }
   },
-  "battle_rage": {
-    "id": "battle_rage",
-    "name": "Savaş Öfkesi",
+  "warrior_shield_defense": {
+    "id": "warrior_shield_defense",
+    "name": "🛡️ Kalkan Savunması",
+    "type": "defense",
+    "description": "Kalkan ile savunma",
+    "difficulty": "easy",
+    "max_level": 3,
+    "prerequisites": [],
+    "requirements": {
+      "level": 1,
+      "skill_points": 1,
+      "class": "warrior"
+    },
+    "effects": {
+      "defense_bonus": 10,
+      "energy_cost": 5
+    },
+    "progression": {
+      "xp_per_level": [100, 200, 400],
+      "bonus_per_level": [3, 6, 10]
+    }
+  },
+  "warrior_battle_rage": {
+    "id": "warrior_battle_rage",
+    "name": "⚡ Savaş Öfkesi",
     "type": "combat",
-    "description": "Savaş sırasında güçlü bir öfke durumu",
+    "description": "Savaş sırasında güçlü öfke",
     "difficulty": "medium",
     "max_level": 3,
-    "prerequisites": [
-      "weapon_mastery"
-    ],
+    "prerequisites": ["warrior_sword_strike"],
     "requirements": {
       "level": 3,
       "skill_points": 2,
-      "strength": 14
+      "class": "warrior"
     },
     "effects": {
-      "damage_bonus": 3,
-      "temporary_hp": 10
+      "damage": 25,
+      "energy_cost": 15
     },
     "progression": {
-      "xp_per_level": [
-        300,
-        600,
-        1200
-      ],
-      "bonus_per_level": [
-        3,
-        6,
-        10
-      ]
+      "xp_per_level": [300, 600, 1200],
+      "bonus_per_level": [8, 15, 25]
     }
   },
-  "stealth": {
-    "id": "stealth",
-    "name": "Gizlilik",
-    "type": "stealth",
-    "description": "Gizlice hareket etme ve gizlenme becerisi",
-    "difficulty": "easy",
-    "max_level": 5,
-    "prerequisites": [],
+  "warrior_ultimate": {
+    "id": "warrior_ultimate",
+    "name": "⚔️ Kahraman Saldırısı",
+    "type": "ultimate",
+    "description": "Ultimate savaşçı saldırısı",
+    "difficulty": "hard",
+    "max_level": 1,
+    "prerequisites": ["warrior_sword_strike", "warrior_shield_defense", "warrior_battle_rage"],
     "requirements": {
-      "level": 1,
-      "skill_points": 1,
-      "dexterity": 12
+      "level": 5,
+      "skill_points": 5,
+      "class": "warrior"
     },
     "effects": {
-      "stealth_bonus": 2,
-      "sneak_attack_damage": 1.5
+      "damage": 50,
+      "energy_cost": 30,
+      "special": "Kritik vuruş şansı %50"
     },
     "progression": {
-      "xp_per_level": [
-        100,
-        200,
-        400,
-        800,
-        1600
-      ],
-      "bonus_per_level": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ]
+      "xp_per_level": [1000],
+      "bonus_per_level": [20]
     }
   },
-  "persuasion": {
-    "id": "persuasion",
-    "name": "İkna",
-    "type": "social",
-    "description": "İnsanları ikna etme ve etkileme becerisi",
-    "difficulty": "medium",
-    "max_level": 5,
-    "prerequisites": [],
-    "requirements": {
-      "level": 1,
-      "skill_points": 1,
-      "charisma": 12
-    },
-    "effects": {
-      "persuasion_bonus": 2,
-      "discount_chance": 0.1
-    },
-    "progression": {
-      "xp_per_level": [
-        150,
-        300,
-        600,
-        1200,
-        2400
-      ],
-      "bonus_per_level": [
-        2,
-        3,
-        4,
-        5,
-        6
-      ]
-    }
-  },
-  "fire_magic": {
-    "id": "fire_magic",
-    "name": "Ateş Büyüsü",
+  "mage_fireball": {
+    "id": "mage_fireball",
+    "name": "🔥 Ateş Topu",
     "type": "magic",
-    "description": "Ateş elementini kontrol etme becerisi",
-    "difficulty": "hard",
-    "max_level": 5,
-    "prerequisites": [],
-    "requirements": {
-      "level": 2,
-      "skill_points": 2,
-      "intelligence": 14,
-      "mana": 50
-    },
-    "effects": {
-      "fire_damage_bonus": 2,
-      "fire_resistance": 0.1
-    },
-    "progression": {
-      "xp_per_level": [
-        200,
-        400,
-        800,
-        1600,
-        3200
-      ],
-      "bonus_per_level": [
-        2,
-        4,
-        6,
-        8,
-        10
-      ]
-    }
-  },
-  "blacksmithing": {
-    "id": "blacksmithing",
-    "name": "Demircilik",
-    "type": "crafting",
-    "description": "Silah ve zırh yapma becerisi",
-    "difficulty": "medium",
-    "max_level": 5,
-    "prerequisites": [],
-    "requirements": {
-      "level": 1,
-      "skill_points": 1,
-      "strength": 12
-    },
-    "effects": {
-      "crafting_quality": 1.1,
-      "repair_efficiency": 1.2
-    },
-    "progression": {
-      "xp_per_level": [
-        150,
-        300,
-        600,
-        1200,
-        2400
-      ],
-      "bonus_per_level": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ]
-    }
-  },
-  "survival": {
-    "id": "survival",
-    "name": "Hayatta Kalma",
-    "type": "exploration",
-    "description": "Vahşi doğada hayatta kalma becerisi",
+    "description": "Güçlü ateş büyüsü",
     "difficulty": "easy",
-    "max_level": 5,
-    "prerequisites": [],
-    "requirements": {
-      "level": 1,
-      "skill_points": 1
-    },
-    "effects": {
-      "healing_rate": 1.2,
-      "food_efficiency": 1.3
-    },
-    "progression": {
-      "xp_per_level": [
-        100,
-        200,
-        400,
-        800,
-        1600
-      ],
-      "bonus_per_level": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ]
-    }
-  },
-  "lore": {
-    "id": "lore",
-    "name": "Bilgelik",
-    "type": "knowledge",
-    "description": "Antik bilgileri ve sırları anlama becerisi",
-    "difficulty": "hard",
-    "max_level": 5,
+    "max_level": 3,
     "prerequisites": [],
     "requirements": {
       "level": 1,
       "skill_points": 1,
-      "intelligence": 12
+      "class": "mage"
     },
     "effects": {
-      "lore_bonus": 2,
-      "quest_reward_bonus": 0.1
+      "damage": 20,
+      "mana_cost": 15
     },
     "progression": {
-      "xp_per_level": [
-        200,
-        400,
-        800,
-        1600,
-        3200
-      ],
-      "bonus_per_level": [
-        2,
-        3,
-        4,
-        5,
-        6
-      ]
+      "xp_per_level": [100, 200, 400],
+      "bonus_per_level": [5, 10, 15]
+    }
+  },
+  "mage_ice_shield": {
+    "id": "mage_ice_shield",
+    "name": "❄️ Buz Kalkanı",
+    "type": "defense",
+    "description": "Buzdan koruyucu kalkan",
+    "difficulty": "easy",
+    "max_level": 3,
+    "prerequisites": [],
+    "requirements": {
+      "level": 1,
+      "skill_points": 1,
+      "class": "mage"
+    },
+    "effects": {
+      "defense_bonus": 8,
+      "mana_cost": 10
+    },
+    "progression": {
+      "xp_per_level": [100, 200, 400],
+      "bonus_per_level": [3, 6, 10]
+    }
+  },
+  "mage_lightning_bolt": {
+    "id": "mage_lightning_bolt",
+    "name": "⚡ Şimşek",
+    "type": "magic",
+    "description": "Hızlı şimşek saldırısı",
+    "difficulty": "medium",
+    "max_level": 3,
+    "prerequisites": ["mage_fireball"],
+    "requirements": {
+      "level": 3,
+      "skill_points": 2,
+      "class": "mage"
+    },
+    "effects": {
+      "damage": 18,
+      "mana_cost": 12
+    },
+    "progression": {
+      "xp_per_level": [300, 600, 1200],
+      "bonus_per_level": [6, 12, 18]
+    }
+  },
+  "mage_ultimate": {
+    "id": "mage_ultimate",
+    "name": "🌟 Meteor Yağmuru",
+    "type": "ultimate",
+    "description": "Ultimate büyücü saldırısı",
+    "difficulty": "hard",
+    "max_level": 1,
+    "prerequisites": ["mage_fireball", "mage_ice_shield", "mage_lightning_bolt"],
+    "requirements": {
+      "level": 5,
+      "skill_points": 5,
+      "class": "mage"
+    },
+    "effects": {
+      "damage": 60,
+      "mana_cost": 40,
+      "special": "Tüm düşmanlara hasar"
+    },
+    "progression": {
+      "xp_per_level": [1000],
+      "bonus_per_level": [25]
+    }
+  },
+  "rogue_backstab": {
+    "id": "rogue_backstab",
+    "name": "🗡️ Sırtından Vuruş",
+    "type": "stealth",
+    "description": "Gizli kritik saldırı",
+    "difficulty": "easy",
+    "max_level": 3,
+    "prerequisites": [],
+    "requirements": {
+      "level": 1,
+      "skill_points": 1,
+      "class": "rogue"
+    },
+    "effects": {
+      "damage": 25,
+      "energy_cost": 8,
+      "critical_chance": 0.3
+    },
+    "progression": {
+      "xp_per_level": [100, 200, 400],
+      "bonus_per_level": [8, 15, 25]
+    }
+  },
+  "rogue_stealth": {
+    "id": "rogue_stealth",
+    "name": "👤 Gizlenme",
+    "type": "stealth",
+    "description": "Gizlice hareket etme",
+    "difficulty": "easy",
+    "max_level": 3,
+    "prerequisites": [],
+    "requirements": {
+      "level": 1,
+      "skill_points": 1,
+      "class": "rogue"
+    },
+    "effects": {
+      "stealth_bonus": 15,
+      "energy_cost": 5
+    },
+    "progression": {
+      "xp_per_level": [100, 200, 400],
+      "bonus_per_level": [5, 10, 15]
+    }
+  },
+  "rogue_poison_dagger": {
+    "id": "rogue_poison_dagger",
+    "name": "☠️ Zehirli Hançer",
+    "type": "stealth",
+    "description": "Zehirli hançer saldırısı",
+    "difficulty": "medium",
+    "max_level": 3,
+    "prerequisites": ["rogue_backstab"],
+    "requirements": {
+      "level": 3,
+      "skill_points": 2,
+      "class": "rogue"
+    },
+    "effects": {
+      "damage": 12,
+      "energy_cost": 10,
+      "poison_damage": 8
+    },
+    "progression": {
+      "xp_per_level": [300, 600, 1200],
+      "bonus_per_level": [4, 8, 12]
+    }
+  },
+  "rogue_ultimate": {
+    "id": "rogue_ultimate",
+    "name": "🌙 Gölge Dansı",
+    "type": "ultimate",
+    "description": "Ultimate hırsız saldırısı",
+    "difficulty": "hard",
+    "max_level": 1,
+    "prerequisites": ["rogue_backstab", "rogue_stealth", "rogue_poison_dagger"],
+    "requirements": {
+      "level": 5,
+      "skill_points": 5,
+      "class": "rogue"
+    },
+    "effects": {
+      "damage": 45,
+      "energy_cost": 25,
+      "special": "3 kez saldırı"
+    },
+    "progression": {
+      "xp_per_level": [1000],
+      "bonus_per_level": [20]
+    }
+  },
+  "elf_nature_magic": {
+    "id": "elf_nature_magic",
+    "name": "🌿 Doğa Büyüsü",
+    "type": "magic",
+    "description": "Elf doğa büyüsü",
+    "difficulty": "easy",
+    "max_level": 3,
+    "prerequisites": [],
+    "requirements": {
+      "level": 1,
+      "skill_points": 1,
+      "race": "elf"
+    },
+    "effects": {
+      "damage": 18,
+      "mana_cost": 12,
+      "healing": 10
+    },
+    "progression": {
+      "xp_per_level": [100, 200, 400],
+      "bonus_per_level": [6, 12, 18]
+    }
+  },
+  "elf_agility": {
+    "id": "elf_agility",
+    "name": "🏃 Elf Çevikliği",
+    "type": "combat",
+    "description": "Elf çeviklik bonusu",
+    "difficulty": "easy",
+    "max_level": 3,
+    "prerequisites": [],
+    "requirements": {
+      "level": 1,
+      "skill_points": 1,
+      "race": "elf"
+    },
+    "effects": {
+      "dodge_chance": 0.2,
+      "energy_cost": 5
+    },
+    "progression": {
+      "xp_per_level": [100, 200, 400],
+      "bonus_per_level": [0.05, 0.1, 0.15]
+    }
+  },
+  "elf_ultimate": {
+    "id": "elf_ultimate",
+    "name": "🌳 Doğanın Gücü",
+    "type": "ultimate",
+    "description": "Elf ultimate büyüsü",
+    "difficulty": "hard",
+    "max_level": 1,
+    "prerequisites": ["elf_nature_magic", "elf_agility"],
+    "requirements": {
+      "level": 5,
+      "skill_points": 5,
+      "race": "elf"
+    },
+    "effects": {
+      "damage": 40,
+      "mana_cost": 30,
+      "healing": 30,
+      "special": "Tüm takım üyelerini iyileştir"
+    },
+    "progression": {
+      "xp_per_level": [1000],
+      "bonus_per_level": [15]
+    }
+  },
+  "dwarf_hammer_strike": {
+    "id": "dwarf_hammer_strike",
+    "name": "🔨 Çekiç Vuruşu",
+    "type": "combat",
+    "description": "Cüce çekiç saldırısı",
+    "difficulty": "easy",
+    "max_level": 3,
+    "prerequisites": [],
+    "requirements": {
+      "level": 1,
+      "skill_points": 1,
+      "race": "dwarf"
+    },
+    "effects": {
+      "damage": 20,
+      "energy_cost": 12
+    },
+    "progression": {
+      "xp_per_level": [100, 200, 400],
+      "bonus_per_level": [7, 14, 20]
+    }
+  },
+  "dwarf_stone_skin": {
+    "id": "dwarf_stone_skin",
+    "name": "🪨 Taş Deri",
+    "type": "defense",
+    "description": "Cüce taş deri savunması",
+    "difficulty": "easy",
+    "max_level": 3,
+    "prerequisites": [],
+    "requirements": {
+      "level": 1,
+      "skill_points": 1,
+      "race": "dwarf"
+    },
+    "effects": {
+      "defense_bonus": 15,
+      "energy_cost": 8
+    },
+    "progression": {
+      "xp_per_level": [100, 200, 400],
+      "bonus_per_level": [5, 10, 15]
+    }
+  },
+  "dwarf_ultimate": {
+    "id": "dwarf_ultimate",
+    "name": "⛏️ Dağın Gücü",
+    "type": "ultimate",
+    "description": "Cüce ultimate saldırısı",
+    "difficulty": "hard",
+    "max_level": 1,
+    "prerequisites": ["dwarf_hammer_strike", "dwarf_stone_skin"],
+    "requirements": {
+      "level": 5,
+      "skill_points": 5,
+      "race": "dwarf"
+    },
+    "effects": {
+      "damage": 55,
+      "energy_cost": 35,
+      "special": "Savunma bonusu +20"
+    },
+    "progression": {
+      "xp_per_level": [1000],
+      "bonus_per_level": [25]
+    }
+  },
+  "orc_berserker_rage": {
+    "id": "orc_berserker_rage",
+    "name": "😤 Berserker Öfkesi",
+    "type": "combat",
+    "description": "Ork berserker saldırısı",
+    "difficulty": "easy",
+    "max_level": 3,
+    "prerequisites": [],
+    "requirements": {
+      "level": 1,
+      "skill_points": 1,
+      "race": "orc"
+    },
+    "effects": {
+      "damage": 25,
+      "energy_cost": 15
+    },
+    "progression": {
+      "xp_per_level": [100, 200, 400],
+      "bonus_per_level": [8, 15, 25]
+    }
+  },
+  "orc_battle_cry": {
+    "id": "orc_battle_cry",
+    "name": "📢 Savaş Çığlığı",
+    "type": "combat",
+    "description": "Ork savaş çığlığı",
+    "difficulty": "easy",
+    "max_level": 3,
+    "prerequisites": [],
+    "requirements": {
+      "level": 1,
+      "skill_points": 1,
+      "race": "orc"
+    },
+    "effects": {
+      "damage": 15,
+      "energy_cost": 8,
+      "fear_effect": 0.3
+    },
+    "progression": {
+      "xp_per_level": [100, 200, 400],
+      "bonus_per_level": [5, 10, 15]
+    }
+  },
+  "orc_ultimate": {
+    "id": "orc_ultimate",
+    "name": "💥 Vahşi Patlama",
+    "type": "ultimate",
+    "description": "Ork ultimate saldırısı",
+    "difficulty": "hard",
+    "max_level": 1,
+    "prerequisites": ["orc_berserker_rage", "orc_battle_cry"],
+    "requirements": {
+      "level": 5,
+      "skill_points": 5,
+      "race": "orc"
+    },
+    "effects": {
+      "damage": 70,
+      "energy_cost": 40,
+      "special": "Tüm düşmanlara hasar + korku"
+    },
+    "progression": {
+      "xp_per_level": [1000],
+      "bonus_per_level": [30]
+    }
+  },
+  "healing_potion": {
+    "id": "healing_potion",
+    "name": "💊 Can İksiri",
+    "type": "consumable",
+    "description": "Can iksiri kullan",
+    "difficulty": "easy",
+    "max_level": 1,
+    "prerequisites": [],
+    "requirements": {
+      "level": 1,
+      "skill_points": 0
+    },
+    "effects": {
+      "healing": 20,
+      "energy_cost": 15
+    },
+    "progression": {
+      "xp_per_level": [0],
+      "bonus_per_level": [0]
+    }
+  },
+  "energy_potion": {
+    "id": "energy_potion",
+    "name": "⚡ Enerji İksiri",
+    "type": "consumable",
+    "description": "Enerji iksiri kullan",
+    "difficulty": "easy",
+    "max_level": 1,
+    "prerequisites": [],
+    "requirements": {
+      "level": 1,
+      "skill_points": 0
+    },
+    "effects": {
+      "energy_restore": 15,
+      "energy_cost": 0
+    },
+    "progression": {
+      "xp_per_level": [0],
+      "bonus_per_level": [0]
     }
   }
 }

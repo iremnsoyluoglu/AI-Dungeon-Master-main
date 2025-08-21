@@ -3,43 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Dungeon Master - Deployed!</title>
+    <title>AI Dungeon Master</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+            color: white;
             margin: 0;
-            padding: 0;
+            padding: 20px;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
         }
         .container {
             text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+            background: rgba(26, 26, 26, 0.8);
+            padding: 40px;
+            border-radius: 12px;
+            border: 2px solid #FFD700;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
         }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        .game-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
-        .status {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #90EE90;
+        .game-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+        .button {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 5px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+        }
+        .guest-button {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+        }
+        .ai-button {
+            background: linear-gradient(45deg, #9C27B0, #673AB7);
+            color: white;
+        }
+        .scenario-preview {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: left;
+            border-left: 4px solid #FFD700;
+        }
+        .scenario-title {
+            color: #FFD700;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .scenario-desc {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        .scenario-stats {
+            color: #4CAF50;
+            font-size: 14px;
         }
         .features {
             text-align: left;
             margin-top: 2rem;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 8px;
         }
         .features h3 {
             margin-bottom: 1rem;
+            color: #FFD700;
         }
         .features ul {
             list-style: none;
@@ -47,34 +105,70 @@
         }
         .features li {
             padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
         }
         .features li:before {
             content: "✨ ";
             margin-right: 0.5rem;
+            color: #FFD700;
+        }
+        .status {
+            background: rgba(76, 175, 80, 0.2);
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border: 1px solid #4CAF50;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🎮 AI Dungeon Master</h1>
-        <div class="status">✅ Başarıyla Deploy Edildi!</div>
+        <div class="status">✅ AI Dungeon Master Başarıyla Çalışıyor!</div>
+        
+        <h1 class="game-title">🎮 AI DUNGEON MASTER</h1>
+        <p class="game-subtitle">Fantastik Dünyalara Açılan Kapı</p>
+        
+        <div class="scenario-preview">
+            <div class="scenario-title">🐉 Dragon Hunter's Path</div>
+            <div class="scenario-desc">Köyü tehdit eden ejderhayı durdurmak için kahramanlar toplanıyor. Bu sadece bir görev değil, bu SENİN HİKAYEN. 56 farklı node ile uzun ve detaylı bir macera!</div>
+            <div class="scenario-stats">🎯 Zorluk: Yüksek | ⏱️ Süre: 4+ saat | 🎮 Tür: Fantazi | 🌟 NPC'ler: 4 | 🎭 Plot Twist'ler: Var</div>
+        </div>
+        
+        <div class="scenario-preview">
+            <div class="scenario-title">⚔️ Imperial Crisis</div>
+            <div class="scenario-desc">Warhammer 40K evreninde Chaos tehdidi altındaki Imperial dünyasında görev yapıyorsun. Commissar Kane ve Tech-Priest Zeta-7 ile birlikte heresy'i temizle!</div>
+            <div class="scenario-stats">🎯 Zorluk: Çok Yüksek | ⏱️ Süre: 5+ saat | 🎮 Tür: Warhammer 40K | 🌟 NPC'ler: 2 | 🎭 Plot Twist'ler: Var</div>
+        </div>
+        
+        <div class="scenario-preview">
+            <div class="scenario-title">🏙️ Hive City Crisis</div>
+            <div class="scenario-desc">Hive City'de Ork istilası ve Genestealer tehdidi var. Diplomatik çözümler mi yoksa savaş mı? Karar senin!</div>
+            <div class="scenario-stats">🎯 Zorluk: Yüksek | ⏱️ Süre: 4+ saat | 🎮 Tür: Warhammer 40K | 🌟 NPC'ler: 3 | 🎭 Plot Twist'ler: Var</div>
+        </div>
+        
+        <div class="scenario-preview">
+            <div class="scenario-title">🌃 Neon City Runners</div>
+            <div class="scenario-desc">Cyberpunk dünyasında Ghost ve King Jax ile birlikte corporate hegemony'yi devir. Digital consciousness ve AI merge seçenekleri!</div>
+            <div class="scenario-stats">🎯 Zorluk: Orta | ⏱️ Süre: 3+ saat | 🎮 Tür: Cyberpunk | 🌟 NPC'ler: 2 | 🎭 Plot Twist'ler: Var</div>
+        </div>
         
         <div class="features">
             <h3>🚀 Özellikler:</h3>
             <ul>
-                <li>AI Destekli Hikaye Üretimi</li>
-                <li>Karakter Sistemi</li>
+                <li>AI Destekli Hikaye Üretimi (Dosya yükleme ile)</li>
+                <li>Detaylı Karakter Sistemi ve NPC İlişkileri</li>
                 <li>Çoklu Tema (Fantasy, Warhammer 40K, Cyberpunk)</li>
-                <li>İnteraktif Oyun Deneyimi</li>
-                <li>Dinamik Senaryo Sistemi</li>
+                <li>İnteraktif Oyun Deneyimi ve Seçim Sistemi</li>
+                <li>Dinamik Görev Sistemi (Tıklama ile değil, aksiyon ile tamamlanır)</li>
+                <li>Plot Twist'ler ve İhanet Sistemi</li>
+                <li>Çoklu Son Sistemi (Her senaryoda farklı ending'ler)</li>
+                <li>Uzun Gameplay (Her senaryo 3-5+ saat)</li>
             </ul>
         </div>
         
-        <div style="margin-top: 2rem;">
-            <p>🎯 Railway üzerinde başarıyla çalışıyor!</p>
-            <p>🔗 API Endpoint: <code>/api/health</code></p>
-        </div>
+        <a href="/game" class="button guest-button">🎮 OYNA</a>
+        <a href="/ai-scenarios" class="button ai-button">🤖 AI SENARYOLAR</a>
     </div>
 </body>
 </html>

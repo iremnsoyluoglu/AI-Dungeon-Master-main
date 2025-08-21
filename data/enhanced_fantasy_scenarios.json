@@ -434,6 +434,287 @@
           }
         ]
       }
+    },
+    "advanced_storytelling": {
+      "contextual_triggers": {
+        "dragon_threat": {
+          "betrayal_chance": 0.4,
+          "plot_twist_chance": 0.6,
+          "triggers": ["dragon_allies", "human_betrayal", "ancient_curse"]
+        },
+        "village_conflict": {
+          "betrayal_chance": 0.3,
+          "plot_twist_chance": 0.5,
+          "triggers": [
+            "resource_scarcity",
+            "fear_panic",
+            "opportunistic_looting"
+          ]
+        }
+      },
+      "emotional_arcs": {
+        "hero_journey": {
+          "stages": ["reluctant_hero", "training", "confrontation", "victory"],
+          "betrayal_impact": "motivating"
+        },
+        "dragon_understanding": {
+          "stages": ["fear", "curiosity", "empathy", "resolution"],
+          "plot_twist_impact": "enlightening"
+        }
+      },
+      "story_nodes": {
+        "village_entrance": {
+          "title": "Köy Girişi",
+          "description": "Küçük bir köyün girişindesin. Evler ahşaptan yapılmış, bacalardan duman tütüyor. Ama havada bir gerginlik var. İnsanlar korkuyla etrafına bakıyor. Ejderha tehdidi her yerde hissediliyor.",
+          "atmosphere": "Gergin ve korkulu",
+          "sounds": [
+            "Uzak ejderha uğultusu",
+            "Köpek havlaması",
+            "Endişeli konuşmalar"
+          ],
+          "visuals": ["Ahşap evler", "Korkulu yüzler", "Savunma hazırlıkları"],
+          "choices": [
+            {
+              "text": "Köy liderini bul",
+              "next_node": "elder_thorin",
+              "effect": { "leadership": 10, "information": 8 },
+              "consequence": "Köyün durumu hakkında bilgi alırsın"
+            },
+            {
+              "text": "Köylülerle konuş",
+              "next_node": "villager_gossip",
+              "effect": { "social": 10, "rumors": 8 },
+              "consequence": "Söylentileri öğrenirsin"
+            },
+            {
+              "text": "Savunma durumunu kontrol et",
+              "next_node": "defense_assessment",
+              "effect": { "military": 12, "strategy": 8 },
+              "consequence": "Savunma planı yaparsın"
+            }
+          ]
+        },
+        "mountain_path": {
+          "title": "Dağ Yolu",
+          "description": "Dağın yamaçlarında ilerliyorsun. Yol dik ve tehlikeli. Yukarıdan ejderha sesleri geliyor. Rüzgar sert esiyor ve hava soğuk. Keşişin kulübesi uzakta görünüyor.",
+          "atmosphere": "Tehlikeli ve soğuk",
+          "sounds": ["Rüzgar uğultusu", "Ejderha sesleri", "Ayak sesleri"],
+          "visuals": ["Dik yamaçlar", "Karlı zirveler", "Uzak kulübe"],
+          "choices": [
+            {
+              "text": "Dikkatli ilerle",
+              "next_node": "careful_approach",
+              "effect": { "stealth": 12, "safety": 10 },
+              "consequence": "Güvenli şekilde ilerlersin"
+            },
+            {
+              "text": "Hızlı git",
+              "next_node": "fast_approach",
+              "effect": { "speed": 15, "danger": 8 },
+              "consequence": "Hızlı ama tehlikeli"
+            },
+            {
+              "text": "Alternatif yol ara",
+              "next_node": "alternative_path",
+              "effect": { "exploration": 10, "discovery": 8 },
+              "consequence": "Yeni yol keşfedersin"
+            }
+          ]
+        },
+        "hermit_cabin": {
+          "title": "Keşiş Kulübesi",
+          "description": "Dağın tepesinde küçük bir kulübe. Keşiş Aldric burada yaşıyor. Kulübe eski kitaplarla ve büyülü eşyalarla dolu. Havada şifalı otların kokusu var.",
+          "atmosphere": "Bilge ve gizemli",
+          "sounds": ["Sayfa çevirme sesleri", "Şifalı ot sesleri", "Rüzgar"],
+          "visuals": ["Eski kitaplar", "Büyülü eşyalar", "Şifalı otlar"],
+          "choices": [
+            {
+              "text": "Keşişle konuş",
+              "next_node": "hermit_conversation",
+              "effect": { "wisdom": 15, "knowledge": 10 },
+              "consequence": "Ejderha hakkında bilgi alırsın"
+            },
+            {
+              "text": "Kitapları incele",
+              "next_node": "book_research",
+              "effect": { "intelligence": 12, "lore": 10 },
+              "consequence": "Eski bilgiler öğrenirsin"
+            },
+            {
+              "text": "Büyülü eşyaları araştır",
+              "next_node": "magical_items",
+              "effect": { "magic": 10, "items": 8 },
+              "consequence": "Büyülü eşyalar bulursun"
+            }
+          ]
+        }
+      },
+      "character_development": {
+        "elder_thorin_arc": {
+          "stages": [
+            {
+              "stage": "first_meeting",
+              "description": "Elder Thorin ile ilk karşılaşma. Köyün bilge lideri.",
+              "dialogue": "Hoş geldin, yabancı. Köyümüz ejderha tehdidi altında. Yardımına ihtiyacımız var.",
+              "relationship_change": 10
+            },
+            {
+              "stage": "trust_building",
+              "description": "Thorin'in güvenini kazanma. Köy için çalışmaya başlıyorsun.",
+              "dialogue": "Sen farklı birisin. Köyümüzü gerçekten umursuyorsun.",
+              "relationship_change": 25
+            },
+            {
+              "stage": "village_protector",
+              "description": "Köyün koruyucusu olma. Thorin seni güvenilir buluyor.",
+              "dialogue": "Sen köyümüzün koruyucususun. Halkımız sana güveniyor.",
+              "relationship_change": 40
+            },
+            {
+              "stage": "honorary_elder",
+              "description": "Onursal köy büyüğü olma. Thorin ile eşit seviyede.",
+              "dialogue": "Sen artık köyümüzün bir parçasısın. Ailemizden birisin.",
+              "relationship_change": 60
+            }
+          ]
+        },
+        "hermit_aldric_arc": {
+          "stages": [
+            {
+              "stage": "mysterious_hermit",
+              "description": "Keşiş Aldric ile karşılaşma. Dağda yaşayan gizemli bilge.",
+              "dialogue": "Ejderhanın sırlarını biliyorum. Ama önce hazır olmalısın.",
+              "relationship_change": 15
+            },
+            {
+              "stage": "apprentice_sage",
+              "description": "Aldric'in çırağı olma. Eski bilgileri öğreniyorsun.",
+              "dialogue": "Sen öğrenmeye açıksın. Eski bilgileri paylaşacağım.",
+              "relationship_change": 30
+            },
+            {
+              "stage": "fellow_scholar",
+              "description": "Aldric ile eşit bilge. Artık aynı seviyedesiniz.",
+              "dialogue": "Sen artık bir bilgesin. Bilgeliği paylaşma zamanı.",
+              "relationship_change": 45
+            },
+            {
+              "stage": "ancient_keeper",
+              "description": "Eski bilgilerin koruyucusu olma. Aldric'in halefi.",
+              "dialogue": "Sen eski bilgilerin koruyucususun. Gelecek nesillere aktaracaksın.",
+              "relationship_change": 70
+            }
+          ]
+        },
+        "dragon_ignis_arc": {
+          "stages": [
+            {
+              "stage": "fearsome_enemy",
+              "description": "Ejderha Ignis ile ilk karşılaşma. Korkunç ve gururlu.",
+              "dialogue": "Küçük insan, benim topraklarıma mı geldin? Ölümünü tat!",
+              "relationship_change": -20
+            },
+            {
+              "stage": "understanding_attempt",
+              "description": "Ignis'i anlamaya çalışma. Ejderhanın motivasyonunu öğreniyorsun.",
+              "dialogue": "Neden bu toprakları istiyorsun? Anlamaya çalışıyorum.",
+              "relationship_change": -5
+            },
+            {
+              "stage": "mutual_respect",
+              "description": "Ignis ile karşılıklı saygı. Artık sadece düşman değilsiniz.",
+              "dialogue": "Sen farklı bir insansın. Diğerleri gibi değilsin.",
+              "relationship_change": 10
+            },
+            {
+              "stage": "unlikely_alliance",
+              "description": "Ignis ile ittifak. Birlikte daha büyük tehditlere karşı savaşıyorsunuz.",
+              "dialogue": "Birlikte daha güçlüyüz. Ortak düşmanlarımıza karşı savaşalım.",
+              "relationship_change": 30
+            }
+          ]
+        }
+      },
+      "environmental_storytelling": {
+        "village_atmosphere": {
+          "morning": "Sabah vakti köy uyanıyor. İnsanlar günlük işlerine başlıyor.",
+          "afternoon": "Öğle vakti köy canlı. Çocuklar oynuyor, yetişkinler çalışıyor.",
+          "evening": "Akşam olurken köy sakinleşiyor. Aileler evlerine dönüyor.",
+          "night": "Gece köy sessiz. Sadece nöbetçiler ve ejderha sesleri."
+        },
+        "mountain_areas": {
+          "lower_slopes": "Dağın alt yamaçları çimenlerle kaplı. Koyunlar otluyor.",
+          "middle_path": "Orta yolda ağaçlar var. Rüzgar sert esiyor.",
+          "upper_reaches": "Üst bölgeler karlı. Hava soğuk ve tehlikeli.",
+          "hermit_peak": "Keşişin zirvesi bulutlarla çevrili. Büyülü atmosfer."
+        },
+        "dragon_territory": {
+          "approach": "Ejderha bölgesine yaklaşırken hava ısınıyor. Kükürt kokusu.",
+          "lair_entrance": "Mağara girişi büyük ve korkutucu. Kemikler ve hazine.",
+          "inner_chamber": "İç oda sıcak ve karanlık. Ejderha burada yaşıyor.",
+          "treasure_hoard": "Hazine yığını altın ve mücevherlerle dolu."
+        }
+      },
+      "dynamic_events": {
+        "random_encounters": [
+          {
+            "id": "wandering_merchant",
+            "title": "Gezgin Tüccar",
+            "description": "Yolda bir gezgin tüccarla karşılaşıyorsun. Garip eşyalar satıyor.",
+            "choices": [
+              { "text": "Alışveriş yap", "reward": "rare_items", "gold": -50 },
+              { "text": "Bilgi al", "reward": "information", "gold": -10 },
+              { "text": "Yoluna devam et", "effect": "nothing" }
+            ]
+          },
+          {
+            "id": "injured_traveler",
+            "title": "Yaralı Yolcu",
+            "description": "Yaralı bir yolcuyla karşılaşıyorsun. Ejderha saldırısından kurtulmuş.",
+            "choices": [
+              { "text": "Yardım et", "reward": "gratitude", "karma": 15 },
+              { "text": "Bilgi al", "reward": "dragon_info", "karma": 5 },
+              { "text": "Göz ardı et", "effect": "nothing" }
+            ]
+          },
+          {
+            "id": "ancient_ruins",
+            "title": "Eski Kalıntılar",
+            "description": "Yolda eski kalıntılarla karşılaşıyorsun. Büyülü enerji hissediliyor.",
+            "choices": [
+              {
+                "text": "Araştır",
+                "danger": 10,
+                "reward": "ancient_knowledge"
+              },
+              {
+                "text": "Büyü kullan",
+                "magic": 15,
+                "reward": "magical_insight"
+              },
+              { "text": "Uzaklaş", "effect": "safety" }
+            ]
+          }
+        ],
+        "dragon_events": [
+          {
+            "id": "dragon_overflight",
+            "title": "Ejderha Uçuşu",
+            "description": "Ignis gökyüzünde uçuyor. Köyü tehdit ediyor.",
+            "effects": [
+              "village_panic",
+              "defense_preparation",
+              "dragon_intimidation"
+            ]
+          },
+          {
+            "id": "dragon_roar",
+            "title": "Ejderha Kükremesi",
+            "description": "Uzaktan ejderha kükremesi geliyor. Toprak titriyor.",
+            "effects": ["earth_tremor", "animal_panic", "human_fear"]
+          }
+        ]
+      }
     }
   }
 }

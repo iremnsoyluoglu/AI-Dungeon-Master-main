@@ -1,0 +1,22 @@
+{
+  "xp": 0,
+  "level": 1,
+  "quests_completed": 0,
+  "exploration_skill": 26,
+  "combat_skill": 0,
+  "charisma_skill": 0,
+  "intelligence_skill": 0,
+  "locations_visited": 0,
+  "clues_found": 0,
+  "search_actions": 0,
+  "combat_won": 0,
+  "npc_interactions": 0,
+  "items_collected": 0,
+  "damage_dealt": 0,
+  "tactics_used": 0,
+  "puzzle_attempts": 0,
+  "correct_answers": 0,
+  "conversations": 0,
+  "relationship_built": 0,
+  "time_spent": 130
+}

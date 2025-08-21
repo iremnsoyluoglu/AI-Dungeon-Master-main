@@ -46,5 +46,101 @@
       "Vahşi Güç",
       "Dayanıklılık"
     ]
+  },
+  "android": {
+    "id": "android",
+    "name": "Android",
+    "description": "Yapay zeka ile donatılmış robot",
+    "hp_bonus": 25,
+    "attack_bonus": 2,
+    "defense_bonus": 2,
+    "special_traits": [
+      "Sistem Override",
+      "Teknoloji Uzmanlığı"
+    ]
+  },
+  "alien": {
+    "id": "alien",
+    "name": "Uzaylı",
+    "description": "Telepatik yeteneklere sahip uzaylı",
+    "hp_bonus": -5,
+    "attack_bonus": 4,
+    "defense_bonus": 1,
+    "special_traits": [
+      "Telepati",
+      "Psişik Güçler"
+    ]
+  },
+  "mutant": {
+    "id": "mutant",
+    "name": "Mutasyon",
+    "description": "Radyasyon sonucu değişmiş insan",
+    "hp_bonus": 30,
+    "attack_bonus": 3,
+    "defense_bonus": 1,
+    "special_traits": [
+      "Mutasyon Gücü",
+      "Radyasyon Direnci"
+    ]
+  },
+  "cyborg": {
+    "id": "cyborg",
+    "name": "Yarı Robot",
+    "description": "Siber implantlarla geliştirilmiş insan",
+    "hp_bonus": 20,
+    "attack_bonus": 2,
+    "defense_bonus": 2,
+    "special_traits": [
+      "Siber Saldırı",
+      "Teknoloji Entegrasyonu"
+    ]
+  },
+  "enhanced": {
+    "id": "enhanced",
+    "name": "Geliştirilmiş",
+    "description": "Genetik olarak geliştirilmiş insan",
+    "hp_bonus": 15,
+    "attack_bonus": 3,
+    "defense_bonus": 1,
+    "special_traits": [
+      "Stim Saldırısı",
+      "Gelişmiş Refleksler"
+    ]
+  },
+  "baseline": {
+    "id": "baseline",
+    "name": "Normal",
+    "description": "Standart insan, değişmemiş",
+    "hp_bonus": 0,
+    "attack_bonus": 0,
+    "defense_bonus": 0,
+    "special_traits": [
+      "İnsan Gücü",
+      "Uyumluluk"
+    ]
+  },
+  "eldar": {
+    "id": "eldar",
+    "name": "Eldar",
+    "description": "Gelişmiş psişik yeteneklere sahip elf",
+    "hp_bonus": -10,
+    "attack_bonus": 3,
+    "defense_bonus": 2,
+    "special_traits": [
+      "Psikik Güç",
+      "Gelişmiş Zeka"
+    ]
+  },
+  "ork_40k": {
+    "id": "ork_40k",
+    "name": "Yeşil",
+    "description": "Warhammer 40K evreninin vahşi orkları",
+    "hp_bonus": 25,
+    "attack_bonus": 4,
+    "defense_bonus": 1,
+    "special_traits": [
+      "Ork Gücü",
+      "Vahşi Saldırı"
+    ]
   }
 }

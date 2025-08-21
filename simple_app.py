@@ -7,24 +7,54 @@ A basic Flask application to test backend functionality
 
 from flask import Flask, render_template, request, jsonify
 import os
+import sys
 
 app = Flask(__name__)
 
+# Add debugging information
+@app.before_request
+def log_request_info():
+    app.logger.info('Headers: %s', dict(request.headers))
+    app.logger.info('Body: %s', request.get_data())
+
 @app.route('/')
 def index():
-    return render_template('login.html')
+    try:
+        return render_template('login.html')
+    except Exception as e:
+        app.logger.error(f"Error rendering login.html: {e}")
+        return f"Error: {str(e)}", 500
 
 @app.route('/login')
 def login_page():
-    return render_template('login.html')
+    try:
+        return render_template('login.html')
+    except Exception as e:
+        app.logger.error(f"Error rendering login.html: {e}")
+        return f"Error: {str(e)}", 500
 
 @app.route('/game')
 def game_page():
-    return render_template('game_enhanced.html')
+    try:
+        return render_template('game_enhanced.html')
+    except Exception as e:
+        app.logger.error(f"Error rendering game_enhanced.html: {e}")
+        return f"Error: {str(e)}", 500
 
 @app.route('/api/health')
 def health():
-    return jsonify({"status": "healthy", "message": "AI Dungeon Master is running!"})
+    try:
+        import flask
+        flask_version = flask.__version__
+    except:
+        flask_version = "Unknown"
+    
+    return jsonify({
+        "status": "healthy", 
+        "message": "AI Dungeon Master is running!",
+        "python_version": sys.version,
+        "flask_version": flask_version
+    })
 
 @app.route('/api/game')
 def game():
@@ -56,6 +86,14 @@ def get_character_classes():
         {"id": "mage", "name": "Mage", "description": "Powerful spellcaster"}
     ]
     return jsonify({"success": True, "classes": classes})
+
+@app.errorhandler(404)
+def not_found(error):
+    return jsonify({"error": "Not found", "path": request.path}), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    return jsonify({"error": "Internal server error"}), 500
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5002))

@@ -290,6 +290,35 @@
           <div class="scenario-description" id="scenarioDescription">
             Diğer oyuncuların katılmasını bekleyin.
           </div>
+          <div style="margin: 10px 0; display: grid; gap: 8px">
+            <label style="color: #ffd700">Senaryo Seç (Oda Sahibi):</label>
+            <select
+              id="scenarioSelect"
+              style="
+                padding: 8px;
+                border-radius: 6px;
+                border: 1px solid #ffd700;
+                background: #000;
+                color: #fff;
+              "
+            >
+              <option value="dragon_hunters_path">
+                Ejderha Avcısının Yolu (Fantasy)
+              </option>
+              <option value="magical_forest_mysteries">
+                Büyülü Ormanın Gizemleri (Fantasy)
+              </option>
+              <option value="hive_city_defense">
+                Hive Şehrinin Savunması (Sci‑Fi)
+              </option>
+              <option value="cyberpunk_city_secrets">
+                Cyberpunk Şehrinin Gizli Sırları (Cyberpunk)
+              </option>
+            </select>
+            <button class="control-btn" onclick="selectScenarioForRoom()">
+              Senaryoyu Ayarla
+            </button>
+          </div>
           <div class="choices-grid" id="choicesGrid">
             <!-- Choices will be populated here -->
           </div>
@@ -397,9 +426,8 @@
           addChatMessage(data.player_name, data.message);
         });
 
-        socket.on("disconnect", () => {
-          showStatus("Sunucu bağlantısı kesildi!", "error");
-        });
+        // HTTP chat poll fallback (every 3s)
+        setInterval(fetchRoomChat, 3000);
       }
 
       // Join the room
@@ -490,6 +518,12 @@
             message: message,
           });
           input.value = "";
+          // Also send via HTTP so everyone sees it even without sockets
+          fetch(`/api/multiplayer/room/${roomId}/chat`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ player_name: playerName, message }),
+          }).catch(() => {});
         }
       }
 
@@ -537,6 +571,75 @@
 
       // Initialize when page loads
       window.addEventListener("load", initializeMultiplayer);
+
+      // Select scenario for room (creator only)
+      async function selectScenarioForRoom() {
+        if (!isCreator) {
+          showStatus("Sadece oda sahibi senaryo seçebilir!", "error");
+          return;
+        }
+        const select = document.getElementById("scenarioSelect");
+        const scenarioId = select.value;
+        try {
+          const res = await fetch(
+            `/api/multiplayer/room/${roomId}/select_scenario`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ scenario_id: scenarioId }),
+            }
+          );
+          const data = await res.json();
+          if (data.success) {
+            showStatus("Senaryo güncellendi", "success");
+            // Fetch first node (start)
+            fetchScenarioStart(scenarioId);
+          } else {
+            showStatus(data.message || "Senaryo ayarlanamadı", "error");
+          }
+        } catch (e) {
+          showStatus("Ağ hatası", "error");
+        }
+      }
+
+      async function fetchScenarioStart(sid) {
+        try {
+          const res = await fetch(`/api/story/scenario/${sid}`);
+          const data = await res.json();
+          if (
+            data.success &&
+            data.scenario &&
+            data.scenario.nodes &&
+            data.scenario.nodes.start
+          ) {
+            const start = data.scenario.nodes.start;
+            updateGameContent({
+              title: start.title || "Hikaye",
+              description: start.description || "",
+              choices: (start.choices || []).map((c, idx) => ({
+                id: c.next_node || `c${idx}`,
+                text: c.text || "Devam",
+              })),
+            });
+          }
+        } catch {}
+      }
+
+      // Poll chat messages via HTTP (fallback)
+      let lastChatCount = 0;
+      async function fetchRoomChat() {
+        try {
+          const res = await fetch(`/api/multiplayer/room/${roomId}/chat`);
+          const data = await res.json();
+          if (data.success && Array.isArray(data.chat)) {
+            if (data.chat.length > lastChatCount) {
+              const newMsgs = data.chat.slice(lastChatCount);
+              newMsgs.forEach((m) => addChatMessage(m.player_name, m.message));
+              lastChatCount = data.chat.length;
+            }
+          }
+        } catch {}
+      }
     </script>
   </body>
 </html>

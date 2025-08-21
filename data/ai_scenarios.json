@@ -1,0 +1,475 @@
+{
+  "scenarios": [
+    {
+      "id": "file_scenario_1755637802",
+      "title": "Dosyadan Üretilen: Test Upload",
+      "theme": "fantasy",
+      "difficulty": "medium",
+      "min_level": 1,
+      "max_level": 5,
+      "duration": 60,
+      "description": "'test_upload.txt' dosyasından AI tarafından üretilen fantasy temalı macera. Dosya içeriği analiz edilerek 336 kelimelik hikaye 1-5 seviye arası oyuncular için uyarlandı. Tahmini süre: 60 dakika.",
+      "story_nodes": {
+        "start": {
+          "title": "🎭 Büyülü Macera Başlıyor",
+          "description": "Büyülü bir dünyada kendini buldun. Etrafında Kale, Şehir, Köy var. Uzay, Thomas, seni bekliyor...",
+          "atmosphere": {
+            "sounds": [
+              "Rüzgar uğultusu",
+              "Uzak kurt uluması",
+              "Büyü fısıltıları"
+            ],
+            "visuals": [
+              "Ay ışığı",
+              "Eski kaleler",
+              "Büyülü ormanlar"
+            ]
+          },
+          "choices": [
+            {
+              "id": "explore_world",
+              "text": "🗺️ Dünyayı keşfet",
+              "next_node": "content_node_1",
+              "effect": {
+                "xp": 20,
+                "exploration": 10
+              }
+            },
+            {
+              "id": "meet_characters",
+              "text": "👥 Karakterlerle tanış",
+              "next_node": "content_node_2",
+              "effect": {
+                "xp": 15,
+                "social": 10
+              }
+            },
+            {
+              "id": "start_quest",
+              "text": "⚔️ Göreve başla",
+              "next_node": "content_node_3",
+              "effect": {
+                "xp": 25,
+                "combat": 15
+              }
+            }
+          ]
+        },
+        "content_node_3": {
+          "title": "📖 Hikaye Bölümü 3",
+          "description": "Hive City, milyonlarca insanın yaşadığı devasa bir şehir. Yüksek binaların arasında gizli geçitler ve tehlikeli sokaklar var. Ana karakterimiz Alex, genç bir dedektif. Şehrin alt katmanlarında gizemli cinayetler işleniyor ve Alex bu sırları çözmek zorunda.",
+          "atmosphere": {
+            "sounds": [
+              "Rüzgar uğultusu",
+              "Büyü fısıltıları",
+              "Metal tıngırtısı"
+            ],
+            "visuals": [
+              "Büyülü ışıklar",
+              "Antik duvarlar",
+              "Gizli geçitler"
+            ]
+          },
+          "choices": [
+            {
+              "id": "continue_3",
+              "text": "➡️ Devam et",
+              "next_node": "content_node_4",
+              "effect": {
+                "xp": 10,
+                "skill": "exploration"
+              }
+            },
+            {
+              "id": "investigate_3",
+              "text": "🔍 Daha detaylı araştır",
+              "next_node": "content_node_4",
+              "effect": {
+                "xp": 15,
+                "skill": "investigation"
+              }
+            },
+            {
+              "id": "prepare_3",
+              "text": "⚔️ Hazırlan",
+              "next_node": "content_node_4",
+              "effect": {
+                "xp": 20,
+                "skill": "planning"
+              }
+            },
+            {
+              "id": "talk_3",
+              "text": "💬 Konuş",
+              "next_node": "content_node_4",
+              "effect": {
+                "xp": 25,
+                "skill": "social"
+              }
+            }
+          ]
+        },
+        "content_node_4": {
+          "title": "📖 Hikaye Bölümü 4",
+          "description": "İlk olarak Alex, eski bir arkadaşı olan Maria ile buluşuyor. Maria, şehrin alt katmanlarında yaşayan bir bilgi satıcısı. Ona göre cinayetlerin arkasında güçlü bir suç örgütü var. Alex, Maria'nın yardımıyla şehrin karanlık yüzünü keşfetmeye başlıyor.",
+          "atmosphere": {
+            "sounds": [
+              "Rüzgar uğultusu",
+              "Büyü fısıltıları",
+              "Metal tıngırtısı"
+            ],
+            "visuals": [
+              "Büyülü ışıklar",
+              "Antik duvarlar",
+              "Gizli geçitler"
+            ]
+          },
+          "choices": [
+            {
+              "id": "continue_4",
+              "text": "➡️ Devam et",
+              "next_node": "content_node_5",
+              "effect": {
+                "xp": 10,
+                "skill": "exploration"
+              }
+            },
+            {
+              "id": "investigate_4",
+              "text": "🔍 Daha detaylı araştır",
+              "next_node": "content_node_5",
+              "effect": {
+                "xp": 15,
+                "skill": "investigation"
+              }
+            },
+            {
+              "id": "prepare_4",
+              "text": "⚔️ Hazırlan",
+              "next_node": "content_node_5",
+              "effect": {
+                "xp": 20,
+                "skill": "planning"
+              }
+            },
+            {
+              "id": "talk_4",
+              "text": "💬 Konuş",
+              "next_node": "content_node_5",
+              "effect": {
+                "xp": 25,
+                "skill": "social"
+              }
+            }
+          ]
+        },
+        "content_node_6": {
+          "title": "📖 Hikaye Bölümü 6",
+          "description": "Elfler ve insanlar arasında barış yıllardır sürüyor. Ancak son zamanlarda ormanın derinliklerinden garip sesler geliyor. Genç elf savaşçısı Lyra, kayıp tapınağı bulmak için görevlendirildi. Tapınakta antik bir büyü var ve bu büyü dünyayı tehdit ediyor.",
+          "atmosphere": {
+            "sounds": [
+              "Rüzgar uğultusu",
+              "Büyü fısıltıları",
+              "Metal tıngırtısı"
+            ],
+            "visuals": [
+              "Büyülü ışıklar",
+              "Antik duvarlar",
+              "Gizli geçitler"
+            ]
+          },
+          "choices": [
+            {
+              "id": "continue_6",
+              "text": "➡️ Devam et",
+              "next_node": "content_node_7",
+              "effect": {
+                "xp": 10,
+                "skill": "exploration"
+              }
+            },
+            {
+              "id": "investigate_6",
+              "text": "🔍 Daha detaylı araştır",
+              "next_node": "content_node_7",
+              "effect": {
+                "xp": 15,
+                "skill": "investigation"
+              }
+            },
+            {
+              "id": "prepare_6",
+              "text": "⚔️ Hazırlan",
+              "next_node": "content_node_7",
+              "effect": {
+                "xp": 20,
+                "skill": "planning"
+              }
+            },
+            {
+              "id": "talk_6",
+              "text": "💬 Konuş",
+              "next_node": "content_node_7",
+              "effect": {
+                "xp": 25,
+                "skill": "social"
+              }
+            }
+          ]
+        },
+        "content_node_7": {
+          "title": "📖 Hikaye Bölümü 7",
+          "description": "Lyra, insan büyücüsü Marcus ile birlikte çalışmak zorunda. İkisi de birbirlerine güvenmiyor ama ortak düşmanlarına karşı birlikte hareket etmeleri gerekiyor. Ormanın derinliklerinde tehlikeli yaratıklar ve gizli tuzaklar var.",
+          "atmosphere": {
+            "sounds": [
+              "Rüzgar uğultusu",
+              "Büyü fısıltıları",
+              "Metal tıngırtısı"
+            ],
+            "visuals": [
+              "Büyülü ışıklar",
+              "Antik duvarlar",
+              "Gizli geçitler"
+            ]
+          },
+          "choices": [
+            {
+              "id": "continue_7",
+              "text": "➡️ Devam et",
+              "next_node": "content_node_8",
+              "effect": {
+                "xp": 10,
+                "skill": "exploration"
+              }
+            },
+            {
+              "id": "investigate_7",
+              "text": "🔍 Daha detaylı araştır",
+              "next_node": "content_node_8",
+              "effect": {
+                "xp": 15,
+                "skill": "investigation"
+              }
+            },
+            {
+              "id": "prepare_7",
+              "text": "⚔️ Hazırlan",
+              "next_node": "content_node_8",
+              "effect": {
+                "xp": 20,
+                "skill": "planning"
+              }
+            },
+            {
+              "id": "talk_7",
+              "text": "💬 Konuş",
+              "next_node": "content_node_8",
+              "effect": {
+                "xp": 25,
+                "skill": "social"
+              }
+            }
+          ]
+        },
+        "content_node_9": {
+          "title": "📖 Hikaye Bölümü 9",
+          "description": "Uzay gemisi Nova, bilinmeyen bir gezegende mahsur kaldı. Mürettebatın çoğu kayıp ve kalanlar hayatta kalmaya çalışıyor. Kaptan Sarah, mürettebatını bulmak ve gemiyi kurtarmak için her şeyi yapacak.",
+          "atmosphere": {
+            "sounds": [
+              "Rüzgar uğultusu",
+              "Büyü fısıltıları",
+              "Metal tıngırtısı"
+            ],
+            "visuals": [
+              "Büyülü ışıklar",
+              "Antik duvarlar",
+              "Gizli geçitler"
+            ]
+          },
+          "choices": [
+            {
+              "id": "continue_9",
+              "text": "➡️ Devam et",
+              "next_node": "content_node_10",
+              "effect": {
+                "xp": 10,
+                "skill": "exploration"
+              }
+            },
+            {
+              "id": "investigate_9",
+              "text": "🔍 Daha detaylı araştır",
+              "next_node": "content_node_10",
+              "effect": {
+                "xp": 15,
+                "skill": "investigation"
+              }
+            },
+            {
+              "id": "prepare_9",
+              "text": "⚔️ Hazırlan",
+              "next_node": "content_node_10",
+              "effect": {
+                "xp": 20,
+                "skill": "planning"
+              }
+            },
+            {
+              "id": "talk_9",
+              "text": "💬 Konuş",
+              "next_node": "content_node_10",
+              "effect": {
+                "xp": 25,
+                "skill": "social"
+              }
+            }
+          ]
+        },
+        "content_node_10": {
+          "title": "📖 Hikaye Bölümü 10",
+          "description": "Gezegen tehlikeli ve yabancı. Yerli yaratıklar ve gizemli teknolojiler var. Sarah, mühendis Mike ve doktor Lisa ile birlikte gezegeni keşfetmeye başlıyor. Ancak her adımda yeni tehlikelerle karşılaşıyorlar.",
+          "atmosphere": {
+            "sounds": [
+              "Rüzgar uğultusu",
+              "Büyü fısıltıları",
+              "Metal tıngırtısı"
+            ],
+            "visuals": [
+              "Büyülü ışıklar",
+              "Antik duvarlar",
+              "Gizli geçitler"
+            ]
+          },
+          "choices": [
+            {
+              "id": "continue_10",
+              "text": "➡️ Devam et",
+              "next_node": "content_node_11",
+              "effect": {
+                "xp": 10,
+                "skill": "exploration"
+              }
+            },
+            {
+              "id": "investigate_10",
+              "text": "🔍 Daha detaylı araştır",
+              "next_node": "content_node_11",
+              "effect": {
+                "xp": 15,
+                "skill": "investigation"
+              }
+            },
+            {
+              "id": "prepare_10",
+              "text": "⚔️ Hazırlan",
+              "next_node": "content_node_11",
+              "effect": {
+                "xp": 20,
+                "skill": "planning"
+              }
+            },
+            {
+              "id": "talk_10",
+              "text": "💬 Konuş",
+              "next_node": "content_node_11",
+              "effect": {
+                "xp": 25,
+                "skill": "social"
+              }
+            }
+          ]
+        },
+        "end": {
+          "title": "🎉 Macera Tamamlandı",
+          "description": "Hikayenin sonuna ulaştın. Bu macerada çok şey öğrendin ve deneyim kazandın. Yeni maceralar seni bekliyor!",
+          "choices": [
+            {
+              "id": "restart",
+              "text": "🔄 Yeniden başla",
+              "next_node": "start",
+              "effect": {
+                "xp": 50,
+                "achievement": "completed_story"
+              }
+            }
+          ]
+        }
+      },
+      "npc_relationships": {
+        "npc_1": {
+          "name": "Uzay",
+          "trust_level": 0,
+          "quests_completed": 0,
+          "relationship_status": "stranger",
+          "ending_impact": "medium"
+        },
+        "npc_2": {
+          "name": "Thomas,",
+          "trust_level": 0,
+          "quests_completed": 0,
+          "relationship_status": "stranger",
+          "ending_impact": "low"
+        },
+        "npc_3": {
+          "name": "Kale,",
+          "trust_level": 0,
+          "quests_completed": 0,
+          "relationship_status": "stranger",
+          "ending_impact": "low"
+        }
+      },
+      "quest_chains": {
+        "main_quest": {
+          "title": "Ana Görev",
+          "prerequisites": [],
+          "quests": [
+            "explore_world",
+            "find_clues",
+            "complete_objective"
+          ],
+          "rewards": {
+            "xp": 500,
+            "gold": 200,
+            "items": [
+              "special_item"
+            ],
+            "relationship_boost": 20
+          }
+        }
+      },
+      "file_source": "test_upload.txt",
+      "word_count": 336,
+      "created_at": "2025-08-20T00:10:02.654634",
+      "ai_generated": true,
+      "source_type": "file_upload",
+      "levels": {
+        "level_1": {
+          "title": "Başlangıç",
+          "description": "Macera başlıyor",
+          "min_level": 1,
+          "max_level": 3,
+          "enemies": [
+            "Basic Enemy"
+          ],
+          "boss": "Minor Boss",
+          "side_quests": [
+            "Tutorial Quest"
+          ]
+        },
+        "level_2": {
+          "title": "Gelişim",
+          "description": "Karakter gelişimi",
+          "min_level": 3,
+          "max_level": 3,
+          "enemies": [
+            "Advanced Enemy"
+          ],
+          "boss": "Major Boss",
+          "side_quests": [
+            "Character Development"
+          ]
+        }
+      }
+    }
+  ]
+}

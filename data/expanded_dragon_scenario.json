@@ -1,0 +1,2387 @@
+{
+  "enhanced_scenarios": {
+    "dragon_hunters_path": {
+      "id": "dragon_hunters_path",
+      "title": "Ejderha Avcısının Yolu",
+      "genre": "fantasy",
+      "description": "Kızıl ejderha köyleri yakıyor. Sen ejderha avcısısın. Bu tehlikeli görevde ejderhayı durdurmak için her şeyi riske atacaksın.",
+      "difficulty": "hard",
+      "theme": "fantasy",
+      "complexity": "high",
+      "estimatedPlayTime": 180,
+      "npcs": {
+        "aldric": {
+          "id": "aldric",
+          "name": "Aldric",
+          "title": "Köy Reisi",
+          "personality": "Worried but determined leader",
+          "relationship": "Trusts you as the village's hope",
+          "portrait": "👴",
+          "backstory": "50 yıldır köyü yöneten yaşlı lider. Ejderha tehdidinden çok endişeli ama halkını korumaya kararlı.",
+          "dialogue": {
+            "greeting": "Ejderha Avcısı! Köyümüzün umudu sensin. Her gece o sesi duyuyorum... Kızıl Alev'in nefesini...",
+            "quest": "Ejderha bir ay önce geldi. Ama garip olan şu ki, kimseye saldırmıyor. Sadece... konuşuyor.",
+            "info": "Gizemli bir yolcu Shadow da köye geldi, ejderha hakkında bilgili. Lydia'nın babası son zamanlarda çok değişti...",
+            "reward": "Köyün hazinesi sizin. Ayrıca... gizemli bir kolye var. Ejderha onu arıyor gibi."
+          },
+          "combat_stats": {
+            "hp": 60,
+            "attack": 8,
+            "defense": 6,
+            "special_ability": "Leadership Aura"
+          }
+        },
+        "lydia": {
+          "id": "lydia",
+          "name": "Lydia",
+          "title": "Şifacının Kızı",
+          "personality": "Worried daughter, kind heart",
+          "relationship": "Seeks your help for her father",
+          "portrait": "👩‍⚕️",
+          "backstory": "Köyün şifacısının kızı. Babasının değişimini fark eden ilk kişi. Ejderha avcılığında deneyimli.",
+          "dialogue": {
+            "greeting": "Babam... babam değişti. Son zamanlarda çok garip davranıyor. Ejderha hakkında sürekli konuşuyor.",
+            "quest": "Babamın odasında eski bir kitap buldum. Ejderha avcılığı hakkında yazılar var. Ama babam bunları hiç bilmiyordu.",
+            "info": "Shadow bana babamın geçmişini anlattı. 100 yıl önce ejderha avcısıymış. Ama bir şeyler ters gitti.",
+            "help": "Babamı kurtarmak istiyorum. Ama korkuyorum... eğer gerçekten ejderha gücü kazandıysa..."
+          },
+          "combat_stats": {
+            "hp": 45,
+            "attack": 6,
+            "defense": 4,
+            "special_ability": "Healing Touch"
+          }
+        },
+        "shadow": {
+          "id": "shadow",
+          "name": "Shadow",
+          "title": "Gizemli Yolcu",
+          "personality": "Mysterious, knowledgeable, slightly ominous",
+          "relationship": "Knows more than he reveals",
+          "portrait": "🧙‍♂️",
+          "backstory": "Köye yakın zamanda gelen gizemli bir yolcu. Ejderha avcılığı konusunda bilgili. Gerçek kimliği belirsiz.",
+          "dialogue": {
+            "greeting": "Ejderha avcısı... sonunda geldin. Bu köyde olanları biliyorum. Şifacının sırrını da...",
+            "quest": "Şifacı 100 yıl önce ejderhayı öldürdü ama gücünü alamadı. Şimdi kolyeyi buldu ve güç peşinde.",
+            "info": "Ejderha aslında konuşuyor çünkü şifacıyı arıyor. Kolye onun gücünün kaynağı. Ama şifacı onu kullanıyor.",
+            "warning": "Dikkatli ol. Şifacı artık insan değil. Ejderha gücü onu değiştirdi. Lydia'yı koru."
+          },
+          "combat_stats": {
+            "hp": 80,
+            "attack": 12,
+            "defense": 8,
+            "special_ability": "Shadow Magic"
+          }
+        },
+        "healer": {
+          "id": "healer",
+          "name": "Marcus",
+          "title": "Köy Şifacısı",
+          "personality": "Corrupted by dragon power, conflicted",
+          "relationship": "Former ally, now potential enemy",
+          "portrait": "🧙‍♂️",
+          "backstory": "100 yıl önce ejderha avcısıydı. Ejderhayı öldürdü ama gücünü alamadı. Şimdi kolyeyi buldu ve güç peşinde.",
+          "dialogue": {
+            "greeting": "Değişmedim! Sadece gücümü geri kazandım! 100 yıl önce ejderha avcısıydım.",
+            "confession": "Ejderhayı öldürdüm ama gücünü alamadım. Şimdi kolyeyi buldum ve güç benim olacak!",
+            "threat": "Seni durduramazsın! Ejderha gücü artık benim! Lydia'yı da yanıma alacağım!",
+            "redemption": "Ne... ne oldu? Ben ne yaptım? Lydia... özür dilerim..."
+          },
+          "combat_stats": {
+            "hp": 120,
+            "attack": 15,
+            "defense": 10,
+            "special_ability": "Dragon Magic"
+          }
+        },
+        "dragon": {
+          "id": "dragon",
+          "name": "Kızıl Alev",
+          "title": "Ancient Dragon",
+          "personality": "Wise, ancient, seeking redemption",
+          "relationship": "Not truly evil, seeking justice",
+          "portrait": "🐉",
+          "backstory": "1000 yıllık antik ejderha. Şifacı tarafından kandırıldı ve gücü çalındı. Şimdi adalet arıyor.",
+          "dialogue": {
+            "greeting": "Sonunda... 100 yıl sonra gerçek bir ejderha avcısı geldi. Ama ben kötü değilim.",
+            "truth": "Şifacı beni kandırdı. Gücümü çaldı ve köyleri yakmakla suçladı. Ama o yaktı, ben değil.",
+            "request": "Kolyemi geri ver. Gücümü geri alayım ve şifacıyı durdurayım. Köyü koruyacağım.",
+            "gratitude": "Teşekkürler... artık gerçeği biliyorsun. Köyü koruyacağım ve şifacıyı affedeceğim."
+          },
+          "combat_stats": {
+            "hp": 200,
+            "attack": 20,
+            "defense": 15,
+            "special_ability": "Ancient Fire Breath"
+          }
+        }
+      },
+      "story_nodes": {
+        "start": {
+          "id": "start",
+          "title": "Köyün Yanışı",
+          "description": "Güneş batarken köyün üzerinde kızıl bir gölge beliriyor. Kızıl ejderha gökyüzünde uçuyor ve alevler saçarak köyü yakıyor. Sen ejderha avcısısın ve bu tehlikeli görevde her şeyi riske atacaksın. Köy meydanında yaşlı bir adam seni bekliyor - köy reisi Aldric.",
+          "background": "burning_village.jpg",
+          "choices": [
+            {
+              "text": "Aldric ile konuş",
+              "next_node": "talk_aldric",
+              "effect": {
+                "karma": 5,
+                "reputation": 10
+              }
+            },
+            {
+              "text": "Hemen ejderhayı takip et",
+              "next_node": "track_dragon_immediate",
+              "effect": {
+                "karma": 3,
+                "reputation": -5
+              }
+            },
+            {
+              "text": "Köylülerden bilgi topla",
+              "next_node": "gather_village_info",
+              "effect": {
+                "karma": 4,
+                "reputation": 5
+              }
+            },
+            {
+              "text": "Şifacıyı ara",
+              "next_node": "find_healer",
+              "effect": {
+                "karma": 6,
+                "reputation": 8
+              }
+            }
+          ]
+        },
+        "talk_aldric": {
+          "id": "talk_aldric",
+          "title": "Köy Reisi ile Konuşma",
+          "description": "Aldric'nin yüzünde derin endişe var. 'Ejderha Avcısı! Köyümüzün umudu sensin. Her gece o sesi duyuyorum... Kızıl Alev'in nefesini...' Yaşlı adam titriyor. 'Ama garip olan şu ki, ejderha kimseye saldırmıyor. Sadece... konuşuyor.'",
+          "background": "village_square.jpg",
+          "choices": [
+            {
+              "text": "Daha fazla bilgi iste",
+              "next_node": "aldric_more_info",
+              "effect": {
+                "karma": 5,
+                "reputation": 10
+              }
+            },
+            {
+              "text": "Gizemli yolcu hakkında sor",
+              "next_node": "ask_about_shadow",
+              "effect": {
+                "karma": 4,
+                "reputation": 8
+              }
+            },
+            {
+              "text": "Ödül hakkında konuş",
+              "next_node": "negotiate_reward",
+              "effect": {
+                "karma": 2,
+                "reputation": 5
+              }
+            },
+            {
+              "text": "Lydia'yı ara",
+              "next_node": "find_lydia",
+              "effect": {
+                "karma": 6,
+                "reputation": 12
+              }
+            }
+          ]
+        },
+        "aldric_more_info": {
+          "id": "aldric_more_info",
+          "title": "Daha Fazla Bilgi",
+          "description": "Aldric derin bir nefes alıyor. 'Ejderha bir ay önce geldi. Ama garip olan şu ki, kimseye saldırmıyor. Sadece... konuşuyor. Gizemli bir yolcu Shadow da köye geldi, ejderha hakkında bilgili. Lydia'nın babası son zamanlarda çok değişti...' Aldric'nin sesi titriyor.",
+          "background": "village_square.jpg",
+          "choices": [
+            {
+              "text": "Shadow ile konuş",
+              "next_node": "talk_shadow",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            },
+            {
+              "text": "Şifacının değişimini araştır",
+              "next_node": "investigate_healer_change",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            },
+            {
+              "text": "Ejderhanın konuştuğu şeyi öğren",
+              "next_node": "learn_dragon_speech",
+              "effect": {
+                "karma": 4,
+                "reputation": 6
+              }
+            },
+            {
+              "text": "Köyü koruma planı yap",
+              "next_node": "defense_planning",
+              "effect": {
+                "karma": 7,
+                "reputation": 15
+              }
+            }
+          ]
+        },
+        "talk_shadow": {
+          "id": "talk_shadow",
+          "title": "Gizemli Yolcu ile Konuşma",
+          "description": "Gölgeler arasından uzun boylu, gizemli bir figür çıkıyor. Shadow'un gözleri eski bilgelikle parlıyor. 'Ejderha avcısı... sonunda geldin. Bu köyde olanları biliyorum. Şifacının sırrını da...' Sesinde bir uyarı var.",
+          "background": "shadow_encounter.jpg",
+          "choices": [
+            {
+              "text": "Şifacının sırrını öğren",
+              "next_node": "learn_healer_secret",
+              "effect": {
+                "karma": 6,
+                "reputation": 12
+              }
+            },
+            {
+              "text": "Ejderha hakkında bilgi al",
+              "next_node": "learn_dragon_info",
+              "effect": {
+                "karma": 5,
+                "reputation": 10
+              }
+            },
+            {
+              "text": "Shadow'un kimliğini sorgula",
+              "next_node": "question_shadow_identity",
+              "effect": {
+                "karma": 3,
+                "reputation": 5
+              }
+            }
+          ]
+        },
+        "learn_healer_secret": {
+          "id": "learn_healer_secret",
+          "title": "Şifacının Sırrını Öğren",
+          "description": "Shadow'un gözleri karanlıklaşıyor. 'Şifacı 100 yıl önce ejderha avcısıydı. Ejderhayı öldürdü ama gücünü alamadı. Şimdi kolyeyi buldu ve güç peşinde. Lydia'nın babası artık insan değil.'",
+          "background": "shadow_truth.jpg",
+          "choices": [
+            {
+              "text": "Şifacıyı durdur",
+              "next_node": "confront_healer",
+              "effect": {
+                "karma": 8,
+                "reputation": 15
+              }
+            },
+            {
+              "text": "Lydia'yı uyar",
+              "next_node": "warn_lydia",
+              "effect": {
+                "karma": 7,
+                "reputation": 12
+              }
+            },
+            {
+              "text": "Ejderha ile ittifak kur",
+              "next_node": "ally_with_dragon",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "confront_healer": {
+          "id": "confront_healer",
+          "title": "Şifacıyı Yüzleştir",
+          "description": "Şifacının evine gidiyorsun. Marcus dışarı çıkıyor ve gözleri ejderha ateşiyle yanıyor. 'Değişmedim! Sadece gücümü geri kazandım! 100 yıl önce ejderha avcısıydım!'",
+          "background": "healer_confrontation.jpg",
+          "choices": [
+            {
+              "text": "Savaş",
+              "next_node": "fight_healer",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            },
+            {
+              "text": "İkna et",
+              "next_node": "convince_healer",
+              "effect": {
+                "karma": 8,
+                "reputation": 15
+              }
+            },
+            {
+              "text": "Kolyeyi al",
+              "next_node": "steal_necklace",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "fight_healer": {
+          "id": "fight_healer",
+          "title": "Şifacı ile Savaş",
+          "description": "Şifacı ejderha gücünü kullanarak saldırıyor! Savaş başlıyor ve köy meydanında büyük bir çatışma yaşanıyor.",
+          "background": "healer_combat.jpg",
+          "choices": [
+            {
+              "text": "Kılıçla saldır",
+              "next_node": "sword_attack_healer",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            },
+            {
+              "text": "Büyü kullan",
+              "next_node": "magic_attack_healer",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            },
+            {
+              "text": "Kolyeyi hedefle",
+              "next_node": "target_necklace",
+              "effect": {
+                "karma": 7,
+                "reputation": 12
+              }
+            }
+          ]
+        },
+        "sword_attack_healer": {
+          "id": "sword_attack_healer",
+          "title": "Kılıçla Saldır",
+          "description": "Kılıcınla şifacıya saldırıyorsun. Şifacı güçlü ama sen de deneyimli bir avcısın. Savaş devam ediyor.",
+          "background": "sword_combat.jpg",
+          "choices": [
+            {
+              "text": "Savaşa devam et",
+              "next_node": "continue_healer_fight",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            },
+            {
+              "text": "Lydia'yı çağır",
+              "next_node": "call_lydia_help",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "continue_healer_fight": {
+          "id": "continue_healer_fight",
+          "title": "Savaşa Devam Et",
+          "description": "Savaşa devam ediyorsun. Son bir saldırıyla şifacıyı yaralıyorsun ve kolye yere düşüyor. Şifacı gücünü kaybediyor ve normal haline dönüyor.",
+          "background": "victory_combat.jpg",
+          "choices": [
+            {
+              "text": "Şifacıyı affet",
+              "next_node": "forgive_healer",
+              "effect": {
+                "karma": 10,
+                "reputation": 20
+              }
+            },
+            {
+              "text": "Şifacıyı cezalandır",
+              "next_node": "punish_healer",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            }
+          ]
+        },
+        "forgive_healer": {
+          "id": "forgive_healer",
+          "title": "Şifacıyı Affet",
+          "description": "Şifacıyı affediyorsun. Marcus gözlerini açıyor ve ne yaptığını hatırlıyor. 'Ne... ne oldu? Ben ne yaptım? Lydia... özür dilerim...' Kolye parlamaya başlıyor ve ejderha gökyüzünde beliriyor.",
+          "background": "redemption.jpg",
+          "choices": [
+            {
+              "text": "Ejderha ile konuş",
+              "next_node": "talk_to_dragon",
+              "effect": {
+                "karma": 12,
+                "reputation": 25
+              }
+            }
+          ]
+        },
+        "talk_to_dragon": {
+          "id": "talk_to_dragon",
+          "title": "Ejderha ile Konuş",
+          "description": "Ejderha ile konuşuyorsun. Kızıl Alev Marcus'un durumunu anlıyor. 'Marcus kolyeyi bulmuş. Gücümü geri istiyorum. Ama Marcus'u da kurtarmak istiyorum.'",
+          "background": "talk_to_dragon.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi geri ver",
+              "next_node": "return_necklace_dragon",
+              "effect": {
+                "karma": 10,
+                "reputation": 20
+              }
+            },
+            {
+              "text": "Marcus'u kurtar",
+              "next_node": "save_marcus_from_dragon",
+              "effect": {
+                "karma": 8,
+                "reputation": 15
+              }
+            }
+          ]
+        },
+        "believe_dragon": {
+          "id": "believe_dragon",
+          "title": "Ejderhaya İnan",
+          "description": "Ejderhaya inanıyorsun. Kolyeyi ona veriyorsun ve ejderha gücünü geri kazanıyor. 'Teşekkürler. Şimdi köyü koruyacağım ve şifacıyı affedeceğim.'",
+          "background": "dragon_power_restored.jpg",
+          "choices": [
+            {
+              "text": "Sonucu gör",
+              "next_node": "dragon_ending_good",
+              "effect": {
+                "karma": 15,
+                "reputation": 30
+              }
+            }
+          ]
+        },
+        "dragon_ending_good": {
+          "id": "dragon_ending_good",
+          "title": "İyi Son",
+          "description": "Şifacı ile birlikte ejderha ile barış yaptınız. Kolye ejderhaya geri verildi ve herkes mutlu. Köy artık güvende ve ejderha köyü koruyacak. Lydia babasıyla mutlu.",
+          "background": "good_ending.jpg",
+          "choices": [
+            {
+              "text": "Hikaye bitti",
+              "next_node": "start",
+              "effect": {
+                "karma": 15,
+                "reputation": 20
+              }
+            }
+          ]
+        },
+        "track_dragon_immediate": {
+          "id": "track_dragon_immediate",
+          "title": "Ejderhayı Hemen Takip Et",
+          "description": "Aldric'yi dinlemeden ejderhayı takip etmeye karar veriyorsun. Ejderha dağlara doğru uçuyor. Onu takip ederken gizemli bir mağara buluyorsun.",
+          "background": "dragon_cave.jpg",
+          "choices": [
+            {
+              "text": "Mağaraya gir",
+              "next_node": "enter_dragon_cave",
+              "effect": {
+                "karma": 3,
+                "reputation": -5
+              }
+            },
+            {
+              "text": "Mağarayı gözlemle",
+              "next_node": "observe_cave",
+              "effect": {
+                "karma": 4,
+                "reputation": 0
+              }
+            }
+          ]
+        },
+        "enter_dragon_cave": {
+          "id": "enter_dragon_cave",
+          "title": "Ejderha Mağarasına Gir",
+          "description": "Mağaraya giriyorsun. İçeride ejderha seni bekliyor. 'Cesur bir avcısın. Ama ben kötü değilim. Şifacı beni kandırdı.'",
+          "background": "dragon_cave_interior.jpg",
+          "choices": [
+            {
+              "text": "Ejderhaya saldır",
+              "next_node": "attack_dragon",
+              "effect": {
+                "karma": 2,
+                "reputation": -10
+              }
+            },
+            {
+              "text": "Dinle",
+              "next_node": "listen_to_dragon",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "attack_dragon": {
+          "id": "attack_dragon",
+          "title": "Ejderhaya Saldır",
+          "description": "Ejderhaya saldırıyorsun. Savaş başlıyor! Ejderha güçlü ama sen de deneyimli bir avcısın.",
+          "background": "dragon_combat.jpg",
+          "choices": [
+            {
+              "text": "Kılıçla saldır",
+              "next_node": "sword_attack_dragon",
+              "effect": {
+                "karma": 2,
+                "reputation": -10
+              }
+            },
+            {
+              "text": "Büyü kullan",
+              "next_node": "magic_attack_dragon",
+              "effect": {
+                "karma": 2,
+                "reputation": -10
+              }
+            }
+          ]
+        },
+        "sword_attack_dragon": {
+          "id": "sword_attack_dragon",
+          "title": "Kılıçla Saldır",
+          "description": "Kılıcınla ejderhaya saldırıyorsun. Ejderha hasar alıyor ama seni de yaralıyor. Savaş devam ediyor.",
+          "background": "sword_combat.jpg",
+          "choices": [
+            {
+              "text": "Savaşa devam et",
+              "next_node": "continue_dragon_fight",
+              "effect": {
+                "karma": 2,
+                "reputation": -10
+              }
+            },
+            {
+              "text": "Geri çekil",
+              "next_node": "retreat_from_dragon",
+              "effect": {
+                "karma": 3,
+                "reputation": -5
+              }
+            }
+          ]
+        },
+        "magic_attack_dragon": {
+          "id": "magic_attack_dragon",
+          "title": "Büyü Kullan",
+          "description": "Büyünle ejderhaya saldırıyorsun. Ejderha hasar alıyor ama seni de yaralıyor.",
+          "background": "magic_combat.jpg",
+          "choices": [
+            {
+              "text": "Savaşa devam et",
+              "next_node": "continue_dragon_fight",
+              "effect": {
+                "karma": 2,
+                "reputation": -10
+              }
+            }
+          ]
+        },
+        "continue_dragon_fight": {
+          "id": "continue_dragon_fight",
+          "title": "Ejderha Savaşı Devam Ediyor",
+          "description": "Ejderha savaşı devam ediyor. Kızıl Alev'in nefesi mağarayı ısıtıyor. Sen yaralısın ama pes etmiyorsun. Ejderha da yaralı görünüyor. Mağaranın duvarları ejderha ateşiyle aydınlanıyor ve gölgeler dans ediyor.",
+          "background": "dragon_cave_combat.jpg",
+          "choices": [
+            {
+              "text": "Son saldırıyı yap",
+              "next_node": "final_dragon_attack",
+              "effect": {
+                "karma": 3,
+                "reputation": -5
+              }
+            },
+            {
+              "text": "Kolyeyi kullan",
+              "next_node": "use_necklace_against_dragon",
+              "effect": {
+                "karma": 5,
+                "reputation": 0
+              }
+            },
+            {
+              "text": "Barış teklif et",
+              "next_node": "offer_peace_to_dragon",
+              "effect": {
+                "karma": 8,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "final_dragon_attack": {
+          "id": "final_dragon_attack",
+          "title": "Son Saldırı",
+          "description": "Tüm gücünle ejderhaya son saldırını yapıyorsun. Kılıcın ejderhanın kalbine saplanıyor. Kızıl Alev son bir nefes alıyor ve gözleri kapanıyor. Mağara sessizleşiyor ve ejderha ateşi sönüyor.",
+          "background": "dragon_death.jpg",
+          "choices": [
+            {
+              "text": "Ejderha öldü",
+              "next_node": "dragon_victory_ending",
+              "effect": {
+                "karma": 5,
+                "reputation": 0
+              }
+            }
+          ]
+        },
+        "use_necklace_against_dragon": {
+          "id": "use_necklace_against_dragon",
+          "title": "Kolyeyi Kullan",
+          "description": "Kolyeyi ejderhaya doğrultuyorsun. Kolye parlamaya başlıyor ve ejderha gücü ejderhaya geri dönüyor. Kızıl Alev şaşkınlıkla sana bakıyor. Kolye ejderhanın gücünün kaynağıymış ve şimdi geri dönüyor.",
+          "background": "necklace_power.jpg",
+          "choices": [
+            {
+              "text": "Gücü geri al",
+              "next_node": "dragon_power_restored",
+              "effect": {
+                "karma": 8,
+                "reputation": 15
+              }
+            }
+          ]
+        },
+        "offer_peace_to_dragon": {
+          "id": "offer_peace_to_dragon",
+          "title": "Barış Teklifi",
+          "description": "Silahını indiriyorsun ve ejderhaya barış teklif ediyorsun. 'Savaşmak istemiyorum. Kolyeyi geri verebilirim.' Ejderha şaşkınlıkla sana bakıyor. Kızıl Alev'in gözlerinde anlayış beliriyor.",
+          "background": "peace_offer.jpg",
+          "choices": [
+            {
+              "text": "Barış anlaşması",
+              "next_node": "dragon_peace_ending",
+              "effect": {
+                "karma": 10,
+                "reputation": 20
+              }
+            }
+          ]
+        },
+        "dragon_victory_ending": {
+          "id": "dragon_victory_ending",
+          "title": "Ejderha Avcısı Zaferi",
+          "description": "Ejderhayı yendin! Köy kurtuldu ve sen efsanevi bir ejderha avcısı oldun. Aldric seni kahraman ilan ediyor. Lydia babasının ölümüne üzülüyor ama köyün kurtulduğuna seviniyor. Köyde büyük bir kutlama başlıyor.",
+          "background": "victory_celebration.jpg",
+          "choices": [
+            {
+              "text": "Hikaye bitti",
+              "next_node": "start",
+              "effect": {
+                "karma": 10,
+                "reputation": 15
+              }
+            }
+          ]
+        },
+        "dragon_power_restored": {
+          "id": "dragon_power_restored",
+          "title": "Ejderha Gücü Geri Döndü",
+          "description": "Kolye sayesinde ejderha gücü geri döndü. Kızıl Alev sana teşekkür ediyor ve köyü artık rahatsız etmeyeceğine söz veriyor. Şifacı da normal haline dönüyor. Ejderha köyü koruyacağına söz veriyor.",
+          "background": "dragon_restored.jpg",
+          "choices": [
+            {
+              "text": "Mutlu son",
+              "next_node": "start",
+              "effect": {
+                "karma": 15,
+                "reputation": 20
+              }
+            }
+          ]
+        },
+        "dragon_peace_ending": {
+          "id": "dragon_peace_ending",
+          "title": "Barış Anlaşması",
+          "description": "Ejderha ile barış anlaşması yaptın. Kolye ejderhaya geri verildi ve köy artık güvende. Ejderha köyü koruyacağına söz veriyor. Herkes mutlu ve köyde büyük bir kutlama başlıyor.",
+          "background": "peace_celebration.jpg",
+          "choices": [
+            {
+              "text": "Barış sonu",
+              "next_node": "start",
+              "effect": {
+                "karma": 20,
+                "reputation": 25
+              }
+            }
+          ]
+        },
+        "investigate_healer_change": {
+          "id": "investigate_healer_change",
+          "title": "Şifacının Değişimini Araştır",
+          "description": "Şifacının evine gidiyorsun. Odasında eski kitaplar ve ejderha avcılığı hakkında yazılar buluyorsun. Marcus'un son zamanlarda çok değiştiğini görüyorsun. Gözleri bazen ejderha ateşiyle yanıyor. Odada garip kokular var.",
+          "background": "healer_investigation.jpg",
+          "choices": [
+            {
+              "text": "Kitapları incele",
+              "next_node": "examine_books",
+              "effect": {
+                "karma": 6,
+                "reputation": 8
+              }
+            },
+            {
+              "text": "Marcus ile konuş",
+              "next_node": "talk_marcus",
+              "effect": {
+                "karma": 5,
+                "reputation": 10
+              }
+            },
+            {
+              "text": "Lydia'yı uyar",
+              "next_node": "warn_lydia_urgent",
+              "effect": {
+                "karma": 7,
+                "reputation": 12
+              }
+            }
+          ]
+        },
+        "examine_books": {
+          "id": "examine_books",
+          "title": "Kitapları İncele",
+          "description": "Eski kitapları inceliyorsun. 100 yıl önce ejderha avcılığı hakkında yazılar var. Marcus'un 100 yıl önce ejderha avcısı olduğunu öğreniyorsun. Ama bir şeyler ters gitmiş. Kitaplarda kolye hakkında bilgiler var.",
+          "background": "old_books.jpg",
+          "choices": [
+            {
+              "text": "Daha fazla araştır",
+              "next_node": "research_more",
+              "effect": {
+                "karma": 6,
+                "reputation": 8
+              }
+            },
+            {
+              "text": "Shadow'a git",
+              "next_node": "go_to_shadow",
+              "effect": {
+                "karma": 5,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "research_more": {
+          "id": "research_more",
+          "title": "Daha Fazla Araştır",
+          "description": "Kitaplarda daha fazla bilgi buluyorsun. Marcus ejderhayı öldürmüş ama gücünü alamamış. Şimdi kolyeyi bulmuş ve güç peşinde. Bu tehlikeli bir durum. Kolye ejderhanın gücünün kaynağı.",
+          "background": "research_books.jpg",
+          "choices": [
+            {
+              "text": "Marcus'u durdur",
+              "next_node": "stop_marcus",
+              "effect": {
+                "karma": 8,
+                "reputation": 12
+              }
+            },
+            {
+              "text": "Lydia'yı kurtar",
+              "next_node": "save_lydia",
+              "effect": {
+                "karma": 7,
+                "reputation": 15
+              }
+            }
+          ]
+        },
+        "stop_marcus": {
+          "id": "stop_marcus",
+          "title": "Marcus'u Durdur",
+          "description": "Marcus'u durdurmaya karar veriyorsun. Şifacının odasına gidiyorsun ve onu kolyeyle buluyorsun. Marcus ejderha gücünü kullanmaya başlıyor. Gözleri ejderha ateşiyle yanıyor.",
+          "background": "stop_marcus.jpg",
+          "choices": [
+            {
+              "text": "Savaş",
+              "next_node": "fight_marcus",
+              "effect": {
+                "karma": 6,
+                "reputation": 8
+              }
+            },
+            {
+              "text": "İkna et",
+              "next_node": "convince_marcus",
+              "effect": {
+                "karma": 8,
+                "reputation": 15
+              }
+            }
+          ]
+        },
+        "fight_marcus": {
+          "id": "fight_marcus",
+          "title": "Marcus ile Savaş",
+          "description": "Marcus ile savaş başlıyor. Ejderha gücü kullanan şifacı çok güçlü. Sen de deneyimli bir avcısın ama bu zorlu bir savaş olacak. Marcus'un etrafında ejderha ateşi dans ediyor.",
+          "background": "marcus_combat.jpg",
+          "choices": [
+            {
+              "text": "Kılıçla saldır",
+              "next_node": "sword_vs_marcus",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            },
+            {
+              "text": "Büyü kullan",
+              "next_node": "magic_vs_marcus",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            },
+            {
+              "text": "Kolyeyi hedefle",
+              "next_node": "target_marcus_necklace",
+              "effect": {
+                "karma": 7,
+                "reputation": 12
+              }
+            }
+          ]
+        },
+        "sword_vs_marcus": {
+          "id": "sword_vs_marcus",
+          "title": "Kılıçla Marcus'a Saldır",
+          "description": "Kılıcınla Marcus'a saldırıyorsun. Marcus ejderha gücü kullanarak karşılık veriyor. Savaş devam ediyor ve her ikiniz de yaralısınız. Marcus'un kolyesi parlamaya devam ediyor.",
+          "background": "sword_marcus.jpg",
+          "choices": [
+            {
+              "text": "Savaşa devam et",
+              "next_node": "continue_marcus_fight",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            },
+            {
+              "text": "Lydia'dan yardım iste",
+              "next_node": "ask_lydia_help",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "continue_marcus_fight": {
+          "id": "continue_marcus_fight",
+          "title": "Marcus Savaşı Devam Ediyor",
+          "description": "Marcus savaşı devam ediyor. Her ikiniz de yaralısınız. Marcus'un gözleri ejderha ateşiyle yanıyor ve kolye parlamaya devam ediyor. Odada ejderha ateşi dans ediyor.",
+          "background": "marcus_combat_continue.jpg",
+          "choices": [
+            {
+              "text": "Son saldırı",
+              "next_node": "final_marcus_attack",
+              "effect": {
+                "karma": 6,
+                "reputation": 8
+              }
+            },
+            {
+              "text": "Barış teklif et",
+              "next_node": "offer_peace_marcus",
+              "effect": {
+                "karma": 8,
+                "reputation": 15
+              }
+            }
+          ]
+        },
+        "final_marcus_attack": {
+          "id": "final_marcus_attack",
+          "title": "Son Saldırı",
+          "description": "Tüm gücünle Marcus'a son saldırını yapıyorsun. Kılıcın şifacıya saplanıyor ve kolye düşüyor. Marcus normal haline dönüyor. Ejderha ateşi sönüyor.",
+          "background": "marcus_defeat.jpg",
+          "choices": [
+            {
+              "text": "Marcus yenildi",
+              "next_node": "marcus_defeated_ending",
+              "effect": {
+                "karma": 7,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "offer_peace_marcus": {
+          "id": "offer_peace_marcus",
+          "title": "Marcus'a Barış Teklif Et",
+          "description": "Marcus'a barış teklif ediyorsun. 'Lydia'yı düşün. Seni seviyor.' Marcus'un gözleri normale dönmeye başlıyor ve kolye parlamayı durduruyor. Ejderha ateşi sönüyor.",
+          "background": "marcus_peace.jpg",
+          "choices": [
+            {
+              "text": "Barış sağlandı",
+              "next_node": "marcus_peace_ending",
+              "effect": {
+                "karma": 10,
+                "reputation": 20
+              }
+            }
+          ]
+        },
+        "marcus_defeated_ending": {
+          "id": "marcus_defeated_ending",
+          "title": "Marcus Yenildi",
+          "description": "Marcus'u yendin ama üzgünsün. Lydia babasının ölümüne çok üzülüyor. Köy kurtuldu ama bedeli ağır oldu. Kolye artık güvende. Köyde yas var.",
+          "background": "marcus_death.jpg",
+          "choices": [
+            {
+              "text": "Hikaye bitti",
+              "next_node": "start",
+              "effect": {
+                "karma": 5,
+                "reputation": 0
+              }
+            }
+          ]
+        },
+        "marcus_peace_ending": {
+          "id": "marcus_peace_ending",
+          "title": "Marcus ile Barış",
+          "description": "Marcus ile barış sağladın. Şifacı normal haline döndü ve kolye güvende. Lydia çok mutlu. Köy kurtuldu ve herkes barış içinde yaşayacak. Büyük bir kutlama başlıyor.",
+          "background": "marcus_peace_celebration.jpg",
+          "choices": [
+            {
+              "text": "Mutlu son",
+              "next_node": "start",
+              "effect": {
+                "karma": 15,
+                "reputation": 25
+              }
+            }
+          ]
+        },
+        "listen_to_dragon": {
+          "id": "listen_to_dragon",
+          "title": "Ejderhayı Dinle",
+          "description": "Ejderhayı dinlemeye karar veriyorsun. 'Şifacı 100 yıl önce beni kandırdı. Gücümü çaldı ve köyleri yakmakla suçladı. Ama o yaktı, ben değil.'",
+          "background": "dragon_truth.jpg",
+          "choices": [
+            {
+              "text": "Ejderhaya inan",
+              "next_node": "believe_dragon_cave",
+              "effect": {
+                "karma": 8,
+                "reputation": 15
+              }
+            },
+            {
+              "text": "Kanıt iste",
+              "next_node": "ask_dragon_proof",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            }
+          ]
+        },
+        "believe_dragon_cave": {
+          "id": "believe_dragon_cave",
+          "title": "Ejderhaya İnan",
+          "description": "Ejderhaya inanıyorsun. Birlikte köye dönüyorsunuz ve şifacının gerçek yüzünü ortaya çıkarıyorsunuz. Köylüler şifacıyı kovuyor ve ejderha köyü koruyor.",
+          "background": "truth_revealed.jpg",
+          "choices": [
+            {
+              "text": "Sonucu gör",
+              "next_node": "dragon_ending_truth",
+              "effect": {
+                "karma": 10,
+                "reputation": 20
+              }
+            }
+          ]
+        },
+        "dragon_ending_truth": {
+          "id": "dragon_ending_truth",
+          "title": "İyi Son - Gerçek Ortaya Çıktı",
+          "description": "Gerçek ortaya çıktı. Şifacı köyden kovuldu, ejderha köyü koruyor ve sen gerçek bir kahraman olarak anılıyorsun. Bazen en büyük zafer, gerçeği bulmaktır.",
+          "background": "truth_ending.jpg",
+          "choices": [
+            {
+              "text": "Yeni maceraya başla",
+              "next_node": "start",
+              "effect": {
+                "karma": 5,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "gather_village_info": {
+          "id": "gather_village_info",
+          "title": "Köylülerden Bilgi Topla",
+          "description": "Köylülerle konuşuyorsun. Herkes korkmuş ama farklı hikayeler anlatıyor. Bazıları ejderhanın konuştuğunu, bazıları şifacının değiştiğini söylüyor.",
+          "background": "village_gathering.jpg",
+          "choices": [
+            {
+              "text": "Lydia'yı bul",
+              "next_node": "find_lydia",
+              "effect": {
+                "karma": 6,
+                "reputation": 12
+              }
+            },
+            {
+              "text": "Şifacının evini araştır",
+              "next_node": "search_healer_house",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            },
+            {
+              "text": "Ejderhanın izini sür",
+              "next_node": "track_dragon_clues",
+              "effect": {
+                "karma": 4,
+                "reputation": 6
+              }
+            }
+          ]
+        },
+        "find_lydia": {
+          "id": "find_lydia",
+          "title": "Lydia'yı Bul",
+          "description": "Lydia'yı şifacının evinde buluyorsun. Gözleri yaşlı ve endişeli. 'Babam... babam değişti. Son zamanlarda çok garip davranıyor. Ejderha hakkında sürekli konuşuyor.'",
+          "background": "lydia_encounter.jpg",
+          "choices": [
+            {
+              "text": "Lydia'yı teselli et",
+              "next_node": "comfort_lydia",
+              "effect": {
+                "karma": 7,
+                "reputation": 15
+              }
+            },
+            {
+              "text": "Babasının odasını araştır",
+              "next_node": "search_father_room",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            },
+            {
+              "text": "Shadow ile konuş",
+              "next_node": "talk_shadow",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            }
+          ]
+        },
+        "comfort_lydia": {
+          "id": "comfort_lydia",
+          "title": "Lydia'yı Teselli Et",
+          "description": "Lydia'yı teselli ediyorsun. 'Babamı kurtarmak istiyorum. Ama korkuyorum... eğer gerçekten ejderha gücü kazandıysa...' Lydia sana güveniyor ve birlikte babasını kurtarmaya karar veriyorsunuz.",
+          "background": "comfort_lydia.jpg",
+          "choices": [
+            {
+              "text": "Babasını kurtar",
+              "next_node": "save_father",
+              "effect": {
+                "karma": 8,
+                "reputation": 18
+              }
+            }
+          ]
+        },
+        "save_father": {
+          "id": "save_father",
+          "title": "Babasını Kurtar",
+          "description": "Lydia ile birlikte babasını kurtarmaya gidiyorsunuz. Şifacı odasında kolye ile oturuyor ve ejderha gücünü kullanıyor. Lydia babasına sesleniyor ve şifacı kızını görünce şaşırıyor.",
+          "background": "save_father.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi al",
+              "next_node": "take_necklace_from_father",
+              "effect": {
+                "karma": 8,
+                "reputation": 18
+              }
+            },
+            {
+              "text": "Babasını ikna et",
+              "next_node": "convince_father",
+              "effect": {
+                "karma": 9,
+                "reputation": 20
+              }
+            }
+          ]
+        },
+        "take_necklace_from_father": {
+          "id": "take_necklace_from_father",
+          "title": "Kolyeyi Al",
+          "description": "Kolyeyi babasından alıyorsun. Şifacı gücünü kaybediyor ve normal haline dönüyor. Lydia babasına sarılıyor ve ikisi de ağlıyor. Kolye parlamaya başlıyor ve ejderha gökyüzünde beliriyor.",
+          "background": "necklace_taken.jpg",
+          "choices": [
+            {
+              "text": "Ejderha ile konuş",
+              "next_node": "talk_to_dragon",
+              "effect": {
+                "karma": 10,
+                "reputation": 22
+              }
+            }
+          ]
+        },
+        "find_healer": {
+          "id": "find_healer",
+          "title": "Şifacıyı Ara",
+          "description": "Şifacının evine gidiyorsun. Marcus dışarı çıkıyor ve gözleri ejderha ateşiyle yanıyor. 'Değişmedim! Sadece gücümü geri kazandım! 100 yıl önce ejderha avcısıydım!'",
+          "background": "healer_encounter.jpg",
+          "choices": [
+            {
+              "text": "Şifacıyı dinle",
+              "next_node": "listen_to_healer",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            },
+            {
+              "text": "Şifacıyı sorgula",
+              "next_node": "question_healer",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            },
+            {
+              "text": "Kolyeyi iste",
+              "next_node": "ask_for_necklace",
+              "effect": {
+                "karma": 7,
+                "reputation": 12
+              }
+            }
+          ]
+        },
+        "listen_to_healer": {
+          "id": "listen_to_healer",
+          "title": "Şifacıyı Dinle",
+          "description": "Şifacıyı dinlemeye karar veriyorsun. 'Ejderhayı öldürdüm ama gücünü alamadım. Şimdi kolyeyi buldum ve güç benim olacak! Lydia'yı da yanıma alacağım!'",
+          "background": "healer_confession.jpg",
+          "choices": [
+            {
+              "text": "Şifacıyı durdur",
+              "next_node": "stop_healer",
+              "effect": {
+                "karma": 8,
+                "reputation": 15
+              }
+            },
+            {
+              "text": "Şifacıya yardım et",
+              "next_node": "help_healer",
+              "effect": {
+                "karma": 4,
+                "reputation": 6
+              }
+            }
+          ]
+        },
+        "stop_healer": {
+          "id": "stop_healer",
+          "title": "Şifacıyı Durdur",
+          "description": "Şifacıyı durdurmaya karar veriyorsun. 'Bu güç seni mahvedecek! Lydia'yı da tehlikeye atıyorsun!' Şifacı öfkeyle saldırıyor.",
+          "background": "stop_healer.jpg",
+          "choices": [
+            {
+              "text": "Savaş",
+              "next_node": "fight_healer",
+              "effect": {
+                "karma": 8,
+                "reputation": 15
+              }
+            },
+            {
+              "text": "Lydia'yı çağır",
+              "next_node": "call_lydia_help",
+              "effect": {
+                "karma": 7,
+                "reputation": 12
+              }
+            }
+          ]
+        },
+        "call_lydia_help": {
+          "id": "call_lydia_help",
+          "title": "Lydia'yı Çağır",
+          "description": "Lydia'yı çağırıyorsun. Kız babasını görünce şaşırıyor ve ağlamaya başlıyor. 'Baba! Ne yapıyorsun? Bu sen değilsin!' Şifacı kızını görünce duraksıyor.",
+          "background": "lydia_help.jpg",
+          "choices": [
+            {
+              "text": "Şifacıyı ikna et",
+              "next_node": "convince_healer",
+              "effect": {
+                "karma": 9,
+                "reputation": 20
+              }
+            }
+          ]
+        },
+        "convince_healer": {
+          "id": "convince_healer",
+          "title": "Şifacıyı İkna Et",
+          "description": "Lydia'nın gözyaşları şifacıyı etkiliyor. 'Lydia... özür dilerim... ne yaptım ben?' Şifacı gücünü kaybediyor ve normal haline dönüyor. Kolye yere düşüyor.",
+          "background": "healer_convinced.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi al",
+              "next_node": "take_necklace",
+              "effect": {
+                "karma": 10,
+                "reputation": 22
+              }
+            }
+          ]
+        },
+        "take_necklace": {
+          "id": "take_necklace",
+          "title": "Kolyeyi Al",
+          "description": "Kolyeyi alıyorsun. Aniden kolye parlamaya başlıyor ve ejderha gökyüzünde beliriyor! 'Kolye! Sonunda buldum!' diye bağırıyor.",
+          "background": "necklace_glow.jpg",
+          "choices": [
+            {
+              "text": "Ejderha ile konuş",
+              "next_node": "talk_to_dragon",
+              "effect": {
+                "karma": 10,
+                "reputation": 20
+              }
+            }
+          ]
+        },
+        "ally_with_dragon": {
+          "id": "ally_with_dragon",
+          "title": "Ejderha ile İttifak Kur",
+          "description": "Shadow'un önerisini kabul ediyorsun. Ejderha ile ittifak kurmaya karar veriyorsun. Birlikte şifacıyı durduracaksınız.",
+          "background": "dragon_alliance.jpg",
+          "choices": [
+            {
+              "text": "Şifacıyı birlikte durdur",
+              "next_node": "confront_healer",
+              "effect": {
+                "karma": 8,
+                "reputation": 15
+              }
+            }
+          ]
+        },
+        "ask_about_shadow": {
+          "id": "ask_about_shadow",
+          "title": "Shadow Hakkında Sor",
+          "description": "Aldric'ye Shadow hakkında soruyorsun. 'Gizemli bir yolcu. Ejderha avcılığı konusunda çok bilgili. Ama bazen... korkutucu bakıyor.'",
+          "background": "shadow_info.jpg",
+          "choices": [
+            {
+              "text": "Shadow ile konuş",
+              "next_node": "talk_shadow",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            }
+          ]
+        },
+        "ask_dragon_proof": {
+          "id": "ask_dragon_proof",
+          "title": "Ejderhadan Kanıt İste",
+          "description": "Ejderhadan kanıt istiyorsun. 'Köydeki yangınların izlerini göster. Şifacının el yazmalarını bul. Gerçeği göreceksin.'",
+          "background": "dragon_proof.jpg",
+          "choices": [
+            {
+              "text": "Kanıtları araştır",
+              "next_node": "investigate_evidence",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "ask_for_necklace": {
+          "id": "ask_for_necklace",
+          "title": "Kolyeyi İste",
+          "description": "Şifacıdan kolyeyi istiyorsun. 'Kolye benim! Onu alamazsın!' Şifacı öfkeyle saldırıyor.",
+          "background": "ask_necklace.jpg",
+          "choices": [
+            {
+              "text": "Savaş",
+              "next_node": "fight_healer",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "ask_for_proof": {
+          "id": "ask_for_proof",
+          "title": "Kanıt İste",
+          "description": "Ejderhadan kanıt istiyorsun. 'Köydeki yangınların izlerini göster. Şifacının el yazmalarını bul.'",
+          "background": "ask_proof.jpg",
+          "choices": [
+            {
+              "text": "Kanıtları araştır",
+              "next_node": "investigate_evidence",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "convince_father": {
+          "id": "convince_father",
+          "title": "Babasını İkna Et",
+          "description": "Lydia'nın gözyaşları babasını etkiliyor. 'Lydia... özür dilerim... ne yaptım ben?' Şifacı gücünü kaybediyor.",
+          "background": "convince_father.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi al",
+              "next_node": "take_necklace_from_father",
+              "effect": {
+                "karma": 9,
+                "reputation": 20
+              }
+            }
+          ]
+        },
+        "defense_planning": {
+          "id": "defense_planning",
+          "title": "Köyü Koruma Planı Yap",
+          "description": "Aldric ile birlikte köyü koruma planı yapıyorsunuz. Köylüleri güvenli yerlere yerleştiriyorsunuz.",
+          "background": "defense_planning.jpg",
+          "choices": [
+            {
+              "text": "Şifacıyı araştır",
+              "next_node": "investigate_healer_change",
+              "effect": {
+                "karma": 7,
+                "reputation": 15
+              }
+            }
+          ]
+        },
+        "help_healer": {
+          "id": "help_healer",
+          "title": "Şifacıya Yardım Et",
+          "description": "Şifacıya yardım etmeye karar veriyorsun. 'Gücünü kontrol etmeyi öğren. Lydia'yı koru.'",
+          "background": "help_healer.jpg",
+          "choices": [
+            {
+              "text": "Birlikte çalış",
+              "next_node": "work_with_healer",
+              "effect": {
+                "karma": 4,
+                "reputation": 6
+              }
+            }
+          ]
+        },
+        "learn_dragon_info": {
+          "id": "learn_dragon_info",
+          "title": "Ejderha Hakkında Bilgi Al",
+          "description": "Shadow'dan ejderha hakkında bilgi alıyorsun. '1000 yıllık antik ejderha. Şifacı tarafından kandırıldı.'",
+          "background": "dragon_info.jpg",
+          "choices": [
+            {
+              "text": "Ejderha ile ittifak kur",
+              "next_node": "ally_with_dragon",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "learn_dragon_speech": {
+          "id": "learn_dragon_speech",
+          "title": "Ejderhanın Konuştuğu Şeyi Öğren",
+          "description": "Köylülerden ejderhanın ne konuştuğunu öğreniyorsun. 'Kolye arıyor. Şifacıyı arıyor. Adalet istiyor.'",
+          "background": "dragon_speech.jpg",
+          "choices": [
+            {
+              "text": "Ejderha ile konuş",
+              "next_node": "talk_to_dragon",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            }
+          ]
+        },
+        "negotiate_reward": {
+          "id": "negotiate_reward",
+          "title": "Ödül Hakkında Konuş",
+          "description": "Aldric ile ödül hakkında konuşuyorsun. 'Köyün hazinesi sizin. Ayrıca gizemli bir kolye var.'",
+          "background": "negotiate_reward.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi araştır",
+              "next_node": "search_for_necklace",
+              "effect": {
+                "karma": 3,
+                "reputation": 5
+              }
+            }
+          ]
+        },
+        "punish_healer": {
+          "id": "punish_healer",
+          "title": "Şifacıyı Cezalandır",
+          "description": "Şifacıyı cezalandırıyorsun. Köyden kovuluyor ve kolye alınıyor. Lydia üzgün ama anlıyor.",
+          "background": "punish_healer.jpg",
+          "choices": [
+            {
+              "text": "Ejderha ile konuş",
+              "next_node": "talk_to_dragon",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            }
+          ]
+        },
+        "question_healer": {
+          "id": "question_healer",
+          "title": "Şifacıyı Sorgula",
+          "description": "Şifacıyı sorguluyorsun. 'Neden değiştin? Lydia endişeli. Kolye nereden geldi?'",
+          "background": "question_healer.jpg",
+          "choices": [
+            {
+              "text": "Şifacıyı dinle",
+              "next_node": "listen_to_healer",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            }
+          ]
+        },
+        "question_shadow_identity": {
+          "id": "question_shadow_identity",
+          "title": "Shadow'un Kimliğini Sorgula",
+          "description": "Shadow'un kimliğini sorguluyorsun. 'Kimsin sen? Neden bu kadar çok şey biliyorsun?'",
+          "background": "question_shadow.jpg",
+          "choices": [
+            {
+              "text": "Shadow'un sırrını öğren",
+              "next_node": "learn_shadow_secret",
+              "effect": {
+                "karma": 4,
+                "reputation": 6
+              }
+            }
+          ]
+        },
+        "retreat_from_dragon": {
+          "id": "retreat_from_dragon",
+          "title": "Geri Çekil",
+          "description": "Ejderhadan geri çekiliyorsun. Köye dönüyorsun ve durumu değerlendiriyorsun.",
+          "background": "retreat.jpg",
+          "choices": [
+            {
+              "text": "Shadow ile konuş",
+              "next_node": "talk_shadow",
+              "effect": {
+                "karma": 4,
+                "reputation": 0
+              }
+            }
+          ]
+        },
+        "search_father_room": {
+          "id": "search_father_room",
+          "title": "Babasının Odasını Araştır",
+          "description": "Babasının odasını araştırıyorsun. Eski kitaplar ve ejderha avcılığı hakkında yazılar buluyorsun.",
+          "background": "search_room.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi bul",
+              "next_node": "find_necklace_in_room",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "search_healer_house": {
+          "id": "search_healer_house",
+          "title": "Şifacının Evini Araştır",
+          "description": "Şifacının evini araştırıyorsun. Eski kitaplar ve gizemli eşyalar buluyorsun.",
+          "background": "search_house.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi bul",
+              "next_node": "find_necklace_in_house",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            }
+          ]
+        },
+        "steal_necklace": {
+          "id": "steal_necklace",
+          "title": "Kolyeyi Çal",
+          "description": "Kolyeyi çalmaya çalışıyorsun. Şifacı fark ediyor ve savaş başlıyor.",
+          "background": "steal_necklace.jpg",
+          "choices": [
+            {
+              "text": "Savaş",
+              "next_node": "fight_healer",
+              "effect": {
+                "karma": 4,
+                "reputation": 6
+              }
+            }
+          ]
+        },
+        "target_necklace": {
+          "id": "target_necklace",
+          "title": "Kolyeyi Hedefle",
+          "description": "Savaşta kolyeyi hedefliyorsun. Kolye yere düşüyor ve şifacı gücünü kaybediyor.",
+          "background": "target_necklace.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi al",
+              "next_node": "take_necklace",
+              "effect": {
+                "karma": 7,
+                "reputation": 12
+              }
+            }
+          ]
+        },
+        "track_dragon_clues": {
+          "id": "track_dragon_clues",
+          "title": "Ejderhanın İzini Sür",
+          "description": "Ejderhanın izini sürüyorsun. Dağlara doğru giden izler buluyorsun.",
+          "background": "track_clues.jpg",
+          "choices": [
+            {
+              "text": "Mağarayı bul",
+              "next_node": "find_dragon_cave",
+              "effect": {
+                "karma": 4,
+                "reputation": 6
+              }
+            }
+          ]
+        },
+        "warn_lydia": {
+          "id": "warn_lydia",
+          "title": "Lydia'yı Uyar",
+          "description": "Lydia'yı babasının durumu hakkında uyarıyorsun. Kız şok oluyor ama gerçeği kabul ediyor.",
+          "background": "warn_lydia.jpg",
+          "choices": [
+            {
+              "text": "Birlikte babasını kurtar",
+              "next_node": "save_father",
+              "effect": {
+                "karma": 7,
+                "reputation": 12
+              }
+            }
+          ]
+        },
+        "work_with_healer": {
+          "id": "work_with_healer",
+          "title": "Birlikte Çalış",
+          "description": "Şifacı ile birlikte çalışıyorsunuz. Gücünü kontrol etmeyi öğreniyor.",
+          "background": "work_together.jpg",
+          "choices": [
+            {
+              "text": "Ejderha ile barış",
+              "next_node": "make_peace_with_dragon",
+              "effect": {
+                "karma": 4,
+                "reputation": 6
+              }
+            }
+          ]
+        },
+        "investigate_evidence": {
+          "id": "investigate_evidence",
+          "title": "Kanıtları Araştır",
+          "description": "Ejderhanın gösterdiği kanıtları araştırıyorsun. Yangın izleri şifacının evinden çıkıyor.",
+          "background": "investigate_evidence.jpg",
+          "choices": [
+            {
+              "text": "Şifacıyı yüzleştir",
+              "next_node": "confront_healer",
+              "effect": {
+                "karma": 7,
+                "reputation": 12
+              }
+            }
+          ]
+        },
+        "learn_shadow_secret": {
+          "id": "learn_shadow_secret",
+          "title": "Shadow'un Sırrını Öğren",
+          "description": "Shadow gerçek kimliğini açıklıyor. 'Ben de eski bir ejderha avcısıyım. Şifacıyı tanıyorum.'",
+          "background": "shadow_secret.jpg",
+          "choices": [
+            {
+              "text": "Birlikte çalış",
+              "next_node": "work_with_shadow",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "search_for_necklace": {
+          "id": "search_for_necklace",
+          "title": "Kolyeyi Araştır",
+          "description": "Kolyeyi araştırıyorsun. Şifacının evinde gizemli bir kolye buluyorsun.",
+          "background": "search_necklace.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi al",
+              "next_node": "take_necklace",
+              "effect": {
+                "karma": 4,
+                "reputation": 6
+              }
+            }
+          ]
+        },
+        "find_necklace_in_room": {
+          "id": "find_necklace_in_room",
+          "title": "Odada Kolyeyi Bul",
+          "description": "Babasının odasında gizemli kolyeyi buluyorsun. Kolye ejderha gücüyle parlıyor.",
+          "background": "find_necklace_room.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi al",
+              "next_node": "take_necklace_from_father",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "find_necklace_in_house": {
+          "id": "find_necklace_in_house",
+          "title": "Evde Kolyeyi Bul",
+          "description": "Şifacının evinde gizemli kolyeyi buluyorsun. Kolye ejderha gücüyle parlıyor.",
+          "background": "find_necklace_house.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi al",
+              "next_node": "take_necklace",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            }
+          ]
+        },
+        "find_dragon_cave": {
+          "id": "find_dragon_cave",
+          "title": "Ejderha Mağarasını Bul",
+          "description": "Ejderha mağarasını buluyorsun. İçeride ejderha seni bekliyor.",
+          "background": "find_cave.jpg",
+          "choices": [
+            {
+              "text": "Mağaraya gir",
+              "next_node": "enter_dragon_cave",
+              "effect": {
+                "karma": 4,
+                "reputation": 6
+              }
+            }
+          ]
+        },
+        "work_with_shadow": {
+          "id": "work_with_shadow",
+          "title": "Shadow ile Çalış",
+          "description": "Shadow ile birlikte çalışıyorsunuz. Şifacıyı durdurmak için plan yapıyorsunuz.",
+          "background": "work_shadow.jpg",
+          "choices": [
+            {
+              "text": "Şifacıyı yüzleştir",
+              "next_node": "confront_healer",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "make_peace_with_dragon": {
+          "id": "make_peace_with_dragon",
+          "title": "Ejderha ile Barış",
+          "description": "Şifacı ile birlikte ejderha ile barış yapıyorsunuz. Kolye ejderhaya geri veriliyor.",
+          "background": "peace_dragon.jpg",
+          "choices": [
+            {
+              "text": "Barış sonucu",
+              "next_node": "dragon_ending_good",
+              "effect": {
+                "karma": 8,
+                "reputation": 15
+              }
+            }
+          ]
+        },
+        "observe_cave": {
+          "id": "observe_cave",
+          "title": "Mağarayı Gözlemle",
+          "description": "Mağarayı gözlemliyorsun. İçeriden ejderha sesi geliyor ama saldırgan değil.",
+          "background": "observe_cave.jpg",
+          "choices": [
+            {
+              "text": "Mağaraya gir",
+              "next_node": "enter_dragon_cave",
+              "effect": {
+                "karma": 4,
+                "reputation": 0
+              }
+            }
+          ]
+        },
+        "magic_attack_healer": {
+          "id": "magic_attack_healer",
+          "title": "Büyü Kullan",
+          "description": "Büyünle şifacıya saldırıyorsun. Şifacı güçlü ama sen de deneyimli bir avcısın.",
+          "background": "magic_combat.jpg",
+          "choices": [
+            {
+              "text": "Savaşa devam et",
+              "next_node": "continue_healer_fight",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            }
+          ]
+        },
+        "talk_marcus": {
+          "id": "talk_marcus",
+          "title": "Marcus ile Konuş",
+          "description": "Marcus ile konuşuyorsun. Şifacı garip davranıyor ve gözleri bazen ejderha ateşiyle yanıyor. 'Değişmedim! Sadece gücümü geri kazandım! 100 yıl önce ejderha avcısıydım!'",
+          "background": "talk_marcus.jpg",
+          "choices": [
+            {
+              "text": "Daha fazla bilgi iste",
+              "next_node": "marcus_more_info",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            },
+            {
+              "text": "Kolyeyi sor",
+              "next_node": "ask_about_necklace",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            },
+            {
+              "text": "Lydia'yı düşün",
+              "next_node": "think_of_lydia",
+              "effect": {
+                "karma": 7,
+                "reputation": 12
+              }
+            }
+          ]
+        },
+        "warn_lydia_urgent": {
+          "id": "warn_lydia_urgent",
+          "title": "Lydia'yı Acil Uyar",
+          "description": "Lydia'yı buluyorsun ve babasının durumunu anlatıyorsun. Lydia çok endişeleniyor. 'Babam son zamanlarda çok değişti. Gözleri bazen ejderha ateşiyle yanıyor.'",
+          "background": "warn_lydia.jpg",
+          "choices": [
+            {
+              "text": "Birlikte babasını kurtar",
+              "next_node": "save_father_together",
+              "effect": {
+                "karma": 8,
+                "reputation": 15
+              }
+            },
+            {
+              "text": "Shadow'dan yardım iste",
+              "next_node": "ask_shadow_help",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "go_to_shadow": {
+          "id": "go_to_shadow",
+          "title": "Shadow'a Git",
+          "description": "Shadow'a gidiyorsun ve Marcus hakkında bilgi veriyorsun. Shadow çok endişeleniyor. 'Marcus kolyeyi bulmuş. Bu çok tehlikeli. Ejderha gücü onu değiştiriyor.'",
+          "background": "go_to_shadow.jpg",
+          "choices": [
+            {
+              "text": "Birlikte Marcus'u durdur",
+              "next_node": "stop_marcus_together",
+              "effect": {
+                "karma": 7,
+                "reputation": 12
+              }
+            },
+            {
+              "text": "Ejderha ile konuş",
+              "next_node": "talk_to_dragon",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "save_lydia": {
+          "id": "save_lydia",
+          "title": "Lydia'yı Kurtar",
+          "description": "Lydia'yı kurtarmaya karar veriyorsun. Kızın babasının değişiminden çok korktuğunu görüyorsun. 'Babam artık babam değil. Ejderha gücü onu değiştirdi.'",
+          "background": "save_lydia.jpg",
+          "choices": [
+            {
+              "text": "Birlikte babasını kurtar",
+              "next_node": "save_father_together",
+              "effect": {
+                "karma": 8,
+                "reputation": 15
+              }
+            },
+            {
+              "text": "Lydia'yı güvenli yere götür",
+              "next_node": "take_lydia_safe",
+              "effect": {
+                "karma": 7,
+                "reputation": 12
+              }
+            }
+          ]
+        },
+        "convince_marcus": {
+          "id": "convince_marcus",
+          "title": "Marcus'u İkna Et",
+          "description": "Marcus'u ikna etmeye çalışıyorsun. 'Lydia'yı düşün. Seni seviyor. Ejderha gücü seni değiştiriyor.' Marcus'un gözleri normale dönmeye başlıyor.",
+          "background": "convince_marcus.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi bırak",
+              "next_node": "marcus_drop_necklace",
+              "effect": {
+                "karma": 9,
+                "reputation": 18
+              }
+            },
+            {
+              "text": "Ejderha ile barış yap",
+              "next_node": "make_peace_with_dragon",
+              "effect": {
+                "karma": 8,
+                "reputation": 15
+              }
+            }
+          ]
+        },
+        "magic_vs_marcus": {
+          "id": "magic_vs_marcus",
+          "title": "Büyü ile Marcus'a Saldır",
+          "description": "Büyünle Marcus'a saldırıyorsun. Marcus ejderha gücü kullanarak karşılık veriyor. Büyü savaşı başlıyor ve odada ışık patlamaları oluyor.",
+          "background": "magic_vs_marcus.jpg",
+          "choices": [
+            {
+              "text": "Savaşa devam et",
+              "next_node": "continue_marcus_fight",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            },
+            {
+              "text": "Kolyeyi hedefle",
+              "next_node": "target_marcus_necklace",
+              "effect": {
+                "karma": 7,
+                "reputation": 12
+              }
+            }
+          ]
+        },
+        "target_marcus_necklace": {
+          "id": "target_marcus_necklace",
+          "title": "Marcus'un Kolyesini Hedefle",
+          "description": "Marcus'un kolyesini hedefliyorsun. Kolye ejderha gücünün kaynağı. Kolyeye saldırıyorsun ve kolye parlamayı durduruyor. Marcus şaşkınlıkla sana bakıyor.",
+          "background": "target_necklace.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi al",
+              "next_node": "take_marcus_necklace",
+              "effect": {
+                "karma": 8,
+                "reputation": 12
+              }
+            },
+            {
+              "text": "Marcus'u ikna et",
+              "next_node": "convince_marcus",
+              "effect": {
+                "karma": 7,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "ask_lydia_help": {
+          "id": "ask_lydia_help",
+          "title": "Lydia'dan Yardım İste",
+          "description": "Lydia'dan yardım istiyorsun. Kız babasının normal haline dönmesini istiyor. 'Babam! Beni hatırla! Sen benim babamsın!' Lydia'nın sesi Marcus'u etkiliyor.",
+          "background": "ask_lydia_help.jpg",
+          "choices": [
+            {
+              "text": "Lydia'nın yardımıyla ikna et",
+              "next_node": "convince_with_lydia",
+              "effect": {
+                "karma": 9,
+                "reputation": 18
+              }
+            },
+            {
+              "text": "Savaşa devam et",
+              "next_node": "continue_marcus_fight",
+              "effect": {
+                "karma": 5,
+                "reputation": 8
+              }
+            }
+          ]
+        },
+        "save_father_together": {
+          "id": "save_father_together",
+          "title": "Birlikte Babayı Kurtar",
+          "description": "Lydia ile birlikte babasını kurtarmaya çalışıyorsunuz. Lydia babasının normal haline dönmesi için dua ediyor. Marcus'un gözleri normale dönmeye başlıyor.",
+          "background": "save_father.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi al",
+              "next_node": "take_necklace_safe",
+              "effect": {
+                "karma": 10,
+                "reputation": 20
+              }
+            },
+            {
+              "text": "Ejderha ile barış yap",
+              "next_node": "make_peace_with_dragon",
+              "effect": {
+                "karma": 9,
+                "reputation": 18
+              }
+            }
+          ]
+        },
+        "ask_shadow_help": {
+          "id": "ask_shadow_help",
+          "title": "Shadow'dan Yardım İste",
+          "description": "Shadow'dan yardım istiyorsun. Shadow Marcus'un durumunu anlıyor ve size yardım etmeye karar veriyor. 'Marcus'u kurtarmak için kolyeyi almalıyız.'",
+          "background": "ask_shadow_help.jpg",
+          "choices": [
+            {
+              "text": "Birlikte Marcus'u kurtar",
+              "next_node": "save_marcus_with_shadow",
+              "effect": {
+                "karma": 8,
+                "reputation": 15
+              }
+            },
+            {
+              "text": "Ejderha ile konuş",
+              "next_node": "talk_to_dragon",
+              "effect": {
+                "karma": 7,
+                "reputation": 12
+              }
+            }
+          ]
+        },
+        "stop_marcus_together": {
+          "id": "stop_marcus_together",
+          "title": "Birlikte Marcus'u Durdur",
+          "description": "Shadow ile birlikte Marcus'u durdurmaya çalışıyorsunuz. Shadow'un bilgisi ve senin gücün birleşiyor. Marcus'u ikna etmeye çalışıyorsunuz.",
+          "background": "stop_marcus_together.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi al",
+              "next_node": "take_necklace_safe",
+              "effect": {
+                "karma": 9,
+                "reputation": 18
+              }
+            },
+            {
+              "text": "Ejderha ile barış yap",
+              "next_node": "make_peace_with_dragon",
+              "effect": {
+                "karma": 8,
+                "reputation": 15
+              }
+            }
+          ]
+        },
+        "take_lydia_safe": {
+          "id": "take_lydia_safe",
+          "title": "Lydia'yı Güvenli Yere Götür",
+          "description": "Lydia'yı güvenli bir yere götürüyorsun. Kız babasının durumundan çok korkuyor. 'Babam artık babam değil. Ejderha gücü onu değiştirdi.'",
+          "background": "take_lydia_safe.jpg",
+          "choices": [
+            {
+              "text": "Babasını kurtarmaya git",
+              "next_node": "go_save_father",
+              "effect": {
+                "karma": 7,
+                "reputation": 12
+              }
+            },
+            {
+              "text": "Shadow'dan yardım iste",
+              "next_node": "ask_shadow_help",
+              "effect": {
+                "karma": 6,
+                "reputation": 10
+              }
+            }
+          ]
+        },
+        "marcus_drop_necklace": {
+          "id": "marcus_drop_necklace",
+          "title": "Marcus Kolyeyi Bırakır",
+          "description": "Marcus kolyeyi bırakıyor. Ejderha gücü ondan çıkıyor ve normal haline dönüyor. Lydia çok mutlu. 'Baba! Seni özledim!'",
+          "background": "marcus_drop_necklace.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi ejderhaya ver",
+              "next_node": "return_necklace_dragon",
+              "effect": {
+                "karma": 12,
+                "reputation": 25
+              }
+            },
+            {
+              "text": "Kolyeyi güvenli yere sakla",
+              "next_node": "hide_necklace_safe",
+              "effect": {
+                "karma": 10,
+                "reputation": 20
+              }
+            }
+          ]
+        },
+        "convince_with_lydia": {
+          "id": "convince_with_lydia",
+          "title": "Lydia'nın Yardımıyla İkna Et",
+          "description": "Lydia'nın yardımıyla Marcus'u ikna ediyorsun. Kızın sesi babasını etkiliyor. 'Baba! Beni hatırla! Sen benim babamsın!' Marcus'un gözleri normale dönüyor.",
+          "background": "convince_with_lydia.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi bırak",
+              "next_node": "marcus_drop_necklace",
+              "effect": {
+                "karma": 12,
+                "reputation": 25
+              }
+            },
+            {
+              "text": "Ejderha ile barış yap",
+              "next_node": "make_peace_with_dragon",
+              "effect": {
+                "karma": 10,
+                "reputation": 20
+              }
+            }
+          ]
+        },
+        "take_necklace_safe": {
+          "id": "take_necklace_safe",
+          "title": "Kolyeyi Güvenli Şekilde Al",
+          "description": "Kolyeyi güvenli bir şekilde alıyorsun. Marcus normal haline dönüyor ve Lydia çok mutlu. Kolye artık güvende ve ejderha gücü kontrol altında.",
+          "background": "take_necklace_safe.jpg",
+          "choices": [
+            {
+              "text": "Ejderhaya geri ver",
+              "next_node": "return_necklace_dragon",
+              "effect": {
+                "karma": 12,
+                "reputation": 25
+              }
+            },
+            {
+              "text": "Güvenli yere sakla",
+              "next_node": "hide_necklace_safe",
+              "effect": {
+                "karma": 10,
+                "reputation": 20
+              }
+            }
+          ]
+        },
+        "save_marcus_with_shadow": {
+          "id": "save_marcus_with_shadow",
+          "title": "Shadow ile Marcus'u Kurtar",
+          "description": "Shadow ile birlikte Marcus'u kurtarıyorsunuz. Shadow'un bilgisi ve senin gücün birleşiyor. Marcus'u ikna ediyorsunuz ve kolyeyi bırakıyor.",
+          "background": "save_marcus_with_shadow.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi ejderhaya ver",
+              "next_node": "return_necklace_dragon",
+              "effect": {
+                "karma": 12,
+                "reputation": 25
+              }
+            },
+            {
+              "text": "Güvenli yere sakla",
+              "next_node": "hide_necklace_safe",
+              "effect": {
+                "karma": 10,
+                "reputation": 20
+              }
+            }
+          ]
+        },
+        "return_necklace_dragon": {
+          "id": "return_necklace_dragon",
+          "title": "Kolyeyi Ejderhaya Geri Ver",
+          "description": "Kolyeyi ejderhaya geri veriyorsun. Kızıl Alev çok mutlu ve köyü artık rahatsız etmeyeceğine söz veriyor. Marcus da normal haline dönüyor.",
+          "background": "return_necklace.jpg",
+          "choices": [
+            {
+              "text": "Barış anlaşması",
+              "next_node": "dragon_peace_ending",
+              "effect": {
+                "karma": 15,
+                "reputation": 30
+              }
+            }
+          ]
+        },
+        "save_marcus_from_dragon": {
+          "id": "save_marcus_from_dragon",
+          "title": "Marcus'u Ejderhadan Kurtar",
+          "description": "Marcus'u ejderhadan kurtarmaya çalışıyorsun. Ejderha anlayış gösteriyor ve Marcus'u kurtarmana yardım ediyor. Kolye güvenli bir şekilde alınıyor.",
+          "background": "save_marcus_from_dragon.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi ejderhaya ver",
+              "next_node": "return_necklace_dragon",
+              "effect": {
+                "karma": 12,
+                "reputation": 25
+              }
+            },
+            {
+              "text": "Güvenli yere sakla",
+              "next_node": "hide_necklace_safe",
+              "effect": {
+                "karma": 10,
+                "reputation": 20
+              }
+            }
+          ]
+        },
+        "go_save_father": {
+          "id": "go_save_father",
+          "title": "Babayı Kurtarmaya Git",
+          "description": "Babayı kurtarmaya gidiyorsun. Marcus'un odasına gidiyorsun ve onu kolyeyle buluyorsun. Şifacı ejderha gücünü kullanmaya başlıyor.",
+          "background": "go_save_father.jpg",
+          "choices": [
+            {
+              "text": "Savaş",
+              "next_node": "fight_marcus",
+              "effect": {
+                "karma": 6,
+                "reputation": 8
+              }
+            },
+            {
+              "text": "İkna et",
+              "next_node": "convince_marcus",
+              "effect": {
+                "karma": 8,
+                "reputation": 15
+              }
+            }
+          ]
+        },
+        "hide_necklace_safe": {
+          "id": "hide_necklace_safe",
+          "title": "Kolyeyi Güvenli Yere Sakla",
+          "description": "Kolyeyi güvenli bir yere saklıyorsun. Ejderha gücü artık kontrol altında ve Marcus normal haline dönüyor. Köy güvende.",
+          "background": "hide_necklace.jpg",
+          "choices": [
+            {
+              "text": "Mutlu son",
+              "next_node": "start",
+              "effect": {
+                "karma": 12,
+                "reputation": 25
+              }
+            }
+          ]
+        },
+        "take_marcus_necklace": {
+          "id": "take_marcus_necklace",
+          "title": "Marcus'un Kolyesini Al",
+          "description": "Marcus'un kolyesini alıyorsun. Ejderha gücü ondan çıkıyor ve normal haline dönüyor. Lydia çok mutlu ve babasına sarılıyor.",
+          "background": "take_marcus_necklace.jpg",
+          "choices": [
+            {
+              "text": "Ejderhaya geri ver",
+              "next_node": "return_necklace_dragon",
+              "effect": {
+                "karma": 12,
+                "reputation": 25
+              }
+            },
+            {
+              "text": "Güvenli yere sakla",
+              "next_node": "hide_necklace_safe",
+              "effect": {
+                "karma": 10,
+                "reputation": 20
+              }
+            }
+          ]
+        },
+        "marcus_more_info": {
+          "id": "marcus_more_info",
+          "title": "Marcus'tan Daha Fazla Bilgi",
+          "description": "Marcus'tan daha fazla bilgi istiyorsun. '100 yıl önce ejderha avcısıydım. Ejderhayı öldürdüm ama gücünü alamadım. Şimdi kolyeyi buldum ve güç benim olacak!'",
+          "background": "marcus_more_info.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi bırak",
+              "next_node": "marcus_drop_necklace",
+              "effect": {
+                "karma": 8,
+                "reputation": 15
+              }
+            },
+            {
+              "text": "Savaş",
+              "next_node": "fight_marcus",
+              "effect": {
+                "karma": 6,
+                "reputation": 8
+              }
+            }
+          ]
+        },
+        "ask_about_necklace": {
+          "id": "ask_about_necklace",
+          "title": "Kolye Hakkında Sor",
+          "description": "Marcus'a kolye hakkında soruyorsun. 'Kolye ejderhanın gücünün kaynağı. 100 yıl önce ejderhayı öldürdüm ama kolyeyi alamadım. Şimdi buldum ve güç benim olacak!'",
+          "background": "ask_about_necklace.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi bırak",
+              "next_node": "marcus_drop_necklace",
+              "effect": {
+                "karma": 8,
+                "reputation": 15
+              }
+            },
+            {
+              "text": "Savaş",
+              "next_node": "fight_marcus",
+              "effect": {
+                "karma": 6,
+                "reputation": 8
+              }
+            }
+          ]
+        },
+        "think_of_lydia": {
+          "id": "think_of_lydia",
+          "title": "Lydia'yı Düşün",
+          "description": "Marcus'a Lydia'yı düşünmesini söylüyorsun. 'Lydia seni seviyor. Ejderha gücü seni değiştiriyor. Kızın babası olarak düşün.' Marcus'un gözleri normale dönmeye başlıyor.",
+          "background": "think_of_lydia.jpg",
+          "choices": [
+            {
+              "text": "Kolyeyi bırak",
+              "next_node": "marcus_drop_necklace",
+              "effect": {
+                "karma": 10,
+                "reputation": 20
+              }
+            },
+            {
+              "text": "Lydia'yı çağır",
+              "next_node": "call_lydia",
+              "effect": {
+                "karma": 9,
+                "reputation": 18
+              }
+            }
+          ]
+        },
+        "call_lydia": {
+          "id": "call_lydia",
+          "title": "Lydia'yı Çağır",
+          "description": "Lydia'yı çağırıyorsun. Kız babasının odasına geliyor ve onu görünce çok şaşırıyor. 'Baba! Seni özledim! Normal haline dön!'",
+          "background": "call_lydia.jpg",
+          "choices": [
+            {
+              "text": "Lydia'nın yardımıyla ikna et",
+              "next_node": "convince_with_lydia",
+              "effect": {
+                "karma": 12,
+                "reputation": 25
+              }
+            },
+            {
+              "text": "Kolyeyi al",
+              "next_node": "take_marcus_necklace",
+              "effect": {
+                "karma": 10,
+                "reputation": 20
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
