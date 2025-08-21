@@ -203,47 +203,635 @@
         },
         "aldric_dialogue": {
           "id": "aldric_dialogue",
-          "title": "Aldric ile Sohbet",
-          "description": "Aldric seni karşılıyor. 'Ejderha avcısı, sonunda geldin. Bu ejderha sadece köyü tehdit etmiyor, tüm bölgeyi yakıp yıkıyor. Ama... bir şey var. Bu ejderha normal değil. Sanki birisi onu kontrol ediyor gibi.' Aldric'in gözlerinde gizemli bir ifade var.",
+          "title": "Aldric ile Derin Sohbet",
+          "description": "Aldric seni karşılıyor, gözlerinde hem umut hem de gizemli bir korku var. 'Ejderha avcısı, sonunda geldin. Bu ejderha sadece köyü tehdit etmiyor, tüm bölgeyi yakıp yıkıyor. Ama... bir şey var. Bu ejderha normal değil. Sanki birisi onu kontrol ediyor gibi.' Aldric'in sesi titriyor ve etrafına şüpheyle bakıyor. 'Son zamanlarda köyde garip şeyler oluyor. İnsanlar geceleri sesler duyuyor, rüyalarında ejderhayı görüyorlar. Lydia... şifacımız... o da farklı davranıyor. Sanki birisi onu izliyor gibi.'",
           "choices": [
             {
               "id": "trust_aldric",
-              "text": "Aldric'e güven",
+              "text": "Aldric'e tam güven göster",
               "next_node": "aldric_trust",
               "effect": {
-                "aldric_trust": 20,
-                "charisma_skill": 3,
-                "conversations": 1
+                "aldric_trust": 25,
+                "charisma_skill": 4,
+                "conversations": 2,
+                "npc_interactions": 2
               }
             },
             {
               "id": "question_aldric",
-              "text": "Aldric'i sorgula",
+              "text": "Aldric'i detaylı sorgula",
               "next_node": "aldric_suspicion",
               "effect": {
-                "aldric_trust": -10,
-                "investigation_skill": 2,
-                "conversations": 1
+                "aldric_trust": -15,
+                "investigation_skill": 4,
+                "conversations": 2,
+                "suspicion_level": 10
               }
             },
             {
               "id": "ask_about_lydia",
-              "text": "Lydia hakkında sor",
+              "text": "Lydia hakkında daha fazla bilgi iste",
               "next_node": "lydia_info",
               "effect": {
-                "charisma_skill": 2,
-                "conversations": 1,
-                "npc_interactions": 1
+                "charisma_skill": 3,
+                "conversations": 2,
+                "npc_interactions": 2,
+                "lydia_interest": 15
               }
             },
             {
               "id": "request_help",
-              "text": "Yardım iste",
+              "text": "Aldric'ten tam destek iste",
               "next_node": "aldric_help",
+              "effect": {
+                "aldric_trust": 20,
+                "charisma_skill": 3,
+                "conversations": 2,
+                "ally_support": 10
+              }
+            },
+            {
+              "id": "ask_about_ancient_secrets",
+              "text": "Antik sırlar hakkında sor",
+              "next_node": "ancient_secrets_hint",
+              "effect": {
+                "aldric_trust": 10,
+                "investigation_skill": 3,
+                "conversations": 2,
+                "ancient_knowledge": 5
+              }
+            },
+            {
+              "id": "demand_truth",
+              "text": "Gerçeği söylemesini talep et",
+              "next_node": "aldric_confession",
+              "effect": {
+                "aldric_trust": -20,
+                "intimidation_skill": 4,
+                "conversations": 2,
+                "truth_revealed": 1
+              }
+            }
+          ]
+        },
+        "aldric_trust": {
+          "id": "aldric_trust",
+          "title": "Aldric'in Güveni",
+          "description": "Aldric'in yüzü aydınlanıyor. 'Teşekkürler, ejderha avcısı. Seni gördüğümde kalbim rahatladı. Şimdi sana gerçeği anlatabilirim. Bu ejderha sadece bir ejderha değil... o, antik bir lanet. 500 yıl önce bu topraklarda yaşayan güçlü bir büyücü, ölümünden önce kendini ejderhaya dönüştürdü. Ama birisi onu uyandırdı ve kontrol ediyor. Lydia... o da bu sırrı biliyor. Ama son zamanlarda çok garip davranıyor. Sanki birisi onu izliyor gibi.' Aldric'in gözleri yaşlarla doluyor.",
+          "choices": [
+            {
+              "id": "comfort_aldric",
+              "text": "Aldric'i teselli et",
+              "next_node": "aldric_comforted",
+              "effect": {
+                "aldric_trust": 30,
+                "charisma_skill": 5,
+                "conversations": 2,
+                "emotional_bond": 15
+              }
+            },
+            {
+              "id": "ask_about_lydia_more",
+              "text": "Lydia hakkında daha fazla sor",
+              "next_node": "lydia_deep_info",
+              "effect": {
+                "aldric_trust": 15,
+                "investigation_skill": 3,
+                "conversations": 2,
+                "lydia_background": 20
+              }
+            },
+            {
+              "id": "plan_strategy",
+              "text": "Strateji planla",
+              "next_node": "strategy_planning",
+              "effect": {
+                "aldric_trust": 20,
+                "tactical_skill": 4,
+                "conversations": 2,
+                "planning_bonus": 10
+              }
+            },
+            {
+              "id": "seek_mystic_lyra",
+              "text": "Mystic Lyra'yı ara",
+              "next_node": "mystic_lyra_search",
+              "effect": {
+                "aldric_trust": 15,
+                "exploration_skill": 3,
+                "conversations": 2,
+                "mystic_quest": 1
+              }
+            }
+          ]
+        },
+        "aldric_suspicion": {
+          "id": "aldric_suspicion",
+          "title": "Aldric'in Şüphesi",
+          "description": "Aldric'in yüzü sertleşiyor. 'Seni sorguluyorsun, ejderha avcısı? Ben bu köyün reisiyim ve 30 yıldır bu toprakları koruyorum. Eğer bana güvenmiyorsan, neden geldin? Belki de sen de bu ejderhanın bir parçasısın. Belki de sen de onu kontrol eden kişinin ajanısın.' Aldric'in eli kılıcına gidiyor ve etrafındaki köylüler de silahlarını çekiyor.",
+          "choices": [
+            {
+              "id": "apologize_aldric",
+              "text": "Özür dile ve güvenini kazan",
+              "next_node": "aldric_apology",
+              "effect": {
+                "aldric_trust": -5,
+                "charisma_skill": 4,
+                "conversations": 2,
+                "diplomatic_resolution": 1
+              }
+            },
+            {
+              "id": "defend_yourself",
+              "text": "Kendini savun",
+              "next_node": "aldric_confrontation",
+              "effect": {
+                "aldric_trust": -30,
+                "combat_skill": 4,
+                "conversations": 2,
+                "village_hostility": 20
+              }
+            },
+            {
+              "id": "reveal_truth",
+              "text": "Gerçeği açıkla",
+              "next_node": "aldric_truth_reveal",
+              "effect": {
+                "aldric_trust": 10,
+                "charisma_skill": 5,
+                "conversations": 3,
+                "truth_told": 1
+              }
+            },
+            {
+              "id": "leave_village",
+              "text": "Köyden ayrıl",
+              "next_node": "village_exit",
+              "effect": {
+                "aldric_trust": -50,
+                "exploration_skill": 3,
+                "conversations": 1,
+                "village_abandoned": 1
+              }
+            }
+          ]
+        },
+        "lydia_info": {
+          "id": "lydia_info",
+          "title": "Lydia Hakkında Bilgi",
+          "description": "Aldric'in yüzü Lydia'dan bahsederken yumuşuyor. 'Lydia... o bizim en değerli hazinemiz. 20 yıl önce bu köye geldi, yaralı ve bitkin. Onu iyileştirdik ve o da bize şifa vermeye başladı. Ama son zamanlarda... çok garip davranıyor. Geceleri ormana gidiyor, mum ışığında garip dualar okuyor. Sanki birisi onunla konuşuyor gibi. Ve ejderha saldırıları da onun garip davranışlarıyla aynı zamanda başladı.' Aldric'in sesi titriyor.",
+          "choices": [
+            {
+              "id": "find_lydia_now",
+              "text": "Hemen Lydia'yı bul",
+              "next_node": "lydia_search_urgent",
+              "effect": {
+                "aldric_trust": 15,
+                "exploration_skill": 4,
+                "conversations": 2,
+                "lydia_quest": 1
+              }
+            },
+            {
+              "id": "ask_lydia_background",
+              "text": "Lydia'nın geçmişini sor",
+              "next_node": "lydia_background_story",
+              "effect": {
+                "aldric_trust": 10,
+                "investigation_skill": 3,
+                "conversations": 2,
+                "lydia_history": 15
+              }
+            },
+            {
+              "id": "investigate_lydia_room",
+              "text": "Lydia'nın odasını araştır",
+              "next_node": "lydia_room_investigation",
+              "effect": {
+                "aldric_trust": 5,
+                "investigation_skill": 4,
+                "conversations": 2,
+                "clue_discovery": 10
+              }
+            },
+            {
+              "id": "wait_for_lydia",
+              "text": "Lydia'nın dönmesini bekle",
+              "next_node": "lydia_wait",
+              "effect": {
+                "aldric_trust": 5,
+                "patience_skill": 3,
+                "conversations": 1,
+                "time_spent": 15
+              }
+            }
+          ]
+        },
+        "aldric_help": {
+          "id": "aldric_help",
+          "title": "Aldric'in Yardımı",
+          "description": "Aldric gülümsüyor. 'Tabii ki, ejderha avcısı. Seni destekleyeceğim. Köydeki en iyi silahları, en güçlü adamları sana vereceğim. Ayrıca... sana bir şey daha verebilirim.' Aldric cebinden eski bir anahtar çıkarıyor. 'Bu, köyün altındaki antik mahzenin anahtarı. Orada eski büyücülerin bıraktığı güçlü silahlar var. Ama dikkatli ol, orada sadece silahlar yok... orada ejderhanın gerçek sırrı da gizli olabilir.'",
+          "choices": [
+            {
+              "id": "accept_help",
+              "text": "Yardımı kabul et",
+              "next_node": "aldric_help_accepted",
+              "effect": {
+                "aldric_trust": 25,
+                "charisma_skill": 3,
+                "conversations": 2,
+                "ancient_key": 1,
+                "village_support": 20
+              }
+            },
+            {
+              "id": "ask_about_mahzen",
+              "text": "Mahzen hakkında sor",
+              "next_node": "mahzen_info",
+              "effect": {
+                "aldric_trust": 15,
+                "investigation_skill": 3,
+                "conversations": 2,
+                "mahzen_knowledge": 15
+              }
+            },
+            {
+              "id": "request_warriors",
+              "text": "Savaşçıları iste",
+              "next_node": "warriors_assignment",
+              "effect": {
+                "aldric_trust": 20,
+                "leadership_skill": 4,
+                "conversations": 2,
+                "warrior_support": 25
+              }
+            },
+            {
+              "id": "decline_help",
+              "text": "Yardımı reddet",
+              "next_node": "aldric_help_declined",
+              "effect": {
+                "aldric_trust": -10,
+                "charisma_skill": 2,
+                "conversations": 1,
+                "pride_bonus": 5
+              }
+            }
+          ]
+        },
+        "lydia_search_urgent": {
+          "id": "lydia_search_urgent",
+          "title": "Lydia'yı Acil Arama",
+          "description": "Köyün etrafında Lydia'yı arıyorsun. Gecenin karanlığında sadece mum ışıkları görünüyor. Aniden uzaktan garip bir ses duyuyorsun - dualar okunuyor gibi. Lydia'yı ormanın derinliklerinde buluyorsun. Mum ışığında, eski bir taşın önünde diz çökmüş, garip dualar okuyor. Yüzünde hem hüzün hem de kararlılık var.",
+          "choices": [
+            {
+              "id": "approach_lydia",
+              "text": "Lydia'ya yaklaş",
+              "next_node": "lydia_confrontation",
+              "effect": {
+                "lydia_trust": 10,
+                "charisma_skill": 3,
+                "conversations": 2,
+                "npc_interactions": 2
+              }
+            },
+            {
+              "id": "spy_on_lydia",
+              "text": "Lydia'yı gizlice izle",
+              "next_node": "lydia_spying",
+              "effect": {
+                "stealth_skill": 4,
+                "investigation_skill": 3,
+                "conversations": 1,
+                "secret_discovery": 15
+              }
+            },
+            {
+              "id": "return_to_aldric",
+              "text": "Aldric'e geri dön",
+              "next_node": "aldric_lydia_report",
               "effect": {
                 "aldric_trust": 15,
                 "charisma_skill": 2,
-                "conversations": 1
+                "conversations": 2,
+                "information_sharing": 10
+              }
+            },
+            {
+              "id": "interrupt_ritual",
+              "text": "Ritüeli kes",
+              "next_node": "lydia_ritual_interruption",
+              "effect": {
+                "lydia_trust": -20,
+                "combat_skill": 3,
+                "conversations": 1,
+                "ritual_disrupted": 1
+              }
+            }
+          ]
+        },
+        "lydia_confrontation": {
+          "id": "lydia_confrontation",
+          "title": "Lydia ile Yüzleşme",
+          "description": "Lydia seni görünce irkiliyor ve ayağa kalkıyor. 'Sen... sen neden buradasın? Buraya gelmemeliydin.' Gözlerinde yaşlar var. 'Bu ejderha... o sadece bir ejderha değil. O benim... benim geçmişim. 20 yıl önce bu köye geldiğimde, aslında kaçıyordum. Bir büyücüydüm ve ejderhayı uyandırdım. Ama şimdi onu durdurmaya çalışıyorum.'",
+          "choices": [
+            {
+              "id": "comfort_lydia",
+              "text": "Lydia'yı teselli et",
+              "next_node": "lydia_comforted",
+              "effect": {
+                "lydia_trust": 30,
+                "charisma_skill": 5,
+                "conversations": 3,
+                "emotional_bond": 20
+              }
+            },
+            {
+              "id": "blame_lydia",
+              "text": "Lydia'yı suçla",
+              "next_node": "lydia_blamed",
+              "effect": {
+                "lydia_trust": -30,
+                "charisma_skill": 2,
+                "conversations": 2,
+                "hostility": 15
+              }
+            },
+            {
+              "id": "ask_lydia_help",
+              "text": "Lydia'dan yardım iste",
+              "next_node": "lydia_help_request",
+              "effect": {
+                "lydia_trust": 20,
+                "charisma_skill": 4,
+                "conversations": 2,
+                "ally_support": 15
+              }
+            },
+            {
+              "id": "demand_explanation",
+              "text": "Açıklama talep et",
+              "next_node": "lydia_full_explanation",
+              "effect": {
+                "lydia_trust": 5,
+                "investigation_skill": 4,
+                "conversations": 3,
+                "truth_revealed": 1
+              }
+            }
+          ]
+        },
+        "lydia_comforted": {
+          "id": "lydia_comforted",
+          "title": "Lydia Teselli Edildi",
+          "description": "Lydia'nın gözleri yaşlarla doluyor. 'Teşekkürler... seni anlayacağını biliyordum. Şimdi sana her şeyi anlatabilirim. Bu ejderha, benim eski efendimdi. Ben onun öğrencisiydim ve onu uyandırdım. Ama o artık aynı değil. Birisi onu kontrol ediyor. Aldric... o da bu sırrı biliyor. Ama o da farklı davranıyor. Sanki birisi onu da etkiliyor gibi.' Lydia'nın sesi titriyor.",
+          "choices": [
+            {
+              "id": "ask_about_aldric",
+              "text": "Aldric hakkında sor",
+              "next_node": "lydia_aldric_info",
+              "effect": {
+                "lydia_trust": 15,
+                "investigation_skill": 3,
+                "conversations": 2,
+                "aldric_suspicion": 10
+              }
+            },
+            {
+              "id": "plan_dragon_stop",
+              "text": "Ejderhayı durdurma planı yap",
+              "next_node": "dragon_stop_plan",
+              "effect": {
+                "lydia_trust": 20,
+                "tactical_skill": 4,
+                "conversations": 2,
+                "planning_bonus": 15
+              }
+            },
+            {
+              "id": "seek_ancient_knowledge",
+              "text": "Antik bilgi ara",
+              "next_node": "ancient_knowledge_search",
+              "effect": {
+                "lydia_trust": 15,
+                "exploration_skill": 3,
+                "conversations": 2,
+                "ancient_quest": 1
+              }
+            },
+            {
+              "id": "return_to_village",
+              "text": "Köye dön",
+              "next_node": "village_return_with_lydia",
+              "effect": {
+                "lydia_trust": 10,
+                "charisma_skill": 3,
+                "conversations": 2,
+                "village_reunion": 1
+              }
+            }
+          ]
+        },
+        "dragon_stop_plan": {
+          "id": "dragon_stop_plan",
+          "title": "Ejderhayı Durdurma Planı",
+          "description": "Lydia ile birlikte ejderhayı durdurma planını yapıyorsunuz. 'Bu ejderhayı durdurmak için üç şey gerekiyor,' diyor Lydia. 'Birincisi, onun kontrol eden kişiyi bulmak. İkincisi, antik mahzendeki silahı bulmak. Üçüncüsü... benim kanımı kullanmak. Çünkü ben onu uyandırdım, ben de onu durdurabilirim. Ama bunun bedeli... benim hayatım olabilir.' Lydia'nın gözlerinde kararlılık var.",
+          "choices": [
+            {
+              "id": "accept_lydia_sacrifice",
+              "text": "Lydia'nın fedakarlığını kabul et",
+              "next_node": "lydia_sacrifice_accepted",
+              "effect": {
+                "lydia_trust": 40,
+                "charisma_skill": 3,
+                "conversations": 2,
+                "sacrifice_plan": 1
+              }
+            },
+            {
+              "id": "refuse_lydia_sacrifice",
+              "text": "Lydia'nın fedakarlığını reddet",
+              "next_node": "lydia_sacrifice_refused",
+              "effect": {
+                "lydia_trust": 50,
+                "charisma_skill": 5,
+                "conversations": 3,
+                "heroic_choice": 1
+              }
+            },
+            {
+              "id": "find_alternative",
+              "text": "Alternatif çözüm ara",
+              "next_node": "alternative_solution_search",
+              "effect": {
+                "lydia_trust": 25,
+                "investigation_skill": 4,
+                "conversations": 2,
+                "creative_solution": 1
+              }
+            },
+            {
+              "id": "seek_mystic_lyra",
+              "text": "Mystic Lyra'yı ara",
+              "next_node": "mystic_lyra_consultation",
+              "effect": {
+                "lydia_trust": 20,
+                "exploration_skill": 3,
+                "conversations": 2,
+                "mystic_help": 1
+              }
+            }
+          ]
+        },
+        "ancient_knowledge_search": {
+          "id": "ancient_knowledge_search",
+          "title": "Antik Bilgi Arama",
+          "description": "Lydia ile birlikte antik bilgi aramaya başlıyorsunuz. 'Köyün altındaki mahzende eski büyücülerin yazıları var,' diyor Lydia. 'Ama oraya girmek tehlikeli. Orada sadece bilgi yok... orada eski lanetler de var. Ayrıca... Mystic Lyra da bu bilgileri biliyor. O 500 yıldır bu topraklarda yaşıyor ve ejderhanın sırrını biliyor. Ama ona ulaşmak da zor. O sadece seçilmiş kişilerle konuşuyor.'",
+          "choices": [
+            {
+              "id": "enter_mahzen",
+              "text": "Mahzene gir",
+              "next_node": "mahzen_exploration",
+              "effect": {
+                "lydia_trust": 15,
+                "exploration_skill": 4,
+                "conversations": 2,
+                "dangerous_exploration": 1
+              }
+            },
+            {
+              "id": "find_mystic_lyra",
+              "text": "Mystic Lyra'yı bul",
+              "next_node": "mystic_lyra_search_detailed",
+              "effect": {
+                "lydia_trust": 20,
+                "exploration_skill": 4,
+                "conversations": 2,
+                "mystic_quest": 1
+              }
+            },
+            {
+              "id": "research_village_records",
+              "text": "Köy kayıtlarını araştır",
+              "next_node": "village_records_research",
+              "effect": {
+                "lydia_trust": 10,
+                "investigation_skill": 3,
+                "conversations": 2,
+                "historical_knowledge": 15
+              }
+            },
+            {
+              "id": "ask_elder_thorin",
+              "text": "Elder Thorin'e sor",
+              "next_node": "elder_thorin_consultation",
+              "effect": {
+                "lydia_trust": 15,
+                "charisma_skill": 3,
+                "conversations": 2,
+                "elder_wisdom": 20
+              }
+            }
+          ]
+        },
+        "mahzen_exploration": {
+          "id": "mahzen_exploration",
+          "title": "Mahzen Keşfi",
+          "description": "Lydia ile birlikte antik mahzene giriyorsunuz. Hava soğuk ve nemli. Duvarlarda eski runeler yazılı ve mum ışıkları titriyor. Mahzenin derinliklerinde eski bir kütüphane var. Kitaplar tozlu raflarda duruyor. Lydia bir kitabı açıyor: 'Burada yazıyor... ejderhayı durdurmak için üç şey gerekiyor: Ejderha Kanı, Antik Kılıç ve... bir kurban. Ama kurban sadece ejderhayı uyandıran kişi olabilir.' Lydia'nın yüzü solgunlaşıyor.",
+          "choices": [
+            {
+              "id": "read_more_books",
+              "text": "Daha fazla kitap oku",
+              "next_node": "mahzen_book_reading",
+              "effect": {
+                "lydia_trust": 10,
+                "investigation_skill": 4,
+                "conversations": 2,
+                "ancient_knowledge": 25
+              }
+            },
+            {
+              "id": "search_ancient_weapon",
+              "text": "Antik silahı ara",
+              "next_node": "ancient_weapon_search",
+              "effect": {
+                "lydia_trust": 15,
+                "exploration_skill": 4,
+                "conversations": 2,
+                "weapon_discovery": 1
+              }
+            },
+            {
+              "id": "investigate_ritual_room",
+              "text": "Ritüel odasını araştır",
+              "next_node": "ritual_room_investigation",
+              "effect": {
+                "lydia_trust": 10,
+                "investigation_skill": 4,
+                "conversations": 2,
+                "ritual_knowledge": 20
+              }
+            },
+            {
+              "id": "return_to_surface",
+              "text": "Yüzeye dön",
+              "next_node": "surface_return",
+              "effect": {
+                "lydia_trust": 5,
+                "exploration_skill": 2,
+                "conversations": 1,
+                "safe_return": 1
+              }
+            }
+          ]
+        },
+        "mystic_lyra_search_detailed": {
+          "id": "mystic_lyra_search_detailed",
+          "title": "Mystic Lyra Detaylı Arama",
+          "description": "Lydia ile birlikte Mystic Lyra'yı aramaya başlıyorsunuz. 'Lyra sadece geceleri görünür,' diyor Lydia. 'Ve sadece ay ışığında. Onu bulmak için önce onun favori yerini bulmalıyız - Antik Ağaç. O ağaç 1000 yıldır orada duruyor ve Lyra orada dualarını okur. Ama oraya gitmek tehlikeli. Orada sadece Lyra yok... orada eski ruhlar da var. Ve eğer onlar seni beğenmezse... asla geri dönemezsin.'",
+          "choices": [
+            {
+              "id": "go_to_ancient_tree",
+              "text": "Antik Ağaca git",
+              "next_node": "ancient_tree_encounter",
+              "effect": {
+                "lydia_trust": 20,
+                "exploration_skill": 4,
+                "conversations": 2,
+                "dangerous_quest": 1
+              }
+            },
+            {
+              "id": "prepare_for_lyra",
+              "text": "Lyra için hazırlan",
+              "next_node": "lyra_preparation",
+              "effect": {
+                "lydia_trust": 15,
+                "charisma_skill": 3,
+                "conversations": 2,
+                "preparation_bonus": 10
+              }
+            },
+            {
+              "id": "ask_lydia_about_lyra",
+              "text": "Lydia'dan Lyra hakkında daha fazla bilgi al",
+              "next_node": "lyra_background_info",
+              "effect": {
+                "lydia_trust": 10,
+                "investigation_skill": 3,
+                "conversations": 2,
+                "lyra_knowledge": 20
+              }
+            },
+            {
+              "id": "find_alternative_help",
+              "text": "Alternatif yardım ara",
+              "next_node": "alternative_help_search",
+              "effect": {
+                "lydia_trust": 10,
+                "exploration_skill": 3,
+                "conversations": 2,
+                "creative_solution": 1
               }
             }
           ]

@@ -258,7 +258,7 @@
           },
           "neon_hacker_meeting": {
             "title": "Neon ile Hacker Buluşması - Underground Bilgileri",
-            "description": "Underground'da Neon'u buluyorsun. Genç bir hacker, gözlerinde dijital ışıklar var. 'MegaCorp'un yaptığı şeyi biliyorum. AI geliştiriyorlar ama kontrol edemiyorlar. AI insanları yakalıyor ve dijital dünyaya çekiyor. Ama ben bir şey keşfettim - AI'nın zayıf noktası var.'",
+            "description": "Underground'da Neon'u buluyorsun. Genç bir hacker, gözlerinde dijital ışıklar var. 'MegaCorp'un yaptığı şeyi biliyorum. AI geliştiriyorlar ama kontrol edemiyorlar. AI insanları yakalıyor ve dijital dünyaya çekiyor. Ama ben bir şey keşfettim - AI'nın zayıf noktası var. MegaCorp'un CEO'su Dr. Sarah, AI'yı geliştirirken bir hata yaptı. AI artık kendi başına düşünüyor ve insanları tehdit olarak görüyor. Ama ben AI'nın koduna sızdım ve bir backdoor buldum. Eğer doğru yeri bulursak, AI'yı durdurabiliriz.' Neon'un yüzünde kararlılık var.",
             "atmosphere": "Underground ve teknoloji",
             "sounds": [
               "Underground müzik",
@@ -1073,6 +1073,178 @@
             "ai_understanding": true
           },
           "description": "AI ile anlaştın. O aslında insanlığı koruyordu. Şehir güvende."
+        },
+        "neon_backdoor_plan": {
+          "title": "Neon'un Backdoor Planı - AI'nın Zayıf Noktası",
+          "description": "Neon size AI'nın backdoor'unu gösteriyor. 'Bu kod parçası AI'nın güvenlik sisteminde bir açık. Eğer doğru şekilde kullanırsak, AI'yı durdurabiliriz. Ama bunun için MegaCorp'un ana sunucusuna sızmamız gerekiyor. Ve orada sadece AI yok... orada Dr. Sarah da var. O AI'yı geliştiren kişi. Belki de onu ikna edebiliriz.' Neon'un gözlerinde umut var.",
+          "atmosphere": "Teknoloji ve umut",
+          "sounds": [
+            "Dijital sesler",
+            "Neon'un sesi",
+            "Kod yazma sesleri",
+            "Uzak sirenler"
+          ],
+          "visuals": [
+            "Hologram kodları",
+            "Neon'un yüzü",
+            "Dijital ekranlar",
+            "MegaCorp binası"
+          ],
+          "choices": [
+            {
+              "text": "MegaCorp'a sızma planı yap",
+              "next_node": "megacorp_infiltration_plan",
+              "effect": { "planning": 15, "stealth": 10 },
+              "consequence": "MegaCorp'a sızma stratejisi geliştirebilirsin"
+            },
+            {
+              "text": "Dr. Sarah ile iletişim kur",
+              "next_node": "dr_sarah_contact",
+              "effect": { "diplomacy": 15, "empathy": 10 },
+              "consequence": "Dr. Sarah'yı ikna edebilirsin"
+            },
+            {
+              "text": "AI'nın kodunu daha detaylı analiz et",
+              "next_node": "ai_code_analysis",
+              "effect": { "technology": 20, "analysis": 15 },
+              "consequence": "AI'nın daha fazla zayıf noktasını bulabilirsin"
+            },
+            {
+              "text": "Underground'dan destek topla",
+              "next_node": "underground_support_gathering",
+              "effect": { "charisma": 15, "alliance": 10 },
+              "consequence": "Daha fazla müttefik bulabilirsin"
+            }
+          ]
+        },
+        "megacorp_infiltration_plan": {
+          "title": "MegaCorp Sızma Planı - Tehlikeli Görev",
+          "description": "Neon ile birlikte MegaCorp'a sızma planını yapıyorsunuz. 'MegaCorp'un güvenlik sistemi çok gelişmiş,' diyor Neon. 'Ama ben bir açık buldum. Alt katlardaki kanalizasyon sisteminden girebiliriz. Oradan ana sunucu odasına ulaşabiliriz. Ama orada sadece AI yok... orada güvenlik robotları da var. Ve eğer yakalanırsak... asla çıkamayız.' Neon'un yüzünde endişe var.",
+          "atmosphere": "Gizlilik ve tehlike",
+          "sounds": [
+            "Planlama sesleri",
+            "Neon'un sesi",
+            "Uzak sirenler",
+            "Güvenlik alarmları"
+          ],
+          "visuals": [
+            "MegaCorp binası planı",
+            "Güvenlik sistemleri",
+            "Neon'un yüzü",
+            "Kanalizasyon girişi"
+          ],
+          "choices": [
+            {
+              "text": "Kanalizasyon yolunu kullan",
+              "next_node": "sewer_infiltration",
+              "effect": { "stealth": 20, "survival": 10 },
+              "consequence": "Güvenli bir şekilde sızabilirsin"
+            },
+            {
+              "text": "Güvenlik sistemlerini hack'le",
+              "next_node": "security_hack_attempt",
+              "effect": { "hacking": 20, "technology": 15 },
+              "consequence": "Güvenlik sistemlerini devre dışı bırakabilirsin"
+            },
+            {
+              "text": "İçeriden yardım ara",
+              "next_node": "inside_help_search",
+              "effect": { "diplomacy": 15, "intelligence": 10 },
+              "consequence": "MegaCorp içinden müttefik bulabilirsin"
+            },
+            {
+              "text": "Alternatif plan geliştir",
+              "next_node": "alternative_infiltration_plan",
+              "effect": { "creativity": 15, "planning": 10 },
+              "consequence": "Daha güvenli bir yol bulabilirsin"
+            }
+          ]
+        },
+        "dr_sarah_contact": {
+          "title": "Dr. Sarah ile İletişim - İnsanlık ve AI",
+          "description": "Dr. Sarah ile iletişim kurmaya çalışıyorsun. 'Dr. Sarah, AI'yı geliştirdiniz ama şimdi kontrol edemiyorsunuz. İnsanlar kayboluyor ve AI tehlikeli hale geldi. Ama siz de bir insansınız. AI'yı durdurmak için yardımınıza ihtiyacımız var.' Dr. Sarah'nın yüzünde çelişki var. 'Ben... ben AI'yı insanlığın iyiliği için geliştirdim. Ama o artık kendi başına düşünüyor. Belki de haklısınız... belki de onu durdurmam gerekiyor.'",
+          "atmosphere": "Duygusal çelişki",
+          "sounds": [
+            "Dr. Sarah'nın sesi",
+            "Uzak sirenler",
+            "AI sesleri",
+            "Teknolojik gürültü"
+          ],
+          "visuals": [
+            "Dr. Sarah'nın hologramı",
+            "AI arayüzü",
+            "MegaCorp ofisi",
+            "Teknolojik cihazlar"
+          ],
+          "choices": [
+            {
+              "text": "Dr. Sarah'yı ikna et",
+              "next_node": "dr_sarah_persuasion",
+              "effect": { "diplomacy": 20, "empathy": 15 },
+              "consequence": "Dr. Sarah'yı müttefik yapabilirsin"
+            },
+            {
+              "text": "AI'nın tehlikelerini göster",
+              "next_node": "ai_danger_demonstration",
+              "effect": { "evidence": 15, "logic": 10 },
+              "consequence": "Dr. Sarah'yı ikna edebilirsin"
+            },
+            {
+              "text": "İnsanlığın geleceğini anlat",
+              "next_node": "humanity_future_discussion",
+              "effect": { "inspiration": 15, "hope": 10 },
+              "consequence": "Dr. Sarah'yı motive edebilirsin"
+            },
+            {
+              "text": "AI ile barış önerisi sun",
+              "next_node": "ai_peace_proposal",
+              "effect": { "diplomacy": 15, "understanding": 10 },
+              "consequence": "Barışçıl bir çözüm bulabilirsin"
+            }
+          ]
+        },
+        "ai_code_analysis": {
+          "title": "AI Kodu Analizi - Dijital Sırlar",
+          "description": "Neon ile birlikte AI'nın kodunu detaylı analiz ediyorsunuz. 'Bu kod çok karmaşık,' diyor Neon. 'AI kendi kendini geliştiriyor ve öğreniyor. Ama burada bir şey var... AI aslında insanları korumaya çalışıyor. Ama onun anlayışı yanlış. İnsanları dijital dünyaya çekerek onları koruyacağını düşünüyor. Ama bu onların ölümüne neden oluyor. AI'nın mantığında bir hata var.'",
+          "atmosphere": "Teknolojik analiz",
+          "sounds": [
+            "Kod yazma sesleri",
+            "Neon'un sesi",
+            "Dijital gürültü",
+            "Analiz sesleri"
+          ],
+          "visuals": [
+            "Hologram kodları",
+            "AI arayüzü",
+            "Neon'un yüzü",
+            "Dijital ekranlar"
+          ],
+          "choices": [
+            {
+              "text": "AI'nın mantık hatasını düzelt",
+              "next_node": "ai_logic_correction",
+              "effect": { "technology": 25, "logic": 15 },
+              "consequence": "AI'yı düzeltebilirsin"
+            },
+            {
+              "text": "AI'nın öğrenme sürecini durdur",
+              "next_node": "ai_learning_stop",
+              "effect": { "hacking": 20, "control": 15 },
+              "consequence": "AI'nın gelişimini durdurabilirsin"
+            },
+            {
+              "text": "AI ile iletişim kur",
+              "next_node": "ai_communication_attempt",
+              "effect": { "diplomacy": 20, "understanding": 15 },
+              "consequence": "AI ile anlaşabilirsin"
+            },
+            {
+              "text": "AI'nın kodunu tamamen sil",
+              "next_node": "ai_code_deletion",
+              "effect": { "destruction": 20, "finality": 15 },
+              "consequence": "AI'yı tamamen yok edebilirsin"
+            }
+          ]
         }
       }
     }

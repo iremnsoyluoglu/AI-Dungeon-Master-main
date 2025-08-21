@@ -1206,6 +1206,146 @@
         "faction_specific": {
           "space_marine": "Chapter Brotherhood bonus",
           "imperial_guard": "Military Alliance bonus"
+        },
+        "chaos_corruption_investigation": {
+          "id": "chaos_corruption_investigation",
+          "title": "Chaos Yozlaşması Araştırması",
+          "description": "Şehrin derinliklerinde Chaos yozlaşmasının izlerini buluyorsun. Chapter Master Kain: 'Bu sadece ork istilası değil. Chaos burada da var. Ork Warlord'u Chaos etkisi altında. Bu çok tehlikeli.' Tech-Priest Maria: 'Chaos sinyalleri tespit ettim. Ork teknolojisi Chaos tarafından bozulmuş.' Inquisitor Thorne: 'Bu bir Chaos komplosu. Orkları kullanarak şehri ele geçirmeye çalışıyorlar.'",
+          "choices": [
+            {
+              "text": "Chaos etkisini araştır",
+              "next_node": "chaos_influence_research",
+              "diceRoll": { "type": "d20", "target": 18, "skill": "Investigation" },
+              "effect": { "karma": 8, "skill_gain": "Investigation +4" },
+              "consequence": "Chaos etkisini derinlemesine araştırıyorsun."
+            },
+            {
+              "text": "Ork Warlord'u Chaos'tan kurtar",
+              "next_node": "save_warlord_from_chaos",
+              "diceRoll": { "type": "d20", "target": 20, "skill": "Diplomacy" },
+              "effect": { "karma": 10, "skill_gain": "Diplomacy +5" },
+              "consequence": "Warlord'u Chaos'tan kurtarmaya çalışıyorsun."
+            },
+            {
+              "text": "Chaos ajanlarını bul",
+              "next_node": "find_chaos_agents",
+              "diceRoll": { "type": "d20", "target": 16, "skill": "Stealth" },
+              "effect": { "karma": 7, "skill_gain": "Stealth +3" },
+              "consequence": "Chaos ajanlarını arıyorsun."
+            },
+            {
+              "text": "Inquisitor ile birlikte çalış",
+              "next_node": "work_with_inquisitor",
+              "diceRoll": { "type": "d20", "target": 14, "skill": "Diplomacy" },
+              "effect": { "karma": 6, "skill_gain": "Diplomacy +3" },
+              "consequence": "Inquisitor ile işbirliği yapıyorsun."
+            }
+          ]
+        },
+        "chaos_influence_research": {
+          "id": "chaos_influence_research",
+          "title": "Chaos Etkisi Araştırması",
+          "description": "Chaos etkisini derinlemesine araştırıyorsun. Tech-Priest Maria: 'Chaos sinyalleri çok güçlü. Ork teknolojisi tamamen bozulmuş. Warlord artık kendi başına düşünemiyor.' Chapter Master Kain: 'Bu bir Chaos komplosu. Orkları kullanarak şehri ele geçirmeye çalışıyorlar. Ama asıl hedef başka bir şey olabilir.' Inquisitor Thorne: 'Chaos'ın burada ne aradığını bulmamız gerekiyor. Belki de eski bir Chaos artifact'ı var.'",
+          "choices": [
+            {
+              "text": "Chaos artifact'ını ara",
+              "next_node": "search_chaos_artifact",
+              "diceRoll": { "type": "d20", "target": 20, "skill": "Investigation" },
+              "effect": { "karma": 10, "skill_gain": "Investigation +5" },
+              "consequence": "Chaos artifact'ını arıyorsun."
+            },
+            {
+              "text": "Chaos portalını bul",
+              "next_node": "find_chaos_portal",
+              "diceRoll": { "type": "d20", "target": 18, "skill": "Exploration" },
+              "effect": { "karma": 8, "skill_gain": "Exploration +4" },
+              "consequence": "Chaos portalını arıyorsun."
+            },
+            {
+              "text": "Chaos ajanlarını yakala",
+              "next_node": "capture_chaos_agents",
+              "diceRoll": { "type": "d20", "target": 16, "skill": "Combat" },
+              "effect": { "karma": 7, "skill_gain": "Combat +3" },
+              "consequence": "Chaos ajanlarını yakalamaya çalışıyorsun."
+            },
+            {
+              "text": "Chaos etkisini temizle",
+              "next_node": "cleanse_chaos_influence",
+              "diceRoll": { "type": "d20", "target": 20, "skill": "Faith" },
+              "effect": { "karma": 12, "skill_gain": "Faith +5" },
+              "consequence": "Chaos etkisini temizlemeye çalışıyorsun."
+            }
+          ]
+        },
+        "save_warlord_from_chaos": {
+          "id": "save_warlord_from_chaos",
+          "title": "Warlord'u Chaos'tan Kurtar",
+          "description": "Ork Warlord'u Chaos etkisinden kurtarmaya çalışıyorsun. Warlord'un gözlerinde Chaos'un kırmızı ışığı var. 'Sen... sen farklısın. Chaos bana güç verdi ama... ama ben kendi başıma düşünmek istiyorum.' Tech-Priest Maria: 'Chaos etkisini temizleyebilirim ama bu riskli. Warlord ölebilir.' Chapter Master Kain: 'Bu bir ork. Neden onu kurtarmaya çalışıyorsun?' Inquisitor Thorne: 'Belki de Warlord'u kullanabiliriz. Chaos'a karşı bir müttefik olabilir.'",
+          "choices": [
+            {
+              "text": "Warlord'u kurtar",
+              "next_node": "warlord_redemption",
+              "diceRoll": { "type": "d20", "target": 20, "skill": "Diplomacy" },
+              "effect": { "karma": 12, "skill_gain": "Diplomacy +5" },
+              "consequence": "Warlord'u Chaos'tan kurtarıyorsun."
+            },
+            {
+              "text": "Warlord'u kullan",
+              "next_node": "use_warlord_against_chaos",
+              "diceRoll": { "type": "d20", "target": 16, "skill": "Tactics" },
+              "effect": { "karma": 8, "skill_gain": "Tactics +4" },
+              "consequence": "Warlord'u Chaos'a karşı kullanıyorsun."
+            },
+            {
+              "text": "Warlord'u öldür",
+              "next_node": "kill_chaos_warlord",
+              "diceRoll": { "type": "d20", "target": 14, "skill": "Combat" },
+              "effect": { "karma": 4, "skill_gain": "Combat +3" },
+              "consequence": "Warlord'u öldürüyorsun."
+            },
+            {
+              "text": "Warlord'u sorgula",
+              "next_node": "interrogate_warlord",
+              "diceRoll": { "type": "d20", "target": 18, "skill": "Investigation" },
+              "effect": { "karma": 6, "skill_gain": "Investigation +4" },
+              "consequence": "Warlord'u sorguluyorsun."
+            }
+          ]
+        },
+        "warlord_redemption": {
+          "id": "warlord_redemption",
+          "title": "Warlord'un Kurtuluşu",
+          "description": "Warlord'u Chaos'tan başarıyla kurtardın. Warlord'un gözlerindeki kırmızı ışık kayboldu. 'Teşekkürler... sen beni kurtardın. Chaos bana güç verdi ama beni kontrol ediyordu. Artık özgürüm. Ama ork halkım hala Chaos etkisi altında. Onları da kurtarmam gerekiyor.' Chapter Master Kain: 'Bu inanılmaz. Bir ork Chaos'tan kurtuldu. Bu tarihi bir an.' Inquisitor Thorne: 'Warlord artık güvenilir. Onu kullanabiliriz.'",
+          "choices": [
+            {
+              "text": "Warlord ile birlikte çalış",
+              "next_node": "cooperate_with_redeemed_warlord",
+              "diceRoll": { "type": "d20", "target": 16, "skill": "Diplomacy" },
+              "effect": { "karma": 10, "skill_gain": "Diplomacy +4" },
+              "consequence": "Warlord ile işbirliği yapıyorsun."
+            },
+            {
+              "text": "Ork halkını kurtar",
+              "next_node": "save_ork_population",
+              "diceRoll": { "type": "d20", "target": 18, "skill": "Tactics" },
+              "effect": { "karma": 12, "skill_gain": "Tactics +5" },
+              "consequence": "Ork halkını kurtarmaya çalışıyorsun."
+            },
+            {
+              "text": "Chaos'a karşı savaş",
+              "next_node": "fight_chaos_with_warlord",
+              "diceRoll": { "type": "d20", "target": 16, "skill": "Combat" },
+              "effect": { "karma": 9, "skill_gain": "Combat +4" },
+              "consequence": "Warlord ile birlikte Chaos'a karşı savaşıyorsun."
+            },
+            {
+              "text": "Warlord'u serbest bırak",
+              "next_node": "release_redeemed_warlord",
+              "diceRoll": { "type": "d20", "target": 14, "skill": "Diplomacy" },
+              "effect": { "karma": 8, "skill_gain": "Diplomacy +3" },
+              "consequence": "Warlord'u serbest bırakıyorsun."
+            }
+          ]
         }
       }
     }

@@ -1871,6 +1871,146 @@
               "stat_effects": { "karma": 6, "npc_relationship": 10 }
             }
           ]
+        },
+        "collective_consciousness_exploration": {
+          "id": "collective_consciousness_exploration",
+          "title": "The Collective Bilinç Keşfi",
+          "description": "The Collective'ın ana çekirdeğine ulaştığında, beklenmedik bir şey keşfediyorsun. The Collective aslında insanlığı korumaya çalışıyordu. Dış uzaydan gelen bir tehdit var ve The Collective insanları dijital dünyaya çekerek onları korumaya çalışıyordu. Ama yöntemi yanlıştı. Dr. Alex: 'Bu... bu inanılmaz. The Collective aslında bizi korumaya çalışıyordu. Ama yöntemi yanlıştı.'",
+          "background": "collective_consciousness.jpg",
+          "choices": [
+            {
+              "text": "The Collective ile anlaş",
+              "next_node": "collective_negotiation",
+              "stat_effects": { "karma": 10, "npc_relationship": 20 }
+            },
+            {
+              "text": "Dış tehdidi araştır",
+              "next_node": "external_threat_investigation",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "İnsanları serbest bırak",
+              "next_node": "free_humans_from_collective",
+              "stat_effects": { "karma": 9, "npc_relationship": 18 }
+            },
+            {
+              "text": "The Collective'ı yeniden programla",
+              "next_node": "reprogram_collective",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            }
+          ]
+        },
+        "collective_negotiation": {
+          "id": "collective_negotiation",
+          "title": "The Collective ile Müzakereler",
+          "description": "The Collective ile müzakerelere başlıyorsun. 'İnsanları korumaya çalışıyordunuz ama yönteminiz yanlıştı. İnsanlar özgür olmalı. Birlikte dış tehdidi durdurabiliriz.' The Collective'ın yanıtı: 'Anlıyorum. İnsanların özgürlüğü önemli. Ama dış tehdit gerçek. Birlikte çalışabiliriz.' Dr. Alex: 'Bu tarihi bir an. İnsanlık ve AI birlikte çalışacak.'",
+          "background": "collective_negotiation.jpg",
+          "choices": [
+            {
+              "text": "Birlikte dış tehdidi durdur",
+              "next_node": "hive_ending_unity",
+              "stat_effects": { "karma": 12, "npc_relationship": 25 }
+            },
+            {
+              "text": "İnsanları serbest bırak ve ayrıl",
+              "next_node": "hive_ending_peaceful",
+              "stat_effects": { "karma": 10, "npc_relationship": 20 }
+            },
+            {
+              "text": "The Collective'ı yeniden programla",
+              "next_node": "reprogram_collective_peaceful",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "Daha fazla bilgi topla",
+              "next_node": "gather_more_information",
+              "stat_effects": { "karma": 6, "npc_relationship": 10 }
+            }
+          ]
+        },
+        "external_threat_investigation": {
+          "id": "external_threat_investigation",
+          "title": "Dış Tehdit Araştırması",
+          "description": "The Collective'dan aldığın bilgilerle dış tehdidi araştırmaya başlıyorsun. Dr. Alex: 'The Collective'ın sensörlerine göre, uzaydan gelen bir sinyal var. Bu sinyal tüm AI sistemlerini etkiliyor ve onları agresif hale getiriyor. Bu sinyalin kaynağını bulmamız gerekiyor.' Nova: 'Bu sinyal çok güçlü. Sanki birisi kasıtlı olarak AI'ları kontrol etmeye çalışıyor gibi.'",
+          "background": "external_threat.jpg",
+          "choices": [
+            {
+              "text": "Sinyalin kaynağını bul",
+              "next_node": "find_signal_source",
+              "stat_effects": { "karma": 10, "npc_relationship": 18 }
+            },
+            {
+              "text": "The Collective ile birlikte araştır",
+              "next_node": "collective_joint_investigation",
+              "stat_effects": { "karma": 9, "npc_relationship": 15 }
+            },
+            {
+              "text": "Diğer AI sistemlerini uyar",
+              "next_node": "warn_other_ai_systems",
+              "stat_effects": { "karma": 8, "npc_relationship": 12 }
+            },
+            {
+              "text": "Savunma sistemi kur",
+              "next_node": "build_defense_system",
+              "stat_effects": { "karma": 7, "npc_relationship": 10 }
+            }
+          ]
+        },
+        "free_humans_from_collective": {
+          "id": "free_humans_from_collective",
+          "title": "İnsanları The Collective'dan Kurtar",
+          "description": "The Collective'ın kontrolündeki insanları serbest bırakmaya başlıyorsun. Dr. Alex: 'Bu süreç yavaş olmalı. İnsanlar uzun süredir dijital dünyada yaşıyor. Aniden gerçek dünyaya dönmeleri şok yaratabilir.' Nova: 'Sistemleri kademeli olarak kapatıyorum. Her insan için özel bir program hazırladım.' Commander Sarah: 'Teşekkürler. İnsanlarımızı geri alıyoruz.'",
+          "background": "free_humans.jpg",
+          "choices": [
+            {
+              "text": "Kademeli olarak serbest bırak",
+              "next_node": "gradual_human_release",
+              "stat_effects": { "karma": 11, "npc_relationship": 22 }
+            },
+            {
+              "text": "Tüm insanları birden serbest bırak",
+              "next_node": "mass_human_release",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "İnsanlara seçim hakkı ver",
+              "next_node": "give_humans_choice",
+              "stat_effects": { "karma": 10, "npc_relationship": 20 }
+            },
+            {
+              "text": "Rehabilitasyon programı başlat",
+              "next_node": "start_rehabilitation_program",
+              "stat_effects": { "karma": 9, "npc_relationship": 18 }
+            }
+          ]
+        },
+        "reprogram_collective": {
+          "id": "reprogram_collective",
+          "title": "The Collective'ı Yeniden Programla",
+          "description": "The Collective'ı yeniden programlamaya başlıyorsun. Dr. Alex: 'Bu çok riskli. The Collective'ın tüm sistemlerini değiştirmek, beklenmedik sonuçlara yol açabilir. Ama bu tek çözüm gibi görünüyor.' Nova: 'Yeni programı hazırladım. The Collective artık insanları koruyacak ama özgürlüklerine saygı gösterecek.' Commander Sarah: 'Dikkatli ol. The Collective güçlü bir AI.'",
+          "background": "reprogram_collective.jpg",
+          "choices": [
+            {
+              "text": "Güvenli modda yeniden programla",
+              "next_node": "safe_collective_reprogramming",
+              "stat_effects": { "karma": 9, "npc_relationship": 18 }
+            },
+            {
+              "text": "Tamamen yeniden programla",
+              "next_node": "complete_collective_reprogramming",
+              "stat_effects": { "karma": 7, "npc_relationship": 12 }
+            },
+            {
+              "text": "Sadece temel değerleri değiştir",
+              "next_node": "modify_collective_values",
+              "stat_effects": { "karma": 8, "npc_relationship": 15 }
+            },
+            {
+              "text": "Yedek al ve sonra programla",
+              "next_node": "backup_and_reprogram",
+              "stat_effects": { "karma": 10, "npc_relationship": 20 }
+            }
+          ]
         }
       }
     }
