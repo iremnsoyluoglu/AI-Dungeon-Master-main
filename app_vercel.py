@@ -1147,6 +1147,103 @@ def enhanced():
                 `;
             }
 
+            function exploreArea() {
+                const storyArea = document.querySelector('.story-text');
+                const discoveries = [
+                    "Eski bir anahtar buldunuz!",
+                    "Bir el feneri buldunuz.",
+                    "Yerde altın paralar buldunuz!",
+                    "Bir yara bandı buldunuz.",
+                    "Eski bir kitap buldunuz."
+                ];
+                const discovery = discoveries[Math.floor(Math.random() * discoveries.length)];
+                
+                storyArea.innerHTML = `
+                    <h2>🔍 Keşif Sonucu</h2>
+                    <p>${discovery}</p>
+                    <p>Ne yapmak istiyorsunuz?</p>
+                `;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="moveForward()">➡️ İLERLE</button>
+                    <button class="choice-btn" onclick="rest()">😴 DİNLEN</button>
+                    <button class="choice-btn" onclick="goBack()">⬅️ GERİ DÖN</button>
+                `;
+            }
+
+            function moveForward() {
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h2>➡️ İlerliyorsunuz</h2>
+                    <p>Yeni bir alana ulaştınız. Etrafta ne olduğunu görmek için dikkatli olun.</p>
+                    <p>Bir sonraki adımınızı seçin:</p>
+                `;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="exploreArea()">🔍 ETRAFI KEŞFET</button>
+                    <button class="choice-btn" onclick="rest()">😴 DİNLEN</button>
+                    <button class="choice-btn" onclick="goBack()">⬅️ GERİ DÖN</button>
+                `;
+            }
+
+            function rest() {
+                const storyArea = document.querySelector('.story-text');
+                const currentHP = parseInt(document.getElementById('stat-hp').textContent);
+                const maxHP = 100;
+                const healAmount = Math.min(20, maxHP - currentHP);
+                
+                document.getElementById('stat-hp').textContent = currentHP + healAmount;
+                
+                storyArea.innerHTML = `
+                    <h2>😴 Dinlendiniz</h2>
+                    <p>Dinlenerek ${healAmount} HP kazandınız.</p>
+                    <p>Şimdi ${document.getElementById('stat-hp').textContent} HP'niz var.</p>
+                    <p>Ne yapmak istiyorsunuz?</p>
+                `;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="moveForward()">➡️ İLERLE</button>
+                    <button class="choice-btn" onclick="exploreArea()">🔍 ETRAFI KEŞFET</button>
+                    <button class="choice-btn" onclick="goBack()">⬅️ GERİ DÖN</button>
+                `;
+            }
+
+            function goBack() {
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h2>⬅️ Geri Döndünüz</h2>
+                    <p>Önceki konumunuza geri döndünüz.</p>
+                    <p>Ne yapmak istiyorsunuz?</p>
+                `;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="startGame()">🎮 OYUNA BAŞLA</button>
+                    <button class="choice-btn" onclick="generateStory()">📖 HİKAYE ÜRET</button>
+                    <button class="choice-btn" onclick="showCharacter()">👤 KARAKTER GÖSTER</button>
+                `;
+            }
+
+            function investigate() {
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h2>🔍 Araştırma Sonucu</h2>
+                    <p>Dikkatli bir şekilde etrafı incelediniz.</p>
+                    <p>Bir ipucu buldunuz! Bu size yardımcı olabilir.</p>
+                    <p>Ne yapmak istiyorsunuz?</p>
+                `;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="moveForward()">➡️ İLERLE</button>
+                    <button class="choice-btn" onclick="rest()">😴 DİNLEN</button>
+                    <button class="choice-btn" onclick="goBack()">⬅️ GERİ DÖN</button>
+                `;
+            }
+
             function saveGame() {
                 const gameData = {
                     characterName: characterName,
