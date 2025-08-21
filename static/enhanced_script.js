@@ -18,6 +18,75 @@ let hiddenMoralState = {
 
 const API_BASE = "";
 
+// ===== AI FILE UPLOAD FUNCTIONS =====
+
+// File upload functionality
+function setupFileUpload() {
+  const fileInput = document.getElementById('file-input');
+  const fileInfo = document.getElementById('file-info');
+  
+  if (fileInput) {
+    fileInput.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        fileInfo.style.display = 'block';
+        fileInfo.innerHTML = `
+          <p>📁 Seçilen dosya: ${file.name}</p>
+          <p>📊 Boyut: ${(file.size / 1024).toFixed(2)} KB</p>
+        `;
+      }
+    });
+  }
+}
+
+// Generate scenario from uploaded file
+async function generateScenarioFromFile() {
+  const fileInput = document.getElementById('file-input');
+  const generateBtn = document.getElementById('generate-scenario-btn');
+  
+  if (!fileInput.files[0]) {
+    showMessage('Lütfen bir dosya seçin!', 'error');
+    return;
+  }
+  
+  try {
+    generateBtn.disabled = true;
+    generateBtn.textContent = '🔄 Üretiliyor...';
+    
+    const file = fileInput.files[0];
+    const fileContent = await file.text();
+    
+    const response = await fetch('/api/generate-scenario', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        theme: currentTheme,
+        difficulty: 'medium',
+        fileContent: fileContent
+      }),
+    });
+    
+    const data = await response.json();
+    
+    if (data.success) {
+      showMessage(`✅ Senaryo üretildi: ${data.scenario.title}`, 'success');
+      // Refresh scenarios
+      loadScenarios();
+      loadAIScenarios();
+    } else {
+      showMessage('❌ Senaryo üretilemedi!', 'error');
+    }
+  } catch (error) {
+    console.error('Hata:', error);
+    showMessage('❌ Bir hata oluştu!', 'error');
+  } finally {
+    generateBtn.disabled = false;
+    generateBtn.textContent = '🎲 Senaryo Üret';
+  }
+}
+
 // ===== UTILITY FUNCTIONS =====
 
 function showMessage(message, type = "info") {
@@ -933,6 +1002,9 @@ function setupEventListeners() {
     e.preventDefault();
     createCharacter();
   });
+
+  // Setup file upload
+  setupFileUpload();
 }
 
 // ===== GAME ACTION FUNCTIONS =====
