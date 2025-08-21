@@ -554,10 +554,10 @@ async function generateScenarioWithFile(theme, difficulty, level, fileContent) {
     const data = await response.json();
     
     if (data.success) {
-      // Add to AI scenarios grid
+    // Add to AI scenarios grid
       addAIScenarioToGrid(data.scenario);
-      
-      // Show success message
+    
+    // Show success message
       alert(`✅ AI Senaryo üretildi: ${data.scenario.title}`);
     } else {
       alert('❌ Senaryo üretilemedi!');
@@ -2495,429 +2495,39 @@ window.autoTriggerCombat = function (scenarioId, nodeId, nodeTitle) {
   }
 };
 
-
-              success: "Gezgin sana mağara hakkında ipuçları veriyor.",
-              failure: "Gezgin seni görmezden geliyor.",
-            },
-          ],
-          nextScenes: ["cave_entrance", "bandit_camp"],
-        },
-      },
-    },
-    2: {
-      title: "Mağara Keşfi",
-      description: "Karanlık mağarada gizli hazineler...",
-      scenes: {
-        1: {
-          title: "Mağara Girişi",
-          description: "Büyük bir mağara ağzı. İçeriden garip sesler geliyor.",
-          npcs: ["Mağara Bekçisi"],
-          encounters: ["Cave Guardian", "Rockfall"],
-          choices: [
-            {
-              text: "Sessizce içeri gir",
-              requires: { skill: "stealth", dc: 16 },
-              success: "Bekçiyi fark etmeden geçiyorsun.",
-              failure: "Bekçi seni fark ediyor ve saldırıyor.",
-            },
-            {
-              text: "Bekçiyle konuş",
-              requires: { skill: "charisma", dc: 18 },
-              success: "Bekçi seni dostça karşılıyor.",
-              failure: "Bekçi seni düşman olarak görüyor.",
-            },
-          ],
-          nextScenes: ["cave_tunnel", "treasure_room"],
-        },
-        2: {
-          title: "Mağara Tüneli",
-          description:
-            "Dar ve karanlık bir tünel. Duvarlarda garip işaretler var.",
-          npcs: [],
-          encounters: ["Giant Spider", "Poisonous Gas", "Ancient Trap"],
-          choices: [
-            {
-              text: "İşaretleri incele",
-              requires: { skill: "intelligence", dc: 14 },
-              success: "Tuzakları fark ediyorsun ve güvenli yolu buluyorsun.",
-              failure: "Bir tuzağa düşüyorsun.",
-            },
-            {
-              text: "Hızlıca geç",
-              requires: { skill: "dexterity", dc: 16 },
-              success: "Tuzakları atlatıyorsun.",
-              failure: "Bir tuzağa düşüyorsun.",
-            },
-          ],
-          nextScenes: ["treasure_room", "boss_chamber"],
-        },
-        3: {
-          title: "Hazine Odası",
-          description:
-            "Parlak hazinelerle dolu büyük bir oda. Ortada bir sandık var.",
-          npcs: [],
-          encounters: ["Treasure Guardian", "Mimic Chest"],
-          choices: [
-            {
-              text: "Sandığı aç",
-              requires: { skill: "dexterity", dc: 12 },
-              success: "Değerli hazineler buluyorsun.",
-              failure: "Sandık bir mimic çıkıyor ve saldırıyor.",
-            },
-            {
-              text: "Odayı araştır",
-              requires: { skill: "intelligence", dc: 15 },
-              success: "Gizli geçidi buluyorsun.",
-              failure: "Hiçbir şey bulamıyorsun.",
-            },
-          ],
-          nextScenes: ["boss_chamber"],
-        },
-      },
-    },
-    3: {
-      title: "Boss Savaşı",
-      description: "Mağaranın efendisiyle karşılaşma...",
-      scenes: {
-        1: {
-          title: "Boss Odası",
-          description: "Devasa bir oda. Ortada büyük bir yaratık var.",
-          npcs: ["Cave Boss"],
-          encounters: ["Boss Battle"],
-          choices: [
-            {
-              text: "Savaş",
-              requires: { skill: "combat", dc: 20 },
-              success: "Boss'u yeniyorsun ve hazineleri alıyorsun.",
-              failure: "Boss seni yeniyor.",
-            },
-            {
-              text: "Kaç",
-              requires: { skill: "dexterity", dc: 18 },
-              success: "Güvenli bir şekilde kaçıyorsun.",
-              failure: "Boss seni yakalıyor.",
-            },
-          ],
-          nextScenes: ["victory_celebration", "defeat_escape"],
-        },
-      },
-    },
-  },
-
-  // Start story progression
-  startStory: function () {
-    this.currentChapter = 1;
-    this.currentScene = 1;
-    this.storyProgress = 0;
-    this.updateStoryUI();
-    this.showCurrentScene();
-  },
-
-  // Show current scene with detailed narrative
-  showCurrentScene: function () {
-    const chapter = this.storyChapters[this.currentChapter];
-    const scene = chapter.scenes[this.currentScene];
-
-    if (!scene) {
-      console.error("Scene not found:", this.currentScene);
-      return;
-    }
-
-    // Update environmental state
-    this.updateEnvironmentalState();
-
-    // Create immersive narrative
-    let narrative = this.createImmersiveNarrative(scene);
-
-    // Update story display
-    const storyContainer = document.getElementById("story-container");
-    if (storyContainer) {
-      storyContainer.innerHTML = `
-        <div class="story-chapter">
-          <h3>📖 Bölüm ${this.currentChapter}: ${chapter.title}</h3>
-          <p class="chapter-description">${chapter.description}</p>
-        </div>
-        <div class="story-scene">
-          <h4>🎭 Sahne ${this.currentScene}: ${scene.title}</h4>
-          <div class="scene-description">${narrative}</div>
-          <div class="environmental-info">
-            <span class="time">🕐 ${this.environmentalState.timeOfDay}</span>
-            <span class="weather">🌤️ ${this.environmentalState.weather}</span>
-            <span class="location">📍 ${this.environmentalState.location}</span>
-          </div>
-        </div>
-        <div class="story-choices">
-          <h4>🎯 Seçenekleriniz</h4>
-          ${this.generateChoiceButtons(scene.choices)}
-        </div>
-      `;
-    }
-
-    // Update progress
-    this.updateStoryProgress();
-  },
-
-  // Create immersive narrative with environmental details
-  createImmersiveNarrative: function (scene) {
-    let narrative = scene.description;
-
-    // Add environmental details
-    const timeDetails = {
-      morning: "Güneş yeni doğmuş ve hava taze.",
-      afternoon: "Güneş gökyüzünde yüksek ve sıcak.",
-      evening: "Güneş batmaya başlıyor ve gölgeler uzuyor.",
-      night: "Gece karanlığı her yeri sarmış.",
-    };
-
-    const weatherDetails = {
-      clear: "Gökyüzü açık ve hava güzel.",
-      cloudy: "Bulutlar gökyüzünü kaplamış.",
-      rainy: "Yağmur damlaları düşüyor.",
-      stormy: "Gök gürlüyor ve şimşek çakıyor.",
-    };
-
-    const atmosphereDetails = {
-      peaceful: "Etraf huzurlu ve sakin.",
-      tense: "Gergin bir atmosfer var.",
-      dangerous: "Tehlikeli bir hava var.",
-      mysterious: "Gizemli bir atmosfer var.",
-    };
-
-    narrative += ` ${timeDetails[this.environmentalState.timeOfDay]} ${
-      weatherDetails[this.environmentalState.weather]
-    } ${atmosphereDetails[this.environmentalState.atmosphere]}`;
-
-    // Add NPC details
-    if (scene.npcs && scene.npcs.length > 0) {
-      narrative += ` Etrafta ${scene.npcs.join(", ")} var.`;
-    }
-
-    // Add encounter hints
-    if (scene.encounters && scene.encounters.length > 0) {
-      narrative += ` Dikkatli ol, ${scene.encounters.join(
-        " veya "
-      )} ile karşılaşabilirsin.`;
-    }
-
-    return narrative;
-  },
-
-  // Generate choice buttons with skill requirements
-  generateChoiceButtons: function (choices) {
-    if (!choices) return "<p>Bu sahnede seçenek yok.</p>";
-
-    return choices
-      .map((choice, index) => {
-        const skillInfo = choice.requires
-          ? ` (${choice.requires.skill} ${choice.requires.dc}+)`
-          : "";
-        return `
-        <button class="story-choice-btn" onclick="window.storySystem.makeChoice(${index})">
-          <span class="choice-text">${choice.text}${skillInfo}</span>
-          <span class="choice-requirement">${
-            choice.requires
-              ? `Gerekli: ${choice.requires.skill} ${choice.requires.dc}`
-              : "Gereksinim yok"
-          }</span>
-        </button>
-      `;
-      })
-      .join("");
-  },
-
-  // Make a story choice
-  makeChoice: function (choiceIndex) {
-    const chapter = this.storyChapters[this.currentChapter];
-    const scene = chapter.scenes[this.currentScene];
-    const choice = scene.choices[choiceIndex];
-
-    if (!choice) {
-      console.error("Choice not found:", choiceIndex);
-      return;
-    }
-
-    // Check skill requirement
-    if (choice.requires) {
-      const skillCheck = this.performSkillCheck(
-        choice.requires.skill,
-        choice.requires.dc
-      );
-
-      if (skillCheck.success) {
-        this.showChoiceResult(choice.success, true);
-      } else {
-        this.showChoiceResult(choice.failure, false);
-      }
-    } else {
-      this.showChoiceResult(choice.success || "Seçimin tamamlandı.", true);
-    }
-
-    // Record choice
-    this.storyChoices.push({
-      chapter: this.currentChapter,
-      scene: this.currentScene,
-      choice: choiceIndex,
-      timestamp: new Date().toISOString(),
-    });
-
-    // Progress to next scene after delay
-    setTimeout(() => {
-      this.progressToNextScene();
-    }, 3000);
-  },
-
-  // Perform skill check with dice roll
-  performSkillCheck: function (skill, dc) {
-    const roll = Math.floor(Math.random() * 20) + 1;
-    const success = roll >= dc;
-
-    // Show dice roll result
-    this.showDiceResult(roll, dc, skill, success);
-
-    return { success, roll, dc };
-  },
-
-  // Show dice roll result
-  showDiceResult: function (roll, dc, skill, success) {
-    const resultContainer = document.getElementById("dice-result-container");
-    if (resultContainer) {
-      resultContainer.innerHTML = `
-        <div class="dice-result ${success ? "success" : "failure"}">
-          <h4>🎲 Zar Atışı</h4>
-          <p>Beceri: ${skill}</p>
-          <p>Zar: ${roll} (Hedef: ${dc})</p>
-          <p>Sonuç: ${success ? "✅ Başarılı" : "❌ Başarısız"}</p>
-        </div>
-      `;
-
-      // Hide after 3 seconds
-      setTimeout(() => {
-        resultContainer.innerHTML = "";
-      }, 3000);
-    }
-  },
-
-  // Show choice result
-  showChoiceResult: function (result, success) {
-    const resultContainer = document.getElementById("choice-result-container");
-    if (resultContainer) {
-      resultContainer.innerHTML = `
-        <div class="choice-result ${success ? "success" : "failure"}">
-          <h4>${success ? "✅ Başarılı" : "❌ Başarısız"}</h4>
-          <p>${result}</p>
-        </div>
-      `;
-
-      // Hide after 3 seconds
-      setTimeout(() => {
-        resultContainer.innerHTML = "";
-      }, 3000);
-    }
-  },
-
-  // Progress to next scene
-  progressToNextScene: function () {
-    this.currentScene++;
-
-    // Check if chapter is complete
-    const chapter = this.storyChapters[this.currentChapter];
-    if (!chapter.scenes[this.currentScene]) {
-      this.currentChapter++;
-      this.currentScene = 1;
-
-      // Check if story is complete
-      if (!this.storyChapters[this.currentChapter]) {
-        this.completeStory();
-        return;
-      }
-    }
-
-    this.showCurrentScene();
-  },
-
-  // Complete story
-  completeStory: function () {
-    this.storyProgress = 100;
-    this.updateStoryUI();
-
-    const storyContainer = document.getElementById("story-container");
-    if (storyContainer) {
-      storyContainer.innerHTML = `
-        <div class="story-complete">
-          <h3>🎉 Hikaye Tamamlandı!</h3>
-          <p>Mükemmel bir macera yaşadın! Tüm zorlukları aştın ve hazineleri elde ettin.</p>
-          <div class="story-stats">
-            <h4>📊 Macera İstatistikleri</h4>
-            <p>Tamamlanan Bölümler: ${this.currentChapter - 1}</p>
-            <p>Karşılaşılan NPC'ler: ${this.encounteredNPCs.length}</p>
-            <p>Keşfedilen Lokasyonlar: ${this.discoveredLocations.length}</p>
-            <p>Yapılan Seçimler: ${this.storyChoices.length}</p>
-          </div>
-          <button onclick="window.storySystem.startNewStory()" class="new-story-btn">🔄 Yeni Macera Başlat</button>
-        </div>
-      `;
-    }
-  },
-
-  // Start new story
-  startNewStory: function () {
-    this.currentChapter = 1;
-    this.currentScene = 1;
-    this.storyProgress = 0;
-    this.discoveredLocations = [];
-    this.encounteredNPCs = [];
-    this.completedQuests = [];
-    this.storyChoices = [];
-    this.updateEnvironmentalState();
-    this.showCurrentScene();
-  },
-
-  // Update environmental state
-  updateEnvironmentalState: function () {
-    // Change time based on story progress
-    const timeProgress = this.storyProgress / 100;
-    if (timeProgress < 0.25) {
-      this.environmentalState.timeOfDay = "morning";
-    } else if (timeProgress < 0.5) {
-      this.environmentalState.timeOfDay = "afternoon";
-    } else if (timeProgress < 0.75) {
-      this.environmentalState.timeOfDay = "evening";
-    } else {
-      this.environmentalState.timeOfDay = "night";
-    }
-
-    // Change weather randomly
-    const weathers = ["clear", "cloudy", "rainy", "stormy"];
-    this.environmentalState.weather =
-      weathers[Math.floor(Math.random() * weathers.length)];
-
-    // Change atmosphere based on chapter
-    const atmospheres = ["peaceful", "tense", "dangerous", "mysterious"];
-    this.environmentalState.atmosphere =
-      atmospheres[Math.floor(Math.random() * atmospheres.length)];
-  },
-
-  // Update story progress
-  updateStoryProgress: function () {
-    const totalScenes = Object.keys(this.storyChapters).length * 3; // Assuming 3 scenes per chapter
-    const completedScenes =
-      (this.currentChapter - 1) * 3 + (this.currentScene - 1);
-    this.storyProgress = Math.floor((completedScenes / totalScenes) * 100);
-    this.updateStoryUI();
-  },
-
-  // Update story UI
-  updateStoryUI: function () {
-    const progressBar = document.getElementById("story-progress-bar");
-    if (progressBar) {
-      progressBar.style.width = `${this.storyProgress}%`;
-    }
-
-    const progressText = document.getElementById("story-progress-text");
-    if (progressText) {
-      progressText.textContent = `İlerleme: ${this.storyProgress}%`;
-    }
-  },
-};
+// Add AI scenario to grid
+function addAIScenarioToGrid(scenario) {
+  const aiScenariosGrid = document.getElementById("ai-scenarios-grid");
+  if (!aiScenariosGrid) {
+    console.error("❌ AI scenarios grid not found");
+    return;
+  }
+  
+  // Remove placeholder if exists
+  const placeholder = document.getElementById("ai-scenario-placeholder");
+  if (placeholder) {
+    placeholder.remove();
+  }
+  
+  const scenarioCard = document.createElement("div");
+  scenarioCard.className = "scenario-card";
+  scenarioCard.onclick = () => window.selectScenario(scenario.id);
+  
+  scenarioCard.innerHTML = `
+    <div class="scenario-header">
+      <h4>🤖 ${scenario.title}</h4>
+      <span class="difficulty ${scenario.difficulty}">${scenario.difficulty}</span>
+    </div>
+    <p>${scenario.description}</p>
+    <div class="scenario-meta">
+      <span>🎮 Tema: ${scenario.theme}</span>
+      <span>⭐ Seviye: ${scenario.level || 5}</span>
+      <span>📁 Kaynak: ${scenario.fileContent ? 'Dosya' : 'AI'}</span>
+    </div>
+  `;
+  
+  aiScenariosGrid.appendChild(scenarioCard);
+  console.log(`✅ AI Scenario added to grid: ${scenario.title}`);
+}
 
 console.log("✅ Global functions loaded successfully!");
