@@ -313,7 +313,10 @@ module.exports = (req, res) => {
   }
 
   if (pathname === '/' && req.method === 'GET') {
-    res.json({ message: "AI Dungeon Master API is running!" });
+    res.writeHead(302, {
+      'Location': '/index.html'
+    });
+    res.end();
     return;
   }
 
