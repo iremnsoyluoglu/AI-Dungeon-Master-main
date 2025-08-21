@@ -1,38 +1,41 @@
-const express = require('express');
-const router = express.Router();
+const express = require("express");
+const cors = require("cors");
+
+const app = express();
+
+// Middleware
+app.use(cors());
+app.use(express.json());
 
 // Load scenarios endpoint
-router.get('/', (req, res) => {
+app.get("/", (req, res) => {
   try {
-    const scenarios = require('../data/enhanced_scenarios.json');
+    // Load all scenario files
+    const enhancedScenarios = require("../data/enhanced_scenarios.json");
+    const cyberpunkScenarios = require("../data/enhanced_cyberpunk_scenarios.json");
+    const hiveCityScenarios = require("../data/expanded_hive_city.json");
+    const warhammerScenarios = require("../data/enhanced_warhammer_scenarios.json");
+
+    // Combine all scenarios
+    const allScenarios = [
+      ...enhancedScenarios,
+      ...cyberpunkScenarios,
+      ...hiveCityScenarios,
+      ...warhammerScenarios,
+    ];
+
     res.json({
       success: true,
-      scenarios: scenarios
+      scenarios: allScenarios,
     });
   } catch (error) {
-    console.error('Error loading scenarios:', error);
-    res.status(500).json({ 
-      success: false, 
-      error: 'Failed to load scenarios' 
+    console.error("Error loading scenarios:", error);
+    res.status(500).json({
+      success: false,
+      error: "Failed to load scenarios",
     });
   }
 });
 
-// Toggle favorite endpoint
-router.post('/:scenarioId/toggle-favorite', (req, res) => {
-  try {
-    const { scenarioId } = req.params;
-    // Mock favorite toggle - in real app this would update database
-    res.json({ 
-      success: true, 
-      message: 'Favorite status updated' 
-    });
-  } catch (error) {
-    res.status(500).json({ 
-      success: false, 
-      error: 'Failed to toggle favorite' 
-    });
-  }
-});
-
-module.exports = router;
+// Export for Vercel
+module.exports = app;
