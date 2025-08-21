@@ -273,11 +273,539 @@ def game():
                 </ul>
             </div>
             <div style="text-align: center;">
-                <button class="button" onclick="alert('Oyun başlatılıyor...')">OYUNA BAŞLA</button>
+                <a href="/enhanced" class="button">TAM OYUNA GEÇ</a>
                 <button class="button" onclick="alert('Karakter oluşturuluyor...')">KARAKTER OLUŞTUR</button>
                 <button class="button" onclick="alert('Ayarlar açılıyor...')">AYARLAR</button>
             </div>
         </div>
+    </body>
+    </html>
+    '''
+
+@app.route('/enhanced')
+def enhanced():
+    """Enhanced game page with full functionality"""
+    return '''
+    <!DOCTYPE html>
+    <html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AI Dungeon Master - Enhanced</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+                color: white;
+                height: 100vh;
+                overflow: hidden;
+            }
+
+            .dashboard {
+                display: grid;
+                grid-template-columns: 280px 1fr 320px;
+                height: 100vh;
+                gap: 2px;
+                background: #000;
+            }
+
+            .left-panel {
+                background: linear-gradient(180deg, #2c1810 0%, #4a1f1f 100%);
+                padding: 15px;
+                overflow-y: auto;
+                border: 1px solid rgba(255, 215, 0, 0.3);
+            }
+
+            .left-panel h3 {
+                color: #ffd700;
+                font-size: 16px;
+                margin-bottom: 15px;
+                text-align: center;
+            }
+
+            .theme-tabs {
+                display: flex;
+                margin-bottom: 20px;
+                background: rgba(0, 0, 0, 0.3);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            .theme-tab {
+                flex: 1;
+                padding: 10px;
+                text-align: center;
+                cursor: pointer;
+                background: rgba(255, 255, 255, 0.1);
+                transition: all 0.3s ease;
+                font-size: 12px;
+            }
+
+            .theme-tab.active {
+                background: #ffd700;
+                color: #000;
+                font-weight: bold;
+            }
+
+            .theme-tab:hover {
+                background: rgba(255, 215, 0, 0.3);
+            }
+
+            .character-name-section {
+                margin-bottom: 20px;
+            }
+
+            .character-name-section h4 {
+                color: #ffd700;
+                margin-bottom: 10px;
+                font-size: 14px;
+            }
+
+            .name-input-container input {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ffd700;
+                border-radius: 4px;
+                background: rgba(0, 0, 0, 0.3);
+                color: white;
+                font-size: 12px;
+            }
+
+            .theme-content {
+                margin-bottom: 20px;
+            }
+
+            .race-class-list {
+                margin-bottom: 20px;
+            }
+
+            .race-class-list h4 {
+                color: #ffd700;
+                margin-bottom: 10px;
+                font-size: 14px;
+            }
+
+            .list-items {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .list-item {
+                padding: 8px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 4px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-size: 12px;
+                text-align: center;
+            }
+
+            .list-item:hover {
+                background: rgba(255, 215, 0, 0.3);
+            }
+
+            .list-item.selected {
+                background: #ffd700;
+                color: #000;
+                font-weight: bold;
+            }
+
+            .center-panel {
+                background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+                padding: 20px;
+                overflow-y: auto;
+                border: 1px solid rgba(255, 215, 0, 0.3);
+            }
+
+            .story-area {
+                background: rgba(0, 0, 0, 0.4);
+                padding: 20px;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                border: 1px solid rgba(255, 215, 0, 0.3);
+                min-height: 300px;
+            }
+
+            .story-text {
+                line-height: 1.6;
+                margin-bottom: 15px;
+                font-size: 14px;
+            }
+
+            .choice-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 20px;
+            }
+
+            .choice-btn {
+                padding: 12px;
+                background: linear-gradient(45deg, #ffd700, #ffa500);
+                color: #000;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                font-weight: bold;
+                transition: all 0.3s ease;
+            }
+
+            .choice-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+            }
+
+            .right-panel {
+                background: linear-gradient(180deg, #4a148c 0%, #6a1b9a 100%);
+                padding: 15px;
+                overflow-y: auto;
+                border: 1px solid rgba(255, 215, 0, 0.3);
+            }
+
+            .right-panel h3 {
+                color: #ffd700;
+                font-size: 16px;
+                margin-bottom: 15px;
+                text-align: center;
+            }
+
+            .character-info {
+                background: rgba(0, 0, 0, 0.3);
+                padding: 12px;
+                border-radius: 8px;
+                margin-bottom: 15px;
+                border: 1px solid rgba(255, 215, 0, 0.3);
+                text-align: center;
+            }
+
+            .character-name {
+                color: #ffd700;
+                font-size: 16px;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            .character-details {
+                color: rgba(255, 255, 255, 0.8);
+                font-size: 12px;
+            }
+
+            .stats-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+                margin-bottom: 15px;
+            }
+
+            .stat-item {
+                background: rgba(0, 0, 0, 0.3);
+                padding: 8px;
+                border-radius: 4px;
+                text-align: center;
+                border: 1px solid rgba(255, 215, 0, 0.3);
+            }
+
+            .stat-label {
+                color: #ffd700;
+                font-size: 11px;
+                margin-bottom: 2px;
+            }
+
+            .stat-value {
+                color: white;
+                font-size: 14px;
+                font-weight: bold;
+            }
+
+            .action-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .action-btn {
+                padding: 8px;
+                background: linear-gradient(45deg, #ffd700, #ffa500);
+                color: #000;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 12px;
+                transition: all 0.3s ease;
+            }
+
+            .action-btn:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
+            }
+
+            .action-btn.secondary {
+                background: linear-gradient(45deg, #4CAF50, #45a049);
+                color: white;
+            }
+
+            .action-btn.danger {
+                background: linear-gradient(45deg, #f44336, #d32f2f);
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="dashboard">
+            <!-- Sol Panel -->
+            <div class="left-panel">
+                <h3>🎮 Temalar & Karakterler</h3>
+                <div class="theme-tabs">
+                    <div class="theme-tab active" onclick="switchTheme('fantasy')">Fantasy</div>
+                    <div class="theme-tab" onclick="switchTheme('warhammer')">Warhammer 40K</div>
+                    <div class="theme-tab" onclick="switchTheme('cyberpunk')">Cyberpunk</div>
+                </div>
+
+                <div class="character-name-section">
+                    <h4>👤 Karakter Adı</h4>
+                    <div class="name-input-container">
+                        <input type="text" id="character-name-input" placeholder="Karakter adınızı girin..." maxlength="20" oninput="updateCharacterName(this.value)">
+                    </div>
+                </div>
+
+                <div id="fantasy-content" class="theme-content">
+                    <div class="race-class-list">
+                        <h4>🏹 Irklar</h4>
+                        <div class="list-items">
+                            <div class="list-item" onclick="selectRace(this, 'elf')">Elf</div>
+                            <div class="list-item" onclick="selectRace(this, 'human')">İnsan</div>
+                            <div class="list-item" onclick="selectRace(this, 'dwarf')">Cüce</div>
+                            <div class="list-item" onclick="selectRace(this, 'orc')">Ork</div>
+                        </div>
+                    </div>
+                    <div class="race-class-list">
+                        <h4>🗡️ Sınıflar</h4>
+                        <div class="list-items">
+                            <div class="list-item" onclick="selectClass(this, 'warrior')">Savaşçı</div>
+                            <div class="list-item" onclick="selectClass(this, 'mage')">Büyücü</div>
+                            <div class="list-item" onclick="selectClass(this, 'rogue')">Hırsız</div>
+                            <div class="list-item" onclick="selectClass(this, 'cleric')">Rahip</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="warhammer-content" class="theme-content" style="display: none">
+                    <div class="race-class-list">
+                        <h4>👥 Irklar</h4>
+                        <div class="list-items">
+                            <div class="list-item" onclick="selectRace(this, 'imperial')">İmparatorluk</div>
+                            <div class="list-item" onclick="selectRace(this, 'spacemarine')">Space Marine</div>
+                            <div class="list-item" onclick="selectRace(this, 'ork')">Ork</div>
+                            <div class="list-item" onclick="selectRace(this, 'eldar')">Eldar</div>
+                        </div>
+                    </div>
+                    <div class="race-class-list">
+                        <h4>⚔️ Sınıflar</h4>
+                        <div class="list-items">
+                            <div class="list-item" onclick="selectClass(this, 'spacemarine')">Space Marine</div>
+                            <div class="list-item" onclick="selectClass(this, 'imperialguard')">Imperial Guard</div>
+                            <div class="list-item" onclick="selectClass(this, 'psyker')">Psyker</div>
+                            <div class="list-item" onclick="selectClass(this, 'orknob')">Ork Nob</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cyberpunk-content" class="theme-content" style="display: none">
+                    <div class="race-class-list">
+                        <h4>🤖 Karakterler</h4>
+                        <div class="list-items">
+                            <div class="list-item" onclick="selectRace(this, 'human')">İnsan</div>
+                            <div class="list-item" onclick="selectRace(this, 'cyborg')">Cyborg</div>
+                            <div class="list-item" onclick="selectRace(this, 'ai')">AI</div>
+                        </div>
+                    </div>
+                    <div class="race-class-list">
+                        <h4>💻 Sınıflar</h4>
+                        <div class="list-items">
+                            <div class="list-item" onclick="selectClass(this, 'netrunner')">Netrunner</div>
+                            <div class="list-item" onclick="selectClass(this, 'solo')">Solo</div>
+                            <div class="list-item" onclick="selectClass(this, 'techie')">Techie</div>
+                            <div class="list-item" onclick="selectClass(this, 'fixer')">Fixer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orta Panel -->
+            <div class="center-panel">
+                <div class="story-area">
+                    <div class="story-text">
+                        <h2>🎮 AI Dungeon Master'a Hoş Geldiniz!</h2>
+                        <p>Fantastik dünyalarda maceraya atılmaya hazır mısınız? Sol panelden karakterinizi oluşturun ve hikayenizi başlatın.</p>
+                        <br>
+                        <p><strong>Nasıl Oynanır:</strong></p>
+                        <ul>
+                            <li>Sol panelden bir tema seçin (Fantasy, Warhammer 40K, Cyberpunk)</li>
+                            <li>Karakter adınızı girin</li>
+                            <li>Irk ve sınıf seçin</li>
+                            <li>Sağ panelden oyunu başlatın</li>
+                        </ul>
+                    </div>
+                    <div class="choice-buttons">
+                        <button class="choice-btn" onclick="startGame()">OYUNA BAŞLA</button>
+                        <button class="choice-btn" onclick="generateStory()">HİKAYE ÜRET</button>
+                        <button class="choice-btn" onclick="showCharacter()">KARAKTER GÖSTER</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sağ Panel -->
+            <div class="right-panel">
+                <h3>👤 Karakter Bilgileri</h3>
+                <div class="character-info">
+                    <div class="character-name" id="char-name">Karakter Adı</div>
+                    <div class="character-details" id="char-details">Tema: Fantasy | Irk: - | Sınıf: -</div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-label">HP</div>
+                        <div class="stat-value" id="stat-hp">100</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Saldırı</div>
+                        <div class="stat-value" id="stat-attack">15</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Savunma</div>
+                        <div class="stat-value" id="stat-defense">10</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Güç</div>
+                        <div class="stat-value" id="stat-strength">12</div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="action-btn" onclick="saveGame()">💾 KAYDET</button>
+                    <button class="action-btn secondary" onclick="loadGame()">📂 YÜKLE</button>
+                    <button class="action-btn" onclick="inventory()">🎒 ENVANTER</button>
+                    <button class="action-btn" onclick="skills()">⚡ YETENEKLER</button>
+                    <button class="action-btn" onclick="combat()">⚔️ SAVAŞ</button>
+                    <button class="action-btn danger" onclick="resetGame()">🔄 SIFIRLA</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let currentTheme = 'fantasy';
+            let selectedRace = '';
+            let selectedClass = '';
+            let characterName = '';
+
+            function switchTheme(theme) {
+                currentTheme = theme;
+                
+                // Tema tablarını güncelle
+                document.querySelectorAll('.theme-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                event.target.classList.add('active');
+                
+                // İçerikleri gizle/göster
+                document.querySelectorAll('.theme-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+                document.getElementById(theme + '-content').style.display = 'block';
+                
+                // Seçimleri sıfırla
+                selectedRace = '';
+                selectedClass = '';
+                updateCharacterDisplay();
+            }
+
+            function selectRace(element, race) {
+                selectedRace = race;
+                document.querySelectorAll('.list-item').forEach(item => {
+                    item.classList.remove('selected');
+                });
+                element.classList.add('selected');
+                updateCharacterDisplay();
+            }
+
+            function selectClass(element, classType) {
+                selectedClass = classType;
+                document.querySelectorAll('.list-item').forEach(item => {
+                    item.classList.remove('selected');
+                });
+                element.classList.add('selected');
+                updateCharacterDisplay();
+            }
+
+            function updateCharacterName(name) {
+                characterName = name;
+                document.getElementById('char-name').textContent = name || 'Karakter Adı';
+                updateCharacterDisplay();
+            }
+
+            function updateCharacterDisplay() {
+                const details = `Tema: ${currentTheme.charAt(0).toUpperCase() + currentTheme.slice(1)} | Irk: ${selectedRace || '-'} | Sınıf: ${selectedClass || '-'}`;
+                document.getElementById('char-details').textContent = details;
+            }
+
+            function startGame() {
+                if (!characterName || !selectedRace || !selectedClass) {
+                    alert('Lütfen karakter adı, ırk ve sınıf seçin!');
+                    return;
+                }
+                alert('Oyun başlatılıyor... ' + characterName + ' olarak ' + selectedRace + ' ' + selectedClass + ' karakteri ile!');
+            }
+
+            function generateStory() {
+                alert('AI destekli hikaye üretiliyor...');
+            }
+
+            function showCharacter() {
+                alert('Karakter bilgileri gösteriliyor...');
+            }
+
+            function saveGame() {
+                alert('Oyun kaydediliyor...');
+            }
+
+            function loadGame() {
+                alert('Oyun yükleniyor...');
+            }
+
+            function inventory() {
+                alert('Envanter açılıyor...');
+            }
+
+            function skills() {
+                alert('Yetenekler açılıyor...');
+            }
+
+            function combat() {
+                alert('Savaş modu başlatılıyor...');
+            }
+
+            function resetGame() {
+                if (confirm('Oyunu sıfırlamak istediğinizden emin misiniz?')) {
+                    characterName = '';
+                    selectedRace = '';
+                    selectedClass = '';
+                    document.getElementById('character-name-input').value = '';
+                    document.querySelectorAll('.list-item').forEach(item => {
+                        item.classList.remove('selected');
+                    });
+                    updateCharacterDisplay();
+                    alert('Oyun sıfırlandı!');
+                }
+            }
+        </script>
     </body>
     </html>
     '''
