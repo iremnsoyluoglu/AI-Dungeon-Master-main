@@ -3,75 +3,45 @@ const cors = require("cors");
 
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Load scenarios endpoint
 app.get("/api/scenarios", (req, res) => {
-  const scenarios = [
-    {
-      id: "scenario_1",
-      title: "🐉 Fantastik Macera",
-      description: "Ejderhalar ve büyücüler dünyasında epik bir yolculuk",
-      theme: "fantasy",
-      difficulty: "medium",
-      complexity: "medium",
-      estimatedPlayTime: 60,
-      source: "predefined",
-      created_at: new Date().toISOString(),
-    },
-    {
-      id: "scenario_2", 
-      title: "🌃 Cyberpunk Macera",
-      description: "Neon ışıklar altında dijital savaş",
-      theme: "cyberpunk",
-      difficulty: "hard",
-      complexity: "high",
-      estimatedPlayTime: 90,
-      source: "predefined",
-      created_at: new Date().toISOString(),
-    },
-    {
-      id: "scenario_3",
-      title: "🛡️ Warhammer 40K Macera", 
-      description: "İmparatorluk için savaş zamanı",
-      theme: "warhammer",
-      difficulty: "hard",
-      complexity: "high",
-      estimatedPlayTime: 120,
-      source: "predefined",
-      created_at: new Date().toISOString(),
-    }
-  ];
-
   res.json({
     success: true,
-    scenarios: scenarios,
+    scenarios: [
+      {
+        id: "scenario_1",
+        title: "🐉 Fantastik Macera",
+        description: "Ejderhalar ve büyücüler dünyasında epik bir yolculuk",
+        theme: "fantasy",
+        difficulty: "medium",
+        complexity: "medium",
+        estimatedPlayTime: 60,
+        source: "predefined",
+        created_at: new Date().toISOString(),
+      }
+    ],
   });
 });
 
-// Get AI generated scenarios
 app.get("/api/ai/scenarios", (req, res) => {
-  const aiScenarios = [
-    {
-      id: "ai_1",
-      title: "🤖 AI Üretilen Macera",
-      description: "Yapay zeka tarafından üretilen özel macera",
-      theme: "fantasy",
-      difficulty: "medium",
-      source: "ai_generated",
-      created_at: new Date().toISOString(),
-    },
-  ];
-
   res.json({
     success: true,
-    scenarios: aiScenarios,
+    scenarios: [
+      {
+        id: "ai_1",
+        title: "🤖 AI Üretilen Macera",
+        description: "Yapay zeka tarafından üretilen özel macera",
+        theme: "fantasy",
+        difficulty: "medium",
+        source: "ai_generated",
+        created_at: new Date().toISOString(),
+      },
+    ],
   });
 });
 
-// Basit dosya okuma endpoint'i
 app.post("/api/read-file", (req, res) => {
   const { fileContent } = req.body;
   
@@ -86,7 +56,6 @@ app.post("/api/read-file", (req, res) => {
   });
 });
 
-// Dosya tabanlı senaryo üretimi endpoint'i
 app.post("/api/generate-scenario", (req, res) => {
   const { theme, difficulty, fileContent } = req.body;
 
@@ -309,17 +278,14 @@ app.post("/api/generate-scenario", (req, res) => {
   });
 });
 
-// Health check
 app.get("/api/health", (req, res) => {
   res.json({ status: "OK", timestamp: new Date().toISOString() });
 });
 
-// Root endpoint
 app.get("/", (req, res) => {
   res.json({ message: "AI Dungeon Master API is running!" });
 });
 
-// Catch all other routes
 app.get("*", (req, res) => {
   res.status(404).json({ error: "Route not found" });
 });
