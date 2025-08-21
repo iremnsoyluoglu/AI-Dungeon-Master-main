@@ -167,20 +167,34 @@ def login():
         <div class="login-container">
             <div class="game-icon">🎮</div>
             <h2 style="text-align: center; color: #FFD700; margin-bottom: 30px;">GİRİŞ YAP</h2>
-            <form>
+            <form onsubmit="handleLogin(event)">
                 <div class="form-group">
                     <label>Kullanıcı Adı</label>
-                    <input type="text" placeholder="Kullanıcı adınızı girin">
+                    <input type="text" id="username" placeholder="Kullanıcı adınızı girin" required>
                 </div>
                 <div class="form-group">
                     <label>Şifre</label>
-                    <input type="password" placeholder="Şifrenizi girin">
+                    <input type="password" id="password" placeholder="Şifrenizi girin" required>
                 </div>
                 <button type="submit" class="button">GİRİŞ YAP</button>
             </form>
             <p style="text-align: center; margin-top: 20px;">
                 <a href="/game" style="color: #FFD700;">Misafir olarak oyuna başla</a>
             </p>
+            <script>
+                function handleLogin(event) {
+                    event.preventDefault();
+                    const username = document.getElementById('username').value;
+                    const password = document.getElementById('password').value;
+                    
+                    if (username && password) {
+                        // Başarılı giriş - oyuna yönlendir
+                        window.location.href = '/enhanced';
+                    } else {
+                        alert('Lütfen kullanıcı adı ve şifre girin!');
+                    }
+                }
+            </script>
         </div>
     </body>
     </html>
