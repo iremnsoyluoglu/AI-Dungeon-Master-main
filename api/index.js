@@ -17,21 +17,46 @@ const upload = multer({
 // Load scenarios endpoint
 app.get("/api/scenarios", (req, res) => {
   try {
-    const enhancedScenarios = require("../data/enhanced_scenarios.json");
-    const cyberpunkScenarios = require("../data/enhanced_cyberpunk_scenarios.json");
-    const hiveCityScenarios = require("../data/expanded_hive_city.json");
-    const warhammerScenarios = require("../data/enhanced_warhammer_scenarios.json");
-
-    const allScenarios = [
-      ...enhancedScenarios,
-      ...cyberpunkScenarios,
-      ...hiveCityScenarios,
-      ...warhammerScenarios,
+    // Basit senaryolar döndür
+    const scenarios = [
+      {
+        id: "scenario_1",
+        title: "🐉 Fantastik Macera",
+        description: "Ejderhalar ve büyücüler dünyasında epik bir yolculuk",
+        theme: "fantasy",
+        difficulty: "medium",
+        complexity: "medium",
+        estimatedPlayTime: 60,
+        source: "predefined",
+        created_at: new Date().toISOString(),
+      },
+      {
+        id: "scenario_2", 
+        title: "🌃 Cyberpunk Macera",
+        description: "Neon ışıklar altında dijital savaş",
+        theme: "cyberpunk",
+        difficulty: "hard",
+        complexity: "high",
+        estimatedPlayTime: 90,
+        source: "predefined",
+        created_at: new Date().toISOString(),
+      },
+      {
+        id: "scenario_3",
+        title: "🛡️ Warhammer 40K Macera", 
+        description: "İmparatorluk için savaş zamanı",
+        theme: "warhammer",
+        difficulty: "hard",
+        complexity: "high",
+        estimatedPlayTime: 120,
+        source: "predefined",
+        created_at: new Date().toISOString(),
+      }
     ];
 
     res.json({
       success: true,
-      scenarios: allScenarios,
+      scenarios: scenarios,
     });
   } catch (error) {
     console.error("Error loading scenarios:", error);
