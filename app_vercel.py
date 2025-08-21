@@ -75,6 +75,18 @@ def index():
                 transform: translateY(-2px);
                 box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
             }
+            .button-container {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+            .button-row {
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
         </style>
     </head>
     <body>
@@ -82,12 +94,31 @@ def index():
             <div class="game-icon">🎮</div>
             <h1 class="game-title">AI DUNGEON MASTER</h1>
             <p class="game-subtitle">Fantastik Dünyalara Açılan Kapı</p>
-            <div>
-                <a href="/login" class="button">GİRİŞ</a>
-                <a href="/game" class="button">OYUNA BAŞLA</a>
-                <a href="/api/health" class="button">DURUM KONTROLÜ</a>
+            <div class="button-container">
+                <div class="button-row">
+                    <button class="button" onclick="navigateTo('/login')">GİRİŞ</button>
+                    <button class="button" onclick="navigateTo('/register')">KAYIT</button>
+                </div>
+                <div class="button-row">
+                    <button class="button" onclick="navigateTo('/enhanced')">MİSAFİR</button>
+                    <button class="button" onclick="navigateTo('/multiplayer')">MULTIPLAYER</button>
+                </div>
+                <div class="button-row">
+                    <button class="button" onclick="navigateTo('/api/health')">DURUM KONTROLÜ</button>
+                </div>
             </div>
         </div>
+        
+        <script>
+            function navigateTo(path) {
+                try {
+                    window.location.href = path;
+                } catch (error) {
+                    console.error('Navigation error:', error);
+                    alert('Sayfa yüklenirken bir hata oluştu. Lütfen tekrar deneyin.');
+                }
+            }
+        </script>
     </body>
     </html>
     '''
@@ -743,7 +774,9 @@ def enhanced():
 
             function selectRace(element, race) {
                 selectedRace = race;
-                document.querySelectorAll('.list-item').forEach(item => {
+                // Sadece aynı tema içindeki seçimleri temizle
+                const parentContent = element.closest('.theme-content');
+                parentContent.querySelectorAll('.list-item').forEach(item => {
                     item.classList.remove('selected');
                 });
                 element.classList.add('selected');
@@ -752,12 +785,16 @@ def enhanced():
 
             function selectClass(element, classType) {
                 selectedClass = classType;
-                document.querySelectorAll('.list-item').forEach(item => {
+                // Sadece aynı tema içindeki seçimleri temizle
+                const parentContent = element.closest('.theme-content');
+                parentContent.querySelectorAll('.list-item').forEach(item => {
                     item.classList.remove('selected');
                 });
                 element.classList.add('selected');
                 updateCharacterDisplay();
             }
+
+
 
             function updateCharacterName(name) {
                 characterName = name;
@@ -775,35 +812,289 @@ def enhanced():
                     alert('Lütfen karakter adı, ırk ve sınıf seçin!');
                     return;
                 }
-                alert('Oyun başlatılıyor... ' + characterName + ' olarak ' + selectedRace + ' ' + selectedClass + ' karakteri ile!');
+                
+                // Karakter istatistiklerini güncelle
+                updateCharacterStats();
+                
+                // Hikaye alanını güncelle
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h2>🎮 ${characterName} olarak maceraya başlıyorsunuz!</h2>
+                    <p><strong>Karakteriniz:</strong> ${selectedRace} ${selectedClass}</p>
+                    <p><strong>Tema:</strong> ${currentTheme.charAt(0).toUpperCase() + currentTheme.slice(1)}</p>
+                    <br>
+                    <p>Karanlık bir ormanda yürüyorsunuz. Önünüzde iki yol var:</p>
+                    <ul>
+                        <li>Sol yol: Eski bir kaleye gidiyor</li>
+                        <li>Sağ yol: Gizemli bir mağaraya açılıyor</li>
+                    </ul>
+                `;
+                
+                // Butonları güncelle
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="choosePath('castle')">🏰 KALEYE GİT</button>
+                    <button class="choice-btn" onclick="choosePath('cave')">🕳️ MAĞARAYA GİR</button>
+                    <button class="choice-btn" onclick="exploreArea()">🔍 ETRAFI KEŞFET</button>
+                `;
             }
 
             function generateStory() {
-                alert('AI destekli hikaye üretiliyor...');
+                const stories = [
+                    "Gizemli bir ses size yaklaşıyor...",
+                    "Uzakta bir ışık görüyorsunuz...",
+                    "Rüzgar yaprakları savuruyor...",
+                    "Bir kuş ötüyor ve dikkatinizi çekiyor...",
+                    "Yerde eski bir harita buldunuz..."
+                ];
+                
+                const randomStory = stories[Math.floor(Math.random() * stories.length)];
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h2>📖 Hikaye Üretildi</h2>
+                    <p>${randomStory}</p>
+                    <br>
+                    <p>Ne yapmak istiyorsunuz?</p>
+                `;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="investigate()">🔍 ARAŞTIR</button>
+                    <button class="choice-btn" onclick="moveForward()">➡️ İLERLE</button>
+                    <button class="choice-btn" onclick="rest()">😴 DİNLEN</button>
+                `;
             }
 
             function showCharacter() {
-                alert('Karakter bilgileri gösteriliyor...');
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h2>👤 Karakter Bilgileri</h2>
+                    <p><strong>İsim:</strong> ${characterName || 'Belirtilmemiş'}</p>
+                    <p><strong>Irk:</strong> ${selectedRace || 'Seçilmemiş'}</p>
+                    <p><strong>Sınıf:</strong> ${selectedClass || 'Seçilmemiş'}</p>
+                    <p><strong>Tema:</strong> ${currentTheme.charAt(0).toUpperCase() + currentTheme.slice(1)}</p>
+                    <br>
+                    <h3>İstatistikler:</h3>
+                    <p>HP: ${document.getElementById('stat-hp').textContent}</p>
+                    <p>Saldırı: ${document.getElementById('stat-attack').textContent}</p>
+                    <p>Savunma: ${document.getElementById('stat-defense').textContent}</p>
+                    <p>Güç: ${document.getElementById('stat-strength').textContent}</p>
+                `;
+            }
+
+            function updateCharacterStats() {
+                // Tema ve sınıfa göre istatistikleri güncelle
+                let hp = 100, attack = 15, defense = 10, strength = 12;
+                
+                if (currentTheme === 'fantasy') {
+                    if (selectedClass === 'warrior') {
+                        hp = 120; attack = 18; defense = 12; strength = 15;
+                    } else if (selectedClass === 'mage') {
+                        hp = 80; attack = 20; defense = 8; strength = 10;
+                    } else if (selectedClass === 'rogue') {
+                        hp = 90; attack = 16; defense = 11; strength = 13;
+                    } else if (selectedClass === 'cleric') {
+                        hp = 100; attack = 14; defense = 13; strength = 12;
+                    }
+                } else if (currentTheme === 'warhammer') {
+                    if (selectedClass === 'spacemarine') {
+                        hp = 150; attack = 25; defense = 20; strength = 18;
+                    } else if (selectedClass === 'imperialguard') {
+                        hp = 80; attack = 15; defense = 12; strength = 12;
+                    } else if (selectedClass === 'psyker') {
+                        hp = 70; attack = 30; defense = 8; strength = 10;
+                    } else if (selectedClass === 'orknob') {
+                        hp = 120; attack = 22; defense = 15; strength = 20;
+                    }
+                } else if (currentTheme === 'cyberpunk') {
+                    if (selectedClass === 'netrunner') {
+                        hp = 85; attack = 18; defense = 9; strength = 11;
+                    } else if (selectedClass === 'solo') {
+                        hp = 110; attack = 20; defense = 14; strength = 16;
+                    } else if (selectedClass === 'techie') {
+                        hp = 90; attack = 16; defense = 12; strength = 13;
+                    } else if (selectedClass === 'fixer') {
+                        hp = 95; attack = 17; defense = 11; strength = 14;
+                    }
+                }
+                
+                document.getElementById('stat-hp').textContent = hp;
+                document.getElementById('stat-attack').textContent = attack;
+                document.getElementById('stat-defense').textContent = defense;
+                document.getElementById('stat-strength').textContent = strength;
+            }
+
+            function choosePath(path) {
+                const storyArea = document.querySelector('.story-text');
+                if (path === 'castle') {
+                    storyArea.innerHTML = `
+                        <h2>🏰 Kaleye Ulaştınız</h2>
+                        <p>Eski kale kapısının önündesiniz. Kapı kilitli görünüyor.</p>
+                        <p>Etrafta bir anahtar arayabilir veya kapıyı kırmaya çalışabilirsiniz.</p>
+                    `;
+                } else if (path === 'cave') {
+                    storyArea.innerHTML = `
+                        <h2>🕳️ Mağaraya Girdiniz</h2>
+                        <p>Karanlık mağaranın içindesiniz. Sadece uzaktan bir ışık görüyorsunuz.</p>
+                        <p>Işığa doğru ilerleyebilir veya etrafı keşfedebilirsiniz.</p>
+                    `;
+                }
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="exploreArea()">🔍 ETRAFI KEŞFET</button>
+                    <button class="choice-btn" onclick="moveForward()">➡️ İLERLE</button>
+                    <button class="choice-btn" onclick="goBack()">⬅️ GERİ DÖN</button>
+                `;
+            }
+
+            function exploreArea() {
+                const storyArea = document.querySelector('.story-text');
+                const discoveries = [
+                    "Eski bir anahtar buldunuz!",
+                    "Bir el feneri buldunuz.",
+                    "Yerde altın paralar buldunuz!",
+                    "Bir yara bandı buldunuz.",
+                    "Eski bir kitap buldunuz."
+                ];
+                const discovery = discoveries[Math.floor(Math.random() * discoveries.length)];
+                
+                storyArea.innerHTML = `
+                    <h2>🔍 Keşif Sonucu</h2>
+                    <p>${discovery}</p>
+                    <p>Ne yapmak istiyorsunuz?</p>
+                `;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="moveForward()">➡️ İLERLE</button>
+                    <button class="choice-btn" onclick="rest()">😴 DİNLEN</button>
+                    <button class="choice-btn" onclick="goBack()">⬅️ GERİ DÖN</button>
+                `;
+            }
+
+            function moveForward() {
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h2>➡️ İlerliyorsunuz</h2>
+                    <p>Yeni bir alana ulaştınız. Etrafta ne olduğunu görmek için dikkatli olun.</p>
+                    <p>Bir sonraki adımınızı seçin:</p>
+                `;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="exploreArea()">🔍 ETRAFI KEŞFET</button>
+                    <button class="choice-btn" onclick="rest()">😴 DİNLEN</button>
+                    <button class="choice-btn" onclick="goBack()">⬅️ GERİ DÖN</button>
+                `;
+            }
+
+            function rest() {
+                const storyArea = document.querySelector('.story-text');
+                const currentHP = parseInt(document.getElementById('stat-hp').textContent);
+                const maxHP = 100;
+                const healAmount = Math.min(20, maxHP - currentHP);
+                
+                document.getElementById('stat-hp').textContent = currentHP + healAmount;
+                
+                storyArea.innerHTML = `
+                    <h2>😴 Dinlendiniz</h2>
+                    <p>Dinlenerek ${healAmount} HP kazandınız.</p>
+                    <p>Şimdi ${document.getElementById('stat-hp').textContent} HP'niz var.</p>
+                    <p>Ne yapmak istiyorsunuz?</p>
+                `;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="moveForward()">➡️ İLERLE</button>
+                    <button class="choice-btn" onclick="exploreArea()">🔍 ETRAFI KEŞFET</button>
+                    <button class="choice-btn" onclick="goBack()">⬅️ GERİ DÖN</button>
+                `;
+            }
+
+            function goBack() {
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h2>⬅️ Geri Döndünüz</h2>
+                    <p>Önceki konumunuza geri döndünüz.</p>
+                    <p>Ne yapmak istiyorsunuz?</p>
+                `;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="startGame()">🎮 OYUNA BAŞLA</button>
+                    <button class="choice-btn" onclick="generateStory()">📖 HİKAYE ÜRET</button>
+                    <button class="choice-btn" onclick="showCharacter()">👤 KARAKTER GÖSTER</button>
+                `;
+            }
+
+            function investigate() {
+                const storyArea = document.querySelector('.story-text');
+                storyArea.innerHTML = `
+                    <h2>🔍 Araştırma Sonucu</h2>
+                    <p>Dikkatli bir şekilde etrafı incelediniz.</p>
+                    <p>Bir ipucu buldunuz! Bu size yardımcı olabilir.</p>
+                    <p>Ne yapmak istiyorsunuz?</p>
+                `;
+                
+                const choiceButtons = document.querySelector('.choice-buttons');
+                choiceButtons.innerHTML = `
+                    <button class="choice-btn" onclick="moveForward()">➡️ İLERLE</button>
+                    <button class="choice-btn" onclick="rest()">😴 DİNLEN</button>
+                    <button class="choice-btn" onclick="goBack()">⬅️ GERİ DÖN</button>
+                `;
             }
 
             function saveGame() {
-                alert('Oyun kaydediliyor...');
+                const gameData = {
+                    characterName: characterName,
+                    selectedRace: selectedRace,
+                    selectedClass: selectedClass,
+                    currentTheme: currentTheme,
+                    stats: {
+                        hp: document.getElementById('stat-hp').textContent,
+                        attack: document.getElementById('stat-attack').textContent,
+                        defense: document.getElementById('stat-defense').textContent,
+                        strength: document.getElementById('stat-strength').textContent
+                    }
+                };
+                
+                localStorage.setItem('aiDungeonMasterSave', JSON.stringify(gameData));
+                alert('Oyun başarıyla kaydedildi!');
             }
 
             function loadGame() {
-                alert('Oyun yükleniyor...');
+                const savedData = localStorage.getItem('aiDungeonMasterSave');
+                if (savedData) {
+                    const gameData = JSON.parse(savedData);
+                    characterName = gameData.characterName;
+                    selectedRace = gameData.selectedRace;
+                    selectedClass = gameData.selectedClass;
+                    currentTheme = gameData.currentTheme;
+                    
+                    document.getElementById('character-name-input').value = characterName;
+                    document.getElementById('stat-hp').textContent = gameData.stats.hp;
+                    document.getElementById('stat-attack').textContent = gameData.stats.attack;
+                    document.getElementById('stat-defense').textContent = gameData.stats.defense;
+                    document.getElementById('stat-strength').textContent = gameData.stats.strength;
+                    
+                    updateCharacterDisplay();
+                    alert('Oyun başarıyla yüklendi!');
+                } else {
+                    alert('Kaydedilmiş oyun bulunamadı!');
+                }
             }
 
             function inventory() {
-                alert('Envanter açılıyor...');
+                alert('Envanter sistemi yakında eklenecek!');
             }
 
             function skills() {
-                alert('Yetenekler açılıyor...');
+                alert('Yetenek sistemi yakında eklenecek!');
             }
 
             function combat() {
-                alert('Savaş modu başlatılıyor...');
+                alert('Savaş sistemi yakında eklenecek!');
             }
 
             function resetGame() {
@@ -816,8 +1107,284 @@ def enhanced():
                         item.classList.remove('selected');
                     });
                     updateCharacterDisplay();
+                    
+                    // İstatistikleri sıfırla
+                    document.getElementById('stat-hp').textContent = '100';
+                    document.getElementById('stat-attack').textContent = '15';
+                    document.getElementById('stat-defense').textContent = '10';
+                    document.getElementById('stat-strength').textContent = '12';
+                    
+                    // Hikaye alanını sıfırla
+                    const storyArea = document.querySelector('.story-text');
+                    storyArea.innerHTML = `
+                        <h2>🎮 AI Dungeon Master'a Hoş Geldiniz!</h2>
+                        <p>Fantastik dünyalarda maceraya atılmaya hazır mısınız? Sol panelden karakterinizi oluşturun ve hikayenizi başlatın.</p>
+                        <br>
+                        <p><strong>Nasıl Oynanır:</strong></p>
+                        <ul>
+                            <li>Sol panelden bir tema seçin (Fantasy, Warhammer 40K, Cyberpunk)</li>
+                            <li>Karakter adınızı girin</li>
+                            <li>Irk ve sınıf seçin</li>
+                            <li>Sağ panelden oyunu başlatın</li>
+                        </ul>
+                    `;
+                    
+                    const choiceButtons = document.querySelector('.choice-buttons');
+                    choiceButtons.innerHTML = `
+                        <button class="choice-btn" onclick="startGame()">🎮 OYUNA BAŞLA</button>
+                        <button class="choice-btn" onclick="generateStory()">📖 HİKAYE ÜRET</button>
+                        <button class="choice-btn" onclick="showCharacter()">👤 KARAKTER GÖSTER</button>
+                    `;
+                    
                     alert('Oyun sıfırlandı!');
                 }
+            }
+        </script>
+    </body>
+    </html>
+    '''
+
+@app.route('/register')
+def register():
+    """Register page"""
+    return '''
+    <!DOCTYPE html>
+    <html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kayıt - AI Dungeon Master</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+                color: white;
+                margin: 0;
+                padding: 20px;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .register-container {
+                background: rgba(26, 26, 26, 0.8);
+                padding: 40px;
+                border-radius: 12px;
+                border: 2px solid #FFD700;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                width: 400px;
+            }
+            .game-icon {
+                font-size: 60px;
+                text-align: center;
+                color: #FFD700;
+                margin-bottom: 20px;
+            }
+            .form-group {
+                margin-bottom: 20px;
+            }
+            label {
+                display: block;
+                margin-bottom: 5px;
+                color: #FFD700;
+            }
+            input {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #FFD700;
+                border-radius: 4px;
+                background: rgba(255, 255, 255, 0.1);
+                color: white;
+                box-sizing: border-box;
+            }
+            .button {
+                background: linear-gradient(45deg, #FFD700, #FFA500);
+                color: #000;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 6px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                width: 100%;
+                margin-top: 10px;
+            }
+            .button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="register-container">
+            <div class="game-icon">🎮</div>
+            <h2 style="text-align: center; color: #FFD700; margin-bottom: 30px;">KAYIT OL</h2>
+            <form onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label>Kullanıcı Adı</label>
+                    <input type="text" id="username" placeholder="Kullanıcı adınızı girin" required>
+                </div>
+                <div class="form-group">
+                    <label>E-posta</label>
+                    <input type="email" id="email" placeholder="E-posta adresinizi girin" required>
+                </div>
+                <div class="form-group">
+                    <label>Şifre</label>
+                    <input type="password" id="password" placeholder="Şifrenizi girin" required>
+                </div>
+                <div class="form-group">
+                    <label>Şifre Tekrar</label>
+                    <input type="password" id="password2" placeholder="Şifrenizi tekrar girin" required>
+                </div>
+                <button type="submit" class="button">KAYIT OL</button>
+            </form>
+            <p style="text-align: center; margin-top: 20px;">
+                <a href="/login" style="color: #FFD700;">Zaten hesabınız var mı? Giriş yapın</a>
+            </p>
+            <script>
+                function handleRegister(event) {
+                    event.preventDefault();
+                    const username = document.getElementById('username').value;
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+                    const password2 = document.getElementById('password2').value;
+                    
+                    if (password !== password2) {
+                        alert('Şifreler eşleşmiyor!');
+                        return;
+                    }
+                    
+                    if (username && email && password) {
+                        alert('Kayıt başarılı! Giriş sayfasına yönlendiriliyorsunuz...');
+                        window.location.href = '/login';
+                    } else {
+                        alert('Lütfen tüm alanları doldurun!');
+                    }
+                }
+            </script>
+        </div>
+    </body>
+    </html>
+    '''
+
+@app.route('/multiplayer')
+def multiplayer():
+    """Multiplayer page"""
+    return '''
+    <!DOCTYPE html>
+    <html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Multiplayer - AI Dungeon Master</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+                color: white;
+                margin: 0;
+                padding: 20px;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .multiplayer-container {
+                background: rgba(26, 26, 26, 0.8);
+                padding: 40px;
+                border-radius: 12px;
+                border: 2px solid #FFD700;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                width: 500px;
+                text-align: center;
+            }
+            .game-icon {
+                font-size: 60px;
+                color: #FFD700;
+                margin-bottom: 20px;
+            }
+            .button {
+                background: linear-gradient(45deg, #FFD700, #FFA500);
+                color: #000;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 6px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                margin: 10px;
+                text-decoration: none;
+                display: inline-block;
+                transition: all 0.3s ease;
+            }
+            .button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+            }
+            .room-list {
+                background: rgba(0, 0, 0, 0.3);
+                padding: 20px;
+                border-radius: 8px;
+                margin: 20px 0;
+                text-align: left;
+            }
+            .room-item {
+                padding: 10px;
+                border: 1px solid rgba(255, 215, 0, 0.3);
+                border-radius: 4px;
+                margin-bottom: 10px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            .room-item:hover {
+                background: rgba(255, 215, 0, 0.1);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="multiplayer-container">
+            <div class="game-icon">🎮</div>
+            <h2 style="color: #FFD700; margin-bottom: 20px;">MULTIPLAYER OYUN</h2>
+            <p>Arkadaşlarınızla birlikte oynayın!</p>
+            
+            <div class="room-list">
+                <h3 style="color: #FFD700; margin-bottom: 15px;">Aktif Odalar</h3>
+                <div class="room-item" onclick="joinRoom('Fantasy Adventure')">
+                    <strong>Fantasy Adventure</strong> - 2/4 Oyuncu
+                </div>
+                <div class="room-item" onclick="joinRoom('Warhammer Battle')">
+                    <strong>Warhammer Battle</strong> - 1/4 Oyuncu
+                </div>
+                <div class="room-item" onclick="joinRoom('Cyberpunk Mission')">
+                    <strong>Cyberpunk Mission</strong> - 3/4 Oyuncu
+                </div>
+            </div>
+            
+            <div>
+                <button class="button" onclick="createRoom()">YENİ ODA OLUŞTUR</button>
+                <button class="button" onclick="refreshRooms()">ODALARI YENİLE</button>
+                <button class="button" onclick="window.location.href='/'">ANA SAYFA</button>
+            </div>
+        </div>
+        
+        <script>
+            function joinRoom(roomName) {
+                alert(`${roomName} odasına katılıyorsunuz...`);
+                // Burada multiplayer oyun başlatılacak
+                window.location.href = '/enhanced';
+            }
+            
+            function createRoom() {
+                const roomName = prompt('Oda adını girin:');
+                if (roomName) {
+                    alert(`${roomName} odası oluşturuldu!`);
+                    window.location.href = '/enhanced';
+                }
+            }
+            
+            function refreshRooms() {
+                alert('Odalar yenileniyor...');
+                location.reload();
             }
         </script>
     </body>
