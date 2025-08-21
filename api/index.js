@@ -14,35 +14,84 @@ app.get("/api/health", (req, res) => {
 
 // Load scenarios endpoint
 app.get("/api/scenarios", (req, res) => {
-  const allScenarios = [
-    {
-      id: "scenario_1",
-      title: "🐉 Fantastik Macera",
-      description: "Ejderhalar ve büyücüler dünyasında epik bir yolculuk",
-      theme: "fantasy",
-      difficulty: "medium",
-      complexity: "medium",
-      estimatedPlayTime: 60,
-      source: "predefined",
-      created_at: new Date().toISOString(),
-    },
-    {
-      id: "scenario_2",
-      title: "🌃 Cyberpunk Macera",
-      description: "Neon ışıklar altında dijital savaş",
-      theme: "cyberpunk",
-      difficulty: "hard",
-      complexity: "high",
-      estimatedPlayTime: 90,
-      source: "predefined",
-      created_at: new Date().toISOString(),
-    },
-  ];
+  try {
+    // Load all scenario files
+    const enhancedScenarios = require("../data/enhanced_scenarios.json");
+    const cyberpunkScenarios = require("../data/enhanced_cyberpunk_scenarios.json");
+    const hiveCityScenarios = require("../data/expanded_hive_city.json");
+    const warhammerScenarios = require("../data/enhanced_warhammer_scenarios.json");
 
-  res.json({
-    success: true,
-    scenarios: allScenarios,
-  });
+    // Combine all scenarios
+    const allScenarios = [
+      ...enhancedScenarios.enhanced_scenarios,
+      ...cyberpunkScenarios.enhanced_scenarios,
+      ...hiveCityScenarios.enhanced_scenarios,
+      ...warhammerScenarios.enhanced_scenarios,
+    ];
+
+    res.json({
+      success: true,
+      scenarios: allScenarios,
+    });
+  } catch (error) {
+    console.error("Error loading scenarios:", error);
+    // Fallback to static scenarios
+    const fallbackScenarios = [
+      {
+        id: "dragon_hunters_path",
+        title: "🐉 Dragon Hunter's Path",
+        description:
+          "Köyü tehdit eden ejderhayı durdurmak için kahramanlar toplanıyor. Bu sadece bir görev değil, bu SENİN HİKAYEN. 🔥 PLOT TWIST'LER, 💬 NPC ETKİLEŞİMLERİ, ⚔️ UZUN SAVAŞ SAHNELERİ, 🎯 ACTION-BASED GÖREVLER, 🏁 5+ FARKLI SON!",
+        theme: "fantasy",
+        difficulty: "hard",
+        complexity: "high",
+        estimatedPlayTime: 480,
+        source: "predefined",
+        created_at: new Date().toISOString(),
+      },
+      {
+        id: "cyberpunk_city_secrets",
+        title: "🌃 Neon City Runners (Cyberpunk)",
+        description:
+          "Cyberpunk şehrinin gizli sırlarını keşfet. Teknoloji ve insanlık arasındaki sınır bulanıklaşıyor. Dijital bilinç keşfi - Sen ölmüş birinin bilincin!",
+        theme: "cyberpunk",
+        difficulty: "hard",
+        complexity: "high",
+        estimatedPlayTime: 240,
+        source: "predefined",
+        created_at: new Date().toISOString(),
+      },
+      {
+        id: "hive_city_defense",
+        title: "🏙️ Hive City Underworld",
+        description:
+          "Hive City'de insanlar kayboluyor ve garip teknolojik anormallikler var. Gang savaşları - Underhive'da hayatta kalma!",
+        theme: "sci-fi",
+        difficulty: "hard",
+        complexity: "high",
+        estimatedPlayTime: 180,
+        source: "predefined",
+        created_at: new Date().toISOString(),
+      },
+      {
+        id: "cadia_falls",
+        title: "⚔️ Cadia Falls (Warhammer 40K)",
+        description:
+          "Chaos yozlaşması - Her yerde tehlike. Epik pozisyon savunması - Çoklu wave sistemi!",
+        theme: "warhammer",
+        difficulty: "hard",
+        complexity: "high",
+        estimatedPlayTime: 300,
+        source: "predefined",
+        created_at: new Date().toISOString(),
+      },
+    ];
+
+    res.json({
+      success: true,
+      scenarios: fallbackScenarios,
+    });
+  }
 });
 
 // Get AI generated scenarios
