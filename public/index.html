@@ -2,31 +2,290 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="AI Dungeon Master - Interactive RPG Game"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
+    <meta name="description" content="AI Dungeon Master - Interactive RPG Game" />
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap"
-      rel="stylesheet"
-    />
-
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet" />
+    
     <title>AI Dungeon Master</title>
+    
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Orbitron', monospace;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        color: white;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      
+      .header h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      }
+      
+      .header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+      
+      .scenarios-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+      
+      .scenario-card {
+        background: rgba(255,255,255,0.1);
+        border-radius: 15px;
+        padding: 20px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2);
+        transition: transform 0.3s ease;
+      }
+      
+      .scenario-card:hover {
+        transform: translateY(-5px);
+      }
+      
+      .scenario-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+      
+      .scenario-card p {
+        margin-bottom: 15px;
+        opacity: 0.9;
+      }
+      
+      .scenario-card button {
+        background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-family: 'Orbitron', monospace;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+      
+      .scenario-card button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+      }
+      
+      .ai-section {
+        background: rgba(255,255,255,0.1);
+        border-radius: 15px;
+        padding: 30px;
+        margin-bottom: 40px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2);
+      }
+      
+      .ai-section h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      
+      .file-upload {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      
+      .file-upload input[type="file"] {
+        display: none;
+      }
+      
+      .file-upload label {
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        color: white;
+        padding: 12px 25px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: bold;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+      
+      .file-upload label:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(102,126,234,0.4);
+      }
+      
+      .generate-btn {
+        background: linear-gradient(45deg, #00b894, #00a085);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-family: 'Orbitron', monospace;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        display: block;
+        margin: 0 auto;
+      }
+      
+      .generate-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0,184,148,0.4);
+      }
+      
+      .loading {
+        display: none;
+        text-align: center;
+        margin: 20px 0;
+      }
+      
+      .loading.show {
+        display: block;
+      }
+      
+      .spinner {
+        border: 3px solid rgba(255,255,255,0.3);
+        border-top: 3px solid white;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 10px;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div class="container">
+      <div class="header">
+        <h1>🐉 AI Dungeon Master</h1>
+        <p>Epik RPG Maceralarına Hoş Geldin!</p>
+      </div>
+      
+      <div class="scenarios-grid" id="scenariosGrid">
+        <!-- Senaryolar buraya yüklenecek -->
+      </div>
+      
+      <div class="ai-section">
+        <h2>🤖 AI ile Senaryo Üret</h2>
+        <div class="file-upload">
+          <input type="file" id="fileInput" accept=".txt,.md,.json,.pdf,.csv">
+          <label for="fileInput">📁 Dosya Seç</label>
+        </div>
+        <button class="generate-btn" onclick="generateScenario()">🎲 Senaryo Üret</button>
+        <div class="loading" id="loading">
+          <div class="spinner"></div>
+          <p>Senaryo üretiliyor...</p>
+        </div>
+      </div>
+    </div>
 
-    <!-- React App -->
-    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Senaryoları yükle
+      async function loadScenarios() {
+        try {
+          const response = await fetch('/api/scenarios');
+          const data = await response.json();
+          
+          if (data.success && data.scenarios) {
+            const grid = document.getElementById('scenariosGrid');
+            grid.innerHTML = '';
+            
+            data.scenarios.forEach(scenario => {
+              const card = document.createElement('div');
+              card.className = 'scenario-card';
+              card.innerHTML = `
+                <h3>${scenario.title}</h3>
+                <p>${scenario.description}</p>
+                <button onclick="playScenario('${scenario.id}')">🎮 Oyna</button>
+              `;
+              grid.appendChild(card);
+            });
+          }
+        } catch (error) {
+          console.error('Senaryolar yüklenemedi:', error);
+        }
+      }
+      
+      // Senaryo oyna
+      function playScenario(scenarioId) {
+        alert(`🎮 ${scenarioId} senaryosu başlatılıyor...`);
+        // Burada oyun başlatılacak
+      }
+      
+      // AI ile senaryo üret
+      async function generateScenario() {
+        const fileInput = document.getElementById('fileInput');
+        const loading = document.getElementById('loading');
+        
+        if (!fileInput.files[0]) {
+          alert('Lütfen bir dosya seçin!');
+          return;
+        }
+        
+        loading.classList.add('show');
+        
+        try {
+          const file = fileInput.files[0];
+          const fileContent = await file.text();
+          
+          const response = await fetch('/api/generate-scenario', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              theme: 'fantasy',
+              difficulty: 'medium',
+              fileContent: fileContent
+            }),
+          });
+          
+          const data = await response.json();
+          
+          if (data.success) {
+            alert(`✅ Senaryo üretildi: ${data.scenario.title}`);
+            loadScenarios(); // Senaryoları yeniden yükle
+          } else {
+            alert('❌ Senaryo üretilemedi!');
+          }
+        } catch (error) {
+          console.error('Hata:', error);
+          alert('❌ Bir hata oluştu!');
+        } finally {
+          loading.classList.remove('show');
+        }
+      }
+      
+      // Sayfa yüklendiğinde senaryoları yükle
+      window.addEventListener('load', loadScenarios);
+    </script>
   </body>
 </html>
