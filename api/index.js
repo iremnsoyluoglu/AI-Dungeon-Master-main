@@ -8,8 +8,13 @@ module.exports = (req, res) => {
     return;
   }
 
-  const { pathname } = new URL(req.url, `http://${req.headers.host}`);
+  // URL'yi parse et
+  const url = new URL(req.url, `http://${req.headers.host}`);
+  const pathname = url.pathname;
 
+  console.log('Request:', req.method, pathname);
+
+  // API endpoint'leri
   if (pathname === '/api/scenarios' && req.method === 'GET') {
     res.json({
       success: true,
@@ -312,6 +317,7 @@ module.exports = (req, res) => {
     return;
   }
 
+  // Root endpoint - frontend'e yönlendir
   if (pathname === '/' && req.method === 'GET') {
     res.writeHead(302, {
       'Location': '/index.html'
@@ -320,5 +326,6 @@ module.exports = (req, res) => {
     return;
   }
 
-  res.status(404).json({ error: "Route not found" });
+  // Tüm diğer route'lar için 404
+  res.status(404).json({ error: "Route not found", path: pathname, method: req.method });
 };
